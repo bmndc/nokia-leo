@@ -62,9 +62,10 @@ The guide below has its backbones taken from the main guide on BananaHackers web
 	- Qualcomm driver for your PC to detect the phone in EDL mode (included in the EDL tools)
 	- the latest Zadig tool to configure `libusb-win32` driver (download [here](https://zadig.akeo.ie/))
 
-- **If you're going the automatic boot partition patching and compilation via Docker route:**
-	- Git to clone/download the repository of the patcher tool to your computer (install guide can be found [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git))
-	- Docker Compose to provide the environment for the patcher tool to work (download links can be found [here](https://docs.docker.com/compose/install/))
+- **If you're going the automatic boot partition patching and compilation via Docker route (only recommended for 5-6 year old computers):**
+	- Git to clone/download the repository of the patcher tool to your computer ([install guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git))
+	- Docker Compose to provide the environment for the patcher tool to work (included in Docker Desktop, whose download links can be found [here](https://docs.docker.com/compose/install/))
+	- (Windows) WSL 2 with [Linux kernel update package](https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package) installed (to install WSL 2 turn on Virtualization in BIOS, then open Command Prompt with administrative rights and type `wsl --install`)
 
 - **If you're going the extracting and manual editing by hand route:**
 	- Android Image Kitchen v3.8 for Windows (download from XDA [here](https://forum.xda-developers.com/attachments/android-image-kitchen-v3-8-win32-zip.5300919/))
@@ -115,9 +116,7 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 5. Run the Zadig tool and select Options > List All Devices. In the front dropdown menu, select `QHSUSB__BULK` (your device in EDL mode). In the target driver box (which the green arrow is pointing to), click on the up/down arrows until you see `libusb-win32` and click on Replace Driver.
 
 ![listall.png](/assets/listall.png)
-
 ![qhsusb.png](/assets/qhsusb.png)
-
 ![arg.png](/assets/arg.png)
 
 6. If you're installing the driver for the first time, an "USB Device Not Recognised" pop-up may appear. Exit EDL mode by removing and re-inserting the battery, then turn on the phone in EDL mode again.
@@ -160,27 +159,25 @@ You can disconnect the phone from your computer for now.
 
 #### Automatic patching with `8k-boot-patcher`
 
-**macOS & Linux**
-
-**Windows**
-
-You'll need to have a 64-bit processor with SLAT, 4GB of RAM, and virtualization turned on in BIOS.
-
-1. If you haven't installed WSL before, open Command Prompt with administrator privileges and type `wsl --install`. Restart the computer after the installation has completed.
-
-2. Download and install Microsoft's [Linux kernel update package](https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package).
-
-3. Run the Docker Desktop Installer with administrative privileges and proceed with the installation. Tick the box next to *Use WSL 2 instead of Hyper-V (recommended)* if prompted.
-
-![docker_installer.png](/assets/docker_installer.png)
-
-4. Once installed, click the blue `Close and log out` button. This is to include your user account to the `docker-users` group.
-
-> If you're not an administrator of the computer, you must add the admin to the docker-users group. Run Computer Management with administrator rights and navigate to Local Users and Groups > Groups > docker-users. Right-click to add the user to the group. Log out and log back in for the changes to take effect.
-
-5. Once logged back in, you'll be greeted with this abomination. Click Accept. Tell us about something something? Click Skip. Let the Docker Engine start.
+1. Follow Docker's tutorial on installing Docker Desktop. Once set up, open the program, click Agree on this box and let the Docker Engine start before exiting.
 
 ![docker_abomination.png](/assets/docker_abomination.png)
+
+2. Clone/download the boot patcher toolkit by typing this into a command-line window. This will download the toolkit and have Docker set it up. Do not omit the dot/period at the end of this command, this tells Docker where our downloaded toolkit are located on the system.
+```
+git clone https://gitlab.com/suborg/8k-boot-patcher.git && cd 8k-boot-patcher && docker build -t 8kbootpatcher .
+```
+
+![docker_build.png](/assets/docker_build.png)
+
+3. Copy the `boot.img` file we've just pulled from our phone to the desktop and do not change its name. Type this into the command-line to run the patching process:
+```
+docker run --rm -it -v ~/Desktop:/image 8kbootpatcher
+```
+
+![docker_patch.png](/assets/docker_patch.png)
+
+That's it! On your desktop there will be two new image files, the patched `boot.img` and the original `boot-orig.img`. You can now head to part 4.
 
 #### Manual patching with Android Image Kitchen
 
