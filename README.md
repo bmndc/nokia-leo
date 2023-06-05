@@ -50,12 +50,12 @@ The guide below has its backbones taken from the main guide on BananaHackers web
 - an international non-US version of Nokia 6300 4G (not TA-1324)
 - an USB cable capable of data transferring (EDL cables will also do)
 - an Internet connection to download the tools needed
-- a somewhat-working firehose loader MBN file for the phone (linked above)
+- a somewhat-working [firehose loader MBN file](https://github.com/minhduc-bui1/nokia-leo/blob/22c2cec82be11564691e566543f517d089a612fc/8k.mbn) for the phone
 - a EDL tools package to read and write system partitions in low-level access (in this guide we'll be using [bkerler's edl.py v3.1](https://github.com/bkerler/edl/releases/tag/3.1))
 - (Windows) Qualcomm driver for your PC to detect the phone in EDL mode (included in the EDL tools)
 - (Windows) [Zadig tool](https://zadig.akeo.ie) to configure `libusb-win32` driver
 - a computer with Python and `pip` installed for the EDL tools to work (both are packaged on Python's [official website](https://www.python.org/))
-- an image file of Gerda Recovery for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from the recovery mode (download [here](https://cloud.disroot.org/s/3ojAfcF6J2jQrRg/download) or [here](https://drive.google.com/open?id=1ot9rQDTYON8mZu57YWDy52brEhK3-PGh))
+- an [image file of Gerda Recovery](https://github.com/minhduc-bui1/nokia-leo/blob/22c2cec82be11564691e566543f517d089a612fc/recovery-8110.img) for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from the recovery mode and get the boot partition from there
 - Android Debug Bridge (ADB) installed to read the boot image in Gerda Recovery (see [Development/WebIDE on BananaHackers Wiki](https://wiki.bananahackers.net/en/development/webide))
 
 *Python 2.7 bundled with macOS 10.8 to 12.3 is NOT recommended for following this guide. If you're on Linux, Python and ADB can also be quickly set up by installing with your package manager. We won't be covering this here, as each Linux distro has its own way of installing from package manager.*
