@@ -179,6 +179,8 @@ docker run --rm -it -v ~/Desktop:/image 8kbootpatcher
 
 That's it! On your desktop there will be two new image files, the patched `boot.img` and the original `boot-orig.img`. You can now head to part 4.
 
+![after_patch.png](/assets/after_patch.png)
+
 #### Manual patching with Android Image Kitchen
 
 1. Open the extracted Android Image Kitchen tools folder and copy the boot image we've just obtained over to the root of it.
