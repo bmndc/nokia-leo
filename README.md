@@ -131,7 +131,7 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 ```
 python edl.py w recovery recovery-8110.img --loader=8k.mbn
 ```
-If the progress bar stops at 99% and you get this error `'usb.core.USBError: [Errno None] b'libusb0-dll:err [_usb_reap_async] timeout error\n'`, don't panic! This is because the phone doesn't send any indicator information back to the EDL tool when in fact the image has been successfully written. Don't mind the error and proceed with the next step.
+*If the progress bar stops at 99% and you get this error `'usb.core.USBError: [Errno None] b'libusb0-dll:err [_usb_reap_async] timeout error\n'`, don't panic! This is because the phone doesn't send any indicator information back to the EDL tool when in fact the image has been successfully written. Don't mind the error and proceed with the next step.*
 
 3. When finished, disconnect the phone from your computer and exit EDL mode by removing and re-inserting the battery. 
 
@@ -159,7 +159,7 @@ You can disconnect the phone from your computer for now.
 
 #### Automatic patching with `8k-boot-patcher`
 
-1. Follow Docker's tutorial on installing Docker Desktop. Once set up, open the program, click Agree on this box and let the Docker Engine start before exiting.
+1. Follow Docker's tutorial on installing Docker Desktop. Once set up, open the program, click Accept on this box and let the Docker Engine start before exiting.
 
 ![docker_abomination.png](/assets/docker_abomination.png)
 
@@ -189,6 +189,8 @@ That's it! On your desktop there will be two new image files, the patched `boot.
 
 ![unpack.png](/assets/unpack.png)
 
+**Be sure to edit the files correctly, else the phone won't boot!**
+
 3. Let the editing begin! First, open `ramdisk/default.prop` using Notepad++ and change:
 
 - line 7: `ro.secure=1` -> `ro.secure=0`
@@ -214,18 +216,21 @@ That's it! On your desktop there will be two new image files, the patched `boot.
 
 ![repack_unsigned.png](/assets/repack_unsigned.png)
 
-> If you happen to encounter an error during the signing process, that's likely because the process uses `java` to power the `boot-signer.jar` sequence and you don't have it installed. The image will still be packaged and ready for flashing, but if you're a perfectionist, you can install JRE and try again.
+*If you happen to encounter an error during the signing process, that's likely because the process uses `java` to power the `boot-signer.jar` sequence and you don't have it installed. The image will still be packaged and ready for flashing, but if you're a perfectionist, you can install JRE and try again.*
 
 ![repackimg_signed.png](/assets/repackimg_signed.png)
 
-> If the newly packaged image is barely over 1/3 the size of the original image, it's a normal behaviour and you can proceed.
+If the newly packaged image is barely over 1/3 the size of the original image, it's a normal behaviour and you can proceed.
 
 ### Part 4: Replacing the boot partition with patched one
 
 1. Turn on your phone in EDL mode and connect it to your computer.
 
-2. Move the newly created `unsigned-new.img` or `image-new.img` to the EDL tools folder and open a command-line window within it. From here type either of two commands depending on which image file you have:
-
+2. Move the newly created `boot.img`, `unsigned-new.img` or `image-new.img` to the EDL tools folder and open a command-line window within it. From here type either of these commands depending on which image file you have:
+```
+python edl.py w boot boot.img --loader=8k.mbn
+```
+OR
 ```
 python edl.py w boot unsigned-new.img --loader=8k.mbn
 ```
@@ -234,17 +239,13 @@ OR
 python edl.py w boot image-new.img --loader=8k.mbn
 ```
 
-> Again, if the progress bar stops at 99% and you get this error `'usb.core.USBError: [Errno None] b'libusb0-dll:err [_usb_reap_async] timeout error\n'`, this is because the phone doesn't send any indicator information back to the EDL tool when in fact the image has been successfully written. Don't mind the error and go on with the next step.
+*Again, if the progress bar stops at 99% and you get this error `'usb.core.USBError: [Errno None] b'libusb0-dll:err [_usb_reap_async] timeout error\n'`, this is because the phone doesn't send any indicator information back to the EDL tool when in fact the image has been successfully written. Don't mind the error and go on with the next step.*
 
 3. Restart the phone to normal operation mode: `python edl.py reset`. And we're done!
 
-> If you still have the original boot partition and wish to revert all the messes and damages, connect the phone to your computer in EDL mode, move the image file to the EDL tools folder, open a command-line window within it and type:<br>`python edl.py w boot boot.img --loader=8k.mbn`<br>`python edl.py reset`
+*If you still have the original boot partition and wish to revert all the messes and damages, connect the phone to your computer in EDL mode, move the image file to the EDL tools folder, open a command-line window within it and type:<br>`python edl.py w boot boot.img --loader=8k.mbn`<br>`python edl.py reset`*
 
 ![edl_bootog.png](/assets/edl_bootog.png)
-
-## Backups
-
-TBD
 
 ## Source code
 
