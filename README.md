@@ -52,25 +52,23 @@ The guide below has its backbones taken from the main guide on BananaHackers web
 - an Internet connection to download the tools needed
 - a somewhat-working firehose loader MBN file for the phone (linked above)
 - a EDL tools package to read and write system partitions in low-level access (in this guide we'll be using [bkerler's edl.py v3.1](https://github.com/bkerler/edl/releases/tag/3.1))
+- (Windows) Qualcomm driver for your PC to detect the phone in EDL mode (included in the EDL tools)
+- (Windows) [Zadig tool](https://zadig.akeo.ie) to configure `libusb-win32` driver
 - a computer with Python and `pip` installed for the EDL tools to work (both are packaged on Python's [official website](https://www.python.org/))
 - an image file of Gerda Recovery for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from the recovery mode (download [here](https://cloud.disroot.org/s/3ojAfcF6J2jQrRg/download) or [here](https://drive.google.com/open?id=1ot9rQDTYON8mZu57YWDy52brEhK3-PGh))
 - Android Debug Bridge (ADB) installed to read the boot image in Gerda Recovery (see [Development/WebIDE on BananaHackers Wiki](https://wiki.bananahackers.net/en/development/webide))
 
 *Python 2.7 bundled with macOS 10.8 to 12.3 is NOT recommended for following this guide. If you're on Linux, Python and ADB can also be quickly set up by installing with your package manager. We won't be covering this here, as each Linux distro has its own way of installing from package manager.*
 
-- **If you're on Windows, you'll also need these to set up EDL tools:**
-	- Qualcomm driver for your PC to detect the phone in EDL mode (included in the EDL tools)
-	- the latest Zadig tool to configure `libusb-win32` driver (download [here](https://zadig.akeo.ie/))
-
 - **If you're going the automatic boot partition patching and compilation via Docker route (only recommended for 5-6 year old computers):**
 	- Git to clone/download the repository of the patcher tool to your computer ([install guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git))
-	- Docker Compose to provide the environment for the patcher tool to work (included in Docker Desktop, whose download links can be found [here](https://docs.docker.com/compose/install/))
+	- Docker Compose to provide the environment for the patcher tool to work (included in Docker Desktop, whose download links can be found [here](https://docs.docker.com/compose/install))
 	- (Windows) WSL 2 with [Linux kernel update package](https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package) installed (to install WSL 2 turn on Virtualization in BIOS, then open Command Prompt with administrative rights and type `wsl --install`)
 
 - **If you're going the extracting and manual editing by hand route:**
-	- Android Image Kitchen v3.8 for Windows (download from XDA [here](https://forum.xda-developers.com/attachments/android-image-kitchen-v3-8-win32-zip.5300919/))
-	- Notepad++ to edit the needed files while [preserving line endings](https://www.cs.toronto.edu/~krueger/csc209h/tut/line-endings.html) (needed for Windows, download [here](https://notepad-plus-plus.org/downloads/))
-	- Java Runtime Environment for properly signing the boot image (optional, download [here](https://www.java.com/en/download/))
+	- Android Image Kitchen v3.8 ([Windows](https://github.com/osm0sis/Android-Image-Kitchen), [macOS/Linux](https://forum.xda-developers.com/attachments/aik-linux-v3-8-all-tar-gz.5300923))
+	- (Windows) [Notepad++](https://notepad-plus-plus.org/downloads) to edit the needed files while [preserving line endings](https://www.cs.toronto.edu/~krueger/csc209h/tut/line-endings.html)
+	- [Java Runtime Environment](https://www.java.com/en/download) for properly signing the boot image (optional)
 
 For the sake of simplicity, the guide assumes you've moved the Gerda Recovery image and the MBN loader file into the root of EDL tools folder, which you should do for convenience. If you'd like to have those in other folders, change the directory path accordingly.
 
