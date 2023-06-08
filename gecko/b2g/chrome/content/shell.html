@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this file,
+   - You can obtain one at http://mozilla.org/MPL/2.0/.  -->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      id="shell"
+      windowtype="navigator:browser"
+#ifdef ANDROID
+      sizemode="fullscreen"
+#endif
+#ifdef MOZ_GRAPHENE
+      macanimationtype="document"
+      fullscreenbutton="true"
+      chromemargin="0,0,0,0"
+#endif
+      >
+
+<head>
+  <link rel="stylesheet" href="shell.css" type="text/css">
+  <link rel="stylesheet" href="desktop.css" type="text/css">
+  <script type="text/javascript">
+  <!-- Add raptor performance marker -->
+  window.performance.mark('gecko-shell-html-load');
+  </script>
+  <script type="application/javascript;version=1.8"
+          src="chrome://b2g/content/settings.js"> </script>
+  <script type="application/javascript;version=1.8"
+          src="chrome://b2g/content/shell.js"> </script>
+
+#ifndef ANDROID
+#ifndef MOZ_GRAPHENE
+  <!-- various task that has to happen only on desktop -->
+  <script type="application/javascript;version=1.8"
+          src="chrome://b2g/content/desktop.js"> </script>
+  <!-- this script handles the screen argument for desktop builds -->
+  <script type="application/javascript;version=1.8"
+          src="chrome://b2g/content/screen.js"> </script>
+  <!-- this script handles the "runapp" argument for desktop builds -->
+  <script type="application/javascript;version=1.8"
+          src="chrome://b2g/content/runapp.js"> </script>
+#endif
+#else
+  <!-- this file is only loaded on Gonk to manage ADB state -->
+  <script type="application/javascript;version=1.8"
+          src="chrome://b2g/content/devtools/adb.js"> </script>
+#endif
+  <!-- manages DevTools server state -->
+  <script type="application/javascript;version=1.8"
+          src="chrome://b2g/content/devtools/debugger.js"> </script>
+#ifdef MOZ_B2G_REMOTECONTROLSERVICE
+ <!-- this script handles remote control service -->
+ <script type="application/javascript;version=1.8"
+         src="chrome://b2g/content/remote_control.js"> </script>
+#endif
+</head>
+  <body>
+    <div id="container">
+      <!-- The html:iframe containing the UI is created here. -->
+    </div>
+#ifdef FXOS_SIMULATOR
+#ifndef MOZ_MULET
+    <!-- Simulator control pads  -->
+    <div id="controls">
+      <div id="funcpad-box"> 
+          <div id="funcpad-left" class="side"> 
+            <a id="lsk-anchor" class="anchor"><img src="images/controls/ic_LSK.png" /></a>
+            <a id="call-anchor" class="anchor"><img src="images/controls/ic_call.png" /></a>
+          </div>
+          <div id="funcpad-center"> 
+            <img id="funcpad-center-bg" src="images/controls/CSK_key.png" />
+            <p class="row">
+              <a id="csk-u-anchor" class="anchor arrow"></a>
+            </p>
+            <p class="row middle">
+              <a id="csk-l-anchor" class="anchor arrow"></a>
+              <a id="csk-anchor" class="anchor"></a>
+              <a id="csk-r-anchor" class="anchor arrow"></a>
+            </p>
+            <p class="row">
+              <a id="csk-d-anchor" class="anchor arrow"></a>
+            </p>
+          </div>
+          <div id="funcpad-right" class="side"> 
+            <a id="rsk-anchor" class="anchor"><img src="images/controls/ic_RSK.png" /></a>
+            <a id="endcall-anchor" class="anchor"><img src="images/controls/ic_endcall.png" /></a>
+          </div>
+      </div>
+      <div>
+        <img id="numpad-bg" src="images/controls/keypad_number.png" />
+        <div id="numpad-box">
+          <p class="row">
+            <a id="num1-anchor" class="anchor"></a>
+            <a id="num2-anchor" class="anchor"></a>
+            <a id="num3-anchor" class="anchor"></a>
+          </p>
+          <p class="row">
+            <a id="num4-anchor" class="anchor"></a>
+            <a id="num5-anchor" class="anchor"></a>
+            <a id="num6-anchor" class="anchor"></a>
+          </p>
+          <p class="row">
+            <a id="num7-anchor" class="anchor"></a>
+            <a id="num8-anchor" class="anchor"></a>
+            <a id="num9-anchor" class="anchor"></a>
+          </p>
+          <p class="row">
+            <a id="star-anchor" class="anchor"></a>
+            <a id="num0-anchor" class="anchor"></a>
+            <a id="hash-anchor" class="anchor"></a>
+          </p>
+        </div>
+      </div>
+    </div>
+#endif
+#endif
+  </body>
+</html>

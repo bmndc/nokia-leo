@@ -1,0 +1,64 @@
+# -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-
+# (c) 2019 KAI OS TECHNOLOGIES (HONG KONG) LIMITED All rights reserved. This
+# file or any portion thereof may not be reproduced or used in any manner
+#  whatsoever without the express written permission of KAI OS TECHNOLOGIES
+#  (HONG KONG) LIMITED. KaiOS is the trademark of KAI OS TECHNOLOGIES (HONG KONG)
+#  LIMITED or its affiliate company and may be registered in some jurisdictions.
+#  All other trademarks are the property of their respective owners.
+
+FINAL_TARGET = 'dist/bin/gmp-cewidevine/1.0'
+
+FINAL_TARGET_FILES += [
+    'cewidevine.info',
+]
+
+UNIFIED_SOURCES += [
+    'CEWidevineAsyncShutdown.cpp',
+    'CEWidevineHost.cpp',
+    'CEWidevineSessionCallback.cpp',
+    'CEWidevineSessionManager.cpp',
+    'CEWidevineUtils.cpp',
+    'EventListenerImpl.cpp',
+]
+
+SOURCES += [
+    'gmp-cewidevine.cpp',
+]
+
+LOCAL_INCLUDES += [
+    '/dom/media/gmp',
+]
+
+LOCAL_INCLUDES += ['%' + '%s/external/cewidevine/include' % CONFIG['ANDROID_SOURCE']]
+LOCAL_INCLUDES += ['/media/gmp-clearkey/0.1']
+
+SharedLibrary("cewidevine")
+
+OS_LIBS += [
+    'stagefright_foundation',
+    'utils',
+    'cutils',
+    'curl',
+    'kaios_cdm_shared',
+]
+
+USE_STATIC_LIBS = True
+NO_VISIBILITY_FLAGS = True
+# Don't use STL wrappers; this isn't Gecko code
+DISABLE_STL_WRAPPING = True
+
+DEFINES['MOZ_NO_MOZALLOC'] = True
+
+if CONFIG['GNU_CXX']:
+    CXXFLAGS += ['-w']
+
+
+# Suppress warnings in third-party code.
+if CONFIG['GNU_CXX']:
+    CFLAGS += [
+        '-Wno-missing-braces',
+        '-Wno-pointer-to-int-cast',
+        '-Wno-sign-compare',
+        '-include', 'stdio.h',      # for sprintf() prototype
+        '-include', 'unistd.h',     # for getpid() prototype
+    ]

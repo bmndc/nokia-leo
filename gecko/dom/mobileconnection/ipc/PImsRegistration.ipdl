@@ -1,0 +1,70 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+include protocol PContent;
+include protocol PImsRegistrationRequest;
+
+namespace mozilla {
+namespace dom {
+namespace mobileconnection {
+
+sync protocol PImsRegistration
+{
+  manager PContent;
+  manages PImsRegistrationRequest;
+
+child:
+  async NotifyEnabledStateChanged(bool aEnabled);
+  async NotifyPreferredProfileChanged(uint16_t aProfile);
+  async NotifyImsCapabilityChanged(int16_t aCapability, nsString aUnregisteredReason);
+  async NotifyRttEnabledStateChanged(bool aEnabled);
+
+parent:
+  /**
+   * Send when child no longer needs to use PImsRegistration.
+   */
+  async __delete__();
+
+  /**
+   * Sent when the ims child make an asynchronous request to the parent.
+   */
+  async PImsRegistrationRequest(ImsRegistrationRequest aRequest);
+
+  /**
+   * Sync call only be called once per child actor for initialization.
+   */
+  sync Init()
+    returns (bool aEnabled, bool aRttEnabled, uint16_t aProfile,
+             int16_t aCapability, nsString aUnregisteredReason,
+             uint16_t[] aSupportedBearers);
+};
+
+/**
+ * ImsRegistrationRequest
+ */
+struct SetImsEnabledRequest
+{
+  bool enabled;
+};
+
+struct SetImsPreferredProfileRequest
+{
+  uint16_t profile;
+};
+
+struct SetImsRttEnabledRequest
+{
+  bool enabled;
+};
+
+union ImsRegistrationRequest
+{
+  SetImsEnabledRequest;
+  SetImsPreferredProfileRequest;
+  SetImsRttEnabledRequest;
+};
+
+} // namespace mobileconnection
+} // namespace dom
+} // namespace mozilla

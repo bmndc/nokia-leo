@@ -1,0 +1,15 @@
+EXPORTS.mozilla.dom += ['IMEConnect.h',
+                        'l0609b00.h',
+                        'l0610b00.h',
+                        'l0612b00.h',
+                        'l0810b00.h',
+                        'l09255b00.h',
+                        'l1109b00.h',
+                        'l1212b00.h']
+
+UNIFIED_SOURCES += ['IMEConnect.cpp']
+
+FINAL_LIBRARY = 'xul'
+LOCAL_INCLUDES += [
+    '/dom/base',
+]

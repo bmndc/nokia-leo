@@ -1,0 +1,81 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#include "nsISupports.idl"
+
+[scriptable, uuid(c7d995a2-15f1-4130-9ad6-e6e1880d4ed3)]
+interface nsITelephonyAudioListener: nsISupports
+{
+  /**
+   * Notified when the wired headset state changed.
+   *
+   * @param aState
+   *        One of the nsITelephonyAudioService::HEADPHONES_STATE_* values.
+   */
+  void notifyHeadsetStateChanged(in long aState);
+};
+
+[scriptable, uuid(a78d7fdd-a1de-4f6c-aea7-eb591bddf7b8)]
+interface nsITelephonyAudioService : nsISupports
+{
+  const long PHONE_STATE_NORMAL   = 0;
+  const long PHONE_STATE_RINGTONE = 1;
+  const long PHONE_STATE_IN_CALL  = 2;
+ 
+  const long HEADSET_STATE_UNKNOWN = -1;
+  const long HEADSET_STATE_OFF = 0;
+  const long HEADSET_STATE_HEADSET = 1;
+  const long HEADSET_STATE_HEADPHONE = 2;
+
+  /**
+   * HAC mode enabled?
+   */
+  attribute boolean hacMode;
+
+  /**
+   * Microphone muted?
+   */
+  attribute boolean microphoneMuted;
+
+  /**
+   * Speaker enabled?
+   */
+  attribute boolean speakerEnabled;
+
+  /**
+   * TTY mode preference.
+   *
+   * One of the nsITelephonyService::TTY_MODE_* values.
+   */
+  attribute unsigned short ttyMode;
+  //[BTV-2476]Merge from argon task5198590-xuemingli@t2mobile.com-begin
+  attribute unsigned short micMode;
+  //[BTV-2476]Merge from argon task5198590-xuemingli@t2mobile.com-end
+  /**
+   * Current wired headset state.
+   */
+  readonly attribute long headsetState;
+
+  /**
+   * Register/unregister TelephonyAudioService-related updates.
+   */
+  void registerListener(in nsITelephonyAudioListener aListener);
+  void unregisterListener(in nsITelephonyAudioListener aListener);
+
+  /**
+   * Set the phone's audio mode.
+   *
+   * @param state
+   *        One of the nsITelephonyAudioService::PHONE_STATE_* values.
+   */
+  void setPhoneState(in long state);
+
+  /**
+   * Apply TTY mode to Audio System.
+   *
+   * @param state
+   *        One of the nsITelephonyService::TTY_MODE_* values.
+   */
+  void applyTtyMode(in unsigned short aMode);
+};

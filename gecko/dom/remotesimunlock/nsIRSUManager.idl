@@ -1,0 +1,53 @@
+/* (c) 2020 KAI OS TECHNOLOGIES (HONG KONG) LIMITED All rights reserved. This
+ * file or any portion thereof may not be reproduced or used in any manner
+ * whatsoever without the express written permission of KAI OS TECHNOLOGIES
+ * (HONG KONG) LIMITED. KaiOS is the trademark of KAI OS TECHNOLOGIES (HONG KONG)
+ * LIMITED or its affiliate company and may be registered in some jurisdictions.
+ * All other trademarks are the property of their respective owners.
+ */
+
+#include "nsISupports.idl"
+
+[scriptable, uuid(0f7fa47b-9fcb-42d2-b2d0-a9cbe0526475)]
+interface nsIRSUManagerListener : nsISupports {
+  void notifyStatusChange(in unsigned short status);
+};
+
+/**
+ * A callback interface for handling asynchronous response.
+ */
+[scriptable, uuid(105a6df2-b4ef-4246-8b85-ad16b184dd7c)]
+interface nsIRSUManagerCallback : nsISupports
+{
+  void notifySuccess();
+  void notifyError(in AString error);
+  void notifyGetStatusResponse(in unsigned short status, in unsigned long timer);
+  void notifyGetBlobResponse(in DOMString blob);
+  void notifyGetVersionResponse(in unsigned long minorVersion, in unsigned long maxVersion);
+  void notifyOpenRFResponse(in unsigned long timer);
+};
+
+%{C++
+#define RSU_MANAGER_CID \
+  { 0x08ebfb2f, 0xca79, 0x41ba, \
+      { 0x8f, 0x58, 0xa3, 0xbe, 0xf5, 0xce, 0x75, 0x3b } }
+
+#define RSU_MANAGER_CONTRACTID \
+  "@mozilla.org/rsu/rsumanager;1"
+%}
+
+[scriptable, uuid(08ebfb2f-ca79-41ba-8f58-a3bef5ce753b)]
+interface nsIRSUManager : nsISupports
+{
+  void getStatus (in nsIRSUManagerCallback callback);
+  void unlock (in nsIRSUManagerCallback callback);
+  void generateBlob(in nsIRSUManagerCallback callback);
+  void updataBlob(in DOMString data, in nsIRSUManagerCallback callback);
+  void resetBlob(in nsIRSUManagerCallback callback);
+  void getVersion(in nsIRSUManagerCallback callback);
+  void openRF(in nsIRSUManagerCallback callback);
+  void closeRF(in nsIRSUManagerCallback callback);
+ 
+};
+
+

@@ -1,0 +1,393 @@
+.\" Copyright 2011-2013 Roderick W. Smith (rodsmith@rodsbooks.com)
+.\" May be distributed under the GNU General Public License
+.TH "CGDISK" "8" "0.8.10" "Roderick W. Smith" "GPT fdisk Manual"
+.SH "NAME"
+cgdisk \- Curses-based GUID partition table (GPT) manipulator
+.SH "SYNOPSIS"
+.BI "cgdisk "
+[ \-a ]
+.I device
+
+.SH "DESCRIPTION"
+
+GPT fdisk is a text\-mode family of programs for creation and manipulation
+of partition tables. The \fBcgdisk\fR member of this family employs a
+curses-based user interface for interaction using a text\-mode menuing
+system. It will automatically convert an old\-style Master Boot Record
+(MBR) partition table or BSD disklabel stored without an MBR carrier
+partition to the newer Globally Unique Identifier (GUID) Partition Table
+(GPT) format, or will load a GUID partition table. Other members of this
+program family are \fBgdisk\fR (the most feature-rich program of the group,
+with a non-curses-based interactive user interface) and \fBsgdisk\fR (which
+is driven via command-line options for use by experts or in scripts).
+FixParts is a related program for fixing a limited set of problems with MBR
+disks.
+
+For information on MBR vs. GPT, as well as GPT terminology and structure,
+see the extended GPT fdisk documentation at
+\fIhttp://www.rodsbooks.com/gdisk/\fR or consult Wikipedia.
+
+The \fBcgdisk\fR program employs a user interface similar to that of Linux's
+\fBcfdisk\fR, but \fBcgdisk\fR modifies GPT partitions. It also has the
+capability of transforming MBR partitions or BSD disklabels into GPT
+partitions. Like the original \fBcfdisk\fR program, \fBcgdisk\fR does not
+modify disk structures until you explicitly write them to disk, so if you
+make a mistake, you can exit from the program with the Quit option to leave
+your partitions unmodified.
+
+Ordinarily, \fBcgdisk\fR operates on disk device files, such as
+\fI/dev/sda\fR or \fI/dev/hda\fR under Linux, \fI/dev/disk0\fR under
+Mac OS X, or \fI/dev/ad0\fR or \fI/dev/da0\fR under FreeBSD. The program
+can also operate on disk image files, which can be either copies of whole
+disks (made with \fBdd\fR, for instance) or raw disk images used by
+emulators such as QEMU or VMWare. Note that only \fIraw\fR disk images
+are supported; \fBcgdisk\fR cannot work on compressed or other advanced
+disk image formats.
+
+Upon start, \fBcgdisk\fR attempts to identify the partition type in use on
+the disk. If it finds valid GPT data, \fBcgdisk\fR will use it. If
+\fBcgdisk\fR finds a valid MBR or BSD disklabel but no GPT data, it will
+attempt to convert the MBR or disklabel into GPT form. (BSD disklabels are
+likely to have unusable first and/or final partitions because they overlap
+with the GPT data structures, though.) Upon exiting with the 'w' option,
+\fBcgdisk\fR replaces the MBR or disklabel with a GPT. \fIThis action is
+potentially dangerous!\fR Your system may become unbootable, and partition
+type codes may become corrupted if the disk uses unrecognized type codes.
+Boot problems are particularly likely if you're multi\-booting with any
+GPT\-unaware OS. If you mistakenly launch \fBcgdisk\fR on an MBR disk, you
+can safely exit the program without making any changes by using the Quit
+option.
+
+When creating a fresh partition table, certain considerations may be in
+order:
+
+.TP 
+.B *
+For data (non\-boot) disks, and for boot disks used on BIOS\-based computers
+with GRUB as the boot loader, partitions may be created in whatever order
+and in whatever sizes are desired.
+
+.TP 
+.B *
+Boot disks for EFI\-based systems require an \fIEFI System
+Partition\fR (GPT fdisk internal code 0xEF00) formatted as FAT\-32.
+The recommended size of this partition is between 100 and 300 MiB.
+Boot\-related files are stored here. (Note that GNU Parted identifies
+such partitions as having the "boot flag" set.)
+
+.TP 
+.B *
+The GRUB 2 boot loader for BIOS\-based systems makes use of a \fIBIOS Boot
+Partition\fR (GPT fdisk internal code 0xEF02), in which the secondary
+boot loader is stored, without the benefit of a filesystem. This partition
+can typically be quite small (roughly 32 KiB to 1 MiB), but you should
+consult your boot loader documentation for details.
+
+.TP 
+.B *
+If Windows is to boot from a GPT disk, a partition of type \fIMicrosoft
+Reserved\fR (GPT fdisk
+internal code 0x0C01) is recommended. This partition should be about 128 MiB
+in size. It ordinarily follows the EFI System Partition and immediately
+precedes the Windows data partitions. (Note that old versions of GNU Parted
+create all FAT partitions as this type, which actually makes the partition
+unusable for normal file storage in both Windows and Mac OS X.)
+
+.TP 
+.B *
+Some OSes' GPT utilities create some blank space (typically 128 MiB) after
+each partition. The intent is to enable future disk utilities to use this
+space. Such free space is not required of GPT disks, but creating it may
+help in future disk maintenance. You can use GPT fdisk's relative partition
+positioning option (specifying the starting sector as '+128M', for
+instance) to simplify creating such gaps.
+
+.SH "OPTIONS"
+
+.PP 
+
+Only one command-line option is accepted, aside from the device filename:
+\fI\-a\fR. This option alters the highlighting of partitions and blocks of
+free space: Instead of using ncurses, when \fI\-a\fR is used \fBcgdisk\fR
+uses a ">" symbol to the left of the selected partition or free space.
+This option is intended for use on limited display devices such as
+teletypes and screen readers.
+
+Interactions with \fBcgdisk\fR occur with its interactive text\-mode menus.
+The display is broken into two interactive parts:
+
+.TP
+.B *
+The partition display area, in which partitions and gaps between them
+(marked as "free space") are summarized.
+
+.TP
+.B *
+The option selection area, in which buttons for the main options appear.
+
+.PP
+
+In addition, the top of the display shows the program's name and version
+number, the device filename associated with the disk, and the disk's size
+in both sectors and IEEE-1541 units (GiB, TiB, and so on).
+
+You can use the following keys to move among the various options and to
+select among them:
+
+.TP
+.B up arrow
+This key moves the partition selection up by one partition.
+
+.TP
+.B down arrow
+This key moves the partition selection down by one partition.
+
+.TP
+.B Page Up
+This key moves the partition selection up by one screen.
+
+.TP
+.B Page Down
+This key moves the partition selection down by one screen.
+
+.TP
+.B right arrow
+This key moves the option selection to the right by one item.
+
+.TP
+.B left arrow
+This key moves the option selection to the left by one item.
+
+.TP
+.B Enter
+This key activates the currently selected option. You can also activate an
+option by typing the capitalized letter in the option's name on the
+keyboard, such as \fBa\fR to activate the Align option.
+
+.PP
+
+If more partitions exist than can be displayed in one screen, you can
+scroll between screens using the partition selection keys, much as in a
+text editor.
+
+Available options are as described below. (Note that \fBcgdisk\fR provides
+a much more limited set of options than its sibling \fBgdisk\fR. If you
+need to perform partition table recovery, hybrid MBR modifcation, or other
+advanced operations, you should consult the \fBgdisk\fR documentation.)
+
+.TP 
+.B Align
+Change the sector alignment value. Disks with more logical sectors than
+physical sectors (such as modern Advanced Format drives), some RAID
+configurations, and many SSD devices, can suffer performance problems if
+partitions are not aligned properly for their internal data structures. On
+new disks, GPT fdisk attempts to align partitions on 2048\-sector (1MiB)
+boundaries by default, which optimizes performance for all of these disk
+types. On pre\-partitioned disks, GPT fdisk attempts to identify the
+alignment value used on that disk, but will set 8-sector alignment on disks
+larger than 300 GB even if lesser alignment values are detected. In either
+case, it can be changed by using this option.
+
+.TP 
+.B Backup
+Save partition data to a backup file. You can back up your current
+in\-memory partition table to a disk file using this option. The resulting
+file is a binary file consisting of the protective MBR, the main GPT
+header, the backup GPT header, and one copy of the partition table, in that
+order. Note that the backup is of the current in\-memory data structures, so
+if you launch the program, make changes, and then use this option, the
+backup will reflect your changes.
+
+.TP 
+.B Delete
+Delete a partition. This action deletes the entry from the partition table
+but does not disturb the data within the sectors originally allocated to
+the partition on the disk. If a corresponding hybrid MBR partition exists,
+\fBgdisk\fR deletes it, as well, and expands any adjacent 0xEE (EFI GPT)
+MBR protective partition to fill the new free space.
+
+.TP 
+.B Help
+Print brief descriptions of all the options.
+
+.TP 
+.B Info
+Show detailed partition information. The summary information shown in the
+partition display area necessarily omits many details, such as the
+partitions' unique GUIDs and the partitions' sector-exact start and end
+points. The Info option displays this information for a single partition.
+
+.TP 
+.B Load
+Load partition data from a backup file. This option is the reverse of the
+Backup option. Note that restoring partition data from anything but the
+original disk is not recommended.
+
+.TP 
+.B naMe
+Change the GPT name of a partition. This name is encoded as a UTF\-16
+string, but proper entry and display of anything beyond basic ASCII values
+requires suitable locale and font support. For the most part, Linux ignores
+the partition name, but it may be important in some OSes. GPT fdisk sets a
+default name based on the partition type code. Note that the GPT partition
+name is different from the filesystem name, which is encoded in the
+filesystem's data structures. Note also that to activate this item by
+typing its alphabetic equivalent, you must use \fBM\fR, not the more
+obvious \fBN\fR, because the latter is used by the next option....
+
+.TP 
+.B New
+Create a new partition. You enter a starting sector, a size, a type code,
+and a name. The start sector can be specified in absolute terms as a sector
+number or as a position measured in kibibytes (K), mebibytes (M), gibibytes
+(G), tebibytes (T), or pebibytes (P); for instance, \fI\fB40M\fR\fR
+specifies a position 40MiB from the start of the disk. You can specify
+locations relative to the start or end of the specified default range by
+preceding the number by a '+' symbol, as in \fI\fB+2G\fR\fR to specify a
+point 2GiB after the default start sector. The size value can use the K, M,
+G, T, and P suffixes, too. Pressing the Enter key with no input specifies
+the default value, which is the start of the largest available block for
+the start sector and the full available size for the size.
+
+.TP 
+.B Quit
+Quit from the program \fIwithout saving your changes\fR.
+Use this option if you just wanted to view information or if you make a
+mistake and want to back out of all your changes.
+
+.TP 
+.B Type
+Change a single partition's type code. You enter the type code using a
+two\-byte hexadecimal number. You may also enter a GUID directly, if you
+have one and \fBcgdisk\fR doesn't know it. If you don't know the type code
+for your partition, you can type \fBL\fR to see a list of known type codes.
+
+.TP 
+.B Verify
+Verify disk. This option checks for a variety of problems, such as
+incorrect CRCs and mismatched main and backup data. This option does not
+automatically correct most problems, though; for that, you must use
+\fBgdisk\fR. If no problems are found, this command displays a summary of
+unallocated disk space.
+
+.TP 
+.B Write
+Write data. Use this command to save your changes.
+
+.SH "BUGS"
+
+As of March 2014 (version 0.8.10), \fBcgdisk\fR should be considered
+beta software. Although the underlying partition manipulation code is much
+older, the \fBcgdisk\fR ncurses user interface is brand new with GPT fdisk
+version 0.8.0. Known bugs and limitations include:
+
+.TP 
+.B *
+The program compiles correctly only on Linux, FreeBSD, and Mac OS X. In
+theory, it should compile under Windows if the Ncurses library for Windows
+is installed, but I have not tested this capability. Linux versions for
+x86\-64 (64\-bit), x86 (32\-bit), and PowerPC (32\-bit) have been tested,
+with the x86\-64 version having seen the most testing. Under FreeBSD,
+32\-bit (x86) and 64\-bit (x86\-64) versions have been tested. Only 32\-bit
+versions for Mac OS X has been tested by the author.
+
+.TP 
+.B *
+The FreeBSD version of the program can't write changes to the partition
+table to a disk when existing partitions on that disk are mounted. (The
+same problem exists with many other FreeBSD utilities, such as
+\fBgpt\fR, \fBfdisk\fR, and \fBdd\fR.) This limitation can be overcome
+by typing \fBsysctl kern.geom.debugflags=16\fR at a shell prompt.
+
+.TP
+.B *
+The program can load only up to 128 partitions (4 primary partitions and
+124 logical partitions) when converting from MBR format. This limit can
+be raised by changing the \fI#define MAX_MBR_PARTS\fR line in the
+\fIbasicmbr.h\fR source code file and recompiling; however, such a change
+will require using a larger\-than\-normal partition table. (The limit
+of 128 partitions was chosen because that number equals the 128 partitions
+supported by the most common partition table size.)
+
+.TP 
+.B *
+Converting from MBR format sometimes fails because of insufficient space at
+the start or (more commonly) the end of the disk. Resizing the partition
+table (using the 's' option in the experts' menu in \fBgdisk\fR) can
+sometimes overcome this problem; however, in extreme cases it may be
+necessary to resize a partition using GNU Parted or a similar tool prior to
+conversion with GPT fdisk.
+
+.TP 
+.B *
+MBR conversions work only if the disk has correct LBA partition
+descriptors. These descriptors should be present on any disk over 8 GiB in
+size or on smaller disks partitioned with any but very ancient software.
+
+.TP 
+.B *
+BSD disklabel support can create first and/or last partitions that overlap
+with the GPT data structures. This can sometimes be compensated by
+adjusting the partition table size, but in extreme cases the affected
+partition(s) may need to be deleted.
+
+.TP 
+.B *
+Because of the highly variable nature of BSD disklabel structures,
+conversions from this form may be unreliable \-\- partitions may be dropped,
+converted in a way that creates overlaps with other partitions, or
+converted with incorrect start or end values. Use this feature with
+caution!
+
+.TP 
+.B *
+Booting after converting an MBR or BSD disklabel disk is likely to be
+disrupted. Sometimes re\-installing a boot loader will fix the problem, but
+other times you may need to switch boot loaders. Except on EFI\-based
+platforms, Windows through at least Windows 7 doesn't support booting from
+GPT disks. Creating a hybrid MBR (using the 'h' option on the recovery &
+transformation menu in \fBgdisk\fR) or abandoning GPT in favor of MBR may
+be your only options in this case.
+
+.TP
+.B *
+The \fBcgdisk\fR Verify function and the partition type listing obtainable
+by typing \fIL\fR in the Type function (or when specifying a partition type
+while creating a new partition) both currently exit ncurses mode. This
+limitation is a minor cosmetic blemish that does not affect functionality.
+
+.SH "AUTHORS"
+Primary author: Roderick W. Smith (rodsmith@rodsbooks.com)
+
+Contributors:
+
+* Yves Blusseau (1otnwmz02@sneakemail.com)
+
+* David Hubbard (david.c.hubbard@gmail.com)
+
+* Justin Maggard (justin.maggard@netgear.com)
+
+* Dwight Schauer (dschauer@ti.com)
+
+* Florian Zumbiehl (florz@florz.de)
+
+
+.SH "SEE ALSO"
+\fBcfdisk (8)\fR,
+\fBfdisk (8)\fR,
+\fBgdisk (8)\fR,
+\fBmkfs (8)\fR,
+\fBparted (8)\fR,
+\fBsfdisk (8)\fR
+\fBsgdisk (8)\fR
+\fBfixparts (8)\fR
+
+\fIhttp://en.wikipedia.org/wiki/GUID_Partition_Table\fR
+
+\fIhttp://developer.apple.com/technotes/tn2006/tn2166.html\fR
+
+\fIhttp://www.rodsbooks.com/gdisk/\fR
+
+.SH "AVAILABILITY"
+The \fBcgdisk\fR command is part of the \fIGPT fdisk\fR package and is
+available from Rod Smith.

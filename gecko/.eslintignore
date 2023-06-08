@@ -1,0 +1,216 @@
+# Always ignore node_modules.
+**/node_modules/**/*.*
+
+# Exclude expected objdirs.
+obj*/**
+
+# We ignore all these directories by default, until we get them enabled.
+# If you are enabling a directory, please add directory specific exclusions
+# below.
+accessible/**
+addon-sdk/**
+build/**
+caps/**
+chrome/**
+config/**
+db/**
+docshell/**
+dom/**
+editor/**
+embedding/**
+extensions/**
+gfx/**
+gradle/**
+hal/**
+image/**
+intl/**
+ipc/**
+js/**
+layout/**
+media/**
+memory/**
+mfbt/**
+modules/**
+mozglue/**
+netwerk/**
+nsprpub/**
+other-licenses/**
+parser/**
+probes/**
+python/**
+rdf/**
+startupcache/**
+testing/**
+tools/**
+uriloader/**
+view/**
+widget/**
+xpcom/**
+xpfe/**
+xulrunner/**
+
+# b2g exclusions (pref files).
+b2g/app/b2g.js
+b2g/graphene/graphene.js
+b2g/locales/en-US/b2g-l10n.js
+
+# browser/ exclusions
+browser/app/**
+browser/base/content/browser-social.js
+browser/base/content/nsContextMenu.js
+browser/base/content/sanitizeDialog.js
+browser/base/content/test/**
+browser/base/content/newtab/**
+browser/components/downloads/**
+browser/components/feeds/**
+browser/components/preferences/**
+browser/components/privatebrowsing/**
+browser/components/sessionstore/**
+browser/components/shell/**
+browser/components/tabview/**
+browser/components/translation/**
+browser/extensions/pdfjs/**
+browser/extensions/pocket/content/panels/js/vendor/**
+browser/locales/**
+
+# Ignore all of loop since it is imported from github and checked at source.
+browser/extensions/loop/**
+
+# devtools/ exclusions
+devtools/*.js
+devtools/client/canvasdebugger/**
+devtools/client/commandline/**
+devtools/client/debugger/**
+devtools/client/eyedropper/**
+devtools/client/framework/**
+# devtools/client/inspector/shared/*.js files are eslint-clean, so they aren't
+# included in the ignore list.
+devtools/client/inspector/computed/**
+devtools/client/inspector/fonts/**
+devtools/client/inspector/shared/test/**
+devtools/client/inspector/test/**
+devtools/client/inspector/*.js
+devtools/client/jsonview/lib/**
+devtools/client/memory/**
+devtools/client/netmonitor/test/**
+devtools/client/netmonitor/har/test/**
+devtools/client/performance/**
+devtools/client/projecteditor/**
+devtools/client/promisedebugger/**
+devtools/client/responsivedesign/**
+devtools/client/scratchpad/**
+devtools/client/shadereditor/**
+devtools/client/shared/**
+devtools/client/sourceeditor/**
+devtools/client/webaudioeditor/**
+devtools/client/webconsole/**
+!devtools/client/webconsole/panel.js
+devtools/client/webide/**
+devtools/server/**
+devtools/shared/*.js
+devtools/shared/*.jsm
+devtools/shared/apps/**
+devtools/shared/client/**
+devtools/shared/discovery/**
+devtools/shared/gcli/**
+devtools/shared/heapsnapshot/**
+devtools/shared/inspector/**
+devtools/shared/layout/**
+devtools/shared/locales/**
+devtools/shared/performance/**
+devtools/shared/qrcode/**
+devtools/shared/security/**
+devtools/shared/shims/**
+devtools/shared/tests/**
+devtools/shared/touch/**
+devtools/shared/transport/**
+devtools/shared/webconsole/test/**
+devtools/shared/worker/**
+
+# Ignore devtools pre-processed files
+devtools/client/framework/toolbox-process-window.js
+devtools/client/performance/system.js
+devtools/client/webide/webide-prefs.js
+devtools/client/preferences/**
+
+# Ignore devtools third-party libs
+devtools/shared/jsbeautify/*
+devtools/shared/acorn/*
+devtools/client/sourceeditor/tern/*
+devtools/shared/pretty-fast/*
+devtools/shared/sourcemap/*
+devtools/shared/qrcode/decoder/*
+devtools/shared/qrcode/encoder/*
+devtools/client/shared/vendor/*
+devtools/client/shared/d3.js
+devtools/client/webaudioeditor/lib/dagre-d3.js
+devtools/client/sourceeditor/codemirror/*.js
+devtools/client/sourceeditor/codemirror/**/*.js
+devtools/client/sourceeditor/test/codemirror/*
+devtools/client/inspector/markup/test/lib_*
+
+# mobile/android/ exclusions
+mobile/android/chrome/content
+mobile/android/tests/
+
+# Uses `#filter substitution`
+mobile/android/b2gdroid/app/b2gdroid.js
+mobile/android/app/mobile.js
+mobile/android/chrome/content/healthreport-prefs.js
+
+# Uses `#expand`
+mobile/android/chrome/content/about.js
+
+# Not much JS to lint and non-standard at that
+mobile/android/installer/
+mobile/android/locales/
+
+# Pretty sure we're disabling this one anyway
+mobile/android/modules/ContactService.jsm
+
+# Non-standard `(catch ex if ...)`
+mobile/android/components/Snippets.js
+
+# Bug 1178739: Ignore this file as a quick fix for "Illegal yield expression"
+mobile/android/modules/HomeProvider.jsm
+
+# services/ exclusions
+
+# Uses `#filter substitution`
+services/sync/modules/constants.js
+
+# toolkit/ exclusions
+
+# Not part of the default build
+toolkit/components/help/**
+
+# Intentionally invalid JS
+toolkit/components/workerloader/tests/moduleF-syntax-error.js
+
+# Tests old non-star function generators
+toolkit/modules/tests/xpcshell/test_task.js
+
+# Not yet updated
+toolkit/components/osfile/**
+
+# External code:
+toolkit/components/microformats/test/**
+toolkit/components/reader/Readability.js
+toolkit/components/reader/JSDOMParser.js
+
+# Uses preprocessing
+toolkit/content/widgets/videocontrols.xml
+toolkit/content/widgets/wizard.xml
+toolkit/components/jsdownloads/src/DownloadIntegration.jsm
+toolkit/components/search/nsSearchService.js
+toolkit/components/url-classifier/**
+toolkit/components/urlformatter/nsURLFormatter.js
+toolkit/identity/FirefoxAccounts.jsm
+toolkit/modules/AppConstants.jsm
+toolkit/mozapps/downloads/nsHelperAppDlg.js
+toolkit/mozapps/extensions/internal/AddonConstants.jsm
+toolkit/mozapps/update/tests/data/xpcshellConstantsPP.js
+toolkit/webapps/**
+
+# Third party
+toolkit/modules/third_party/**

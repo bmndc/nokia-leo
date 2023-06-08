@@ -1,0 +1,10 @@
+EXPORTS.mozilla.dom += ['DataCandidate.h',
+                        'IMEConnect.h',
+                        'WType.h']
+
+UNIFIED_SOURCES += ['IMEConnect.cpp']
+
+FINAL_LIBRARY = 'xul'
+LOCAL_INCLUDES += [
+    '/dom/base',
+]

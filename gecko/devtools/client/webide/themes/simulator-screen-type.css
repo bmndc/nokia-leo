@@ -1,0 +1,71 @@
+button.screen-type {
+    background-position: 8px 8px;
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    padding-left: 25px;
+    padding-bottom: 8px;
+    width: 100%;
+    font-size: 12px;
+}
+
+.screen-type {
+    -moz-appearance: none;
+    -moz-box-align: center;
+    padding: 3%;
+    display: block;
+    width: 94%;
+    cursor: pointer;
+    border-top: 1px solid transparent;
+    border-left: 0;
+    border-bottom: 1px solid #CCC;
+    border-right: 0;
+    background-color: transparent;
+}
+
+.screen-type:disabled {
+    background-color: #FFF;
+    color: #5A5A5A;
+    opacity: 0.5;
+    cursor: default;
+}
+
+.screen-type {
+    display: block;
+    float: left;
+    width: 100%;
+    text-align: left;
+}
+
+.screen-type[hidden] {
+    display: none;
+}
+
+.screen-type:not(:disabled):hover,
+button.panel-item:not(:disabled):hover {
+    background-color: #3875d7;
+    color: white;
+    border-top: 1px solid #EDEDED;
+}
+
+%ifdef ENABLE_TOUCH_SUPPORT
+#simulator-touch:not(:disabled):hover {
+    background-image: url("device_ic_touch_w.png");
+}
+#simulator-touch                  { background-image: url("device_ic_touch.png") }
+%else
+#simulator-bartype:not(:disabled):hover {
+    background-image: url("device_ic_bartype_w.png");
+}
+
+#simulator-flip:not(:disabled):hover {
+    background-image: url("device_ic_flip_w.png");
+}
+
+#simulator-qwerty:not(:disabled):hover {
+    background-image: url("device_ic_qwerty_w.png");
+}
+
+#simulator-bartype                { background-image: url("device_ic_bartype.png") }
+#simulator-flip                   { background-image: url("device_ic_flip.png") }
+#simulator-qwerty                 { background-image: url("device_ic_qwerty.png") }
+%endif

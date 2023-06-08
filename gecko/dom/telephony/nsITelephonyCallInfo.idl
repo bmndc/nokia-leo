@@ -1,0 +1,243 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#include "nsISupports.idl"
+
+[scriptable, uuid(dffb9eb8-8c4a-4641-9f96-9d95eb6d996b)]
+interface nsITelephonyCallInfo : nsISupports
+{
+  /**
+   * Indicate the RIL client, 0 ~ (number of client - 1).
+   */
+  readonly attribute unsigned long clientId;
+
+  /**
+   * Call identifier assigned by nsITelephonyService.
+   */
+  readonly attribute unsigned long callIndex;
+
+  /**
+   * One of the nsITelephonyService::CALL_STATE_* values.
+   */
+  readonly attribute unsigned short callState;
+
+  /**
+   * One of the nsITelephonyService::CALL_VOICE_QUALITY_* values.
+   *
+   * Set to CALL_VOICE_QUALITY_HD to indicate the voice quality is high definition.
+   * e.g. AMR-WB is adopted.
+   */
+  readonly attribute unsigned short voiceQuality;
+
+  /**
+   * The disconnectedReason of a call is defualt to an empty string when the
+   * call is "not disconnected", but once the call becomes "disconnected" the
+   * disconnectedReason should be a non-empty string no matter the call is
+   * disconnected for a noraml reason or an error.
+   */
+  readonly attribute DOMString disconnectedReason;
+
+  /**
+   * Number of the other party.
+   */
+  readonly attribute DOMString number;
+
+  /**
+   * Presentation of the call number.
+   * One of the nsITelephonyService::CALL_PRESENTATION_* values.
+   */
+  readonly attribute unsigned short numberPresentation;
+
+  /**
+   * Name of the other party.
+   */
+  readonly attribute DOMString name;
+
+  /**
+   * Presentation of the call name.
+   * One of the nsITelephonyService::CALL_PRESENTATION_* values.
+   */
+  readonly attribute unsigned short namePresentation;
+
+  /**
+   * Indicates whether this call is outgoing or incoming.
+   */
+  readonly attribute boolean isOutgoing;
+
+  /**
+   * Indicates whether this call is an emergency call.
+   */
+  readonly attribute boolean isEmergency;
+
+  /**
+   * Indicates whether this call is a conference call.
+   */
+  readonly attribute boolean isConference;
+
+  /**
+   * Indicates whether this call can be switched between states of
+   * nsITelephonyService::CALL_STATE_CONNECTED and
+   * nsITelephonyService::CALL_STATE_HELD.
+   */
+  readonly attribute boolean isSwitchable;
+
+  /**
+   * Indicates whether this call be be added into a conference.
+   * A RTT call is non-mergeable.
+   */
+  readonly attribute boolean isMergeable;
+
+  /**
+   * Indicates whether this call is a conference parent.
+   */
+  readonly attribute boolean isConferenceParent;
+
+  const unsigned long CAPABILITY_SUPPORTS_NONE = 0;
+
+  /**
+   * Local device supports receiving video streaming.
+   */
+  const unsigned long CAPABILITY_SUPPORTS_VT_LOCAL_RX = 1 << 8; //0x00000100
+  /**
+   * Local device supports transmitting video streaming.
+   */
+  const unsigned long CAPABILITY_SUPPORTS_VT_LOCAL_TX = 1 << 9; //0x00000200
+  /**
+   * Local device supports bidirectional video call.
+   */
+  const unsigned long CAPABILITY_SUPPORTS_VT_LOCAL_BIDIRECTIONAL =
+      CAPABILITY_SUPPORTS_VT_LOCAL_RX | CAPABILITY_SUPPORTS_VT_LOCAL_TX;
+  /**
+   * Remote device supports receiving video.
+   */
+  const unsigned long CAPABILITY_SUPPORTS_VT_REMOTE_RX = 1 << 10; //0x00000400
+  /**
+   * Remote device supports transmitting video.
+   */
+  const unsigned long CAPABILITY_SUPPORTS_VT_REMOTE_TX = 1 << 11; //0x00000800
+  /**
+   * Remote device supports bidirectional video call.
+   */
+  const unsigned long CAPABILITY_SUPPORTS_VT_REMOTE_BIDIRECTIONAL =
+      CAPABILITY_SUPPORTS_VT_REMOTE_RX | CAPABILITY_SUPPORTS_VT_REMOTE_TX;
+
+  /**
+   * This call can support RTT.
+   */
+  const unsigned long CAPABILITY_SUPPORTS_RTT = 1 << 26; //0x4000000
+
+  /**
+   * Indicates current call's capability.
+   * One of CAPABILITY_* values.
+   * TODO 1 To merge variable isSwitchable, isMergeable into capabilties?
+   * TODO 2 To support more capabilities.
+   */
+  readonly attribute unsigned long capabilities;
+
+  /**
+   * Audio only call.
+   */
+   const unsigned short STATE_AUDIO_ONLY = 0;
+  /**
+   * Video TX is enabled.
+   */
+   const unsigned short STATE_TX_ENABLED = (1 << 0); // 1
+  /**
+   * Video RX is enabled.
+   */
+   const unsigned short STATE_RX_ENABLED = (1 << 1); // 2
+  /**
+   * Video TX and RX both enabled.
+   */
+   const unsigned short STATE_BIDIRECTIONAL = STATE_TX_ENABLED | STATE_RX_ENABLED;
+  /**
+   * Video is paused.
+   */
+   const unsigned short STATE_PAUSED = (1 << 2); // 4
+
+  /**
+   * Indicates current call's video call state.
+   * One of nsITelephonyCallInfo.STATE_* values.
+   */
+  readonly attribute unsigned short videoCallState;
+
+  /**
+   * It goes through CS, ex: GSM, UMTS, CDMA
+   */
+  const unsigned long RADIO_TECH_CS = 0;
+
+  /**
+   * It goes through PS, ex: VoLTE
+   */
+  const unsigned long RADIO_TECH_PS = 1;
+
+  /**
+   * It goes though Wi-Fi.
+   */
+  const unsigned long RADIO_TECH_WIFI = 2;
+
+  /**
+   * To indicate current call radio tech.
+   * One of RADIO_TECH_* values.
+   */
+  readonly attribute unsigned long radioTech;
+
+  /**
+   * Quality: None
+   */
+  const unsigned long VOWIFI_QUALITY_NONE = 0;
+
+  /**
+   * Quality: Excellent
+   */
+  const unsigned long VOWIFI_QUALITY_EXCELLENT = 1;
+
+  /**
+   * Quality: Fair
+   */
+  const unsigned long VOWIFI_QUALITY_FAIR = 2;
+
+  /**
+   * Quality: BAD
+   */
+  const unsigned long VOWIFI_QUALITY_BAD = 4;
+
+  /**
+   * To indicate current voice over wifi call quality.
+   * One of VOWIF_QUALITY_* values.
+   */
+  readonly attribute unsigned long vowifiCallQuality;
+
+  /**
+   * To indicate current RTT mode.
+   * One of nsITelephonyService::RTT_MODE_* values.
+   */
+  readonly attribute unsigned short rttMode;
+
+  /**
+   * To indicate whether this call support mark as robot call.
+   */
+  readonly attribute boolean isMarkable;
+
+  /**
+   * There's no verification info.
+   */
+  const unsigned long VER_NONE = 0;
+
+  /**
+   * Verification fail, this is a robot call.
+   */
+  const unsigned long VER_FAIL = 1;
+
+  /**
+   * Verification pass, this is a safe call.
+   */
+  const unsigned long VER_PASS = 2;
+
+  /**
+   * To indicate verification status.
+   * One of VER_* values.
+   */
+  readonly attribute unsigned long verStatus;
+};

@@ -1,0 +1,234 @@
+/* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
+/* vim: set sw=2 ts=8 et ft=cpp : */
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+include protocol PContent;
+include protocol PTelephonyRequest;
+include TelephonyTypes;
+
+using nsTelephonyCallInfo from "mozilla/dom/telephony/TelephonyIPCSerializer.h";
+
+namespace mozilla {
+namespace dom {
+namespace telephony {
+
+struct EnumerateCallsRequest
+{
+  // empty.
+};
+
+struct DialRequest
+{
+  uint32_t clientId;
+  uint16_t type;
+  nsString number;
+  bool isEmergency;
+  uint16_t rttMode;
+};
+
+struct SendUSSDRequest
+{
+  uint32_t clientId;
+  nsString ussd;
+};
+
+struct CancelUSSDRequest
+{
+  uint32_t clientId;
+};
+
+struct ConferenceCallRequest
+{
+  uint32_t clientId;
+};
+
+struct SeparateCallRequest
+{
+  uint32_t clientId;
+  uint32_t callIndex;
+};
+
+struct HangUpConferenceRequest
+{
+  uint32_t clientId;
+};
+
+struct HoldConferenceRequest
+{
+  uint32_t clientId;
+};
+
+struct ResumeConferenceRequest
+{
+  uint32_t clientId;
+};
+
+struct AnswerCallRequest
+{
+  uint32_t clientId;
+  uint32_t callIndex;
+  uint16_t type;
+  uint16_t rttMode;
+};
+
+struct HangUpAllCallsRequest
+{
+  uint32_t clientId;
+};
+
+struct HangUpCallRequest
+{
+  uint32_t clientId;
+  uint32_t callIndex;
+  uint16_t reason;
+};
+
+struct RejectCallRequest
+{
+  uint32_t clientId;
+  uint32_t callIndex;
+  uint16_t reason;
+};
+
+struct HoldCallRequest
+{
+  uint32_t clientId;
+  uint32_t callIndex;
+};
+
+struct ResumeCallRequest
+{
+  uint32_t clientId;
+  uint32_t callIndex;
+};
+
+struct SendTonesRequest
+{
+  uint32_t clientId;
+  nsString dtmfChars;
+  uint32_t pauseDuration;
+  uint32_t toneDuration;
+};
+
+struct SendRttModifyRequest
+{
+  uint32_t clientId;
+  uint32_t callIndex;
+  uint16_t rttMode;
+};
+
+struct SendRttModifyResponseRequest
+{
+  uint32_t clientId;
+  uint32_t callIndex;
+  bool status;
+};
+
+struct SendRttMessageRequest
+{
+  uint32_t clientId;
+  uint32_t callIndex;
+  nsString message;
+};
+
+union IPCTelephonyRequest
+{
+  EnumerateCallsRequest;
+  DialRequest;
+  SendUSSDRequest;
+  CancelUSSDRequest;
+  ConferenceCallRequest;
+  SeparateCallRequest;
+  HangUpConferenceRequest;
+  HoldConferenceRequest;
+  ResumeConferenceRequest;
+  AnswerCallRequest;
+  HangUpAllCallsRequest;
+  HangUpCallRequest;
+  RejectCallRequest;
+  HoldCallRequest;
+  ResumeCallRequest;
+  SendTonesRequest;
+  SendRttModifyRequest;
+  SendRttModifyResponseRequest;
+  SendRttMessageRequest;
+};
+
+sync protocol PTelephony {
+  manager PContent;
+  manages PTelephonyRequest;
+
+child:
+  async NotifyCallStateChanged(nsTelephonyCallInfo[] aAllInfo);
+
+  async NotifyCdmaCallWaiting(uint32_t aClientId, IPCCdmaWaitingCallData aData);
+
+  async NotifyConferenceError(nsString aName, nsString aMessage);
+
+  async NotifyRingbackTone(bool aPlayRingbackTone);
+
+  async NotifyTelephonyCoverageLosing(uint16_t aType);
+
+  async NotifySupplementaryService(uint32_t aClientId,
+                                   int32_t aNotificationtype,
+                                   int32_t aCode,
+                                   int32_t aIndex,
+                                   int32_t aType,
+                                   nsString aNumber);
+
+  async NotifyTtyModeReceived(uint16_t aMode);
+
+  async NotifyRttModifyRequestReceived(uint32_t aClientId, int32_t aCallIndex,
+                                       uint16_t aRttMode);
+
+  async NotifyRttModifyResponseReceived(uint32_t aClientId, int32_t aCallindex,
+                                        uint16_t aStatus);
+
+  async NotifyRttMessageReceived(uint32_t aClientId, int32_t aCallIndex,
+                                 nsString aMessage);
+
+parent:
+  /**
+   * Sent when the child no longer needs to use PTelephony.
+   */
+  async __delete__();
+
+  /**
+   * Sent when the child makes an asynchronous request to the parent.
+   */
+  async PTelephonyRequest(IPCTelephonyRequest request);
+
+  async RegisterListener();
+
+  async UnregisterListener();
+
+  async StartTone(uint32_t aClientId, nsString aTone);
+
+  async StopTone(uint32_t aClientId);
+
+  sync GetHacMode()
+    returns (bool aEnabled);
+
+  async SetHacMode(bool aEnabled);
+
+  sync GetMicrophoneMuted()
+    returns (bool aMuted);
+
+  async SetMicrophoneMuted(bool aMuted);
+
+  sync GetSpeakerEnabled()
+    returns (bool aEnabled);
+
+  async SetSpeakerEnabled(bool aEnabled);
+
+  sync GetTtyMode()
+    returns (uint16_t aMode);
+
+  async SetTtyMode(uint16_t aMode);
+};
+
+} /* namespace telephony */
+} /* namespace dom */
+} /* namespace mozilla */

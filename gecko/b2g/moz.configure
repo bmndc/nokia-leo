@@ -1,0 +1,97 @@
+# -*- Mode: python; c-basic-offset: 4; indent-tabs-mode: nil; tab-width: 40 -*-
+# vim: set filetype=python:
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+option('--with-gonk', nargs=1, help='Path to the gonk base directory')
+
+@depends_if('--with-gonk')
+def gonkdir(value):
+    return value[0]
+
+add_old_configure_assignment('gonkdir', gonkdir)
+set_config('ANDROID_NDK',
+           depends_if(gonkdir)(lambda x: os.path.join(x, 'ndk')))
+
+@depends_if('--with-gonk')
+def gonk_toolkit(_):
+    return 'cairo-gonk'
+
+imply_option('--enable-default-toolkit', gonk_toolkit)
+
+
+option('--with-gonk-toolchain-prefix', nargs=1,
+       help='Prefix to gonk toolchain commands')
+
+@depends_if('--with-gonk-toolchain-prefix')
+def gonk_toolchain_prefix(value):
+    return value
+
+imply_option('--with-toolchain-prefix', gonk_toolchain_prefix)
+
+option('--disable-remote-control-service', help='Set compile flags necessary for Remote Control Service on B2G')
+
+@depends_if('--disable-remote-control-service')
+def remote_control_service(value):
+    return bool(value)
+
+set_config('MOZ_B2G_REMOTECONTROLSERVICE', remote_control_service)
+set_define('MOZ_B2G_REMOTECONTROLSERVICE', remote_control_service)
+
+option('--target-build-variant', nargs=1, help='Target build variant type')
+@depends_if('--target-build-variant')
+def get_variant(value):
+  if value[0] == 'user':
+    return 'TARGET_VARIANT_USER'
+  elif value[0] == 'userdebug':
+    return 'TARGET_VARIANT_USERDEBUG'
+  else:
+    return 'TARGET_VARIANT_ENG'
+
+set_config(get_variant, True)
+set_define(get_variant, True)
+
+# Presentation Support
+# ==============================================================
+option('--enable-presentation',
+       help='Enable Presentation Service (default disable)')
+
+@depends('--disable-presentation', target)
+def presentation(value, target):
+    enabled = bool(value)
+    if enabled:
+        return True
+
+set_config('MOZ_PRESENTATION', presentation)
+set_define('MOZ_PRESENTATION', presentation)
+
+# SocialAPI Support
+# ==============================================================
+option('--enable-social',
+       help='Enable Social Service (default disable)')
+
+@depends('--disable-social', target)
+def social(value, target):
+    enabled = bool(value)
+    if enabled:
+        return True
+
+set_config('MOZ_SOCIAL', social)
+set_define('MOZ_SOCIAL', social)
+
+# PrivateBrowsing Support
+# ==============================================================
+option('--disable-privatebrowsing',
+       help='Disable Private Browsing (default enable)')
+
+@depends('--enable-privatebrowsing', target)
+def privatebrowsing(value, target):
+    enabled = bool(value)
+    if enabled:
+        return True
+
+set_config('MOZ_PRIVATEBROWSING', privatebrowsing)
+set_define('MOZ_PRIVATEBROWSING', privatebrowsing)
+
+include('common.configure')

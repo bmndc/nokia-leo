@@ -1,0 +1,31 @@
+# nfc subsystem
+type nfc, domain;
+app_domain(nfc)
+net_domain(nfc)
+binder_service(nfc)
+
+# Set NFC properties
+set_prop(nfc, nfc_prop)
+
+# NFC device access.
+allow nfc nfc_device:chr_file rw_file_perms;
+
+# Data file accesses.
+allow nfc nfc_data_file:dir create_dir_perms;
+allow nfc nfc_data_file:notdevfile_class_set create_file_perms;
+
+allow nfc sysfs_nfc_power_writable:file rw_file_perms;
+allow nfc sysfs:file write;
+
+allow nfc drmserver_service:service_manager find;
+allow nfc mediaserver_service:service_manager find;
+allow nfc nfc_service:service_manager { add find };
+allow nfc radio_service:service_manager find;
+allow nfc surfaceflinger_service:service_manager find;
+allow nfc app_api_service:service_manager find;
+allow nfc system_api_service:service_manager find;
+
+# already open bugreport file descriptors may be shared with
+# the nfc process, from a file in
+# /data/data/com.android.shell/files/bugreports/bugreport-*.
+allow nfc shell_data_file:file read;

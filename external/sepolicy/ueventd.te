@@ -1,0 +1,41 @@
+# ueventd seclabel is specified in init.rc since
+# it lives in the rootfs and has no unique file type.
+type ueventd, domain;
+tmpfs_domain(ueventd)
+
+# TODO: why is ueventd using __kmsg__ when it should just create
+# and use /dev/kmsg instead?
+type_transition ueventd device:chr_file klog_device "__kmsg__";
+allow ueventd klog_device:chr_file { create open write unlink };
+
+security_access_policy(ueventd)
+allow ueventd init:process sigchld;
+allow ueventd self:capability { chown mknod net_admin setgid fsetid sys_rawio dac_override fowner };
+allow ueventd device:file create_file_perms;
+allow ueventd device:chr_file rw_file_perms;
+allow ueventd sysfs:file rw_file_perms;
+allow ueventd sysfs_type:{ file lnk_file } { relabelfrom relabelto setattr getattr };
+allow ueventd sysfs_type:dir { relabelfrom relabelto setattr r_dir_perms };
+allow ueventd sysfs_devices_system_cpu:file rw_file_perms;
+allow ueventd tmpfs:chr_file rw_file_perms;
+allow ueventd dev_type:dir create_dir_perms;
+allow ueventd dev_type:lnk_file { create unlink };
+allow ueventd dev_type:chr_file { create setattr unlink };
+allow ueventd dev_type:blk_file { create setattr unlink };
+allow ueventd self:netlink_kobject_uevent_socket create_socket_perms;
+allow ueventd efs_file:dir search;
+allow ueventd efs_file:file r_file_perms;
+
+# Use setfscreatecon() to label /dev directories and files.
+allow ueventd self:process setfscreate;
+
+#####
+##### neverallow rules
+#####
+
+# ueventd must never set properties, otherwise deadlocks may occur.
+# https://android-review.googlesource.com/#/c/133120/6/init/devices.cpp@941
+# No writing to the property socket, connecting to init, or setting properties.
+neverallow ueventd property_socket:sock_file write;
+neverallow ueventd init:unix_stream_socket connectto;
+neverallow ueventd property_type:property_service set;

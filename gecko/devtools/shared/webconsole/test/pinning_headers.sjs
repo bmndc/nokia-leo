@@ -1,0 +1,1 @@
+../../../../browser/base/content/test/general/pinning_headers.sjs

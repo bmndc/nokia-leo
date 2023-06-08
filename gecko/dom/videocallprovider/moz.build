@@ -1,0 +1,55 @@
+# -*- Mode: python; c-basic-offset: 4; indent-tabs-mode: nil; tab-width: 40 -*-
+# vim: set filetype=python:
+# (c) 2017 KAI OS TECHNOLOGIES (HONG KONG) LIMITED All rights reserved. This
+# file or any portion thereof may not be reproduced or used in any manner
+# whatsoever without the express written permission of KAI OS TECHNOLOGIES
+# (HONG KONG) LIMITED. KaiOS is the trademark of KAI OS TECHNOLOGIES (HONG KONG)
+# LIMITED or its affiliate company and may be registered in some jurisdictions.
+# All other trademarks are the property of their respective owners.
+
+XPIDL_SOURCES += [
+    'nsIVideoCallCallback.idl',
+    'nsIVideoCallProvider.idl'
+]
+
+EXPORTS.mozilla.dom += [
+    'DOMVideoCallCameraCapabilities.h',
+    'DOMVideoCallProfile.h',
+    'DOMVideoCallProvider.h',
+    'test/FakeVideoCallProvider.h'
+]
+
+EXPORTS.mozilla.dom.videocallprovider += [
+    'ipc/VideoCallIPCSerializer.h',
+    'ipc/VideoCallProviderChild.h',
+    'ipc/VideoCallProviderParent.h'
+]
+
+UNIFIED_SOURCES += [
+    'DOMVideoCallCameraCapabilities.cpp',
+    'DOMVideoCallProfile.cpp',
+    'DOMVideoCallProvider.cpp',
+    'ipc/VideoCallProviderChild.cpp',
+    'ipc/VideoCallProviderParent.cpp',
+    'test/FakeVideoCallProvider.cpp'
+]
+
+IPDL_SOURCES += [
+    'ipc/PVideoCallProvider.ipdl'
+]
+
+LOCAL_INCLUDES += [
+    '../surface',
+]
+
+include('/ipc/chromium/chromium-config.mozbuild')
+
+FINAL_LIBRARY = 'xul'
+
+XPIDL_MODULE = 'dom_videocallprovider'
+
+# Suppress some GCC warnings being treated as errors:
+#  - about attributes on forward declarations for types that are already
+#    defined, which complains about an important MOZ_EXPORT for android::AString
+if CONFIG['GNU_CC']:
+    CXXFLAGS += ['-Wno-error=attributes']

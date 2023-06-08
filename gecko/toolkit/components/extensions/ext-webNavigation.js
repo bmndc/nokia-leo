@@ -1,0 +1,172 @@
+"use strict";
+
+var {classes: Cc, interfaces: Ci, utils: Cu} = Components;
+
+Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+
+XPCOMUtils.defineLazyModuleGetter(this, "ExtensionManagement",
+                                  "resource://gre/modules/ExtensionManagement.jsm");
+XPCOMUtils.defineLazyModuleGetter(this, "MatchPattern",
+                                  "resource://gre/modules/MatchPattern.jsm");
+XPCOMUtils.defineLazyModuleGetter(this, "WebNavigation",
+                                  "resource://gre/modules/WebNavigation.jsm");
+
+Cu.import("resource://gre/modules/ExtensionUtils.jsm");
+var {
+  SingletonEventManager,
+  ignoreEvent,
+  runSafe,
+} = ExtensionUtils;
+
+const defaultTransitionTypes = {
+  topFrame: "link",
+  subFrame: "auto_subframe",
+};
+
+const frameTransitions = {
+  anyFrame: {
+    qualifiers: ["server_redirect", "client_redirect", "forward_back"],
+  },
+  topFrame: {
+    types: ["reload", "form_submit"],
+  },
+};
+
+function isTopLevelFrame({frameId, parentFrameId}) {
+  return frameId == 0 && parentFrameId == -1;
+}
+
+function fillTransitionProperties(eventName, src, dst) {
+  if (eventName == "onCommitted" || eventName == "onHistoryStateUpdated") {
+    let frameTransitionData = src.frameTransitionData || {};
+
+    let transitionType, transitionQualifiers = [];
+
+    // Fill transition properties for any frame.
+    for (let qualifier of frameTransitions.anyFrame.qualifiers) {
+      if (frameTransitionData[qualifier]) {
+        transitionQualifiers.push(qualifier);
+      }
+    }
+
+    if (isTopLevelFrame(dst)) {
+      for (let type of frameTransitions.topFrame.types) {
+        if (frameTransitionData[type]) {
+          transitionType = type;
+        }
+      }
+
+      // If transitionType is not defined, defaults it to "link".
+      if (!transitionType) {
+        transitionType = defaultTransitionTypes.topFrame;
+      }
+    } else {
+      // If it is sub-frame, transitionType defaults it to "auto_subframe",
+      // "manual_subframe" is set only in case of a recent user interaction.
+      transitionType = defaultTransitionTypes.subFrame;
+    }
+
+    // Fill the transition properties in the webNavigation event object.
+    dst.transitionType = transitionType;
+    dst.transitionQualifiers = transitionQualifiers;
+  }
+}
+
+// Similar to WebRequestEventManager but for WebNavigation.
+function WebNavigationEventManager(context, eventName) {
+  let name = `webNavigation.${eventName}`;
+  let register = callback => {
+    let listener = data => {
+      if (!data.browser) {
+        return;
+      }
+
+      let tabId = TabManager.getBrowserId(data.browser);
+      if (tabId == -1) {
+        return;
+      }
+
+      let data2 = {
+        url: data.url,
+        timeStamp: Date.now(),
+        frameId: ExtensionManagement.getFrameId(data.windowId),
+        parentFrameId: ExtensionManagement.getParentFrameId(data.parentWindowId, data.windowId),
+      };
+
+      // Fills in tabId typically.
+      let result = {};
+      extensions.emit("fill-browser-data", data.browser, data2, result);
+      if (result.cancel) {
+        return;
+      }
+
+      fillTransitionProperties(eventName, data, data2);
+
+      runSafe(context, callback, data2);
+    };
+
+    WebNavigation[eventName].addListener(listener);
+    return () => {
+      WebNavigation[eventName].removeListener(listener);
+    };
+  };
+
+  return SingletonEventManager.call(this, context, name, register);
+}
+
+WebNavigationEventManager.prototype = Object.create(SingletonEventManager.prototype);
+
+function convertGetFrameResult(tabId, data) {
+  return {
+    errorOccurred: data.errorOccurred,
+    url: data.url,
+    tabId,
+    frameId: ExtensionManagement.getFrameId(data.windowId),
+    parentFrameId: ExtensionManagement.getParentFrameId(data.parentWindowId, data.windowId),
+  };
+}
+
+extensions.registerSchemaAPI("webNavigation", "webNavigation", (extension, context) => {
+  return {
+    webNavigation: {
+      onBeforeNavigate: new WebNavigationEventManager(context, "onBeforeNavigate").api(),
+      onCommitted: new WebNavigationEventManager(context, "onCommitted").api(),
+      onDOMContentLoaded: new WebNavigationEventManager(context, "onDOMContentLoaded").api(),
+      onCompleted: new WebNavigationEventManager(context, "onCompleted").api(),
+      onErrorOccurred: new WebNavigationEventManager(context, "onErrorOccurred").api(),
+      onReferenceFragmentUpdated: new WebNavigationEventManager(context, "onReferenceFragmentUpdated").api(),
+      onHistoryStateUpdated: new WebNavigationEventManager(context, "onHistoryStateUpdated").api(),
+      onCreatedNavigationTarget: ignoreEvent(context, "webNavigation.onCreatedNavigationTarget"),
+      getAllFrames(details) {
+        let tab = TabManager.getTab(details.tabId);
+        if (!tab) {
+          return Promise.reject({message: `No tab found with tabId: ${details.tabId}`});
+        }
+
+        let {innerWindowID, messageManager} = tab.linkedBrowser;
+        let recipient = {innerWindowID};
+
+        return context.sendMessage(messageManager, "WebNavigation:GetAllFrames", {}, {recipient})
+                      .then((results) => results.map(convertGetFrameResult.bind(null, details.tabId)));
+      },
+      getFrame(details) {
+        let tab = TabManager.getTab(details.tabId);
+        if (!tab) {
+          return Promise.reject({message: `No tab found with tabId: ${details.tabId}`});
+        }
+
+        let recipient = {
+          innerWindowID: tab.linkedBrowser.innerWindowID,
+        };
+
+        let mm = tab.linkedBrowser.messageManager;
+        return context.sendMessage(mm, "WebNavigation:GetFrame", {options: details}, {recipient})
+                      .then((result) => {
+                        return result ?
+                          convertGetFrameResult(details.tabId, result) :
+                          Promise.reject({message: `No frame found with frameId: ${details.frameId}`});
+                      });
+      },
+    },
+  };
+});

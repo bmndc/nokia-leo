@@ -1,0 +1,32 @@
+/* (c) 2020 KAI OS TECHNOLOGIES (HONG KONG) LIMITED All rights reserved. This
+ * file or any portion thereof may not be reproduced or used in any manner
+ * whatsoever without the express written permission of KAI OS TECHNOLOGIES
+ * (HONG KONG) LIMITED. KaiOS is the trademark of KAI OS TECHNOLOGIES (HONG KONG)
+ * LIMITED or its affiliate company and may be registered in some jurisdictions.
+ * All other trademarks are the property of their respective owners.
+ */
+
+#include "nsISupports.idl"
+#include "nsINetworkService.idl"
+
+[scriptable, uuid(2bcfaebc-8a74-4e57-85ea-ea5b7124405d)]
+interface nsIDongleNetworkService : nsINetworkService
+{
+  /**
+   * Set Dongle USB tethering.
+   *
+   * @param enabled
+   *        Boolean to indicate we are going to enable or disable usb tethering.
+   * @param config
+   *        The dongle usb tethering configuration.
+   * @param tetherStage
+   *        Tethering stage, should be LOCAL_STAGE or NAT_STAGE
+   * @param callback
+   *        Callback function used to report the result enabling/disabling usb tethering.
+   */
+  void setDongleUSBTethering(in boolean enabled,
+                             in jsval config,
+                             in DOMString tetherStage,
+                             in nsIUsbTetheringCallback callback);
+
+};
