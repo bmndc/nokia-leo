@@ -54,6 +54,8 @@ The guide below has its backbones taken from the main guide on BananaHackers web
 - an [image file of Gerda Recovery](https://github.com/minhduc-bui1/nokia-leo/blob/22c2cec82be11564691e566543f517d089a612fc/recovery-8110.img) for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from the recovery mode and get the boot partition from there
 - a EDL tools package to read and write system partitions in low-level access (in this guide we'll be using [bkerler's edl.py v3.1](https://github.com/bkerler/edl/releases/tag/3.1))
 
+*[andybalholm's EDL package](https://github.com/andybalholm/edl) is only recommended for phones running KaiOS 2.5.2.2 and older. Due to some structural changes within the GPT partition table, using this package on devices with later versions will result in an error `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`. Do note that the command structures used between bkerler's and andybalholm's are different, this guide for KaiOS 2.5.4 won't cover those. Instead, you can check out Cyan's guide at [Development/WebIDE on BananaHackers Wiki](https://wiki.bananahackers.net/development/edl).*
+
 **Windows users also need:**
 - a computer with Python and `pip` installed for the EDL tools to work (Windows: both are packaged on Python's [official website](https://www.python.org/))
 - Qualcomm driver for your PC to detect the phone in EDL mode (included in the EDL tools)
@@ -61,7 +63,7 @@ The guide below has its backbones taken from the main guide on BananaHackers web
 - Android Debug Bridge (ADB) installed to read the boot image in Gerda Recovery (see [Development/WebIDE on BananaHackers Wiki](https://wiki.bananahackers.net/en/development/webide))
 
 **macOS & Linux users also need:**
-- An package manager, such as [Homebrew](https://brew.sh), to quickly set up Python, ADB, `libusb` and configure the environment for EDL tools.
+- An package manager, such as [Homebrew](https://brew.sh), to quickly set up Python, ADB, `libusb` and configure the environment for EDL tools (install guide for Homebrew can be found below)
 - *Python 2.7 bundled with macOS 10.8 to 12.3 is NOT recommended for following this guide.*
 
 *If you're on Linux, Python and ADB can be quickly set up by installing with your built-in package manager. We won't be covering this here, as each Linux distro has its own way of installing from package manager.*
