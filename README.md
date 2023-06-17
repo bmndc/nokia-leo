@@ -31,7 +31,7 @@ To sideload and debug third-party applications on both international and US vers
 
 # Known issues
 
-- RAM optimizations leading to aggressive background task killing. This can be mitigated by rooting the phone, then append `echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk` in the startup script in /boot to disable the 'low memory killer' function and add a swapfile.
+- RAM optimizations leading to aggressive background task killing. This can be mitigated by rooting the phone, then append `echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk` in the startup script in /boot to disable the 'low memory killer' function. Don't forget to add a swapfile afterwards.
 - Keypad recognizing double-presses instead of single-presses. This is due to the short keypress timeout interval in `keyboard.gaiamobile.org` and can be fixed by following this [BananaHackers' guide on fixing the keypad speed](https://ivan-hc.github.io/bananahackers/fix-the-keypad-speed.html)
 - Incorrect GPS on LTE. Not sure why, but you'll have to switch to 2G/3G for the phone to retrieve GPS information properly.
 
