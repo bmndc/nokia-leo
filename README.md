@@ -20,7 +20,7 @@
 | Specials | TBD |
 | ***KaiOS info*** |  |
 | Version | KaiOS 2.5.4 |
-| Build number | (TA-1286) [20.00.17.01](tel:20.00.17.01), [30.00.17.01](tel:30.00.17.01) |
+| Build number | (TA-1286) 12.00.17.01, 20.00.17.01, 30.00.17.01 |
 
 ## Secret codes
 
