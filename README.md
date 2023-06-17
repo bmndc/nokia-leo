@@ -22,20 +22,43 @@
 | Version | KaiOS 2.5.4 |
 | Build number | (TA-1286) 12.00.17.01, 20.00.17.01, 30.00.17.01 |
 
-## Secret codes
+To sideload and debug third-party applications on both international and US versions, follow the guide at [Development/WebIDE on BananaHackers Wiki](https://wiki.bananahackers.net/en/development/webide).
+
+# Tips and tricks
+
+- To take a screenshot, press both `*` and `#` keys.
+- On the home screen, hold down a number key (1-9) to set up and activate Speeddial.
+
+# Known issues
+
+- RAM optimizations leading to aggressive background task killing. This can be mitigated by rooting the phone, then append `echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk` in the startup script in /boot to disable the 'low memory killer' function and add a swapfile.
+- Keypad recognizing double-presses instead of single-presses. This is due to the short keypress timeout interval in `keyboard.gaiamobile.org` and can be fixed by following this [BananaHackers' guide on fixing the keypad speed](https://ivan-hc.github.io/bananahackers/fix-the-keypad-speed.html)
+- Incorrect GPS on LTE. Not sure why, but you'll have to switch to 2G/3G for the phone to retrieve GPS information properly.
+
+## KaiOS-specific
+
+- Text messages don't automatically convert to MMS in group chats. You'll have to add a message subject or file attachment before sending to manually do so, otherwise your message will be sent separately to each individual in the thread.
+- Predictive typing mode doesn't last between inputs, meaning if you switch between input boxes, it'll return to the normal T9 mode.
+- You cannot change message notification tone or alarm tone on the phone outside the defaults provided. This is because both are not managed by the system, but by the Messages and Clock app themselves. To change them, you'll have to use ADB to pull the apps from `/system/b2g/webapps`, extract, edit the audio files and repackage the apps, then push them back under `/data/local/webapps` and edit the `basePath` in `/data/local/webapps/webapps.json` to reflect the change (see [BananaHackers' guide](https://ivan-hc.github.io/bananahackers/clock-alarms.html#h.unmy3yif91xs) for instructions)
+- Built-in email, calendar and contact syncing function with Google account may completely fail at times. Use IMAP and import contacts instead.
+- Speaking of calendar, if you manage to sync your Google account with the phone, only the calendar *with your email address as its name* will sync.
+- Apps like Contacts and Music are written in performance-intensive React and therefore render significantly slow if you store lots of contact entries and audio files.
+- Of course, missing features.
+
+# Secret codes
 
 - `*#*#33284*#*#`: Toggle debugging mode, allow the phone to be accessed with ADB and DevTools.
 - `*#06#`: Display the IMEI(s).
 - `*#0000#`: Display device information, such as firmware version, build date, model number, variant and CUID.
 
-## Special boot modes
+# Special boot modes
 
 - Recovery mode: With the device powered off, hold the top `Power` + `*`, or type `adb reboot recovery` when connected to a computer. Allows you to factory reset the device by wiping /data and /cache, view boot and kernel logs, and install patches from `adb sideload` interface or SD card.
 - EDL mode: With the device powered off, hold the top `Power` + `*` + `#`, or type `adb reboot edl` when connected to a computer. Boots into a black screen, allows you to read and write partitions in low-level with proprietary Qualcomm tools. Remove the battery to exit.
 
 EDL loader for the international version of this phone (not TA-1324) can be found on BananaHackers' [EDL archive site](https://edl.bananahackers.net/loaders/8k.mbn) with hardware ID 0x009600e100420029. The US version of this phone has been signed with a different PK_HASH and needs a different firehose loader which we currently don't have in archive.
 
-## ROOT: Boot partition patching (non-US only)
+# ROOT: Boot partition patching (non-US only)
 
 On the 6300 4G, 8000 4G and other KaiOS 2.5.4 devices, ADB and WebIDE can be used to sideload third-party applications. However, you won't be able to sideload apps that has ‘forbidden’ permissions (namely `engmode-extension` which can be used to gain exclusive access of the phone, and can be found in most BananaHackers-made apps like Wallace Toolbox) or make changes to the system. Because in order to achieve WhatsApp VoIP feature on this KaiOS version, the security module SELinux is now set to be `Enforced` which checks and reverts system modifications on boot. To gain total read-write access to the device, you'll now have to permanently root the device by setting SELinux to `Permissive` mode.
 
@@ -45,46 +68,46 @@ The guide below has its backbones taken from the main guide on BananaHackers web
 
 **This process will void your phone's warranty, disable its ability to do WhatsApp calls and retrieve over-the-air updates, but you can revert this if you keep a backup of the original boot partition. However, there might also be a chance of bricking your phone if you don't do the steps correctly, so do think twice before actually consider doing this and follow the steps carefully! I won't be responsible for any damages done to your phone by following these.**
 
-### What we'll need
+## What we'll need
 
 - an international non-US version of Nokia 6300 4G (not TA-1324)
 - an USB cable capable of data transferring (EDL cables will also do)
 - an Internet connection to download the tools needed
-- a somewhat-working [firehose loader MBN file](https://github.com/minhduc-bui1/nokia-leo/blob/22c2cec82be11564691e566543f517d089a612fc/8k.mbn) for the phone
-- an [image file of Gerda Recovery](https://github.com/minhduc-bui1/nokia-leo/blob/22c2cec82be11564691e566543f517d089a612fc/recovery-8110.img) for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from the recovery mode and get the boot partition from there
+- a somewhat-working [firehose loader MBN file](https://github.com/minhduc-bui1/nokia-leo/blob/main/8k.mbn) for the phone
+- an [image file of Gerda Recovery](https://github.com/minhduc-bui1/nokia-leo/blob/main/recovery-8110.img) for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from the recovery mode and get the boot partition from there
 - a EDL tools package to read and write system partitions in low-level access (in this guide we'll be using [bkerler's edl.py v3.1](https://github.com/bkerler/edl/releases/tag/3.1))
 
 *[andybalholm's EDL package](https://github.com/andybalholm/edl) is only recommended for phones running KaiOS 2.5.2.2 and older. Due to some structural changes within the GPT partition table, using this package on devices with later versions will result in an error `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`. Do note that the command structures used between bkerler's and andybalholm's are different, this guide for KaiOS 2.5.4 won't cover those. Instead, you can check out Cyan's guide at [Development/WebIDE on BananaHackers Wiki](https://wiki.bananahackers.net/development/edl).*
 
-**Windows users also need:**
-- a computer with Python and `pip` installed for the EDL tools to work (Windows: both are packaged on Python's [official website](https://www.python.org/))
-- Qualcomm driver for your PC to detect the phone in EDL mode (included in the EDL tools)
-- [Zadig tool](https://zadig.akeo.ie) to configure `libusb-win32` driver
-- Android Debug Bridge (ADB) installed to read the boot image in Gerda Recovery (see [Development/WebIDE on BananaHackers Wiki](https://wiki.bananahackers.net/en/development/webide))
+- **Windows users also need:**
+   - a computer with Python and `pip` installed for the EDL tools to work (Windows: both are packaged on Python's [official website](https://www.python.org/))
+   - Qualcomm driver for your PC to detect the phone in EDL mode (included in the EDL tools)
+   - [Zadig tool](https://zadig.akeo.ie) to configure `libusb-win32` driver
+   - Android Debug Bridge (ADB) installed to read the boot image in Gerda Recovery (see [Development/WebIDE on BananaHackers Wiki](https://wiki.bananahackers.net/en/development/webide))
 
-**macOS & Linux users also need:**
-- An package manager, such as [Homebrew](https://brew.sh), to quickly set up Python, ADB, `libusb` and configure the environment for EDL tools (install guide for Homebrew can be found below)
-- *Python 2.7 bundled with macOS 10.8 to 12.3 is NOT recommended for following this guide.*
+- **macOS & Linux users also need:**
+   - An package manager, such as [Homebrew](https://brew.sh), to quickly set up Python, ADB, `libusb` and configure the environment for EDL tools (install guide for Homebrew can be found below)
+   - *Python 2.7 bundled with macOS 10.8 to 12.3 is NOT recommended for following this guide.*
 
 *If you're on Linux, Python and ADB can be quickly set up by installing with your built-in package manager. We won't be covering this here, as each Linux distro has its own way of installing from package manager.*
 
 - **If you're going the automatic boot partition patching and compilation via Docker route (only recommended for 5-6 year old computers):**
-	- Git to clone/download the repository of the patcher tool to your computer ([install guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git))
-	- Docker Compose to provide the environment for the patcher tool to work (included in Docker Desktop, whose download links can be found [here](https://docs.docker.com/compose/install))
-	- (Windows) WSL 2 with [Linux kernel update package](https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package) installed (to install WSL 2 turn on Virtualization in BIOS, then open Command Prompt with administrative rights and type `wsl --install`)
+   - Git to clone/download the repository of the patcher tool to your computer ([install guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git))
+   - Docker Compose to provide the environment for the patcher tool to work (included in Docker Desktop, whose download links can be found [here](https://docs.docker.com/compose/install))
+   - (Windows) WSL 2 with [Linux kernel update package](https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package) installed (to install WSL 2 turn on Virtualization in BIOS, then open Command Prompt with administrative rights and type `wsl --install`)
 
 - **If you're going the extracting and manual editing by hand route:**
-	- Android Image Kitchen v3.8 ([Windows](https://github.com/osm0sis/Android-Image-Kitchen), [macOS/Linux](https://forum.xda-developers.com/attachments/aik-linux-v3-8-all-tar-gz.5300923))
-	- (Windows) [Notepad++](https://notepad-plus-plus.org/downloads) to edit the needed files while [preserving line endings](https://www.cs.toronto.edu/~krueger/csc209h/tut/line-endings.html)
-	- [Java Runtime Environment](https://www.java.com/en/download) for properly signing the boot image (optional)
+   - Android Image Kitchen v3.8 ([Windows](https://github.com/osm0sis/Android-Image-Kitchen), [macOS/Linux](https://forum.xda-developers.com/attachments/aik-linux-v3-8-all-tar-gz.5300923))
+   - (Windows) [Notepad++](https://notepad-plus-plus.org/downloads) to edit the needed files while [preserving line endings](https://www.cs.toronto.edu/~krueger/csc209h/tut/line-endings.html)
+   - [Java Runtime Environment](https://www.java.com/en/download) for properly signing the boot image (optional)
 
 For the sake of simplicity, the guide assumes you've moved the Gerda Recovery image and the MBN loader file into the root of EDL tools folder, which you should do for convenience. If you'd like to have those in other folders, change the directory path accordingly.
 
-### Part 1: Set up EDL
+## Part 1: Set up EDL
 
 > This portion of the guide was taken from [Development/EDL tools on BananaHackers Wiki](https://wiki.bananahackers.net/development/edl) so that you don't have to switch tabs. Kudos to Cyan for the guides!
 
-#### Linux
+### Linux
 
 1. Install Python as normal. 
 2. Then, open Terminal and type `sudo -H pip3 install pyusb pyserial capstone keystone-engine docopt` to install the dependencies for EDL tools.
@@ -99,7 +122,7 @@ Additionally, if you have issue with device access:
 - Open `/etc/modprobe.d/blacklist.conf` in a text editor and append `blacklist qcserial`.
 - Copy both `51-edl.rules` and `50-android.rules` in the root of extracted EDL tools folder to `/etc/udev/rules.d`.
 
-#### MacOS
+### MacOS
 
 1. Follow the instructions to install Homebrew on [its homepage](https://brew.sh). Basically just open Terminal and copy the long streak of code shown on the page, and type your password when prompted.
 2. While you're in Terminal, type this into the command-line:
@@ -112,7 +135,7 @@ brew install python android-platform-tools libusb && pip3 install pyusb pyserial
 - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
 - From the turned off state, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
 
-#### Windows
+### Windows
 
 1. Open the Python installer and proceed with installation. Remember to tick the box next to "Add python.exe to PATH". This would make Python able to be called everywhere in the command-line instead of specifically pointing to its folder, which the next part of the guide won't cover on.
 
@@ -142,7 +165,7 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 
 *If the driver installation takes too much time and the tool aborted it, exit Zadig, exit and re-enter EDL mode on the phone, then try to install again.*
 
-### Part 2: Obtaining the boot partition
+## Part 2: Obtaining the boot partition
 
 > Beware: this version of the EDL tools only accepts one command each session, after which you'll have to disconnect the phone and restart the phone in EDL mode. If you try to throw a second command, it'll result in a `bytearray index out of range` error.
 
@@ -176,9 +199,9 @@ You can disconnect the phone from your computer for now.
 
 **Copy and keep the original boot partition somewhere safe in case you need to restore to the original state for over-the-air updates or re-enabling WhatsApp calls.**
 
-### Part 3: Patching the boot partition
+## Part 3: Patching the boot partition
 
-#### Automatic patching with `8k-boot-patcher`
+### Automatic patching with `8k-boot-patcher`
 
 1. Follow Docker's tutorial on installing Docker Desktop. Once set up, open the program, click Accept on this box and let the Docker Engine start before exiting.
 
@@ -202,7 +225,7 @@ That's it! On your desktop there will be two new image files, the patched `boot.
 
 ![after_patch.png](/assets/after_patch.png)
 
-#### Manual patching with Android Image Kitchen
+### Manual patching with Android Image Kitchen
 
 1. Open the extracted Android Image Kitchen tools folder and copy the boot image we've just obtained over to the root of it.
 
@@ -245,7 +268,7 @@ That's it! On your desktop there will be two new image files, the patched `boot.
 
 If the newly packaged image is barely over 1/3 the size of the original image, it's a normal behaviour and you can proceed.
 
-### Part 4: Replacing the boot partition with patched one
+## Part 4: Replacing the boot partition with patched one
 
 1. Turn on your phone in EDL mode and connect it to your computer.
 
@@ -270,8 +293,13 @@ python edl.py w boot image-new.img --loader=8k.mbn
 
 ![edl_bootog.png](/assets/edl_bootog.png)
 
-## Source code
+# Source code
 
-HMD Global/Nokia Mobile has published the device's source code for its Linux 4.9 kernel, B2G and certain third-party libraries used in this phone, which can be downloaded directly from [here](https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz).
+HMD Global/Nokia Mobile has published the device's source code for its Linux 4.9 kernel, B2G and certain third-party libraries used in this phone, which can be downloaded directly from [here](https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz). An archive of which is also available under the `leo-v20` branch of this repository.
 
 Note that the source code released does not contain proprietary parts from other parties like Qualcomm.
+
+# External links
+
+- [Nokia 6300 4G (nokia-leo) on postmarketOS Wiki](https://wiki.postmarketos.org/wiki/Nokia_6300_4G_(nokia-leo))
+- [Affe Null's Bananian project repository](https://git.abscue.de/bananian/bananian), a Debian port for KaiOS devices
