@@ -57,7 +57,7 @@ To sideload and debug third-party applications on both international and US vers
 - **Recovery mode**: With the device powered off, hold the top `Power` + `*`, or type `adb reboot recovery` when connected to a computer. Allows you to factory reset the device by wiping /data and /cache, view boot and kernel logs, and install patches from `adb sideload` interface or SD card.
 - **EDL mode**: With the device powered off, hold the top `Power` + `*` + `#`, or type `adb reboot edl` when connected to a computer. Boots into a black screen, allows you to read and write partitions in low-level with proprietary Qualcomm tools. Remove the battery to exit.
 
-EDL loader for the international version of this phone (not TA-1324) can be found on BananaHackers' [EDL archive site](https://edl.bananahackers.net/loaders/8k.mbn) with hardware ID 0x009600e100420029. The US version of this phone has been signed with a different PK_HASH and needs a different firehose loader which we currently don't have in archive.
+EDL loader for the international version of this phone (not TA-1324) can be found on BananaHackers' [EDL archive site](https://edl.bananahackers.net/loaders/8k.mbn) with hardware ID 0x009600e100420029 (a copy is available [here](../blob/main/8k.mbn)). The US version of this phone has been signed with a different PK_HASH and needs a different firehose loader which we currently don't have in archive.
 
 # ROOT: Boot partition patching (non-US only)
 
@@ -74,37 +74,37 @@ The guide below has its backbones taken from the main guide on BananaHackers web
 - an international non-US version of Nokia 6300 4G (not TA-1324)
 - an USB cable capable of data transferring (EDL cables will also do)
 - an Internet connection to download the tools needed
-- a somewhat-working [firehose loader MBN file](https://github.com/minhduc-bui1/nokia-leo/blob/main/8k.mbn) for the phone
-- an [image file of Gerda Recovery](https://github.com/minhduc-bui1/nokia-leo/blob/main/recovery-8110.img) for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from the recovery mode and get the boot partition from there
+- a somewhat-working [firehose loader MBN file](../blob/main/8k.mbn) for the phone
+- an [image file of Gerda Recovery](..blob/main/recovery-8110.img) for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from the recovery mode and get the boot partition from there
 - a EDL tools package to read and write system partitions in low-level access (in this guide we'll be using [bkerler's edl.py v3.1](https://github.com/bkerler/edl/releases/tag/3.1))
 
-*[andybalholm's EDL package](https://github.com/andybalholm/edl) is only recommended for phones running KaiOS 2.5.2.2 and older. Due to some structural changes within the GPT partition table, using this package on devices with later versions will result in an error `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`. Do note that the command structures used between bkerler's and andybalholm's are different, this guide for KaiOS 2.5.4 won't cover those. Instead, you can check out Cyan's guide at [Development/WebIDE on BananaHackers Wiki](https://wiki.bananahackers.net/development/edl).*
+*Nokia 2720 Flip users: [andybalholm's EDL package](https://github.com/andybalholm/edl) is recommended for phones running KaiOS 2.5.2.2 and older. Due to some structural changes within the GPT partition table, using this package on devices with later versions will result in an error `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`. Do note that the command structures used between bkerler's and andybalholm's are different.*
 
 - **Windows users also need:**
-   - a computer with Python and `pip` installed for the EDL tools to work (Windows: both are packaged on Python's [official website](https://www.python.org/))
-   - Qualcomm driver for your PC to detect the phone in EDL mode (included in the EDL tools)
-   - [Zadig tool](https://zadig.akeo.ie) to configure `libusb-win32` driver
-   - Android Debug Bridge (ADB) installed to read the boot image in Gerda Recovery (see [Development/WebIDE on BananaHackers Wiki](https://wiki.bananahackers.net/en/development/webide))
+  - a computer with Python and `pip` installed for the EDL tools to work (Windows: both are packaged on Python's [official website](https://www.python.org/))
+  - Qualcomm driver for your PC to detect the phone in EDL mode (included in the EDL tools)
+  - [Zadig tool](https://zadig.akeo.ie) to configure `libusb-win32` driver
+  - Android Debug Bridge (ADB) installed to read the boot image in Gerda Recovery (see [Development/WebIDE on BananaHackers Wiki](https://wiki.bananahackers.net/en/development/webide))
 
 - **macOS & Linux users also need:**
-   - An package manager, such as [Homebrew](https://brew.sh), to quickly set up Python, ADB, `libusb` and configure the environment for EDL tools (install guide for Homebrew can be found below)
-   - *Python 2.7 bundled with macOS 10.8 to 12.3 is NOT recommended for following this guide.*
+  - An package manager, such as [Homebrew](https://brew.sh), to quickly set up Python, ADB, `libusb` and configure the environment for EDL tools (install guide for Homebrew can be found below)
+  - *Python 2.7 bundled with macOS 10.8 to 12.3 is NOT recommended for following this guide.*
 
 *If you're on Linux, Python and ADB can be quickly set up by installing with your built-in package manager. We won't be covering this here, as each Linux distro has its own way of installing from package manager.*
 
 - **If you're going the automatic boot partition patching and compilation via Docker route (only recommended for 5-6 year old computers):**
-   - Git to clone/download the repository of the patcher tool to your computer ([install guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git))
-   - Docker Compose to provide the environment for the patcher tool to work (included in Docker Desktop, whose download links can be found [here](https://docs.docker.com/compose/install))
-   - (Windows) WSL 2 with [Linux kernel update package](https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package) installed (to install WSL 2 turn on Virtualization in BIOS, then open Command Prompt with administrative rights and type `wsl --install`)
+  - Git to clone/download the repository of the patcher tool to your computer ([install guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git))
+  - Docker Compose to provide the environment for the patcher tool to work (included in Docker Desktop, whose download links can be found [here](https://docs.docker.com/compose/install))
+  - (Windows) WSL 2 with [Linux kernel update package](https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package) installed (to install WSL 2 turn on Virtualization in BIOS, then open Command Prompt with administrative rights and type `wsl --install`)
 
 - **If you're going the extracting and manual editing by hand route:**
-   - Android Image Kitchen v3.8 ([Windows](https://github.com/osm0sis/Android-Image-Kitchen), [macOS/Linux](https://forum.xda-developers.com/attachments/aik-linux-v3-8-all-tar-gz.5300923))
-   - (Windows) [Notepad++](https://notepad-plus-plus.org/downloads) to edit the needed files while [preserving line endings](https://www.cs.toronto.edu/~krueger/csc209h/tut/line-endings.html)
-   - [Java Runtime Environment](https://www.java.com/en/download) for properly signing the boot image (optional)
+  - Android Image Kitchen v3.8 ([Windows](https://github.com/osm0sis/Android-Image-Kitchen), [macOS/Linux](https://forum.xda-developers.com/attachments/aik-linux-v3-8-all-tar-gz.5300923))
+  - (Windows) [Notepad++](https://notepad-plus-plus.org/downloads) to edit the needed files while [preserving line endings](https://www.cs.toronto.edu/~krueger/csc209h/tut/line-endings.html)
+  - [Java Runtime Environment](https://www.java.com/en/download) for properly signing the boot image (optional)
 
 For the sake of simplicity, the guide assumes you've moved the Gerda Recovery image and the MBN loader file into the root of EDL tools folder, which you should do for convenience. If you'd like to have those in other folders, change the directory path accordingly.
 
-## Part 1: Set up EDL
+## Part 1: Set up environment for EDL tools
 
 > This portion of the guide was taken from [Development/EDL tools on BananaHackers Wiki](https://wiki.bananahackers.net/development/edl) so that you don't have to switch tabs. Kudos to Cyan for the guides!
 
@@ -113,8 +113,8 @@ For the sake of simplicity, the guide assumes you've moved the Gerda Recovery im
 1. Install Python as normal. 
 2. Then, open Terminal and type `sudo -H pip3 install pyusb pyserial capstone keystone-engine docopt` to install the dependencies for EDL tools.
 3. Switch your phone to EDL mode and connect it to your computer.
-- From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
-- From the turned off state, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
+  - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
+  - From the turned off state, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
 
 In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
@@ -133,8 +133,8 @@ brew install python android-platform-tools libusb && pip3 install pyusb pyserial
 ```
 
 3. Switch your phone to EDL mode and connect it to your computer.
-- From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
-- From the turned off state, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
+  - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
+  - From the turned off state, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
 
 ### Windows
 
@@ -151,8 +151,8 @@ brew install python android-platform-tools libusb && pip3 install pyusb pyserial
 ![whatever.png](/assets/whatever.png)
 
 4. Switch your phone to EDL mode and connect it to your computer.
-- From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
-- From the turned off state, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
+  - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
+  - From the turned off state, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
 
 In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
@@ -167,6 +167,27 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 *If the driver installation takes too much time and the tool aborted it, exit Zadig, exit and re-enter EDL mode on the phone, then try to install again.*
 
 ## Part 2: Obtaining the boot partition
+
+<details>
+   <summary>Instructions for using andybalholm's EDL package with Nokia 2720 Flip</summary>
+   Unlike the 6300 4G and 8000 4G, the 2720 Flip's EDL loader properly works with both reading and writing, so the steps are more straightforward than the others.
+   
+   1. Switch your phone to EDL mode and connect it to your computer.
+     - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
+     - From the turned off state, hold down both side volume keys at the same time while inserting the USB cable to the phone.
+
+   In both cases, the phone's screen should blink with a 'Powered by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
+
+   2. Open the EDL tools folder in a command-line window. Extract the boot partition of the phone by typing this command:
+   ```
+   python3 edl.py -r boot boot.img -loader 2720.mbn
+   ```
+   3. When finished, reboot the phone into normal operation by typing this into the command-line, or remove and re-insert the battery:
+   ```
+   python3 edl.py -reset -loader 2720.mbn
+   ```
+   You can disconnect the phone from your computer for now, and start patching the boot image right away. **Copy and keep the original boot partition somewhere safe in case you need to restore to the original state for over-the-air updates or re-enabling WhatsApp calls.**
+</details>
 
 > Beware: this version of the EDL tools only accepts one command each session, after which you'll have to disconnect the phone and restart the phone in EDL mode. If you try to throw a second command, it'll result in a `bytearray index out of range` error.
 
@@ -285,6 +306,13 @@ OR
 ```
 python edl.py w boot image-new.img --loader=8k.mbn
 ```
+
+<details>
+   <summary>If you were using andybalholm's EDL package to patch the boot partition on Nokia 2720 Flip:</summary>
+   ```
+   python edl.py -w boot boot.img -loader=2720.mbn
+   ```
+</details>
 
 *Again, if the progress bar stops at 99% and you get a timeout error, this is because the phone doesn't send any indicator information back to the EDL tool when in fact the image has been successfully written. Don't mind the error and go on with the next step.*
 
