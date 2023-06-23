@@ -173,8 +173,8 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
    Unlike the 6300 4G and 8000 4G, the 2720 Flip's EDL loader properly works with both reading and writing, so the steps are more straightforward than the others.
    
    1. Switch your phone to EDL mode and connect it to your computer.
-     - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
-     - From the turned off state, hold down both side volume keys at the same time while inserting the USB cable to the phone.
+   - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
+   - From the turned off state, hold down both side volume keys at the same time while inserting the USB cable to the phone.
 
    In both cases, the phone's screen should blink with a 'Powered by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
@@ -188,6 +188,8 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
    ```
    You can disconnect the phone from your computer for now, and start patching the boot image right away. **Copy and keep the original boot partition somewhere safe in case you need to restore to the original state for over-the-air updates or re-enabling WhatsApp calls.**
 </details>
+
+---
 
 > Beware: this version of the EDL tools only accepts one command each session, after which you'll have to disconnect the phone and restart the phone in EDL mode. If you try to throw a second command, it'll result in a `bytearray index out of range` error.
 
