@@ -24,19 +24,19 @@
 
 To sideload and debug third-party applications on both international and US versions, follow the guide at [Development/WebIDE on BananaHackers Wiki](https://wiki.bananahackers.net/en/development/webide).
 
-# Tips and tricks
+## Tips and tricks
 
 - To take a screenshot, press both `*` and `#` keys.
 - On the home screen, hold down a number key (1-9) to set up and activate Speeddial.
 
-# Known issues
+## Known issues
 
 - RAM optimizations leading to aggressive background task killing. This can be mitigated by rooting the phone, then append `echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk` in the startup script in /boot to disable the 'low memory killer' function. Don't forget to add a swapfile afterwards.
 - Keypad recognizing double-presses instead of single-presses. This is due to the short keypress timeout interval in `keyboard.gaiamobile.org` and can be fixed by following this [BananaHackers' guide on fixing the keypad speed](https://ivan-hc.github.io/bananahackers/fix-the-keypad-speed.html)
 - Incorrect GPS on LTE. Not sure why, but you'll have to switch to 2G/3G for the phone to retrieve GPS information properly.
 - If you forgot your lockscreen passcode, you can bypass it by holding down the top Power button, then select Memory Cleaner and Deep Memory Cleaning.
 
-## KaiOS-specific
+### KaiOS-specific
 
 - Text messages don't automatically convert to MMS in group chats. You'll have to add a message subject or file attachment before sending to manually do so, otherwise your message will be sent separately to each individual in the thread.
 - Predictive typing mode doesn't last between inputs, meaning if you switch between input boxes, it'll return to the normal T9 mode.
@@ -46,16 +46,16 @@ To sideload and debug third-party applications on both international and US vers
 - Apps like Contacts and Music are written in performance-intensive React and therefore render significantly slow if you store lots of contact entries and audio files.
 - Of course, missing features.
 
-# Secret codes
+## Secret codes
 
 - `*#*#33284*#*#`: Toggle debugging mode, allow the phone to be accessed with ADB and DevTools.
 - `*#06#`: Display the IMEI(s).
 - `*#0000#`: Display device information, such as firmware version, build date, model number, variant and CUID.
 
-# Special boot modes
+## Special boot modes
 
-- Recovery mode: With the device powered off, hold the top `Power` + `*`, or type `adb reboot recovery` when connected to a computer. Allows you to factory reset the device by wiping /data and /cache, view boot and kernel logs, and install patches from `adb sideload` interface or SD card.
-- EDL mode: With the device powered off, hold the top `Power` + `*` + `#`, or type `adb reboot edl` when connected to a computer. Boots into a black screen, allows you to read and write partitions in low-level with proprietary Qualcomm tools. Remove the battery to exit.
+- **Recovery mode**: With the device powered off, hold the top `Power` + `*`, or type `adb reboot recovery` when connected to a computer. Allows you to factory reset the device by wiping /data and /cache, view boot and kernel logs, and install patches from `adb sideload` interface or SD card.
+- **EDL mode**: With the device powered off, hold the top `Power` + `*` + `#`, or type `adb reboot edl` when connected to a computer. Boots into a black screen, allows you to read and write partitions in low-level with proprietary Qualcomm tools. Remove the battery to exit.
 
 EDL loader for the international version of this phone (not TA-1324) can be found on BananaHackers' [EDL archive site](https://edl.bananahackers.net/loaders/8k.mbn) with hardware ID 0x009600e100420029. The US version of this phone has been signed with a different PK_HASH and needs a different firehose loader which we currently don't have in archive.
 
@@ -294,13 +294,13 @@ python edl.py w boot image-new.img --loader=8k.mbn
 
 ![edl_bootog.png](/assets/edl_bootog.png)
 
-# Source code
+## Source code
 
 HMD Global/Nokia Mobile has published the device's source code for its Linux 4.9 kernel, B2G and certain third-party libraries used in this phone, which can be downloaded directly from [here](https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz). An archive of which is also available under the `leo-v20` branch of this repository.
 
 Note that the source code released does not contain proprietary parts from other parties like Qualcomm.
 
-# External links
+## External links
 
 - [Nokia 6300 4G (nokia-leo) on postmarketOS Wiki](https://wiki.postmarketos.org/wiki/Nokia_6300_4G_(nokia-leo))
 - [Affe Null's Bananian project repository](https://git.abscue.de/bananian/bananian), a Debian port for KaiOS devices
