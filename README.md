@@ -170,7 +170,8 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 
 <details>
    <summary>Instructions for using andybalholm's EDL package with Nokia 2720 Flip</summary>
-   Unlike the 6300 4G and 8000 4G, the 2720 Flip's EDL loader properly works with both reading and writing, so the steps are more straightforward than the others.
+  
+   Unlike the 6300 4G and 8000 4G, the 2720 Flip's EDL loader properly works with both reading and writing, so the steps are more straightforward.
    
    1. Switch your phone to EDL mode and connect it to your computer.
    - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
