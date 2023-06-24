@@ -25,19 +25,19 @@
 To sideload and debug third-party applications on both international and US versions, follow the guide at [Development/WebIDE on BananaHackers Wiki](https://wiki.bananahackers.net/en/development/webide).
 
 ## Tips and tricks
-
 - To take a screenshot, press both `*` and `#` keys.
 - On the home screen, hold down a number key (1-9) to set up and activate Speeddial.
 
 ## Known issues
-
-- RAM optimizations leading to aggressive background task killing. This can be mitigated by rooting the phone, then append `echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk` in the startup script in /boot to disable the 'low memory killer' function. Don't forget to add a swapfile afterwards.
+- RAM optimizations leading to aggressive background task killing. This can be mitigated by rooting the phone, then append this line in the startup script in /boot to disable the 'low memory killer' function. Don't forget to add a swapfile afterwards:
+```
+echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
+```
 - Keypad recognizing double-presses instead of single-presses. This is due to the short keypress timeout interval in `keyboard.gaiamobile.org` and can be fixed by following this [BananaHackers' guide on fixing the keypad speed](https://ivan-hc.github.io/bananahackers/fix-the-keypad-speed.html)
 - Incorrect GPS on LTE. Not sure why, but you'll have to switch to 2G/3G for the phone to retrieve GPS information properly.
 - If you forgot your lockscreen passcode, you can bypass it by holding down the top Power button, then select Memory Cleaner and Deep Memory Cleaning.
 
 ### KaiOS-specific
-
 - Text messages don't automatically convert to MMS in group chats. You'll have to add a message subject or file attachment before sending to manually do so, otherwise your message will be sent separately to each individual in the thread.
 - Predictive typing mode doesn't last between inputs, meaning if you switch between input boxes, it'll return to the normal T9 mode.
 - You cannot change message notification tone or alarm tone on the phone outside the defaults provided. This is because both are not managed by the system, but by the Messages and Clock app themselves. To change them, you'll have to use ADB to pull the apps from `/system/b2g/webapps`, extract, edit the audio files and repackage the apps, then push them back under `/data/local/webapps` and edit the `basePath` in `/data/local/webapps/webapps.json` to reflect the change (see [BananaHackers' guide](https://ivan-hc.github.io/bananahackers/clock-alarms.html#h.unmy3yif91xs) for instructions)
@@ -47,20 +47,17 @@ To sideload and debug third-party applications on both international and US vers
 - Of course, missing features.
 
 ## Secret codes
-
 - `*#*#33284*#*#`: Toggle debugging mode, allow the phone to be accessed with ADB and DevTools.
 - `*#06#`: Display the IMEI(s).
 - `*#0000#`: Display device information, such as firmware version, build date, model number, variant and CUID.
 
 ## Special boot modes
-
 - **Recovery mode**: With the device powered off, hold the top `Power` + `*`, or type `adb reboot recovery` when connected to a computer. Allows you to factory reset the device by wiping /data and /cache, view boot and kernel logs, and install patches from `adb sideload` interface or SD card.
 - **EDL mode**: With the device powered off, hold the top `Power` + `*` + `#`, or type `adb reboot edl` when connected to a computer. Boots into a black screen, allows you to read and write partitions in low-level with proprietary Qualcomm tools. Remove the battery to exit.
 
 EDL loader for the international version of this phone (not TA-1324) can be found on BananaHackers' [EDL archive site](https://edl.bananahackers.net/loaders/8k.mbn) with hardware ID 0x009600e100420029 (a copy is available [here](../blob/main/8k.mbn)). The US version of this phone has been signed with a different PK_HASH and needs a different firehose loader which we currently don't have in archive.
 
 # ROOT: Boot partition patching (non-US only)
-
 On the 6300 4G, 8000 4G and other KaiOS 2.5.4 devices, ADB and WebIDE can be used to sideload third-party applications. However, you won't be able to sideload apps that has ‘forbidden’ permissions (namely `engmode-extension` which can be used to gain exclusive access of the phone, and can be found in most BananaHackers-made apps like Wallace Toolbox) or make changes to the system. Because in order to achieve WhatsApp VoIP feature on this KaiOS version, the security module SELinux is now set to be `Enforced` which checks and reverts system modifications on boot. To gain total read-write access to the device, you'll now have to permanently root the device by setting SELinux to `Permissive` mode.
 
 The guide below has its backbones taken from the main guide on BananaHackers website, but has been rewritten for the most parts to be easy-to-follow. The process will also take somewhat considerable 30 minutes to an hour, so do this when you have the time.
@@ -70,7 +67,6 @@ The guide below has its backbones taken from the main guide on BananaHackers web
 **This process will void your phone's warranty, disable its ability to do WhatsApp calls and retrieve over-the-air updates, but you can revert this if you keep a backup of the original boot partition. However, there might also be a chance of bricking your phone if you don't do the steps correctly, so do think twice before actually consider doing this and follow the steps carefully! I won't be responsible for any damages done to your phone by following these.**
 
 ## What we'll need
-
 - an international non-US version of Nokia 6300 4G (not TA-1324)
 - an USB cable capable of data transferring (EDL cables will also do)
 - an Internet connection to download the tools needed
@@ -105,13 +101,17 @@ The guide below has its backbones taken from the main guide on BananaHackers web
 For the sake of simplicity, the guide assumes you've moved the Gerda Recovery image and the MBN loader file into the root of EDL tools folder, which you should do for convenience. If you'd like to have those in other folders, change the directory path accordingly.
 
 ## Part 1: Set up environment for EDL tools
-
 > This portion of the guide was taken from [Development/EDL tools on BananaHackers Wiki](https://wiki.bananahackers.net/development/edl) so that you don't have to switch tabs. Kudos to Cyan for the guides!
 
 ### Linux
-
-1. Install Python as normal. 
-2. Then, open Terminal and type `sudo -H pip3 install pyusb pyserial capstone keystone-engine docopt` to install the dependencies for EDL tools.
+1. Install Python from your operating system's package manager e.g.
+```console
+sudo apt-get install python pip3
+```
+2. Then, open Terminal and type this to install the dependencies for EDL tools:
+```console
+sudo -H pip3 install pyusb pyserial capstone keystone-engine docopt
+``` 
 3. Switch your phone to EDL mode and connect it to your computer.
   - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
   - From the turned off state, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
@@ -124,26 +124,24 @@ Additionally, if you have issue with device access:
 - Copy both `51-edl.rules` and `50-android.rules` in the root of extracted EDL tools folder to `/etc/udev/rules.d`.
 
 ### MacOS
-
 1. Follow the instructions to install Homebrew on [its homepage](https://brew.sh). Basically just open Terminal and copy the long streak of code shown on the page, and type your password when prompted.
 2. While you're in Terminal, type this into the command-line:
-
-```
+```console
 brew install python android-platform-tools libusb && pip3 install pyusb pyserial capstone keystone-engine docopt
 ```
-
 3. Switch your phone to EDL mode and connect it to your computer.
   - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
   - From the turned off state, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
 
 ### Windows
-
 1. Open the Python installer and proceed with installation. Remember to tick the box next to "Add python.exe to PATH". This would make Python able to be called everywhere in the command-line instead of specifically pointing to its folder, which the next part of the guide won't cover on.
 
 ![python.png](/assets/python.png)
 
-2. Open Command Prompt with administrator privileges and run this command:<br>`pip3 install pyusb pyserial capstone keystone-engine docopt`
-
+2. Open Command Prompt with administrator privileges and run this command:
+```
+pip3 install pyusb pyserial capstone keystone-engine docopt
+```
 ![pythoooon.png](/assets/pythoooon.png)
 
 3. Open the extracted EDL tools folder, go to the Drivers > Windows folder and run `Qualcomm_Diag_QD_Loader_2016_driver.exe` with administrator rights. Proceed with installation and leave everything as default, restart the computer if it prompts you to do so.
@@ -156,7 +154,7 @@ brew install python android-platform-tools libusb && pip3 install pyusb pyserial
 
 In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
-5. Run the Zadig tool and select Options > List All Devices. In the front dropdown menu, select `QHSUSB__BULK` (your device in EDL mode). In the target driver box (which the green arrow is pointing to), click on the up/down arrows until you see `libusb-win32` and click on Replace Driver.
+5. Run the Zadig tool and select *Options > List All Devices*. In the front dropdown menu, select `QHSUSB__BULK` (your device in EDL mode). In the target driver box (which the green arrow is pointing to), click on the up/down arrows until you see `libusb-win32` and click on Replace Driver.
 
 ![listall.png](/assets/listall.png)
 ![qhsusb.png](/assets/qhsusb.png)
@@ -170,34 +168,36 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 
 <details>
    <summary>Instructions for using andybalholm's EDL package with Nokia 2720 Flip</summary>
-  
-   Unlike the 6300 4G and 8000 4G, the 2720 Flip's EDL loader properly works with both reading and writing, so the steps are more straightforward.
-   
-   1. Switch your phone to EDL mode and connect it to your computer.
-   - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
-   - From the turned off state, hold down both side volume keys at the same time while inserting the USB cable to the phone.
-
-   In both cases, the phone's screen should blink with a 'Powered by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
-
-   2. Open the EDL tools folder in a command-line window. Extract the boot partition of the phone by typing this command:
-   ```
-   python3 edl.py -r boot boot.img -loader 2720.mbn
-   ```
-   3. When finished, reboot the phone into normal operation by typing this into the command-line, or remove and re-insert the battery:
-   ```
-   python3 edl.py -reset -loader 2720.mbn
-   ```
-   You can disconnect the phone from your computer for now, and start patching the boot image right away. **Copy and keep the original boot partition somewhere safe in case you need to restore to the original state for over-the-air updates or re-enabling WhatsApp calls.**
-</details>
 
 ---
+
+Unlike the 6300 4G and 8000 4G, the 2720 Flip's EDL loader properly works with both reading and writing, so the steps are more straightforward.
+
+1. Switch your phone to EDL mode and connect it to your computer.
+- From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
+- From the turned off state, hold down both side volume keys at the same time while inserting the USB cable to the phone.
+
+In both cases, the phone's screen should blink with a 'Powered by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
+
+2. Open the EDL tools folder in a command-line window. Extract the boot partition of the phone by typing this command:
+```console
+python edl.py -r boot boot.img -loader 2720.mbn
+```
+3. When finished, reboot the phone into normal operation by typing this into the command-line, or remove and re-insert the battery:
+```console
+python edl.py -reset -loader 2720.mbn
+```
+You can disconnect the phone from your computer for now, and start [patching the boot image](#part-3-patching-the-boot-partition) right away. **Copy and keep the original boot partition somewhere safe in case you need to restore to the original state for over-the-air updates or re-enabling WhatsApp calls.**
+
+---
+</details>
 
 > Beware: this version of the EDL tools only accepts one command each session, after which you'll have to disconnect the phone and restart the phone in EDL mode. If you try to throw a second command, it'll result in a `bytearray index out of range` error.
 
 1. Turn on the phone in EDL mode.
 
 2. Open the EDL tools folder in a command-line window. Flash the Gerda Recovery image to the recovery partition by typing this command:
-```
+```console
 python3 edl.py w recovery recovery-8110.img --loader=8k.mbn
 ```
 *If the progress bar stops at 99% and you get this error `'usb.core.USBError: [Errno None] b'libusb0-dll:err [_usb_reap_async] timeout error\n'` or `usb.core.USBError: [Errno 60] Command timed out`, don't panic! This is because the phone doesn't send any indicator information back to the EDL tool when in fact the image has been successfully written. Don't mind the error and proceed with the next step.*
@@ -213,7 +213,7 @@ Don't worry if this boots into a white screen, you can still use ADB right after
 Check if ADB can recognise the phone by typing `adb devices` into the command-line.
 
 5. Navigate the command-line to the `platform-tools` folder (if needed) and pull the boot image from the phone by typing this command:
-```
+```console
 adb pull /dev/block/bootdevice/by-name/boot boot.img
 ```
 You should now see `/dev/block/bootdevice/by-name/boot: 1 file pulled, 0 skipped.` and have a copy of the boot partition with the size of 32.0MB (32,768KB). Fetched boot image will be saved to the current directory.
@@ -225,25 +225,21 @@ You can disconnect the phone from your computer for now.
 **Copy and keep the original boot partition somewhere safe in case you need to restore to the original state for over-the-air updates or re-enabling WhatsApp calls.**
 
 ## Part 3: Patching the boot partition
-
 ### Automatic patching with `8k-boot-patcher`
-
 1. Follow Docker's tutorial on installing Docker Desktop. Once set up, open the program, click Accept on this box and let the Docker Engine start before exiting.
 
 ![docker_abomination.png](/assets/docker_abomination.png)
 
 2. Clone/download the boot patcher toolkit by typing this into a command-line window. This will download the toolkit and have Docker set it up. Do not omit the dot/period at the end of this command, this tells Docker where our downloaded toolkit are located on the system.
-```
+```console
 git clone https://gitlab.com/suborg/8k-boot-patcher.git && cd 8k-boot-patcher && docker build -t 8kbootpatcher .
 ```
-
 ![docker_build.png](/assets/docker_build.png)
 
 3. Copy the `boot.img` file we've just pulled from our phone to the desktop and do not change its name. Type this into the command-line to run the patching process:
-```
+```console
 docker run --rm -it -v ~/Desktop:/image 8kbootpatcher
 ```
-
 ![docker_patch.png](/assets/docker_patch.png)
 
 That's it! On your desktop there will be two new image files, the patched `boot.img` and the original `boot-orig.img`. You can now head to part 4.
@@ -298,31 +294,35 @@ If the newly packaged image is barely over 1/3 the size of the original image, i
 1. Turn on your phone in EDL mode and connect it to your computer.
 
 2. Move the newly created `boot.img`, `unsigned-new.img` or `image-new.img` to the EDL tools folder and open a command-line window within it. From here type either of these commands depending on which image file you have:
-```
+```console
 python edl.py w boot boot.img --loader=8k.mbn
 ```
 OR
-```
+```console
 python edl.py w boot unsigned-new.img --loader=8k.mbn
 ```
 OR
-```
+```console
 python edl.py w boot image-new.img --loader=8k.mbn
 ```
 
 <details>
    <summary>If you were using andybalholm's EDL package to patch the boot partition on Nokia 2720 Flip:</summary>
-   ```
-   python edl.py -w boot boot.img -loader=2720.mbn
-   ```
+ 
+```console
+python edl.py -w boot boot.img -loader 2720.mbn
+```
 </details>
 
 *Again, if the progress bar stops at 99% and you get a timeout error, this is because the phone doesn't send any indicator information back to the EDL tool when in fact the image has been successfully written. Don't mind the error and go on with the next step.*
 
 3. Restart the phone to normal operation mode: `python edl.py reset`. And we're done!
 
-*If you still have the original boot partition and wish to revert all the messes and damages, connect the phone to your computer in EDL mode, move the image file to the EDL tools folder, open a command-line window within it and type:<br>`python edl.py w boot boot.img --loader=8k.mbn`<br>`python edl.py reset`*
-
+*If you still have the original boot partition and wish to revert all the messes and damages, connect the phone to your computer in EDL mode, move the image file to the EDL tools folder, open a command-line window within it and type these one-line at a time:*
+```console
+python edl.py w boot boot.img --loader=8k.mbn
+python edl.py reset
+```
 ![edl_bootog.png](/assets/edl_bootog.png)
 
 ## Source code
