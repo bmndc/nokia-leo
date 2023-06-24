@@ -26,7 +26,7 @@ To sideload and debug third-party applications on both international and US vers
 
 ## Tips and tricks
 - To take a screenshot, press both `*` and `#` keys.
-- On the home screen, hold down a number key (1-9) to set up and activate Speeddial.
+- On the home screen, hold down a number key (1-9) to set up and activate Speed dial.
 
 ## Known issues
 - RAM optimizations leading to aggressive background task killing. This can be mitigated by rooting the phone, then append this line in the startup script in /boot to disable the 'low memory killer' function. Don't forget to add a swapfile afterwards:
@@ -34,6 +34,7 @@ To sideload and debug third-party applications on both international and US vers
 echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 ```
 - Keypad recognizing double-presses instead of single-presses. This is due to the short keypress timeout interval in `keyboard.gaiamobile.org` and can be fixed by following this [BananaHackers' guide on fixing the keypad speed](https://ivan-hc.github.io/bananahackers/fix-the-keypad-speed.html)
+- Battery draining heavily if you leave Wi-Fi on at all time. Try turning it off if you don't use it.
 - Incorrect GPS on LTE. Not sure why, but you'll have to switch to 2G/3G for the phone to retrieve GPS information properly.
 - If you forgot your lockscreen passcode, you can bypass it by holding down the top Power button, then select Memory Cleaner and Deep Memory Cleaning.
 
