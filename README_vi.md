@@ -46,8 +46,9 @@ echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 - Không đổi được âm báo tin nhắn mới hay âm báo báo thức ngoài danh sách được chỉ định, kể cả sau khi thiết lập trong Cài đặt. Hệ điều hành không quản lý hai loại này mà lại để cho app Tin nhắn (`sms.gaiamobile.org`) và Đồng hồ (`clock.gaiamobile.org`) tự quản lý.
 
   Để mà đổi 2 loại âm báo này thì cần phải root máy, sau đó dùng ADB để trích thư mục 2 app từ `/system/b2g/webapps`, giải nén, thay file nhạc mặc định rồi nén app lại và chuyển vào `/data/local/webapps`. Sau đó tiếp tục dùng ADB để trích xuất file `/data/local/webapps/webapps.json` và đổi cái `basePath` của 2 app từ `system/b2g/webapps` sang `/data/local/webapps`.
+
   Bên BananaHackers có [hướng dẫn cách làm chi tiết](https://ivan-hc.github.io/bananahackers/clock-alarms.html#h.unmy3yif91xs) để đổi 2 loại âm báo này.
-- Chức năng đồng bộ email, lịch và danh bạ với tài khoản Google hay gặp lỗi không đồng bộ được. Nên dùng thiết lập Nâng cao trong app E-mail và chỉ NHẬP danh bạ thay bị đồng bộ trong app Danh bạ.
+- Chức năng đồng bộ email, lịch và danh bạ với tài khoản Google hay gặp lỗi không đồng bộ được. Nên dùng thiết lập Nâng cao trong app E-mail và chỉ NHẬP danh bạ thay vì đồng bộ trong app Danh bạ.
 - Nhắc tới lịch, kể cả nếu thiết lập được đồng bộ lịch của tài khoản Google với điện thoại, chỉ có cái lịch với tên đặt theo địa chỉ email thì mới đồng bộ vào app Lịch mặc định trên máy.
 - Những ứng dụng mặc định trên máy, kể cả app Danh bạ và Nhạc, được viết trên thư viện React nổi tiếng với việc lãng phí tài nguyên, dẫn tới việc các app tải rất chậm, đặc biệt khi có nhiều mục lưu trữ trong Danh bạ hay có nhiều bài nhạc trong máy. Chưa kể KaiOS 2.5 được thiết kế trên nền tảng Gecko 48.0a1 lỗi thời từ 2016.
 - Thiếu tính năng và ứng dụng bên thứ ba là vấn đề hệ trọng tất yếu.
