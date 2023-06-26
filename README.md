@@ -1,4 +1,4 @@
-Bạn có thể xem bản tiếng Việt của hướng dẫn này tại [đây](../blob/main/README_vi.md).
+Bạn có thể xem bản tiếng Việt của hướng dẫn này tại [đây](../main/README_vi.md).
 
 |     | **Nokia 6300 4G (nokia-leo)** |
 | --- | --- |
@@ -59,7 +59,7 @@ echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 - **Recovery mode**: With the device powered off, hold the top `Power` + `*`, or type `adb reboot recovery` when connected to a computer. Allows you to factory reset the device by wiping /data and /cache, view boot and kernel logs, and install patches from `adb sideload` interface or SD card.
 - **EDL mode**: With the device powered off, hold the top `Power` + `*` + `#`, or type `adb reboot edl` when connected to a computer. Boots into a black screen, allows you to read and write partitions in low-level with proprietary Qualcomm tools. Remove the battery to exit.
 
-EDL loader for the international version of this phone (not TA-1324) can be found on BananaHackers' [EDL archive site](https://edl.bananahackers.net/loaders/8k.mbn) with hardware ID 0x009600e100420029 (a copy is available [here](../blob/main/8k.mbn)). The US version of this phone has been signed with a different PK_HASH and needs a different firehose loader which we currently don't have in archive.
+EDL loader for the international version of this phone (not TA-1324) can be found on BananaHackers' [EDL archive site](https://edl.bananahackers.net/loaders/8k.mbn) with hardware ID 0x009600e100420029 (a copy is available [here](../main/8k.mbn)). The US version of this phone has been signed with a different PK_HASH and needs a different firehose loader which we currently don't have in archive.
 
 # ROOT: Boot partition patching (non-US only)
 On the 6300 4G, 8000 4G and other KaiOS 2.5.4 devices, ADB and WebIDE can be used to sideload third-party applications. However, you won't be able to sideload apps that has ‘forbidden’ permissions (namely `engmode-extension` which can be used to gain exclusive access of the phone, and can be found in most BananaHackers-made apps like Wallace Toolbox) or make changes to the system. Because in order to achieve WhatsApp VoIP feature on this KaiOS version, the security module SELinux is now set to be `Enforced` which checks and reverts system modifications on boot. To gain total read-write access to the device, you'll now have to permanently root the device by setting SELinux to `Permissive` mode.
