@@ -35,23 +35,34 @@
 echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 ```
 - Phím bấm thường xuyên bị nhảy chữ là do khoảng nhận phím của app bàn phím `keyboard.gaiamobile.org` trong hệ điều hành bị ngắn. Bên BananaHackers có [hướng dẫn khắc phục vấn đề này](https://ivan-hc.github.io/bananahackers/fix-the-keypad-speed.html), cần root máy trước khi thực hiện.
+
 - Nếu để Wi-Fi bật liên tục thì sẽ bị hao pin cực nhanh. Không dùng thì nhớ tắt đi.
-- Dữ liệu vị trí GPS có thể bị lệch khi bật 4G. Chưa biết lý do nhưng bắt buộc phải chỉnh về 3G/2G trong *Cài đặt > Mạng di động & dữ liệu > chọn SIM > Loại mạng* nếu muốn GPS xác định đúng vị trí.
+
+- Dữ liệu vị trí GPS có thể bị sai lệch hoặc mất hoàn toàn khi bật 4G. Chưa biết lý do nhưng bắt buộc phải chỉnh về 3G/2G trong *Cài đặt > Mạng di động & dữ liệu > chọn SIM > Loại mạng* nếu muốn GPS xác định đúng vị trí.
+
 - Nếu khoá máy mà quên mã PIN thì có thể phá khoá bằng cách giữ nút nguồn trên đỉnh máy, chọn *Trình dọn dẹp Bộ nhớ > Dọn dẹp Bộ nhớ sâu*.
 
 ### KaiOS nói chung
 
-- Tin nhắn không tự chuyển từ SMS sang MMS khi nhắn trong nhóm, dẫn tới phiền phức khi tin nhắn không gửi lên nhóm mà lại gửi riêng biệt đến từng người trong nhóm. Chỉ có thể tạm thời khắc phục bằng cách thêm "chủ đề" (*Tuỳ chọn > Thêm chủ đề*) hoặc thêm file đính kèm mỗi lần nhắn để nó chuyển sang gửi bằng MMS.
+- Tin nhắn không tự chuyển từ SMS sang MMS khi nhắn trong nhóm, dẫn tới phiền phức khi mà tin nhắn không gửi lên nhóm mà lại gửi riêng biệt đến từng người trong nhóm. Chỉ có thể tạm thời khắc phục bằng cách thêm "chủ đề" (*Tuỳ chọn > Thêm chủ đề*) hoặc thêm file đính kèm mỗi lần nhắn để nó chuyển sang gửi bằng MMS.
+
 - Nếu di chuyển giữa mấy ô nhập liệu thì chế độ gõ T9 sẽ tự chuyển về mặc định, kiểu nếu bật gõ viết hoa, viết số hay tiên đoán từ ở lần gõ trước thì lần gõ sau phải tự bật lại kiểu gõ đấy.
+
 - Không đổi được âm báo tin nhắn mới hay âm báo báo thức ngoài danh sách được chỉ định, kể cả sau khi thiết lập trong Cài đặt. Hệ điều hành không quản lý hai loại này mà lại để cho app Tin nhắn (`sms.gaiamobile.org`) và Đồng hồ (`clock.gaiamobile.org`) tự quản lý.
 
   Để mà đổi 2 loại âm báo này thì cần phải root máy, sau đó dùng ADB để trích thư mục 2 app từ `/system/b2g/webapps`, giải nén, thay file nhạc mặc định rồi nén app lại và chuyển vào `/data/local/webapps`. Sau đó tiếp tục dùng ADB để trích xuất file `/data/local/webapps/webapps.json` và đổi cái `basePath` của 2 app từ `system/b2g/webapps` sang `/data/local/webapps`.
 
   Bên BananaHackers có [hướng dẫn cách làm chi tiết](https://ivan-hc.github.io/bananahackers/clock-alarms.html#h.unmy3yif91xs) để đổi 2 loại âm báo này.
+
+- Báo thức sẽ không báo đúng giờ nếu ứng dụng Đồng hồ bị tắt hoàn toàn. Trước khi đi ngủ, để ứng dụng Đồng hồ mở và tắt màn hình mà tuyệt đối không thoát app.
+
 - Chức năng đồng bộ email, lịch và danh bạ với tài khoản Google hay gặp lỗi không đồng bộ được. Nên dùng thiết lập Nâng cao trong app E-mail và chỉ NHẬP danh bạ thay vì đồng bộ trong app Danh bạ.
-- Nhắc tới lịch, kể cả nếu thiết lập được đồng bộ lịch của tài khoản Google với điện thoại, chỉ có cái lịch với tên đặt theo địa chỉ email thì mới đồng bộ vào app Lịch mặc định trên máy.
-- Những ứng dụng mặc định trên máy, kể cả app Danh bạ và Nhạc, được viết trên thư viện React nổi tiếng với việc lãng phí tài nguyên, dẫn tới việc các app tải rất chậm, đặc biệt khi có nhiều mục lưu trữ trong Danh bạ hay có nhiều bài nhạc trong máy. Chưa kể KaiOS 2.5 được thiết kế trên nền tảng Gecko 48.0a1 lỗi thời từ 2016.
-- Thiếu tính năng và ứng dụng bên thứ ba là vấn đề hệ trọng tất yếu.
+
+- Nhắc tới lịch, kể cả nếu thiết lập được tính năng đồng bộ lịch tài khoản Google với điện thoại, chỉ có 1 lịch cá nhân với tên đặt theo địa chỉ email thì mới đồng bộ vào app Lịch mặc định trên máy.
+
+- Những ứng dụng mặc định trên máy, kể cả app Danh bạ và Nhạc, được viết trên thư viện React nổi tiếng với việc lãng phí tài nguyên, dẫn tới việc các app tải rất chậm, đặc biệt khi có nhiều mục lưu trữ trong Danh bạ hay có nhiều bài nhạc trong máy.
+
+- Thiếu tính năng và ứng dụng bên thứ 3 là vấn đề hệ trọng.
 
 ## Code ẩn
 
