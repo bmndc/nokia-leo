@@ -50,7 +50,7 @@ echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 
 - Không đổi được âm báo tin nhắn mới hay âm báo báo thức ngoài danh sách được chỉ định, kể cả sau khi thiết lập trong Cài đặt. Hệ điều hành không quản lý hai loại này mà lại để cho app Tin nhắn (`sms.gaiamobile.org`) và Đồng hồ (`clock.gaiamobile.org`) tự quản lý.
 
-  Để mà đổi 2 loại âm báo này thì cần phải root máy, sau đó dùng ADB để trích thư mục 2 app từ `/system/b2g/webapps`, giải nén, thay file nhạc mặc định rồi nén app lại và chuyển vào `/data/local/webapps`. Sau đó tiếp tục dùng ADB để trích xuất file `/data/local/webapps/webapps.json` và đổi cái `basePath` của 2 app từ `system/b2g/webapps` sang `/data/local/webapps`.
+  Để mà đổi 2 loại âm báo này thì cần phải root máy, sau đó dùng ADB để trích thư mục 2 app từ `/system/b2g/webapps`, giải nén, thay file nhạc mặc định rồi nén app lại và chuyển vào `/data/local/webapps`. Sau đó tiếp tục dùng ADB để trích xuất file `/data/local/webapps/webapps.json` và đổi `basePath` của 2 app từ `system/b2g/webapps` sang `/data/local/webapps`.
 
   Bên BananaHackers có [hướng dẫn cách làm chi tiết](https://ivan-hc.github.io/bananahackers/clock-alarms.html#h.unmy3yif91xs) để đổi 2 loại âm báo này.
 
