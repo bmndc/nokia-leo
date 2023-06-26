@@ -36,27 +36,41 @@ To sideload and debug third-party applications on both international and US vers
 echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 ```
 - Keypad recognizing double-presses instead of single-presses. This is due to the short keypress timeout interval in `keyboard.gaiamobile.org` and can be fixed by following this [BananaHackers' guide on fixing the keypad speed](https://ivan-hc.github.io/bananahackers/fix-the-keypad-speed.html)
+
 - Battery draining heavily if you leave Wi-Fi on at all time. Try turning it off if you don't use it.
+
 - Incorrect GPS on LTE. Not sure why, but you'll have to switch to 2G/3G for the phone to retrieve GPS information properly.
+
 - If you forgot your lockscreen passcode, you can bypass it by holding down the top Power button, then select Memory Cleaner and Deep Memory Cleaning.
 
 ### KaiOS-specific
 - Text messages don't automatically convert to MMS in group chats. You'll have to add a message subject or file attachment before sending to manually do so, otherwise your message will be sent separately to each individual in the thread.
+
 - Predictive typing mode doesn't last between inputs, meaning if you switch between input boxes, it'll return to the normal T9 mode.
-- You cannot change message notification tone or alarm tone on the phone outside the defaults provided. This is because both are not managed by the system, but by the Messages and Clock app themselves. To change them, you'll have to use ADB to pull the apps from `/system/b2g/webapps`, extract, edit the audio files and repackage the apps, then push them back under `/data/local/webapps` and edit the `basePath` in `/data/local/webapps/webapps.json` to reflect the change (see [BananaHackers' guide](https://ivan-hc.github.io/bananahackers/clock-alarms.html#h.unmy3yif91xs) for instructions)
+
+- You cannot change message notification tone or alarm tone on the phone outside the defaults provided. This is because both are not managed by the system, but by the Messages and Clock app themselves. 
+  To change them, you'll have to use ADB to pull the apps from `/system/b2g/webapps`, extract, edit the audio files and repackage the apps, then push them back under `/data/local/webapps` and edit the `basePath` in `/data/local/webapps/webapps.json` to reflect the change (see [BananaHackers' guide](https://ivan-hc.github.io/bananahackers/clock-alarms.html#h.unmy3yif91xs) for instructions)
+
 - Alarms can be delayed if the Clock app is killed. Before going to sleep, make sure to open the Clock app and lock the phone without closing the app.
+
 - Built-in email, calendar and contact syncing function with Google account may completely fail at times. Use IMAP and import contacts instead.
+
 - Speaking of calendar, if you manage to sync your Google account with the phone, only the calendar *with your email address as its name* will sync.
+
 - Apps like Contacts and Music are written in performance-intensive React and therefore render significantly slow if you store lots of contact entries and audio files.
+
 - Of course, missing features.
 
 ## Secret codes
 - `*#*#33284*#*#`: Toggle debugging mode, allow the phone to be accessed with ADB and DevTools.
+
 - `*#06#`: Display the IMEI(s).
+
 - `*#0000#`: Display device information, such as firmware version, build date, model number, variant and CUID.
 
 ## Special boot modes
 - **Recovery mode**: With the device powered off, hold the top `Power` + `*`, or type `adb reboot recovery` when connected to a computer. Allows you to factory reset the device by wiping /data and /cache, view boot and kernel logs, and install patches from `adb sideload` interface or SD card.
+
 - **EDL mode**: With the device powered off, hold the top `Power` + `*` + `#`, or type `adb reboot edl` when connected to a computer. Boots into a black screen, allows you to read and write partitions in low-level with proprietary Qualcomm tools. Remove the battery to exit.
 
 EDL loader for the international version of this phone (not TA-1324) can be found on BananaHackers' [EDL archive site](https://edl.bananahackers.net/loaders/8k.mbn) with hardware ID 0x009600e100420029 (a copy is available [here](../main/8k.mbn)). The US version of this phone has been signed with a different PK_HASH and needs a different firehose loader which we currently don't have in archive.
