@@ -3,7 +3,7 @@
 | Released | 13 November 2020 |
 | Model | TA-1286, TA-1287, TA-1294, TA-1324 |
 | ***Specifications*** |  |
-| SoC | Qualcomm MSM8909 Snapdragon 210 (4 x 1.1Ghz Cortex-A7) |
+| SoC | Qualcomm MSM8909 Snapdragon 210<br>(4 x 1.1Ghz Cortex-A7) |
 | RAM | 512MB LPDDR2/3 |
 | GPU | Adreno 304 |
 | Storage | 4GB (+ up to 32GB microSDHC card) |
