@@ -41,7 +41,7 @@ echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 
 ### KaiOS nói chung
 
-- Tin nhắn không tự chuyển từ SMS sang MMS khi nhắn trong nhóm, dẫn tới phiền phức khi tin nhắn không gửi lên nhóm mà lại gửi riêng biệt đến từng người trong nhóm. Chỉ có thể tạm thời khắc phục bằng cách thêm "chủ đề" (*Tuỳ chọn > Thêm chủ đề*) hoặc thêm file đính kèm mỗi lần nhắn để nó chuyển sang gửi bằng MMS. *Cái này là vấn đề khi nhắn tin qua nhà mạng, dĩ nhiên ở nước mình nhắn Zalo với Facebook Messenger chứ không ai rảnh nhắn tin kiểu này để nhà mạng nó trừ tiền mỉnh ra :)*
+- Tin nhắn không tự chuyển từ SMS sang MMS khi nhắn trong nhóm, dẫn tới phiền phức khi tin nhắn không gửi lên nhóm mà lại gửi riêng biệt đến từng người trong nhóm. Chỉ có thể tạm thời khắc phục bằng cách thêm "chủ đề" (*Tuỳ chọn > Thêm chủ đề*) hoặc thêm file đính kèm mỗi lần nhắn để nó chuyển sang gửi bằng MMS.
 - Nếu di chuyển giữa mấy ô nhập liệu thì chế độ gõ T9 sẽ tự chuyển về mặc định, kiểu nếu bật gõ viết hoa, viết số hay tiên đoán từ ở lần gõ trước thì lần gõ sau phải tự bật lại kiểu gõ đấy.
 - Không đổi được âm báo tin nhắn mới hay âm báo báo thức ngoài danh sách được chỉ định, kể cả sau khi thiết lập trong Cài đặt. Hệ điều hành không quản lý hai loại này mà lại để cho app Tin nhắn (`sms.gaiamobile.org`) và Đồng hồ (`clock.gaiamobile.org`) tự quản lý.
   Để mà đổi 2 loại âm báo này thì cần phải root máy, sau đó dùng ADB để trích thư mục 2 app từ `/system/b2g/webapps`, giải nén, thay file nhạc mặc định rồi nén app lại và chuyển vào `/data/local/webapps`. Sau đó tiếp tục dùng ADB để trích xuất file `/data/local/webapps/webapps.json` và đổi cái `basePath` của 2 app từ `system/b2g/webapps` sang `/data/local/webapps`.
