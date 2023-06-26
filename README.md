@@ -9,7 +9,7 @@ Bạn có thể xem bản tiếng Việt của hướng dẫn này tại [đây]
 | RAM | 512MB LPDDR2/3 |
 | GPU | Adreno 304 |
 | Storage | 4GB (+ up to 32GB microSDHC card) |
-| Network | - 2G GSM<br>- 3G UMTS<br>- 4G LTE (Cat 4)<br>    + EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>   +  MENA, CN, SSA: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>    + US: band 2, 4, 5, 12, 17, 66, 71<br>    + LATAM: band 2, 3, 4, 5, 7, 28<br>    + ROW: band 1, 3, 5, 7, 8, 20, 38, 40<br>-   VoLTE & VoWiFi support<br>-   Single or Dual SIM (Nano-SIM, dual-standby) |
+| Network | - 2G GSM<br>- 3G UMTS<br>- 4G LTE (Cat 4)<br>+ EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>+  MENA, CN, SSA: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>+ US: band 2, 4, 5, 12, 17, 66, 71<br>+ LATAM: band 2, 3, 4, 5, 7, 28<br>+ ROW: band 1, 3, 5, 7, 8, 20, 38, 40<br>- VoLTE & VoWiFi support<br>- Single or Dual SIM (Nano-SIM, dual-standby) |
 | Screen | 320 x 240 (167 PPI)<br>2.4 inches QVGA TFT LCD, 16M colors |
 | Bluetooth | 4.0, A2DP, LE |
 | Wi-Fi | 802.11b/g/n, Hotspot |
@@ -49,6 +49,7 @@ echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 - Predictive typing mode doesn't last between inputs, meaning if you switch between input boxes, it'll return to the normal T9 mode.
 
 - You cannot change message notification tone or alarm tone on the phone outside the defaults provided. This is because both are not managed by the system, but by the Messages and Clock app themselves. 
+
   To change them, you'll have to use ADB to pull the apps from `/system/b2g/webapps`, extract, edit the audio files and repackage the apps, then push them back under `/data/local/webapps` and edit the `basePath` in `/data/local/webapps/webapps.json` to reflect the change (see [BananaHackers' guide](https://ivan-hc.github.io/bananahackers/clock-alarms.html#h.unmy3yif91xs) for instructions)
 
 - Alarms can be delayed if the Clock app is killed. Before going to sleep, make sure to open the Clock app and lock the phone without closing the app.
