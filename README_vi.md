@@ -67,12 +67,15 @@ echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 ## Code ẩn
 
 - `*#*#33284#*#*`: Bật/tắt chế độ gỡ lỗi để can thiệp sâu bên trong điện thoại bằng ADB và DevTools để cài ứng dụng bên ngoài, truy cập phân vùng hệ thống...
+
 - `*#06#`: Hiển thị Mã nhận dạng thiết bị quốc tế IMEI, dùng để khoá máy từ xa hoặc thử nghiệm ứng dụng trên Cổng phát hành ứng dụng KaiStore dành cho lập trình viên (KaiStore Submission Portal).
+
 - `*#0000#`: Hiển thị một số thông tin thiết bị như số phiên bản, ngày phát hành phiên bản, mã số máy và mã cập nhật CUID.
 
 ## Chế độ khởi động đặc biệt
 
 - **Chế độ phục hồi**: Khi máy đang tắt, nhấn giữ phím nguồn trên đỉnh máy và phím `*` cùng lúc; hoặc chạy lệnh `adb reboot recovery` khi đang kết nối với máy tính. Khi ở trong chế độ này, có thể xoá mọi dữ liệu trong máy bằng cách xoá phân vùng /data và /cache (đặc biệt hữu ích khi quên mã PIN mở máy), xem nhật ký và phát hiện các lỗi khi khởi động máy, cài file cập nhật thông qua `adb sideload` hoặc từ thẻ nhớ.
+
 - **Chế độ EDL**: Khi máy đang tắt, nhấn đồng thời phím nguồn trên đỉnh máy, phím `*` và `#`; hoặc chạy lệnh `adb reboot edl` khi đang kết nối với máy tính. Màn hình sẽ chớp logo `enabled by KaiOS` rồi tắt, lúc này nếu có file chữ ký phù hợp, có thể sử dụng phần mềm đặc chế của Qualcomm để thoải mái đọc và ghi phân vùng trên máy mà không bị hệ điều hành ngăn cấm. Để thoát chế độ này cần tháo và lắp lại pin.
 
 Kho lưu trữ file chữ ký EDL của BananaHackers có file chữ ký EDL dành cho các phiên bản máy Nokia 6300 4G không phải thị trường Hoa Kỳ (TA-1324), có thể tải về tại [đây](https://edl.bananahackers.net/loaders/8k.mbn) với ID phần cứng 0x009600e100420029 (repo có sẵn [1 bản dự phòng](https://github.com/minhduc-bui1/nokia-leo/blob/blob/main/8k.mbn)). Phiên bản thị trường Hoa Kỳ của máy này có chữ ký PK_HASH khác với bản quốc tế, do đó cần một file chữ ký EDL khác không có trong kho của BananaHackers.
