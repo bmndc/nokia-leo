@@ -83,10 +83,12 @@ echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 
 EDL loader for the international version of this phone (not TA-1324) can be found on BananaHackers' [EDL archive site](https://edl.bananahackers.net/loaders/8k.mbn) with hardware ID 0x009600e100420029 (a copy is available [here](../main/8k.mbn)). The US version of this phone has been signed with a different PK_HASH and needs a different firehose loader which we currently don't have in archive.
 
-# Sideloading and debugging third-party applications
-This phone and most other KaiOS 2.5.4 devices fall on the 1st category according to BananaHackers' definitions. That means they allow you to sideload and debug third-party apps, with a caveat that you aren't allowed to sideload apps with 'forbidden' permissions such as `engmode-extension` or debug pre-installed apps (details on bypassing these can be found belo
+## Sideloading and debugging third-party applications
+This phone and most other KaiOS 2.5.4 devices fall on the 1st category according to BananaHackers' definitions. This means they allow you to sideload and debug third-party apps, with a few caveats that you aren't allowed to sideload apps with 'forbidden' permissions such as `embed-apps`, `embed-widgets` and `engmode-extension`, or debug pre-installed apps.
 
-I've already written a thorough guide covering sideloading and debugging apps on all KaiOS devices, which also applies to this phone, over a [BananaHackers Wiki](https://wiki.bananahackers.net) page that you should check out.
+I've already written a thorough guide covering sideloading and debugging apps on all KaiOS devices (also applies to this phone) over a [BananaHackers Wiki](https://wiki.bananahackers.net) page that you should check out.
+
+*Do note that OmniSD, one of the methods used for on-device sideloading, requires the `navigator.mozApps.mgmt.import` API that has been removed on KaiOS 2.5.2.2 and later.*
 
 # ROOT: Boot partition patching (non-US only)
 On the 6300 4G, 8000 4G and other KaiOS 2.5.4 devices, ADB and WebIDE can be used to sideload third-party applications. However, you won't be able to sideload apps that has ‘forbidden’ permissions (namely `engmode-extension` which can be used to gain exclusive access of the phone, and can be found in most BananaHackers-made apps like Wallace Toolbox) or make changes to the system. Because in order to achieve WhatsApp VoIP feature on this KaiOS version, the security module SELinux is now set to be `Enforced` which checks and reverts system modifications on boot. To gain total read-write access to the device, you'll now have to permanently root the device by setting SELinux to `Permissive` mode.
