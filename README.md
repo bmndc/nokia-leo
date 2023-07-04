@@ -40,7 +40,7 @@
 | Wi-Fi | 802.11b/g/n, Hotspot |
 | Peripherals | GPS |
 | Cameras | Rear: VGA, LED flash |
-| Dimensions<br>(H x W x D) | 131.4 x 53 x 13.7 (mm)<br>5.17 x 2.09 x 0.54 (in) |
+| Dimensions<br>(H x W x D) | 131.4 * 53 * 13.7 (mm)<br>5.17 * 2.09 * 0.54 (in) |
 | Weight | 104.7g (3.70oz) |
 | Ports | - microUSB charging & USB 2.0 data transferring port<br>- 3.5mm headphone jack |
 | Battery | Removable Li-Ion 1500mAh (BL-4XL) |
