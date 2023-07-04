@@ -1,4 +1,4 @@
-![Nokia 6300 4G](/assets/nokia_6300_4G-emotional-Range.png)
+![Nokia 6300 4G](/assets/nokia_6300_4G-emotional-Range-150px.png)
 
 ### Table of Contents
 
