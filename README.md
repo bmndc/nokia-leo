@@ -1,4 +1,4 @@
-![Nokia 6300 4G](/assets/nokia_6300_4G-emotional-Range-150px.png)
+<img align="center" src="assets/nokia_6300_4G-emotional-Range.png" width="500"/>
 
 ### Table of Contents
 
