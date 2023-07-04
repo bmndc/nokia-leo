@@ -1,4 +1,6 @@
-<img align="center" src="assets/nokia_6300_4G-emotional-Range.png" width="500"/>
+<p align="center">
+  <img src="assets/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G" width="500"/>
+</p>
 
 ### Table of Contents
 
@@ -70,7 +72,7 @@ echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 - Of course, missing features.
 
 ## Secret codes
-- `*#*#33284*#*#`: Toggle debugging mode, allow the phone to be accessed with ADB and DevTools.
+- `*#*#33284*#*#`: Toggle debugging mode, allow the phone to be accessed with ADB and DevTools. A bug icon will appear in the status bar letting you know debugging mode is on. This mode can also be turned on under *Settings > Device > Developer > Debugger > ADB and DevTools*.
 - `*#06#`: Display the IMEI(s).
 - `*#0000#`: Display device information, such as firmware version, build date, model number, variant and CUID.
 
@@ -146,7 +148,7 @@ Additionally, if you have issue with device access:
 - Open `/etc/modprobe.d/blacklist.conf` in a text editor and append `blacklist qcserial`.
 - Copy both `51-edl.rules` and `50-android.rules` in the root of extracted EDL tools folder to `/etc/udev/rules.d`.
 
-### MacOS
+### macOS
 1. Follow the instructions to install Homebrew on [its homepage](https://brew.sh). Basically just open Terminal and copy the long streak of code shown on the page, and type your password when prompted.
 2. While you're in Terminal, type this into the command-line:
 ```console
@@ -159,17 +161,17 @@ brew install python android-platform-tools libusb && pip3 install pyusb pyserial
 ### Windows
 1. Open the Python installer and proceed with installation. Remember to tick the box next to "Add python.exe to PATH". This would make Python able to be called everywhere in the command-line instead of specifically pointing to its folder, which the next part of the guide won't cover on.
 
-![python.png](/assets/python.png)
+![Demostration of a installation window for Python 3.9 showing two options, 'Install Now' and 'Customize installation', with the checkbox for 'Add Python 3.9 to PATH' being selected](/assets/python.png)
 
 2. Open Command Prompt with administrator privileges and run this command:
 ```console
 pip3 install pyusb pyserial capstone keystone-engine docopt
 ```
-![pythoooon.png](/assets/pythoooon.png)
+![Demostration of a command-line window showing the successful process of collecting and downloading dependencies after typing the above command](/assets/pythoooon.png)
 
 3. Open the extracted EDL tools folder, go to the Drivers > Windows folder and run `Qualcomm_Diag_QD_Loader_2016_driver.exe` with administrator rights. Proceed with installation and leave everything as default, restart the computer if it prompts you to do so.
 
-![whatever.png](/assets/whatever.png)
+![Demostration of a installation window for Qualcomm's diagnostic driver, in which two radio buttons are shown labelled 'WWAN-DHCP is not used to get IPAddress' and 'ETHERNET-DHCP is used to get IPAddress' respectively. The first button is selected.](/assets/whatever.png)
 
 4. Switch your phone to EDL mode and connect it to your computer.
   - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
@@ -179,9 +181,9 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 
 5. Run the Zadig tool and select *Options > List All Devices*. In the front dropdown menu, select `QHSUSB__BULK` (your device in EDL mode). In the target driver box (which the green arrow is pointing to), click on the up/down arrows until you see `libusb-win32` and click on Replace Driver.
 
-![listall.png](/assets/listall.png)
-![qhsusb.png](/assets/qhsusb.png)
-![arg.png](/assets/arg.png)
+![Demostration of Zadig program with the Option dropdown menu shown, in which the List All Devices option is highlighted and selected](/assets/listall.png)
+![Demostration of Zadig's main interface with the front dropdown list shown listing all devices connected to computer, in which the option for QHSUSB_BULK is highlighted](/assets/qhsusb.png)
+![Demostration of Zadig's main interface with the second label box on the Drivers line, which the green arrow points to, showing 'libusb-win32 (v1.2.6.0)'. Two smaller up/down arrows are shown to the right of that box.](/assets/arg.png)
 
 6. If you're installing the driver for the first time, an "USB Device Not Recognised" pop-up may appear. Exit EDL mode by removing and re-inserting the battery, then turn on the phone in EDL mode again.
 
@@ -251,33 +253,33 @@ You can disconnect the phone from your computer for now.
 ### Automatic patching with `8k-boot-patcher`
 1. Follow Docker's tutorial on installing Docker Desktop. Once set up, open the program, click Accept on this box and let the Docker Engine start before exiting.
 
-![docker_abomination.png](/assets/docker_abomination.png)
+![Demostration of a window titled as 'Docker Subscription Service Agreement' which declares that you will have to accept Docker's Subscription Service Agreements, Data Processing Agreement and Data Privacy Policy in order to use the program, and the free scope of it is limited to personal and small business uses. The window also lists the options to view the full agreements, accept them or reject and close the program.](/assets/docker_abomination.png)
 
 2. Clone/download the boot patcher toolkit by typing this into a command-line window. This will download the toolkit and have Docker set it up. Do not omit the dot/period at the end of this command, this tells Docker where our downloaded toolkit are located on the system.
 ```console
 git clone https://gitlab.com/suborg/8k-boot-patcher.git && cd 8k-boot-patcher && docker build -t 8kbootpatcher .
 ```
-![docker_build.png](/assets/docker_build.png)
+![Demostration of a macOS Terminal window showing some logs in purple text after typing the command above](/assets/docker_build.png)
 
 3. Copy the `boot.img` file we've just pulled from our phone to the desktop and do not change its name. Type this into the command-line to run the patching process:
 ```console
 docker run --rm -it -v ~/Desktop:/image 8kbootpatcher
 ```
-![docker_patch.png](/assets/docker_patch.png)
+![Demostration of a macOS Terminal window listing a list of processed files after typing the command above](/assets/docker_patch.png)
 
 That's it! On your desktop there will be two new image files, the patched `boot.img` and the original `boot-orig.img`. You can now head to part 4.
 
-![after_patch.png](/assets/after_patch.png)
+![Demostration of boot.img and boot-orig.img files as shown on desktop](/assets/after_patch.png)
 
 ### Manual patching with Android Image Kitchen
 
 1. Open the extracted Android Image Kitchen tools folder and copy the boot image we've just obtained over to the root of it.
 
-![aik.png](/assets/aik.png)
+![Demostration of a list of folders and files contained in the extracted Android Image Kitchen folder](/assets/aik.png)
 
 2. Open the folder in a command-line window and type `unpackimg boot.img`. This will split the image file and unpack the ramdisk to their subdirectories.
 
-![unpack.png](/assets/unpack.png)
+![Demostration of a Windows Command Prompt window showing some logs of the boot partition extracting process after typing the command above](/assets/unpack.png)
 
 **Be sure to edit the files correctly, else the phone won't boot!**
 
@@ -287,28 +289,28 @@ That's it! On your desktop there will be two new image files, the patched `boot.
 - line 8: `security.perf_harden=1` -> `security.perf_harden=0`
 - line 10: `ro.debuggable=0` -> `ro.debuggable=1`
 
-![default_prop.png](/assets/default_prop.png)
-![default_prop_edited.png](/assets/default_prop_edited.png)
+![Demostration of the original content of the default.prop file](/assets/default_prop.png)
+![Demostration of the modified content of the default.prop file](/assets/default_prop_edited.png)
 
 4. Open `ramdisk/init.qcom.early_boot.sh` in Notepad++ and add `setenforce 0` as a new line at the end of the file.
 
-![setenforce.png](/assets/setenforce.png)
+![Demostration of the modified content of the init.qcom.early_boot.sh file](/assets/setenforce.png)
 
 5. Go back to the root Android Image Kitchen folder and open `boot.img-cmdline` in Notepad++. Scroll to the end of the line and append `androidboot.selinux=permissive enforcing=0` at the end of it without adding a new line.
 
-![append.png](/assets/append.png)
+![Demostration of the modified content of the boot.img-cmdline file](/assets/append.png)
 
 6. Open `ramdisk/init.rc` (NOT `ramdisk/init`) and delete the reference of `setprop selinux.reload_policy 1` at line 393. This will ultimately prevent SELinux from overwriting the policy changes we made above. 
 
-![reload_policy.png](/assets/reload_policy.png)
+![Demostration of the modified content of the init.rc file, with line 393 marked as comment. This has the same effects as deleting the line altogether.](/assets/reload_policy.png)
 
 7. And that's a wrap! Open the root Android Image Kitchen folder in a command-line window and type `repackimg` to package our patched boot partition.
 
-![repack_unsigned.png](/assets/repack_unsigned.png)
+![Demostration of a Windows Command Prompt window showing some logs of the boot partition repacking process after typing the above command, but has a signing error at the end](/assets/repack_unsigned.png)
 
 *If you happen to encounter an error during the signing process, that's likely because the process uses `java` to power the `boot-signer.jar` sequence and you don't have it installed. The image will still be packaged and ready for flashing, but if you're a perfectionist, you can install JRE and try again.*
 
-![repackimg_signed.png](/assets/repackimg_signed.png)
+![Demostration of a Windows Command Prompt window showing some logs of the fully successful boot partition process](/assets/repackimg_signed.png)
 
 If the newly packaged image is barely over 1/3 the size of the original image, it's a normal behaviour and you can proceed.
 
