@@ -86,7 +86,7 @@ EDL loader for the international version of this phone (not TA-1324) can be foun
 ## Sideloading and debugging third-party applications
 This phone and most other KaiOS 2.5.4 devices fall on the 1st category according to BananaHackers' definitions. This means they allow you to sideload and debug third-party apps, with a few caveats that you aren't allowed to sideload apps with 'forbidden' permissions such as `embed-apps`, `embed-widgets` and `engmode-extension`, or debug pre-installed apps.
 
-I've already written a thorough guide covering sideloading and debugging apps on all KaiOS devices (also applies to this phone) over a [BananaHackers Wiki](https://wiki.bananahackers.net) page that you should check out.
+I've already written a thorough guide covering sideloading and debugging apps on all KaiOS devices (also applies to this phone) over a [BananaHackers Wiki](https://wiki.bananahackers.net/development/webide) page that you should check out.
 
 *Do note that OmniSD, one of the methods used for on-device sideloading, requires the `navigator.mozApps.mgmt.import` API that has been removed on KaiOS 2.5.2.2 and later.*
 
