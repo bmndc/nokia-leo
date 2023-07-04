@@ -2,6 +2,8 @@
   <img src="assets/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G" width="500"/>
 </p>
 
+*For folks with assistive readers, this README includes somewhat-proper alternate texts for images. I'd also love to hear some suggestions on improving accessibility for this guide — please open an issue if you have one.*
+
 ### Table of Contents
 
 - [Tips and tricks](#tips-and-tricks)
@@ -50,8 +52,11 @@
 | Build number | (TA-1286) 12.00.17.01, 20.00.17.01, 30.00.17.01 |
 
 ## Tips and tricks
-- To take a screenshot, press both `*` and `#` keys.
+- To take a screenshot, press both `*` and `#` keys simultaneously.
 - On the home screen, hold down a number key (1-9) to set up and activate Speed dial.
+- To activate the hidden Readout screen reader feature, open the phone's Browser, go to https://cyan-2048.github.io/kaios_scripts, then use the D-Pad to move the mouse and select the *Screen Reader* option.
+- KaiOS accounts are NOT mandatory for the phone' operations or downloading apps from KaiStore, but they can be set up under *Settings > Accounts* if you need them anyways.
+- Do not use Anti-Theft even if you value your phone. The feature is practically useless, based on my personal experience: there's no detecting the location of the phone via GPS or mobile data, the options are only to play 5 minutes of sounds (which can be muted simply by removing the battery), lock the phone with alphanumerical passcode, or erase its internal storage (you're out of luck if you have an SD card in the phone).
 
 ## Known issues
 - RAM optimizations leading to aggressive background task killing. This can be mitigated by rooting the phone, then append this line in the startup script in /boot to disable the 'low memory killer' function. Don't forget to add a swapfile afterwards:
@@ -61,12 +66,13 @@ echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 - Keypad recognizing double-presses instead of single-presses. This is due to the short keypress timeout interval in `keyboard.gaiamobile.org` and can be fixed by following this [BananaHackers' guide on fixing the keypad speed](https://ivan-hc.github.io/bananahackers/fix-the-keypad-speed.html)
 - Battery draining heavily if you leave Wi-Fi on at all time. Try turning it off if you don't use it.
 - Incorrect GPS on LTE. Not sure why, but you'll have to switch to 2G/3G for the phone to retrieve GPS information properly.
-- If you forgot your lockscreen passcode, you can bypass it by holding down the top Power button, then select Memory Cleaner and Deep Memory Cleaning.
+- If you forgot your lockscreen passcode (not SIM or Anti-Theft one), you can bypass it by holding down the top Power button, then select Memory Cleaner and Deep Memory Cleaning.
 
 ### KaiOS-specific
 - Text messages don't automatically convert to MMS in group chats. You'll have to add a message subject or file attachment before sending to manually do so, otherwise your message will be sent separately to each individual in the thread.
 - Predictive typing mode doesn't last between inputs, meaning if you switch between input boxes, it'll return to the normal T9 mode.
-- You cannot change message notification tone or alarm tone on the phone outside the defaults provided. This is because both are not managed by the system, but by the Messages and Clock app themselves.<br>To change them, you'll have to use ADB to pull the apps from `/system/b2g/webapps`, extract, edit the audio files and repackage the apps, then push them back under `/data/local/webapps` and edit the `basePath` in `/data/local/webapps/webapps.json` to reflect the change (see [BananaHackers' guide](https://ivan-hc.github.io/bananahackers/clock-alarms.html#h.unmy3yif91xs) for instructions)
+- You cannot change message notification tone or alarm tone on the phone outside the defaults provided. This is because both are not managed by the system, but by the Messages and Clock app themselves.
+  - To change them, you'll have to use ADB to pull the apps from `/system/b2g/webapps`, extract, edit the audio files and repackage the apps, then push them back under `/data/local/webapps` and edit the `basePath` in `/data/local/webapps/webapps.json` to reflect the change (see [BananaHackers' guide](https://ivan-hc.github.io/bananahackers/clock-alarms.html#h.unmy3yif91xs) for instructions)
 - Alarms can be delayed if the Clock app is killed. Before going to sleep, make sure to open the Clock app and lock the phone without closing the app.
 - Built-in email, calendar and contact syncing function with Google account may completely fail at times. Use IMAP and import contacts instead.
 - Speaking of calendar, if you manage to sync your Google account with the phone, only the calendar *with your email address as its name* will sync.
