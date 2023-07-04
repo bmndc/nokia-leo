@@ -24,8 +24,7 @@
 - [Source code](#source-code)
 - [External links](#external-links)
 
-|     | **Nokia 6300 4G (nokia-leo)** |
-| --- | --- |
+| Codename | nokia-leo |
 | Released | 13 November 2020 |
 | Model | TA-1286, TA-1287, TA-1294, TA-1324 |
 | ***Specifications*** |  |
