@@ -1,4 +1,6 @@
-## Table of Contents
+![Nokia 6300 4G](/assets/nokia_6300_4G-emotional-Range.png)
+
+### Table of Contents
 
 - [Tips and tricks](#tips-and-tricks)
 - [Known issues](#known-issues)
@@ -344,7 +346,7 @@ python edl.py -w boot boot.img -loader 2720.mbn
 python edl.py w boot boot.img --loader=8k.mbn
 python edl.py reset
 ```
-![edl_bootog.png](/assets/edl_bootog.png)
+![Demostration of a command-line window showing the results after typing the first command above](/assets/edl_bootog.png)
 
 ## Source code
 
