@@ -9,6 +9,7 @@
   - [KaiOS-specific](#kaios-specific)
 - [Secret codes](#secret-codes)
 - [Special boot modes](#special-boot-modes)
+- [Sideloading and debugging third-party applications](#sideloading-and-debugging-third-party-applications)
 - [ROOT: Boot partition patching (non-US only)](#root-boot-partition-patching-non-us-only)
   - [What we'll need](#what-well-need)
   - [Part 1: Set up environment for EDL tools](#part-1-set-up-environment-for-edl-tools)
@@ -43,7 +44,7 @@
 | Ports | - microUSB charging & USB 2.0 data transferring port<br>- 3.5mm headphone jack |
 | Battery | Removable Li-Ion 1500mAh (BL-4XL) |
 | Specials | TBD |
-| ***KaiOS info*** |  |
+| ***KaiOS info*** |     |
 | Version | KaiOS 2.5.4 |
 | Build number | (TA-1286) 12.00.17.01, 20.00.17.01, 30.00.17.01 |
 
@@ -81,6 +82,11 @@ echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 - **EDL mode**: With the device powered off, hold the top `Power` + `*` + `#`, or type `adb reboot edl` when connected to a computer. Boots into a black screen, allows you to read and write partitions in low-level with proprietary Qualcomm tools. Remove the battery to exit.
 
 EDL loader for the international version of this phone (not TA-1324) can be found on BananaHackers' [EDL archive site](https://edl.bananahackers.net/loaders/8k.mbn) with hardware ID 0x009600e100420029 (a copy is available [here](../main/8k.mbn)). The US version of this phone has been signed with a different PK_HASH and needs a different firehose loader which we currently don't have in archive.
+
+# Sideloading and debugging third-party applications
+This phone and most other KaiOS 2.5.4 devices fall on the 1st category according to BananaHackers' definitions. That means they allow you to sideload and debug third-party apps, with a caveat that you aren't allowed to sideload apps with 'forbidden' permissions such as `engmode-extension` or debug pre-installed apps (details on bypassing these can be found belo
+
+I've already written a thorough guide covering sideloading and debugging apps on all KaiOS devices, which also applies to this phone, over a [BananaHackers Wiki](https://wiki.bananahackers.net) page that you should check out.
 
 # ROOT: Boot partition patching (non-US only)
 On the 6300 4G, 8000 4G and other KaiOS 2.5.4 devices, ADB and WebIDE can be used to sideload third-party applications. However, you won't be able to sideload apps that has ‘forbidden’ permissions (namely `engmode-extension` which can be used to gain exclusive access of the phone, and can be found in most BananaHackers-made apps like Wallace Toolbox) or make changes to the system. Because in order to achieve WhatsApp VoIP feature on this KaiOS version, the security module SELinux is now set to be `Enforced` which checks and reverts system modifications on boot. To gain total read-write access to the device, you'll now have to permanently root the device by setting SELinux to `Permissive` mode.
