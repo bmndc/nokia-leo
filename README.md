@@ -54,7 +54,6 @@
 - On the home screen, hold down a number key (1-9) to set up and activate Speed dial.
 - To activate the hidden Readout screen reader feature, open the phone's Browser, go to https://cyan-2048.github.io/kaios_scripts, then use the D-Pad to move the mouse and select the *Screen Reader* option.
 - KaiOS accounts are NOT mandatory for the phone' operations or downloading apps from KaiStore, but they can be set up under *Settings > Accounts* if you need them anyways.
-- Do not use Anti-Theft even if you value your phone. The feature is practically useless, based on my personal experience: there's no detecting the location of the phone via GPS or mobile data, the options are only to play 5 minutes of sounds (which can be muted simply by removing the battery), lock the phone with alphanumerical passcode, or erase its internal storage (you're out of luck if you have an SD card in the phone).
 
 ## Known issues
 - RAM optimizations leading to aggressive background task killing. This can be mitigated by rooting the phone, then append this line in the startup script in /boot to disable the 'low memory killer' function. Don't forget to add a swapfile afterwards:
