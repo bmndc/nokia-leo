@@ -2,8 +2,6 @@
   <img src="assets/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G" width="500"/>
 </p>
 
-*For folks with assistive readers, this README includes somewhat-proper alternate texts for images. I'd also love to hear some suggestions on improving accessibility for this guide — please open an issue if you have one.*
-
 ### Table of Contents
 
 - [Tips and tricks](#tips-and-tricks)
