@@ -79,7 +79,7 @@ echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 - Predictive typing mode doesn't last between inputs, meaning if you switch between input boxes, it'll return to the normal T9 mode.
 - You cannot change message notification tone or alarm tone on the phone outside the defaults provided. This is because both are not managed by the system, but by the Messages and Clock app themselves.
   - To change them, you'll have to use ADB to pull the apps from `/system/b2g/webapps`, extract, edit the audio files and repackage the apps, then push them back under `/data/local/webapps` and edit the `basePath` in `/data/local/webapps/webapps.json` to reflect the change (see [BananaHackers' guide](https://ivan-hc.github.io/bananahackers/clock-alarms.html#h.unmy3yif91xs) for instructions)
-- Alarms can be delayed if the Clock app is killed. Before going to sleep, make sure to open the Clock app and lock the phone without closing the app.
+- Alarms can be delayed if the Clock app is killed. Before going to sleep, make sure to open the Clock app and lock the phone without pressing the End call key and closing the app.
 - Built-in email, calendar and contact syncing function with Google account may completely fail at times. Use IMAP and import contacts instead.
 - Speaking of calendar, if you manage to sync your Google account with the phone, only the calendar *with your email address as its name* will sync.
 - Apps like Contacts and Music are written in performance-intensive React and therefore render significantly slow if you store lots of contact entries and audio files.
