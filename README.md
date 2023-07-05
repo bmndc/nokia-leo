@@ -238,7 +238,7 @@ You can disconnect the phone from your computer for now, and start [patching the
 ---
 </details>
 
-> Beware: this version of the EDL tools only accepts one command each session, after which you'll have to disconnect the phone and restart the phone in EDL mode. If you try to throw a second command, it'll result in a `bytearray index out of range` error.
+> Beware: due to the firehose loader being malfunctioned, the EDL tool only accepts one command each session, after which you'll have to disconnect the phone and restart the phone in EDL mode. If you try to throw a second command, it'll result in a `bytearray index out of range` error.
 
 1. Turn on the phone in EDL mode.
 
