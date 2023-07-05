@@ -62,8 +62,8 @@ echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 ```
 - Keypad recognizing double-presses instead of single-presses. This is due to the short keypress timeout interval in `keyboard.gaiamobile.org` and can be fixed by following this [BananaHackers' guide on fixing the keypad speed](https://ivan-hc.github.io/bananahackers/fix-the-keypad-speed.html)
 - Battery draining heavily if you leave Wi-Fi on at all time. Try turning it off if you don't use it.
-- Incorrect GPS on LTE. Not sure why, but you'll have to switch to 2G/3G for the phone to retrieve GPS information properly.
-- If you forgot your lockscreen passcode (not SIM or Anti-Theft one), you can bypass it by holding down the top Power button, then select Memory Cleaner and Deep Memory Cleaning.
+- Incorrect GPS on LTE. Not sure why, but you'll have to switch to 2G/3G for the phone to retrieve GPS information properly (*Settings > Mobile network & data > Carrier - SIMx > Network type > 3G/2G*)
+- If you forgot your lockscreen passcode (not SIM or Anti-Theft one), you can bypass it by holding down the top Power button, then select *Memory Cleaner* and *Deep Memory Cleaning*.
 
 ### KaiOS-specific
 - The 6300 4G runs KaiOS 2.5, which itself is based on Gecko 48 from 2016, meaning without optimizations and new web technologies, some websites like Instagram and Uber just fall apart and the overall performance is unbearable.
