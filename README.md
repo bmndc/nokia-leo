@@ -44,14 +44,14 @@
 | Weight | 104.7g (3.70oz) |
 | Ports | - microUSB charging & USB 2.0 data transferring port<br>- 3.5mm headphone jack |
 | Battery | Removable Li-Ion 1500mAh (BL-4XL) |
-| Specials | TBD |
-| ***KaiOS info*** |     |
+| ***KaiOS info*** |  |
 | Version | KaiOS 2.5.4 |
 | Build number | (TA-1286) 12.00.17.01, 20.00.17.01, 30.00.17.01 |
 
 ## Tips and tricks
 - To take a screenshot, press both `*` and `#` keys simultaneously.
-- On the home screen, hold down a number key (1-9) to set up and activate Speed dial.
+- On the home screen, hold down a number key (2-9) to set up and activate Speed dial.
+- Also on the home screen, hold down 0 to quickly open Browser.
 - To activate the hidden Readout screen reader feature, open the phone's Browser, go to https://cyan-2048.github.io/kaios_scripts, then use the D-Pad to move the mouse and select the *Screen Reader* option.
 - KaiOS accounts are NOT mandatory for the phone' operations or downloading apps from KaiStore, but they can be set up under *Settings > Accounts* if you need them anyways.
 
@@ -67,6 +67,8 @@ echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 
 ### KaiOS-specific
 - The 6300 4G runs KaiOS 2.5, which itself is based on Gecko 48 from 2016, meaning without optimizations and new web technologies, some websites like Instagram and Uber just fall apart and the overall performance is unbearable.
+- D-Pad shortcuts and app shortcuts in the carousel menu (when you press Left on the home screen) are not customizable by default. *The former apparently has been allowed on KaiOS 3*, but to change them on this phone you'll have to change the homescreen launcher altogether.
+  - Once you've sideloaded an alternative launcher, use Cyan's [Launcher Switcher](../main/Launcher_Switcher.zip) to switch to the new launcher.
 - Text messages don't automatically convert to MMS in group chats. You'll have to add a message subject or file attachment before sending to manually do so, otherwise your message will be sent separately to each individual in the thread.
 - Predictive typing mode doesn't last between inputs, meaning if you switch between input boxes, it'll return to the normal T9 mode.
 - You cannot change message notification tone or alarm tone on the phone outside the defaults provided. This is because both are not managed by the system, but by the Messages and Clock app themselves.
