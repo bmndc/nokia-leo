@@ -50,8 +50,14 @@
 
 ## Tips and tricks
 - To take a screenshot, press both `*` and `#` keys simultaneously.
-- On the home screen, hold down a number key (2-9) to set up and activate Speed dial.
-- Also on the home screen, hold down 0 to quickly open Browser.
+- On the home screen:
+  - Hold down the Up key to quickly toggle flashlight.
+  - Hold down either the Power button, Back or End call keys to trigger the Power menu.
+  - Hold down 1 to listen to voicemails.
+  - Hold down other number keys (2-9) to set up and activate Speed dial.
+  - Hold down 0 to quickly open Browser.
+  - Hold down * to quickly lock the phone.
+  - Hold down # to toggle between Ringer and Vibrate mode.
 - To activate the hidden Readout screen reader feature, open the phone's Browser, go to https://cyan-2048.github.io/kaios_scripts, then use the D-Pad to move the mouse and select the *Screen Reader* option.
 - KaiOS accounts are NOT mandatory for the phone' operations or downloading apps from KaiStore, but they can be set up under *Settings > Accounts* if you need them anyways.
 
