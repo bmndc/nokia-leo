@@ -79,3 +79,20 @@ echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 - **Chế độ EDL**: Khi máy đang tắt, nhấn đồng thời phím nguồn trên đỉnh máy, phím `*` và `#`; hoặc chạy lệnh `adb reboot edl` khi đang kết nối với máy tính. Màn hình sẽ chớp logo `enabled by KaiOS` rồi tắt, lúc này nếu có file chữ ký phù hợp, có thể sử dụng phần mềm đặc chế của Qualcomm để thoải mái đọc và ghi phân vùng trên máy mà không bị hệ điều hành ngăn cấm. Để thoát chế độ này cần tháo và lắp lại pin.
 
 Kho lưu trữ file chữ ký EDL của BananaHackers có file chữ ký EDL dành cho các phiên bản máy Nokia 6300 4G không phải thị trường Hoa Kỳ (TA-1324), có thể tải về tại [đây](https://edl.bananahackers.net/loaders/8k.mbn) với ID phần cứng 0x009600e100420029 (repo có sẵn [1 bản dự phòng](https://github.com/minhduc-bui1/nokia-leo/blob/blob/main/8k.mbn)). Phiên bản thị trường Hoa Kỳ của máy này có chữ ký PK_HASH khác với bản quốc tế, do đó cần một file chữ ký EDL khác không có trong kho của BananaHackers.
+
+## Hướng dẫn cài ứng dụng bên thứ ba
+
+# Tiếng Việt
+
+1. Kiểm tra trên [BananaHackers Wiki](https://wiki.bananahackers.net/devices) và chắc chắn rằng điện thoại có thể cài được ứng dụng từ bên ngoài.
+2. Mở Trình duyệt trên điện thoại, vào trang https://w2d.bananahackers.net. Dùng phím điều hướng để di chuyển con trỏ chuột và kích vào nút *Launch Developer menu*.
+3. Chọn *Trình gỡ lỗi > ADB và DevTools*, sau đó nối dây USB từ điện thoại vào máy tính.
+4. Trên máy tính, tải xuống [ADB](https://developer.android.com/tools/releases/platform-tools). Giải nén file vừa tải về, mở Command Prompt hoặc Terminal và trỏ đến thư mục vừa giải nén.
+5. Gõ lệnh `adb devices`. Nếu thấy `device` xuất hiện thì có thể sang bước tiếp theo, không thì kiểm tra xem có bỏ bước nào không.
+6. Tiếp tục tải xuống và cài đặt [Waterfox Classic](https://classic.waterfox.net). Sau khi cài xong, mở Waterfox Classic, chọn nút 3 gạch bên phải cùng thanh địa chỉ, sau đó chọn *Developer > WebIDE*.
+7. Nếu thấy tên điện thoại ở mục USB Devices trên cùng thanh bên phải thì kích vào để kết nối. Nếu không thì mở lại Command Prompt/Terminal gõ lệnh:
+```
+adb forward tcp:6000 localfilesystem:/data/local/debugger-socket
+```
+8. Vào lại WebIDE, chọn mục *Remote Runtime* ở thanh bên phải, giữ nguyên `localhost:6000` và nhấn OK. Nếu vẫn không được thì cần kiểm tra lại xem có bỏ bước nào không.
+9. Sau khi kết nối thành công, chọn mục thứ 2 Open Packaged Apps ở trên cùng thanh bên trái, sau đó tìm đến thư mục app cần cài trên điện thoại. Nhấn nút tam giác *Install and Run* ở thanh trên cùng để tiến hành cài app vào máy.
