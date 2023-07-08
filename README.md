@@ -63,13 +63,13 @@ To spot out the counterfeits:
   - It took only like 10 seconds to boot, it showed KaiOS briefly, then did the old Nokia chime.
   - Speaker quality is awful.
   - The face buttons are low quality and aren't flush with the surface, some of them are crooked even.
-- Remove the battery and look for suspicions with the printed information on the sticker, i.e. if the CODE is 23BTS70**VN**00, it is intended to sold in Vietnam only. You can also check in the OS by dialing *#0000#.
+- Remove the battery and look for suspicions with the printed information on the sticker, i.e. if the CODE is 23BTS70**VN**00, it is intended to sold in Vietnam only. You can also look for it in the OS by dialing *#0000#.
 - If the user interface looks off with weird alignments and margins between elements, that's also a clue.
 - Under all circumstances, all KaiOS 2.5 devices should have services like KaiStore installed by default.
 - Browser is NOT Opera Mini 4.4. KaiOS does NOT run Java apps or MRE apps (sorry to retro gamers out there).
 - If you have access to a computer, try connecting the phone to it and see if the actual phone storage is significantly less than advertised.
 
-Remember, **only buy from trusted, reputable sources**, even if they have higher prices. That higher cost guarantees that you're buying a genuine device.
+Remember, **only buy from trusted, reputable sources**, even if they have higher prices. That higher cost usually guarantees that you're buying a genuine device.
 
 ## Tips and tricks
 - To take a screenshot, press both `*` and `#` keys simultaneously.
