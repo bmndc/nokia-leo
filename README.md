@@ -59,12 +59,10 @@ To spot out the counterfeits:
 - HMD/Nokia Mobile does NOT sell any of their KaiOS devices with 2G only. KaiOS devices are required to have at least 3G, as 2G is being phased out in many places.
 - Different packaging: 8110 4G and 2720 Flip comes in transparent plastic boxes with flaps on top and bottom sides, while 6300 4G comes in cardboard box. Look out for advertising prints on the box for missing features, bad quality printing, weird grammar or letter spacing as well.
 - Terrible build quality when comparing side-by-side. [To quote u/cannotelaborate on Reddit](https://www.reddit.com/r/KaiOS/comments/xglkr7/well_darn_it_i_just_received_a_counterfeit_nokia):
-
-> * Build quality is horrific, the battery and sim cards barely fit in there.
-> * It took only like 10 seconds to boot, it showed KaiOS briefly, then did the old Nokia chime.
-> * Speaker quality is awful.
-> * The face buttons are low quality and aren't flush with the surface, some of them are crooked even.
-
+  - Build quality is horrific, the battery and sim cards barely fit in there.
+  - It took only like 10 seconds to boot, it showed KaiOS briefly, then did the old Nokia chime.
+  - Speaker quality is awful.
+  - The face buttons are low quality and aren't flush with the surface, some of them are crooked even.
 - Remove the battery and look out for any suspicions in the printed information on the body of the phone, i.e. if the CODE is 23BTS70**VN**00, it is intended to sold in Vietnam only. You can also check in the OS by dialing *#0000#.
 - If the UI design looks a bit off with weird alignments and margins between elements, that's also a clue of no-no.
 - All KaiOS devices should have services like KaiStore installed by default, under all circumstances.
