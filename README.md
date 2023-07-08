@@ -51,25 +51,25 @@
 
 ## Before making the decision
 
-**BEWARE OF COUNTERFEIT DEVICES!** There have been lots of KaiOS devices, such as the Nokia 8110 4G, 2720 Flip and 6300 4G selling at numerous tech stores and online sites for amazingly cheap prices; those turned out to be counterfeits and did not bring the experiences that people expected, and the store gets away with it as you wouldn't be able to get a refund.
+**BEWARE OF COUNTERFEIT DEVICES!** Many KaiOS devices, such as the Nokia 8110 4G, 2720 Flip and 6300 4G are being sold at numerous tech stores and online sites for amazingly cheap prices; those turned out to be counterfeits and did not bring the experiences that people expected, and the store gets away with it as you wouldn't be able to get a refund.
 
 To spot out the counterfeits:
 
-- Brand-new KaiOS devices, even after their lifespan on the shelf, do NOT cost less than 60% of their original price.
-- HMD/Nokia Mobile does NOT sell any of their KaiOS devices with 2G only. KaiOS devices are required to have at least 3G, as 2G is being phased out in many places.
-- Different packaging: 8110 4G and 2720 Flip comes in transparent plastic boxes with flaps on top and bottom sides, while 6300 4G comes in cardboard box. Look out for advertising prints on the box for missing features, bad quality printing, weird grammar or letter spacing as well.
+- Brand-new KaiOS devices, even after their lifespan on the shelf, DON'T cost less than 60% of their original prices.
+- HMD/Nokia Mobile DON'T sell any of their KaiOS devices in 2G only. KaiOS devices are required to have at least 3G, as 2G is being phased out in many places.
+- Different packaging: 8110 4G and 2720 Flip comes in transparent plastic boxes with flaps on top and bottom, while 6300 4G comes in hard cardboard box. Also check advertising prints on the box for missing features, bad quality printing, weird grammar or letter spacing.
 - Terrible build quality when comparing side-by-side. [To quote u/cannotelaborate on Reddit](https://www.reddit.com/r/KaiOS/comments/xglkr7/well_darn_it_i_just_received_a_counterfeit_nokia):
   - Build quality is horrific, the battery and sim cards barely fit in there.
   - It took only like 10 seconds to boot, it showed KaiOS briefly, then did the old Nokia chime.
   - Speaker quality is awful.
   - The face buttons are low quality and aren't flush with the surface, some of them are crooked even.
-- Remove the battery and look out for any suspicions in the printed information on the body of the phone, i.e. if the CODE is 23BTS70**VN**00, it is intended to sold in Vietnam only. You can also check in the OS by dialing *#0000#.
-- If the UI design looks a bit off with weird alignments and margins between elements, that's also a clue of no-no.
-- All KaiOS devices should have services like KaiStore installed by default, under all circumstances.
+- Remove the battery and look for suspicions with the printed information on the sticker, i.e. if the CODE is 23BTS70**VN**00, it is intended to sold in Vietnam only. You can also check in the OS by dialing *#0000#.
+- If the user interface looks off with weird alignments and margins between elements, that's also a clue.
+- Under all circumstances, all KaiOS 2.5 devices should have services like KaiStore installed by default.
 - Browser is NOT Opera Mini 4.4. KaiOS does NOT run Java apps or MRE apps (sorry to retro gamers out there).
 - If you have access to a computer, try connecting the phone to it and see if the actual phone storage is significantly less than advertised.
 
-**Only buy from trusted, reputable sources**, even if the price is higher.
+Remember, **only buy from trusted, reputable sources**, even if they have higher prices. That higher cost guarantees that you're buying a genuine device.
 
 ## Tips and tricks
 - To take a screenshot, press both `*` and `#` keys simultaneously.
