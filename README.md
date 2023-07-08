@@ -128,7 +128,7 @@ The guide below has its backbones taken from the main guide on BananaHackers web
   - [Zadig 2.7](https://github.com/pbatard/libwdi/releases/tag/v1.4.1) to configure `libusb-win32` driver
   - Android Debug Bridge (ADB) installed to read the boot image in Gerda Recovery (see [Development/WebIDE on BananaHackers Wiki](https://wiki.bananahackers.net/en/development/webide))
 
-*@cyan-2048 confirmed to me that Zadig 2.5 bundled within the EDL package doesn't work, so **DO NOT USE** that. I've also specifically chosen version 2.7 as it works best throughout my testing, and the latest 2.8 version of Zadig tool also has troubles detecting the phone's EDL state.*
+*@cyan-2048 confirmed to me that Zadig 2.5 bundled within the EDL package doesn't work, so **DO NOT USE** that. I've also specifically chosen version 2.7 as it works best throughout my testing, and the latest 2.8 version of Zadig tool also has troubles detecting the phone's EDL driver.*
 
 - **macOS & Linux users also need:**
   - An package manager, such as [Homebrew](https://brew.sh), to quickly set up Python, ADB, `libusb` and configure the environment for EDL tools (install guide for Homebrew can be found below)
@@ -202,7 +202,7 @@ pip3 install pyusb pyserial capstone keystone-engine docopt
 
 In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
-5. Run the Zadig tool and select *Options > List All Devices*. In the front dropdown menu, select `QHSUSB__BULK` (your device in EDL mode). In the target driver box (which the green arrow is pointing to), click on the up/down arrows until you see `libusb-win32` and click on Replace Driver.
+5. Run the Zadig tool (use the version downloaded above and NOT the one provided by the EDL package) and select *Options > List All Devices*. In the front dropdown menu, select `QHSUSB__BULK` (your device in EDL mode). In the target driver box (which the green arrow is pointing to), click on the up/down arrows until you see `libusb-win32` and click on Replace Driver.
 
 ![Demostration of Zadig program with the Option dropdown menu shown, in which the List All Devices option is highlighted and selected](/assets/listall.png)
 ![Demostration of Zadig's main interface with the front dropdown list shown listing all devices connected to computer, in which the option for QHSUSB_BULK is highlighted](/assets/qhsusb.png)
@@ -210,7 +210,7 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 
 6. If you're installing the driver for the first time, an "USB Device Not Recognised" pop-up may appear. Exit EDL mode by removing and re-inserting the battery, then turn on the phone in EDL mode again.
 
-*If you were using the latest 2.8 version of Zadig and the driver installation takes too much time and the tool aborts it, exit Zadig, exit and re-enter EDL mode on the phone, then try to install again. If that still doesn't help then try to download version 2.7 instead.*
+*As I've said above, the latest 2.8 version of Zadig might have some troubles detecting the phone's EDL driver. If you were using it and the driver installation takes too much time and the tool aborts it, exit Zadig, exit and re-enter EDL mode on the phone, then try to install again. If that still doesn't help, try to [download version 2.7](https://github.com/pbatard/libwdi/releases/tag/v1.4.1) instead.*
 
 ## Part 2: Obtaining the boot partition
 
