@@ -72,7 +72,7 @@ To spot out the counterfeits:
 Remember, **only buy from trusted, reputable sources**, even if they have higher prices. That higher cost usually guarantees that you're buying a genuine device.
 
 ## Tips and tricks
-- To take a screenshot, press both `*` and `#` keys simultaneously.
+- To take a screenshot, press both * and # keys simultaneously.
 - On the home screen:
   - Hold down the Up key to quickly toggle flashlight.
   - Hold down either the Power button, Back or End call keys to trigger the Power menu.
@@ -142,25 +142,25 @@ According to BananaHackers' definitions, this phone and most other KaiOS 2.5.4 d
 *Do note that OmniSD, one of the methods used for on-device sideloading, requires the `navigator.mozApps.mgmt.import` API that has been removed on KaiOS 2.5.2.2 and later.*
 
 # ROOT: Boot partition patching (non-US only)
-On the 6300 4G, 8000 4G and other KaiOS 2.5.4 devices, ADB and WebIDE can be used to sideload third-party applications. However, you won't be able to sideload apps that has ‘forbidden’ permissions (namely `engmode-extension` which can be used to gain exclusive access of the phone, and can be found in most BananaHackers-made apps like Wallace Toolbox) or make changes to the system. Because in order to achieve WhatsApp VoIP feature on this KaiOS version, the security module SELinux is now set to be `Enforced` which checks and reverts system modifications on boot. To gain total read-write access to the device, you'll now have to permanently root the device by setting SELinux to `Permissive` mode.
+On the 6300 4G, 8000 4G and other KaiOS 2.5.4 devices, ADB and WebIDE can be used to sideload third-party applications. However, you won't be able to sideload apps that has ‘forbidden’ permissions (namely `engmode-extension` which can be used to gain exclusive access of the phone, and can be found in most BananaHackers-made apps like Wallace Toolbox) or make changes to the system. On the 2720 Flip and 800 Tough with KaiOS 2.5.2.2, the situation is worse as you aren't able to sideload at all. Because in order to achieve WhatsApp VoIP feature on these KaiOS versions, the security module SELinux is now set to be `Enforced` which checks and reverts system modifications on boot. To gain total read-write access to the devices, you'll now have to permanently root them by setting SELinux to `Permissive` mode.
 
-The guide below has its backbones taken from the main guide on BananaHackers website, but has been rewritten for the most parts to be easy-to-follow. The process will also take somewhat considerable 30 minutes to an hour, so do this when you have the time.
+The guide below has its backbones taken from the main guide on BananaHackers website, but has been rewritten for the most parts to be easier to follow. The process will also take somewhat considerable 30 minutes to an hour, so do this when you have the time.
 
 *Note that for the most part, you don't actually need to gain root access in order to do some functions associated with root e.g. instead of completely removing apps with Wallace Toolbox, you can essentially disable them to be accessed from launcher with [this fork of Luxferre's AppBuster](https://github.com/minhduc-bui1/AppBuster). Luxferre also released a Wallace Toolbox alternative called [CrossTweak](https://gitlab.com/suborg/crosstweak) that does not require `engmode-extension` and therefore can be easily sideloaded on KaiOS 2.5.4 devices.*
 
 **This process will void your phone's warranty, disable its ability to do WhatsApp calls and retrieve over-the-air updates, but you can revert this if you keep a backup of the original boot partition. However, there might also be a chance of bricking your phone if you don't do the steps correctly, so do think twice before actually consider doing this and follow the steps carefully! I won't be responsible for any damages done to your phone by following these.**
 
 ## What we'll need
-- an international non-US version of Nokia 6300 4G (not TA-1324)
-- an USB cable capable of data transferring (EDL cables will also do)
-- an Internet connection to download the tools needed
-- a somewhat-working [firehose loader MBN file](../blob/main/8k.mbn) for the phone
-- an [image file of Gerda Recovery](..blob/main/recovery-8110.img) for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from the recovery mode and get the boot partition from there
-- a EDL tools package to read and write system partitions in low-level access (in this guide we'll be using [bkerler's edl.py v3.1](https://github.com/bkerler/edl/releases/tag/3.1))
+- an international non-US version of Nokia 6300 4G (not TA-1324) or Nokia 8000 4G, Nokia 2720 Flip or Nokia 800 Tough;
+- an USB cable capable of data transferring (EDL cables will also do);
+- an Internet connection to download the tools needed;
+- a somewhat-working firehose programmer MBN file for the [8000 4G and 6300 4G](../blob/main/8k.mbn), 2720 Flip or 800 Tough;
+- an [image file of Gerda Recovery](..blob/main/recovery-8110.img) for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from the recovery mode and get the boot partition from there (not needed for 2720 Flip/800 Tough);
+- a EDL tools package to read and write system partitions in low-level access (in this guide we'll be using [bkerler's edl.py v3.1](https://github.com/bkerler/edl/releases/tag/3.1) for 8000 4G/6300 4G, [andybalholm's edl](https://github.com/andybalholm/edl) for 2720 Flip/800 Tough)
 
-*For the sake of cross-platform usage (and my obsession of open-source tools), instead of QFIL which is proprietary and only supports Windows, we'll be using open-sourced Python scripts from GitHub, such as [bkerler's](https://github.com/bkerler/edl) and [andybalholm's](https://github.com/andybalholm/edl) that are great as alternatives.*
+*andybalholm's EDL cannot be used on 8000 4G and 6300 4G due to some structural changes within the GPT partition table, using this package on devices with later versions will result in an error `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`. **Do note that the command structures used between bkerler's and andybalholm's are different, which we'll mention below.***
 
-*Nokia 2720 Flip users: [andybalholm's EDL package](https://github.com/andybalholm/edl) is recommended for phones running KaiOS 2.5.2.2 and older. Due to some structural changes within the GPT partition table, using this package on devices with later versions will result in an error `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`. Do note that the command structures used between bkerler's and andybalholm's are different.*
+*We'll be using open-sourced Python scripts from GitHub for the sake of cross-platform usage (and my obsession of open-source tools), instead of QFIL which is proprietary and only supports Windows.*
 
 - **Windows users also need:**
   - a computer with Python and `pip` installed for the EDL tools to work (Windows: both are packaged on Python's [official website](https://www.python.org/))
@@ -171,7 +171,7 @@ The guide below has its backbones taken from the main guide on BananaHackers web
 *@cyan-2048 confirmed to me that Zadig 2.5 bundled within the EDL package doesn't work, so **DO NOT USE** that. I've also specifically chosen version 2.7 as it works best throughout my testing, and the latest 2.8 version of Zadig tool also has troubles detecting the phone's EDL driver.*
 
 - **macOS & Linux users also need:**
-  - An package manager, such as [Homebrew](https://brew.sh), to quickly set up Python, ADB, `libusb` and configure the environment for EDL tools (install guide for Homebrew can be found below)
+  - An package manager, such as [Homebrew](https://brew.sh), to quickly set up Python, ADB, `libusb` and configure the environment for EDL tools (setup guide with Homebrew can be found below)
   - *Python 2.7 bundled with macOS 10.8 to 12.3 is NOT recommended for following this guide.*
 
 *If you're on Linux, Python and ADB can be quickly set up by installing with your built-in package manager. We won't be covering this here, as each Linux distro has its own way of installing from package manager.*
@@ -254,30 +254,7 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 
 ## Part 2: Obtaining the boot partition
 
-<details>
-   <summary>Instructions for using andybalholm's EDL package with Nokia 2720 Flip</summary>
-
----
-Unlike the 6300 4G and 8000 4G, the 2720 Flip's EDL loader properly works with both reading and writing, so the steps are more straightforward.
-
-1. Switch your phone to EDL mode and connect it to your computer.
-  - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
-  - From the turned off state, hold down both side volume keys at the same time while inserting the USB cable to the phone.
-
-In both cases, the phone's screen should blink with a 'Powered by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
-
-2. Open the EDL tools folder in a command-line window. Extract the boot partition of the phone by typing this command:
-```console
-python edl.py -r boot boot.img -loader 2720.mbn
-```
-3. When finished, reboot the phone into normal operation by typing this into the command-line, or remove and re-insert the battery:
-```console
-python edl.py -reset -loader 2720.mbn
-```
-You can disconnect the phone from your computer for now, and start [patching the boot image](#part-3-patching-the-boot-partition) right away. **Copy and keep the original boot partition somewhere safe in case you need to restore to the original state for over-the-air updates or re-enabling WhatsApp calls.**
-
----
-</details>
+### Nokia 8000 4G and Nokia 6300 4G with bkerler's EDL
 
 > Beware: due to the firehose loader being malfunctioned, the EDL tool only accepts one command each session, after which you'll have to disconnect the phone and restart the phone in EDL mode. If you try to throw a second command, it'll result in a `bytearray index out of range` error.
 
@@ -307,6 +284,28 @@ You should now see `/dev/block/bootdevice/by-name/boot: 1 file pulled, 0 skipped
 
 6. Reboot the phone into normal operation by typing `adb reboot` into the command-line, or remove and re-insert the battery. Our custom Gerda Recovery partition will now be overwritten by the default one.
 
+You can disconnect the phone from your computer for now.
+
+**Copy and keep the original boot partition somewhere safe in case you need to restore to the original state for over-the-air updates or re-enabling WhatsApp calls.**
+
+### Nokia 2720 Flip and Nokia 800 Tough with andybalholm's EDL
+
+Unlike the 6300 4G and 8000 4G, the 2720 Flip's EDL loader properly works with both reading and writing, so the steps are more straightforward.
+
+1. Switch your phone to EDL mode and connect it to your computer.
+  - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
+  - From the turned off state, hold down both side volume keys at the same time while inserting the USB cable to the phone.
+
+In both cases, the phone's screen should blink with a 'Powered by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
+
+2. Open the EDL tools folder in a command-line window. Extract the boot partition of the phone by typing this command:
+```console
+python edl.py -r boot boot.img -loader 2720.mbn
+```
+3. When finished, reboot the phone into normal operation by typing this into the command-line, or remove and re-insert the battery:
+```console
+python edl.py -reset -loader 2720.mbn
+```
 You can disconnect the phone from your computer for now.
 
 **Copy and keep the original boot partition somewhere safe in case you need to restore to the original state for over-the-air updates or re-enabling WhatsApp calls.**
@@ -393,13 +392,10 @@ OR
 python edl.py w boot image-new.img --loader=8k.mbn
 ```
 
-<details>
-   <summary>If you were using andybalholm's EDL package to patch the boot partition on Nokia 2720 Flip:</summary>
- 
+For Nokia 2720 Flip and Nokia 800 Tough with andybalholm's EDL:
 ```console
 python edl.py -w boot boot.img -loader 2720.mbn
 ```
-</details>
 
 *Again, if the progress bar stops at 99% and you get a timeout error, this is because the phone doesn't send any indicator information back to the EDL tool when in fact the image has been successfully written. Don't mind the error and go on with the next step.*
 
