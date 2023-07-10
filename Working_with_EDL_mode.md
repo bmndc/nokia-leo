@@ -7,7 +7,7 @@ Aleph Security has a deep-dive blog post into exploiting the nature of EDL mode 
 
 Booting into this mode, the phone's screen will turn almost black as if it has been turned off, but in fact it still receives commands over Qualcomm's proprietary protocol called Sahara (Firehose on newer devices). With a [suitable digitally-signed programmer in MBN/ELF file format](https://edl.bananahackers.net) and some instruction-bundled tools, the most popular one being QFIL (Qualcomm Flash Image Loader), one can send commands from a computer to the phone over USB.
 
-For the sake of cross-platform usage (and our obsession of open-source tools), instead of QFIL which is proprietary and only supports Windows, we'll be using open-sourced Python scripts from GitHub, such as [bkerler's](https://github.com/bkerler/edl) and [andybalholm's](https://github.com/andybalholm/edl) that are great as alternatives.
+For the sake of cross-platform usage (and my obsession of open-source tools), instead of QFIL which is proprietary and only supports Windows, we'll be using open-sourced Python scripts from GitHub, such as [bkerler's](https://github.com/bkerler/edl) and [andybalholm's](https://github.com/andybalholm/edl) that are great as alternatives.
 
 ## Booting into EDL mode
 ### Using button combos
@@ -19,7 +19,7 @@ Depending on the form factor and the motherboard's design, each device model has
 - Nokia 2720 Flip: hold both the side volume keys. Be careful not to accidentally press the SOS button.
 - Alcatel Cingular Flip: hold both volume keys until you see the booting logo blinks, then hold only one of them.
 
-If you manage to get it, the booting logo will flash momentarily, then the screen turns black as if you've turned off the phone. **If you fail, the normal boot sequence will be triggered instead, and you'll have to start over.**
+If you manage to get it, the booting logo will flash momentarily, then the screen turns black as if you've turned off the phone. If you fail, the normal boot sequence will be triggered instead, and you'll have to start over.
 
 ### Using Android Debug Bridge (`adb`)
 While having the phone on and connected to the computer via an USB cable, turn on debugging mode on the phone and set up ADB on your computer (there's a guide over [WebIDE](/development/webide)), then in the command-line window, type in `adb reboot edl`. This will send a signal to your phone telling to reboot to EDL mode.
