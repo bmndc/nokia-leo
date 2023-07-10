@@ -18,6 +18,8 @@
     - [macOS](#macos)
     - [Windows](#windows)
   - [Part 2: Obtaining the boot partition](#part-2-obtaining-the-boot-partition)
+    - [Nokia 8000 4G and Nokia 6300 4G with bkerler's EDL](#nokia-8000-4g-and-nokia-6300-4g-with-bkerlers-edl)
+    - [Nokia 2720 Flip and Nokia 800 Tough with andybalholm's EDL](#nokia-2720-flip-and-800-tough-with-andybalholms-edl)
   - [Part 3: Patching the boot partition](#part-3-patching-the-boot-partition)
     - [Automatic patching with `8k-boot-patcher`](#automatic-patching-with-8k-boot-patcher)
     - [Manual patching with Android Image Kitchen](#manual-patching-with-android-image-kitchen)
@@ -255,7 +257,6 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 ## Part 2: Obtaining the boot partition
 
 ### Nokia 8000 4G and Nokia 6300 4G with bkerler's EDL
-
 > Beware: due to the firehose loader being malfunctioned, the EDL tool only accepts one command each session, after which you'll have to disconnect the phone and restart the phone in EDL mode. If you try to throw a second command, it'll result in a `bytearray index out of range` error.
 
 1. Turn on the phone in EDL mode.
@@ -289,8 +290,7 @@ You can disconnect the phone from your computer for now.
 **Copy and keep the original boot partition somewhere safe in case you need to restore to the original state for over-the-air updates or re-enabling WhatsApp calls.**
 
 ### Nokia 2720 Flip and Nokia 800 Tough with andybalholm's EDL
-
-Unlike the 6300 4G and 8000 4G, the 2720 Flip's EDL loader properly works with both reading and writing, so the steps are more straightforward.
+Unlike the 6300 4G and 8000 4G, our phones' EDL loader properly works with both reading and writing, so the steps are more straightforward.
 
 1. Switch your phone to EDL mode and connect it to your computer.
   - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
@@ -298,13 +298,19 @@ Unlike the 6300 4G and 8000 4G, the 2720 Flip's EDL loader properly works with b
 
 In both cases, the phone's screen should blink with a 'Powered by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
-2. Open the EDL tools folder in a command-line window. Extract the boot partition of the phone by typing this command:
+2. Open the EDL tools folder in a command-line window. Extract the boot partition of the phone by typing one of these commands depend on which phone you have:
 ```console
 python edl.py -r boot boot.img -loader 2720.mbn
 ```
-3. When finished, reboot the phone into normal operation by typing this into the command-line, or remove and re-insert the battery:
+```console
+python edl.py -r boot boot.img -loader 800t.mbn
+```
+3. When finished, reboot the phone into normal operation by typing one of these into the command-line, or remove and re-insert the battery:
 ```console
 python edl.py -reset -loader 2720.mbn
+```
+```console
+python edl.py -reset -loader 800t.mbn
 ```
 You can disconnect the phone from your computer for now.
 
