@@ -294,11 +294,11 @@ Unlike the 6300 4G and 8000 4G, our phones' EDL loader properly works with both 
 
 1. Switch your phone to EDL mode and connect it to your computer.
   - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
-  - From the turned off state, hold down both side volume keys at the same time while inserting the USB cable to the phone.
+  - From the turned off state, hold down both side volume keys (2720 Flip) or both D-Pad Up and Down keys (800 Tough) at the same time while inserting the USB cable to the phone.
 
 In both cases, the phone's screen should blink with a 'Powered by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
-2. Open the EDL tools folder in a command-line window. Extract the boot partition of the phone by typing one of these commands depend on which phone you have:
+2. Open the EDL tools folder in a command-line window. Extract the boot partition of the phone by typing one of these commands depend on which file you have:
 ```console
 python edl.py -r boot boot.img -loader 2720.mbn
 ```
