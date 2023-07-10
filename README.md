@@ -158,6 +158,8 @@ The guide below has its backbones taken from the main guide on BananaHackers web
 - an [image file of Gerda Recovery](..blob/main/recovery-8110.img) for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from the recovery mode and get the boot partition from there
 - a EDL tools package to read and write system partitions in low-level access (in this guide we'll be using [bkerler's edl.py v3.1](https://github.com/bkerler/edl/releases/tag/3.1))
 
+*For the sake of cross-platform usage (and my obsession of open-source tools), instead of QFIL which is proprietary and only supports Windows, we'll be using open-sourced Python scripts from GitHub, such as [bkerler's](https://github.com/bkerler/edl) and [andybalholm's](https://github.com/andybalholm/edl) that are great as alternatives.*
+
 *Nokia 2720 Flip users: [andybalholm's EDL package](https://github.com/andybalholm/edl) is recommended for phones running KaiOS 2.5.2.2 and older. Due to some structural changes within the GPT partition table, using this package on devices with later versions will result in an error `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`. Do note that the command structures used between bkerler's and andybalholm's are different.*
 
 - **Windows users also need:**
