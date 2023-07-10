@@ -19,7 +19,7 @@
     - [Windows](#windows)
   - [Part 2: Obtaining the boot partition](#part-2-obtaining-the-boot-partition)
     - [Nokia 8000 4G and Nokia 6300 4G with bkerler's EDL](#nokia-8000-4g-and-nokia-6300-4g-with-bkerlers-edl)
-    - [Nokia 2720 Flip and Nokia 800 Tough with andybalholm's EDL](#nokia-2720-flip-and-800-tough-with-andybalholms-edl)
+    - [Nokia 2720 Flip and Nokia 800 Tough with andybalholm's EDL](#nokia-2720-flip-and-nokia-800-tough-with-andybalholms-edl)
   - [Part 3: Patching the boot partition](#part-3-patching-the-boot-partition)
     - [Automatic patching with `8k-boot-patcher`](#automatic-patching-with-8k-boot-patcher)
     - [Manual patching with Android Image Kitchen](#manual-patching-with-android-image-kitchen)
