@@ -156,8 +156,8 @@ The guide below has its backbones taken from the main guide on BananaHackers web
 - an international non-US version of Nokia 6300 4G (not TA-1324) or Nokia 8000 4G, Nokia 2720 Flip or Nokia 800 Tough;
 - an USB cable capable of data transferring (EDL cables will also do);
 - an Internet connection to download the tools needed;
-- a somewhat-working firehose programmer MBN file for the [8000 4G and 6300 4G](../blob/main/8k.mbn), 2720 Flip or 800 Tough;
-- an [image file of Gerda Recovery](..blob/main/recovery-8110.img) for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from the recovery mode and get the boot partition from there (not needed for 2720 Flip/800 Tough);
+- a somewhat-working firehose programmer MBN file for the [8000 4G and 6300 4G](../main/8k.mbn), 2720 Flip or 800 Tough;
+- an [image file of Gerda Recovery](../main/recovery-8110.img) for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from the recovery mode and get the boot partition from there (not needed for 2720 Flip/800 Tough);
 - a EDL tools package to read and write system partitions in low-level access (in this guide we'll be using [bkerler's edl.py v3.1](https://github.com/bkerler/edl/releases/tag/3.1) for 8000 4G/6300 4G, [andybalholm's edl](https://github.com/andybalholm/edl) for 2720 Flip/800 Tough)
 
 *andybalholm's EDL cannot be used on 8000 4G and 6300 4G due to some structural changes within the GPT partition table, which will result in an error `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`. **Do note that the command structures used between bkerler's and andybalholm's are different, which we'll mention below.***
