@@ -117,6 +117,19 @@ echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 - **Recovery mode**: With the device powered off, hold the top `Power` + `*`, or type `adb reboot recovery` when connected to a computer. Allows you to factory reset the device by wiping /data and /cache, view boot and kernel logs, and install patches from `adb sideload` interface or SD card.
 - **EDL mode**: With the device powered off, hold the top `Power` + `*` + `#`, or type `adb reboot edl` when connected to a computer. Boots into a black screen, allows you to read and write partitions in low-level with proprietary Qualcomm tools. Remove the battery to exit.
 
+<details>
+  <summary>What the heck is EDL mode?</summary>
+
+---
+**Qualcomm Emergency Download mode**, commonly known as EDL mode, is a special engineering interface implemented on devices with Qualcomm chipsets. Its purpose is to perform special operations on the phone that are intended for device manufacturer only, such as unlocking the bootloader, read and flash firmwares on the phone's filesystem or recover it from being a dead paperweight. Unlike bootloader or Fastboot mode, system files needed by the EDL mode resides on a separate 'primary bootloader' that cannot be affected by software modifications. 
+
+Aleph Security has a deep-dive blog post into exploiting the nature of EDL mode on Qualcomm-chipset devices that you can read [here](https://alephsecurity.com/2018/01/22/qualcomm-edl-1).
+
+Booting into this mode, the phone's screen will turn almost black as if it has been turned off, but in fact it still receives commands over Qualcomm's proprietary protocol called Sahara (Firehose on newer devices). With a [suitable digitally-signed programmer in MBN/ELF file format](https://edl.bananahackers.net) and some instruction-bundled tools, the most popular one being QFIL (Qualcomm Flash Image Loader), one can send commands from a computer to the phone over USB.
+
+---
+</details>
+
 EDL loader for the international version of this phone (not TA-1324) can be found on BananaHackers' [EDL archive site](https://edl.bananahackers.net/loaders/8k.mbn) with hardware ID 0x009600e100420029 (a copy is available [here](../main/8k.mbn)). The US version of this phone has been signed with a different PK_HASH and needs a different firehose loader which we currently don't have in archive.
 
 ## Sideloading and debugging third-party applications
@@ -241,7 +254,6 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
    <summary>Instructions for using andybalholm's EDL package with Nokia 2720 Flip</summary>
 
 ---
-
 Unlike the 6300 4G and 8000 4G, the 2720 Flip's EDL loader properly works with both reading and writing, so the steps are more straightforward.
 
 1. Switch your phone to EDL mode and connect it to your computer.
