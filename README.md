@@ -114,8 +114,8 @@ echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 - `*#0000#`: Display device information, such as firmware version, build date, model number, variant and CUID.
 
 ## Special boot modes
-- **Recovery mode**: With the device powered off, hold the top `Power` + `*`, or type `adb reboot recovery` when connected to a computer. Allows you to factory reset the device by wiping /data and /cache, view boot and kernel logs, and install patches from `adb sideload` interface or SD card.
-- **EDL mode**: With the device powered off, hold the top `Power` + `*` + `#`, or type `adb reboot edl` when connected to a computer. Boots into a black screen, allows you to read and write partitions in low-level with proprietary Qualcomm tools. Remove the battery to exit.
+- **Recovery mode**: With the device powered off, hold the top Power button and the * key, or type `adb reboot recovery` when connected to a computer. Allows you to factory reset the device by wiping /data and /cache, view boot and kernel logs, and install patches from `adb sideload` interface or SD card.
+- **EDL mode**: With the device powered off, hold the top Power button and both the * and # keys, or type `adb reboot edl` when connected to a computer. Boots into a black screen, allows you to read and write partitions in low-level with proprietary Qualcomm tools. Remove the battery to exit.
 
 <details>
   <summary>What the heck is EDL mode?</summary>
@@ -125,10 +125,12 @@ echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 
 Aleph Security has a deep-dive blog post into exploiting the nature of EDL mode on Qualcomm-chipset devices that you can read [here](https://alephsecurity.com/2018/01/22/qualcomm-edl-1).
 
-Booting into this mode, the phone's screen will turn almost black as if it has been turned off, but in fact it still receives commands over Qualcomm's proprietary protocol called Sahara (Firehose on newer devices). With a [suitable digitally-signed programmer in MBN/ELF file format](https://edl.bananahackers.net) and some instruction-bundled tools, the most popular one being QFIL (Qualcomm Flash Image Loader), one can send commands from a computer to the phone over USB.
+Booting into this mode, the phone's screen will flash the 'enabled by KaiOS' logo momentarily, then turn almost black as if it's been turned off, but in fact it still receives commands over Qualcomm's proprietary protocol called Sahara (Firehose on newer devices). With a [suitable digitally-signed programmer in MBN/ELF file format](https://edl.bananahackers.net) and some instruction-bundled tools, the most popular one being QFIL (Qualcomm Flash Image Loader), one can send commands from a computer to the phone over USB.
 
 ---
 </details>
+
+You can also **force reboot** the phone by holding the top Power button and the # key at any time.
 
 EDL loader for the international version of this phone (not TA-1324) can be found on BananaHackers' [EDL archive site](https://edl.bananahackers.net/loaders/8k.mbn) with hardware ID 0x009600e100420029 (a copy is available [here](../main/8k.mbn)). The US version of this phone has been signed with a different PK_HASH and needs a different firehose loader which we currently don't have in archive.
 
