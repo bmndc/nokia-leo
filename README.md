@@ -397,10 +397,12 @@ OR
 ```console
 python edl.py w boot image-new.img --loader=8k.mbn
 ```
-
 For Nokia 2720 Flip and Nokia 800 Tough with andybalholm's EDL:
 ```console
 python edl.py -w boot boot.img -loader 2720.mbn
+```
+```console
+python edl.py -w boot boot.img -loader 800t.mbn
 ```
 
 *Again, if the progress bar stops at 99% and you get a timeout error, this is because the phone doesn't send any indicator information back to the EDL tool when in fact the image has been successfully written. Don't mind the error and go on with the next step.*
