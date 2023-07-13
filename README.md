@@ -53,7 +53,7 @@
 
 ## Before making the decision
 
-**BEWARE OF COUNTERFEIT DEVICES!** Many KaiOS devices, such as the Nokia 8110 4G, 2720 Flip and 6300 4G are being sold at numerous tech stores and online sites for amazingly cheap prices; those turned out to be counterfeits and did not bring the experiences that people expected, and the store gets away with it as you wouldn't be able to get a refund.
+**BEWARE OF COUNTERFEIT DEVICES!** Many KaiOS devices, such as the Nokia 8110 4G, 2720 Flip and 6300 4G are being sold at numerous tech stores and online sites for amazingly cheap prices; those turn out to be counterfeits and did not bring the experiences that people expected, and the store gets away with it as you wouldn't be able to get a refund.
 
 To spot out the counterfeits:
 
@@ -84,7 +84,7 @@ Remember, **only buy from trusted, reputable sources**, even if they have higher
   - Hold down * to quickly lock the phone.
   - Hold down # to toggle between Ringer and Vibrate mode.
 - To activate the hidden Readout screen reader feature, open the phone's Browser, go to https://cyan-2048.github.io/kaios_scripts, then use the D-Pad to move the mouse and select the *Screen Reader* option.
-- KaiOS accounts are NOT mandatory for the phone' operations or downloading apps from KaiStore, but they can be set up under *Settings > Accounts* if you need them anyways.
+- KaiOS accounts are NOT mandatory for the phone' operations or downloading apps from KaiStore, but they can be set up under *Settings > Accounts* if you need them for Anti-Theft features.
 
 ## Known issues
 - RAM optimizations leading to aggressive background task killing. This can be mitigated by rooting the phone, then append this line in the startup script in /boot to disable the 'low memory killer' function. Don't forget to add a swapfile afterwards:
@@ -98,6 +98,7 @@ echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 
 ### KaiOS-specific
 - The 6300 4G runs KaiOS 2.5, which itself is based on Gecko 48 from 2016, meaning without optimizations and new web technologies, some websites like Instagram and Uber just fall apart and the overall performance is unbearable.
+  - No built-in Widevine DRM decoders, which means the phone is NOT capable of playing DRM-protected content from e.g. Spotify
 - D-Pad shortcuts and app shortcuts in the carousel menu (when you press Left on the home screen) are not customizable by default. *The former apparently has been allowed on KaiOS 3*, but to change them on this phone you'll have to change the homescreen launcher altogether.
   - Once you've sideloaded an alternative launcher, use Cyan's [Launcher Switcher](../main/Launcher_Switcher.zip) to switch to the new launcher.
 - Text messages don't automatically convert to MMS in group chats. You'll have to add a message subject or file attachment before sending to manually do so, otherwise your message will be sent separately to each individual in the thread.
@@ -108,7 +109,6 @@ echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 - Built-in email, calendar and contact syncing function with Google account may completely fail at times. Use IMAP and import contacts instead.
 - Speaking of calendar, if you manage to sync your Google account with the phone, only the calendar *with your email address as its name* will sync.
 - Apps like Contacts and Music are written in performance-intensive React and therefore render significantly slow if you store lots of contact entries and audio files.
-- No built-in Widevine DRM decoders, which means the phone is NOT capable of playing DRM-protected content from e.g. Spotify
 
 ## Secret codes
 - `*#*#33284*#*#`: Toggle debugging mode, allow the phone to be accessed with ADB and DevTools. A bug icon will appear in the status bar letting you know debugging mode is on. This mode can also be turned on under *Settings > Device > Developer > Debugger > ADB and DevTools*.
