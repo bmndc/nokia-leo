@@ -97,8 +97,10 @@ echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 - If you forgot your lockscreen passcode (not SIM or Anti-Theft one), you can bypass it by holding down the top Power button, then select *Memory Cleaner* and *Deep Memory Cleaning*.
 
 ### KaiOS-specific
+- If you're setting the phone up for the first time without any SIM cards, pre-installed apps such as WhatsApp, Facebook and Google apps may not appear in the app list or in KaiStore. After popping in a SIM, those apps will show up as normal.
+  - KaiStore will always show up in all circumstances, regardless of whether there's a SIM card inserted or not.
 - The 6300 4G runs KaiOS 2.5, which itself is based on Gecko 48 from 2016, meaning without optimizations and new web technologies, some websites like Instagram and Uber just fall apart and the overall performance is unbearable.
-  - No built-in Widevine DRM decoders, which means the phone is NOT capable of playing DRM-protected content from e.g. Spotify
+  - In addition to that there's no built-in Widevine DRM decoders, which means the phone is NOT capable of playing DRM-protected content from e.g. Spotify or Deezer
 - D-Pad shortcuts and app shortcuts in the carousel menu (when you press Left on the home screen) are not customizable by default. *The former apparently has been allowed on KaiOS 3*, but to change them on this phone you'll have to change the homescreen launcher altogether.
   - Once you've sideloaded an alternative launcher, use Cyan's [Launcher Switcher](../main/Launcher_Switcher.zip) to switch to the new launcher.
 - Text messages don't automatically convert to MMS in group chats. You'll have to add a message subject or file attachment before sending to manually do so, otherwise your message will be sent separately to each individual in the thread.
