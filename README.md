@@ -186,7 +186,7 @@ The guide below has its backbones taken from the main guide on BananaHackers web
   - (Windows) WSL 2 with [Linux kernel update package](https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package) installed (to install WSL 2 turn on Virtualization in BIOS, then open Command Prompt with administrative rights and type `wsl --install`)
 
 - **If you're going the extracting and manual editing by hand route:**
-  - Android Image Kitchen v3.8 ([Windows](https://github.com/osm0sis/Android-Image-Kitchen), [macOS/Linux](https://forum.xda-developers.com/attachments/aik-linux-v3-8-all-tar-gz.5300923))
+  - Android Image Kitchen v3.8 ([Windows](https://forum.xda-developers.com/attachments/android-image-kitchen-v3-8-win32-zip.5300919), [macOS/Linux](https://forum.xda-developers.com/attachments/aik-linux-v3-8-all-tar-gz.5300923))
   - (Windows) [Notepad++](https://notepad-plus-plus.org/downloads) to edit the needed files while [preserving line endings](https://www.cs.toronto.edu/~krueger/csc209h/tut/line-endings.html)
   - [Java Runtime Environment](https://www.java.com/en/download) for properly signing the boot image (optional)
 
