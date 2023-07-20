@@ -24,6 +24,7 @@
     - [Automatic patching with `8k-boot-patcher`](#automatic-patching-with-8k-boot-patcher)
     - [Manual patching with Android Image Kitchen](#manual-patching-with-android-image-kitchen)
   - [Part 4: Replacing the boot partition with patched one](#part-4-replacing-the-boot-partition-with-patched-one)
+    - [Next steps](#next-steps)
 - [Source code](#source-code)
 - [External links](#external-links)
 
@@ -341,8 +342,7 @@ That's it! On your desktop there will be two new image files, the patched `boot.
 ![Demostration of boot.img and boot-orig.img files as shown on desktop](/assets/after_patch.png)
 
 ### Manual patching with Android Image Kitchen
-
-1. Open the extracted Android Image Kitchen tools folder and copy the boot image we've just obtained over to the root of it.
+1. Extract the Android Image Kitchen tools and copy the boot image we've just obtained over to the root of the extracted folder.
 
 ![Demostration of a list of folders and files contained in the extracted Android Image Kitchen folder](/assets/aik.png)
 
@@ -365,7 +365,7 @@ That's it! On your desktop there will be two new image files, the patched `boot.
 
 ![Demostration of the modified content of the init.qcom.early_boot.sh file](/assets/setenforce.png)
 
-5. Go back to the root Android Image Kitchen folder and open `boot.img-cmdline` in Notepad++. Scroll to the end of the line and append `androidboot.selinux=permissive enforcing=0` at the end of it without adding a new line.
+5. Go back to the root Android Image Kitchen folder and open `split_img/boot.img-cmdline` in Notepad++. Without adding a new line, scroll to the end of the first line and append `androidboot.selinux=permissive enforcing=0`.
 
 ![Demostration of the modified content of the boot.img-cmdline file](/assets/append.png)
 
@@ -384,7 +384,6 @@ That's it! On your desktop there will be two new image files, the patched `boot.
 If the newly packaged image is barely over 1/3 the size of the original image, it's a normal behaviour and you can proceed.
 
 ## Part 4: Replacing the boot partition with patched one
-
 1. Turn on your phone in EDL mode and connect it to your computer.
 
 2. Move the newly created `boot.img`, `unsigned-new.img` or `image-new.img` to the EDL tools folder and open a command-line window within it. From here type either of these commands depending on which image file you have:
@@ -409,7 +408,7 @@ python edl.py -w boot boot.img -loader 800t.mbn
 
 *Again, if the progress bar stops at 99% and you get a timeout error, this is because the phone doesn't send any indicator information back to the EDL tool when in fact the image has been successfully written. Don't mind the error and go on with the next step.*
 
-3. Restart the phone to normal operation mode: `python edl.py reset`. And we're done!
+3. Restart the phone to normal operation mode by typing `python edl.py reset`. And we're done!
 
 *If you still have the original boot partition and wish to revert all the messes and damages, connect the phone to your computer in EDL mode, move the image file to the EDL tools folder, open a command-line window within it and type these one-line at a time:*
 ```console
@@ -418,14 +417,17 @@ python edl.py reset
 ```
 ![Demostration of a command-line window showing the results after typing the first command above](/assets/edl_bootog.png)
 
-## Source code
+### Next steps
+Now that you've rooted your phone, to install applications with 'forbidden' permissions, connect it to a WebIDE session, then open Device Preferences by the right pane, search for `devTools.apps.forbiddenPermissions`, clear its value, then either restart the phone or hold the top Power button and choose Memory Cleaner > Deep Clean Memory to restart B2G.
 
+If you wish to retain privileged permissions after restoring the phone to its unrooted state, before doing so, back up all data, sideload Luxferre's [CrossTweak](https://gitlab.com/suborg/crosstweak) then press # to perform a privileged factory reset — this will wipe all data of the phone and let you set up with a privileged session. This session will last until an OTA update overrides or you choose to factory reset normally yourself.
+
+## Source code
 HMD Global/Nokia Mobile has published the device's source code for its Linux 4.9 kernel, B2G and certain third-party libraries used in this phone, which can be downloaded directly from [here](https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz). An archive of which is also available under the `leo-v20` branch of this repository.
 
 Note that the source code released does not contain proprietary parts from other parties like Qualcomm.
 
 ## External links
-
 - [Nokia 6300 4G product page](https://www.nokia.com/phones/en_int/nokia-6300-4g) on Nokia Mobile's website
 - [Nokia 6300 4G (nokia-leo) on postmarketOS Wiki](https://wiki.postmarketos.org/wiki/Nokia_6300_4G_(nokia-leo))
 - [Affe Null's Bananian project repository](https://git.abscue.de/bananian/bananian), a Debian port for KaiOS devices
