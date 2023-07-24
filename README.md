@@ -418,11 +418,16 @@ python edl.py reset
 ![Demostration of a command-line window showing the results after typing the first command above](/assets/edl_bootog.png)
 
 ### Next steps
-Now that you've rooted your phone, to install applications with 'forbidden' permissions, connect it to a WebIDE session, then open Device Preferences by the right pane, search for `devTools.apps.forbiddenPermissions`, clear its value, then either restart the phone or hold the top Power button and choose Memory Cleaner > Deep Clean Memory to restart B2G.
+- Now that you've rooted your phone, to install applications with 'forbidden' permissions, connect it to a WebIDE session, then open Device Preferences by the right pane, search for `devTools.apps.forbiddenPermissions`, clear its value, then either restart the phone or hold the top Power button and choose Memory Cleaner > Deep Clean Memory to restart B2G.
 
 ![Demostration of a WebIDE window in which the location of Device Preferences is highlighted in the right pane and the value of devTools.apps.forbiddenPermissions has been emptied](/assets/devpref.png)
 
-If you wish to retain privileged permissions after restoring the phone to its unrooted state, before doing so, back up all data, sideload Luxferre's [CrossTweak](https://gitlab.com/suborg/crosstweak) then press # to perform a privileged factory reset — this will wipe all data of the phone and let you set up with a privileged session. This session will last until an OTA update overrides or you choose to factory reset normally yourself.
+- If you wish to retain privileged permissions after restoring the phone to its unrooted state, before doing so, back up all data, sideload Luxferre's [CrossTweak](https://gitlab.com/suborg/crosstweak) then press # to perform a privileged factory reset — this will wipe all data of the phone and let you set up with a privileged session. This session will last until an OTA update overrides or you choose to factory reset normally yourself.
+- Spoof enforced SELinux for WhatsApp calls after rooting:
+```console
+echo -n 1 > /data/enforce
+mount -o bind /data/enforce /sys/fs/selinux/enforce
+```
 
 ## Source code
 HMD Global/Nokia Mobile has published the device's source code for its Linux 4.9 kernel, B2G and certain third-party libraries used in this phone, which can be downloaded directly from [here](https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz). An archive of which is also available under the `leo-v20` branch of this repository.
