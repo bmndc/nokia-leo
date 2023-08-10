@@ -33,7 +33,7 @@
 | Codename | **6300 4G:** nokia-leo<br>**8000 4G:** nokia-sparkler | 
 | Released | 13 November 2020 |
 | Model | **6300 4G:** TA-1286, TA-1287, TA-1294, TA-1324<br>**8000 4G:** TA-1303, TA-1305 |
-| ***Specifications*** |  |
+|  | ***Specifications*** |
 | SoC | Qualcomm MSM8909 Snapdragon 210<br>(4 x 1.1Ghz Cortex-A7) |
 | RAM | 512MB LPDDR2/3 |
 | GPU | Adreno 304 |
@@ -48,7 +48,7 @@
 | Weight | **leo:** 104.7g (3.70oz)‎    **sparkler:** 110.2g (3.88oz) |
 | Ports | - microUSB charging & USB 2.0 data transferring port<br>- 3.5mm headphone jack |
 | Battery | Removable Li-Ion 1500mAh (BL-4XL) |
-| ***KaiOS info*** |  |
+|  | ***KaiOS info*** |
 | Version | KaiOS 2.5.4 |
 | Build no. | (TA-1286/TA-1303) 12.00.17.01, 20.00.17.01, 30.00.17.01 |
 
