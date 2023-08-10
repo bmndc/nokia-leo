@@ -44,8 +44,8 @@
 | Wi-Fi | 802.11b/g/n, Hotspot |
 | Peripherals | GPS & GLONASS |
 | Cameras | Rear: **VGA/2MP**, LED flash |
-| Dimensions<br>(H x W x D) | **leo:** 131.4 * 53 * 13.7 (mm)   5.17 * 2.09 * 0.54 (in)<br>**sparkler:** 132.2 * 56.5 * 12.3 (mm)   5.20 * 2.22 * 0.48 (in) |
-| Weight | **leo:** 104.7g (3.70oz)‎   **sparkler:** 110.2g (3.88oz) |
+| Dimensions<br>(H x W x D) | **6300 4G:** 131.4 * 53 * 13.7 (mm) • 5.17 * 2.09 * 0.54 (in)<br>**8000 4G:** 132.2 * 56.5 * 12.3 (mm) • 5.20 * 2.22 * 0.48 (in) |
+| Weight | **6300 4G:** 104.7g (3.70oz)‎ • **8000 4G:** 110.2g (3.88oz) |
 | Ports | - microUSB charging & USB 2.0 data transferring port<br>- 3.5mm headphone jack |
 | Battery | Removable Li-Ion 1500mAh (BL-4XL) |
 |  | ***KaiOS info*** |
