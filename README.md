@@ -38,13 +38,13 @@
 | RAM | 512MB LPDDR2/3 |
 | GPU | Adreno 304 |
 | Storage | 4GB eMMC 4.5 (+ up to 32GB microSDHC card) |
-| Network | - 2G GSM<br>- 3G UMTS<br>- 4G LTE Cat4<br>+ EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>+ MENA, CN, Nigeria, Tanzania (**8000 4G incl. HK & Macau**): band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>+ (**6300 4G**) US: band 2, 4, 5, 12, 17, 66, 71<br>+ (**6300 4G**) LATAM: band 2, 3, 4, 5, 7, 28<br>+ ROW: band 1, 3, 5, 7, 8, 20, 38, 40<br>- VoLTE & VoWiFi support<br>- Single or Dual SIM (Nano-SIM, dual-standby) |
+| Network | - 2G GSM<br>- 3G UMTS<br>- 4G LTE Cat4<br>+ EU (except East Ukraine, Azerbaijan, Georgia), APAC: b1, 3, 5, 7, 8, 20<br>+ MENA, CN, Nigeria, Tanzania (**8000 4G incl. HK, Macau**): b1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>+ (**6300 4G**) US: b2, 4, 5, 12, 17, 66, 71<br>+ (**6300 4G**) LATAM: b2, 3, 4, 5, 7, 28<br>+ ROW: b1, 3, 5, 7, 8, 20, 38, 40<br>- VoLTE & VoWiFi support<br>- Single or Dual SIM (Nano-SIM, dual-standby) |
 | Screen | 320 x 240 (**leo:** 167 PPI, **sparkler**: 143 PPI)<br>2.4/2.8 inches QVGA TFT LCD, 16M colors |
 | Bluetooth | 4.0, A2DP, LE |
 | Wi-Fi | 802.11b/g/n, Hotspot |
 | Peripherals | GPS & GLONASS |
 | Cameras | Rear: VGA/2MP, LED flash |
-| Dimensions<br>(H x W x D) | **leo:** 131.4 * 53 * 13.7 (mm)  5.17 * 2.09 * 0.54 (in)<br>**sparkler:** 132.2 x 56.5 x 12.3 (mm)  5.20 x 2.22 x 0.48 (in) |
+| Dimensions<br>(H x W x D) | **leo:** 131.4 * 53 * 13.7 (mm)  5.17 * 2.09 * 0.54 (in)<br>**sparkler:** 132.2 * 56.5 * 12.3 (mm)  5.20 * 2.22 * 0.48 (in) |
 | Weight | **leo:** 104.7g (3.70oz)‎    **sparkler:** 110.2g (3.88oz) |
 | Ports | - microUSB charging & USB 2.0 data transferring port<br>- 3.5mm headphone jack |
 | Battery | Removable Li-Ion 1500mAh (BL-4XL) |
