@@ -28,29 +28,29 @@
 - [Source code](#source-code)
 - [External links](#external-links)
 
-|  |  |
-| --- | --- |
-| Codename | nokia-leo |
-| Released | 13 November 2020 |
-| Model | TA-1286, TA-1287, TA-1294, TA-1324 |
-| ***Specifications*** |  |
-| SoC | Qualcomm MSM8909 Snapdragon 210<br>(4 x 1.1Ghz Cortex-A7) |
-| RAM | 512MB LPDDR2/3 |
-| GPU | Adreno 304 |
-| Storage | 4GB (+ up to 32GB microSDHC card) |
-| Network | - 2G GSM<br>- 3G UMTS<br>- 4G LTE (Cat 4)<br>+ EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>+  MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>+ US: band 2, 4, 5, 12, 17, 66, 71<br>+ LATAM: band 2, 3, 4, 5, 7, 28<br>+ ROW: band 1, 3, 5, 7, 8, 20, 38, 40<br>- VoLTE & VoWiFi support<br>- Single or Dual SIM (Nano-SIM, dual-standby) |
-| Screen | 320 x 240 (167 PPI)<br>2.4 inches QVGA TFT LCD, 16M colors |
-| Bluetooth | 4.0, A2DP, LE |
-| Wi-Fi | 802.11b/g/n, Hotspot |
-| Peripherals | GPS |
-| Cameras | Rear: VGA, LED flash |
-| Dimensions<br>(H x W x D) | 131.4 * 53 * 13.7 (mm)<br>5.17 * 2.09 * 0.54 (in) |
-| Weight | 104.7g (3.70oz) |
-| Ports | - microUSB charging & USB 2.0 data transferring port<br>- 3.5mm headphone jack |
-| Battery | Removable Li-Ion 1500mAh (BL-4XL) |
-| ***KaiOS info*** |  |
-| Version | KaiOS 2.5.4 |
-| Build number | (TA-1286) 12.00.17.01, 20.00.17.01, 30.00.17.01 |
+|  |  |  |
+| --- | --- | --- |
+|  | **Nokia 6300 4G (nokia-leo)** | **Nokia 8000 4G (nokia-sparkler)** | 
+| Released | 13 November 2020 |  |
+| Model | TA-1286, TA-1287, TA-1294, TA-1324 | TA-1303, TA-1305 |
+|  | **Specifications** |  |
+| SoC | Qualcomm MSM8909 Snapdragon 210<br>(4 x 1.1Ghz Cortex-A7) |  |
+| RAM | 512MB LPDDR2/3 |  |
+| GPU | Adreno 304 |  |
+| Storage | 4GB eMMC 4.5 (+ up to 32GB microSDHC card) |  |
+| Network | - 2G GSM<br>- 3G UMTS<br>- 4G LTE Cat4<br>+ EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>+ MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>+ US: band 2, 4, 5, 12, 17, 66, 71<br>+ LATAM: band 2, 3, 4, 5, 7, 28<br>+ ROW: band 1, 3, 5, 7, 8, 20, 38, 40<br>- VoLTE & VoWiFi support<br>- Single or Dual SIM (Nano-SIM, dual-standby) | - 2G GSM<br>- 3G UMTS<br>- 4G LTE Cat4<br>+ EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>+ HK, Macau, MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>+ ROW: band 1, 3, 5, 7, 8, 20, 28, 38, 40<br>- VoLTE & VoWiFi support<br>- Single or Dual SIM (Nano-SIM, dual-standby) |
+| Screen | 320 x 240 (167 PPI)<br>2.4 inches QVGA TFT LCD, 16M colors | 320 x 240 (143 PPI)<br>2.8 inches QVGA TFT LCD, 16M colors |
+| Bluetooth | 4.0, A2DP, LE |  |
+| Wi-Fi | 802.11b/g/n, Hotspot |  |
+| Peripherals | GPS & GLONASS |  
+| Cameras | Rear: VGA, LED flash | Rear: 2MP, LED flash |
+| Dimensions<br>(H x W x D) | 131.4 * 53 * 13.7 (mm)<br>5.17 * 2.09 * 0.54 (in) | 132.2 x 56.5 x 12.3 (mm)<br>5.20 x 2.22 x 0.48 (in) |
+| Weight | 104.7g (3.70oz) | 110.2g (3.88oz) |
+| Ports | - microUSB charging & USB 2.0 data transferring port<br>- 3.5mm headphone jack |  |
+| Battery | Removable Li-Ion 1500mAh (BL-4XL) |  |
+|  | **KaiOS info** |  |
+| Version | KaiOS 2.5.4 |  |
+| Build no. | (TA-1286/TA-1303) 12.00.17.01, 20.00.17.01, 30.00.17.01 |  |
 
 ## Before making the decision
 
@@ -101,7 +101,7 @@ echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 ### KaiOS-specific
 - If you're setting the phone up for the first time without any SIM cards, pre-installed apps such as WhatsApp, Facebook and Google apps may not appear in the app list or in KaiStore. After popping in a SIM, those apps will show up as normal.
   - KaiStore will always show up in all circumstances, regardless of whether there's a SIM card inserted or not.
-- The 6300 4G runs KaiOS 2.5, which itself is based on Gecko 48 from 2016, meaning without optimizations and new web technologies, some websites like Instagram and Uber just fall apart and the overall performance is unbearable.
+- The 8000 4G and 6300 4G runs KaiOS 2.5, which itself is based on Gecko 48 from 2016, meaning without optimizations and new web technologies, some websites like Instagram and Uber just fall apart and the overall performance is unbearable.
   - In addition to that there's no built-in Widevine DRM decoders, which means the phone is NOT capable of playing DRM-protected content from e.g. Spotify or Deezer
 - D-Pad shortcuts and app shortcuts in the carousel menu (when you press Left on the home screen) are not customizable by default. *The former apparently has been allowed on KaiOS 3*, but to change them on this phone you'll have to change the homescreen launcher altogether.
   - Once you've sideloaded an alternative launcher, use Cyan's [Launcher Switcher](../main/Launcher_Switcher.zip) to switch to the new launcher.
@@ -391,11 +391,9 @@ If the newly packaged image is barely over 1/3 the size of the original image, i
 ```console
 python edl.py w boot boot.img --loader=8k.mbn
 ```
-OR
 ```console
 python edl.py w boot unsigned-new.img --loader=8k.mbn
 ```
-OR
 ```console
 python edl.py w boot image-new.img --loader=8k.mbn
 ```
@@ -424,7 +422,7 @@ python edl.py reset
 ![Demostration of a WebIDE window in which the location of Device Preferences is highlighted in the right pane and the value of devTools.apps.forbiddenPermissions has been emptied](/assets/devpref.png)
 
 - If you wish to retain privileged permissions after restoring the phone to its unrooted state, before doing so, back up all data, sideload Luxferre's [CrossTweak](https://gitlab.com/suborg/crosstweak) then press # to perform a privileged factory reset — this will wipe all data of the phone and let you set up with a privileged session. This session will last until an OTA update overrides or you choose to factory reset normally yourself.
-- Spoof enforced SELinux for WhatsApp calls after rooting:
+- After rooting, you can spoof SELinux's Enforced status for WhatsApp VoIP by typing these commands one-by-one into the rooted ADB shell. This will last until a restart.
 ```console
 echo -n 1 > /data/enforce
 mount -o bind /data/enforce /sys/fs/selinux/enforce
@@ -436,6 +434,11 @@ HMD Global/Nokia Mobile has published the device's source code for its Linux 4.9
 Note that the source code released does not contain proprietary parts from other parties like Qualcomm.
 
 ## External links
+- [Nokia 8000 4G product page](https://www.nokia.com/phones/en_int/nokia-8000-4g) on Nokia Mobile's website
 - [Nokia 6300 4G product page](https://www.nokia.com/phones/en_int/nokia-6300-4g) on Nokia Mobile's website
-- [Nokia 6300 4G (nokia-leo) on postmarketOS Wiki](https://wiki.postmarketos.org/wiki/Nokia_6300_4G_(nokia-leo))
+- [Discussion: Nokia 6300 4G and Nokia 8000 4G](https://4pda.to/forum/index.php?showtopic=1009510) on 4PDA Forum (Russian)
+- [Nokia 8000 4G and Nokia 6300 4G general discussion thread](https://groups.google.com/g/bananahackers/c/jxEC3RVMYvI) on BananaHackers Google Groups
+- [Nokia 8000 4G rooting research thread](https://groups.google.com/g/bananahackers/c/8lCqP15zHXg) on BananaHackers Google Groups
+- [Nokia 8000 4G (nokia-sparkler)](https://wiki.postmarketos.org/wiki/Nokia_8000_4G_(nokia-sparkler)) on postmarketOS Wiki
+- [Nokia 6300 4G (nokia-leo)](https://wiki.postmarketos.org/wiki/Nokia_6300_4G_(nokia-leo)) on postmarketOS Wiki
 - [Affe Null's Bananian project repository](https://git.abscue.de/bananian/bananian), a Debian port for KaiOS devices
