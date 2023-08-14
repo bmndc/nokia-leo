@@ -12,6 +12,7 @@
 - [Secret codes](#secret-codes)
 - [Special boot modes](#special-boot-modes)
 - [Sideloading and debugging third-party applications](#sideloading-and-debugging-third-party-applications)
+  - [Regarding OmniSD and debloating](#regarding-omnisd-and-debloating)
 - [ROOT: Boot partition modifying (non-US only)](#root-boot-partition-modifying-non-us-only)
   - [What we'll need](#what-well-need)
   - [Part 1: Set up environment for EDL tools](#part-1-set-up-environment-for-edl-tools)
@@ -92,33 +93,34 @@ Remember, **only buy from trusted, reputable sources**, even if they have higher
 - KaiOS accounts are NOT mandatory for the phone' operations or downloading apps from KaiStore, but they can be set up under Settings > Accounts if you need them for Anti-Theft features.
 
 ## Known issues
-(major issues in **bold**)
 - The multiple clips holding the back panel can be stressed and quickly broken.
   - *Note that phone shutting itself down or not receiving any charges often come down to loose or dirty battery connectors or charging port and not software problem. Happened to me once, got the phone checked and repaired for less than $10.*
 - Decent speaker, but muffled especially on strong bass and not suitable for elders (turn on Keypad vibration under Settings > Device instead).
-- **Battery draining heavily (from 5–7 days of 4G standby to 18 hours, 2 hours in active usage) if you leave Wi-Fi or mobile data on at all time, e.g. to be immediately notified of incoming WhatsApp messages.** Turning them off if you don't plan to use Internet connection at the moment, and only turn them on periodically to check for notifications do help.
+- (MAJOR) Battery draining heavily (from 5–7 days of 4G standby to 18 hours, 2 hours in active usage) if you leave Wi-Fi or mobile data on at all time, e.g. to be immediately notified of incoming WhatsApp messages. Turning them off if you don't plan to use Internet connection at the moment, and only turn them on periodically to check for notifications do help.
 - Due to battery optimization measures (the exact root cause hasn't been found yet, seems to not affect other MSM8909 devices), the Wi-Fi hotspot feature will stop transmitting data packets with your other devices when you put the phone into sleep. No fix yet.
   - If you managed to get hotspot up and running, the speed is throttled due to hardware design (Cat4 speed).
-- **Keypad frequently registering multiple or no keystrokes instead of a single-press.** This is due to the short keypress timeout interval in `keyboard.gaiamobile.org` and can be fixed by following this [BananaHackers' guide on fixing the keypad speed](https://ivan-hc.github.io/bananahackers/fix-the-keypad-speed.html)
+- (MAJOR) Keypad frequently registering multiple or no keystrokes instead of a single-press. This is due to the short keypress timeout interval in `keyboard.gaiamobile.org` and can be fixed by following this [BananaHackers' guide on fixing the keypad speed](https://ivan-hc.github.io/bananahackers/fix-the-keypad-speed.html)
 - Normally, you can wake up the phone from sleep by either pressing the Power, Volume up or Volume down buttons, regardless of whether keyguard is in place or not. On this phone there are no volume buttons, but some of their functions, such as triggering boot modes or waking the phone up, are mapped to * and # keys respectively. This can be problematic as those keys are located close to the bottom edge of the phone and can be randomly mashed if you store the phone in your front pockets, leading to unintended screenshots. No fix yet.
-- **B2G takes up huge chunk of memory, and RAM optimizations leading to aggressive background task killing (and foreground tasks at times) after a few minutes, making opening and exiting apps (including the home screen) noticeably slow.**
+- (MAJOR) B2G takes up huge chunk of memory, and RAM optimizations leading to aggressive background task killing (and foreground tasks at times) after a few minutes, making opening and exiting apps (including the home screen) noticeably slow.
   - Incoming WhatsApp calls and other notifications are also affected by this.
   - The latter can be mitigated by rooting the phone, then append this line in the startup script in `/boot/ramdisk/init.qcom.post_boot.sh` (see below on extracting boot partition using Android Image Kitchen) to disable the 'low memory killer' function. Don't forget to add a swapfile afterwards (from [this r/KaiOS Reddit post](https://www.reddit.com/r/KaiOS/comments/v4vb5j/low_memory_killer_in_nokia_63008000)):
 ```
 echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 ```
-- GPS failing to lock your current position on 4G LTE. Not sure why, but you'll have to switch to 2G/3G for the phone to retrieve GPS information properly (Settings > Mobile network & data > Carrier - SIMx > Network type > 3G/2G). Might be major issue for those in the US.
+- (MAJOR) GPS failing to lock your current position on 4G LTE. Not sure why, but you'll have to switch to 2G/3G for the phone to retrieve GPS information properly (Settings > Mobile network & data > Carrier - SIMx > Network type > 3G/2G). Might be major issue for those in the US where 2G/3G has been shut down.
 - If you forgot your lockscreen passcode (not SIM or Anti-Theft one), you can bypass it by holding down the top Power button, then select *Memory Cleaner* and *Deep Memory Cleaning*.
 - *According to reports from GSMArena and Reddit, some call and text entries may not be registered in the log. I've not been able to replicate those during my usage however, might be related to other mentioned issues.*
 
 ### KaiOS-specific
 - If you're setting the phone up for the first time without any SIM cards, pre-installed apps such as WhatsApp, Facebook and Google apps may not appear in the app list or in KaiStore. After popping in a SIM, those apps will show up as normal.
   - KaiStore will always show up in all circumstances, regardless of whether there's a SIM card inserted or not.
+  - ADS ARE EVERYWHERE. There's an option to dismiss the banners on the home screen. KaiStore promotions are a bit trickier: you'd have to go to Settings > Personalization > Notices > App notices > Store > Allow Notices and toggle to Off.
 - The 8000 4G and 6300 4G runs KaiOS 2.5, which itself is based on Gecko 48 from 2016, meaning without optimizations and new web technologies, some websites like Instagram and Uber just fall apart and the overall performance is unbearable.
   - No built-in Widevine DRM decoders, which means the phone is NOT capable of playing DRM-protected content from e.g. Spotify
-  - **Some built-in apps, such as Call logs, Contacts or Music, are written in a way that is performance-intensive and not optimized for the phone, causing slow rendering and system lags if you store a large number of contacts** (technically infinite but 100 recommended), call logs (max 40), music files or other items in a list. *This has been addressed on later versions, but you can opt for alternatives such as [arma7x's K-Music](https://github.com/arma7x/kaimusic) in KaiStore if possible.*
-- **Sending text messages don't automatically convert to MMS in group chats.** You'll have to add a message subject or file attachment before sending to manually do so, otherwise your message will be sent separately to each individual in the thread. Receiving works flawlessly.
-- **Alarms can be delayed, unable to go off or go off unexpectedly if the Clock app is killed.** Before going to sleep, make sure to open the Clock app and lock the phone without pressing the End call key or closing the app.
+  - (MAJOR) Some built-in apps, such as Call logs, Contacts or Music, are written in a way that is performance-intensive and not optimized for the phone, causing slow rendering and system lags if you store a large number of contacts (technically infinite but 100 recommended), call logs (max 40), music files or other items in a list. *This has been addressed on later versions, but you can opt for alternatives such as [arma7x's K-Music](https://github.com/arma7x/kaimusic) in KaiStore if possible.*
+- (MAJOR) Sending text messages don't automatically convert to MMS in group chats. You'll have to add a message subject or file attachment before sending to manually do so, otherwise your message will be sent separately to each individual in the thread. Receiving works flawlessly.
+  - *Group messaging over MMS has been properly implemented as a feature on later versions.*
+- (MAJOR) Alarms can be delayed, unable to go off or go off unexpectedly if the Clock app is killed. Before going to sleep, make sure to open the Clock app and lock the phone without pressing the End call key or closing the app.
 - Predictive typing mode doesn't last between inputs, meaning if you switch between input boxes, it'll return to the normal T9 mode.
 - You cannot change message notification tone or alarm tone on the phone outside the defaults provided. This is because both are not managed by the system, but by the Messages and Clock app themselves.
   - To change them, you'll have to use ADB to pull `sms.gaiamobile.org` and `clock.gaiamobile.org` from `/system/b2g/webapps`, extract, edit the audio files and repackage the apps, then push them back under `/data/local/webapps` and edit the `basePath` in `/data/local/webapps/webapps.json` to reflect the change (see [BananaHackers' guide](https://ivan-hc.github.io/bananahackers/clock-alarms.html#h.unmy3yif91xs) for instructions)
@@ -161,11 +163,105 @@ You can also **force reboot** the phone by holding the top Power button and the 
 EDL loader for the international version of this phone (not TA-1324) can be found on BananaHackers' [EDL archive site](https://edl.bananahackers.net/loaders/8k.mbn) with hardware ID 0x009600e100420029 (a copy is available [here](../main/8k.mbn)). The US version of this phone has been signed with a different PK_HASH and needs a different firehose loader which we currently don't have in archive.
 
 ## Sideloading and debugging third-party applications
-[A throughly-written guide covering sideloading and debugging apps on all KaiOS devices — including this phone — can be found here](/Sideloading_with_WebIDE.md).
+According to BananaHackers' definitions, this phone and most other KaiOS 2.5.4 devices fall on the first category, meaning that you're allowed to sideload and debug apps from outside sources, with a few caveats: apps with 'forbidden' permissions such as `embed-apps`, `embed-widgets` and `engmode-extension` cannot be sideloaded, and pre-installed apps cannot be debugged using WebIDE's Developer Tools (you can, however, have a look at the system's global warnings and errors with `adb logcat`).
 
-According to BananaHackers' definitions, this phone and most other KaiOS 2.5.4 devices fall on the first category, meaning that you're allowed to sideload and debug third-party apps, with a few caveats: apps with 'forbidden' permissions such as `embed-apps`, `embed-widgets` and `engmode-extension` cannot be sideloaded, and pre-installed apps cannot be debugged using WebIDE's Developer Tools (you can, however, have a look at the system's global warnings and errors with `adb logcat`).
+<details>
+  <summary>Why sideloading?</summary>
 
-*Do note that OmniSD, one of the methods used for on-device sideloading, requires the `navigator.mozApps.mgmt.import` API that has been removed on KaiOS 2.5.2.2 and later.*
+---
+According to [How-To Geek](https://www.howtogeek.com/773639/what-is-sideloading-and-should-you-do-it), sideloading is 'the practice of installing software on a device without using the approved app store or software distribution channel'. You may want to do so because a cool piece of software is not available in the device's app store, either because it doesn't meet the app store's requirements, it's not available in your region, or you're a developer and looking to test your newly-made app before making it public.
+
+This is where Android Debug Bridge (ADB) and WebIDE comes in. Every piece of electronic devices has some sort of special protocols for developers and engineers to communicate and perform special functions, including sideloading apps, and KaiOS devices are not an exception. ADB and WebIDE are handy tools for engineers to decode those protocols.
+
+For those born after the 90s, ADB works in the command-line interface, which is a computer interface that only accept keyboard input, in which you type in instructions for the computer to execute ([freeCodeCamp](https://www.freecodecamp.org/news/command-line-for-beginners)). ADB is instruction-bundled so you just have to tell ADB what to do, and it'll do the rest. On the other hand, WebIDE works in graphical, which is what you usually see on phones and computers these days, and even what you're looking at right now.
+
+**Why do we use ADB and a browser for WebIDE?**: KaiOS inherited most of its development from Mozilla's now-defunct Firefox OS. Firefox OS and KaiOS devices, in general, use an Android compatibility layer for hardware reasons.
+
+Mozilla also needed to have a place in their browser for Firefox OS development.
+
+---
+</details>
+
+1. Turn on debugging mode on the phone by dialing `*#*#debug#*#*` on the home screen. You'll see a bug icon in the status bar.
+- If you're connecting to a Linux-based PC, you may need to go to Settings > Storage and turn on USB Storage for `udev` to properly register your phone as an USB peripheral. An icon in the status bar will appear indicating storage access via USB.
+2. Connect the phone to a computer with an USB cable. On the computer, download Android Debug Bridge: [Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip), [macOS](https://dl.google.com/android/repository/platform-tools-latest-darwin.zip), [Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip)
+- If your operating system has a package manager, you can utilize that to quickly install and set up ADB (skip step 3 when done):
+  - Windows: `choco install adb` (`winget` [prohibits installing executables with symlinks](https://github.com/microsoft/winget-pkgs/issues/4082))
+  - macOS: `brew install android-platform-tools`
+  - Linux (Debian/Ubuntu): `sudo apt-get install adb`
+  - Linux (Fedora): `sudo dnf install android-tools`
+  - Linux (Arch): `sudo pacman -S android-tools`
+3. Extract the downloaded archive to a folder (double-click the file on macOS/Linux, 7-Zip > Extract here on Windows), navigate to its `platform-tools` root and open a command-line window within that.
+
+4. Type `adb devices` to start the ADB server. If a `device` shows, that means your phone is being detected by ADB and you're good to go.
+
+5. Download and install the latest version of [Waterfox Classic](https://classic.waterfox.net) corresponding to your operating system.
+
+6. Open the browser and press Shift + F8 (or select Menu > Developer > WebIDE) to open the WebIDE window.
+
+7. Your phone's name should already appear in the right pane. Click it to connect. If you don't see any, type this into the command-line window:
+```console
+adb forward tcp:6000 localfilesystem:/data/local/debugger-socket
+```
+- In WebIDE, click Remote Runtime, leave it as default at localhost:6000 and press OK.
+8. To sideload an app, download it and extract its ZIP content (if you see an OmniSD-packaged application.zip you may need to extract once more). Select Open Packaged Apps in WebIDE's left sidebar and navigate to the root of the app folder you just extracted.
+
+9. Once you've got the app loaded, press the triangle Install and Run in the top bar to sideload, or click the wrench to open the Developer Tools.
+
+<details>
+  <summary>Other means of sideloading</summary>
+
+---
+- **gdeploy**: is a small cross-platform command-line utility developed by Luxferre as an alternative to the graphical WebIDE, and can even be used as NodeJS module/library. According to Luxferre, 'it uses the same firefox-client backend but has much simpler architecture for application management'.
+
+For Windows 10 version 1709 and later, type these commands one by one into Command Prompt, with [DIR_PATH] replaced by the extracted folder directory of the app you want to install (see step 8 above):
+```console
+winget install Git.Git
+winget install OpenJS.NodeJS.LTS
+cd /d "%USERPROFILE%\Desktop"
+git clone https://gitlab.com/suborg/gdeploy.git
+curl -Lo platform-tools.zip https://dl.google.com/android/repository/platform-tools-latest-windows.zip
+tar -xf platform-tools.zip
+cd platform-tools\
+adb devices
+adb forward tcp:6000 localfilesystem:/data/local/debugger-socket
+cd ..\gdeploy\
+npm i && npm link
+gdeploy install [DIR_PATH]
+```
+For macOS and Linux, if you have Homebrew installed as a package manager:
+```console
+brew install git node android-platform-tools
+cd ~/Desktop
+git clone https://gitlab.com/suborg/gdeploy.git
+adb devices
+adb forward tcp:6000 localfilesystem:/data/local/debugger-socket
+cd gdeploy
+npm i && npm link
+gdeploy install [DIR_PATH]
+```
+- KaiOS RunTime (Linux): official developing environment for KaiOS 2.5 made by KaiOS Technologies. To download and set up KaiOSRT on Ubuntu, type these commands one-by-one in Terminal:
+```console
+wget https://s3.amazonaws.com/kaicloudsimulatordl/developer-portal/simulator/Kaiosrt_ubuntu.tar.bz2
+tar -axvf Kaiosrt_ubuntu.tar.bz2
+cd kaiosrt-v2.5-ubuntu-20190925163557-n378
+tar -axvf kaiosrt-v2.5.en-US.linux-x86_64.tar.bz2
+cd kaiosrt
+./kaiosrt
+```
+*It's also possible to get KaiOSRT to work on Windows 10 and later using Windows Subsystem for Linux (WSLg). [See this video on YouTube for action](https://youtu.be/eg2SOCTMxYU).*
+
+- Firefox 59 (ESR 52.9): the last official Firefox version to bundle with working WebIDE and other tools for development on Firefox OS devices, before Mozilla decided to kill the project in 2016. Archives of all Firefox releases can be found on https://archive.mozilla.org.
+- Pale Moon 28.6.1 (Windows/Linux): a popular fork of Firefox with older user interface, legacy Firefox add-on support and always running in single-process mode. Archives of all releases can be found on https://www.palemoon.org/archived.shtml.
+- [Make KaiOS Install](https://github.com/jkelol111/make-kaios-install): another command-line tool to install apps using KaiOS's remote debugging protocol.
+
+---
+</details>
+
+### Regarding OmniSD and debloating
+**Do note that OmniSD, one of the methods used for on-device sideloading, requires the `navigator.mozApps.mgmt.import` API that has been removed on KaiOS 2.5.2.2 and later.** However, the Privileged factory reset feature on KaiOS 2.5.1 and older can now be reused after permanent rooting to gain privileged userspace session (see [Next steps](#next-steps)).
+
+For 'debloating' the phone, [this fork of Luxferre's AppBuster](https://github.com/minhduc-bui1/AppBuster) that you can sideload allows you to disable any unnecessary apps and re-enable them if you need. After permanently rooting the phone, you can also use [Wallace Toolbox](https://gitlab.com/suborg/wallace-toolbox) to make all apps removable.
 
 # ROOT: Boot partition modifying (non-US only)
 On the 6300 4G, 8000 4G and other KaiOS 2.5.4 devices, ADB and WebIDE can be used to sideload third-party applications. However, you won't be able to sideload apps that has ‘forbidden’ permissions (namely `engmode-extension` which can be used to gain exclusive access of the phone, and can be found in most BananaHackers-made apps like Wallace Toolbox) or make changes to the system. On the 2720 Flip and 800 Tough with KaiOS 2.5.2.2, the situation is worse as you aren't able to sideload at all. Because in order to achieve WhatsApp VoIP feature on these KaiOS versions, the security module SELinux is now set to be `Enforced` which checks and reverts system modifications on boot. To gain total read-write access to the devices, you'll now have to permanently root them by setting SELinux to `Permissive` mode.
