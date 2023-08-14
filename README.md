@@ -32,7 +32,7 @@
 | --- | --- | --- |
 | Released | 13 November 2020 | 13 November 2020 |
 | Model | TA-1286, TA-1287, TA-1294, TA-1324 | TA-1303, TA-1305 |
-| **Specifications** |  |  |
+|  | **Specifications** |  |
 | SoC | Qualcomm MSM8909 Snapdragon 210<br>(4 x 1.1Ghz Cortex-A7) | Qualcomm MSM8909 Snapdragon 210<br>(4 x 1.1Ghz Cortex-A7) |
 | RAM | 512MB LPDDR3 | 512MB LPDDR3 |
 | GPU | Adreno 304 | Adreno 304 |
@@ -43,11 +43,11 @@
 | Wi-Fi | 802.11b/g/n, 2.4GHz, Hotspot | 802.11b/g/n, 2.4GHz, Hotspot |
 | Peripherals | GPS & GLONASS | GPS & GLONASS |
 | Cameras | Rear: VGA, LED flash | Rear: 2MP, LED flash |
-| Dimensions<br>(H x W x D) | 131.4 * 53 * 13.7 (mm)<br>5.17 * 2.09 * 0.54 (in) | 132.2 x 56.5 x 12.3 (mm)<br>5.20 x 2.22 x 0.48 (in) |
+| Dimensions<br>(HWD) | 131.4 * 53 * 13.7 (mm)<br>5.17 * 2.09 * 0.54 (in) | 132.2 x 56.5 x 12.3 (mm)<br>5.20 x 2.22 x 0.48 (in) |
 | Weight | 104.7g (3.70oz) | 110.2g (3.88oz) |
 | Ports | - microUSB charging & USB 2.0 data transferring port<br>- 3.5mm headphone jack | - microUSB charging & USB 2.0 data transferring port<br>- 3.5mm headphone jack |
 | Battery | Removable Li-Ion 1500mAh (BL-4XL) | Removable Li-Ion 1500mAh (BL-4XL?) |
-| **KaiOS info** |  |  |
+|  | **KaiOS info** |  |
 | Version | KaiOS 2.5.4 | KaiOS 2.5.4 |
 | Build no. | (TA-1286) 12.00.17.01, 20.00.17.01, 30.00.17.01 | (TA-1303) 12.00.17.01, 20.00.17.01, 30.00.17.01 |
 
