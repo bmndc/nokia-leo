@@ -28,6 +28,7 @@
 - [Source code](#source-code)
 - [External links](#external-links)
 
+<<<<<<< HEAD
 |  |  |
 | --- | --- |
 | Codename | **6300 4G:** nokia-leo<br>**8000 4G:** nokia-sparkler | 
@@ -51,6 +52,31 @@
 |  | ***KaiOS info*** |
 | Version | KaiOS 2.5.4 |
 | Build no. | (TA-1286/TA-1303) 12.00.17.01, 20.00.17.01, 30.00.17.01 |
+=======
+|  |  |  |
+| --- | --- | --- |
+|  | **Nokia 6300 4G (nokia-leo)** | **Nokia 8000 4G (nokia-sparkler)** | 
+| Released | 13 November 2020 |  |
+| Model | TA-1286, TA-1287, TA-1294, TA-1324 | TA-1303, TA-1305 |
+|  | **Specifications** |  |
+| SoC | Qualcomm MSM8909 Snapdragon 210<br>(4 x 1.1Ghz Cortex-A7) |  |
+| RAM | 512MB LPDDR2/3 |  |
+| GPU | Adreno 304 |  |
+| Storage | 4GB eMMC 4.5 (+ up to 32GB microSDHC card) |  |
+| Network | - 2G GSM<br>- 3G UMTS<br>- 4G LTE Cat4<br>+ EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>+ MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>+ US: band 2, 4, 5, 12, 17, 66, 71<br>+ LATAM: band 2, 3, 4, 5, 7, 28<br>+ ROW: band 1, 3, 5, 7, 8, 20, 38, 40<br>- VoLTE & VoWiFi support<br>- Single or Dual SIM (Nano-SIM, dual-standby) | - 2G GSM<br>- 3G UMTS<br>- 4G LTE Cat4<br>+ EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>+ HK, Macau, MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>+ ROW: band 1, 3, 5, 7, 8, 20, 28, 38, 40<br>- VoLTE & VoWiFi support<br>- Single or Dual SIM (Nano-SIM, dual-standby) |
+| Screen | 320 x 240 (167 PPI)<br>2.4 inches QVGA TFT LCD, 16M colors | 320 x 240 (143 PPI)<br>2.8 inches QVGA TFT LCD, 16M colors |
+| Bluetooth | 4.0, A2DP, LE |  |
+| Wi-Fi | 802.11b/g/n, Hotspot |  |
+| Peripherals | GPS & GLONASS |  
+| Cameras | Rear: VGA, LED flash | Rear: 2MP, LED flash |
+| Dimensions<br>(H x W x D) | 131.4 * 53 * 13.7 (mm)<br>5.17 * 2.09 * 0.54 (in) | 132.2 x 56.5 x 12.3 (mm)<br>5.20 x 2.22 x 0.48 (in) |
+| Weight | 104.7g (3.70oz) | 110.2g (3.88oz) |
+| Ports | - microUSB charging & USB 2.0 data transferring port<br>- 3.5mm headphone jack |  |
+| Battery | Removable Li-Ion 1500mAh (BL-4XL) |  |
+|  | **KaiOS info** |  |
+| Version | KaiOS 2.5.4 |  |
+| Build no. | (TA-1286/TA-1303) 12.00.17.01, 20.00.17.01, 30.00.17.01 |  |
+>>>>>>> parent of 501f42654 (Table: Merged all spec info into one column)
 
 ## Before making the decision
 
