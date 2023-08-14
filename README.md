@@ -28,12 +28,11 @@
 - [Source code](#source-code)
 - [External links](#external-links)
 
-|  |  |  |
+|  | **Nokia 6300 4G (nokia-leo)** | **Nokia 8000 4G (nokia-sparkler)** |
 | --- | --- | --- |
-|  | **Nokia 6300 4G (nokia-leo)** | **Nokia 8000 4G (nokia-sparkler)** | 
 | Released | 13 November 2020 | 13 November 2020 |
 | Model | TA-1286, TA-1287, TA-1294, TA-1324 | TA-1303, TA-1305 |
-|  | **Specifications** |  |
+| **Specifications** |  |  |
 | SoC | Qualcomm MSM8909 Snapdragon 210<br>(4 x 1.1Ghz Cortex-A7) | Qualcomm MSM8909 Snapdragon 210<br>(4 x 1.1Ghz Cortex-A7) |
 | RAM | 512MB LPDDR3 | 512MB LPDDR3 |
 | GPU | Adreno 304 | Adreno 304 |
@@ -48,7 +47,7 @@
 | Weight | 104.7g (3.70oz) | 110.2g (3.88oz) |
 | Ports | - microUSB charging & USB 2.0 data transferring port<br>- 3.5mm headphone jack | - microUSB charging & USB 2.0 data transferring port<br>- 3.5mm headphone jack |
 | Battery | Removable Li-Ion 1500mAh (BL-4XL) | Removable Li-Ion 1500mAh (BL-4XL?) |
-|  | **KaiOS info** |  |
+| **KaiOS info** |  |  |
 | Version | KaiOS 2.5.4 | KaiOS 2.5.4 |
 | Build no. | (TA-1286) 12.00.17.01, 20.00.17.01, 30.00.17.01 | (TA-1303) 12.00.17.01, 20.00.17.01, 30.00.17.01 |
 
@@ -89,7 +88,7 @@ Remember, **only buy from trusted, reputable sources**, even if they have higher
 - KaiOS accounts are NOT mandatory for the phone' operations or downloading apps from KaiStore, but they can be set up under *Settings > Accounts* if you need them for Anti-Theft features.
 
 ## Known issues
-- RAM optimizations leading to aggressive background task killing. This can be mitigated by rooting the phone, then append this line in the startup script in /boot to disable the 'low memory killer' function. Don't forget to add a swapfile afterwards:
+- RAM optimizations leading to aggressive background task killing. This can be mitigated by rooting the phone, then append this line in the startup script in `/boot/ramdisk/init.qcom.post_boot.sh` (see below on extracting boot partition using Android Image Kitchen) to disable the 'low memory killer' function. Don't forget to add a swapfile afterwards:
 ```
 echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
 ```
