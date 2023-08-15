@@ -12,6 +12,8 @@
 - [Secret codes](#secret-codes)
 - [Special boot modes](#special-boot-modes)
 - [Sideloading and debugging third-party applications](#sideloading-and-debugging-third-party-applications)
+  - [ADB and WebIDE](#adb-and-webide)
+  - [`gdeploy`](#gdeploy)
   - [Regarding OmniSD and debloating](#regarding-omnisd-and-debloating)
 - [ROOT: Boot partition modifying (non-US only)](#root-boot-partition-modifying-non-us-only)
   - [What we'll need](#what-well-need)
@@ -182,8 +184,10 @@ Mozilla also needed to have a place in their browser for Firefox OS development.
 ---
 </details>
 
-1. Turn on debugging mode on the phone by dialing `*#*#debug#*#*` on the home screen. You'll see a bug icon in the status bar.
-- If you're connecting to a Linux-based PC, you may need to go to Settings > Storage and turn on USB Storage for `udev` to properly register your phone as an USB peripheral. An icon in the status bar will appear indicating storage access via USB.
+### ADB and WebIDE
+
+1. Turn on debugging mode on the phone by dialing `*#*#debug#*#*` on the home screen. You'll see a bug icon in the status bar letting you know you're in debugging mode.
+- If you're connecting to a Linux-based PC, you may need to go to Settings > Storage and turn on USB Storage for `udev` to properly register your phone as an USB peripheral. Another icon in the status bar will appear indicating storage access via USB.
 2. Connect the phone to a computer with an USB cable. On the computer, download Android Debug Bridge: [Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip), [macOS](https://dl.google.com/android/repository/platform-tools-latest-darwin.zip), [Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip)
 - If your operating system has a package manager, you can utilize that to quickly install and set up ADB (skip step 3 when done):
   - Windows: `choco install adb` (`winget` [prohibits installing executables with symlinks](https://github.com/microsoft/winget-pkgs/issues/4082))
@@ -192,27 +196,19 @@ Mozilla also needed to have a place in their browser for Firefox OS development.
   - Linux (Fedora): `sudo dnf install android-tools`
   - Linux (Arch): `sudo pacman -S android-tools`
 3. Extract the downloaded archive to a folder (double-click the file on macOS/Linux, 7-Zip > Extract here on Windows), navigate to its `platform-tools` root and open a command-line window within that.
-
 4. Type `adb devices` to start the ADB server. If a `device` shows, that means your phone is being detected by ADB and you're good to go.
-
 5. Download and install the latest version of [Waterfox Classic](https://classic.waterfox.net) corresponding to your operating system.
-
 6. Open the browser and press Shift + F8 (or select Menu > Developer > WebIDE) to open the WebIDE window.
-
 7. Your phone's name should already appear in the right pane. Click it to connect. If you don't see any, type this into the command-line window:
 ```console
 adb forward tcp:6000 localfilesystem:/data/local/debugger-socket
 ```
 - In WebIDE, click Remote Runtime, leave it as default at localhost:6000 and press OK.
-8. To sideload an app, download it and extract its ZIP content (if you see an OmniSD-packaged application.zip you may need to extract once more). Select Open Packaged Apps in WebIDE's left sidebar and navigate to the root of the app folder you just extracted.
-
+8. To sideload an app, download it and extract its ZIP content (if you see an OmniSD-packaged application.zip you may need to extract that). Select Open Packaged Apps in WebIDE's left sidebar and navigate to the root of the app folder you just extracted.
 9. Once you've got the app loaded, press the triangle Install and Run in the top bar to sideload, or click the wrench to open the Developer Tools.
 
-<details>
-  <summary>Other means of sideloading</summary>
-
----
-- **gdeploy**: is a small cross-platform command-line utility developed by Luxferre as an alternative to the graphical WebIDE, and can even be used as NodeJS module/library. According to Luxferre, 'it uses the same firefox-client backend but has much simpler architecture for application management'.
+### `gdeploy`
+`gdeploy` is a small cross-platform command-line utility developed by Luxferre as an alternative to the graphical WebIDE, and can even be used as NodeJS module/library. According to Luxferre, 'it uses the same firefox-client backend but has much simpler architecture for application management'.
 
 For Windows 10 version 1709 and later, type these commands one by one into Command Prompt, with [DIR_PATH] replaced by the extracted folder directory of the app you want to install (see step 8 above):
 ```console
@@ -240,6 +236,12 @@ cd gdeploy
 npm i && npm link
 gdeploy install [DIR_PATH]
 ```
+
+<details>
+  <summary>Other means of sideloading</summary>
+
+---
+
 - KaiOS RunTime (Linux): official developing environment for KaiOS 2.5 made by KaiOS Technologies. To download and set up KaiOSRT on Ubuntu, type these commands one-by-one in Terminal:
 ```console
 wget https://s3.amazonaws.com/kaicloudsimulatordl/developer-portal/simulator/Kaiosrt_ubuntu.tar.bz2
