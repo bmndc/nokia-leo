@@ -185,7 +185,6 @@ Mozilla also needed to have a place in their browser for Firefox OS development.
 </details>
 
 ### ADB and WebIDE
-
 1. Turn on debugging mode on the phone by dialing `*#*#debug#*#*` on the home screen. You'll see a bug icon in the status bar letting you know you're in debugging mode.
 - If you're connecting to a Linux-based PC, you may need to go to Settings > Storage and turn on USB Storage for `udev` to properly register your phone as an USB peripheral. Another icon in the status bar will appear indicating storage access via USB.
 2. Connect the phone to a computer with an USB cable. On the computer, download Android Debug Bridge: [Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip), [macOS](https://dl.google.com/android/repository/platform-tools-latest-darwin.zip), [Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip)
@@ -208,7 +207,7 @@ adb forward tcp:6000 localfilesystem:/data/local/debugger-socket
 9. Once you've got the app loaded, press the triangle Install and Run in the top bar to sideload, or click the wrench to open the Developer Tools.
 
 ### `gdeploy`
-`gdeploy` is a small cross-platform command-line utility developed by Luxferre as an alternative to the graphical WebIDE, and can even be used as NodeJS module/library. According to Luxferre, 'it uses the same firefox-client backend but has much simpler architecture for application management'.
+`gdeploy` is a small cross-platform command-line utility developed by Luxferre as an alternative to the graphical WebIDE, and can even be used as NodeJS module/library. According to Luxferre, 'it uses the same `firefox-client` backend but has much simpler architecture for application management'.
 
 For Windows 10 version 1709 and later, type these commands one by one into Command Prompt, with [DIR_PATH] replaced by the extracted folder directory of the app you want to install (see step 8 above):
 ```console
@@ -241,7 +240,6 @@ gdeploy install [DIR_PATH]
   <summary>Other means of sideloading</summary>
 
 ---
-
 - KaiOS RunTime (Linux): official developing environment for KaiOS 2.5 made by KaiOS Technologies. To download and set up KaiOSRT on Ubuntu, type these commands one-by-one in Terminal:
 ```console
 wget https://s3.amazonaws.com/kaicloudsimulatordl/developer-portal/simulator/Kaiosrt_ubuntu.tar.bz2
