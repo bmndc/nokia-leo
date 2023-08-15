@@ -186,25 +186,29 @@ Mozilla also needed to have a place in their browser for Firefox OS development.
 
 ### ADB and WebIDE
 1. Turn on debugging mode on the phone by dialing `*#*#debug#*#*` on the home screen. You'll see a bug icon in the status bar letting you know you're in debugging mode.
-- If you're connecting to a Linux-based PC, you may need to go to Settings > Storage and turn on USB Storage for `udev` to properly register your phone as an USB peripheral. Another icon in the status bar will appear indicating storage access via USB.
+> If you're connecting to a Linux-based PC, you may need to go to Settings > Storage and turn on USB Storage for `udev` to properly register your phone as an USB peripheral. Another icon in the status bar will appear indicating storage access via USB.
 2. Connect the phone to a computer with an USB cable. On the computer, download Android Debug Bridge: [Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip), [macOS](https://dl.google.com/android/repository/platform-tools-latest-darwin.zip), [Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip)
-- If your operating system has a package manager, you can utilize that to quickly install and set up ADB (skip step 3 when done):
-  - Windows: `choco install adb` (`winget` [prohibits installing executables with symlinks](https://github.com/microsoft/winget-pkgs/issues/4082))
-  - macOS: `brew install android-platform-tools`
-  - Linux (Debian/Ubuntu): `sudo apt-get install adb`
-  - Linux (Fedora): `sudo dnf install android-tools`
-  - Linux (Arch): `sudo pacman -S android-tools`
+> If your operating system has a package manager, you can utilize that to quickly install and set up ADB (skip step 3 when done):
+> - Windows: `choco install adb` (`winget` [prohibits installing executables with symlinks](https://github.com/microsoft/winget-pkgs/issues/4082))
+> - macOS: `brew install android-platform-tools`
+> - Linux (Debian/Ubuntu): `sudo apt-get install adb`
+> - Linux (Fedora): `sudo dnf install android-tools`
+> - Linux (Arch): `sudo pacman -S android-tools`
 3. Extract the downloaded archive to a folder (double-click the file on macOS/Linux, 7-Zip > Extract here on Windows), navigate to its `platform-tools` root and open a command-line window within that.
 4. Type `adb devices` to start the ADB server. If a `device` shows, that means your phone is being detected by ADB and you're good to go.
-5. Download and install the latest version of [Waterfox Classic](https://classic.waterfox.net) corresponding to your operating system.
+5. Download and install either the latest version of [Waterfox Classic](https://classic.waterfox.net), Firefox 59/ESR 52.9 or Pale Moon 28.6.1 corresponding to your operating system.
+> - Firefox 59 (ESR 52.9): the last official Firefox version to bundle with working WebIDE and other tools for development on Firefox OS devices, before Mozilla decided to kill the project in 2016. Archives of all Firefox releases can be found on https://archive.mozilla.org.
+> - Pale Moon 28.6.1 (Windows/Linux): a popular fork of Firefox with older user interface, legacy Firefox add-on support and always running in single-process mode. Archives of all releases can be found on https://www.palemoon.org/archived.shtml.
 6. Open the browser and press Shift + F8 (or select Menu > Developer > WebIDE) to open the WebIDE window.
 7. Your phone's name should already appear in the right pane. Click it to connect. If you don't see any, type this into the command-line window:
 ```console
 adb forward tcp:6000 localfilesystem:/data/local/debugger-socket
 ```
 - In WebIDE, click Remote Runtime, leave it as default at localhost:6000 and press OK.
+> If you're using other means to access WebIDE such as Firefox v59 or Pale Moon <28.6.1, you may now see a warning header about mismatched build date. You can safely ignore it as WebIDE was mainly designed to support Firefox OS device builds released alongside that Firefox/Pale Moon versions.
 8. To sideload an app, download it and extract its ZIP content (if you see an OmniSD-packaged application.zip you may need to extract that). Select Open Packaged Apps in WebIDE's left sidebar and navigate to the root of the app folder you just extracted.
-9. Once you've got the app loaded, press the triangle Install and Run in the top bar to sideload, or click the wrench to open the Developer Tools.
+9. Once you've got the app loaded, press the triangle Install and Run in the top bar to sideload, or click the wrench to open the Developer Tools for debugging.
+> Tip: If you've downloaded the SDK package from Android Developers' website, for quicker access next time, include the extracted ADB folder in PATH. [We won't cover this here as this would be a lengthy process.](https://gist.github.com/nex3/c395b2f8fd4b02068be37c961301caa7) This will be automatically handled if you've installed ADB via package manager.
 
 ### `gdeploy`
 `gdeploy` is a small cross-platform command-line utility developed by Luxferre as an alternative to the graphical WebIDE, and can even be used as NodeJS module/library. According to Luxferre, 'it uses the same `firefox-client` backend but has much simpler architecture for application management'.
@@ -235,11 +239,7 @@ cd gdeploy
 npm i && npm link
 gdeploy install [DIR_PATH]
 ```
-
-<details>
-  <summary>Other means of sideloading</summary>
-
----
+**Other means of sideloading**
 - KaiOS RunTime (Linux): official developing environment for KaiOS 2.5 made by KaiOS Technologies. To download and set up KaiOSRT on Ubuntu, type these commands one-by-one in Terminal:
 ```console
 wget https://s3.amazonaws.com/kaicloudsimulatordl/developer-portal/simulator/Kaiosrt_ubuntu.tar.bz2
@@ -250,13 +250,7 @@ cd kaiosrt
 ./kaiosrt
 ```
 *It's also possible to get KaiOSRT to work on Windows 10 and later using Windows Subsystem for Linux (WSLg). [See this video on YouTube for action](https://youtu.be/eg2SOCTMxYU).*
-
-- Firefox 59 (ESR 52.9): the last official Firefox version to bundle with working WebIDE and other tools for development on Firefox OS devices, before Mozilla decided to kill the project in 2016. Archives of all Firefox releases can be found on https://archive.mozilla.org.
-- Pale Moon 28.6.1 (Windows/Linux): a popular fork of Firefox with older user interface, legacy Firefox add-on support and always running in single-process mode. Archives of all releases can be found on https://www.palemoon.org/archived.shtml.
 - [Make KaiOS Install](https://github.com/jkelol111/make-kaios-install): another command-line tool to install apps using KaiOS's remote debugging protocol.
-
----
-</details>
 
 ### Regarding OmniSD and debloating
 **Do note that OmniSD, one of the methods used for on-device sideloading, requires the `navigator.mozApps.mgmt.import` API that has been removed on KaiOS 2.5.2.2 and later.** However, the Privileged factory reset feature on KaiOS 2.5.1 and older can now be reused after permanent rooting to gain privileged userspace session (see [Next steps](#next-steps)).
