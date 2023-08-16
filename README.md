@@ -186,14 +186,14 @@ Mozilla also needed to have a place in their browser for Firefox OS development.
 
 ### ADB and WebIDE
 1. Turn on debugging mode on the phone by dialing `*#*#debug#*#*` on the home screen. You'll see a bug icon in the status bar letting you know you're in debugging mode.
-> If you're connecting to a Linux-based PC, you may need to go to Settings > Storage and turn on USB Storage for `udev` to properly register your phone as an USB peripheral. Another icon in the status bar will appear indicating storage access via USB.
+- If you're connecting to a Linux-based PC, you may need to go to Settings > Storage and turn on USB Storage for `udev` to properly register your phone as an USB peripheral. Another icon in the status bar will appear indicating storage access via USB.
 2. Connect the phone to a computer with an USB cable. On the computer, download Android Debug Bridge: [Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip), [macOS](https://dl.google.com/android/repository/platform-tools-latest-darwin.zip), [Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip)
-> If your operating system has a package manager, you can utilize that to quickly install and set up ADB (skip step 3 when done):
-> - Windows: `choco install adb` (`winget` [prohibits installing executables with symlinks](https://github.com/microsoft/winget-pkgs/issues/4082))
-> - macOS: `brew install android-platform-tools`
-> - Linux (Debian/Ubuntu): `sudo apt-get install adb`
-> - Linux (Fedora): `sudo dnf install android-tools`
-> - Linux (Arch): `sudo pacman -S android-tools`
+- If your operating system has a package manager, you can utilize that to quickly install and set up ADB (skip step 3 when done):
+  - Windows: `choco install adb` (`winget` [prohibits installing executables with symlinks](https://github.com/microsoft/winget-pkgs/issues/4082))
+  - macOS: `brew install android-platform-tools`
+  - Linux (Debian/Ubuntu): `sudo apt-get install adb`
+  - Linux (Fedora): `sudo dnf install android-tools`
+  - Linux (Arch): `sudo pacman -S android-tools`
 3. Extract the downloaded archive to a folder (double-click the file on macOS/Linux, 7-Zip > Extract here on Windows), navigate to its `platform-tools` root and open a command-line window within that.
 4. Type `adb devices` to start the ADB server. If a `device` shows, that means your phone is being detected by ADB and you're good to go.
 5. Download and install either the latest version of [Waterfox Classic](https://classic.waterfox.net), Firefox 59/ESR 52.9 or Pale Moon 28.6.1 corresponding to your operating system.
@@ -205,10 +205,10 @@ Mozilla also needed to have a place in their browser for Firefox OS development.
 adb forward tcp:6000 localfilesystem:/data/local/debugger-socket
 ```
 - In WebIDE, click Remote Runtime, leave it as default at localhost:6000 and press OK.
-> If you're using other means to access WebIDE such as Firefox v59 or Pale Moon <28.6.1, you may now see a warning header about mismatched build date. You can safely ignore it as WebIDE was mainly designed to support Firefox OS device builds released alongside that Firefox/Pale Moon versions.
+- If you're using other means to access WebIDE such as Firefox v59 or Pale Moon <28.6.1, you may now see a warning header about mismatched build date. You can safely ignore it as WebIDE was mainly designed to support Firefox OS device builds released alongside that Firefox/Pale Moon versions.
 8. To sideload an app, download it and extract its ZIP content (if you see an OmniSD-packaged application.zip you may need to extract that). Select Open Packaged Apps in WebIDE's left sidebar and navigate to the root of the app folder you just extracted.
 9. Once you've got the app loaded, press the triangle Install and Run in the top bar to sideload, or click the wrench to open the Developer Tools for debugging.
-> Tip: If you've downloaded the SDK package from Android Developers' website, for quicker access next time, include the extracted ADB folder in PATH. [We won't cover this here as this would be a lengthy process.](https://gist.github.com/nex3/c395b2f8fd4b02068be37c961301caa7) This will be automatically handled if you've installed ADB via package manager.
+> Tip: If you've downloaded the SDK package from Android Developers' website, for quicker access to ADB next time, include the extracted ADB folder in PATH. [We won't cover this here as this would be a lengthy process.](https://gist.github.com/nex3/c395b2f8fd4b02068be37c961301caa7) This will be automatically handled if you've installed ADB via package manager.
 
 ### `gdeploy`
 `gdeploy` is a small cross-platform command-line utility developed by Luxferre as an alternative to the graphical WebIDE, and can even be used as NodeJS module/library. According to Luxferre, 'it uses the same `firefox-client` backend but has much simpler architecture for application management'.
@@ -296,7 +296,6 @@ The guide below has its backbones taken from the main guide on BananaHackers web
   - Git to clone/download the repository of the patcher tool to your computer ([install guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git))
   - Docker Compose to provide the environment for the patcher tool to work (included in Docker Desktop, whose download links can be found [here](https://docs.docker.com/compose/install))
   - (Windows) WSL 2 with [Linux kernel update package](https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package) installed (to install WSL 2 turn on Virtualization in BIOS, then open Command Prompt with administrative rights and type `wsl --install`)
-
 - **If you're going the extracting and manual editing by hand route:**
   - Android Image Kitchen v3.8 ([Windows](https://forum.xda-developers.com/attachments/android-image-kitchen-v3-8-win32-zip.5300919), [macOS/Linux](https://forum.xda-developers.com/attachments/aik-linux-v3-8-all-tar-gz.5300923))
   - (Windows) [Notepad++](https://notepad-plus-plus.org/downloads) to edit the needed files while [preserving line endings](https://www.cs.toronto.edu/~krueger/csc209h/tut/line-endings.html)
@@ -342,29 +341,33 @@ brew install python android-platform-tools libusb && pip3 install pyusb pyserial
 
 ![Demostration of a installation window for Python 3.9 showing two options, 'Install Now' and 'Customize installation', with the checkbox for 'Add Python 3.9 to PATH' being selected](/assets/python.png)
 
-2. Open Command Prompt with administrator privileges and run this command:
+2. On Windows 10/11, by default, typing the `python` or `python3` aliases within Command Prompt will call the Microsoft Store version of Python, which we don't have installed. To override this default into calling the local version of Python, head over to Settings > Apps > Apps & features > App execution aliases and toggle off both App Installer (python.exe) and App Installer (python3.exe).
+
+TODO: add screenshots here
+
+4. Open Command Prompt with administrator privileges and run this command:
 ```console
 pip3 install pyusb pyserial capstone keystone-engine docopt
 ```
 ![Demostration of a command-line window showing the successful process of collecting and downloading dependencies after typing the above command](/assets/pythoooon.png)
 
-3. Open the extracted EDL tools folder, go to the Drivers > Windows folder and run `Qualcomm_Diag_QD_Loader_2016_driver.exe` with administrator rights. Proceed with installation and leave everything as default, restart the computer if it prompts you to do so.
+4. Open the extracted EDL tools folder, go to the Drivers > Windows folder and run `Qualcomm_Diag_QD_Loader_2016_driver.exe` with administrator rights. Proceed with installation and leave everything as default, restart the computer if it prompts you to do so.
 
 ![Demostration of a installation window for Qualcomm's diagnostic driver, in which two radio buttons are shown labelled 'WWAN-DHCP is not used to get IPAddress' and 'ETHERNET-DHCP is used to get IPAddress' respectively. The first button is selected.](/assets/whatever.png)
 
-4. Switch your phone to EDL mode and connect it to your computer.
+5. Switch your phone to EDL mode and connect it to your computer.
   - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
   - From the turned off state, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
 
 In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
-5. Run the Zadig tool (use the version downloaded above and NOT the one provided by the EDL package) and select *Options > List All Devices*. In the front dropdown menu, select `QHSUSB__BULK` (your device in EDL mode). In the target driver box (which the green arrow is pointing to), click on the up/down arrows until you see `libusb-win32` and click on Replace Driver.
+6. Run the Zadig tool (use the version downloaded above and NOT the one provided by the EDL package) and select *Options > List All Devices*. In the front dropdown menu, select `QHSUSB__BULK` (your device in EDL mode). In the target driver box (which the green arrow is pointing to), click on the up/down arrows until you see `libusb-win32` and click on Replace Driver.
 
 ![Demostration of Zadig program with the Option dropdown menu shown, in which the List All Devices option is highlighted and selected](/assets/listall.png)
 ![Demostration of Zadig's main interface with the front dropdown list shown listing all devices connected to computer, in which the option for QHSUSB_BULK is highlighted](/assets/qhsusb.png)
 ![Demostration of Zadig's main interface with the second label box on the Drivers line, which the green arrow points to, showing 'libusb-win32 (v1.2.6.0)'. Two smaller up/down arrows are shown to the right of that box.](/assets/arg.png)
 
-6. If you're installing the driver for the first time, an "USB Device Not Recognised" pop-up may appear. Exit EDL mode by removing and re-inserting the battery, then turn on the phone in EDL mode again.
+7. If you're installing the driver for the first time, an "USB Device Not Recognised" pop-up may appear. Exit EDL mode by removing and re-inserting the battery, then turn on the phone in EDL mode again.
 
 *As I've said above, the latest 2.8 version of Zadig might have some troubles detecting the phone's EDL driver. If you were using it and the driver installation takes too much time and the tool aborts it, exit Zadig, exit and re-enter EDL mode on the phone, then try to install again. If that still doesn't help, try to [download version 2.7](https://github.com/pbatard/libwdi/releases/tag/v1.4.1) instead.*
 
@@ -377,7 +380,7 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 
 2. Open the EDL tools folder in a command-line window. Flash the Gerda Recovery image to the recovery partition by typing this command:
 ```console
-python3 edl.py w recovery recovery-8110.img --loader=8k.mbn
+python edl.py w recovery recovery-8110.img --loader=8k.mbn
 ```
 *If the progress bar stops at 99% and you get this error `'usb.core.USBError: [Errno None] b'libusb0-dll:err [_usb_reap_async] timeout error\n'` or `usb.core.USBError: [Errno 60] Command timed out`, don't panic! This is because the phone doesn't send any indicator information back to the EDL tool when in fact the image has been successfully written. Don't mind the error and proceed with the next step.*
 
