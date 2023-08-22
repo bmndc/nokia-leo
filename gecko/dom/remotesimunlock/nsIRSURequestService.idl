@@ -1,0 +1,97 @@
+/* (c) 2020 KAI OS TECHNOLOGIES (HONG KONG) LIMITED All rights reserved. This
+ * file or any portion thereof may not be reproduced or used in any manner
+ * whatsoever without the express written permission of KAI OS TECHNOLOGIES
+ * (HONG KONG) LIMITED. KaiOS is the trademark of KAI OS TECHNOLOGIES (HONG KONG)
+ * LIMITED or its affiliate company and may be registered in some jurisdictions.
+ * All other trademarks are the property of their respective owners.
+ */
+
+#include "nsISupports.idl"
+
+[scriptable, uuid(b1eada8d-66b2-46ec-9024-9226f0049fe8)]
+interface nsIRSUCallback : nsISupports {
+  void notifyError(in DOMString aErrorMsg, in unsigned long aRequestType);
+
+  void notifySuccess(in unsigned long aRequestType);
+
+  //void notifyLeftTime(in long long aTime);
+
+  void notifyBlobVersion(in unsigned long aMinorVersion, in unsigned long aMaxVersion);
+
+  void notifySharedKey(in DOMString aData);
+
+  void notifyLockStatus(in long aStatus, in unsigned long aTime);
+
+  void notifyGetBlob(in DOMString aBlob);
+
+  void notifyOpenRF(in unsigned long aTime);
+};
+
+[scriptable, uuid(bf1ecc17-e5e8-4d56-8cdc-4a8a464475eb)]
+interface nsIRSUEventListener : nsISupports {
+  /**
+   * callback the result and operation id.
+   *
+   * @param id
+   *     the id of operation.
+   * @param data
+   *     the json string of result.
+   */
+  void onCommand(in long id, in DOMString data);
+};
+
+%{C++
+#define RSU_SERVICE_CID \
+  { 0xb342c7ae, 0xae06, 0x47c9, \
+      { 0x8f, 0x58, 0xa3, 0xbe, 0xf5, 0xce, 0x75, 0x3b } }
+
+#define RSU_SERVICE_CONTRACTID \
+  "@mozilla.org/rsu/rsuservice;1"
+%}
+
+[scriptable, uuid(b342c7ae-ae06-47c9-ad8d-503f6f567329)]
+interface nsIRSURequestService : nsISupports
+{
+  const unsigned long RSU_REQUEST_GET_SHARED_KEY = 1;
+  const unsigned long RSU_REQUEST_UPDATE_LOCK_DATA = 2;
+  const unsigned long RSU_REQUEST_GET_LOCK_VERSION = 3;
+  const unsigned long RSU_REQUEST_RESET_LOCK_DATA = 4;
+  const unsigned long RSU_REQUEST_GET_LOCK_STATUS = 5;
+  const unsigned long RSU_REQUEST_GET_LEFT_TIME = 50 ;
+  //RSU_REQUEST_GET_LEFT_TIME AND RSU_REQUEST_GET_LOCK_STATUS
+  const unsigned long RSU_REQUEST_GET_LOCK_STATUS_AND_TIME = 51;
+
+  /**
+   * Init a session and register listener in trusted environment.
+   *
+   * @param listener
+   *     set the listener that notify the result of sendRequest.
+   */
+  void init(in nsIRSUEventListener listener);
+  
+  /**
+   * shutdown the session and clear the cache.
+   */
+  void shutdown();
+
+
+  void getSharedKey2(in nsIRSUCallback aCallback);
+
+  void getSimblobVersion(in nsIRSUCallback aCallback);
+
+  void updateBlob(in DOMString aBlob, in nsIRSUCallback aCallback);
+
+  void resetBlob(in nsIRSUCallback aCallback);
+
+  //void getLeftTime(in nsIRSUCallback aCallback);
+
+  void getSimlockStatus(in nsIRSUCallback aCallback);
+
+  //void getSimLockStatusAndLeftTime(in nsIRSUCallback aCallback);
+  void generateBlob(in nsIRSUCallback callback);
+  void openRF(in nsIRSUCallback callback);
+  void closeRF(in nsIRSUCallback callback);
+
+};
+
+

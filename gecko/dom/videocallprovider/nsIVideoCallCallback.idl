@@ -1,0 +1,118 @@
+/* (c) 2017 KAI OS TECHNOLOGIES (HONG KONG) LIMITED All rights reserved. This
+ * file or any portion thereof may not be reproduced or used in any manner
+ * whatsoever without the express written permission of KAI OS TECHNOLOGIES
+ * (HONG KONG) LIMITED. KaiOS is the trademark of KAI OS TECHNOLOGIES (HONG KONG)
+ * LIMITED or its affiliate company and may be registered in some jurisdictions.
+ * All other trademarks are the property of their respective owners.
+ */
+
+#include "nsISupports.idl"
+
+/**
+ * TODO phase 2.
+ */
+ [scriptable, uuid(4bea22d5-08b2-45b5-a91f-b6edb40151e2)]
+interface nsIVideoCallCameraCapabilities : nsISupports
+{
+  /**
+   * Current camera video's height in pixel
+   */
+  readonly attribute unsigned short height;
+
+  /**
+   * Current camera video's width in pixel
+   */
+  readonly attribute unsigned short width;
+
+  /**
+   * Whether camera support zoom or not.
+   * @hide
+   * TODO phase 2.
+   */
+  readonly attribute boolean zoomSupported;
+
+   /**
+    * The max zoom in scale
+    * TODO fixed value as a temp solution?
+    * @hide
+    * TODO phase 2.
+    */
+   readonly attribute float maxZoom;
+};
+
+interface nsIVideoCallProfile;
+
+[scriptable, uuid(488d538c-3f25-4024-9eb7-e83ca503de1b)]
+interface nsIVideoCallCallback : nsISupports
+{
+  /**
+   * Called when remote send out a video call session modification request.
+   * @param request
+   *        The new profile remote requests.
+   */
+  void onReceiveSessionModifyRequest(in nsIVideoCallProfile request);
+
+  const unsigned short SESSION_MODIFY_REQUEST_SUCCESS = 1;
+  const unsigned short SESSION_MODIFY_REQUEST_FAIL = 2;
+  const unsigned short SESSION_MODIFY_REQUEST_INVALID = 3;
+  const unsigned short SESSION_MODIFY_REQUEST_TIMED_OUT = 4;
+  const unsigned short SESSION_MODIFY_REQUEST_REJECTED_BY_REMOTE = 5;
+
+  /**
+   * Called when remote response your previous video call session modification request.
+   * @param status
+   *        Status of the modify request.
+   *        One of the nsIVideoCallCallback::SESSION_MODIFY_REQUEST_* values.
+   * @param request
+   *        The profile you previously request.
+   * @param response
+   *        The profiel remote response.
+   */
+  void onReceiveSessionModifyResponse(in unsigned short status,
+                                      in nsIVideoCallProfile request,
+                                      in nsIVideoCallProfile response);
+
+  const unsigned short SESSION_EVENT_RX_PAUSE = 1;
+  const unsigned short SESSION_EVENT_RX_RESUME = 2;
+  const unsigned short SESSION_EVENT_TX_START = 3;
+  const unsigned short SESSION_EVENT_TX_STOP = 4;
+  const unsigned short SESSION_EVENT_CAMERA_FAILURE = 5;
+  const unsigned short SESSION_EVENT_CAMERA_READY = 6;
+
+  /**
+   * Called when VideoCallProvider reports a call session event.
+   * @param event
+   *        The event
+   *        One of nsIVideoCallCallback::SESSION_EVENT_* values.
+   */
+  void onHandleCallSessionEvent(in short event);
+
+  /**
+   * Called when remote peer's dimensions have changed.
+   * @param callIndex
+   *        Indicate call id
+   * @param width
+   *        The updated peer video width
+   * @param height
+   *        The updated peer video height
+   */
+  void onChangePeerDimensions(in unsigned short width,
+                              in unsigned short height);
+
+  /**
+   * Called when current capabilities have changed.
+   * @param capabilities
+   *        The new camera capabilities
+   */
+  void onChangeCameraCapabilities(in nsIVideoCallCameraCapabilities capabilities);
+
+  /**
+   * Called when the video quality of the call has changed.
+   * @param callIndex
+   *        Indicate call id
+   * @param quality
+   *        One of nsIVideoCallProfile::QUALITY_* values.
+   * TODO phase 2.
+   */
+  void onChangeVideoQuality(in unsigned short quality);
+};

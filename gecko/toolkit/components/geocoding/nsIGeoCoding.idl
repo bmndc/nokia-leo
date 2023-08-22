@@ -1,0 +1,78 @@
+/* -*- Mode: IDL; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Copyright (C) 2016 Kai OS Technologies. All rights reserved.
+ */
+
+#include "nsISupports.idl"
+
+[scriptable, uuid(a4242d10-a09e-11e6-bdf4-0800200c9a66)]
+interface nsIGeoCodingInfo: nsISupports
+{
+  /**
+   * latitude for geoCoding query.
+   */
+  readonly attribute DOMString latitude;
+
+  /**
+   * longitude for geoCoding query.
+   */
+  // TODO: fix typo, should be 'longitude' instead of 'longtitude'
+  readonly attribute DOMString longtitude;
+
+  /**
+   * city value after geoCoding query.
+   */
+  readonly attribute DOMString city;
+
+  /**
+   * state value after geoCoding query.
+   */
+  readonly attribute DOMString state;
+
+  /**
+   * country value after geoCoding query.
+   */
+  readonly attribute DOMString country;
+
+  /**
+   * countryCode value after geoCoding query.
+   */
+  readonly attribute DOMString countryCode;
+
+  /**
+   * zip value after geoCoding query.
+   */
+  readonly attribute DOMString zip;
+};
+
+[scriptable, uuid(3b21e7d0-a0a3-11e6-bdf4-0800200c9a66)]
+interface nsIGeoCodingCallback : nsISupports
+{
+  /**
+   * Invoke callbacks after failure on geoCoding query.
+   */
+  void onError(in AString cause);
+
+  /**
+   * Invoke callbacks after geoCoding query finished.
+   */
+  void onComplete(in nsIGeoCodingInfo result);
+};
+
+[scriptable, uuid(c0882810-9cae-11e6-bdf4-0800200c9a66)]
+interface nsIGeoCoding : nsISupports
+{
+  /**
+   * Request Geocoding from Google to get city/state/country/countryCode/zip
+   * information by using latitude and longitude.
+   * @param latitude
+   * @param longitude
+   * @param callback Callbacks when geolocation query finished.
+   */
+  void requestGeoCoding(in AString latitude,
+                        in AString longitude,
+                        in nsIGeoCodingCallback callback);
+};

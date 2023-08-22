@@ -1,0 +1,1158 @@
+0.8.11 (?/?/2014):
+------------------
+
+- Small code changes to support compilation as EFI application with the
+  UEFI GPT fdisk library
+  (http://sourceforge.net/projects/uefigptfdisk/?source=directory)
+
+- Added new partition type codes for Ceph
+  (https://github.com/ceph/ceph/blob/9bcc42a3e6b08521694b5c0228b2c6ed7b3d312e/src/ceph-disk#L76-L81):
+  4FBD7E29-9D25-41B8-AFD0-062C0CEFF05D/0xf800 (Ceph OSD),
+  4FBD7E29-9D25-41B8-AFD0-5EC00CEFF05D/0xf801 (Ceph dm-crypt OSD),
+  BFBFAFE7-A34F-448A-9A5B-6213EB736C22/0xf802 (Ceph journal),
+  45B0969E-9B03-4F30-B4C6-5EC00CEFF106/0xf803 (Ceph dm-crypt journal),
+  89C57F98-2FE5-4DC0-89C1-F3AD0CEFF2BE/0xf804 (Ceph disk in creation), and
+  89C57F98-2FE5-4DC0-89C1-5EC00CEFF2BE/0xf805 (Ceph dm-crypt disk in
+  creation)
+
+- Added new partition type codes from
+  http://www.freedesktop.org/wiki/Specifications/DiscoverablePartitionsSpec/:
+  44479540-F297-41B2-9AF7-D131D5F0458A/0x8303 (Linux / on x86),
+  4F68BCE3-E8CD-4DB1-96E7-FBCAF984B709/0x8304 (Linux / on x86-64),
+  B921B045-1DF0-41C3-AF44-4C6F280D3FAE/0x8305 (Linux / on 64-bit ARM),
+  3B8F8425-20E0-4F3B-907F-1A25A76F98E8/0x8306 (Linux /srv).
+
+0.8.10 (3/2/2014):
+------------------
+
+- Added feature to sgdisk's -A/--attributes, -c/--change-name,
+  -t/--typecode, and -u/--partition-guid commands: If a -n/--new option
+  with "0" as the partition number precedes these options on the command
+  line, passin "0" as the partition number to the following options causes
+  them to use the newly-created partition. For instance, "sgdisk -n
+  0:0:+550M -t 0:EF00 /dev/sda" creates a new partition with a type code of
+  EF00. (Previous versions would ignore the "-t 0:EF00" option.)
+
+- Fixed bug that caused incorrect partition number to be displayed by
+  sgdisk in error messages when the user specified a non-existent partition
+  for inclusion in a hybrid MBR or conversion to a conventional MBR.
+
+- Fixed new (in 0.8.9) bug that caused a failure to create more than one
+  hybridized partition when creating a hybrid MBR.
+
+- Fixed bug that caused gdisk and sgdisk to create hybridized partitions
+  that ended at or above the 2^32 sector point with incorrect end values.
+  The behavior now varies between gdisk and sgdisk: gdisk now creates
+  hybrid partitions that begin below 2^32 sectors and that are smaller than
+  2^32 sectors, since this is technically legal; but gdisk displays a
+  warning, because some OSes (such as DOS, Windows XP, OS/2, and BeOS)
+  misbehave with such partitions. AFAIK, only Linux, FreeBSD, and Windows 7
+  work properly with such partitions. Because of this fact and because
+  sgdisk is a more automated tool, it's stricter in how it handles things:
+  It refuses to create a hybrid partition if the original ends at or above
+  the 2^32 sector mark.
+
+0.8.9 (2/17/2014):
+------------------
+
+- Removed dependency on libicu for UTF-16 support.
+
+- Fixed spurious "0xEE partition doesn't start on sector 1" warning in
+  FixParts (and perhaps in other programs under some circumstances).
+
+- Added GPT regeneration command to GPT-destruction options ('z' in gdisk,
+  -z and -Z options to sgdisk). This is done to avoid wiping out data
+  mid-disk that might not be backup GPT data structures, which could
+  otherwise occur if a RAID array was resized in certain ways.
+
+- Added check for an oversized 0xEE protective partition. The program now
+  auto-repairs this condition on loading if the GPT data seem otherwise
+  valid. This is done because I've been receiving reports of some disks
+  (possibly from some OEM Windows 8 loads) that violate the GPT spec in
+  this way, and gdisk was reporting write errors when saving data.
+
+- If the GPT data seem to be damaged in some way or if the disk seems to
+  be a hybrid MBR and if the MBR partition(s) don't fit on the disk, the
+  verify (v) function now warns of this condition, and writing the disk if
+  it exists also displays a more specific error message about the problem.
+
+- Added new type codes (3000, 7412F7D5-A156-4B13-81DC-867174929325 and
+  3001, D4E6E2CD-4469-46F3-B5CB-1BFF57AFC149) for Open Network Install
+  Environment (ONIE) boot and config partitions, respectively.
+
+- Added new type ccde (ED01, BFBFAFE7-A34F-448A-9A5B-6213EB736C22), for
+  Lenovo's ESP-like partition.
+
+0.8.8 (10/14/2013):
+-------------------
+
+- Fixed bug that could cause segfault when passing an invalid partition
+  number to sgdisk's -i/--info command.
+
+- Added new type code: 933AC7E1-2EB4-4F13-B844-0E14E2AEF915, or gdisk code
+  8302, for Linux /home partitions. This type code is used by recent
+  versions of systemd to permit /home to be auto-mounted; see
+  http://www.freedesktop.org/software/systemd/man/systemd-gpt-auto-generator.html
+  for details.
+
+- Added new type code: 9E1A2D38-C612-4316-AA26-8B49521E5A8B, or gdisk code
+  4100, for PowerPC PReP (PowerPC reference platform) boot.
+
+- The number of partition type codes has grown large enough that it fills
+  an 80x24 display. I've therefore added a pause (with a prompt to hit
+  <Enter>) to display more items after showing 21 lines in gdisk or after
+  the screen has nearly filled with entries in cgdisk. There's no such
+  pause/prompt in sgdisk, though.
+
+- Fine-tuned verification ('v') check for 0xEE partition that doesn't begin
+  on sector 1: Previously, a disk with multiple 0xEE partitions would
+  always trigger this warning. Now, the warning occurs only if NONE of the
+  0xEE partitions begins on sector 1.
+
+- Fixed hybrid MBR creation on disks larger than 2TiB: Previously, if one
+  opted to create an extra partition to cover unused space following
+  hybridized partitions, gdisk would hang.
+
+- Added check for an active/bootable 0xEE protective partition to the
+  verify ('v') function. If found, this is not counted as an error, but
+  it is called out to the user, since it can cause some EFIs (such as
+  VirtualBox's EFI) to ignore the disk.
+
+0.8.7 (7/8/2013):
+-----------------
+
+- Modified Mac version so that it can work on /dev/rdisk* devices as well
+  as /dev/disk* devices. The result is that, when using the /dev/rdisk*
+  devices, the partition table can sometimes be re-read without removing
+  the disk or rebooting.
+
+- Added "-a" option to cgdisk to use a ">" symbol to the left of the
+  selected partition rather than ncurses highlighting.
+
+- Modified "converting MBR to GPT" message to clarify that the conversion
+  is being held in memory, since some people have mistakenly assumed that a
+  "gdisk -l" operation will change an MBR disk to a GPT disk without
+  prompting.
+
+- Added partition type code for freedesktop.org's proposed $BOOT partition
+  (bc13c2ff-59e6-4262-a352-b275fd6f7172; GPT fdisk type code EA00)
+
+- Adjusted alignment code when using -n or -N in sgdisk to keep the
+  requested partition size (if specified using +###{MGT} terminology)
+  as the requested value rather than relative to the requested start
+  point. This gives you the requested partition size rather than be
+  slightly smaller if sgdisk needs to adjust the start point up a bit and
+  it prevents gaps from appearing between partitions if several are created
+  in succession using automatic placement of the start point.
+
+- Fixed small bugs in gdisk_test.sh script.
+
+- Removed stray debug message that would appear when reading MBR disks.
+
+- Added partition type code for Intel Rapid Start partition (GUID
+  D3BFE2DE-3DAF-11DF-BA40-E3A556D89593, code 8400), used by systems that
+  implement Intel's Rapid Start technology. See
+  http://blog.adios.tw/2012/10/funtoo-linux-and-intel-rapid-start.html or
+  http://mjg59.dreamwidth.org/26022.html.
+
+- Added partition type code for Haiku BFS (GUID
+  42465331-3BA3-10F1-802A-4861696B7521; code EB00).
+
+0.8.6 (1/9/2013):
+-----------------
+
+- Fixed a bug that could cause sgdisk to crash when passing a partition
+  number of 0 to the -t option.
+
+- Added support for building under Solaris.
+
+- Added a new check to the verification code.
+
+- Added partition type code for Sony system partition
+  (F4019732-066E-4E12-8273-346C5641494F). I'm not entirely clear what this
+  is used for, but it's appearing on some new Sony computers.
+
+- Tweaked hybrid MBR creation options to fix a problem that caused the main
+  0xEE MBR partition to NOT be created if the user told gdisk to NOT place
+  it at the start of the disk AND IF fewer than three partitions are
+  hybridize AND IF the user opted to create a second protective partition.
+
+- Changed default build options for Mac OS X to *NOT* use libicu,
+  since it seems to have broken somewhere along the line. It still
+  works on Linux, though.
+
+- Added partition type codes for VMWare ESX (FB00, FB01, and FC00).
+
+0.8.5 (5/30/2012):
+------------------
+
+- Changed code that writes the partition table so that a disk sync
+  operation occurs even if one or more write operations failed (but not if
+  they all failed). This is intended to work around a bug that a user
+  reported on a Windows system on which the write of the protective MBR
+  failed, although everything else worked. (I suspect anti-virus software
+  may have been blocking write access to the MBR.)
+
+- Added type codes for Midnight BSD (0xA580 - 0xA585). I used these codes
+  because Midnight BSD uses the same 0xA5 type code as FreeBSD on MBR
+  disks, so I'm starting Midnight BSD's numbering halfway through the
+  0xA5## range.
+
+0.8.4 (3/25/2012):
+------------------
+
+- REALLY fixed Ctrl+D problems! Now gdisk terminates upon receiving a
+  Ctrl+D. In all previous versions, it could lock itself into a CPU-hogging
+  loop if launched via "sudo" from a terminal window that was then closed
+  or if Ctrl+D was pressed at certain input prompts (for a partition name
+  or sector number, for instance).
+
+0.8.3 (3/23/2012):
+------------------
+
+- Fixed compilation problem on GCC 4.7.
+
+- Improved handling of Ctrl+D on some systems.
+
+- Added disk's name to message stating that a disk write was successful.
+
+- Fixed bug that caused creation of >2TiB partitions on 32-bit systems to
+  be truncated in sgdisk.
+
+0.8.2 (1/22/2012):
+------------------
+
+- Adjusted the code to support a number of partitions that's not a multiple
+  of the number of partition table entries that fits in a sector (normally
+  4 per sector). The program still rounds up, when necessary, when resizing
+  the partition table manually, but not when loading a partition table that
+  contains a peculiar number of partitions. This helps prevent spurious
+  error messages about CRC problems when loading some Solaris partition
+  tables.
+
+- Fixed bugs relating to the handling of empty partitions; Solaris's ZFS
+  tools create weird empty partitions that are legal but that gdisk wasn't
+  handling properly. (Specifically, they sometimes have non-zero end
+  points; gdisk assumed empty partitions had end points of 0.)
+
+- Fixed a bug that caused an infinite loop of input prompts if the user
+  pressed Ctrl+D.
+
+- Changed gdisk's first-sector input operation to specify a sector number
+  that's properly aligned as the default value. This eliminates the need
+  to alter that value and notify the user of the change when the user
+  hits "Enter" for the default value as the first partition on an empty
+  disk (as well as in some other situations).
+
+0.8.1 (10/1/2011):
+------------------
+
+- Fixed bug that could cause FixParts to keep a partition's assignment
+  as logical when FixPart could not actually do so. This could happen
+  when there are no gaps between two logical partitions. Some partitioning
+  tools can create such configurations, but FixParts can't. Such
+  configurations are extremely rare. I've only encountered them when
+  logical partitions are out of order.
+
+- Added code to detect infinite loops of logical partitions when reading
+  MBR data. When detected, the program now stops reading after the first
+  loop, so no duplicates appear in the partition list.
+
+- Fixed bug in partition overlap detection in MBR code.
+
+- Changed GPT reading code to use the size encoded in GPT headers to
+  determine how much of the header to use in computing a CRC, with the
+  restriction that the size be equal to or less than the disk's sector
+  size. This should work around problems with libefi in ZFS, which sets the
+  header size to 512 rather than the more common 92. A caveat: If the
+  disk's sector size is larger than the GPTHeader data structure size (512
+  bytes), then the rest of the sector's contents are ignored and replaced
+  with 0 values. This could produce false positives on CRC checks on disks
+  with over-512-byte sector sizes if the header sector is padded with
+  something other than 0 values.
+
+- Fixed bug in new (as of 0.8.0) check that main and backup partition
+  tables are identical on big-endian (PowerPC, etc.) hardware.
+
+0.8.0 (9/10/2011):
+------------------
+
+- Added new return option for sgdisk: 8, which means that a replication
+  operation (-R or --replicate) failed. Note that other operations on
+  the same command line might still have succeeded.
+
+- Added gdisk_test.sh shell script, contributed by Guillaume Delacour.
+  This script tests some common gdisk and sgdisk operations to be sure
+  they're working correctly.
+
+- Enable sgdisk's -l (--load-backup) and -o (--clear) options to work
+  even on disks that are damaged. Most other options will still be ignored,
+  though, so if you suspect a disk may be bad and want to use one of these
+  options, you should do so on a line by itself, followed by a separate
+  command to perform other actions (such as adding new partitions).
+
+- Added check for mis-matched primary and backup partition tables.
+  A mismatch is reported as a CRC error.
+
+- Added Apple Core Storage partition type code (hex code AF05, GUID
+  53746F72-6167-11AA-AA11-00306543ECAC).
+
+- Added cgdisk program to the family. This program is a rough workalike
+  to cfdisk, much as gdisk is a rough workalike to fdisk. See the cgdisk
+  man page or http://www.rodsbooks.com/gdisk/cgdisk-walkthrough.html for
+  details about its operation.
+
+- Fixed bug that caused CHS end point for protective MBR to be set to
+  0xfeffff rather than the spec-mandated 0xffffff on disks over ~8GB. This
+  is a very minor bug, since not much cares about this, and most other GPT
+  tools get it wrong in the same way, too.
+
+0.7.2 (6/26/2011):
+------------------
+
+- The Windows version now (finally!) generates proper GUIDs rather than a
+  purely random number. This fixes a bug that caused Windows 7 to crash
+  when converting a disk from MBR format (but, oddly, not when creating a
+  fresh partition table or doing various other things).
+
+- Added a warning when an MBR partition is discarded because it's too
+  big for the disk.
+
+- Changed warning to Windows users about the dangers of converting to GPT
+  so that it appears only on disks that aren't already in GPT form.
+
+- Fixed bug that caused bogus "3" values to pad the ends of partition names
+  on some disks (particularly those created by Microsoft's disk
+  partitioning tools).
+
+- Made compilation without Unicode support possible (see README file)
+
+- Made default filesystem type code OS-dependent (based on the compilation
+  platform).
+
+- Added new Linux-only filesystem partition type GUID code,
+  0FC63DAF-8483-4772-8E79-3D69D8477DE4 (8300 entry code). Also changed name
+  of the EBD0A0A2-B9E5-4433-87C0-68B6B72699C7 (0700 entry code) to
+  "Microsoft basic data").
+
+- Fixed a bug that caused an incorrect code to be set for active/bootable
+  partitions when generating a hybrid MBR.
+
+- Enable entry of hex codes that begin with "0x" for both GPT and MBR
+  partitions.
+
+- Fixed bug that caused the boot loader code to be lost when creating a
+  hybrid MBR.
+
+- Fixed bug in sector input code that could produce improper values
+  if the user inputs ridiculously large "+" values.
+
+0.7.1 (3/21/2011):
+------------------
+
+- Added support for proper UTF-16LE partition names rather than the
+  "shortcut" that properly encoded only ASCII names. This support works
+  only in Linux, FreeBSD, and OS X, though, at least for the moment.
+  Although it's possible to compile this support into Windows when using
+  Visual C++, it doesn't seem to work properly. Since using this feature
+  would require distributing the ICU libraries with the Windows binary,
+  thus bloating the binary package's size to no effect, I've disabled it in
+  my standard Windows build, at least for now.
+
+- Added check to fixparts to keep it from operating on devices that
+  lack an existing MBR signature. (In 0.7.0, it could write an empty
+  MBR data structure to a device on which it was mistakenly launched.)
+
+- Fixed bug that caused the protective MBR to not be written when
+  restoring a backup of the GPT data.
+
+- Fixed bug that caused second protective MBR partition, when created
+  as part of a hybrid MBR, to always be of type 0xEE, even when the
+  user specified something else.
+
+- Integrated a number of code cleanups contributed by Florian Zumbiehl.
+
+0.7.0 (3/11/2011):
+------------------
+
+- Fixed bug that caused some types of logical partitions to be misread.
+
+- Created FixParts program, to fix problems on MBR-partitioned disks.
+  Although this program is part of the GPT fdisk family, it is NOT used on
+  GPT disks.
+
+- Completely redid the GPT-to-MBR code, used both for converting to MBR
+  form and for creating hybrid MBRs.
+
+- Fixed a bug that caused gdisk to "forget" some partitions if there were
+  numbering gaps when a conversion to MBR was aborted.
+
+- Improved CHS value creation on small (<~8GB) disks for protective MBR
+  and when creating hybrid MBRs or converting to MBR format. Linux-only,
+  for the moment; other platforms still produce bad CHS values on sub-~8GB
+  disks (but few OSes care these days).
+
+- Enhanced disk replication features ('u' on the experts' menu in gdisk; -R
+  or --replicate in sgdisk). It's now possible to replicate the partition
+  table from a larger to a smaller disk, so long as all the partitions fit
+  on the smaller disk. In sgdisk, the secondary GPT data are moved
+  automatically if disk sizes don't match. In gdisk, the secondary GPT data
+  are moved automatically if the target disk is smaller than the source
+  disk; if the target disk is larger than the source disk, the user is
+  given the option of making this adjustment.
+
+- Fixed --load-backup (-l) option to sgdisk, which was broken.
+
+- Changed largest drive that's not given a minimum 4 KiB alignment even
+  when smaller alignment is detected on the disk to 300 GB.
+
+- Fixed bug that prevented aborting a partition table backup ('u' on the
+  experts' menu) by hitting the Enter key for the device filename.
+
+- Implemented a number of code cleanups provided by Florian Zumbiehl.
+
+0.6.14 (1/8/2011):
+------------------
+
+- Made small change to the way the start sector is interpreted if you use a
+  "+" specification, as in "+2G" to locate a partition 2 GiB into the
+  default range. This change makes adjustments for sector alignment less
+  likely.
+
+- Modified sgdisk's -n (--new) option to work with relative start and end
+  values (which the man page incorrectly stated it already did). Values of
+  0 for the start and end sectors refer to the first and last available
+  sectors in the largest free block, and a partition number of 0 refers to
+  the first available partition.
+
+- Added ChromeOS GUID values to list of recognized partition type GUIDs.
+  7F00 = ChromeOS kernel, 7501 = ChromeOS root, 7502 = ChromeOS reserved.
+  Untested on actual ChromeOS system.
+
+- Tweaked APM detection to look for APM signature even if an MBR
+  signature has already been found. Helps in diagnosis of cases
+  in which an MBR has overwritten an APM disk.
+
+0.6.13 (10/12/2010):
+--------------------
+
+- Added notification about nonexistent partitions to hybrid MBR creation
+  in gdisk.
+
+- Fixed bug in GPT-to-MBR conversion that could sometimes enable creation
+  of an extended partition that overlaps a preceding partition.
+
+- Fixed bug in GPT-to-MBR conversion that prevented creation of an MBR
+  table with logical partitions if there were four or fewer partitions.
+
+0.6.12 (10/7/2010):
+-------------------
+
+- Adjusted alignment code to use 1 MiB alignment by default for drives with
+  other than 512-byte sector sizes. (Previous versions increased this --
+  for instance, to 4 MiB for drives with 2048-byte logical sector size.)
+
+- Entry of non-hexadecimal value for partition type code now causes
+  re-prompting for a new value, fixing a recently-introduced minor bug.
+
+- Fixed bug in sector entry using K/M/G/T/P suffixes on disks with
+  other-than-512-byte sector numbers.
+
+- Added "P" (PiB, pebibyte) suffix to suffixes accepted in entering
+  partition sizes.
+
+- Fixed bug that caused sgdisk to segfault if fed the (invalid)
+  "-A show" parameter. Now it terminates with a complaint about an invalid
+  partition number 0.
+
+- Removed warning when running on big-endian hardware, since this
+  support has been present for quite a while with no bug reports.
+
+0.6.11 (9/25/2010):
+-------------------
+
+- Added -F (--first-aligned-in-largest) option to sgdisk. This option is a
+  variant on -f (--first-in-largest); it returns the number of the first
+  sector that will be used in the largest free area, given the current
+  alignment value (set via -a/--set-alignment).
+
+- Streamlined GUID code entry in gdisk; it no longer offers the option
+  to enter GUIDs in separate segments.
+
+- The -t option to sgdisk now accepts GUID values as well as the
+  sgdisk/gdisk-specific two-byte hex codes.
+
+- Added check that the protective 0xEE MBR partition begins on sector 1
+  to the verify function. If it doesn't, a warning message is displayed,
+  but it doesn't count as an error.
+
+- Added check for overlapping MBR partitions to verify function (gdisk "v"
+  function on all menus; sgdisk -v/--verify function). Also warns about
+  multiple MBR 0xEE partitions (causes problems in some OSes).
+
+- Added check to GPT-to-MBR and hybrid MBR creation options to prevent
+  creation of disks with duplicate partitions. When told to create a disk
+  with duplicates, sgdisk now aborts with the error message "Problem
+  creating MBR!" When attempting to create a hybrid MBR with duplicates,
+  gdisk silently drops duplicate partitions, leaving fewer than requested.
+  Creating duplicates should not be possible in sgdisk when converting to
+  MBR form.
+
+0.6.10 (8/22/2010):
+-------------------
+
+- Enable disk-wipe (-z and -Z) and verification (-v) operations in
+  sgdisk even if the disk is badly damaged.
+
+- Added support for setting attributes in sgdisk (-A/--attributes option)
+  in sgdisk.
+
+- Fixed bug that created backwards attribute field values (bit #2 was
+  entered as bit #61, etc.).
+
+- Fixed bug that caused creation of hybrid MBR to wipe out the MBR's boot
+  code.
+
+- Added ability to save partition table from one device to another (gdisk:
+  'u' on experts' menu; sgdisk: -R or --replicate option).
+
+- Fixed inaccessible -C/--recompute-chs option in sgdisk.
+
+0.6.9 (7/4/2010):
+------------------
+
+- Fixed minor error in sgdisk man page (--largest-new option requires
+  a partition number).
+
+- Fixed major bug in hybrid MBR creation, which caused incorrect
+  protective partition end point settings and occasionally other
+  problems.
+
+0.6.8 (5/23/2010):
+------------------
+
+- Added tests to see if the file to be opened is a directory, character
+  device, FIFO, or socket; program now terminates if any of these
+  conditions is met. (Linux/FreeBSD/OS X only.) Thanks to  Justin Maggard
+  for this patch.
+
+- Added 'f' option on gdisk's experts' menu (-G/--randomize-guids in
+  sgdisk). This option randomizes the disk's GUID and all partitions'
+  GUIDs. Intended for use after cloning a disk with a utility that copies
+  the GUIDs intact (such as a raw dd copy) if you want each disk copy to
+  have its own set of GUIDs.
+
+- Added -u/--partition-guid and -U/--disk-guid options to sgdisk. These are
+  the equivalents of the 'g' and 'c' options, respectively, on the gdisk
+  experts' menu: They enable adjusting an individual partition's GUID or a
+  disk's GUID. The GUID may be either a fully specified GUID value or 'R'
+  or 'r' to set a random GUID value.
+
+- Fixed compile problem for FreeBSD (its math library lacks a log2()
+  function). Also created separate Makefile.freebsd with a couple of
+  FreeBSD-specific options.
+
+- Added -N (--largest-new) command to sgdisk. This command creates a single
+  partition that fills the largest single unpartitioned block of space on
+  the disk.
+
+- Fixed sgdisk man page error: the --change-name option was incorrectly
+  listed as --change.
+
+- Added 'h' option to gdisk experts' menu (-C or --recompute-chs in sgdisk)
+  to recompute all protective/hybrid MBR CHS values. This option is
+  intended to work around a bug in at least one BIOS that prevents the
+  computer from booting when the GPT-mandated (but technically illegal)
+  0xFFFFFF CHS value is used as the end point for a protective MBR. The
+  recomputed values will be legal (e.g., 0xFEFFFF instead of 0xFFFFFF),
+  but incorrect in GPT terms, and will therefore enable at least one
+  BIOS to boot with a GPT disk. See http://www.rodsbooks.com/gdisk/bios.html
+  for all I know about BIOS/GPT incompatibilities.
+
+0.6.7 (5/1/2010):
+-----------------
+
+- Undid earlier change, with version 0.6.4, that wiped the MBR boot loader
+  when doing MBR-to-GPT conversions. I've now become skeptical that MBR
+  boot loaders were causing any real problems on GPT disks, so I'm going
+  back to the philosophy of leaving as much alone as possible.
+
+- Fixed bug that caused incorrect reporting of free space on 0-size disks
+  (e.g., files of 0 length passed as disk images).
+
+- Fixed bug that caused segfault on some invalid disks
+
+- Fixed bug that caused incorrect partition numbers to be displayed for
+  some verify problems.
+
+
+0.6.6 (3/21/2010):
+-----------------
+
+- Added support for the "no block IO protocol" (referred to as "hide from
+  EFI" in GPT fdisk) and "legacy BIOS bootable" attribute bits. See Table
+  19 of the UEFI 2.3 specification (p. 153) for details.
+
+- Changed the sequence in which GPT data structures are written to disk;
+  backups are now written first, followed by the main structures. This is
+  as recommended in the UEFI 2.3 specification, since it's safer in the
+  extremely unlikely event that a RAID array's size is increased and
+  there's a power outage mid-write. (If the main structures are written
+  first in this case, they'll point to data that's not yet been written;
+  but by writing the backups first, the old main structures will still
+  point to the valid old backup structures.)
+
+- Protective MBRs now have disk signatures of 0x00000000, to better
+  conform with GPT as described in the UEFI 2.3 specification.
+
+- Added alignment information to the summary data produced by the
+  'p' main-menu option in gdisk or the -p option to sgdisk.
+
+- More alignment changes: GPT fdisk now attempts to determine the alignment
+  value based on alignment of current partitions, if any are defined. If no
+  partitions are defined, a default value of 2048 is set. If the computed
+  value is less than 8 on drives over about 596GiB, it's reset to 8, since
+  the drive might be a WD Advanced Format unit that requires an 8-sector
+  (or larger power-of-2) alignment value for best performance. The
+  2048-sector default provides better alignment in some RAID
+  configurations.
+
+- Changed behavior when a backup restore fails. Previously, GPT fdisk
+  would create a fresh blank set of partitions. Now it does so only
+  if the failure occurs when interpreting the backup's contents; if the
+  user typed the wrong filename, the in-memory data structures aren't
+  touched.
+
+
+0.6.5 (3/7/2010):
+-----------------
+
+- Added tests to verify ('v') function and to pre-save checks to look for
+  partitions that end before they begin or that are too big for their
+  disks.
+
+- Fixed a bug that could cause spurious data to appear in a grown partition
+  table.
+
+- Added ability to convert some or all partitions to logical partitions in
+  GPT-to-MBR conversion. This feature is limited by the fact that at least
+  one free sector must exist immediately prior to each logical partition,
+  so it won't do much good if partitions are crammed together. It should be
+  possible to convert back to MBR any disk that started that way, provided
+  no partitions were added or resized when the disk was in GPT form; and
+  disks that were partitioned with Apple's Disk Utility or other tools that
+  insert unpartitioned space should also be convertible. CAUTION: THE
+  LOGICAL PARTITION CREATION FEATURE DOESN'T TRY TO ALIGN PARTITIONS OR
+  PARTITION HEADER DATA TO CYLINDER BOUNDARIES! It's conceivable that some
+  older OSes or utilities will object to these disks, although Linux, OS X,
+  Windows Vista, and Windows 7 all seem happy with them.
+
+- Fixed bug that caused creation of 0-length file if an incorrect device
+  filename was typed.
+
+- The gdisk program now prompts for a device filename if it's called with
+  no options. This enables gdisk to do something useful if it's launched by
+  double-clicking its icon in a GUI environment.
+
+- Added workaround for bug in some versions of MinGW that caused the
+  program to garble input sector numbers.
+
+- The Windows version now works on disks with over-512-byte sectors.
+  Tested on a magneto-optical (MO) drive with 2048-byte sectors.
+
+- Added -D (--display-alignment) option to sgdisk, to display sector
+  alignment value (by default, 1 for sub-800GiB disks and 8 for disks
+  over that size).
+
+- Fixed bug in computation of CHS geometries for protective MBR. This is
+  non-critical, since most modern utilities ignore the CHS geometries.
+  Concerned users can use the 'n' option on the experts' menu to build new
+  protective MBRs with the new algorithm, if desired. (Note that GNU
+  Parted, at least, gets this wrong, too.)
+
+- Fixed memory-allocation bug when reading GPT disks with partition tables
+  with over 128 entries; could cause program to crash on startup.
+
+0.6.4-2 (2/20/2010):
+--------------------
+
+Note: Neither of the following changes affects actual program code, so I've
+left the version number in the program at 0.6.4.
+
+- Altered Makefile to pass user's compiler and linker environment
+  variables through.
+
+- Added #include to gpttext.cc to enable it to compile on the latest
+  GCC versions (it was failing on at least some 4.4.x compilers).
+
+0.6.4 (2/19/2010):
+-------------------
+
+- Added -m (--gpttombr) option to sgdisk, enabling conversion of GPT
+  disks to MBR format, with a limit of four partitions total, and of course
+  without overcoming the 2TiB limit.
+
+- Added -h (--hybrid) option to sgdisk, enabling creation of hybrid
+  MBRs. Fewer options are available in sgdisk than in gdisk, though,
+  in order to keep the user interface manageable.
+
+- Fixed off-by-one bug in specification of partition when using the
+  -T (--transform-bsd) option in sgdisk.
+
+- Changed the code to create a new MBR unique disk signature whenever a new
+  protective MBR is generated (when doing an MBR-to-GPT conversion, when
+  using the 'n' option on the experts' menu, or when using the 'o' option
+  on the main menu, for example). Previous versions attempted to preserve
+  the existing MBR disk signature in most cases, but this resulted in
+  values of 0x00000000 whenever an empty disk was partitioned, and often in
+  other cases, too. Better to risk changing this value too often than to
+  leave multiple disks with 0x00000000 values, I think.
+
+- Added transpose ('t' on experts' menu in gdisk; or -r or --transpose in
+  sgdisk) command to enable fine-tuning partition order without doing a
+  full sort.
+
+- Added code to clear the MBR boot loader when doing an MBR-to-GPT
+  conversion. (This was already done in full-disk BSD-to-GPT conversions.)
+  This is done because I've seen a few problem reports that make me think
+  some MBR boot loaders freak out and hang the system when they encounter
+  GPT disks, and/or they attempt to load a second-stage boot loader stored
+  in what is now GPT territory, causing a system hang. Since MBR boot
+  loaders don't work on GPT disks anyhow (even GRUB needs to be
+  reinstalled), this new wiping behavior shouldn't cause any problems, and
+  may prevent a few.
+
+- Fixed bug in Windows version that prevented saving backup files.
+
+- Fixed bug that caused second and subsequent partition numbers in
+  prompts in hybrid MBR conversion procedure to be displayed in
+  hexadecimal.
+
+- Fixed very obscure potential bug in hybrid MBR/GPT synchronization when
+  deleting partitions; code wasn't matching partition lengths correctly,
+  which would only affect partitions that start at the same point but have
+  different lengths in MBR vs. GPT.
+
+- Fixed bug in the -E option to sgdisk; it was actually returning the
+  last free sector, not the last free sector in the largest free block.
+
+- Fixed bug in -t option to sgdisk; it was corrupting partition type
+  codes.
+
+- Fixed minor alignment bug in partition summary list ('p' from any menu)
+  when partition sizes are between 1000 and 1024 units.
+
+- Backup restore function ('l' on recovery & transformation menu) now
+  accepts both backups generated by GPT fdisk and backups created by a
+  direct copy (via dd, etc.) of the MBR, main GPT header, and main GPT
+  partition table, in that order. ("dd if=/dev/sda of=backup.gpt bs=512
+  count=34" will do this on Linux for a disk with a typical-sized GPT table
+  of 128 entries.)
+
+0.6.3 (2/3/2010):
+------------------
+
+- Fixed serious data corruption bug on big-endian (PowerPC and similar)
+  systems.
+
+- Changed several GPT fdisk Solaris type codes to correct a duplicate
+
+- Corrected error in GPT fdisk type codes for NetBSD LFS and NetBSD RAID;
+  they were identical, but I've now changed NetBSD RAID to A906, which
+  is unique.
+
+- Added GUID for IBM General Parallel File System (GPFS) partition type
+  code. Somewhat arbitrarily set it to use the 7501 number (MBR code 0x75
+  is used by IBM PC/IX, so it's at least the right company, by my loose
+  numbering rules....).
+
+- Improved GUID generation. Prior versions generated completely random
+  numbers for GUIDs. This works, but is technically a violation of the
+  spec. Unix versions now employ libuuid to generate GUIDs in a more
+  correct way. The Windows version still generates random numbers, though.
+
+- Turned PartTypes class into a derived class of GUIDData, and renamed
+  it to PartType.
+
+- Created new GUIDData class, to replace the original GUIDData struct.
+
+0.6.2 (1/29/2010):
+------------------
+
+- The change-type ('t' on main menu) option now changes the partition's
+  name *IF* the current name is the generic one for the partition type.
+  If the current name is not the generic name, it is NOT changed.
+
+- Fixed bug that caused new protective MBR to not be created when the
+  MBR was invalid and the GPT was damaged and the user opts to try to
+  use the GPT data.
+
+- Enabled default partition type code of 0700 when creating partitions
+  or changing their type codes. (Type 0700, Linux/Windows data, is set if
+  the user hits the Enter key alone.)
+
+- Fixed bug in sort ('s' on main menu) option that caused partition
+  numbers to begin at more than 1 if the original partition list had
+  too many empty partitions before the last one defined.
+
+- Improved code to determine which partition table to load in case of
+  CRC mismatches between the partition tables and the stored CRC values
+  in the headers.
+
+- Compiles using MinGW (http://www.mingw.org) to create a Windows binary.
+
+- Moved all disk I/O functions to the new DiskIO class. This helps with the
+  Windows port; it uses diskio-windows.cc for Windows-specific code,
+  diskio-unix.cc for the Linux, FreeBSD, and OS X code, and diskio.cc for
+  cross-platform disk I/O code.
+
+- Changed BSD disklabel detection code to be more correct (I think).
+  This change has no effect on my test disks, but I hope it'll work
+  better on disks with sector sizes other than 512 or 2048.
+
+0.6.1 (1/20/2010):
+------------------
+
+- Fixed bug that returned incorrect disk size on 32-bit versions of
+  FreeBSD.
+
+- Fixed bug that prevented FreeBSD version from working on disk image
+  files.
+
+- Fixed bug that caused BSD disklabel conversion to fail.
+
+0.6.0 (1/15/2010):
+------------------
+
+- Fixed bug that caused the convert to MBR function to fail.
+
+- Added support for disks with other than 512-byte sectors.
+
+- Created embryonic sgdisk program.
+
+- Fixed bug that caused relative sector numbers entered by users (e.g,
+  "+128M") to be misinterpreted as from the start of the range rather than
+  from the default value.
+
+0.5.3 (1/4/2010):
+-----------------
+
+- Fixed bug in display of GUIDs when compiled with some versions of GCC.
+
+- Eliminated warnings caused by additional checks in latest versions of
+  GCC. These warnings were harmless, but to eliminate them I've added
+  more error checking on disk I/O.
+
+- Eliminated unnecessary warnings about potential data loss if the program
+  was launched with the -l option or if writes aren't possible.
+
+- Added code to set the partition boundary value based on the physical
+  sector size. (FindAlignment() function.) This function, however, works
+  only on Linux, and then only if the BLKPBSZGET ioctl is defined. This
+  ioctl is new in kernel 2.6.32 or thereabouts.
+
+0.5.2 (12/31/2009):
+-------------------
+
+- Modified partition creation function to begin partitions on 8-sector
+  boundaries by default. This improves performance on the new Western
+  Digital Advanced Format drives. The new 'd' and 'l' options on the
+  experts' menu display and change, respectively, the boundary size.
+
+- Tweaked code to produce fewer warnings on the latest versions of
+  GCC.
+
+0.5.1:
+------
+
+- Made some minor edits to the man page.
+
+- Incorporated RPM .spec file changes contributed by Scott Collier
+  (boodle11@gmail.com).
+
+- Changed method of locating and loading backup GPT data, to use the
+  main header's pointer, if it's valid, rather than seeking to the
+  end of the disk.
+
+- Added 'e' option (relocate backup GPT data structures) to the experts'
+  menu.
+
+- Fixed bug that prevented recovery of partitions in case of partially
+  damaged GPT data (bad main and good backup or bad backup and good
+  main header, for instance).
+
+0.5.0:
+------
+
+- Added GPT-to-MBR conversion function. It's very limited, but potentially
+  useful in some cases.
+
+- Fixed bug that caused incorrect file sizes to be reported on 32-bit
+  Linux, thus causing problems when editing partition tables in disk images
+  or when loading GPT backup files.
+
+- Fixed bug that caused bogus CRC error reports when loading backup GPT
+  data.
+
+- Reorganized menus. There are now three: the main menu, the experts' menu,
+  and the recovery & transformation menu. The last of these has most of the
+  items that had been on the earlier versions' experts' menu.
+
+- Added ability to re-load the MBR and generate a fresh GPT from it. This
+  is normally identical to quitting and re-running the program, but it
+  could be handy if, say, the GPT partitions on a hybrid configuration are
+  badly messed up; this will enable using the hybridized partitions as the
+  starting point for a new GPT setup.
+
+- The program now generates CHS values for hybrid and GPT-to-MBR conversion
+  MBRs. For the moment, the assumption is the maximum number of heads and
+  sectors per track (255 and 63, respectively), although the bulk of the
+  code supports other values -- it'd just be awkward to enter the data in
+  the user interface.
+
+- Fixed minor display bug that caused number of sectors on the disk to be
+  shown as 0 on large disks when running 32-bit binaries.
+
+- Reverted 0.4.2's zap (destroy GPT) changes, since I don't want to wipe
+  out a valid MBR if the user created that MBR over an older GPT without
+  first properly wiping out the GPT, and the user now wants to wipe out
+  the GPT.
+
+- Reformatted and edited the man page. Aside from edits related to the
+  preceding program changes, I've altered the markup slightly and trimmed
+  much of the more tutorial information from the man page to better
+  conform to typical terse man page style.
+
+0.4.2:
+------
+
+- Code cleanup.
+
+- Fixed very small formatting bug in display of hex code when a match isn't
+  found when converting from an MBR/gdisk hex code to a GUID type code.
+
+- Added the ability to work on disk image files (raw files for virtual
+  machines, backup images, etc.). The program assumes that all such disk
+  image files have 512-byte sectors.
+
+- Added verification prompt to 'o' main-menu option to avoid accidental
+  erasures of all partitions.
+
+- The "destroy GPT data structures" option ('z' on the experts' menu) now
+  also destroys all EFI GPT (0xEE) partitions in the MBR.
+
+- Added an extra warning to the "destroy GPT data structures" option if an APM
+  or BSD disklabel was detected on the disk.
+
+- Added a buffer flush after destroying GPT data structures, to get the OS
+  to read the new (empty or MBR-only) partition table.
+
+- Fixed bug that allowed entry of nonexistent partition numbers when creating
+  a hybrid MBR.
+
+0.4.1:
+------
+
+- Code cleanup/re-organization
+
+- Partition creation function ('n' on main menu) now uses the start of the
+  largest available chunk of free space rather than the first available
+  sector as the default starting sector number. This should enable easier
+  partition creation if there are small bits of free space on the disk.
+
+- You can now specify the end point of a partition by using a minus sign,
+  in which case the end point is the default value minus the specified
+  size. For instance, "-200M" creates a partition that ends 200MiB before
+  the default end point.
+
+- You can now specify the start point of a partition by using a plus or
+  minus sign, in which case the start point is the specified distance from
+  the start (+) or end (-) of free space. This is exactly the same as the
+  new rules for entry of the end point, except that the default value is
+  set differently.
+
+- Deleting a partition now checks for a matching hybrid MBR partition, and
+  if one is found, it's deleted. Any empty space that then surrounds the
+  0xEE (EFI GPT) MBR partitions is then added to the nearby 0xEE partition.
+  If no non-0xEE partitions are left, a fresh protective MBR is generated.
+
+- Added hybrid MBR consistency check to the verify ('v') option and to
+  pre-write checks. If non-0xEE/non-0x00 MBR partitions without
+  corresponding GPT partitions are found, the user is warned. This finding
+  does NOT prevent writing the partition table, though.
+
+- Added non-destructive write test when opening the device file, in order
+  to detect the problem with FreeBSD being unable to write to disks with
+  mounted partitions (or other potential problems).
+
+0.4.0:
+------
+
+- Added support for BSD disklabels. The program can now convert disks that
+  use "raw" disklabels, with the caveat that the first partition will
+  almost certainly need to be deleted because it'll overlap the main GPT
+  header; and convert disklabels contained within a GPT (or a former MBR,
+  converted to GPT) partition. In the latter case, the 'b' main menu option
+  is used.
+
+- Added support for compiling on FreeBSD.
+
+- Fixed bug that could cause crashes or incomplete sorts when sorting
+  the partition table.
+
+- New partitions, including converted ones, now take on the name of the
+  partition type as a default name.
+
+- Reorganized some code; created a separate C++ class for GPT partitions
+  (GPTPart), which replaced a struct and enabled moving code from the
+  bloated GPTData class into GPTPart.
+
+- Fixed a bug that produced spurious warnings about unknown sector sizes
+  when loading a backup file.
+
+0.3.5:
+------
+
+Note: This version was not officially publicly released; I wanted to test
+the big-endian support while developing 0.4.0.
+
+- Tweaked the disk type identification code to warn users to re-sync their
+  hybrid MBRs when one is detected.
+
+- Tweaked MBR-reading code to ignore 0xEE (EFI GPT) partitions. This will
+  only have an effect on a poorly partitioned MBR disk that contains an
+  inappropriate EFI GPT partition, or when attempting to recover a
+  corrupted disk by using the hybrid MBR for data recovery.
+
+- Added big-endian (PowerPC, etc.) support!
+
+- Added code to identify and warn of the presence of an Apple Partition
+  Map (APM) on the disk.
+
+- Enabled MBR conversion code to handle multiple logical partitions.
+
+0.3.4:
+------
+
+- Fixed bug that enabled (possibly accidental) entry of MBR type codes of
+  0x00 in GPTData::MakeHybrid(). The fix also enables entry of default
+  type code by pressing the Enter key when prompted. Applied a similar
+  fix to the entry of the type code for the second protective partition,
+  if one is used.
+
+- Fixed a typo: "sectors" was spelled "sectprs" in one spot!
+
+- Fixed bug that caused default entry for end sector to be refused if an
+  initial value using a plus sign (e.g., "+20G") was also refused.
+
+0.3.3:
+------
+
+- Gave users control over the way MBR partitions are assigned to slots in a
+  hybrid MBR setup; the original method (putting the 0xEE partition after
+  the real partitions) works well for non-boot disks, but both GRUB and
+  GRUB2 become confused by this type of setup, so it needs changing.
+
+- Changed "blocks" to "sectors" in GPT and MBR table displays.
+
+- Added "Boot" column to MBR table display; shows an asterisk (*) when the
+  partition's status is bootable.
+
+0.3.2:
+------
+
+- Changed __DARWIN_UNIX03 to __APPLE__ as code to enable MacOS X support.
+
+- Added the ability to create a hybrid MBR ('h' on experts' menu). This was
+  motivated by my discovery that Windows 7 remains brain-dead when it comes
+  to the ability to boot from a GPT disk, at least on BIOS-based machines.
+
+- Added 'z' option to experts' menu, to destroy GPT data structures and
+  exit. The intent is to use this feature to enable subsequent partitioning
+  of the disk using fdisk or other GPT-unaware tools. (GNU Parted will wipe
+  the GPT data structures itself when you create a new MBR ["msdos
+  disklabel," in Parted parlance], so using Parted is another option.)
+
+- Slightly altered the effect of the 'o' command on the main menu. It now
+  blanks out the protective MBR, as well as the GPT data.
+
+0.3.1:
+------
+
+- Added Mac OS X support, provided as a patch by David Hubbard
+  (david.c.hubbard@gmail.com).
+
+- Fixed bug in disksize() function on Mac OS. (Possibly dependent on the
+  kernel and/or GCC version.) The disk size, of type uint64_t, was not
+  being passed correctly, so I reorganized the function to return it as
+  the function's return value rather than as a parameter. This seems to
+  work OK on my Mac OS test system and on both 32- and 64-bit Linux
+  systems.
+
+- Fixed off-by-one bug in GPTData::FindLastAvailable().
+
+- Fixed bug that caused display of options after a disk-write error.
+
+- Fixed several incorrect MacOS X partition type GUIDs, thanks to Yves
+  Blusseau (1otnwmz02@sneakemail.com).
+
+0.3.0:
+------
+
+- Changed version number to 0.3.0, reflecting the fact that I've received
+  no significant bug reports and so am elevating the program to "beta"
+  status. This change also entailed altering the warning the program
+  displays when saving partition table changes.
+
+- Fixed minor bug in CHS geometry of the protective MBR's type EE partition
+  (was producing 0x000200 as the start value, but should be 0x000100).
+  Should be a non-critical bug since the protective MBR partition
+  definition is only there to keep MBR-only disk utilities from messing
+  with the disk.
+
+- Added ability to enter GUIDs as single massive strings rather than in
+  chunks.
+
+0.2.2:
+------
+
+- Added #include directives required to compile the program using GCC
+  4.4.0.
+
+0.2.1:
+------
+
+- Fixed partition numbering problem in reports of partition overlaps in
+  verification function.
+
+- Fixed 1-sector partition size problem when creating new partitions
+  (partitions were 1 sector too big when using the +size option).
+
+- Changed BytesToSI() to display values in bytes without decimal points
+  (e.g., "512 bytes" rather than "512.0 bytes").
+
+- Added GPTData class member functions to retrieve GPT data structure
+  locations on disk; used in my internal-use-only GPT-wiping program.
+
+- Eliminated the "a reboot is recommended" notice after writing the
+  partition table.
+
+- Added notice after sorting the partition table to the effect that
+  editing /etc/fstab and/or the boot loader files may be required.
+
+- Fixed bug in MBR-reading function that caused 0x0f (Win95 LBA) and 0x85
+  (Linux extended) extended partitions to not be read.
+
+- Fixed bug in GetLastSector() (in support.cc) that would have prevented
+  correct user entry of over-32-bit sector numbers on 32-bit systems.
+
+- Made some changes/corrections to the partition type list in
+  parttypes.cc. Most of these were based on newly-discovered MBR type
+  codes for Apple (Mac OS X) filesystems.
+
+- General code cleanup (setting explicit casts, etc.)
+
+0.2.0:
+------
+
+- Initial semi-public release

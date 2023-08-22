@@ -1,0 +1,57 @@
+# (c) 2017 KAI OS TECHNOLOGIES (HONG KONG) LIMITED All rights reserved. This
+# file or any portion thereof may not be reproduced or used in any manner
+# whatsoever without the express written permission of KAI OS TECHNOLOGIES
+# (HONG KONG) LIMITED. KaiOS is the trademark of KAI OS TECHNOLOGIES (HONG KONG)
+# LIMITED or its affiliate company and may be registered in some jurisdictions.
+# All other trademarks are the property of their respective owners.
+
+DIRS += ['interfaces']
+
+EXPORTS.mozilla.dom += [
+  'SubsidyLock.h',
+  'SubsidyLockManager.h'
+]
+
+EXPORTS.mozilla.dom.subsidylock += [
+  'ipc/SubsidyLockChild.h',
+  'ipc/SubsidyLockIPCService.h',
+  'ipc/SubsidyLockParent.h',
+]
+
+UNIFIED_SOURCES += [
+  'ipc/SubsidyLockChild.cpp',
+  'ipc/SubsidyLockIPCService.cpp',
+  'ipc/SubsidyLockParent.cpp',
+  'SubsidyLockCallback.cpp',
+  'SubsidyLockManager.cpp',
+]
+
+SOURCES += [
+  'SubsidyLock.cpp', # Non-unified due to no_pgo
+]
+
+if CONFIG['_MSC_VER'] and CONFIG['CPU_ARCH'] == 'x86_64':
+  SOURCES['SubsidyLock.cpp'].no_pgo = True # VS2013 crashes, bug 1084162
+
+IPDL_SOURCES += [
+  'ipc/PSubsidyLock.ipdl',
+  'ipc/PSubsidyLockRequest.ipdl',
+]
+
+if CONFIG['MOZ_WIDGET_TOOLKIT'] == 'gonk' and CONFIG['MOZ_B2G_RIL']:
+  if not CONFIG['DISABLE_MOZ_RIL_GEOLOC'] and not CONFIG['DISABLE_MOZ_RIL']:
+    EXTRA_COMPONENTS += [
+      'gonk/SubsidyLockService.js',
+      'gonk/SubsidyLockService.manifest',
+    ]
+
+LOCAL_INCLUDES += [
+  '/dom/system/gonk',
+]
+
+include('/ipc/chromium/chromium-config.mozbuild')
+
+FINAL_LIBRARY = 'xul'
+
+if CONFIG['GNU_CXX']:
+    CXXFLAGS += ['-Wshadow']

@@ -1,0 +1,34 @@
+/* (c) 2018 KAI OS TECHNOLOGIES (HONG KONG) LIMITED All rights reserved. This
+ * file or any portion thereof may not be reproduced or used in any manner
+ * whatsoever without the express written permission of KAI OS TECHNOLOGIES
+ * (HONG KONG) LIMITED. KaiOS is the trademark of KAI OS TECHNOLOGIES (HONG KONG)
+ * LIMITED or its affiliate company and may be registered in some jurisdictions.
+ * All other trademarks are the property of their respective owners.
+ */
+
+#include "domstubs.idl"
+
+[scriptable, uuid(37cb9c6e-782c-4259-b959-6ddb5ceab23d)]
+interface nsIServiceWorkerIPCHelper : nsISupports
+{
+  /**
+  * Brings the app to foreground
+  *
+  * @param aAppID: the id of the app to be foregrounded
+  */
+  void sendClientFocusEvent(in unsigned long aAppID);
+
+  /**
+  * Sends serviceworker-notification system message to the app,
+  * and brings it to foreground
+  *
+  * @param aAppID: the id of the app to send the system message
+  * @param aMsg: the msg property of the system messge data object
+  */
+  void sendClientsOpenAppEvent(in unsigned long aAppID, in AString aMsg);
+};
+
+%{ C++
+#define NS_SERVICEWORKERIPC_HELPER_CONTRACTID \
+  "@mozilla.org/serviceworkers/ipchelper;1"
+%}

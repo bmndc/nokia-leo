@@ -1,0 +1,65 @@
+[
+{
+"version": "clang 3.8.0, libgcc 4.8.5",
+"size": 118876936,
+"digest": "f021d7b23cbbcc4086514b4bf20c86c9f94dbe5b4e0f1ef3aaf2bea337430f7c0d0965c55fe8be0e944a46c3b1555b9245c7af8b8b141eac4b47deea977b4852",
+"algorithm": "sha512",
+"filename": "clang.tar.xz",
+"unpack": true
+},
+{
+"size": 3008804, 
+"visibility": "public", 
+"digest": "ba6937f14f3d8b26dcb2d39490dee6b0a8afb60f672f5debb71d7b62c1ec52103201b4b1a3d258f945567de531384b36ddb2ce4aa73dc63d72305b11c146847c", 
+"algorithm": "sha512", 
+"unpack": true,
+"filename": "cctools.tar.gz"
+},
+{
+"size": 35215976, 
+"visibility": "internal", 
+"digest": "8be736545ddab25ebded188458ce974d5c9a7e29f3c50d2ebfbcb878f6aff853dd2ff5a3528bdefc64396a10101a1b50fd2fe52000140df33643cebe1ea759da", 
+"algorithm": "sha512", 
+"unpack": true,
+"filename": "MacOSX10.7.sdk.tar.bz2"
+},
+{
+"size": 167175,
+"digest": "0b71a936edf5bd70cf274aaa5d7abc8f77fe8e7b5593a208f805cc9436fac646b9c4f0b43c2b10de63ff3da671497d35536077ecbc72dba7f8159a38b580f831",
+"algorithm": "sha512",
+"unpack": true,
+"filename": "sccache.tar.bz2"
+},
+{
+"size": 57060, 
+"visibility": "public", 
+"digest": "9649ca595f4cf088d118da26201f92cc94cda7af49c7c48112ee31cd13c83b2935b3e145de9dd78060cff2480b4c2e7ff5fb24235876956fed13c87852071998", 
+"algorithm": "sha512", 
+"unpack": true,
+"filename": "dmg.tar.xz"
+},
+{
+"size": 188880, 
+"visibility": "public", 
+"digest": "1ffddd43efb03aed897ee42035d9d8d758a8d66ab6c867599ef755e1a586768fc22011ce03698af61454920b00fe8bed08c9a681e7bd324d7f8f78c026c83943", 
+"algorithm": "sha512", 
+"unpack": true,
+"filename": "genisoimage.tar.xz"
+},
+{
+"size": 60778437,
+"visibility": "public",
+"digest": "2d5d300dd0d829012953ca0dd70b0abfda4e848ff03450326cf0c10eac2a71e37275b824597641f0f536b97b754bc81b10f9dbbb73ff725412858a7c2b9df6a7",
+"algorithm": "sha512",
+"filename": "rust-std-lib.tar.bz2",
+"unpack": true
+},
+{
+"size": 36038146,
+"visibility": "public",
+"digest": "b967ba81cb08ce4c3a18e3f8411365ee775861df1ba7f60bcaccd03f940732ee9c4c622cd3163198abb36b2124cde550c61b5d153f1ae8a9107b382ddf660895",
+"algorithm": "sha512",
+"filename": "rustc-linux64.tar.bz2",
+"unpack": true
+}
+]

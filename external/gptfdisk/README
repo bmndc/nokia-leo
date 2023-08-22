@@ -1,0 +1,271 @@
+GPT fdisk (aka gdisk, cgdisk, and sgdisk) and FixParts
+by Roderick W. Smith, rodsmith@rodsbooks.com
+
+Introduction
+------------
+
+This package includes the source code for four related disk partitioning
+programs:
+
+- gdisk -- This program is modeled after Linux fdisk, but it operates on
+  GUID Partition Table (GPT) disks rather than the Master Boot Record (MBR)
+  disks that fdisk modifies. As such, gdisk is an interactive text-mode
+  tool for manipulating partitions, but it does nothing to the contents of
+  those partitions (usually filesystems, but sometimes swap space or other
+  data).
+
+- cgdisk -- This program is modeled after Linux cfdisk, but it operates on
+  GPT disks rather than the MBR disks that cfdisk modifies. As such, cgdisk
+  is a curses-based text-mode tool for manipulating partitions, which is to
+  say that it uses an interface that relies on arrow keys and a dynamic
+  display rather than the command letters and a scrolling display like
+  gdisk uses.
+
+- sgdisk -- This program is conceptually similar to the Linux sfdisk and
+  FreeBSD gpt programs, but its operational details differ. It enables
+  manipulation of GPT disks using command-line options, so it's suitable
+  for use in scripts or by experts to perform specific tasks that might
+  take several commands in gdisk to accomplish.
+
+- fixparts -- This program, unlike the preceding three, operates on MBR
+  disks. It's intended to fix certain problems that can be created by
+  various utilities. Specifically, it can fix mis-sized extended partitions
+  and primary partitions located in the middle of extended partitions. It
+  also enables changing primary vs. logical partition status (within limits
+  of what's legal in the MBR scheme) and making a few other minor changes.
+  It does NOT support creating new partitions; for that, you should use
+  fdisk, parted, or some other tool.
+
+More details about the abilities of these tools follows.
+
+All four programs rely on the same set of underlying code base; they differ
+only in their control interfaces (defined in gdisk.cc, cgdisk.cc,
+sgdisk.cc, and fixparts.cc, respectively) and in which support code they
+use.
+
+GPT fdisk (gdisk, cgdisk, and sgdisk) Details
+---------------------------------------------
+
+The gdisk program is intended as a (somewhat) fdisk-workalike program for
+GPT-partitioned disks, cgdisk is similarly a workalike for fdisk, and
+sgdisk provides most of gdisk's functionality in a more script-friendly
+program. Although libparted and programs that use it (GNU Parted, gparted,
+etc.) provide the ability to handle GPT disks, they have certain
+limitations that gdisk overcomes. Specific advantages of gdisk, cgdisk, and
+sgdisk include:
+
+* The ability to convert MBR-partitioned disks in-place to GPT format,
+  without losing data
+
+* The ability to convert BSD disklabels in-place to create GPT
+  partitions, without losing data
+
+* The ability to convert from GPT format to MBR format without data loss
+  (gdisk and sgdisk only)
+
+* More flexible specification of filesystem type code GUIDs, which
+  GNU Parted tends to corrupt
+
+* Clear identification of the number of unallocated sectors on a
+  disk
+
+* A user interface that's familiar to long-time users of Linux
+  fdisk and cfdisk (gdisk and cgdisk only)
+
+* The MBR boot loader code is left alone
+
+* The ability to create a hybrid MBR, which permits GPT-unaware OSes to
+  access up to three GPT partitions on the disk (gdisk and sgdisk only)
+
+Of course, GPT fdisk isn't without its limitations. Most notably, it lacks
+the filesystem awareness and filesystem-related features of GParted. You
+can't resize a partition's filesystem or create a partition with a
+filesystem already in place with gdisk, for instance. There's no GUI
+version of gdisk.
+
+The GPT fdisk package provides three program files: the interactive
+text-mode gdisk, the curses-based interactive cgdisk, and the
+command-line-driven sgdisk. The first two are intended for use in manually
+partitioning disks or changing partitioning details; sgdisk is intended for
+use in scripts to help automate tasks such as disk cloning or preparing
+multiple disks for Linux installation.
+
+FixParts Details
+----------------
+
+This program's creation was motivated by cries for help I've seen in online
+forums from users who have found their partition tables to be corrupted by
+various buggy partitioning tools. Although most OSes can handle the
+afflicted disks fine, libparted-based tools (GParted, parted, most Linux
+installers, etc.) tend to flake out when presented with these disks.
+Typically, the symptom is a disk that appears to hold no partitions;
+however, sometimes the libparted tool presents partitions other than those
+that the OS sees.
+
+I've observed four causes of these symptoms, three of which FixParts can
+correct:
+
+* Old GPT data -- If a disk is used as a GPT disk and then re-used as an
+  MBR disk, the GPT data may be incompletely erased. This happens if the
+  disk is repartitioned with fdisk or the Microsoft Windows installer, for
+  instance. (Tools based on libparted correctly remove the old GPT data
+  when converting from GPT to MBR format.) FixParts checks for this problem
+  when it starts and offers to correct it. If you opt to erase the GPT
+  data, this erasure occurs immediately, unlike other changes the program
+  makes.
+
+* Mis-sized extended partitions -- Some tools create an extended partition
+  that's too large, typically ending after the last sector of the disk.
+  FixParts automatically corrects this problem (if you use the 'w' option
+  to save the partition table).
+
+* Primary partitions inside an extended partition -- Some utilities create
+  or move primary partitions to within the range covered by the extended
+  partition. FixParts can usually correct this problem by turning the
+  primary partition into a logical partition or by changing one or more
+  other logical partitions into primaries. Such corrections aren't always
+  possible, though, at least not without deleting or resizing other
+  partitions.
+
+* Leftover RAID data -- If a disk is used in a RAID array and then re-used
+  as a non-RAID disk, some utilities can become confused and fail to see
+  the disk. FixParts can NOT correct this problem. You must destroy the old
+  RAID data, or possibly remove the dmraid package from the system, to fix
+  this problem.
+
+When run, FixParts presents an fdisk-like interface, enabling you to adjust
+partition types (primary, logical, or omitted), change type codes, change
+the bootable flag, and so on. Although you can delete a partition (by
+omitting it), you can't create new partitions with the program. If you're
+used to partitioning disks, particularly with Linux fdisk, two unusual
+features of FixParts require elaboration:
+
+* No extended partitions -- Internally, FixParts reads the partition table
+  and discards data on any extended partition(s) it finds. When you save
+  the partition table, the program generates a new extended partition. This
+  design means that the program automatically corrects many problems
+  related to the extended partition. It also means that you'll see no
+  evidence of extended partitions in the FixParts user interface, although
+  it keeps track of the requirements and prevents you from creating illegal
+  layouts, such as a primary between two logicals.
+
+* Partition numbering -- In most Linux tools, partitions 1-4 are primaries
+  and partitions 5 and up are logicals. Although a legal partition table
+  loaded into FixParts will initially conform to this convention, some
+  types of damaged table might not, and various changes you make can also
+  cause deviations. When FixParts writes the partition table, its numbering
+  will be altered to conform to the standard MBR conventions, but you
+  should use the explicit labeling of partitions as primary or logical
+  rather than the partition numbers to determine a partition's status.
+
+Installing
+----------
+
+To compile GPT fdisk, you must have appropriate development tools
+installed, most notably the GNU Compiler Collection (GCC) and its g++
+compiler for C++. I've also tested compilation with Clang, which seems to
+work; however, I've not done extensive testing of the resulting binaries,
+beyond checking a few basics. Under Windows, Microsoft Visual C++ 2008 can
+be used instead. In addition, note these requirements:
+
+* On Linux, FreeBSD, OS X, and Solaris, libuuid must be installed. This is
+  the standard for Linux and OS X, although you may need to install a
+  package called uuid-dev or something similar to get the headers. On
+  FreeBSD, the e2fsprogs-libuuid port must be installed.
+
+* The ICU library (http://site.icu-project.org), which provides support for
+  Unicode partition names, is optional on all platforms except Windows, on
+  which it's not supported. Using this library was required to get proper
+  UTF-16 partition name support in GPT fdisk versions prior to 0.8.9, but
+  as of that version it should not longer be required. Nonetheless, you can
+  use it if you're having problems with the new UTF-16 support. This
+  library is normally installed in Linux and OS X, but you may need to
+  install the development headers (libicu-dev or something similar in
+  Linux; or the libicu36-dev Fink package in OS X). To compile with ICU
+  support, you must modify the Makefile: Look for commented-out lines that
+  refer to USE_UTF16, -licuuc, -licudata, or -licucore. Uncomment them and
+  comment out the equivalents that lack these lines.
+
+* The cgdisk program requires the ncurses library and its development files
+  (headers). Most Linux distributions install ncurses by default, but you
+  may need to install a package called libncurses5-dev, ncurses-devel, or
+  something similar to obtain the header files. These files were installed
+  already on my Mac OS X development system; however, they may have been
+  installed as dependencies of other programs I've installed. If you're
+  having problems installing ncurses, you can compile gdisk and/or sgdisk
+  without cgdisk by specifying only the targets you want to compile to
+  make.
+
+* The sgdisk program requires the popt library and its development files
+  (headers). Most Linux distributions install popt by default, but you may
+  need to install a package called popt-dev, popt-devel, or something
+  similar to obtain the header files. Mac OS users can find a version of
+  popt for Mac OS from Darwin Ports (http://popt.darwinports.com) or Fink
+  (http://www.finkproject.org); however, you'll first need to install
+  DarwinPorts or Fink (instructions exist on the relevant projects' pages).
+  Alternatively, you can compile gdisk and/or cgdisk alone, without sgdisk;
+  gdisk doesn't require popt.
+
+When all the necessary development tools and libraries are installed, you
+can uncompress the package and type "make" at the command prompt in the
+resulting directory. (You may need to type "make -f Makefile.mac" on Mac OS
+X, "make -f Makefile.freebsd" on FreeBSD, "make -f Makefile.solaris" on
+Solaris, or "make -f Makefile.mingw" to compile using MinGW for Windows.)
+You may also need to add header (include) directories or library
+directories by setting the CXXFLAGS environment variable or by editing the
+Makefile. The result should be program files called gdisk, cgdisk, sgdisk,
+and fixparts. Typing "make gdisk", "make cgdisk", "make sgdisk", or "make
+fixparts" will compile only the requested programs. You can use these
+programs in place or copy the files to a suitable directory, such as
+/usr/local/sbin. You can copy the man pages (gdisk.8, cgdisk.8, sgdisk.8,
+and fixparts.8) to /usr/local/man/man8 to make them available.
+
+Caveats
+-------
+
+THIS SOFTWARE IS BETA SOFTWARE! IF IT WIPES OUT YOUR HARD DISK OR EATS YOUR
+CAT, DON'T BLAME ME! To date, I've tested the software on several USB flash
+drives, physical hard disks, and virtual disks in the QEMU and VirtualBox
+environments. Many others have now used the software on their computers, as
+well. I believe all data-corruption bugs to be squashed, but I know full well
+that the odds of my missing something are high. This is particularly true for
+large (over-2TiB) drives; my only direct testing with such disks is with
+virtual QEMU and VirtualBox disks. I've received user reports of success with
+RAID arrays over 2TiB in size, though.
+
+My main development platform is a system running the 64-bit version of
+Gentoo Linux. I've also tested on several other 32- and 64-bit Linux
+distributions, Intel-based Mac OS X 10.5 and 10.6, 64-bit FreeBSD 7.1, and
+Windows 7.
+
+Redistribution
+--------------
+
+This program is licensed under terms of the GNU GPL (see the file COPYING).
+
+Acknowledgements
+----------------
+
+This code is mostly my own; however, I've used three functions from two
+other GPLed programs:
+
+- The code used to generate CRCs is taken from the efone program by
+  Krzysztof Dabrowski and ElysiuM deeZine. (See the crc32.h and
+  crc32.cc source code files.)
+
+- A function to find the disk size is taken from Linux fdisk by A. V. Le
+  Blanc. This code has subsequently been heavily modified.
+
+Additional code contributors include:
+
+- Yves Blusseau (1otnwmz02@sneakemail.com)
+
+- David Hubbard (david.c.hubbard@gmail.com)
+
+- Justin Maggard (justin.maggard@netgear.com)
+
+- Dwight Schauer (dschauer@ti.com)
+
+- Florian Zumbiehl (florz@florz.de)
+
+- Guillaume Delacour (contributed the gdisk_test.sh script)

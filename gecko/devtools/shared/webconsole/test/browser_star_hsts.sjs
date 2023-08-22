@@ -1,0 +1,1 @@
+../../../../browser/base/content/test/general/browser_star_hsts.sjs

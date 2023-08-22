@@ -1,0 +1,130 @@
+/* (c) 2017 KAI OS TECHNOLOGIES (HONG KONG) LIMITED All rights reserved. This
+ * file or any portion thereof may not be reproduced or used in any manner
+ * whatsoever without the express written permission of KAI OS TECHNOLOGIES
+ * (HONG KONG) LIMITED. KaiOS is the trademark of KAI OS TECHNOLOGIES (HONG KONG)
+ * LIMITED or its affiliate company and may be registered in some jurisdictions.
+ * All other trademarks are the property of their respective owners.
+ */
+
+#include "nsILteBroadcastManager.idl"
+
+interface nsILteBroadcastCallback;
+interface nsILteBroadcastHandle;
+
+[scriptable, uuid(b41dbb81-7f82-46de-b7ab-08590311dfb3)]
+interface nsILteBroadcastServiceListener : nsISupports
+{
+  // TODO: We should move streaming related callbackes to streaming listener.
+  /**
+   * Handles has some changes.
+   * Callee should refresh its handles by nsILteBroadcastService.getHandles() after receiving this.
+   */
+  const unsigned long SERVICE_STATE_HANDLES_UPDATED = 1;
+
+  /**
+   * To notify some service realted event.
+   * @param aEvent
+   *        The event, possible values are nsILteBroadcastServiceListener::SERVICE_STATE_HANDLES_*.
+   */
+  void notifyStateChange(in uint32_t aEvent);
+
+  /**
+   * To notify some service related error
+   */
+  //void notifyError(in DOMString aError);
+
+  /**
+   * Streaming handle availability changed between unicase and broadcast.
+   */
+  const unsigned long HANDLE_STATE_STREAMING_AVAILABILITY_CHANGE = 1;
+
+  /**
+   * Streaming handle started.
+   * There are some possible cases:
+   * 1 It is automatically started due to previous schedule.
+   * 2 It is resumed from previous pause state.
+   */
+  const unsigned long HANDLE_STATE_STREAMING_STARTED = 2;
+
+  /**
+   * Streaming handle paused.
+   * It may be caused by temporary network issue and could be recovered automatically later.
+   */
+  const unsigned long HANDLE_STATE_STREAMING_PAUSED = 3;
+
+  /**
+   * Streaming handle stopped.
+   * It may be caused by handle session ended or other reasons.
+   */
+  const unsigned long HANDLE_STATE_STREAMING_STOPPED = 4;
+
+  /**
+   * Called when some handle's state change.
+   * @param aHandleId
+   *        The handleId
+   * @param aEvent
+   *        The event, possible values are HANDLE_STATE_*.
+   */
+  void notifyHandleStateChange(in DOMString aHandleId, in unsigned long aEvent);
+};
+
+[scriptable, uuid(37e23ddc-b86c-4a08-aad5-404bdb3782f9)]
+interface nsILteBroadcastGetHandleCallback : nsILteBroadcastCallback
+{
+  /**
+   * Get handles success.
+   * @param aLength
+   *        The size of return handles.
+   * @param aHandles
+   *        The handles array.
+   *        Caller need to cast handles into proper subclass according to service type.
+   * @see nsILteBroadcastStreamingHandle,
+   *      nsILteBroadcastDownloadHandle.
+   */
+  void notifyGetHandleSuccess(in uint32_t aLength,
+                             [array, size_is(aLength)] in nsILteBroadcastHandle aHandles);
+};
+
+[scriptable, uuid(d1a327a0-f4ca-4773-b146-5a7ceb36e2ff)]
+interface nsILteBroadcastService : nsISupports
+{
+
+  /*
+   * To indicate the service type.
+   */
+  readonly attribute unsigned short serviceType;
+
+  /**
+   * To initialize some parameters.
+   * Currently, all services share same classes with nsILteBroadcastManager.
+   * In case we allow difference classes in different services.
+   * @param aCount
+   *        The size of serviceClasses.
+   * @param aServiceClasses
+   *        The service classess array.
+   */
+  void init(in uint32_t aCount,
+            [array, size_is(aCount)] in wstring aServiceClasses);
+
+  /**
+   * To register event listener.
+   * @param aListener
+   *        The event listener.
+   */
+  void register(in nsILteBroadcastServiceListener aListener);
+
+  /**
+   * To unregister event listener.
+   @ @param aListener
+   *        The listener you are going to unregister.
+   */
+  void unregister(in nsILteBroadcastServiceListener aListener);
+
+  /**
+   * To retrieve handles
+   * @param aCb
+   *        The result will goes through nsILteBroadcastGetHandleCallback::notifyGetHandleSuccess().
+   *
+   */
+  void getHandles(in nsILteBroadcastGetHandleCallback aCb);
+};

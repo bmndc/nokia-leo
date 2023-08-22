@@ -1,0 +1,66 @@
+/* (c) 2019 KAI OS TECHNOLOGIES (HONG KONG) LIMITED All rights reserved. This
+ * file or any portion thereof may not be reproduced or used in any manner
+ * whatsoever without the express written permission of KAI OS TECHNOLOGIES
+ * (HONG KONG) LIMITED. KaiOS is the trademark of KAI OS TECHNOLOGIES (HONG KONG)
+ * LIMITED or its affiliate company and may be registered in some jurisdictions.
+ * All other trademarks are the property of their respective owners.
+ */
+
+#include "nsISupports.idl"
+#include "nsINetworkInterface.idl"
+
+[scriptable, uuid(374882d9-1e23-4cff-9064-87a38bf2165f)]
+interface nsIStackedLinkInfo : nsISupports
+{
+
+  /**
+   * Interface name of the network interface this xlat network info belongs to.
+   */
+  readonly attribute DOMString name;
+
+  /**
+   * Get the list of ip addresses and prefix lengths, ip address should be IPv4
+   * only.
+   *
+   * @param ips
+   *        The list of ip addresses retrieved.
+   * @param prefixLengths
+   *        The list of prefix lengths retrieved.
+   *
+   * @returns the length of the lists.
+   */
+  void getAddresses([array, size_is(count)] out wstring ips,
+                    [array, size_is(count)] out unsigned long prefixLengths,
+                    [retval] out unsigned long count);
+
+  /**
+   * Get the list of gateways, shold be IPv4 only.
+   *
+   * @param count
+   *        The length of the list of gateways
+   *
+   * @returns the list of gateways.
+   */
+  void getGateways([optional] out unsigned long count,
+                   [array, size_is(count), retval] out wstring gateways);
+
+  /**
+   * Get the list of dnses, could be IPv4 only.
+   *
+   * @param count
+   *        The length of the list of dnses.
+   *
+   * @returns the list of dnses.
+   */
+  void getDnses([optional] out unsigned long count,
+                [array, size_is(count), retval] out wstring dnses);
+};
+
+[scriptable, uuid(21887cc7-7d35-4188-ac3b-127400d0026d)]
+interface nsINat464XlatInfo : nsINetworkInfo
+{
+  /**
+   * The network information about this xlat network interface.
+   */
+  readonly attribute nsIStackedLinkInfo stackedLinkInfo;
+};

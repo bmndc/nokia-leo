@@ -1,0 +1,8 @@
+# The tzdatacheck command run by init.
+type tzdatacheck, domain;
+type tzdatacheck_exec, exec_type, file_type;
+
+init_daemon_domain(tzdatacheck)
+
+allow tzdatacheck zoneinfo_data_file:dir create_dir_perms;
+allow tzdatacheck zoneinfo_data_file:file unlink;

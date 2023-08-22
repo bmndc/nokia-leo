@@ -1,0 +1,136 @@
+GPT fdisk (aka gdisk) and FixParts
+
+by Roderick W. Smith, rodsmith@rodsbooks.com
+
+******************************** IMPORTANT ********************************
+Most versions of Windows cannot boot from a GPT disk on BIOS-based
+computers, and most varieties prior to Vista cannot read GPT disks. GPT
+fdisk is a partition editor for GPT disks, and it will *AUTOMATICALLY
+CONVERT* MBR disks to GPT form. Therefore, you should **NOT** use GPT fdisk
+on a Windows system unless you fully understand what you're doing or are
+certain that your computer boots in EFI/UEFI mode! If you accidentally use
+GPT fdisk on a BIOS-mode boot disk, or perhaps even on a data disk, you may
+find recovery to be very difficult! Pre-installed Windows 8 and later
+systems almost always use GPT disks and boot in EFI/UEFI mode, but
+self-installed Windows 8 systems sometimes use BIOS mode. This caveat does
+not apply to FixParts, though; that tool works only on MBR disks.
+***************************************************************************
+
+Read the main README file for general information on the program, and read
+the gdisk.html or fixparts.html documents (the Linux man pages converted to
+HTML format) for detailed use information. My GPT fdisk Web page,
+http://www.rodsbooks.com/gdisk/, provides a more tutorial introduction to
+the software. I originally wrote GPT fdisk on Linux, and some Linux- and
+Unix-centric language remains in the documentation.
+
+Windows Use Notes
+-----------------
+
+The Windows version of GPT fdisk was added with version 0.6.2 of the
+package. The Windows binary package includes the gdisk.exe interactive
+text-mode program file but no equivalent to the sgdisk program that's
+available with Linux, FreeBSD, and OS X builds. In theory, an sgdisk.exe
+for Windows could be built if the popt library were installed. I've not
+attempted to do this myself, though. If you care to try, check
+http://gnuwin32.sourceforge.net/packages/popt.htm for information on popt
+for Windows.
+
+Beginning with version 0.8.10, I'm distributing both 32-bit and 64-bit
+binaries, which include the strings "32" or "64" in their names. The 32-bit
+binaries work fine on most versions of Windows, but some 64-bit
+installations of Windows 8 lack 32-bit support libraries and so may need
+the 64-bit binaries.
+
+The FixParts program (fixparts32.exe and fixparts64.exe) is new with GPT
+fdisk 0.7.0. As described in the main README file, this program fixes
+certain partition table problems that can be created by buggy partitioning
+software. Windows seems to be unfazed by most such problems, but I've not
+done an extensive survey of Windows partitioning tools on this score.
+
+To install the programs, copy the gdisk32.exe and fixparts32.exe (or
+gdisk64.exe and fixparts64.exe) program files to any directory on your
+path, such as C:\Windows. Alternatively, you can change to the program's
+directory or type its complete path whenever you use it.
+
+To use the programs, first launch a Command Prompt as the Administrator. To
+do this, locate the Command Prompt program icon, right-click it, and select
+"Run as Administrator." If you use a non-Administrator Command Prompt, you
+won't be able to edit hard disk partition tables, although you will be able
+to edit raw disk image files.
+
+The program requires a hard disk identifier as an option. You can specify
+this in either of two forms. The first way is as a number followed by a
+colon, as in:
+
+gdisk 0:
+
+Disks are numbered starting from 0, so the preceding command launches gdisk
+on the first disk. The second way to specify a disk device is via a
+harder-to-remember name:
+
+gdisk32 \\.\physicaldrive0
+
+This command is equivalent to the earlier one -- it edits the partition
+table on the first physical disk. Change the number at the end of the
+device name to change the disk edited.
+
+If you pass the "-l" option to gdisk.exe in addition to the disk
+identifier, the program displays the current partition table information
+and then exits. This use entails no risk to MBR disks, since the program
+never writes data back to the disk when used in this way.
+
+As noted above, editing the first disk with GPT fdisk is usually a Bad
+Idea. An exception would be if your system uses an Extensible Firmware
+Interface (EFI) and already boots from a GPT disk. It's safer to edit
+non-boot disks, which usually have numbers of 1 and above, but only if you
+run a version of Windows with GPT support. For more information on Windows'
+support of GPT, see Microsoft's Web page on the topic:
+
+http://www.microsoft.com/whdc/device/storage/GPT_FAQ.mspx
+
+The Windows binaries I've compiled do not support Unicode UTF-16LE GPT
+partition names. This feature was added to version 0.7.1 of the software
+for Linux, FreeBSD, and OS X, and with changes to some #ifndef lines in the
+source files, it can be compiled for Windows; however, it seems to do
+little good in Windows because of Command Prompt window and/or ICU library
+limitations. Thus, I've omitted this support in the interests of
+simplifying the binary distribution, since including it would mean
+distributing the ICU libraries.
+
+Source Code and Compilation Issues
+----------------------------------
+
+I have successfully compiled GPT fdisk using three different Windows
+compilers:
+
+- MinGW (http://www.mingw.org), and in particular its Linux-hosted
+  cross-compiler -- Under Ubuntu Linux, the Makefile.mingw and
+  Makefile.mingw64 files enable compilation of the software via MinGW.
+  (Type "make -f Makefile.mingw" to compile 32-bit binaries, and "make -f
+  Makefile.mingw64" to compile 64-bit binaries.) If you try to compile
+  using another compiler or even using MinGW under Windows or another Linux
+  variety, you may need to adjust the Makefile.mingw options.
+
+- Microsoft Visual C++ 2008 Express
+  (http://www.microsoft.com/express/Windows/) -- This compiler requires a
+  third-party stdint.h file (I used the one from
+  http://msinttypes.googlecode.com/svn/trunk/stdint.h), but it otherwise
+  works fine. A project is easily created by adding all the *.h files and
+  all the *.cc files except diskio-unix.cc, sgdisk.cc, and whichever
+  program file you intend to NOT build (gdisk.cc or fixparts.cc).
+
+- Microsoft Visual C++ 2010 Express -- This compiler works much like the
+  2008 version, although I didn't need to add a third-party stdint.h file.
+
+The MinGW compiler produces much larger executables than do the MS
+compilers. The resulting binaries seem to work equally well, but my testing
+has been minimal.
+
+I've also attempted to compile the code with OpenWatcom 1.8, but this
+attempt failed, mostly because the compiler can't yet handle iostream
+output on standard C++ strings. OpenWatcom also seems to have incorrectly
+set the value of UINT32_MAX as if uint32_t values were 64-bit integers.
+This alone won't cause the compile to fail, but it would create bugs.
+
+If you modify GPT fdisk to get it to compile under another compiler, I
+welcome submission of patches.

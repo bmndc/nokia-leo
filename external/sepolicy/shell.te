@@ -1,0 +1,89 @@
+# Domain for shell processes spawned by ADB or console service.
+type shell, domain, mlstrustedsubject;
+type shell_exec, exec_type, file_type;
+
+# Create and use network sockets.
+net_domain(shell)
+
+# Run app_process.
+# XXX Transition into its own domain?
+app_domain(shell)
+
+# logcat
+read_logd(shell)
+control_logd(shell)
+# logcat -L (directly, or via dumpstate)
+allow shell pstorefs:dir search;
+allow shell pstorefs:file r_file_perms;
+# logpersistd (nee logcatd) files
+allow shell misc_logd_file:dir r_dir_perms;
+allow shell misc_logd_file:file r_file_perms;
+
+# read files in /data/anr
+allow shell anr_data_file:dir r_dir_perms;
+allow shell anr_data_file:file r_file_perms;
+
+# Access /data/local/tmp.
+allow shell shell_data_file:dir create_dir_perms;
+allow shell shell_data_file:file create_file_perms;
+allow shell shell_data_file:file rx_file_perms;
+allow shell shell_data_file:lnk_file create_file_perms;
+
+# adb bugreport
+unix_socket_connect(shell, dumpstate, dumpstate)
+
+allow shell devpts:chr_file rw_file_perms;
+allow shell tty_device:chr_file rw_file_perms;
+allow shell console_device:chr_file rw_file_perms;
+allow shell input_device:dir r_dir_perms;
+allow shell input_device:chr_file rw_file_perms;
+allow shell system_file:file x_file_perms;
+allow shell shell_exec:file rx_file_perms;
+allow shell zygote_exec:file rx_file_perms;
+
+r_dir_file(shell, apk_data_file)
+
+# Set properties.
+set_prop(shell, shell_prop)
+set_prop(shell, ctl_dumpstate_prop)
+set_prop(shell, debug_prop)
+set_prop(shell, powerctl_prop)
+
+# systrace support - allow atrace to run
+# debugfs doesn't support labeling individual files, so we have
+# to grant read access to all of /sys/kernel/debug.
+# Directory read access and file write access is already granted
+# in domain.te.
+allow shell debugfs:file r_file_perms;
+
+# allow shell to run dmesg
+allow shell kernel:system syslog_read;
+
+# allow shell access to services
+allow shell servicemanager:service_manager list;
+# don't allow shell to access GateKeeper service
+allow shell { service_manager_type -gatekeeper_service }:service_manager find;
+
+# allow shell to look through /proc/ for ps, top
+allow shell domain:dir { search open read getattr };
+allow shell domain:{ file lnk_file } { open read getattr };
+
+# allow shell to read /proc/pid/attr/current for ps -Z
+allow shell domain:process getattr;
+
+# enable shell domain to read/write files/dirs for bootchart data
+# User will creates the start and stop file via adb shell
+# and read other files created by init process under /data/bootchart
+allow shell bootchart_data_file:dir rw_dir_perms;
+allow shell bootchart_data_file:file create_file_perms;
+
+# only allow unprivileged socket ioctl commands
+allow shell self:{ rawip_socket tcp_socket udp_socket } unpriv_sock_ioctls;
+
+# Do not allow shell to hard link to any files.
+# In particular, if shell hard links to app data
+# files, installd will not be able to guarantee the deletion
+# of the linked to file. Hard links also contribute to security
+# bugs, so we want to ensure the shell user never has this
+# capability.
+neverallow shell file_type:file link;

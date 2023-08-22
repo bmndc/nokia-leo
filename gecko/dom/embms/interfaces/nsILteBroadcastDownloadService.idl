@@ -1,0 +1,121 @@
+/* (c) 2018 KAI OS TECHNOLOGIES (HONG KONG) LIMITED All rights reserved. This
+ * file or any portion thereof may not be reproduced or used in any manner
+ * whatsoever without the express written permission of KAI OS TECHNOLOGIES
+ * (HONG KONG) LIMITED. KaiOS is the trademark of KAI OS TECHNOLOGIES (HONG KONG)
+ * LIMITED or its affiliate company and may be registered in some jurisdictions.
+ * All other trademarks are the property of their respective owners.
+ */
+
+#include "nsILteBroadcastService.idl"
+
+interface nsILteBroadcastService;
+interface nsILteBroadcastCallback;
+
+[scriptable, uuid(e2ed6868-8107-41c0-998e-45dcef18b791)]
+interface nsILteBroadcastDownloadServiceListener : nsISupports
+{
+  /**
+   * @param aHandleId
+   *        Handle's identifier.
+   *        LteBroadcastHandle::handleId
+   * @param aFileUri
+   *        File uri.
+   *        nsILteBroadcastFileInfo::fileUri
+   * @param aStatus
+   *        Possible values: nsILteBroadcastDownloadService::STATUS_*.
+   * @param aStorageName
+   *        If status is
+   * @param aStoragePath
+   */
+  void notifyDownloadStatusChange(in DOMString aHandleId, in DOMString aFileUri, in uint16_t aStatus,
+                                  in DOMString aStorageName, in DOMString aStoragePath);
+
+  /**
+   * Called when file download progress changed.
+   * @param aHandleId
+   *        Handle's identifier.
+   *        LteBroadcastHandle::handleId
+   * @param aFileUri
+   *        File uri.
+   *        nsILteBroadcastFileInfo::fileUri
+   * @param aReceivedFileSize
+   *        Current downloaded amount bytes.
+   *        nsILteBroadcastFileInfo::receivedFileSize.
+   * @param aFileSize
+   *        The total bytes of this file.
+   *        nsILteBroadcastFileInfo::fileSize
+   */
+  void notifyDownloadProgressUpdate(in DOMString aHandleId, in DOMString aFileUri, in uint32_t aReceivedFileSize, in uint32_t aFileSize);
+
+  /**
+   * @param aHandleId
+   *        Handle's identifier.
+   *        LteBroadcastHandle::handleId
+   * @param aFileUri
+   *        File uri.
+   *        nsILteBroadcastFileInfo::fileUri
+   * @param aError
+   * Possible values: nsILteBroadcastDownloadService::ERROR_*.
+   */
+  void notifyDownloadError(in DOMString aHandleId, in DOMString aFileUri, in uint16_t aError);
+};
+
+[scriptable, uuid(65863347-110d-49c5-9b32-ee1aa2173b83)]
+interface nsILteBroadcastDownloadService : nsILteBroadcastService
+{
+  /**
+   * File is available from service.
+   */
+  const uint16_t STATUS_NOT_DOWNLOADED = 0;
+
+  /**
+   * File is being downloaded
+   * Being downloaded may be considered to
+   * 1 actively downloading.
+   * 2 Download requested by pending due to network or other reason.
+   *  The download will auto resumed after a while.
+   */
+  const uint16_t STATUS_DOWNLOADING = 1;
+
+  /*
+   * File is downloaded and saved to disk successfully.
+   */
+  const uint16_t STATUS_SUCCEED = 2;
+  const uint16_t ERROR_FAILURE = 0;
+  const uint16_t ERROR_EXPIRED = 1;
+  const uint16_t ERROR_IO_ERROR = 2;
+  const uint16_t ERROR_OUT_OF_STORAGE = 3;
+
+  /**
+   * To request some file's status update.
+   * The result will be provided via nsILteBroadcastDownloadServiceListener::
+   *   notifyDownloadStatusChange and notifyDownloadProgressUpdate.
+   */
+  void requestState(in DOMString aHandleId, in DOMString aFileUri);
+
+  /**
+   * To start a file download.
+   * Caller expects to receive success event via nsILteBroadcastCallback::notifySuccess();
+   * If aHandleId/aFileUri is invalid, nsILteBroadcastCallback::notifyError() will be invoked.
+   *
+   * The default device storage type is 'sdcard', MW implementation needs to retrieve proper deviceStorage
+   * and download files to proper location according to deviceStorage.
+   * Here is a design guide how MW implement storage path
+   * 1 To get user prefer writable storage name via pref key 'device.storage.writable.name'
+   * 2 Retreive nsIVolume by prefer storage name.
+   * 3 To retrieve actual mount point of storage name via nsIVolume::GetMountPoint
+   * 4 The storage name should also assign to nsILteBroadcastFileInfo::storageName
+   */
+  void download(in DOMString aHandleId, in DOMString aFileUri, in nsILteBroadcastCallback aCb);
+
+  /**
+   * To stop a file download.
+   * Caller expects to receive success event via nsILteBroadcastCallback::notifySuccess();
+   * If aHandleId/aFileUri is invalid, nsILteBroadcastCallback::notifyError() will be invoked.
+   */
+  void cancelDownload(in DOMString aHandleId, in DOMString aFileUri, in nsILteBroadcastCallback aCb);
+
+  void registerDownloadListener(in nsILteBroadcastDownloadServiceListener aListener);
+
+  void unregisterDownloadListener(in nsILteBroadcastDownloadServiceListener aListener);
+};

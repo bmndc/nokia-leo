@@ -1,0 +1,33 @@
+# uncrypt
+type uncrypt, domain, mlstrustedsubject;
+type uncrypt_exec, exec_type, file_type;
+
+init_daemon_domain(uncrypt)
+
+allow uncrypt self:capability dac_override;
+
+# Read OTA zip file from /data/data/com.google.android.gsf/app_download
+r_dir_file(uncrypt, app_data_file)
+
+userdebug_or_eng(`
+  # For debugging, allow /data/local/tmp access
+  r_dir_file(uncrypt, shell_data_file)
+')
+
+# Read /cache/recovery/command
+# Read /cache/recovery/uncrypt_file
+# Write to pipe file /cache/recovery/uncrypt_status
+allow uncrypt cache_file:dir rw_dir_perms;
+allow uncrypt cache_file:file create_file_perms;
+allow uncrypt cache_file:fifo_file w_file_perms;
+
+# Set a property to reboot the device.
+set_prop(uncrypt, powerctl_prop)
+
+# Raw writes to block device
+allow uncrypt self:capability sys_rawio;
+allow uncrypt block_device:blk_file w_file_perms;
+allow uncrypt block_device:dir r_dir_perms;
+
+# Access userdata block device.
+allow uncrypt userdata_block_device:blk_file w_file_perms;

@@ -1,0 +1,87 @@
+/* Copyright (c) 2017, 2020, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+&mdss_mdp {
+	spi_gc9307_qvga_cmd: qcom,mdss_spi_gc9307_qvga_cmd {
+		qcom,mdss-spi-panel-name = "gc9307 qvga command mode spi panel";
+		qcom,mdss-spi-panel-destination = "display_1";
+		qcom,mdss-spi-panel-controller = <&mdss_spi>;
+		qcom,mdss-spi-panel-framerate = <60>;
+		qcom,mdss-spi-panel-width = <240>;
+		qcom,mdss-spi-panel-height = <320>;
+		qcom,mdss-spi-h-front-porch = <79>;
+		qcom,mdss-spi-h-back-porch = <59>;
+		qcom,mdss-spi-h-pulse-width = <60>;
+		qcom,mdss-spi-v-back-porch = <10>;
+		qcom,mdss-spi-v-front-porch = <7>;
+		qcom,mdss-spi-v-pulse-width = <2>;
+		qcom,mdss-spi-h-left-border = <0>;
+		qcom,mdss-spi-h-right-border = <0>;
+		qcom,mdss-spi-v-top-border = <0>;
+		qcom,mdss-spi-v-bottom-border = <0>;
+		qcom,mdss-spi-bpp = <16>;
+		qcom,mdss-spi-on-command = [
+				78 01 11
+				00 01 FE
+				00 01 EF
+				00 01 13
+			    00 01 38
+				00 01 20
+				00 02 36 00
+				00 02 3A 05
+				00 02 35 00
+                00 02 89 0B
+				00 02 EB 02
+				00 05 2A 00 00 00 EF
+				00 05 2B 00 00 01 3F
+				00 01 29
+				00 01 2C
+			];
+		qcom,mdss-spi-off-command = [
+				20 01 28
+				20 01 10
+			];
+
+		qcom,mdss-spi-no-esd-command = [
+				05 01 11
+				00 01 FE
+				00 01 EF
+				00 01 13
+			    00 01 38
+				00 01 20
+				00 02 36 00
+				00 02 3A 05
+				00 02 35 00
+                00 02 89 0B
+				00 02 EB 02
+				00 05 2A 00 00 00 EF
+				00 05 2B 00 00 01 3F
+				00 01 29
+				00 01 2C
+				];
+		qcom,mdss-spi-init-window_command = [
+				00 05 2A 00 00 00 EF
+				00 05 2B 00 00 01 3F
+				00 01 2C
+				];
+
+		qcom,mdss-spi-bl-min-level = <1>;
+		qcom,mdss-spi-bl-max-level = <255>;
+		qcom,mdss-spi-reset-sequence = <1 20>, <0 1>, <1 20>;
+		qcom,esd-check-enabled;
+		qcom,mdss-spi-panel-status-check-mode = "reg_read";
+		qcom,mdss-spi-panel-status-reg = /bits/ 8 <0x09>;
+		qcom,mdss-spi-panel-status-read-length = <1>;
+		qcom,mdss-spi-panel-max-error-count = <1>;
+		qcom,mdss-spi-panel-status-value = /bits/ 8 <0x50>;
+	};
+};

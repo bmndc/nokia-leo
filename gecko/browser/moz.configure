@@ -1,0 +1,23 @@
+# -*- Mode: python; c-basic-offset: 4; indent-tabs-mode: nil; tab-width: 40 -*-
+# vim: set filetype=python:
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+include('../toolkit/moz.configure')
+# Build fxaccounts to avoid js load module error in browser.
+# This flag has no guarantee of fxaccouts function.
+set_config('MOZ_SERVICES_FXACCOUNTS', True)
+set_define('MOZ_SERVICES_FXACCOUNTS', True)
+# Enable telemetry to avoid js load module error in browser.
+# Put these after including ../toolkit/moz.configure to avoid overriding.
+set_config('MOZ_TELEMETRY', True)
+set_define('MOZ_TELEMETRY', True)
+# Enable private browsing to avoid js load module error in browser.
+# This flag has no guarantee of private browsing function.
+set_config('MOZ_PRIVATEBROWSING', True)
+set_define('MOZ_PRIVATEBROWSING', True)
+# Enable social service to avoid js load module error in browser.
+# This flag has no guarantee of social service function.
+set_config('MOZ_SOCIAL', True)
+set_define('MOZ_SOCIAL', True)

@@ -1,0 +1,29 @@
+/* (c) 2017 KAI OS TECHNOLOGIES (HONG KONG) LIMITED All rights reserved. This
+ * file or any portion thereof may not be reproduced or used in any manner
+ * whatsoever without the express written permission of KAI OS TECHNOLOGIES
+ * (HONG KONG) LIMITED. KaiOS is the trademark of KAI OS TECHNOLOGIES (HONG KONG)
+ * LIMITED or its affiliate company and may be registered in some jurisdictions.
+ * All other trademarks are the property of their respective owners.
+ */
+
+#include "nsILteBroadcastHandle.idl"
+
+interface nsILteBroadcastHandle;
+
+[scriptable, uuid(a9dfff54-de2b-469d-a4b9-911b92d2c4e3)]
+interface nsILteBroadcastStreamingHandle : nsILteBroadcastHandle
+{
+  const unsigned short AVAILABILITY_BROADCAST = 0;
+  const unsigned short AVAILABILITY_UNICAST = 1;
+
+  /**
+   * Streaming mdp uri.
+   */
+  readonly attribute DOMString mpdUri;
+
+  /**
+   * Current streaming's availability.
+   * Possible values are nsILteBroadcastStreamingHandle::AVAILABILITY_*.
+   */
+  readonly attribute unsigned short availability;
+};

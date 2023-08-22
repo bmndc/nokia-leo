@@ -1,0 +1,63 @@
+/* (c) 2020 KAI OS TECHNOLOGIES (HONG KONG) LIMITED All rights reserved. This
+ * file or any portion thereof may not be reproduced or used in any manner
+ * whatsoever without the express written permission of KAI OS TECHNOLOGIES
+ * (HONG KONG) LIMITED. KaiOS is the trademark of KAI OS TECHNOLOGIES (HONG KONG)
+ * LIMITED or its affiliate company and may be registered in some jurisdictions.
+ * All other trademarks are the property of their respective owners.
+ */
+
+include protocol PRSU;
+
+namespace mozilla {
+namespace dom {
+
+struct RSUGetStatusResponse {
+  uint16_t status;
+  uint32_t timer;
+};
+
+struct RSUSuccessResponse
+{
+  // empty.
+};
+
+struct RSUErrorResponse
+{
+  nsString name;
+};
+
+struct RSUGetBlobResponse
+{
+  nsString blob;
+};
+
+struct RSUGetVersionResponse
+{
+  uint32_t minorVersion;
+  uint32_t maxVersion;
+};
+
+struct RSUOpenRFResponse
+{
+  uint32_t timer;
+};
+
+union RSUIPCResponse {
+  RSUGetStatusResponse;
+  RSUSuccessResponse;
+  RSUErrorResponse;
+  RSUGetBlobResponse;
+  RSUGetVersionResponse;
+  RSUOpenRFResponse;
+};
+
+protocol PRSURequest
+{
+  manager PRSU;
+
+child:
+  async __delete__(RSUIPCResponse aResponse);
+};
+
+} // namespace dom
+} // namespace mozilla

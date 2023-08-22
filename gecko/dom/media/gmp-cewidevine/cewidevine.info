@@ -1,0 +1,4 @@
+Name: cewidevine.info
+Description: Gecko Media Plugin for CE Widevine
+Version: 1.0
+APIs: eme-decrypt-v8[com.widevine.alpha]

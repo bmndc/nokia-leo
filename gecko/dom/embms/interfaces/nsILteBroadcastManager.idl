@@ -1,0 +1,157 @@
+/* (c) 2017 KAI OS TECHNOLOGIES (HONG KONG) LIMITED All rights reserved. This
+ * file or any portion thereof may not be reproduced or used in any manner
+ * whatsoever without the express written permission of KAI OS TECHNOLOGIES
+ * (HONG KONG) LIMITED. KaiOS is the trademark of KAI OS TECHNOLOGIES (HONG KONG)
+ * LIMITED or its affiliate company and may be registered in some jurisdictions.
+ * All other trademarks are the property of their respective owners.
+ */
+
+#include "nsISupports.idl"
+
+interface nsILteBroadcastService;
+
+[scriptable, uuid(ced1b7db-2d98-43b4-a8c8-e32fa13d7670)]
+interface nsILteBroadcastCallback : nsISupports
+{
+  void notifySuccess();
+  void notifyError(in DOMString aError);
+};
+
+[scriptable, uuid(809f221e-13ee-40bd-b326-dbab6762123e)]
+interface nsILteBroadcastListener : nsISupports
+{
+  /**
+   * TBD.
+   * To notify LTE broadcast global message.
+   * Sometimes, LTE broadcast middleware or network may notifies some events.
+   * @param aMessage
+   *        The event.
+   */
+  //void notifyEvent(in DOMString aEvent);
+
+  /**
+   * To notify LTE broadcast global error.
+   * @param aError
+   *        The error.
+   */
+  void notifyError(in DOMString aError);
+};
+
+[scriptable, uuid(c11f2d76-5535-4e69-b68c-8e4cb5cffdb1)]
+interface nsILteBroadcastManagerListener : nsILteBroadcastListener
+{
+  /**
+   * Triggered whenever LTE Broadcast availability changed.
+   * Possible values are one of nsILteBroadcastManager::COVERAGE_*.
+   */
+  void notifyCoverageChanged(in unsigned short aCoverage);
+
+  /**
+   * Called when SAI list is changed.
+   */
+  void notifySAIChanged();
+};
+
+%{C++
+#define LTEBROADCAST_SERVICE_CID \
+  { 0x40b8f72a, 0xc310, 0x4420, { 0x99, 0x9a, 0xa7, 0xc4, 0x94, 0xa6, 0x76, 0xf7 } }
+#define LTEBROADCAST_SERVICE_CONTACTID \
+  "@kaiostech.com/ltebroadcast/manager;1"
+%}
+
+[scriptable, uuid(f9702c0b-6049-4516-a19b-2aef69499c21)]
+interface nsILteBroadcastManager : nsISupports
+{
+
+  /**
+   * LTE Broadcast Service type.
+   */
+  const unsigned short SERVICE_TYPE_STREAMING     = 0;
+  const unsigned short SERVICE_TYPE_DOWNLOAD      = 1;
+
+  const unsigned short COVERAGE_IN  = 0;
+  const unsigned short COVERAGE_OUT = 1;
+
+  /**
+   * Current LTE Broadcast availability coverage.
+   * Possible values are one of nsILteBroadcastManager::COVERAGE_*;
+   */
+  readonly attribute unsigned short coverage;
+
+  /**
+   * To start whole system.
+   * Basically, XPCOM service is always running in the system after been launched.
+   * The XPCOM implementaiton should maintain a counter to know whether running app is using it.
+   * XPCOM service can optimize its memory usage if there is no APP using it.
+   * @param aAppId
+   *        The app identifier. We currently support 1 application only.
+   */
+  void start(in DOMString aAppId,
+             in nsILteBroadcastCallback aCb);
+
+  /**
+   * To indicate that some app is no longer interest in LteBroadcast services.
+   * @param aAppId
+   *        The app identifier. We currently support 1 application only.
+   */
+  void stop(in DOMString aAppId,
+            in nsILteBroadcastCallback aCb);
+
+  /**
+   * To register evnet listener.
+   * @param aAppId
+   *        The app identifier.
+   * @param aListener
+   *        The listener which is going to be registered.
+   *
+   */
+  void register(in DOMString aAppId,
+                in nsILteBroadcastManagerListener aListener);
+
+
+  /**
+   * To unregister evnet listener.
+   * @param aAppId
+   *        The app identifier.
+   * @param aListener
+   *        The listener which is going to be unregistered.
+   */
+  void unregister(in DOMString aAppId,
+                  in nsILteBroadcastManagerListener aListener);
+  /**
+   * To specify service classes.
+   * @param aAppId
+   *        The app identifier.
+   * @param aLength
+   *        The size of aServiceClassses.
+   * @param aServiceClasses
+   *        The classes you are intesest in.
+   * @param aCb
+   *        The callback.
+   */
+  void setServiceClasses(in DOMString aAppId,
+                         in uint32_t aLength,
+                         [array, size_is(aLength)] in wstring aServiceClasses,
+                         in nsILteBroadcastCallback aCb);
+
+  /**
+   * To get specific LTE broadcast service.
+   * @param aAppId
+   *        The app identifier.
+   * @param aType
+   *        The service type, one of nsILteBroadcastManager::SERVICE_TYPE_*.
+   * @return The result service object.
+   *         The caller need to cast it into proper subclass according to the type you were request to.
+   * @see nsILteBroadcastStreamingService,
+   *      nsILteBroadcastDownloadService.
+   */
+  nsILteBroadcastService getService(in DOMString aAppId,
+                                    in unsigned short aType);
+
+  /**
+   * To retrieve SAI (Service Area Identities) list.
+   * nsILteBroadcastManagerListener.notifySAIChanged is expected if SAI is change.
+   */
+  void getSAI([array, size_is(aLength)] out long aSAI,
+              [retval] out unsigned long aLength);
+};

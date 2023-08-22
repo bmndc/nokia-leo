@@ -1,0 +1,56 @@
+# -*- Mode: python; c-basic-offset: 4; indent-tabs-mode: nil; tab-width: 40 -*-
+# vim: set filetype=python:
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+if CONFIG['MOZ_BUILD_APP'] == 'browser':
+    MOCHITEST_MANIFESTS += ['test/mochitest.ini']
+    MOCHITEST_CHROME_MANIFESTS += ['test/chrome.ini']
+
+if CONFIG['MOZ_XUL']:
+    XPIDL_SOURCES += [
+        'nsIXULOverlayProvider.idl',
+    ]
+
+    EXPORTS += [
+        'nsIXULDocument.h',
+    ]
+
+    UNIFIED_SOURCES += [
+        'nsXULCommandDispatcher.cpp',
+        'nsXULContentSink.cpp',
+        'nsXULContentUtils.cpp',
+        'nsXULElement.cpp',
+        'nsXULPopupListener.cpp',
+        'nsXULPrototypeCache.cpp',
+        'nsXULPrototypeDocument.cpp',
+        'nsXULSortService.cpp',
+        'XULDocument.cpp',
+    ]
+
+XPIDL_SOURCES += [
+    'nsIController.idl',
+    'nsIControllers.idl',
+    'nsIXULSortService.idl',
+]
+
+XPIDL_MODULE = 'xul'
+
+UNIFIED_SOURCES += [
+    'nsXULControllers.cpp',
+]
+
+LOCAL_INCLUDES += [
+    '/docshell/base',
+    '/dom/base',
+    '/dom/html',
+    '/dom/xbl',
+    '/dom/xml',
+    '/layout/base',
+    '/layout/generic',
+    '/layout/style',
+    '/layout/xul',
+]
+
+FINAL_LIBRARY = 'xul'

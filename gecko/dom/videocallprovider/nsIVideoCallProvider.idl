@@ -1,0 +1,125 @@
+/* (c) 2017 KAI OS TECHNOLOGIES (HONG KONG) LIMITED All rights reserved. This
+ * file or any portion thereof may not be reproduced or used in any manner
+ * whatsoever without the express written permission of KAI OS TECHNOLOGIES
+ * (HONG KONG) LIMITED. KaiOS is the trademark of KAI OS TECHNOLOGIES (HONG KONG)
+ * LIMITED or its affiliate company and may be registered in some jurisdictions.
+ * All other trademarks are the property of their respective owners.
+ */
+
+#include "nsISupports.idl"
+
+%{C++
+#include <gui/IGraphicBufferProducer.h>
+#include <utils/StrongPointer.h>
+%}
+
+[ref] native AGraphicBuffProducer(android::sp<android::IGraphicBufferProducer>);
+
+[scriptable, uuid(0704c863-24b0-4882-9165-2afbdc7e4dc3)]
+interface nsIVideoCallProfile : nsISupports
+{
+  const unsigned short QUALITY_UNKNOWN = 0;
+  const unsigned short QUALITY_HIGH = 1;
+  const unsigned short QUALITY_MEDIUM = 2;
+  const unsigned short QUALITY_LOW = 3;
+  const unsigned short QUALITY_DEFAULT = 4;
+  /**
+   * Current video quality.
+   * One of nsIVideoCallProfile::QUALITY_* values.
+   */
+  readonly attribute unsigned short quality;
+
+  const unsigned short STATE_AUDIO_ONLY = 0;
+  const unsigned short STATE_TX_ENABLED = 1;
+  const unsigned short STATE_RX_ENABLED = 2;
+  const unsigned short STATE_BIDIRECTIONAL = 3;
+  const unsigned short STATE_PAUSED = 4;
+  /**
+   * Current video state.
+   * One of nsIVideoCallProfile::STATE_* values.
+   */
+  readonly attribute unsigned short state;
+};
+
+interface nsIVideoCallCallback;
+
+[scriptable, uuid(2e5837f2-ab6b-4ecc-a5bf-e814fda827fb)]
+interface nsIVideoCallProvider : nsISupports
+{
+  /**
+   * To open camera
+   * @param cameraId
+   *        The camera id to open
+   *        -1: To close camera
+   *        0 : To open back (or forward-facing) camera by default.
+   *        1 : To open front camera
+   */
+  void setCamera(in short cameraId);
+
+  /**
+   * To pass local preview display area
+   * @param surface
+   *        The preview surface
+   */
+  void setPreviewSurface(in AGraphicBuffProducer producer, in unsigned short width,
+                         in unsigned short height);
+
+  /**
+   * To pass remote display area
+   * @param surface
+   *        The display surface.
+   */
+  void setDisplaySurface(in AGraphicBuffProducer producer, in unsigned short width,
+                         in unsigned short height);
+
+  /**
+   * To set device orientation degrees. The standard potrait orientation is 0 degrees.
+   * @param rotation
+   *        one of value 0, 90, 180, 270.
+   * TODO phase 2.
+   */
+  void setDeviceOrientation(in unsigned short rotation);
+
+  /**
+   * To set camera zoom ratio.
+   * @param callIndex
+   *        The call index
+   * @param value
+   *        camera zoom ratio
+   * TODO phase 2.
+   */
+  void setZoom(in float value);
+
+  /**
+   * Issues a request to modify the properties of current video session.
+   * @param fromProfile
+   *        The video profile prior to the request
+   * @param toProfile
+   *        The requested video profile
+   */
+  void sendSessionModifyRequest(in nsIVideoCallProfile fromProfile,
+                                in nsIVideoCallProfile toProfile);
+
+  /**
+   * Provides a response to a request.
+   * @param responseProfile
+   *        The response video profile
+   */
+  void sendSessionModifyResponse(in nsIVideoCallProfile responseProfile);
+
+  /**
+   * Issue a request to retrieve the camera capabilities.
+   * The result will callback via nsIVideoCallProvider#onChangeCameraCapabilities
+   * TODO phase 2.
+   */
+  void requestCameraCapabilities();
+
+  /**
+   * To register video call event callback
+   * @param callback
+   *        A callback interface to handle events/
+   */
+  void registerCallback(in nsIVideoCallCallback callback);
+
+  void unregisterCallback(in nsIVideoCallCallback callback);
+};

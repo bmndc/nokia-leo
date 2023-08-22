@@ -1,0 +1,13 @@
+Eigen 3.2.2
+-----------
+
+Eigen is a C++ template library for linear algebra: matrices, vectors,
+numerical solvers, and related algorithms.
+
+Website: http://eigen.tuxfamily.org/
+
+v3.2.2. Released on August 4, 2014. This is a copy of the source
+distribution from http://bitbucket.org/eigen/eigen/get/3.2.2.tar.bz2.
+
+Non MPL2 license code is disabled. Trying to include such files will
+lead to an error. See ./Eigen/src/Core/util/NonMPL2.h for details.

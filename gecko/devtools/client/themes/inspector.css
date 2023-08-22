@@ -1,0 +1,141 @@
+/* vim:set ts=2 sw=2 sts=2 et: */
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#inspector-searchlabel {
+  overflow: hidden;
+}
+
+#inspector-breadcrumbs-toolbar {
+  padding: 0px;
+  border-bottom-width: 0px;
+  border-top-width: 1px;
+}
+
+/* Expand/collapse panel toolbar button */
+
+#inspector-pane-toggle {
+  list-style-image: var(--theme-pane-collapse-image);
+}
+
+#inspector-pane-toggle[pane-collapsed] {
+  list-style-image: var(--theme-pane-expand-image);
+}
+
+@media (max-width: 700px) {
+  #inspector-pane-toggle > .toolbarbutton-icon {
+    transform: rotate(90deg);
+  }
+}
+
+/* Add element toolbar button */
+
+#inspector-element-add-button {
+  list-style-image: url("chrome://devtools/skin/images/add.svg");
+}
+
+/* Tooltip: Events */
+
+#devtools-tooltip-events-container {
+  margin: -4px; /* Compensate for the .panel-arrowcontent padding. */
+  max-width: 590px;
+  overflow-y: auto;
+}
+
+.event-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.event-header:first-child {
+  border-width: 0;
+}
+
+.event-header:not(:first-child) {
+  border-width: 1px 0 0 0;
+}
+
+.event-tooltip-event-type,
+.event-tooltip-filename,
+.event-tooltip-attributes {
+  -moz-margin-start: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.event-tooltip-event-type {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.event-tooltip-filename {
+  -moz-margin-end: 0;
+  font-size: 100%;
+  flex-shrink: 1;
+}
+
+.event-tooltip-debugger-icon {
+  width: 16px;
+  height: 16px;
+  -moz-margin-end: 4px;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.event-tooltip-debugger-icon:hover {
+  opacity: 1;
+}
+
+.event-tooltip-content-box {
+  display: none;
+  height: 100px;
+  overflow: hidden;
+  -moz-margin-end: 0;
+  border: 1px solid var(--theme-splitter-color);
+  border-width: 1px 0 0 0;
+}
+
+.event-toolbox-content-box iframe {
+  height: 100%;
+}
+
+.event-tooltip-content-box[open] {
+  display: block;
+}
+
+.event-tooltip-source-container {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  -moz-margin-start: 5px;
+  -moz-margin-end: 0;
+}
+
+.event-tooltip-source {
+  margin-bottom: 0;
+}
+
+.event-tooltip-attributes-container {
+  display: flex;
+  flex-shrink: 0;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.event-tooltip-attributes-box {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  border-radius: 3px;
+  padding: 2px;
+  -moz-margin-start: 5px;
+  background-color: var(--theme-body-color-alt);
+  color: var(--theme-toolbar-background);
+}
+
+.event-tooltip-attributes {
+  margin: 0;
+  font-size: 9px;
+  padding-top: 2px;
+}

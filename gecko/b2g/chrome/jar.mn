@@ -1,0 +1,148 @@
+#filter substitution
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+
+chrome.jar:
+% content branding %content/branding/ contentaccessible=yes
+% content b2g %content/
+% content kaios-sdk %kaios-sdk/
+
+#ifdef FXOS_SIMULATOR
+* kaios-sdk/kairt.xul                (content/kairt.xul)
+  kaios-sdk/kairt.js                 (content/kairt.js)
+
+  kaios-sdk/webide.js                 (/devtools/client/webide/content/webide.js)
+  kaios-sdk/newapp.xul                (/devtools/client/webide/content/newapp.xul)
+  kaios-sdk/newapp.js                 (/devtools/client/webide/content/newapp.js)
+  kaios-sdk/details.xhtml             (/devtools/client/webide/content/details.xhtml)
+  kaios-sdk/details.js                (/devtools/client/webide/content/details.js)
+  kaios-sdk/addons.js                 (/devtools/client/webide/content/addons.js)
+  kaios-sdk/addons.xhtml              (/devtools/client/webide/content/addons.xhtml)
+  kaios-sdk/permissionstable.js       (/devtools/client/webide/content/permissionstable.js)
+  kaios-sdk/permissionstable.xhtml    (/devtools/client/webide/content/permissionstable.xhtml)
+  kaios-sdk/runtimedetails.js         (/devtools/client/webide/content/runtimedetails.js)
+  kaios-sdk/runtimedetails.xhtml      (/devtools/client/webide/content/runtimedetails.xhtml)
+  kaios-sdk/prefs.js                  (/devtools/client/webide/content/prefs.js)
+  kaios-sdk/prefs.xhtml               (/devtools/client/webide/content/prefs.xhtml)
+  kaios-sdk/monitor.xhtml             (/devtools/client/webide/content/monitor.xhtml)
+  kaios-sdk/monitor.js                (/devtools/client/webide/content/monitor.js)
+  kaios-sdk/devicepreferences.js      (/devtools/client/webide/content/devicepreferences.js)
+  kaios-sdk/devicepreferences.xhtml   (/devtools/client/webide/content/devicepreferences.xhtml)
+  kaios-sdk/devicesettings.js         (/devtools/client/webide/content/devicesettings.js)
+  kaios-sdk/devicesettings.xhtml      (/devtools/client/webide/content/devicesettings.xhtml)
+  kaios-sdk/wifi-auth.js              (/devtools/client/webide/content/wifi-auth.js)
+  kaios-sdk/wifi-auth.xhtml           (/devtools/client/webide/content/wifi-auth.xhtml)
+  kaios-sdk/logs.xhtml                (/devtools/client/webide/content/logs.xhtml)
+  kaios-sdk/logs.js                   (/devtools/client/webide/content/logs.js)
+  kaios-sdk/project-listing.xhtml     (/devtools/client/webide/content/project-listing.xhtml)
+  kaios-sdk/project-listing.js        (/devtools/client/webide/content/project-listing.js)
+  kaios-sdk/project-panel.js          (/devtools/client/webide/content/project-panel.js)
+  kaios-sdk/runtime-panel.js          (/devtools/client/webide/content/runtime-panel.js)
+* kaios-sdk/runtime-listing.xhtml     (/devtools/client/webide/content/runtime-listing.xhtml)
+* kaios-sdk/runtime-listing.js        (/devtools/client/webide/content/runtime-listing.js)
+  kaios-sdk/simulator.js              (/devtools/client/webide/content/simulator.js)
+  kaios-sdk/simulator.xhtml           (/devtools/client/webide/content/simulator.xhtml)
+
+  kaios-sdk/settings.js                     (content/settings.js)
+  kaios-sdk/shell.js                        (content/shell.js)
+  kaios-sdk/shell.css                       (content/shell.css)
+  kaios-sdk/devtools/debugger.js            (content/devtools/debugger.js)
+
+  kaios-sdk/index.html                      (/kaios-sdk/dist/index.html)
+  kaios-sdk/style.css                       (/kaios-sdk/dist/style.css)
+  kaios-sdk/vendors.js                      (/kaios-sdk/dist/vendors.js)
+  kaios-sdk/bundle.js                       (/kaios-sdk/dist/bundle.js)
+  kaios-sdk/images/keypad_number.png        (/kaios-sdk/dist/images/keypad_number.png)
+  kaios-sdk/images/keypad_iem.png           (/kaios-sdk/dist/images/keypad_iem.png)
+  kaios-sdk/images/ic_LSK.png               (/kaios-sdk/dist/images/ic_LSK.png)
+  kaios-sdk/images/ic_RSK.png               (/kaios-sdk/dist/images/ic_RSK.png)
+  kaios-sdk/images/ic_call.png              (/kaios-sdk/dist/images/ic_call.png)
+  kaios-sdk/images/ic_endcall.png           (/kaios-sdk/dist/images/ic_endcall.png)
+  kaios-sdk/images/ic_ok.png                (/kaios-sdk/dist/images/ic_ok.png)
+  kaios-sdk/images/ic_arrow.png             (/kaios-sdk/dist/images/ic_arrow.png)
+  kaios-sdk/images/ic_back.png              (/kaios-sdk/dist/images/ic_back.png)
+  kaios-sdk/images/ic_message.png           (/kaios-sdk/dist/images/ic_message.png)
+  kaios-sdk/images/KaiOS_logo.png           (/kaios-sdk/dist/images/KaiOS_logo.png)
+
+  kaios-sdk/images/ic_power_68px.png              (/kaios-sdk/dist/images/ic_power_68px.png)
+  kaios-sdk/images/ic_voice_68px.png              (/kaios-sdk/dist/images/ic_voice_68px.png)
+  kaios-sdk/images/ic_menu_68px.png              (/kaios-sdk/dist/images/ic_menu_68px.png)
+  kaios-sdk/images/ic_back_68px.png              (/kaios-sdk/dist/images/ic_back_68px.png)
+  kaios-sdk/images/ic_home_68px.png              (/kaios-sdk/dist/images/ic_home_68px.png)
+#endif
+
+  content/arrow.svg                     (content/arrow.svg)
+  content/settings.js                   (content/settings.js)
+* content/shell.html                    (content/shell.html)
+  content/shell.js                      (content/shell.js)
+  content/shell_remote.html             (content/shell_remote.html)
+  content/shell_remote.js               (content/shell_remote.js)
+* content/shell.css                     (content/shell.css)
+  content/blank.html                    (content/blank.html)
+  content/blank.css                     (content/blank.css)
+#ifdef MOZ_WIDGET_GONK
+  content/devtools/adb.js               (content/devtools/adb.js)
+#endif
+  content/devtools/debugger.js          (content/devtools/debugger.js)
+  content/devtools/hud.js               (content/devtools/hud.js)
+#ifndef MOZ_WIDGET_GONK
+  content/desktop.css                   (content/desktop.css)
+  content/images/desktop/home-black.png (content/images/desktop/home-black.png)
+  content/images/desktop/home-white.png (content/images/desktop/home-white.png)
+  content/images/desktop/rotate.png     (content/images/desktop/rotate.png)
+  content/desktop.js                    (content/desktop.js)
+  content/screen.js                     (content/screen.js)
+  content/runapp.js                     (content/runapp.js)
+#endif
+#ifndef MOZ_MULET
+* content/content.css                   (content/content.css)
+#endif
+  content/touchcontrols.css             (content/touchcontrols.css)
+
+  content/identity.js                   (content/identity.js)
+#ifdef MOZ_B2G_REMOTECONTROLSERVICE
+* content/remote_control.js             (content/remote_control.js)
+  content/remote_command.js             (content/remote_command.js)
+#endif
+
+#ifndef MOZ_GRAPHENE
+% override chrome://global/skin/media/videocontrols.css chrome://b2g/content/touchcontrols.css
+#endif
+% override chrome://global/content/aboutCertError.xhtml chrome://b2g/content/aboutCertError.xhtml
+% override chrome://global/skin/netError.css chrome://b2g/content/netError.css
+
+  content/ErrorPage.js                  (content/ErrorPage.js)
+  content/aboutCertError.xhtml          (content/aboutCertError.xhtml)
+  content/netError.css                  (content/netError.css)
+  content/images/errorpage-generic-orange.png (content/images/errorpage-generic-orange.png)
+  content/images/errorpage-generic-white.png (content/images/errorpage-generic-white.png)
+  content/images/errorpage-warning.png (content/images/errorpage-warning.png)
+  content/images/arrowdown-16.png      (content/images/arrowdown-16.png)
+  content/images/arrowright-16.png     (content/images/arrowright-16.png)
+  content/images/scrubber-hdpi.png     (content/images/scrubber-hdpi.png)
+  content/images/unmute-hdpi.png       (content/images/unmute-hdpi.png)
+  content/images/pause-hdpi.png        (content/images/pause-hdpi.png)
+  content/images/play-hdpi.png         (content/images/play-hdpi.png)
+  content/images/mute-hdpi.png         (content/images/mute-hdpi.png)
+  content/images/fullscreen-hdpi.png     (content/images/fullscreen-hdpi.png)
+  content/images/exitfullscreen-hdpi.png (content/images/exitfullscreen-hdpi.png)
+  content/images/throbber.png          (content/images/throbber.png)
+  content/images/error.png             (content/images/error.png)
+  content/images/media.png             (content/images/media.png)
+  content/controls/index.js             (content/controls/index.js)
+  content/images/controls/CSK_key.png          (content/images/controls/CSK_key.png)
+  content/images/controls/CSK_ok_press.png          (content/images/controls/CSK_ok_press.png)
+  content/images/controls/CSK_arrow_normal.png      (content/images/controls/CSK_arrow_normal.png)
+  content/images/controls/CSK_arrow_press.png       (content/images/controls/CSK_arrow_press.png)
+  content/images/controls/Numeric.png              (content/images/controls/Numeric.png)
+  content/images/controls/button_r_normal.png      (content/images/controls/button_r_normal.png)
+  content/images/controls/button_r_press.png       (content/images/controls/button_r_press.png)
+  content/images/controls/ic_LSK.png               (content/images/controls/ic_LSK.png)
+  content/images/controls/ic_RSK.png               (content/images/controls/ic_RSK.png)
+  content/images/controls/ic_call.png              (content/images/controls/ic_call.png)
+  content/images/controls/ic_endcall.png           (content/images/controls/ic_endcall.png)
+  content/images/controls/keypad_number.png        (content/images/controls/keypad_number.png)
+  content/images/controls/keypad_number_normal.png (content/images/controls/keypad_number_normal.png)
+  content/images/controls/keypad_number_press.png  (content/images/controls/keypad_number_press.png)
