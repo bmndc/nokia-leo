@@ -1,0 +1,103 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#include "domstubs.idl"
+
+interface mozIApplication;
+interface nsIURI;
+
+%{C++
+#define APPS_SERVICE_CID { 0xd5fb86bf, 0x1d59, 0x4903, { 0xa9, 0x9d, 0x44, 0xaf, 0x4c, 0x7f, 0x5a, 0xf9 } }
+#define APPS_SERVICE_CONTRACTID "@mozilla.org/AppsService;1"
+%}
+
+/*
+ * This service allows accessing some DOMApplicationRegistry methods from
+ * non-javascript code.
+ */
+[scriptable, uuid(9db52445-742f-4e9b-9cf2-86decd0cc3d7)]
+interface nsIAppsService : nsISupports
+{
+  mozIApplication getAppByManifestURL(in DOMString manifestURL);
+
+  /**
+   * Returns a Promise for the manifest for a given manifestURL.
+   * This is only supported in the parent process: the promise will be rejected
+   * in content processes.
+   */
+  jsval getManifestFor(in DOMString manifestURL);
+
+  /**
+   * Returns the |localId| of the app associated with the |manifestURL| passed
+   * in parameter.
+   * Returns nsIScriptSecurityManager::NO_APP_ID if |manifestURL| isn't a valid
+   * installed manifest URL.
+   */
+  unsigned long getAppLocalIdByManifestURL(in DOMString manifestURL);
+
+  /**
+   * Returns the application associated to this localId.
+   */
+  mozIApplication getAppByLocalId(in unsigned long localId);
+
+  /**
+   * Returns the manifest URL associated to this localId.
+   */
+  DOMString getManifestURLByLocalId(in unsigned long localId);
+
+  /**
+   * Returns the manifest CSP associated to this localId.
+   */
+  DOMString getManifestCSPByLocalId(in unsigned long localId);
+
+  /**
+   * Returns the default CSP associated to this localId.
+   */
+  DOMString getDefaultCSPByLocalId(in unsigned long localId);
+
+  /**
+   * Returns the basepath for core apps
+   */
+  DOMString getCoreAppsBasePath();
+
+  /**
+   * Returns the basepath for regular packaged apps
+   */
+  DOMString getWebAppsBasePath();
+
+  /**
+   * Returns true if at least one app is in the registry.
+   */
+  boolean areAnyAppsInstalled();
+
+  jsval getAppInfo(in DOMString appId);
+
+  /**
+   * Returns a URI to redirect to when we get a redirection to 'uri'.
+   * Returns null if no redirection is declared for this uri.
+   */
+  nsIURI getRedirect(in unsigned long localId, in nsIURI uri);
+
+  /**
+   * Returns the localId if the app was installed from a store
+   */
+  DOMString getAppLocalIdByStoreId(in DOMString storeID);
+
+  /**
+   * Returns the scope for app to use with service workers.
+   */
+  DOMString getScopeByLocalId(in unsigned long localId);
+
+  /**
+   * Reads the manifest file for this app and update the DataStore map
+   */
+  void updateDataStoreEntriesFromLocalId(in unsigned long localId);
+
+  /**
+   * Check the apps registry if any action is register deep linking.
+   * Return null if the url doesn't match the registered links.
+   * Return action, the activity name registered by the App.
+   */
+  jsval getDeepLinks(in DOMString url, in DOMString appId);
+};

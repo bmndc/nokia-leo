@@ -1,0 +1,42 @@
+1. Kernel configuration files
+   arch/arm/configs:
+   Nokia 8000 4G (TA-1305/TA-1300/TA-1303/TA-1311): LEO_defconfig
+
+2. How to build
+
+  Prerequisites:
+
+    * ramdisk.img - root fs
+
+    * mkbootimg - boot.img generator
+
+    * The ARM cross-compiler
+      We recommend getting the CodeSourcery Lite compiler.
+      Or, you can also use prebuild executable binary which is included in
+      standard Android tree.
+
+  Step 1: Build Kernel (zImage)
+    $ cd kernel/msm-4.9
+
+    $ export ARCH=arm
+
+    $ export CROSS_COMPILE=<cross compile path with prefix>
+      NOTE: Please set the location and the prefix of the ARM cross-compiler.
+	    Please use the absolute path for this.
+      ex) <cross compiler path>/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin/arm-eabi-
+
+    $ make LEO_defconfig O=<output path>
+      NOTE: Please set a configuration file you want to build.
+
+    $ make O=<output path>
+
+    You can see arch/arm/boot/zImage-dtb if you succeed in building the kernel.
+
+  Step 2: Assembling the boot.img
+    (In the output directory)
+    $ mkbootimg --kernel arch/arm/boot/zImage-dtb \
+      --cmdline "console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk earlycon=msm_hsl_uart,0x78B0000" \
+      --base 0x80000000 --pagesize 2048 --ramdisk_offset 0x02000000 --tags_offset 0x01E00000 \
+      --ramdisk ramdisk.img --output boot.img
+
+

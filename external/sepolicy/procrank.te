@@ -1,0 +1,17 @@
+# File types must be defined for file_contexts.
+type procrank_exec, exec_type, file_type;
+
+userdebug_or_eng(`
+  type procrank, domain, mlstrustedsubject;
+
+  domain_auto_trans(shell, procrank_exec, procrank)
+  domain_auto_trans(dumpstate, procrank_exec, procrank)
+  allow procrank self:capability sys_ptrace;
+  allow procrank devpts:chr_file { read write getattr ioctl };
+  allow procrank dumpstate:unix_stream_socket { read write getattr };
+  r_dir_file(procrank, domain)
+  allow procrank { shell dumpstate }:fd use;
+  allow procrank adbd:process sigchld;
+  # allow procrank write to bugreport.
+  allow procrank shell_data_file:file w_file_perms;
+')

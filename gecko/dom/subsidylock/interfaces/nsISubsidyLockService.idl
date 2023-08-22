@@ -1,0 +1,109 @@
+/* (c) 2017 KAI OS TECHNOLOGIES (HONG KONG) LIMITED All rights reserved. This
+ * file or any portion thereof may not be reproduced or used in any manner
+ * whatsoever without the express written permission of KAI OS TECHNOLOGIES
+ * (HONG KONG) LIMITED. KaiOS is the trademark of KAI OS TECHNOLOGIES (HONG KONG)
+ * LIMITED or its affiliate company and may be registered in some jurisdictions.
+ * All other trademarks are the property of their respective owners.
+ */
+
+ #include "nsISupports.idl"
+
+interface nsISubsidyLock;
+
+/**
+ * A callback interface for handling asynchronous response.
+ */
+[scriptable, uuid(4f353d83-dee7-43a9-8eb3-835c725b96a2)]
+interface nsISubsidyLockCallback : nsISupports
+{
+  /**
+   * The success callback of |getSubsidyLockStatus|.
+   *
+   * An int list of locked type are returned.
+   */
+  void notifyGetSubsidyLockStatusSuccess(in uint32_t count,
+                                         [array, size_is(count)] in unsigned long types);
+
+  /**
+   * The error callback of |getSubsidyLockStatus|.
+   */
+  void notifyError(in DOMString aErrorMsg);
+
+  /**
+   * The success callback of |unlockSubsidyLock|.
+   */
+  void notifySuccess();
+
+  /**
+   * The error callback of |unlockSubsidyLock|.
+   *
+   * @param aErrorMsg
+   *        The error message.
+   * @param aRetryCount
+   *        The number of remaining retries. -1 if unknown.
+   */
+  void notifyUnlockSubsidyLockError(in DOMString aErrorMsg, in long aRetryCount);
+};
+
+%{C++
+#define NS_SUBSIDY_LOCK_SERVICE_CID \
+  { 0x2238d560, 0xf4f9, 0x45bf, \
+    { 0xb0, 0x96, 0x39, 0xde, 0x79, 0xd0, 0x4b, 0x7a } }
+#define NS_SUBSIDY_LOCK_SERVICE_CONTRACTID \
+  "@mozilla.org/subsidylock/subsidylockservice;1"
+%}
+
+[scriptable, uuid(cbcc7602-66aa-4ef8-8eff-788e5f10e88a)]
+interface nsISubsidyLockService : nsISupports
+{
+  readonly attribute unsigned long numItems;
+
+  nsISubsidyLock getItemByServiceId(in unsigned long serviceId);
+};
+
+%{C++
+template<typename T> struct already_AddRefed;
+
+already_AddRefed<nsISubsidyLockService>
+NS_CreateSubsidyLockService();
+%}
+
+[scriptable, uuid(e6955d2c-43ab-40c0-90b3-c1c7e647350b)]
+interface nsISubsidyLock : nsISupports
+{
+  /**
+   * Subsidy Lock Types.
+   *
+   * @See 3GPP TS 22.022, and RIL_PersoSubstate @ ril.h
+   */
+  // Unknown Key.
+  const long SUBSIDY_LOCK_UNKNOWN                  = 0;
+  // NCK (Network Control Key).
+  const long SUBSIDY_LOCK_SIM_NETWORK              = 1;
+  // NSCK (Network Subset Control Key).
+  const long SUBSIDY_LOCK_NETWORK_SUBSET           = 2;
+  // CCK (Corporate Control Key).
+  const long SUBSIDY_LOCK_SIM_CORPORATE            = 3;
+  // SPCK (Service Provider Control Key).
+  const long SUBSIDY_LOCK_SIM_SERVICE_PROVIDER     = 4;
+  // PCK (Personalisation Control Key).
+  const long SUBSIDY_LOCK_SIM_SIM                  = 5;
+  // PUK for NCK (Network Control Key).
+  const long SUBSIDY_LOCK_SIM_NETWORK_PUK          = 6;
+  // PUK for NSCK (Network Subset Control Key).
+  const long SUBSIDY_LOCK_NETWORK_SUBSET_PUK       = 7;
+  // PUK for CCK (Corporate Control Key).
+  const long SUBSIDY_LOCK_SIM_CORPORATE_PUK        = 8;
+  // PUK for SPCK (Service Provider Control Key).
+  const long SUBSIDY_LOCK_SIM_SERVICE_PROVIDER_PUK = 9;
+  // PUK for PCK (Personalisation Control Key).
+  const long SUBSIDY_LOCK_SIM_SIM_PUK              = 10;
+
+  readonly attribute unsigned long serviceId;
+
+  void getSubsidyLockStatus(in nsISubsidyLockCallback aCallback);
+
+  void unlockSubsidyLock(in unsigned long aLockType,
+                         in DOMString aPassword,
+                         in nsISubsidyLockCallback aCallback);
+};

@@ -1,0 +1,74 @@
+# bluetooth subsystem
+type bluetooth, domain;
+app_domain(bluetooth)
+net_domain(bluetooth)
+
+# Data file accesses.
+allow bluetooth bluetooth_data_file:dir create_dir_perms;
+allow bluetooth bluetooth_data_file:notdevfile_class_set create_file_perms;
+
+# Socket creation under /data/misc/bluedroid.
+type_transition bluetooth bluetooth_data_file:sock_file bluetooth_socket;
+allow bluetooth bluetooth_socket:sock_file create_file_perms;
+
+# bluetooth factory file accesses.
+r_dir_file(bluetooth, bluetooth_efs_file)
+
+# Device accesses.
+allow bluetooth { tun_device uhid_device hci_attach_dev }:chr_file rw_file_perms;
+
+# Other domains that can create and use bluetooth sockets.
+# SELinux does not presently define a specific socket class for
+# bluetooth sockets, nor does it distinguish among the bluetooth protocols.
+# TODO: This should no longer be needed with bluedroid for bluetooth
+# but may be getting used for other non-bluetooth sockets that has no
+# specific class defined.  Consider taking to specific domains.
+allow { bluetoothdomain -untrusted_app -isolated_app -shell } self:socket create_socket_perms;
+neverallow { untrusted_app isolated_app shell } { untrusted_app isolated_app shell }:socket *;
+
+# sysfs access.
+allow bluetooth sysfs_bluetooth_writable:file rw_file_perms;
+allow bluetooth self:capability net_admin;
+allow bluetooth self:capability2 wake_alarm;
+
+# Allow clients to use a socket provided by the bluetooth app.
+# TODO:  See if this is still required under bluedroid.
+allow bluetoothdomain bluetooth:unix_stream_socket { getopt setopt getattr read write ioctl shutdown };
+
+# tethering
+allow bluetooth self:tun_socket create_socket_perms;
+allow bluetooth efs_file:dir search;
+
+# proc access.
+allow bluetooth proc_bluetooth_writable:file rw_file_perms;
+
+# Allow write access to bluetooth specific properties
+set_prop(bluetooth, bluetooth_prop)
+set_prop(bluetooth, pan_result_prop)
+set_prop(bluetooth, ctl_dhcp_pan_prop)
+
+allow bluetooth bluetooth_service:service_manager find;
+allow bluetooth mediaserver_service:service_manager find;
+allow bluetooth radio_service:service_manager find;
+allow bluetooth surfaceflinger_service:service_manager find;
+allow bluetooth app_api_service:service_manager find;
+allow bluetooth system_api_service:service_manager find;
+
+# Bluetooth Sim Access Profile Socket to the RIL
+unix_socket_connect(bluetooth, sap_uim, rild)
+
+# already open bugreport file descriptors may be shared with
+# the bluetooth process, from a file in
+# /data/data/com.android.shell/files/bugreports/bugreport-*.
+allow bluetooth shell_data_file:file read;
+
+###
+### Neverallow rules
+###
+### These are things that the bluetooth app should NEVER be able to do
+###
+
+# Superuser capabilities.
+# bluetooth requires net_admin and wake_alarm.
+neverallow bluetooth self:capability ~net_admin;
+neverallow bluetooth self:capability2 ~{ wake_alarm block_suspend };

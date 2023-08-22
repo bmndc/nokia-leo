@@ -1,0 +1,63 @@
+/* (c) 2018 KAI OS TECHNOLOGIES (HONG KONG) LIMITED All rights reserved. This
+ * file or any portion thereof may not be reproduced or used in any manner
+ * whatsoever without the express written permission of KAI OS TECHNOLOGIES
+ * (HONG KONG) LIMITED. KaiOS is the trademark of KAI OS TECHNOLOGIES (HONG KONG)
+ * LIMITED or its affiliate company and may be registered in some jurisdictions.
+ * All other trademarks are the property of their respective owners.
+ */
+
+#include "nsISupports.idl"
+
+[scriptable, uuid(5709a2b3-b1a9-4654-9569-036582d50422)]
+interface nsILteBroadcastFileInfo: nsISupports
+{
+  /**
+   * Handle's identifier.
+   */
+  readonly attribute DOMString handleId;
+
+  /**
+   * File Uri app used to communicate with MW.
+   */
+  readonly attribute DOMString fileUri;
+
+  /**
+   * If size is unavaiable.
+   */
+  const uint32_t FILE_SIZE_UNAVAILABLE = 0;
+
+  /**
+   * File download status.
+   * Possible values: nsILteBroadcastDownloadService::STATUS_*.
+   */
+  readonly attribute uint16_t status;
+
+  /**
+   * The storage type is fixed to 'sdcard'
+   * App should use this to retrieve proper deviceStorage via
+   *  navigator.getDeviceStorageByNameAndType(storageName, 'sdcard').
+   */
+  readonly attribute DOMString storageName;
+
+  /**
+   * DevieStorage volume name on which the file is saved.
+   */
+  readonly attribute DOMString storagePath;
+
+  /**
+   * File mime type.
+   */
+  readonly attribute DOMString contentType;
+
+  /**
+   * The totoal bytes of file.
+   * Could be nsILteBroadcastFileInfo::FILE_SIZE_UNAVAILABLE if unavailable yet.
+   */
+  readonly attribute uint32_t fileSize;
+
+  /**
+   * The totoal amount of downloaded.
+   * Could be nsILteBroadcastFileInfo::FILE_SIZE_UNAVAILABLE if unavailable yet.
+   */
+  readonly attribute uint32_t receivedFileSize;
+};

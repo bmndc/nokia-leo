@@ -1,0 +1,27 @@
+type gatekeeperd, domain;
+type gatekeeperd_exec, exec_type, file_type;
+
+# gatekeeperd
+init_daemon_domain(gatekeeperd)
+binder_service(gatekeeperd)
+binder_use(gatekeeperd)
+allow gatekeeperd tee_device:chr_file rw_file_perms;
+
+# need to find KeyStore and add self
+allow gatekeeperd gatekeeper_service:service_manager { add find };
+
+# Need to add auth tokens to KeyStore
+use_keystore(gatekeeperd)
+allow gatekeeperd keystore:keystore_key { add_auth };
+
+# For permissions checking
+allow gatekeeperd system_server:binder call;
+allow gatekeeperd permission_service:service_manager find;
+# For parent user ID lookup
+allow gatekeeperd user_service:service_manager find;
+
+# for SID file access
+allow gatekeeperd gatekeeper_data_file:dir rw_dir_perms;
+allow gatekeeperd gatekeeper_data_file:file create_file_perms;
+
+neverallow { domain -gatekeeperd } gatekeeper_service:service_manager add;

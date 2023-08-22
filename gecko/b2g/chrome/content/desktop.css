@@ -1,0 +1,151 @@
+body{
+  background-color: -moz-dialog;
+  display: flex;
+  flex-direction: row;
+  min-width: 864px;
+}
+
+iframe {
+  position: relative;
+  left: 0;
+  top: 0;
+  right: auto;
+  bottom: auto;
+}
+
+#container {
+  width: 240px;
+  height: 320px;
+  background-color: #4a4a4a;
+  margin: 34px 38px 34px 34px;
+  pointer-events: none;
+}
+
+#controls {
+  margin: 34px 34px 34px auto;
+}
+
+/** funcpad */
+#funcpad-box{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 17px;
+}
+
+#funcpad-box .anchor{
+  cursor: pointer;
+}
+
+#funcpad-box .side{
+  display: flex;
+  flex-direction: column;
+}
+
+#funcpad-box .side .anchor{
+  width: 86px;
+  height: 86px;
+  background: url("images/controls/button_r_normal.png") center no-repeat;
+  margin: 0 0 8px;
+  display: flex;
+}
+
+#funcpad-box .side .anchor img{
+  margin: auto;
+}
+
+#funcpad-box .side .anchor:active{
+  background-image: url("images/controls/button_r_press.png");
+}
+
+#funcpad-center{
+  width: 180px;
+  height: 180px;
+  margin: 0 8px;
+}
+
+#funcpad-center-bg{
+  position: absolute;
+  pointer-events: none;
+  z-index: 99;
+}
+
+#funcpad-center .row{
+  display: flex;
+  flex-direction: row;
+  height: 45px;
+  margin: 0;
+}
+
+#funcpad-center .row.middle{
+  height: 90px;
+}
+
+#funcpad-center .row .arrow{
+  background: url("images/controls/CSK_arrow_normal.png");
+  width: 180px;
+  height: 56px;
+}
+
+#funcpad-center .row .arrow:active{
+  background: url("images/controls/CSK_arrow_press.png");
+}
+
+#funcpad-center .row.middle .anchor{
+  position: absolute;
+}
+
+/** left arrow */
+#funcpad-center #csk-l-anchor{
+  transform: rotate(-90deg) translate(-17px, -62px);
+}
+
+/** right arrow */
+#funcpad-center #csk-r-anchor{
+  transform: rotate(90deg) translate(17px, -62px);
+}
+
+/** ok button */
+#funcpad-center #csk-anchor{
+  width: 90px;
+  height: 90px;
+  transform: translate(45px, 0);
+}
+
+#funcpad-center #csk-anchor:active{
+  background: url("images/controls/CSK_ok_press.png");
+}
+
+/** down arrow */
+#funcpad-center #csk-d-anchor{
+  transform: rotate(180deg) translate(0, 11px);
+}
+
+/** numpad */
+#numpad-bg{
+  position: absolute;
+  background: url("images/controls/keypad_number.png") center no-repeat;
+  pointer-events: none;
+}
+
+#numpad-box{
+  display: flex;
+  flex-direction: column;
+}
+
+#numpad-box .row{
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 6px 0;
+}
+
+#numpad-box .anchor{
+  width: 116px;
+  height: 64px;
+  background: url("images/controls/keypad_number_normal.png") center no-repeat;
+  margin: 0 5px 0 0;
+  cursor: pointer;
+}
+
+#numpad-box .anchor:active{
+  background-image: url("images/controls/keypad_number_press.png");
+}

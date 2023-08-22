@@ -1,0 +1,49 @@
+/* (c) 2017 KAI OS TECHNOLOGIES (HONG KONG) LIMITED All rights reserved. This
+ * file or any portion thereof may not be reproduced or used in any manner
+ * whatsoever without the express written permission of KAI OS TECHNOLOGIES
+ * (HONG KONG) LIMITED. KaiOS is the trademark of KAI OS TECHNOLOGIES (HONG KONG)
+ * LIMITED or its affiliate company and may be registered in some jurisdictions.
+ * All other trademarks are the property of their respective owners.
+ */
+
+#include "nsIImsRegService.idl"
+
+%{C++
+#define GONK_IMS_REG_SERVICE_CID \
+  { 0xff7fc6ca, 0x723e, 0x45b5, \
+    { 0x98, 0x96, 0x17, 0x19, 0x77, 0x77, 0xc9, 0xe4 } }
+#define GONK_IMSREGSERVICE_CONTRACTID \
+        "@mozilla.org/mobileconnection/gonkimsregservice;1"
+%}
+
+[scriptable, uuid(5ab2a38b-0f7c-4cf5-adff-4c832f697b39)]
+interface nsIGonkImsRegService : nsIImsRegService
+{
+  /**
+   * Invoked when the enabled state is changed.
+   */
+  void notifyEnabledStateChanged(in unsigned long aClientId, in boolean aEnabled);
+
+  /**
+   * Invoked when the preferred profile is changed.
+   */
+  void notifyPreferredProfileChanged(in unsigned long aClientId, in unsigned short aProfile);
+
+  /**
+   * Invoked when IMS capability or registration state changed.
+   *
+   * @param aCapability
+   *        One of nsIImsRegHandler::IMS_CAPABILITY_* values
+   * @param aUnregisteredReason
+   *        The reason why IMS is not registered.
+   */
+  void notifyCapabilityChanged(in unsigned long aClientId,
+                               in short aCapability,
+                               in AString aUnregisteredReason);
+
+  /**
+   * Invoked when the RTT enabled state is changed.
+   */
+  void notifyRttEnabledStateChanged(in unsigned long aClientId,
+                                    in boolean aEnabled);
+};

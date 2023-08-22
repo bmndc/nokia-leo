@@ -1,0 +1,127 @@
+/* Copyright (c) 2017, 2020, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+&mdss_mdp {
+	spi_gc9305_qvga_cmd:qcom,mdss_spi_gc9305_hlt_24_qvga_spi_cmd {
+		qcom,mdss-spi-panel-name = "gc9305 hlt qvga command mode spi panel";
+		qcom,mdss-spi-panel-destination = "display_1";
+		qcom,mdss-spi-panel-controller = <&mdss_spi>;
+		qcom,mdss-spi-panel-framerate = <60>;
+		qcom,mdss-spi-panel-width = <240>;
+		qcom,mdss-spi-panel-height = <320>;
+		qcom,mdss-spi-h-front-porch = <79>;
+		qcom,mdss-spi-h-back-porch = <59>;
+		qcom,mdss-spi-h-pulse-width = <60>;
+		qcom,mdss-spi-v-back-porch = <10>;
+		qcom,mdss-spi-v-front-porch = <7>;
+		qcom,mdss-spi-v-pulse-width = <2>;
+		qcom,mdss-spi-h-left-border = <0>;
+		qcom,mdss-spi-h-right-border = <0>;
+		qcom,mdss-spi-v-top-border = <0>;
+		qcom,mdss-spi-v-bottom-border = <0>;
+		qcom,mdss-spi-bpp = <16>;
+
+		qcom,mdss-spi-on-command = [
+			00 01 fe
+			00 01 fe
+			00 01 ef
+			00 02 35 00
+			00 02 36 48
+			00 02 3a 05
+			00 01 20
+			00 01 38
+			00 01 13
+			00 03 a4 44 44
+			00 03 a5 42 42
+			00 03 a6 2a 2a
+			00 03 a7 2b 2b
+			00 03 a8 18 18
+			00 03 a9 2a 2a
+			00 03 aa 88 88
+			00 02 ac 00
+			00 02 Af 55
+			00 03 e1 10 26
+			00 03 e3 01 10
+			00 03 e8 11 77
+			00 02 e0 0f
+			00 02 e4 00
+			00 02 e5 00
+			00 02 e6 00
+			00 03 e7 00 00
+			00 08 ea 51 95 00 00 00 00 00
+			00 02 eb 30
+			00 04 ec 33 22 88
+			00 03 ed 18 08
+			00 02 ee 00
+			00 02 A0 00
+			00 02 A1 00
+			00 02 A2 00
+			00 02 A3 00
+			00 03 AB 00 00
+			00 02 AD 33
+			00 02 AE 2B
+			00 02 de 00
+			00 02 ff 61
+			00 02 df 08
+			00 04 B6 00 80 27
+
+			/*----gamma setting---------*/
+			00 07 f0 02 01 00 00 03 07
+			00 07 f1 01 01 00 02 06 0e
+			00 07 f2 08 06 32 03 04 46
+			00 07 f3 10 0C 3E 06 03 4F
+			00 07 f4 0b 16 15 1d 1e 0f
+			00 07 f5 08 15 15 1b 1c 0f
+			/*---end gamma setting-----*/
+
+			00 02 fd 00
+			00 05 2a 00 00 00 ef
+			00 05 2b 00 00 01 3f
+			00 03 44 00 40
+			78 01 11
+			00 01 29
+			00 01 2c
+			]; 
+
+		qcom,mdss-spi-off-command = [
+			20 01 28
+			20 01 10
+			]; 
+
+		qcom,mdss-spi-no-esd-command=[ 
+			00 02 35 00
+			00 02 36 48
+			00 02 3a 05
+			00 05 2a 00 00 00 ef
+			00 05 2b 00 00 01 3f
+			00 01 29
+			00 01 2C
+			]; 
+
+		qcom,mdss-spi-init-window_command = [
+			00 05 2A 00 00 00 EF
+			00 05 2B 00 00 01 3F
+			00 01 2C
+			]; 
+
+		qcom,mdss-spi-bl-min-level = <1>;
+		qcom,mdss-spi-bl-max-level = <255>;
+		qcom,mdss-spi-reset-sequence = <1 20>, <0 1>, <1 20>;
+		qcom,esd-check-enabled;
+		qcom,mdss-spi-panel-status-check-mode = "reg_read";
+		qcom,mdss-spi-panel-status-reg = /bits/ 8 <0x09>;
+		qcom,mdss-spi-panel-status-read-length = <1>;
+		qcom,mdss-spi-panel-max-error-count = <1>;
+		qcom,mdss-spi-panel-status-value = /bits/ 8 <0x52>;
+	};
+};
+ 

@@ -1,0 +1,43 @@
+# -*- Mode: python; c-basic-offset: 4; indent-tabs-mode: nil; tab-width: 40 -*-
+# vim: set filetype=python:
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+XPIDL_SOURCES += [
+    'nsIRSUManager.idl',
+    #'nsIRSUService.idl',
+    'nsIRSURequestService.idl',
+]
+
+XPIDL_MODULE = 'dom_rsu'
+
+EXPORTS.mozilla.dom += [
+    'ipc/RSUChild.h',
+    'ipc/RSUIPCService.h',
+    'ipc/RSUParent.h',
+    'nsRSUManager.h',
+    'nsRSUService.h',
+    'RemoteSimUnlock.h',
+    'RSUManagerCallback.h',
+    'RSUUtils.h',
+]
+
+UNIFIED_SOURCES += [
+    'ipc/RSUChild.cpp',
+    'ipc/RSUIPCService.cpp',
+    'ipc/RSUParent.cpp',
+    'nsRSUManager.cpp',
+    'nsRSUService.cpp',
+    'RemoteSimUnlock.cpp',
+    'RSUManagerCallback.cpp',
+]
+
+IPDL_SOURCES += [
+    'ipc/PRSU.ipdl',
+    'ipc/PRSURequest.ipdl',
+]
+
+include('/ipc/chromium/chromium-config.mozbuild')
+
+FINAL_LIBRARY = 'xul'

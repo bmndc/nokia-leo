@@ -1,0 +1,54 @@
+/* (c) 2017 KAI OS TECHNOLOGIES (HONG KONG) LIMITED All rights reserved. This
+ * file or any portion thereof may not be reproduced or used in any manner
+ * whatsoever without the express written permission of KAI OS TECHNOLOGIES
+ * (HONG KONG) LIMITED. KaiOS is the trademark of KAI OS TECHNOLOGIES (HONG KONG)
+ * LIMITED or its affiliate company and may be registered in some jurisdictions.
+ * All other trademarks are the property of their respective owners.
+ */
+
+include protocol PContent;
+include protocol PSubsidyLockRequest;
+
+namespace mozilla {
+namespace dom {
+namespace subsidylock {
+
+sync protocol PSubsidyLock
+{
+  manager PContent;
+  manages PSubsidyLockRequest;
+
+parent:
+  /**
+   * Send when child no longer needs to use PMobileConnection.
+   */
+  async __delete__();
+
+  /**
+   * Sent when the child makes an asynchronous request to the parent.
+   */
+  async PSubsidyLockRequest(SubsidyLockRequest aRequest);
+};
+
+/**
+ * SubsidyLockRequest
+ */
+struct GetSubsidyLockStatusRequest
+{
+};
+
+struct UnlockSubsidyLockRequest
+{
+  uint32_t lockType;
+  nsString password;
+};
+
+union SubsidyLockRequest
+{
+  GetSubsidyLockStatusRequest;
+  UnlockSubsidyLockRequest;
+};
+
+} // namespace subsidylock
+} // namespace dom
+} // namespace mozilla

@@ -1,0 +1,11 @@
+/*.app/***
+/gaia/***
+/*.dylib
+/certutil
+/$(MOZ_APP_NAME)-bin
+/$(MOZ_APP_NAME)
+/gtest/***
+/pk12util
+/ssltunnel
+/xpcshell
+/XUL

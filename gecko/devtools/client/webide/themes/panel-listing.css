@@ -1,0 +1,185 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+html {
+  font: message-box;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+label,
+.panel-item,
+#project-panel-projects,
+#runtime-panel-projects {
+  display: block;
+  float: left;
+  width: 100%;
+  text-align: left;
+}
+
+.project-image,
+.panel-item span {
+  display: inline-block;
+  float: left;
+  line-height: 20px;
+}
+
+.project-image {
+  margin-right: 10px;
+  max-height: 20px;
+}
+
+.panel-header {
+  color: #ACACAC;
+  text-transform: uppercase;
+  line-height: 200%;
+  margin: 5px 5px 0 5px;
+  font-weight: 700;
+  width: 100%;
+}
+
+.panel-header:first-child {
+  margin-top: 0;
+}
+
+.panel-header[hidden], .panel-item[hidden] {
+  display: none;
+}
+
+#runtime-panel-simulator,
+.panel-item-complex {
+  clear: both;
+  position: relative;
+}
+
+.panel-item span {
+  display: block;
+  float: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 75%;
+  white-space: nowrap;
+}
+
+.panel-item {
+  -moz-appearance: none;
+  -moz-box-align: center;
+  padding: 3%;
+  display: block;
+  width: 94%;
+  cursor: pointer;
+  border-top: 1px solid transparent;
+  border-left: 0;
+  border-bottom: 1px solid #CCC;
+  border-right: 0;
+  background-color: transparent;
+}
+
+button.panel-item {
+  background-position: 5px 5px;
+  background-repeat: no-repeat;
+  background-size: 14px 14px;
+  padding-left: 25px;
+  width: 100%;
+}
+
+.panel-item:disabled {
+  background-color: #FFF;
+  color: #5A5A5A;
+  opacity: 0.5;
+  cursor: default;
+}
+
+.refresh-icon {
+  background-image: url("chrome://devtools/skin/images/reload.svg");
+  height: 14px;
+  width: 14px;
+  border: 0;
+  opacity: 0.6;
+  display: inline-block;
+  margin: 3px;
+  float: right;
+}
+
+.panel-item:not(:disabled):hover,
+button.panel-item:not(:disabled):hover {
+  background-color: #3875d7;
+  color: white;
+  border-top: 1px solid #EDEDED;
+}
+
+.configure-button {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  background-color: transparent;
+  background-image: -moz-image-rect(url("icons.png"), 104, 462, 129, 438);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 14px 14px;
+  position: absolute;
+  top: -2px;
+  right: 0;
+  border: 0;
+}
+
+.configure-button:hover {
+  cursor: pointer;
+}
+
+#new-app  { background-image: url("ic_new_app.png"); }
+#new-app:not(:disabled):hover {
+  background-image: url("ic_new_app_w.png");
+}
+
+#packaged-app  { background-image: url("ic_open_packaged_app.png"); }
+#packaged-app:not(:disabled):hover {
+  background-image: url("ic_open_packaged_app_w.png");
+}
+
+#hosted-app  { background-image: url("ic_open_hosted_app.png"); }
+#hosted-app:not(:disabled):hover {
+  background-image: url("ic_open_hosted_app_w.png");
+}
+
+.runtime-panel-item-simulator     { background-image: url("ic_main_process.png") }
+.runtime-panel-item-simulator:not(:disabled):hover {
+  background-image: url("ic_main_process_w.png");
+}
+
+#runtime-permissions     { background-image: url("ic_permission_table.png") }
+#runtime-permissions:not(:disabled):hover {
+  background-image: url("ic_permission_table_w.png");
+}
+
+#runtime-preferences,
+#runtime-settings
+{ background-image: url("ic_settings.png") }
+
+#runtime-preferences:not(:disabled):hover,
+#runtime-settings:not(:disabled):hover {
+  background-image: url("ic_settings_w.png");
+}
+
+.runtime-panel-item-usb,
+#runtime-disconnect     { background-image: url("ic_usb.png") }
+.runtime-panel-item-usb:not(:disabled):hover,
+#runtime-disconnect:not(:disabled):hover {
+  background-image: url("ic_usb_w.png");
+}
+
+#runtime-screenshot     { background-image: url("ic_screenshot.png") }
+#runtime-screenshot:not(:disabled):hover {
+  background-image: url("ic_screenshot_w.png");
+}
+
+#runtime-panel-nousbdevice,
+#runtime-details        { background-image: url("ic_runtime_info.png") }
+#runtime-panel-nousbdevice:not(:disabled):hover,
+#runtime-details:not(:disabled):hover {
+  background-image: url("ic_runtime_info_w.png");
+}
+
+.runtime-panel-item-other         { background-image: -moz-image-rect(url("icons.png"), 26, 438, 52, 412); }
+.runtime-panel-item-wifi          { background-image: -moz-image-rect(url("icons.png"), 208, 438, 234, 412); }

@@ -1,0 +1,28 @@
+# -*- Mode: python; c-basic-offset: 4; indent-tabs-mode: nil; tab-width: 40 -*-
+# vim: set filetype=python:
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+TEST_HARNESS_FILES.xpcshell.devtools.client.framework.test += [
+    'test/shared-redux-head.js',
+]
+
+DevToolsModules(
+    'about-devtools-toolbox.js',
+    'attach-thread.js',
+    'browser-menus.js',
+    'devtools-browser.js',
+    'devtools.js',
+    'gDevTools.jsm',
+    'selection.js',
+    'sidebar.js',
+    'source-location.js',
+    'target-from-url.js',
+    'target.js',
+    'toolbox-highlighter-utils.js',
+    'toolbox-hosts.js',
+    'toolbox-options.js',
+    'toolbox.js',
+    'ToolboxProcess.jsm',
+)

@@ -1,0 +1,27 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#include "nsISupports.idl"
+
+%{ C++
+#ifdef XP_WIN
+#undef GetFreeSpace
+#endif
+%}
+
+[scriptable, uuid(63dca204-921f-4e9b-9656-ed66e36856d8)]
+interface nsIDiskSpaceWatcher : nsISupports
+{
+  readonly attribute bool isDiskFull; // True if we are low on disk space.
+  readonly attribute unsigned long long freeSpace; // The free space currently available.
+};
+
+%{ C++
+#define DISKSPACEWATCHER_CONTRACTID "@mozilla.org/toolkit/disk-space-watcher;1"
+
+// The data for this notification will be either 'free' or 'full'.
+#define DISKSPACEWATCHER_OBSERVER_TOPIC "disk-space-watcher"
+#define FREESPACELOW_OBSERVER_TOPIC "free-space-low"
+#define FREESPACEHIGH_OBSERVER_TOPIC "free-space-high"
+%}

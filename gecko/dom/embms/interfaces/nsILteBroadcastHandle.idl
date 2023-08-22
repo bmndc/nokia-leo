@@ -1,0 +1,52 @@
+/* (c) 2017 KAI OS TECHNOLOGIES (HONG KONG) LIMITED All rights reserved. This
+ * file or any portion thereof may not be reproduced or used in any manner
+ * whatsoever without the express written permission of KAI OS TECHNOLOGIES
+ * (HONG KONG) LIMITED. KaiOS is the trademark of KAI OS TECHNOLOGIES (HONG KONG)
+ * LIMITED or its affiliate company and may be registered in some jurisdictions.
+ * All other trademarks are the property of their respective owners.
+ */
+
+#include "nsILteBroadcastManager.idl"
+
+interface nsILteBroadcastHandleName;
+interface nsILteBroadcastListener;
+
+[scriptable, uuid(6e5aff64-3958-4223-8ee6-6a9718be3d1d)]
+interface nsILteBroadcastHandle : nsISupports
+{
+  /**
+   * Handle's identifier.
+   */
+  readonly attribute DOMString handleId;
+
+  /**
+   * Handle's class.
+   */
+  readonly attribute DOMString class;
+
+  /**
+   * Handle's content language.
+   * It could be unavailable due to middleware's capability.
+   */
+  readonly attribute DOMString language;
+
+  /**
+   * To acquire handle's name list.
+   * @param aNames
+   *        name, locale list.
+   * @return aLength
+   *         The length of aNames.
+   */
+  void getNames([array, size_is(aLength)] out nsILteBroadcastHandleName aNames,
+                [retval] out unsigned long aLength);
+
+  /**
+   * Session start time.
+   */
+  readonly attribute unsigned long sessionStartTime;
+
+  /**
+   * Session end time.
+   */
+  readonly attribute unsigned long sessionEndTime;
+};

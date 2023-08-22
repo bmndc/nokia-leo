@@ -1,0 +1,83 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#include "nsISupports.idl"
+
+[scriptable, uuid(a430b612-6cfc-472a-b25e-460b832fc1f6)]
+interface nsITelephonyMessenger : nsISupports
+{
+  /**
+   * To broadcast 'telephony-new-call' system message
+   */
+  void notifyNewCall();
+
+  /**
+   * To broadcast 'telephony-call-ended' system message
+   *
+   * @param aServiceId
+   *        The ID of Service where this info is notified from.
+   * @param aNumber
+   *        The phone number of the call to be ended.
+   * @param aCdmaWaitingNumber
+   *        The CDMA call waiting number to be ended if available.
+   * @param aEmergency
+   *        true if it's a emergency number.
+   * @param aDuration
+   *        The duration of this call.
+   * @param aOutgoing
+   *        true if it's an outgoing call.
+   * @param aHangUpLocal
+   *        true if this call was hung up by the user.
+   * @param aRadioTech
+   *        The radio tech of this call.
+   *        Possible values: nsITelephonyCallInfo.RADIO_TECH_*.
+   * @param aIsRtt
+   *        true if this call was a rtt call.
+   * @param aVerStatus
+   *        The verification status of incoming call.
+   *        Possible values: nsITelephonyCallInfo.VER_*.
+   */
+  void notifyCallEnded(in unsigned long aServiceId,
+                       in DOMString aNumber,
+                       in DOMString aCdmaWaitingNumber,
+                       in boolean aEmergency,
+                       in unsigned long aDuration,
+                       in boolean aOutgoing,
+                       in boolean aHangUpLocal,
+                       in boolean aIsVt,
+                       in unsigned long aRadioTech,
+                       in boolean aIsRtt,
+                       in unsigned long aVerStatus);
+
+  /**
+   * 'ussd-received' system message
+   *
+   * @param aServiceId
+   *        The ID of Service where this info is notified from.
+   * @param aMessage
+   *        USSD Message to be displayed.
+   * @param aSessionEnded
+   *        True if USSD session is ended.
+   */
+  void notifyUssdReceived(in unsigned long aServiceId,
+                          in DOMString aMessage,
+                          in boolean aSessionEnded);
+
+  /**
+   * To broadcast 'telephony-hac-mode-changed' system message.
+   *
+   * @param aEnable
+   *        True if HAC is enabled.
+   */
+  void notifyHacModeChanged(in boolean aEnable);
+
+  /**
+   * To broadcast 'telephony-tty-mode-changed' system message.
+   *
+   * @param aMode
+   *        The new TTY mode of the remote party.
+   *        One of nsITelephonyService::TTY_MODE_*.
+   */
+  void notifyTtyModeChanged(in unsigned short aMode);
+};

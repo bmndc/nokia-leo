@@ -1,0 +1,4 @@
+# Copyright (C) 2016 Kai OS Technologies. All rights reserved.
+
+component {bd541cf0-9b3f-11e6-bdf4-0800200c9a66} geocoding.js
+contract @kaiostech.com/toolkit/geo-coding;1 {bd541cf0-9b3f-11e6-bdf4-0800200c9a66}

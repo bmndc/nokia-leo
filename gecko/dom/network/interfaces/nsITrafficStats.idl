@@ -1,0 +1,33 @@
+/* (c) 2017 KAI OS TECHNOLOGIES (HONG KONG) LIMITED All rights reserved. This
+ * file or any portion thereof may not be reproduced or used in any manner
+ * whatsoever without the express written permission of KAI OS TECHNOLOGIES
+ * (HONG KONG) LIMITED. KaiOS is the trademark of KAI OS TECHNOLOGIES (HONG KONG)
+ * LIMITED or its affiliate company and may be registered in some jurisdictions.
+ * All other trademarks are the property of their respective owners.
+ */
+
+#include "nsISupports.idl"
+
+%{C++
+#define TRAFFIC_STATS_CID \
+{ 0x32d21407, 0xb2e1, 0x43ef, \
+  { 0x9e, 0xf7, 0xcd, 0x6f, 0xee, 0x8f, 0x7a, 0x4a } }
+#define TRAFFIC_STATS_CONTRACTID "@kaiostech.com/trafficstats;1"
+%}
+
+[scriptable, uuid(68690ca3-e1cb-48cf-984a-f5ace29be403)]
+interface nsITrafficStats : nsISupports
+{
+
+    const long RX_BYTES       = 0;
+    const long RX_PACKETS     = 1;
+    const long TX_BYTES       = 2;
+    const long TX_PACKETS     = 3;
+    const long TCP_TX_PACKETS = 4;
+    const long TCP_RX_PACKETS = 5;
+
+    /**
+     * Returns current interface packet count.
+     */
+    uint64_t getCurrentPacket(in ACString aInterfaceName, in long aType);
+};

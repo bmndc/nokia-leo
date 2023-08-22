@@ -1,0 +1,27 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+GAIA_PATH := gaia/profile
+# As simulator_touch doesn't include gaia.mk and use PRODUCT_COPY_FILES
+# during compiling process, "gaia-icons.ttf" should be copy to "dist/bin
+# /fonts" manually here for simulator_touch.
+GAIA_ICONS_PATH := $(GAIADIR)/shared/resources/fonts/gaia-icons.ttf
+
+GENERATED_DIRS += $(DIST)/bin/$(GAIA_PATH)
+
+include $(topsrcdir)/config/rules.mk
+
+os_type := $(shell uname)
+
+ifeq ($(os_type), Linux)
+GAIA_ICONS_TARGET_PATH := $(DIST)/bin/fonts/
+else ifeq ($(os_type), Darwin)
+GAIA_ICONS_TARGET_PATH := $(B2G_DIR)/objdir-gecko/dist/kaiosrt/Kaiosrt.app/Contents/Resources/fonts
+endif
+
+libs::
+	+$(MAKE) -j1 -C $(GAIADIR) clean
+	+$(MAKE) -j1 -C $(GAIADIR) profile
+	cp $(GAIA_ICONS_PATH) $(GAIA_ICONS_TARGET_PATH)
+	(cd $(GAIADIR)/profile && tar $(TAR_CREATE_FLAGS) - .) | (cd $(ABS_DIST)/bin/$(GAIA_PATH) && tar -xf -)

@@ -1,0 +1,123 @@
+# -*- Mode: python; c-basic-offset: 4; indent-tabs-mode: nil; tab-width: 40 -*-
+# vim: set filetype=python:
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+# These component dirs are built for all apps (including suite)
+if CONFIG['MOZ_ENABLE_XREMOTE']:
+    DIRS += ['remote']
+
+DIRS += [
+    'aboutcache',
+    'aboutcheckerboard',
+    'aboutmemory',
+    'aboutperformance',
+    'addoncompat',
+    'alerts',
+    'apppicker',
+    'asyncshutdown',
+    'commandlines',
+    'console',
+    'contentprefs',
+    'cookie',
+    'crashmonitor',
+    'diskspacewatcher',
+    'downloads',
+    'exthelper',
+    'filepicker',
+    'filewatcher',
+    'finalizationwitness',
+    'formautofill',
+    'find',
+    'geocoding',
+    'gfx',
+    'jsdownloads',
+    'lz4',
+    'narrate',
+    'mediasniffer',
+    'microformats',
+    'osfile',
+    'parentalcontrols',
+    'perf',
+    'perfmonitoring',
+    'places',
+    'privatebrowsing',
+    'promiseworker',
+    'prompts',
+    'protobuf',
+    'reader',
+    'remotebrowserutils',
+    'reflect',
+    'securityreporter',
+    'sqlite',
+    'startup',
+    'statusfilter',
+    'telemetry',
+    'thumbnails',
+    'timermanager',
+    'tooltiptext',
+    'typeaheadfind',
+    'utils',
+    'urlformatter',
+    'viewconfig',
+    'workerloader',
+    'xulstore'
+]
+
+if CONFIG['MOZ_BUILD_APP'] != 'mobile/android':
+    DIRS += ['viewsource'];
+
+    if CONFIG['NS_PRINTING']:
+        DIRS += ['printing']
+
+if CONFIG['MOZ_CRASHREPORTER']:
+    DIRS += ['crashes']
+
+if CONFIG['MOZ_SOCIAL']:
+    DIRS += ['social']
+
+if CONFIG['BUILD_CTYPES']:
+    DIRS += ['ctypes']
+
+if CONFIG['MOZ_FEEDS']:
+    DIRS += ['feeds']
+
+if CONFIG['MOZ_HELP_VIEWER']:
+    DIRS += ['help']
+
+if CONFIG['MOZ_XUL']:
+    DIRS += ['autocomplete']
+
+if CONFIG['MOZ_XUL'] and CONFIG['MOZ_WIDGET_TOOLKIT'] != "gonk" and CONFIG['FXOS_SIMULATOR']:
+    DIRS += [
+        'passwordmgr',
+        'satchel',
+    ]
+
+if CONFIG['MOZ_TOOLKIT_SEARCH']:
+    DIRS += ['search']
+
+if CONFIG['MOZ_URL_CLASSIFIER']:
+    DIRS += ['url-classifier']
+
+DIRS += ['captivedetect']
+
+if not CONFIG['MOZ_B2G'] or CONFIG['MOZ_MULET']:
+    DIRS += ['extensions']
+
+if CONFIG['MOZ_WIDGET_TOOLKIT'] != "gonk" and CONFIG['MOZ_WIDGET_TOOLKIT'] != 'android':
+    DIRS += ['terminator']
+
+# Firefox-e10s uses a singleton of child process to listen console logs and
+# forward them to parent. Disable it on Gonk platform since it's built for e10s.
+if CONFIG['MOZ_WIDGET_TOOLKIT'] != 'gonk':
+    DIRS += ['processsingleton'];
+
+DIRS += ['build']
+
+if CONFIG['MOZ_WIDGET_TOOLKIT'] != 'android':
+    EXTRA_COMPONENTS += [
+        'nsDefaultCLH.js',
+        'nsDefaultCLH.manifest',
+    ]

@@ -1,0 +1,50 @@
+/* vim:set ts=2 sw=2 sts=2 et: */
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import "resource://devtools/client/shared/components/reps/reps.css";
+@import "resource://devtools/client/shared/components/tree/tree-view.css";
+
+@import "general.css";
+@import "search-box.css";
+@import "tabs.css";
+@import "toolbar.css";
+@import "json-panel.css";
+@import "text-panel.css";
+@import "headers-panel.css";
+
+
+/******************************************************************************/
+/* Panel Content */
+
+.panelContent {
+  overflow-y: auto;
+  font-size: 11px;
+  font-family: var(--monospace-font-family);
+}
+
+/* The tree takes the entire horizontal space within the panel content. */
+.panelContent .treeTable {
+  width: 100%;
+}
+
+/* Make sure there is a little space between label and value columns. */
+.panelContent .treeTable .treeLabelCell {
+  padding-right: 17px;
+}
+
+/******************************************************************************/
+/* Theme Firebug */
+
+.theme-firebug .panelContent {
+  height: calc(100% - 30px);
+}
+
+/******************************************************************************/
+/* Theme Light & Theme Dark*/
+
+.theme-dark .panelContent,
+.theme-light .panelContent {
+  height: calc(100% - 27px);
+}
