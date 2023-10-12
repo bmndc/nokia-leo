@@ -28,7 +28,7 @@
 </table>
 </details>
 
-<img width=320 style="float:right" src="assets/nokia_6300_4G-emotional-Range.png">
+<img width=335 align="right" src="assets/nokia_6300_4G-emotional-Range.png">
 
 ### Table of Contents
 - [Don’t buy a counterfeit](#dont-buy-a-counterfeit)
@@ -103,7 +103,7 @@ Don't buy the NA variant of 6300 4G unless you know what you're doing. Seek the 
 - **[MAJOR]** A-GPS failing to lock your current position on 4G LTE, possibly due to interferences with TDD bands ⇒ workaround: change your A-GPS APN settings under *Settings, Mobile network & data, APN settings* or switch to 2G/3G for the phone to retrieve GPS information properly (*Settings, Mobile network & data, Carrier - SIMx, Network type, 3G/2G*). Might be major issue for those in the US where 2G/3G has been shut down.
 - **[MAJOR]** B2G takes up large chunk of memory, and RAM optimizations leading to the phone joining Doze deep sleep immediately and aggressive task killing after a few minutes, making opening or exiting apps horribly slow, and notifications—including incoming WhatsApp calls—being delayed.
   - Wi-Fi hotspot feature will stop also transmitting data packets with your other devices when you put the phone into sleep.
-  - *This can be mitigated by disabling the Low Memory Killer module on boot, which we'll mention in [Manual patching with Android Image Kitchen](#manual-patching-with-android-image-kitchen) below.*
+  - *This can be mitigated by disabling the Low Memory Killer module on /boot, which we'll mention in [Manual patching with Android Image Kitchen](#manual-patching-with-android-image-kitchen) below.*
 - Normally, you can wake up the phone from sleep by either pressing the Power, Volume up or Volume down buttons, regardless of whether keyguard is in place or not. On this phone there are no volume buttons, but some of their functions, such as triggering boot modes or waking the phone up, are mapped to * and # keys respectively. This can be problematic as those keys are located close to the bottom edge of the phone and can be randomly mashed if you store the phone in your front pockets, leading to unintended screenshots.
 - If you forgot your lockscreen passcode (not SIM or Anti-Theft ones), you can bypass it by holding down the top Power button, then select *Memory Cleaner* and *Deep Memory Cleaning*.
 - *According to reports from GSMArena and Reddit, some call and text entries may not be registered in the log. I've not been able to replicate those during my usage however, could be related to other mentioned issues.*
@@ -115,8 +115,7 @@ Don't buy the NA variant of 6300 4G unless you know what you're doing. Seek the 
   - No built-in Widevine DRM decoders, which means the phone is NOT capable of playing DRM-protected content from e.g. Spotify
 - **[MAJOR]** Some built-in apps, such as Call logs, Contacts or Music, are written in a way that is performance-intensive and not optimized for the phone, causing slow rendering and system lags if you store a large number of contacts (technically infinite but 100 recommended), call logs (max 40), music files or other items in a list. 
   - *Performance issues has been addressed on later versions, for now you should opt for alternatives such as [arma7x's K-Music](https://github.com/arma7x/kaimusic) in KaiStore if possible.*
-- **[MAJOR]** Sending text messages don't automatically convert to MMS in group chats. You'll have to add a message subject or file attachment before sending to manually do so, otherwise your message will be sent separately to each individual in the thread. Receiving works flawlessly.
-  - *Group messaging over MMS has been properly implemented as a feature on later versions.*
+- **[MAJOR]** Sending text messages don't automatically convert to MMS in group chats. You'll have to add a message subject or file attachment before sending to manually do so, otherwise your message will be sent separately to each individual in the thread. Receiving works flawlessly. *Group messaging over MMS has been properly implemented as a feature on later versions.*
 - **[MAJOR]** Alarms can be delayed, unable to go off or go off unexpectedly if the Clock app is killed. Before going to sleep, make sure to open the Clock app and lock the phone without pressing the End call key or closing the app.
 - Predictive typing mode doesn't last between inputs, meaning if you switch between input boxes, it'll return to the normal T9 mode.
 - You cannot change message notification tone or alarm tone on the phone outside the defaults provided. This is because both are not managed by the system, but by the Messages and Clock app themselves.
@@ -145,7 +144,6 @@ Don't buy the NA variant of 6300 4G unless you know what you're doing. Seek the 
   - Throughout the manual speaker test, you'll hear some English and Chinese dialog from a female speaker, which transcribes to: *Hello. Please dial 110 for police, 119 for fire, 120 for ambulance, 122 for traffic accidents, and dial area code before 112 for six full obstacles.* [?]
 
 ### Codes that don't work
-
 Most of these codes requires `userdebug` or `eng` versions to work.
 - `*#07#`: Check the `ro.sar.enabled` property, if enabled check the current SAR level and display SAR-related health and safety information.
 - `*#1219#`: Clear all userspace customizations, presumably for store display.
@@ -167,16 +165,19 @@ Most of these codes requires `userdebug` or `eng` versions to work.
 <details markdown="block">
   <summary>What the heck is EDL mode?</summary>
 
+---
 **Qualcomm Emergency Download mode**, commonly known as EDL mode, is a special engineering interface implemented on devices with Qualcomm chipsets. It lets you do special operations on the phone that only the device manufacturer can do, such as unlocking the bootloader, read and write firmwares on the phone's filesystem or recover from being a dead paperweight. Unlike bootloader or Fastboot mode, system files needed by the EDL mode resides on a separate 'primary bootloader' that aren't affected by software modifications. 
 
 Aleph Security has a deep-dive blog post into exploiting the nature of EDL mode on Qualcomm-chipset devices that you can read [here](https://alephsecurity.com/2018/01/22/qualcomm-edl-1).
 
 Booting into this mode, the phone's screen will briefly show the 'enabled by KaiOS' logo, then turn almost black as if it's off, but in fact it's still listening to commands over Qualcomm's proprietary protocol called Sahara (or Firehose on newer devices). With a [suitable digitally-signed programmer in MBN/ELF file format](https://edl.bananahackers.net) and some instruction-bundled tools, the most popular one being QFIL (Qualcomm Flash Image Loader), one can send commands from a computer to the phone over USB.
+
+---
 </details>
 
 You can also **force reboot** the phone by holding the top Power button and the # key at any time.
 
-EDL programmer for the international version of this phone (not TA-1324) can be found on BananaHackers' [EDL archive site](https://edl.bananahackers.net/loaders/8k.mbn) with hardware ID 0x009600e100420029 (a copy is available [here](../main/8k.mbn)). The NA version of this phone has been signed with a different PK_HASH and needs a different firehose loader which we currently don't have in archive.
+EDL programmer for the international version of this phone (not TA-1324) can be found on BananaHackers' [EDL archive site](https://edl.bananahackers.net/loaders/8k.mbn) with hardware ID 0x009600e100420029 (a copy is available here). The NA version of this phone has been signed with a different PK_HASH and needs a different firehose loader which we currently don't have in archive.
 
 ### UART debugging testpoint
 As discovered by atipls on Discord, on the mainboard of the 6300 4G, there are 3 UART testing points: RX, TX and GND just above the SIM2 slot. Shorting TX and GND takes you to Fastboot and Linux terminal interface.
@@ -281,8 +282,8 @@ brew install python android-platform-tools libusb && pip3 install pyusb pyserial
 
 2. On Windows 10/11, by default, typing the `python` or `python3` aliases within Command Prompt will call the Microsoft Store version of Python, which we don't have installed. To override this default into calling the local version of Python, head over to Settings > Apps > Apps & features > App execution aliases and toggle off both App Installer (python.exe) and App Installer (python3.exe).
 
-<img width=612 alt="Screenshot of the Apps & features page in Windows 10's Settings app, of which the App execution aliases link is located under the Apps & features section" src="assets/settings_alias.png">
-<img width=374 alt="Screenshot of the App execution alias page, where the toggles for App Installer (python.exe) and App Installer (python3.exe) are both turned off. Description says Apps can declare a name used to run the app from a command prompt. If multiple apps use the same name, choose which one to use" src="assets/alias_off.png">
+<img alt="Screenshot of the Apps & features page in Windows 10's Settings app, of which the App execution aliases link is located under the Apps & features section" src="assets/settings_alias.png">
+<img alt="Screenshot of the App execution alias page, where the toggles for App Installer (python.exe) and App Installer (python3.exe) are both turned off. Description says Apps can declare a name used to run the app from a command prompt. If multiple apps use the same name, choose which one to use" src="assets/alias_off.png">
 
 3. Open Command Prompt with administrator privileges and run this command:
 ```
