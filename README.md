@@ -29,7 +29,7 @@
 </details>
 
 <p align="center">
-  <img style="width:60vw" src="assets/nokia_6300_4G-emotional-Range.png">
+  <img width="400" src="assets/nokia_6300_4G-emotional-Range.png">
 </p>
 
 **Table of Contents**
@@ -124,9 +124,9 @@ Don't buy the NA variant of 6300 4G unless you know what you're doing. Seek the 
   - Speaking of built-in Calendar app, if you manage to opt for syncing your Google account with the phone, only the calendar *with your email address as its name* will sync.
  
 ### WhatsApp-specific
-- 8MB download/5MB upload limit: This is to avoid 'out of memory' errors with the nature of WhatsApp's end-to-end encryption. All things sent through the app's servers—including photos and videos—are encrypted on device, and to decrypt them bit-by-bit would take huge chunks of memory, which isn't suitable for KaiOS devices having hardware as limited as 256MB of RAM.
-- Pairing account with the WhatsApp Web interface or desktop applications is NOT possible, due to KaiOS devices' limitations on background processes and battery life, which prevents the feature from syncing decryption keys and mirroring messages & calls from the phone.
-  - On a related note, you cannot sign into another device, pair with those interfaces and then sign into the KaiOS version of WhatsApp. Attempting to do so will result in the renewal of the decryption keys and all other devices being forced to log off automatically.
+- 8MB download/5MB upload limit: This is to avoid 'out of memory' errors with the nature of WhatsApp's end-to-end encryption. All things sent through the app's servers—including photos and videos—are encrypted on device. Decrypt them bit-by-bit would use too much memory for KaiOS devices, having only as much as 512MB of RAM.
+- Pairing account with the WhatsApp Web interface or desktop applications is NOT possible. This is because KaiOS cannot hold background processes or handle battery life well enough to sync decryption keys and mirrors messages & calls from the phone.
+  - Note that you cannot sign into another device, pair with WhatsApp Web and then sign into WhatsApp on KaiOS. This will cause the decryption keys to be renewed and all other devices to be logged off automatically.
 
 ## Secret codes
 *Tip: You can save these codes as contacts for quick dialing later. When the phone suggests a saved code, you'll have to press Call to activate the code's function.*
