@@ -28,11 +28,13 @@
 </table>
 </details>
 
-<img width=335 align="right" src="assets/nokia_6300_4G-emotional-Range.png">
+<p align="center">
+  <img style="width:60vw" src="assets/nokia_6300_4G-emotional-Range.png">
+</p>
 
-### Table of Contents
+**Table of Contents**
 - [Don’t buy a counterfeit](#dont-buy-a-counterfeit)
-  - [Differences between NA and international variants](#differences-between-na-and-international-variants)
+- [Differences between NA and international variants](#differences-between-na-and-international-variants)
 - [Tips and tricks](#tips-and-tricks)
 - [Known issues](#known-issues)
   - [KaiOS-specific](#kaios-specific)
@@ -55,45 +57,40 @@
 - [External links](#external-links)
 
 ## Don't buy a counterfeit
-**BEWARE OF COUNTERFEIT DEVICES!** Many KaiOS devices, such as the Nokia 8110 4G, 2720 Flip and 6300 4G are being offered at numerous tech stores and online sites for amazingly low prices; those turn out to be counterfeits and don't bring the experiences that people expected, and you wouldn't be able to get a refund as the store gets away with it.
+A lot of fake KaiOS phones, like the Nokia 8110 4G, 2720 Flip and 6300 4G are sold at many tech shops and online platforms for amazingly cheap prices; these are not the real ones, and if you were to buy them you wouldn't be able to get a refund.
 
-To spot out the counterfeits:
-- Brand-new KaiOS devices, even after their lifespan on the shelf, DON'T cost less than 60% of their original prices.
-- HMD/Nokia Mobile DON'T sell any of their KaiOS devices in 2G only. KaiOS devices are required to have at least 3G, as 2G is being phased out in many places.
-- Different packaging: 8110 4G and 2720 Flip comes in partially transparent plastic boxes with flaps on top and bottom, while 6300 4G comes in hard cardboard box. Advertising prints on the box may have missing features, bad quality printing, weird grammar or letter spacing.
-- Terrible build quality when comparing side-by-side. [To quote u/cannotelaborate on Reddit](https://www.reddit.com/r/KaiOS/comments/xglkr7/well_darn_it_i_just_received_a_counterfeit_nokia):
-  - Build quality is horrific, the battery and SIM cards barely fit in [their trays].
-  - It takes only like 10 seconds to boot, shows KaiOS logo briefly, then plays the old Nokia chime.
-  - Speaker quality is awful.
-  - The buttons' faces are low quality and aren't flush with the overall surface, some of them are crooked.
-- Remove the battery and look for the printed information on the sticker, i.e. if the CODE is 23BTS70**VN**00, it is intended to sold in Vietnam only. You can also look for it in the OS by dialing *#0000#.
-- If the user interface looks off with weird alignments and margins between elements, that's also a clue.
-- Under all circumstances, all KaiOS devices should have services like KaiStore installed by default.
-- Browser is NOT Opera Mini 4.4. KaiOS does NOT run Java apps or MRE apps.
-- If you have access to a computer, try connecting the phone to it and see if the actual phone storage is significantly less than advertised.
+Some signs that can indicate a fake KaiOS phone are:
+- Price: Brand-new KaiOS phones, even after their lifespan on the shelf, don't cost less than two-thirds of their retail prices.
+- Network: All KaiOS phones from HMD/Nokia Mobile have 4G LTE support. KaiOS devices are required to have at least 3G, as 2G is being phased out.
+- Packaging: 8110 4G and 2720 Flip comes in semi-clear plastic boxes with flaps on both ends, while the 6300 4G comes in a solid cardboard box. Prints on the box may lack features, poor printing quality, odd grammar or spacing.
+- Terrible build quality when comparing side-by-side. [To quote u/cannotelaborate on Reddit](https://www.reddit.com/r/KaiOS/comments/xglkr7/well_darn_it_i_just_received_a_counterfeit_nokia): *Build quality is horrific, the battery and SIM cards barely fit in [their trays]. It takes only like 10 seconds to boot, shows KaiOS logo briefly, then plays the old Nokia chime. Speaker quality is awful. The buttons' faces are low quality and aren't flush with the overall surface, some of them are crooked.*
+- Check the country code on the information sticker under the battery. For example, if the CODE is 23BTS70**VN**00, the phone is intended for Vietnam only. You can also dial *#0000# in the OS to see the code.
+- User interface: Elements are not aligned or spaced properly. KaiStore and related services should always be present on any KaiOS device.
+- Apps: KaiOS does not support Java or MRE apps, and does not have Opera Mini 4.4.
+- Storage: Connect the phone to a computer and see if the actual storage is much lower than the advertised one.
 
-Remember, **only buy from trusted, reputable sources**, even if they offer higher prices. That higher cost usually guarantees that you're buying a genuine device.
+Remember, **only buy from trusted, reputable sources**, even if they charge more. That extra bit of price usually guarantees that you're getting a real device.
 
-### Differences between NA and international variants
-"Buying Western-customized products will always give you the best quality possible" is unfortunately unwise when it comes to consumer electronic devices, including mobile phones, and the 6300 4G isn't an exception. If you're planning to buy the TA-1324 variant of this phone, you should expect:
-- No cellular access: From the dawn of mobile phone technologies, for national security reasons, the US has been using different cellular technologies from the rest of the world with little to no compatibility. With 4G LTE, the US variant receives different bands with little overlaps on international variants' bands, primarily band 7 (see the device specification table above). As a result, without roaming, making or receiving calls and texts on the US variant outside the country becomes much difficult.
-- Restricted device settings, notably device languages and T9 languages, as the phone software is customized to meet the FCC's regulations. On the NA 6300 4G, the only languages available are English (US), español (US), Français (CA) and Português (BR). 
-- This also means that device security is more tightened: NA 6300 4G currently cannot be rooted due to different hash signature used for EDL handshake (see details below).
+## Differences between NA and international variants
+"Buying Western-customized products will always give you the best quality possible" is unwise when it comes to consumer electronics, including mobile phones, and the 6300 4G is no exception. When buying the TA-1324 variant of this phone, you should expect:
+- No cellular access: From the dawn of mobile phone technologies, for national security, the US has been using different cellular technologies from the rest of the world with little to no compatibility. On 4G LTE, the US variant receives different bands with little overlaps on international variants' bands, primarily band 7 (see the device specification table above). This means that you will have trouble making or receiving calls and texts on the US variant outside the country without roaming.
+- Restricted device settings, notably device and T9 languages, as the phone software has to follow the FCC's regulations. On the NA 6300 4G, the only languages available are English (US), español (US), Français (CA) and Português (BR). 
+- Tighten device security: NA 6300 4G currently cannot be rooted due to different hash signature used for EDL handshake (see [Sideloading and debugging third-party applications](#sideloading-and-debugging-third-party-applications) below).
 
-Don't buy the NA variant of 6300 4G unless you know what you're doing. Seek the availability of the phone in the nearest place or neighbour countries from where you are.
+Don't buy the NA variant of 6300 4G unless you know what you're doing. Seek the availability of the phone in the closest place or nearby countries to where you are.
 
 ## Tips and tricks
-- To take a screenshot, press both * and # keys simultaneously.
-- KaiOS accounts are NOT mandatory for the phone' operations or downloading apps from KaiStore, but they can be set up under *Settings, Accounts* if you need them for Anti-Theft features.
-- If you're bothered by KaiStore's advertising notifications, turn them off in *Settings, Personalization, Notices, App notices, Store, Allow Notices*, and *Store, Options, Settings & Account, Show rich content, Do not show*.
-  - To disable KaiAds altogether, put `ssp.kaiads.com` in your Wi-Fi routers' blacklist or [the system's `hosts` file](https://ivan-hc.github.io/bananahackers/ADBlock.html). Note that this may affect KaiStore's ability to install apps such as WhatsApp.
-- Speed Dial is a feature where you can hold down a number key between 2–9 on the homescreen to quickly call an assigned contact. Hold down an unassigned number on the homescreen to set up, or go to *Contacts, Options, Settings, Set Speed Dial Contacts*. You can also change your voicemail number there.
+- You can capture a screenshot by pressing both * and # keys at the same time.
+- You don’t need a KaiOS account to use your phone or download apps from KaiStore, but you can create one in Settings, Accounts if you want to use Anti-Theft features.
+- To stop getting ad notifications from KaiStore, go to Settings, Personalization, Notices, App notices, Store and turn off Allow Notices. Then go to Store, Options, Settings & Account, Show rich content and select Do not show.
+  - To block KaiAds altogether, add `ssp.kaiads.com` in your Wi-Fi routers' blacklist or [the system's `hosts` file](https://ivan-hc.github.io/bananahackers/ADBlock.html). Be aware that this might prevent you from installing apps from KaiStore like WhatsApp.
+- Speed Dial lets you call a contact quickly by pressing and holding a number key from 2 to 9 on the homescreen. To assign a contact to a number key, press and hold an empty key on the homescreen or go to Contacts, Options, Settings, Set Speed Dial Contacts. You can also change your voicemail number in the same menu.
   - *ICE (In Case of Emergency) Contacts, however, is an useless feature on this phone, since there's basically no way to activate it. On the 2720 Flip, you could hold or double-press the side button to trigger SOS Call.*
-- You can set a GIF as your homescreen wallpaper. It's not recommended as it'll speed up the battery drain.
-- If you don't like the default 3-by-3 grid view, *Options, List view/Single view* are available, and you can move the items around.
-- This phone includes a screen reader feature that's hidden by default, possibly because some third-party apps did not label their buttons correctly. To activate the hidden Readout feature, open Browser, go to cyan-2048.github.io/kaios_scripts, use the D-Pad to move the cursor and select *Screen Reader*.
-- There's also a hidden call recording feature that has been made available on KaiOS 2.5.2 and later. To toggle the feature, connect the phone to a WebIDE session (see [Sideloading and debugging third-party applications](#sideloading-and-debugging-third-party-applications)), then open *Device Settings* in the right sidebar, search for `callrecording.mode` and set it to either `on` (press D-Pad Left to record), `auto` or `off`.
-  - Alternatively you can sideload [CrossTweak](https://gitlab.com/suborg/crosstweak) and toggle call recording feature by pressing 3.
+- You can use a GIF as your homescreen wallpaper, but it will drain your battery faster.
+- If you prefer a different layout than the default 3-by-3 grid view, you can choose Options, List view/Single view and rearrange the items as you like.
+- This phone has a hidden screen reader feature that might not work well with some third-party apps that have unlabeled buttons. To turn on the hidden Readout feature, open Browser, go to cyan-2048.github.io/kaios_scripts, use D-Pad to move the cursor and select *Screen Reader*.
+- There's also a hidden call recording feature that has been made available on KaiOS 2.5.2 and later. To toggle, connect the phone to a WebIDE session (see [Sideloading and debugging third-party applications](#sideloading-and-debugging-third-party-applications)), then open *Device Settings* in the right sidebar, search for `callrecording.mode` and set it to either `on` (press D-Pad Left to record), `auto` or `off`.
+  - Alternatively you can sideload [CrossTweak](https://gitlab.com/suborg/crosstweak) and press 3 to toggle call recording.
 
 ## Known issues
 - The multiple clips holding the back panel can be stressed and quickly broken. Speaker is decent, but muffled on strong bass. *For tactile responses on keypad presses, turn on Keypad vibration under Settings, Device, Accessibility.*
@@ -136,7 +133,7 @@ Don't buy the NA variant of 6300 4G unless you know what you're doing. Seek the 
 
 - `*#*#33284#*#*`: Toggle debugging mode, allowing the phone to be accessed with ADB and DevTools. A bug icon will appear in the status bar letting you know debugging mode is on. This can also be turned on under Settings, Device, Developer, Debugger, ADB and DevTools.
 - `*#06#`: Display the hidden International Mobile Equipment Identity numbers or IMEI(s) to uniquely identify a specific cell phone on GSM networks. Do not show them to anyone else: they're crucial for calling functions on the phone.
-- `*#0606#` (TA-1324 only): Display the Mobile Equipment Identifier numbers or MEID(s) to uniquely identify a specific cell phone on CDMA networks. On international models the MEIDs would be all zeroes, and thus this secret code doesn't apply.
+- `*#0606#` (TA-1324 only): Display the Mobile Equipment Identifier numbers or MEID(s) to uniquely identify a specific cell phone on CDMA networks. On international variants the MEIDs would be all zeroes, and thus this secret code doesn't apply.
 - `*#0000#`: Display device information, such as firmware version, build date, model number, variant and CUID.
 - `*#33#` (call): Check the [Call barring](https://www.communityphone.org/blogs/call-barring) service status from carrier for blocking or whitelisting calls, whether incoming or outgoing, domestic or international. Requires a 4-digit passcode to use. To toggle, go to Settings, Network & Connectivity, Calling, Call barring.
 - `*#43#` (call): Check the [Call waiting](https://en.wikipedia.org/wiki/Call_waiting) service status from carrier. To toggle, go to Settings, Network & Connectivity, Calling, Call waiting.
