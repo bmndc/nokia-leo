@@ -1,5 +1,3 @@
-# Nokia 6300 4G (nokia-leo)
-
 <details markdown="block">
   <summary dir="rtl">View device specification table</summary>
 <table>
