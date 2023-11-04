@@ -53,6 +53,8 @@ On devices with dedicated volume buttons, you can quickly toggle on/off this fea
 
 <button id="readout">Launch Readout menu</button>
 
+*For list of all hidden settings accessible via mozActivity, check out [Cyan's dedicated website](https://cyan-2048.github.io/kaios_scripts).*
+
 <script>
     document.addEventListener("click",
         (e) => {
