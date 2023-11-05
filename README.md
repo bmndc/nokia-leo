@@ -34,7 +34,7 @@
 
 **Table of Contents**
 - [Don’t buy a counterfeit](#dont-buy-a-counterfeit)
-- [Differences between US and international variants](#differences-between-na-and-international-variants)
+- [Differences between US and international variants](#differences-between-us-and-international-variants)
 - [Tips and tricks](#tips-and-tricks)
 - [Known issues](#known-issues)
   - [KaiOS-specific](#kaios-specific)
@@ -43,7 +43,7 @@
 - [Special boot modes](#special-boot-modes)
   - [UART debugging testpoint](#uart-debugging-testpoint)
 - [Sideloading and debugging third-party applications](#sideloading-and-debugging-third-party-applications)
-- [ROOT: Boot partition modifying (non-US only)](#root-boot-partition-modifying-non-na-only)
+- [ROOT: Boot partition modifying (non-US only)](#root-boot-partition-modifying-non-us-only)
   - [What we’ll need](#what-well-need)
   - [Part 1: Set up environment for EDL tools](#part-1-set-up-environment-for-edl-tools)
   - [Part 2: Obtaining the boot partition](#part-2-obtaining-the-boot-partition)
