@@ -206,7 +206,7 @@ The guide below is based on the main guide from BananaHackers website, but has b
 - an international non-US version of Nokia 6300 4G (not TA-1324) or Nokia 8000 4G, Nokia 2720 Flip or Nokia 800 Tough;
 - an USB cable capable of data transferring (EDL cables will also do);
 - an Internet connection to download the tools needed;
-- a somewhat-working firehose programmer MBN file for the [8000 4G and 6300 4G](https://edl.bananahackers.net/loader/8k.mbn), [2720 Flip](https://edl.bananahackers.net/loader/2720.mbn) or [800 Tough](https://edl.bananahackers.net/loader/800t.mbn);
+- a somewhat-working firehose programmer MBN file for the [8000 4G and 6300 4G](https://edl.bananahackers.net/loaders/8k.mbn), [2720 Flip](https://edl.bananahackers.net/loaders/2720.mbn) or [800 Tough](https://edl.bananahackers.net/loaders/800t.mbn);
 - an [image file of Gerda Recovery](https://cloud.disroot.org/s/3ojAfcF6J2jQrRg/download) ([backup](https://drive.google.com/open?id=1ot9rQDTYON8mZu57YWDy52brEhK3-PGh)) for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from the recovery mode and get the boot partition from there (not needed for 2720 Flip/800 Tough);
 - a EDL tools package to read and write system partitions in low-level access (in this guide we'll be using [bkerler's edl.py v3.1](https://github.com/bkerler/edl/releases/tag/3.1) for 8000 4G/6300 4G, [andybalholm's edl](https://github.com/andybalholm/edl) for 2720 Flip/800 Tough)
 
