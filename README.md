@@ -1,6 +1,6 @@
 <details markdown="block">
   <summary dir="rtl">View device specification table</summary>
-<table align="right" style="font-size:small">
+<table style="font-size:small">
   <thead><tr><th colspan="2">Nokia 6300 4G (nokia-leo)</th></tr></thead>
   <tbody>
     <tr><td>Released</td><td align="right">13 November 2020</td></tr>
@@ -27,10 +27,7 @@
   </tbody>
 </table>
 </details>
-
-<p align="center">
-  <img width="400" src="assets/nokia_6300_4G-emotional-Range.png">
-</p>
+<img width="400" align="right" src="assets/nokia_6300_4G-emotional-Range.png">
 
 **Table of Contents**
 - [Don’t buy a counterfeit](#dont-buy-a-counterfeit)
