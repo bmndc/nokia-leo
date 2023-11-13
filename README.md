@@ -265,6 +265,7 @@ Additionally, if you have issue with device access:
 
 #### macOS
 1. Follow the instructions to install Homebrew on [its homepage](https://brew.sh). Basically just open Terminal and copy the long streak of code shown on the page, and type your password when prompted.
+
 2. While you're in Terminal, type this into the command-line:
 ```
 brew install python android-platform-tools libusb && pip3 install pyusb pyserial capstone keystone-engine docopt
@@ -273,65 +274,77 @@ brew install python android-platform-tools libusb && pip3 install pyusb pyserial
   - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
   - From the turned off state, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
 
+In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
+
 #### Windows
-1. Open the Python installer and proceed with installation. Remember to tick the box next to "Add python.exe to PATH". This would make Python able to be called everywhere in the command-line instead of specifically pointing to its folder, which the next part of the guide won't cover on.
+1. Head over to [Python's official download page for Windows](https://www.python.org/downloads/windows/) and download the correct installer for your architecture, or download the latest version of Python from [Microsoft Store](https://apps.microsoft.com/search/publisher?name=Python+Software+Foundation). If you're downloading from Microsoft Store, skip to step 4.
+
+2. Proceed with installing Python as usual. If you choose to customize your installation, include `pip`. Don't forget to tick the box next to "Add Python to PATH" to add Python as a global [environment variable](https://en.wikipedia.org/wiki/Environment_variable), otherwise you'll have a hard time using Python to run scripts later on.
+
 ![Screenshot of an installation window for Python 3.9 showing two options, 'Install Now' and 'Customize installation', with the checkbox for 'Add Python 3.9 to PATH' being selected](assets/python.png)
 
-2. On Windows 10/11, by default, typing the `python` or `python3` aliases within Command Prompt will call the Microsoft Store version of Python, which we don't have installed. To override this default into calling the local version of Python, head over to Settings > Apps > Apps & features > App execution aliases and toggle off both App Installer (python.exe) and App Installer (python3.exe).
+3. On Windows 10/11, typing `python` or `python3` within Command Prompt/Windows Terminal will run the Microsoft Store version of Python. To override this default into running the locally installed version, head over to Settings, Apps, Apps & features, App execution aliases and toggle off both App Installer (python.exe) and App Installer (python3.exe).
+
 <img alt="Screenshot of the Apps & features page in Windows 10's Settings app, of which the App execution aliases link is located under the Apps & features section" src="assets/settings_alias.png">
 <img alt="Screenshot of the App execution alias page, where the toggles for App Installer (python.exe) and App Installer (python3.exe) are both turned off. Description says Apps can declare a name used to run the app from a command prompt. If multiple apps use the same name, choose which one to use" src="assets/alias_off.png">
 
-3. Open Command Prompt with administrator privileges and run this command:
+4. Open Command Prompt/Windows Terminal with administrator privileges and run this command to install the required dependencies for EDL:
 ```
 pip3 install pyusb pyserial capstone keystone-engine docopt
 ```
+
 ![Screenshot of a console window showing the successful process of collecting and downloading dependencies after typing the above command](assets/pythoooon.png)
 
-4. Open the extracted EDL tools folder, go to the Windows folder under Drivers and run `Qualcomm_Diag_QD_Loader_2016_driver.exe` with administrator rights. Proceed with installation and leave everything as default, restart the computer if it prompts you to do so.
+5. Extract the previously downloaded EDL package, open Drivers, Windows and run `Qualcomm_Diag_QD_Loader_2016_driver.exe` with administrator rights. Proceed with installation and leave everything as default, restart the computer if it prompts you to do so.
+
 ![Screenshot of an installation window for Qualcomm's diagnostic driver, in which two radio buttons are shown labelled 'WWAN-DHCP is not used to get IPAddress' and 'ETHERNET-DHCP is used to get IPAddress' respectively. The first button is selected.](assets/whatever.png)
 
-5. Switch your phone to EDL mode and connect it to your computer.
+6. Switch your phone to EDL mode and connect it to your computer.
   - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
   - From the turned off state, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
 
 In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
-6. Run the Zadig tool (use the version downloaded above and NOT the one provided by the EDL package) and select *Options, List All Devices*. In the front dropdown menu, select `QHSUSB__BULK` (your device in EDL mode). In the target driver box (which the green arrow is pointing to), click on the up/down arrows until you see `libusb-win32` and click on Replace Driver.
+7. To configure the previously installed driver, download and open [Zadig 2.7](https://github.com/pbatard/libwdi/releases/tag/v1.4.1) (do NOT use the one included in the EDL package). Tick Options, List All Devices and select `QHSUSB__BULK` (your device in EDL mode) in the main dropdown menu. In the target driver box—to which the green arrow is pointing—click the up/down arrows until you see `libusb-win32` and then click Replace Driver.
+
 ![Screenshot of Zadig program with the Option dropdown menu shown, in which the List All Devices option is highlighted and selected](assets/listall.png)
 ![Screenshot of Zadig's main interface with the front dropdown list shown listing all devices connected to computer, in which the option for QHSUSB_BULK is highlighted](assets/qhsusb.png)
 ![Screenshot of Zadig's main interface with the second label box on the Drivers line, which the green arrow points to, showing 'libusb-win32 (v1.2.6.0)'. Two smaller up/down arrows are shown to the right of that box.](assets/arg.png)
 
-7. If you're installing the driver for the first time, an "USB Device Not Recognised" pop-up may appear. Exit EDL mode by removing and re-inserting the battery, then turn on the phone in EDL mode again.
+*If driver configuration takes too much time and Zadig aborts the process, kill Zadig with Task Manager, exit and re-enter EDL mode on the phone, then try to install again.*
 
-*As I've said above, the latest 2.8 version of Zadig might have some troubles installing the phone's EDL driver. If the driver installation takes too much time and the tool aborts it, exit Zadig, exit and re-enter EDL mode on the phone, then try to install again. If that still doesn't help, try to [download version 2.7](https://github.com/pbatard/libwdi/releases/tag/v1.4.1) instead.*
+8. If you're configuring the driver for the first time, an "USB Device Not Recognised" pop-up may appear. Exit EDL mode by removing and re-inserting the battery, then turn on the phone in EDL mode again.
 
 ### Part 2: Obtaining the boot partition
 #### Nokia 8000 4G and Nokia 6300 4G with bkerler's EDL
 > Beware: due to the firehose loader being malfunctioned, the EDL tool only accepts one command each session, after which you'll have to disconnect the phone and restart the phone in EDL mode. If you try to throw a second command, it'll result in a `bytearray index out of range` error.
 
 1. Turn on the phone in EDL mode.
-2. Open the EDL tools folder in a command-line window. Flash the Gerda Recovery image to the recovery partition by typing this command:
+
+2. Open the extracted EDL folder in a command-line shell. Flash the Gerda Recovery image to the recovery partition by typing:
 ```
 python edl.py w recovery recovery-8110.img --loader=8k.mbn
 ```
- *If the progress bar stops at 99% and you get this error `'usb.core.USBError: [Errno None] b'libusb0-dll:err [_usb_reap_async] timeout error\n'` or `usb.core.USBError: [Errno 60] Command timed out`, this is because the phone doesn't send any indicator information back to the EDL tool when in fact the image has been successfully written. Don't mind the error and proceed with the next step.*
+*If the progress bar stops at 99% (and not earlier) and you get error `'usb.core.USBError: [Errno None] b'libusb0-dll:err [_usb_reap_async] timeout error\n'` or `usb.core.USBError: [Errno 60] Command timed out`, this is false. Don't mind the error and proceed with the next step.*
+
 3. When finished, disconnect the phone from your computer and exit EDL mode by removing and re-inserting the battery. 
+
 4. Then, hold down the top Power button and `*` to turn on the phone in recovery mode. Connect the phone to your computer again.
 
 > [!WARNING]
-> Be careful not to boot into normal operation mode at this point! As stated above, while SELinux is still in `Enforced` mode, it'll try to revert all system modifications on startup, in this case, the custom recovery image we've just flashed will be overwritten by the stock one. If you accidentally start into normal mode (with the Nokia logo), you'll have to start over from step 1.
+> Be careful not to boot into system at this point! As stated above, while SELinux is still in `Enforced` mode, it'll try to revert all system modifications on startup, in this case, the custom recovery image we've just flashed will be overwritten by the stock one. If you accidentally start into normal mode (with the usual Nokia chime), you'll have to start over from step 1.
 
-Don't worry if this boots into a white screen, you can still use ADB right after boot. This is because the display driver for the Nokia 8110 4G included in the recovery image are not compatible with the display of 8000 4G/6300 4G.
+Don't worry if this boots into a white screen: this is because the display driver for the Nokia 8110 4G included in the recovery image are not compatible with the display of 8000 4G/6300 4G.
 
 Check if ADB can recognise the phone by typing `adb devices` into the command-line.
 
-5. Navigate the command-line to the `platform-tools` folder (if needed) and pull the boot image from the phone by typing this command:
+5. Navigate the command-line to the extracted `platform-tools` folder (if needed) and pull the boot image from the phone with ADB by typing:
 ```
 adb pull /dev/block/bootdevice/by-name/boot boot.img
 ```
 You should now see `/dev/block/bootdevice/by-name/boot: 1 file pulled, 0 skipped.` and have a copy of the boot partition with the size of 32.0MB (32,768KB). Fetched boot image will be saved to the current directory.
 
-6. Reboot the phone into normal operation by typing `adb reboot` into the command-line, or remove and re-insert the battery. Our custom Gerda Recovery partition will now be overwritten by the default one.
+6. Reboot the phone into normal mode by typing `adb reboot` into the command-line, or remove and re-insert the battery. Our custom Gerda Recovery partition will now be overwritten by the default one.
 
 You can disconnect the phone from your computer for now.
 
@@ -344,14 +357,14 @@ Unlike the 6300 4G and 8000 4G, our phones' EDL loader properly works with both 
 
 In both cases, the phone's screen should blink with a 'Powered by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
-2. Open the EDL tools folder in a command-line window. Extract the boot partition of the phone by typing one of these commands depend on which file you have:
+2. Open the extracted EDL folder in a command-line shell. Extract the boot partition of the phone by typing either of these commands depending on which file you have:
 ```
 python edl.py -r boot boot.img -loader 2720.mbn
 ```
 ```
 python edl.py -r boot boot.img -loader 800t.mbn
 ```
-3. When finished, reboot the phone into normal operation by typing one of these into the command-line, or remove and re-insert the battery:
+3. When finished, reboot the phone into normal operation by typing either of these into the command-line, or remove and re-insert the battery:
 ```
 python edl.py -reset -loader 2720.mbn
 ```
