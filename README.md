@@ -96,8 +96,8 @@ Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the 
 - **[MAJOR]** Keypad frequently registering multiple or no keystrokes instead of a single-press, because of keypad design and keypress timeout interval being too short in `keyboard.gaiamobile.org`. [BananaHackers' guide on fixing the keypad speed](https://ivan-hc.github.io/bananahackers/fix-the-keypad-speed.html) may help
 - **[MAJOR]** A-GPS failing to lock your current position on 4G LTE, possibly due to interferences with TDD bands ⇒ workaround: change your A-GPS APN settings under *Settings, Mobile network & data, APN settings* or switch to 2G/3G for the phone to retrieve GPS information properly (Settings, Mobile network & data, Carrier - SIMx, Network type, 3G/2G). Might be major issue for those in the US where 2G/3G has been shut down.
 - **[MAJOR]** B2G takes up large chunk of memory, and RAM optimizations leading to the phone joining Doze deep sleep immediately and aggressive task killing after a few minutes, making opening or exiting apps horribly slow, and notifications—including incoming WhatsApp calls—being delayed.
-  - Wi-Fi hotspot feature will stop transmitting data packets with your other devices when you put the phone into sleep. 
-  - *This can be mitigated by disabling the Low Memory Killer module on /boot, which we'll mention in [Manual patching with Android Image Kitchen](#manual-patching-with-android-image-kitchen) below.*
+  - Wi-Fi hotspot feature will stop transmitting data packets with your other devices when you put the phone into sleep. *As a workaround, you can have [a playlist of silent MP3s played in background](https://www.reddit.com/r/KaiOS/comments/15slovs/nokia_6300_4g_hotspot_drops_problem_workaround) to prevent the phone from Doze sleep.*
+  - *This can be permanently mitigated by modifying scripts in /boot to disable the Low Memory Killer module, which I'll mention in [Manual patching with Android Image Kitchen](#manual-patching-with-android-image-kitchen) below.*
 - On certain network providers where this phone isn't yet certified, such as Jio Reliance in India, you may [temporarily mute yourself on phone calls with VoLTE/VoWiFi enabled](https://www.reddit.com/r/KaiOS/comments/15g5vo6/nokia_6300_4g_phone_calls_not_working_properly/). Putting yourself on hold and off does ease the problem.
 - Normally, you can wake up the phone from sleep by either pressing the Power, Volume up or Volume down buttons, regardless of whether keyguard is in place or not. On this phone there are no volume buttons, but some of their functions, such as triggering boot modes or waking the phone up, are mapped to * and # keys respectively. This can be problematic as those keys are located close to the bottom edge of the phone and can be randomly mashed if you store the phone in your front pockets, leading to [unintended screenshots](https://www.reddit.com/r/KaiOS/comments/vjnz83/screenshotting_every_time_i_sit_down_or_pedal_my/).
 - If you forgot your lockscreen passcode (not SIM or Anti-Theft ones), you can bypass it by holding down the top Power button, then select *Memory Cleaner* and *Deep Memory Cleaning*.
@@ -114,14 +114,15 @@ Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the 
 - **[MAJOR]** Alarms can be delayed, unable to go off or go off unexpectedly if the Clock app is killed. Before going to sleep, make sure to open the Clock app and lock the phone without pressing the End call key or closing the app.
 - Predictive typing mode doesn't last between inputs, meaning if you switch between input boxes, it'll return to the normal T9 mode.
 - Photos larger than 6000-by-4000 in size aren't viewable in the Gallery app due to restrictions in place preventing memory constraints. As a workaround, you can download FabianOvrWrt's [Explorer](https://github.com/FabianOvrWrt/kaios-freshapps) and mochaSoft Aps' [Photo Zoom](https://www.kaiostech.com/store/apps/?bundle_id=dk.mochasoft.photozoom) from KaiStore to view them instead.
-- You cannot change message notification tone or alarm tone on the phone outside the defaults provided. This is because both are not managed by the system, but by the Messages and Clock app themselves.
-  - To change them, you'll have to use ADB to pull `sms.gaiamobile.org` and `clock.gaiamobile.org` from `/system/b2g/webapps`, extract, edit the audio files and repackage the apps, then push them back under `/data/local/webapps` and edit the `basePath` in `/data/local/webapps/webapps.json` to reflect the change (see [BananaHackers' guide](https://ivan-hc.github.io/bananahackers/clock-alarms.html#h.unmy3yif91xs) for instructions)
-- D-Pad shortcuts and app shortcuts in the carousel menu (when you press Left on the home screen) are not customizable. *The former has been addressed on later versions*, but to change them on this phone you'll have to edit `launcher.gaiamobile.org`.
+- Built-in File Manager app doesn't show folders in the internal storage other than pre-configured ones (audio, music, photos, books, videos, DCIM, downloads, others). This is [hardcoded within its code](https://discordapp.com/channels/472006912846594048/472144586295345153/1173300055361458257) as a measure to hide system files (such as DIC files for storing added T9 words), but can be easily misused. *To fully browse the internal storage, use third-party file managers from KaiStore, or turn on Settings, Storage, USB Storage and connect your phone to a computer.*
 - Built-in email, calendar and contact syncing function with Google account may completely fail at times. Use IMAP and import contacts instead.
-  - In December 2021, in order to [replace the expired Let's Encrypt root certificate DST Root CA X3 with the newer ISRG Root X1](https://letsencrypt.org/docs/dst-root-ca-x3-expiration-september-2021) causing many websites and apps to be inaccessible, KaiOS Technologies issued a Service Update over KaiStore to all active KaiOS devices. This caused the Contacts app on various phones, including the 8000 4G, 6300 4G, 2720 Flip, 800 Tough and Alcatel MyFlip 2, to [freeze on open](https://www.reddit.com/r/KaiOS/comments/rawcu5/my_contacts_app_does_not_work). In some reported cases, apps such as E-Mail, Calendar and Settings failed to work as well, and Google accounts set up in the Settings app couldn't be removed. This was later classified as a bug of Google account syncing feature, and affected people were advised to wipe their devices as a fix.
+  - In December 2021, in order to [replace the expired Let's Encrypt root certificate DST Root CA X3 with the newer ISRG Root X1](https://letsencrypt.org/docs/dst-root-ca-x3-expiration-september-2021), KaiOS Technologies issued a Service Update over KaiStore to all active KaiOS devices. This caused the Contacts app on various phones, notably HMD/Nokia KaiOS phones and Alcatel MyFlip 2, to [freeze on open](https://www.reddit.com/r/KaiOS/comments/rawcu5/my_contacts_app_does_not_work). In some reported cases, apps such as E-Mail, Calendar and Settings failed to work as well, and Google accounts set up in the Settings app couldn't be removed. This was later classified as a bug of Google account syncing feature, and affected people were advised to wipe their devices as a fix.
   - T9 search in Contacts app is missing. For those missing the feature, there's a port called [FastContact](https://gitlab.com/suborg/fastcontact) by Luxferre that you can sideload to use as an alternative.
   - E-Mail app lacks many crucial enterprise features, such as OAuth2 secure sign-in.
   - Speaking of built-in Calendar app, if you manage to opt for syncing your Google account with the phone, only the calendar *with your email address as its name* will sync.
+- You cannot change message notification tone or alarm tone on the phone outside the defaults provided. This is because both are not managed by the system, but by the Messages and Clock app themselves.
+  - To change them, you'll have to use ADB to pull `sms.gaiamobile.org` and `clock.gaiamobile.org` from `/system/b2g/webapps`, extract, edit the audio files and repackage the apps, then push them back under `/data/local/webapps` and edit the `basePath` in `/data/local/webapps/webapps.json` to reflect the change (see [BananaHackers' guide](https://ivan-hc.github.io/bananahackers/clock-alarms.html#h.unmy3yif91xs) for instructions)
+- D-Pad shortcuts and app shortcuts in the carousel menu (when you press Left on the home screen) are not customizable. *The former has been addressed on later versions*, but to change them on this phone you'll have to edit `launcher.gaiamobile.org`.
  
 ### WhatsApp-specific
 - (mostly 2720 Flip) Upon getting the confirmation code needed to set up WhatsApp, you may be indefinitely stuck at Connecting WhatsApp... regardless of whether you're on Wi-Fi/mobile data or had a SIM in. Some suggested that leftover pre-configuration files seem to have caused the issue and, in most cases, can be fixed with a factory reset.
@@ -132,7 +133,6 @@ Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the 
 
 ## Secret codes
 *Tip: You can save these codes as contacts for quick dialing later. When the phone suggests a saved code, you'll have to press Call to activate the code's function.*
-
 - `*#*#33284#*#*`: Toggle debugging mode, allowing the phone to be accessed with ADB and DevTools. A bug icon will appear in the status bar letting you know debugging mode is on. This can also be turned on under Settings, Device, Developer, Debugger, ADB and DevTools.
 - `*#06#`: Display the hidden International Mobile Equipment Identity numbers or IMEI(s) to uniquely identify a specific cell phone on GSM networks. Do not show them to anyone else: they're crucial for calling functions on the phone.
 - `*#0606#` (TA-1324 only): Display the Mobile Equipment Identifier numbers or MEID(s) to uniquely identify a specific cell phone on CDMA networks. On international variants the MEIDs would be all zeroes, and thus this secret code doesn't apply.
@@ -252,7 +252,7 @@ sudo apt-get install python pip3
 2. Then, open Terminal and type this to install the dependencies for EDL tools:
 ```
 sudo -H pip3 install pyusb pyserial capstone keystone-engine docopt
-``` 
+```
 3. Switch your phone to EDL mode and connect it to your computer.
   - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
   - From the turned off state, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
@@ -260,7 +260,6 @@ sudo -H pip3 install pyusb pyserial capstone keystone-engine docopt
 In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
 Additionally, if you have issue with device access:
-
 - Open `/etc/modprobe.d/blacklist.conf` in a text editor and append `blacklist qcserial`.
 - Copy both `51-edl.rules` and `50-android.rules` in the root of extracted EDL tools folder to `/etc/udev/rules.d`.
 
@@ -276,11 +275,9 @@ brew install python android-platform-tools libusb && pip3 install pyusb pyserial
 
 #### Windows
 1. Open the Python installer and proceed with installation. Remember to tick the box next to "Add python.exe to PATH". This would make Python able to be called everywhere in the command-line instead of specifically pointing to its folder, which the next part of the guide won't cover on.
-
 ![Screenshot of an installation window for Python 3.9 showing two options, 'Install Now' and 'Customize installation', with the checkbox for 'Add Python 3.9 to PATH' being selected](assets/python.png)
 
 2. On Windows 10/11, by default, typing the `python` or `python3` aliases within Command Prompt will call the Microsoft Store version of Python, which we don't have installed. To override this default into calling the local version of Python, head over to Settings > Apps > Apps & features > App execution aliases and toggle off both App Installer (python.exe) and App Installer (python3.exe).
-
 <img alt="Screenshot of the Apps & features page in Windows 10's Settings app, of which the App execution aliases link is located under the Apps & features section" src="assets/settings_alias.png">
 <img alt="Screenshot of the App execution alias page, where the toggles for App Installer (python.exe) and App Installer (python3.exe) are both turned off. Description says Apps can declare a name used to run the app from a command prompt. If multiple apps use the same name, choose which one to use" src="assets/alias_off.png">
 
@@ -291,7 +288,6 @@ pip3 install pyusb pyserial capstone keystone-engine docopt
 ![Screenshot of a console window showing the successful process of collecting and downloading dependencies after typing the above command](assets/pythoooon.png)
 
 4. Open the extracted EDL tools folder, go to the Windows folder under Drivers and run `Qualcomm_Diag_QD_Loader_2016_driver.exe` with administrator rights. Proceed with installation and leave everything as default, restart the computer if it prompts you to do so.
-
 ![Screenshot of an installation window for Qualcomm's diagnostic driver, in which two radio buttons are shown labelled 'WWAN-DHCP is not used to get IPAddress' and 'ETHERNET-DHCP is used to get IPAddress' respectively. The first button is selected.](assets/whatever.png)
 
 5. Switch your phone to EDL mode and connect it to your computer.
@@ -301,7 +297,6 @@ pip3 install pyusb pyserial capstone keystone-engine docopt
 In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
 6. Run the Zadig tool (use the version downloaded above and NOT the one provided by the EDL package) and select *Options, List All Devices*. In the front dropdown menu, select `QHSUSB__BULK` (your device in EDL mode). In the target driver box (which the green arrow is pointing to), click on the up/down arrows until you see `libusb-win32` and click on Replace Driver.
-
 ![Screenshot of Zadig program with the Option dropdown menu shown, in which the List All Devices option is highlighted and selected](assets/listall.png)
 ![Screenshot of Zadig's main interface with the front dropdown list shown listing all devices connected to computer, in which the option for QHSUSB_BULK is highlighted](assets/qhsusb.png)
 ![Screenshot of Zadig's main interface with the second label box on the Drivers line, which the green arrow points to, showing 'libusb-win32 (v1.2.6.0)'. Two smaller up/down arrows are shown to the right of that box.](assets/arg.png)
@@ -319,11 +314,8 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 ```
 python edl.py w recovery recovery-8110.img --loader=8k.mbn
 ```
-
-*If the progress bar stops at 99% and you get this error `'usb.core.USBError: [Errno None] b'libusb0-dll:err [_usb_reap_async] timeout error\n'` or `usb.core.USBError: [Errno 60] Command timed out`, this is because the phone doesn't send any indicator information back to the EDL tool when in fact the image has been successfully written. Don't mind the error and proceed with the next step.*
-
+ *If the progress bar stops at 99% and you get this error `'usb.core.USBError: [Errno None] b'libusb0-dll:err [_usb_reap_async] timeout error\n'` or `usb.core.USBError: [Errno 60] Command timed out`, this is because the phone doesn't send any indicator information back to the EDL tool when in fact the image has been successfully written. Don't mind the error and proceed with the next step.*
 3. When finished, disconnect the phone from your computer and exit EDL mode by removing and re-inserting the battery. 
-
 4. Then, hold down the top Power button and `*` to turn on the phone in recovery mode. Connect the phone to your computer again.
 
 > [!WARNING]
