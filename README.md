@@ -285,8 +285,8 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 
 3. On Windows 10/11, typing `python` or `python3` within Command Prompt/Windows Terminal will run the Microsoft Store version of Python. To override this default into running the locally installed version, head over to Settings, Apps, Apps & features, App execution aliases and toggle off both App Installer (python.exe) and App Installer (python3.exe).
 
-<img alt="Screenshot of the Apps & features page in Windows 10's Settings app, of which the App execution aliases link is located under the Apps & features section" src="assets/settings_alias.png">
-<img alt="Screenshot of the App execution alias page, where the toggles for App Installer (python.exe) and App Installer (python3.exe) are both turned off. Description says Apps can declare a name used to run the app from a command prompt. If multiple apps use the same name, choose which one to use" src="assets/alias_off.png">
+<img alt="Screenshot of the Apps & features page in Windows 10's Settings app, of which the App execution aliases link is located under the Apps & features section" src="assets/settings_alias.png" width="605">
+<img alt="Screenshot of the App execution alias page, where the toggles for App Installer (python.exe) and App Installer (python3.exe) are both turned off. Description says Apps can declare a name used to run the app from a command prompt. If multiple apps use the same name, choose which one to use" src="assets/alias_off.png" width="370">
 
 4. Open Command Prompt/Windows Terminal with administrator privileges and run this command to install the required dependencies for EDL:
 ```
@@ -418,8 +418,8 @@ That's it! On your desktop there will be two new image files, the modified `boot
   - line 8: `security.perf_harden=1` -> `security.perf_harden=0`
   - line 10: `ro.debuggable=0` -> `ro.debuggable=1`
 
-<img width="493" src="assets/default_prop.png" alt="Screenshot of the original content of the default.prop file">
-<img width="493" src="assets/default_prop_edited.png" alt="Screenshot of the modified content of the default.prop file">
+<img width="487" src="assets/default_prop.png" alt="Screenshot of the original content of the default.prop file">
+<img width="487" src="assets/default_prop_edited.png" alt="Screenshot of the modified content of the default.prop file">
 
 4. Open `ramdisk/init.qcom.early_boot.sh` in Notepad++ and add `setenforce 0` as a new line at the end of the file.
 
