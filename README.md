@@ -1,3 +1,5 @@
+*B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries' source code [officially provided by HMD](https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz) for the 6300 4G can be found in `leo-v20` branch of this repository. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and cannot be used to compile entire KaiOS build.*
+
 <details markdown="block">
   <summary dir="rtl">View device specification table</summary>
 <table style="font-size:small">
@@ -31,6 +33,7 @@
 
 **Table of Contents**
 - [Don’t buy a counterfeit](#dont-buy-a-counterfeit)
+  - [About Kosher phones](#about-kosher-phones)
 - [Differences between US and international variants](#differences-between-us-and-international-variants)
 - [Tips and tricks](#tips-and-tricks)
 - [Known issues](#known-issues)
@@ -50,7 +53,6 @@
     - [Automatic patching with `8k-boot-patcher`](#automatic-patching-with-8k-boot-patcher)
     - [Manual patching with Android Image Kitchen](#manual-patching-with-android-image-kitchen)
   - [Part 4: Flashing the modified boot partition](#part-4-flashing-the-modified-boot-partition)
-- [Source code](#source-code)
 - [External links](#external-links)
 
 ## Don't buy a counterfeit
@@ -67,6 +69,22 @@ Some signs that can indicate a fake KaiOS phone are:
 - Storage: Connect the phone to a computer and see if the actual storage is much lower than the advertised one.
 
 Remember, **only buy from trusted, reputable sources**, even if they charge more. That extra bit of price usually guarantees that you're getting a real device.
+
+### About Kosher phones
+Kosher is a category of devices which have their software (sometimes hardware) heavily modified to limit access or even get rid of content and features deemed distracting or against religious values, such as unnecessary apps, methods to access the Internet and debugging over ADB, while maintaining features and user interface almost identical to the original. Companies specialized in customizing Kosher phones exist, and you can easily come across Kosher phone listings on eBay advertising those as productivity and focus improvement.
+
+As the build and UI remain identical, it's difficult to tell Kosher phones and genuine ones apart. As of now, my key takeaways to differentiate them are:
+- there might be logo embedded on hardware and/or splash screen displayed on boot sequence to indicate a Kosher phone (original only shows 'enabled by KaiOS' followed by the NOKIA logo and chime);
+- Browser, KaiStore and other bloat games are missing even if you have an active cellular service, links in Messages don't work, options to manage KaiOS accounts in Settings are greyed out (depending on each variant WhatsApp and APIs it relies on might go missing or be intentionally left in);
+- no options to switch ADB and DevTools access on: dialing `*#*#debug#*#*` triggers nothing, cannot boot into Recovery mode, getting access to EDL mode varies
+
+Kosher is indeed a great way to make your phone truly basic, but HMD already offers more basic phones with 4G in their feature phone lineup, so the choice is yours. **Double-check the description and pictures of the listings before you buy.**
+
+*Photo provided by nuxx on r/KaiOS Discord server in October 2021.*
+
+<p align="center">
+  <img alt="A Kosher-customized Nokia 8000 4G with no Browser, KaiStore or third-party apps shown in 3-by-3 grid of apps. Center D-Pad key is engraved with a Hebrew symbol indicating Kosher phone" src="assets/kosher-sparkler.jpg" width="500">
+</p>
 
 ## Differences between US and international variants
 "Buying Western-customized products will always give you the best quality possible" is unwise when it comes to consumer electronics, including mobile phones, and the 6300 4G is no exception. When buying the TA-1324 variant of this phone, you should expect:
@@ -181,14 +199,16 @@ EDL programmer for the international version of this phone (not TA-1324) can be 
 ### UART debugging testpoint
 As discovered by atipls on Discord, on the mainboard of the 6300 4G, there are 3 UART testing points: RX, TX and GND just above the SIM2 slot. Shorting TX and GND takes you to Fastboot and Linux terminal interface.
 
-![Mainboard of a TA-1307 Nokia 6300 4G, with the red arrow pointing to three gold contacts in the middle of the board, those being the UART testpoints in the order of RX, TX and ground](assets/testpoint.png)
+<p align="center">
+  <img alt="Mainboard of a TA-1307 Nokia 6300 4G, with the red arrow pointing to three gold contacts in the middle of the board, those being the UART testpoints in the order of RX, TX and ground" src="assets/testpoint.png">
+</p>
 
 ## Sideloading and debugging third-party applications
-BananaHackers' definitions put this phone and most other KaiOS 2.5.4 devices in the first category, which means that you can install and debug apps from outside sources, but with a few caveats: apps with 'forbidden' permissions, such as `embed-apps`, `embed-widgets` and `engmode-extension` cannot be sideloaded, and you cannot debug apps that came with the device using WebIDE's Developer Tools (you can, however, see the system's global warnings and errors with `adb logcat`).
+Don't want to download apps from KaiStore? Both the 6300 4G and 8000 4G have been classified as debug-enabled by the BananaHackers team. As with other KaiOS 2.5.4 devices, you can install and debug apps from outside sources on these phones, so long as they don't use 'forbidden' permissions, such as `engmode-extension`, `embed-apps` and `embed-widgets`, and you cannot debug pre-installed apps on the phone using WebIDE's Developer Tools (you're free to use `adb logcat` to view system logs instead).
 
-For detailed instructions, see [Sideloading and debugging/WebIDE](https://github.com/minhduc-bui1/nokia-leo/wiki/Sideloading-and-debugging).
+Detailed instructions can be found at [Sideloading and debugging/WebIDE](https://github.com/minhduc-bui1/nokia-leo/wiki/Sideloading-and-debugging). Feel free to check out apps made by the community on [BananaHackers Store](https://store.bananahackers.net), old [B-Hackers Store](https://sites.google.com/view/b-hackers-store/home) and my personally curated [list of KaiOS apps](https://github.com/stars/minhduc-bui1/lists/kaios-apps).
 
-**Do note that OmniSD, one of the methods used for on-device sideloading, and many Gerda-related apps requires the `navigator.mozApps.mgmt.import` API that has been removed from KaiOS 2.5.2.2, and therefore no longer work on this phone.** However, the Privileged factory reset feature that could be used on KaiOS 2.5.2 and older can now be activated after permanent rooting to gain privileged userspace session (see [Next steps](#next-steps)).
+**Do note that OmniSD, one of the methods used for on-device sideloading, and many Gerda-related apps requires the `navigator.mozApps.mgmt.import` API that has been removed from KaiOS 2.5.2.2, and therefore no longer work on this phone.** However, after permanently rooting the phone, the Privileged factory reset feature to gain privileged userspace session that could be used on KaiOS 2.5.2 and older can now be used again (see [Next steps](#next-steps)).
 
 To remove unwanted apps from the phone, you can use [this fork of Luxferre's AppBuster](https://github.com/minhduc-bui1/AppBuster) which lets you disable any apps you don't need and enable them again if you want.
 
@@ -494,11 +514,6 @@ python edl.py reset
 echo -n 1 > /data/enforce
 mount -o bind /data/enforce /sys/fs/selinux/enforce
 ```
-
-## Source code
-HMD Global/Nokia Mobile has published the device's source code for its Linux 4.9 kernel, B2G and certain third-party libraries used in this phone, which can be downloaded directly from [here](https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz).
-
-Note that the source code released does not contain proprietary parts from other parties like Qualcomm.
 
 ## External links
 - [Nokia 6300 4G product page](https://www.nokia.com/phones/en_int/nokia-6300-4g) on Nokia Mobile's website
