@@ -1,5 +1,3 @@
-*B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries' source code [officially provided by HMD](https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz) for the 6300 4G can be found in `leo-v20` branch of this repository. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and cannot be used to compile entire KaiOS build.*
-
 <details markdown="block">
   <summary dir="rtl">View device specification table</summary>
 <table style="font-size:small">
@@ -29,6 +27,9 @@
   </tbody>
 </table>
 </details>
+
+*B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries' source code [officially provided by HMD](https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz) for the 6300 4G can be found in `leo-v20` branch of this repository. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and cannot be used to compile entire KaiOS build.*
+
 <img width="400" align="right" src="assets/nokia_6300_4G-emotional-Range.png">
 
 **Table of Contents**
@@ -43,13 +44,13 @@
 - [Special boot modes](#special-boot-modes)
   - [UART debugging testpoint](#uart-debugging-testpoint)
 - [Sideloading and debugging third-party applications](#sideloading-and-debugging-third-party-applications)
-- [ROOT: Boot partition modifying (non-US only)](#root-boot-partition-modifying-non-us-only)
+- [ROOT: Boot partition patching (non-US only)](#root-boot-partition-patching-non-us-only)
   - [What we’ll need](#what-well-need)
   - [Part 1: Set up environment for EDL tools](#part-1-set-up-environment-for-edl-tools)
   - [Part 2: Obtaining the boot partition](#part-2-obtaining-the-boot-partition)
     - [Nokia 8000 4G and Nokia 6300 4G with bkerler’s EDL](#nokia-8000-4g-and-nokia-6300-4g-with-bkerlers-edl)
     - [Nokia 2720 Flip and Nokia 800 Tough with andybalholm’s EDL](#nokia-2720-flip-and-nokia-800-tough-with-andybalholms-edl)
-  - [Part 3: Modifying the boot partition](#part-3-modifying-the-boot-partition)
+  - [Part 3: Patching the boot partition](#part-3-patching-the-boot-partition)
     - [Automatic patching with `8k-boot-patcher`](#automatic-patching-with-8k-boot-patcher)
     - [Manual patching with Android Image Kitchen](#manual-patching-with-android-image-kitchen)
   - [Part 4: Flashing the modified boot partition](#part-4-flashing-the-modified-boot-partition)
@@ -212,7 +213,7 @@ Detailed instructions can be found at [Sideloading and debugging/WebIDE](https:/
 
 To remove unwanted apps from the phone, you can use [this fork of Luxferre's AppBuster](https://github.com/minhduc-bui1/AppBuster) which lets you disable any apps you don't need and enable them again if you want.
 
-## ROOT: Boot partition modifying (non-US only)
+## ROOT: Boot partition patching (non-US only)
 On KaiOS 2.5.4 devices, such as the 6300 4G and 8000 4G, ADB and WebIDE can be used to install most third-party apps. However, apps with special ‘forbidden’ permissions are not allowed, including most BananaHackers apps with `engmode-extension` like Wallace Toolbox, which can be used to gain exclusive access of the phone. You also cannot make changes to the system. On the 2720 Flip and 800 Tough with KaiOS 2.5.2.2, with HMD/Nokia Mobile changing their release branches from `dev-keys` to `release-keys`, the situation is even worse as you cannot sideload at all. 
 
 This is because in order for WhatsApp's VoIP feature to work on these KaiOS versions, a security module called SELinux is now set to be `Enforced` which checks and reverts system modifications on boot. To get total read-write access to the devices, you'll now have to permanently root them by setting SELinux to `Permissive` mode.
@@ -397,7 +398,7 @@ You can disconnect the phone from your computer for now.
 > [!WARNING]
 > **Copy and keep the original boot partition somewhere safe in case you need to restore to the original state for over-the-air updates or re-enabling WhatsApp calls.**
 
-### Part 3: Modifying the boot partition
+### Part 3: Patching the boot partition
 #### Automatic patching with `8k-boot-patcher`
 1. Follow [Docker's tutorial](https://docs.docker.com/compose/install/#scenario-one-install-docker-desktop) on installing Docker Desktop. Once set up, open the program, click Accept on this box and let the Docker Engine start before exiting.
 
@@ -410,7 +411,7 @@ git clone https://gitlab.com/suborg/8k-boot-patcher.git && cd 8k-boot-patcher &&
 
 ![Screenshot of a macOS Terminal window showing some logs in purple text after typing the command above](assets/docker_build.png)
 
-3. Copy the `boot.img` file we've just pulled from our phone to the desktop and do not change its name. Type this into the command-line to run the modifying process:
+3. Copy the `boot.img` file we've just pulled from our phone to the desktop and do not change its name. Type this into the command-line to run the patching process:
 ```
 docker run --rm -it -v ~/Desktop:/image 8kbootpatcher
 ```
