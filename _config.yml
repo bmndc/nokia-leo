@@ -1,5 +1,10 @@
-remote_theme: marella/jekyll-theme-documentation
+title: Nokia 6300 4G (nokia-leo)
+author: Bùi Minh Đức
+description: >
+  Archive of guides, source code and firmware backups for Nokia 6300 4G.
 
-nav:
-  - Nokia 6300 4G (nokia-leo): ''
-  - Launch hidden settings: w2d
+remote_theme: riggraz/no-style-please
+
+theme_config:
+  appearance: "auto"
+  show_description: false
