@@ -427,7 +427,7 @@ That's it! On your desktop there will be two new image files, the modified `boot
 
 ![Screenshot of a list of folders and files contained in the extracted Android Image Kitchen folder](assets/aik.png)
 
-2. Open the folder in a command-line window and type `unpackimg boot.img`. This will split the image file and unpack the ramdisk to their subdirectories.
+2. Open the folder in Command Prompt/Terminal and type `unpackimg boot.img`. This will split the image file and unpack the ramdisk to their subdirectories.
 
 ![Screenshot of a Windows Command Prompt window showing some logs of the boot partition extracting process after typing the command above](assets/unpack.png)
 
@@ -481,7 +481,7 @@ write /sys/module/lowmemorykiller/parameters/enable_lmk 0
 Indent the new line to match up with other lines as shown.
 
 ```diff
-@@ +390,7 -390,7 @@
+@@ -390,7 +390,6 @@
   setusercryptopolicies /data/user
 
   # Reload policy from /data/security if present.
@@ -489,7 +489,7 @@ Indent the new line to match up with other lines as shown.
 
   # Set SELinux security contexts on upgrade or policy update.
   restorecon_recursive /data
-@@ -418,10 +418,10 @@
+@@ -418,9 +418,10 @@
   # Memory management.  Basic kernel parameters, and allow the high
   # level system server to be able to adjust the kernel OOM driver
   # parameters to match how it is managing things.
