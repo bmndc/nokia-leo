@@ -508,6 +508,8 @@ That's it! On your desktop there will be two new image files, the modified `boot
 {:start="6"}
 
 7. (Optional) If you wish to disable the Low Memory Killer function, now's a good time to do so! In the same `ramdisk/init.rc` file, after line 420, make a new line and add:
+{:start="7"}
+
 ```
 write /sys/module/lowmemorykiller/parameters/enable_lmk 0
 ```
