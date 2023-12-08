@@ -1,34 +1,45 @@
 <details markdown="block">
   <summary dir="rtl">View device specification table</summary>
 <table style="font-size:small">
-  <thead><tr><th colspan="2">Nokia 6300 4G (nokia-leo)</th></tr></thead>
+  <thead><tr><th></th><th>Nokia 6300 4G (nokia-leo)</th><th>Nokia 8000 4G (nokia-sparkler)</th></tr></thead>
   <tbody>
-    <tr><td>Released</td><td align="right">13 November 2020</td></tr>
-    <tr><td>Model</td><td align="right">TA-1286, TA-1287, TA-1291, TA-1294, TA-1307, TA-1324</td></tr>
-  <tr><td colspan="2" align="center"><strong>Specifications</strong></td></tr>
-    <tr><td>SoC</td><td align="right">Qualcomm MSM8909 Snapdragon 210<br>(4 x 1.1GHz Cortex-A7)</td></tr>
-    <tr><td>RAM</td><td align="right">512MB LPDDR2/3</td></tr>
-    <tr><td>GPU</td><td align="right">Adreno 304</td></tr>
-    <tr><td>Storage</td><td align="right">4GB eMMC 4.5 (+ up to 32GB microSDHC card)</td></tr>
-    <tr><td>Network</td><td>2G GSM, 3G UMTS, 4G LTE Cat4 150/50Mbps<br><em>+ EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>+ MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>+ US: band 2, 4, 5, 12, 17, 66, 71<br>+ LATAM: band 2, 3, 4, 5, 7, 28<br>+ ROW: band 1, 3, 5, 7, 8, 20, 38, 40</em><br>VoLTE &amp; VoWiFi support<br>Single or Dual SIM (Nano-SIM, dual-standby)</td></tr>
-    <tr><td>Screen</td><td align="right">320 x 240 @ 167 PPI<br>2.4 inches QVGA TFT LCD, 16M colors</td></tr>
-    <tr><td>Bluetooth</td><td align="right">4.0, A2DP, LE</td></tr>
-    <tr><td>Wi-Fi</td><td align="right">802.11b/g/n, 2.4GHz, Hotspot</td></tr>
-    <tr><td>Peripherals</td><td align="right">GPS &amp; GLONASS</td></tr>
-    <tr><td>Cameras</td><td align="right">Rear: VGA, LED flash</td></tr>
-    <tr><td>Dimensions<br>(HWD)</td><td align="right">131.4 * 53 * 13.7 (mm)<br>5.17 * 2.09 * 0.54 (in)</td></tr>
-    <tr><td>Weight</td><td align="right">107.4 g (3.70 oz)</td></tr>
-    <tr><td>Ports</td><td>- microUSB charging &amp; USB 2.0 data transferring port<br>- 3.5mm headphone jack</td></tr>
-    <tr><td>Battery</td><td align="right">Removable Li-Ion 1500mAh (BL-4XL), 5W wired charging<br>(up to 25 days of 4G standby advertised)</td></tr>
-  <tr><td colspan="2" align="center"><strong>KaiOS info</strong></td></tr>
-    <tr><td>Version</td><td align="right">KaiOS 2.5.4</td></tr>
-    <tr><td>WA VoIP</td><td align="right">Supported</td></tr>
-    <tr><td>Build no.</td><td align="right">10.00.17.01, 12.00.17.01, 20.00.17.01, 30.00.17.01</td></tr>
+    <tr><td>Released</td><td colspan=2>13 November 2020</td></tr>
+    <tr><td>Model</td><td>TA-1286, TA-1287, TA-1291, TA-1294, TA-1307, TA-1324</td><td>TA-1300, TA-1303, TA-1305, TA-1311</td></tr>
+  <tr><td colspan=3 align="center"><strong>Specifications</strong></td></tr>
+    <tr><td>SoC</td><td colspan=2>Qualcomm MSM8909 Snapdragon 210<br>(4 x 1.1GHz Cortex-A7)</td></tr>
+    <tr><td>RAM</td><td colspan=2>512MB LPDDR2/3</td></tr>
+    <tr><td>GPU</td><td colspan=2>Adreno 304</td></tr>
+    <tr><td>Storage</td><td colspan=2>4GB eMMC 4.5 (+ up to 32GB microSDHC card)</td></tr>
+    <tr><td>Network</td><td>2G GSM, 3G UMTS, 4G LTE Cat4 150/50Mbps<br><em>
+      + EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>
+      + MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>
+      + US: band 2, 4, 5, 12, 17, 66, 71<br>
+      + LATAM: band 2, 3, 4, 5, 7, 28<br>
+      + ROW: band 1, 3, 5, 7, 8, 20, 38, 40</em><br>
+      VoLTE &amp; VoWiFi support<br>Single or Dual SIM (Nano-SIM, dual-standby)</td>
+      <td>2G GSM, 3G UMTS, 4G LTE Cat4 150/50Mbps<br><em>
+      + EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>
+      + HK, Macau, MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>
+      + ROW: band 1, 3, 5, 7, 8, 20, 28, 38, 40</em><br>
+      VoLTE &amp; VoWiFi support<br>Single or Dual SIM (Nano-SIM, dual-standby)</td></tr>
+    <tr><td>Screen</td><td>320 * 240 @ 167 PPI<br>2.4 inches QVGA TFT LCD, 16M colors</td><td>320 * 240 @ 143 PPI<br>2.8 inches QVGA TFT LCD, 16M colors</td></tr>
+    <tr><td>Bluetooth</td><td colspan=2>4.0, A2DP, LE</td></tr>
+    <tr><td>Wi-Fi</td><td colspan=2>802.11b/g/n, 2.4GHz, Hotspot (up to 8 devices)</td></tr>
+    <tr><td>Peripherals</td><td colspan=2>GPS &amp; GLONASS</td></tr>
+    <tr><td>Cameras</td><td>Rear: VGA with fixed focus, LED flash</td><td>Rear: 2MP with fixed focus, LED flash</td></tr>
+    <tr><td>Dimensions<br>(HWD)</td><td>131.4 * 53 * 13.7 (mm)<br>5.17 * 2.09 * 0.54 (in)</td><td>132.2 * 56.5 * 12.3 (mm)<br>5.20 * 2.22 * 0.48 (in)</td></tr>
+    <tr><td>Weight</td><td>107.4 g (3.70 oz)</td><td>110.2 g (3.88 oz)</td></tr>
+    <tr><td>Ports</td><td colspan=2>- microUSB charging &amp; USB 2.0 data transferring port<br>- 3.5mm headphone jack</td></tr>
+    <tr><td>Battery</td><td colspan=2>Removable Li-Ion 1500mAh (BL-4XL), 5W wired charging<br>(up to 25 days of 4G standby advertised)</td></tr>
+  <tr><td colspan=3 align="center"><strong>KaiOS info</strong></td></tr>
+    <tr><td>Version</td><td colspan=2>KaiOS 2.5.4</td></tr>
+    <tr><td>WA VoIP</td><td colspan=2>Supported</td></tr>
+    <tr><td>Build no.</td><td colspan=2>10.00.17.01, 12.00.17.01, 20.00.17.01, 30.00.17.01</td></tr>
   </tbody>
 </table>
 </details>
 
-*B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries' source code [officially provided by HMD](https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz) for the 6300 4G can be found in `leo-v20` branch of this repository. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and cannot be used to compile entire KaiOS build.*
+*B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries' source code [officially provided by HMD](https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz) for the 6300 4G can be found in `leo-v20` branch of this repository. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and cannot be used to compile an entire KaiOS build.*
 
 <img width="420" align="right" src="assets/nokia_6300_4G-emotional-Range.png">
 
@@ -305,11 +316,14 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 ![Screenshot of an installation window for Python 3.9 showing two options, 'Install Now' and 'Customize installation', with the checkbox for 'Add Python 3.9 to PATH' being selected](assets/python.png)
 
 3. On Windows 10/11, typing `python` or `python3` within Command Prompt/Windows Terminal will run the Microsoft Store version of Python. To override this default into running the locally installed version, head over to Settings, Apps, Apps & features, App execution aliases and toggle off both App Installer (python.exe) and App Installer (python3.exe).
+{:start="3"}
 
 <img alt="Screenshot of the Apps & features page in Windows 10's Settings app, of which the App execution aliases link is located under the Apps & features section" src="assets/settings_alias.png" width="605">
 <img alt="Screenshot of the App execution alias page, where the toggles for App Installer (python.exe) and App Installer (python3.exe) are both turned off. Description says Apps can declare a name used to run the app from a command prompt. If multiple apps use the same name, choose which one to use" src="assets/alias_off.png" width="370">
 
 4. Open Command Prompt/Windows Terminal with administrator privileges and run this command to install the required dependencies for EDL:
+{:start="4"}
+
 ```
 pip3 install pyusb pyserial capstone keystone-engine docopt
 ```
@@ -317,16 +331,19 @@ pip3 install pyusb pyserial capstone keystone-engine docopt
 ![Screenshot of a console window showing the successful process of collecting and downloading dependencies after typing the above command](assets/pythoooon.png)
 
 5. Extract the previously downloaded EDL package, open Drivers, Windows and run `Qualcomm_Diag_QD_Loader_2016_driver.exe` with administrator rights. Proceed with installation and leave everything as default, restart the computer if it prompts you to do so.
+{:start="5"}
 
 ![Screenshot of an installation window for Qualcomm's diagnostic driver, in which two radio buttons are shown labelled 'WWAN-DHCP is not used to get IPAddress' and 'ETHERNET-DHCP is used to get IPAddress' respectively. The first button is selected.](assets/whatever.png)
 
 6. Switch your phone to EDL mode and connect it to your computer.
+{:start="6"}
   - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
   - From the turned off state, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
 
 In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
 7. To configure the previously installed driver, download and open [Zadig 2.7](https://github.com/pbatard/libwdi/releases/tag/v1.4.1) (do NOT use the one included in the EDL package). Tick Options, List All Devices and select `QHSUSB__BULK` (your device in EDL mode) in the main dropdown menu. In the target driver box—to which the green arrow is pointing—click the up/down arrows until you see `libusb-win32` and then click Replace Driver.
+{:start="7"}
 
 ![Screenshot of Zadig program with the Option dropdown menu shown, in which the List All Devices option is highlighted and selected](assets/listall.png)
 ![Screenshot of Zadig's main interface with the front dropdown list shown listing all devices connected to computer, in which the option for QHSUSB_BULK is highlighted](assets/qhsusb.png)
@@ -335,6 +352,7 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 *If driver configuration takes too much time and Zadig aborts the process, kill Zadig with Task Manager, exit and re-enter EDL mode on the phone, then try to install again.*
 
 8. If you're configuring the driver for the first time, an "USB Device Not Recognised" pop-up may appear. Exit EDL mode by removing and re-inserting the battery, then turn on the phone in EDL mode again.
+{:start="8"}
 
 ### Part 2: Obtaining the boot partition
 #### Nokia 8000 4G and Nokia 6300 4G with bkerler's EDL
@@ -360,12 +378,15 @@ Don't worry if this boots into a white screen: this is because the display drive
 Check if ADB can recognise the phone by typing `adb devices` into the command-line.
 
 5. Navigate the command-line to the extracted `platform-tools` folder (if needed) and pull the boot image from the phone with ADB by typing:
+{:start="5"}
+
 ```
 adb pull /dev/block/bootdevice/by-name/boot boot.img
 ```
 You should now see `/dev/block/bootdevice/by-name/boot: 1 file pulled, 0 skipped.` and have a copy of the boot partition with the size of 32.0MB (32,768KB). Fetched boot image will be saved to the current directory.
 
 6. Reboot the phone into normal mode by typing `adb reboot` into the command-line, or remove and re-insert the battery. Our custom Gerda Recovery partition will now be overwritten by the default one.
+{:start="6"}
 
 You can disconnect the phone from your computer for now.
 
@@ -379,6 +400,7 @@ Unlike the 6300 4G and 8000 4G, our phones' EDL loader properly works with both 
 In both cases, the phone's screen should blink with a 'Powered by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
 2. Open the extracted EDL folder in a command-line shell. Extract the boot partition of the phone by typing either of these commands depending on which file you have:
+{:start="2"}
 ```
 python edl.py -r boot boot.img -loader 2720.mbn
 ```
@@ -386,6 +408,8 @@ python edl.py -r boot boot.img -loader 2720.mbn
 python edl.py -r boot boot.img -loader 800t.mbn
 ```
 3. When finished, reboot the phone into normal operation by typing either of these into the command-line, or remove and re-insert the battery:
+{:start="3"}
+
 ```
 python edl.py -reset -loader 2720.mbn
 ```
@@ -405,6 +429,8 @@ You can disconnect the phone from your computer for now.
 ![Screenshot of a window titled as 'Docker Subscription Service Agreement' which declares that you will have to accept Docker's Subscription Service Agreements, Data Processing Agreement and Data Privacy Policy in order to use the program, and the free scope of it is limited to personal and small business uses. The window also lists the options to view the full agreements, accept them or reject and close the program.](assets/docker_abomination.png)
 
 2. Clone/download the boot patcher toolkit by typing this into a command-line window. This will download the toolkit and have Docker set it up. Do not omit the dot/period at the end of this command, this tells Docker where our downloaded toolkit are located on the system.
+{:start="2"}
+
 ```
 git clone https://gitlab.com/suborg/8k-boot-patcher.git && cd 8k-boot-patcher && docker build -t 8kbootpatcher .
 ```
@@ -412,6 +438,8 @@ git clone https://gitlab.com/suborg/8k-boot-patcher.git && cd 8k-boot-patcher &&
 ![Screenshot of a macOS Terminal window showing some logs in purple text after typing the command above](assets/docker_build.png)
 
 3. Copy the `boot.img` file we've just pulled from our phone to the desktop and do not change its name. Type this into the command-line to run the patching process:
+{:start="3"}
+
 ```
 docker run --rm -it -v ~/Desktop:/image 8kbootpatcher
 ```
@@ -428,6 +456,7 @@ That's it! On your desktop there will be two new image files, the modified `boot
 ![Screenshot of a list of folders and files contained in the extracted Android Image Kitchen folder](assets/aik.png)
 
 2. Open the folder in Command Prompt/Terminal and type `unpackimg boot.img`. This will split the image file and unpack the ramdisk to their subdirectories.
+{:start="2"}
 
 ![Screenshot of a Windows Command Prompt window showing some logs of the boot partition extracting process after typing the command above](assets/unpack.png)
 
@@ -435,6 +464,7 @@ That's it! On your desktop there will be two new image files, the modified `boot
 > **Be sure to edit the files correctly, else the phone won't boot!**
 
 3. Let the editing begin! First, open `ramdisk/default.prop` using Notepad++ and change:
+{:start="3"}
   - line 7: `ro.secure=1` -> `ro.secure=0`
   - line 8: `security.perf_harden=1` -> `security.perf_harden=0`
   - line 10: `ro.debuggable=0` -> `ro.debuggable=1`
@@ -459,6 +489,7 @@ That's it! On your desktop there will be two new image files, the modified `boot
 <img width="487" src="assets/default_prop_edited.png" alt="Screenshot of the modified content of the default.prop file">
 
 4. Open `ramdisk/init.qcom.early_boot.sh` in Notepad++ and add `setenforce 0` as a new line at the end of the file.
+{:start="4"}
 
 ```diff
 @@ -323,2 +323,2 @@
@@ -469,10 +500,12 @@ That's it! On your desktop there will be two new image files, the modified `boot
 ![Screenshot of the modified content of the init.qcom.early_boot.sh file](assets/setenforce.png)
 
 5. Go back to the root Android Image Kitchen folder and open `split_img/boot.img-cmdline` in Notepad++. Without adding a new line, scroll to the end of the first line and append `androidboot.selinux=permissive enforcing=0`.
+{:start="5"}
 
 ![Screenshot of the modified content of the boot.img-cmdline file](assets/append.png)
 
 6. Open `ramdisk/init.rc` (NOT `ramdisk/init`) and delete line 393 `setprop selinux.reload_policy 1` or mark a comment as shown. This will ultimately prevent SELinux from overwriting the policy changes we made above.
+{:start="6"}
 
 7. (Optional) If you wish to disable the Low Memory Killer function, now's a good time to do so! In the same `ramdisk/init.rc` file, after line 420, make a new line and add:
 ```
@@ -507,6 +540,7 @@ Indent the new line to match up with other lines as shown.
 ![Screenshot of the modified content of the init.rc file, with line 421 added to disable the Low Memory Killer module](assets/disable_lmk.png)
 
 8. And that's a wrap! Open the root Android Image Kitchen folder in a command-line window and type `repackimg` to package our modified boot partition.
+{:start="8"}
 
 ![Screenshot of a Windows Command Prompt window showing some logs of the boot partition repacking process after typing the above command, but has a signing error at the end](assets/repack_unsigned.png)
 
@@ -567,6 +601,8 @@ mount -o bind /data/enforce /sys/fs/selinux/enforce
 - [Nokia 8000 4G rooting research thread](https://groups.google.com/g/bananahackers/c/8lCqP15zHXg) on BananaHackers Google Groups
 - [Nokia 6300 4G (nokia-leo)](https://wiki.postmarketos.org/wiki/Nokia_6300_4G_(nokia-leo)) on postmarketOS Wiki
 - [Affe Null's Bananian project repository](https://git.abscue.de/bananian/bananian), a Debian port for KaiOS devices
+
+---
 
 <style>
   .w { max-width: 1075px !important; padding: 4rem 1rem !important; font-size: large; }
