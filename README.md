@@ -4,7 +4,7 @@
   <thead><tr><th colspan="2">Nokia 6300 4G (nokia-leo)</th></tr></thead>
   <tbody>
     <tr><td>Released</td><td align="right">13 November 2020</td></tr>
-    <tr><td>Model</td><td  align="right">TA-1286, TA-1287, TA-1291, TA-1294, TA-1307, TA-1324</td></tr>
+    <tr><td>Model</td><td align="right">TA-1286, TA-1287, TA-1291, TA-1294, TA-1307, TA-1324</td></tr>
   <tr><td colspan="2" align="center"><strong>Specifications</strong></td></tr>
     <tr><td>SoC</td><td align="right">Qualcomm MSM8909 Snapdragon 210<br>(4 x 1.1GHz Cortex-A7)</td></tr>
     <tr><td>RAM</td><td align="right">512MB LPDDR2/3</td></tr>
@@ -30,7 +30,7 @@
 
 *B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries' source code [officially provided by HMD](https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz) for the 6300 4G can be found in `leo-v20` branch of this repository. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and cannot be used to compile entire KaiOS build.*
 
-<img width="400" align="right" src="assets/nokia_6300_4G-emotional-Range.png">
+<img width="420" align="right" src="assets/nokia_6300_4G-emotional-Range.png">
 
 **Table of Contents**
 - [Don’t buy a counterfeit](#dont-buy-a-counterfeit)
@@ -567,3 +567,7 @@ mount -o bind /data/enforce /sys/fs/selinux/enforce
 - [Nokia 8000 4G rooting research thread](https://groups.google.com/g/bananahackers/c/8lCqP15zHXg) on BananaHackers Google Groups
 - [Nokia 6300 4G (nokia-leo)](https://wiki.postmarketos.org/wiki/Nokia_6300_4G_(nokia-leo)) on postmarketOS Wiki
 - [Affe Null's Bananian project repository](https://git.abscue.de/bananian/bananian), a Debian port for KaiOS devices
+
+<style>
+  .w { max-width: 1075px !important; }
+</style>
