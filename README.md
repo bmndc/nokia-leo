@@ -439,10 +439,32 @@ That's it! On your desktop there will be two new image files, the modified `boot
   - line 8: `security.perf_harden=1` -> `security.perf_harden=0`
   - line 10: `ro.debuggable=0` -> `ro.debuggable=1`
 
+```diff
+@@ -4,9 +4,9 @@
+  ro.sw.release.date=21-08-13
+  ro.build.version.fih=20.00.17.01
+  ro.build.elabel=false
+- ro.secure=1
+- security.perf_harden=1
++ ro.secure=0
++ security.perf_harden=0
+  ro.allow.mock.location=0
+- ro.debuggable=0
++ ro.debuggable=1
+  ro.adb.secure=0
+  ro.zygote=zygote32
+```
+
 <img width="487" src="assets/default_prop.png" alt="Screenshot of the original content of the default.prop file">
 <img width="487" src="assets/default_prop_edited.png" alt="Screenshot of the modified content of the default.prop file">
 
 4. Open `ramdisk/init.qcom.early_boot.sh` in Notepad++ and add `setenforce 0` as a new line at the end of the file.
+
+```diff
+@@ -323,2 +323,2 @@
+  setprop ro.gps.enabled $gps_enabled
++ setenforce 0
+```
 
 ![Screenshot of the modified content of the init.qcom.early_boot.sh file](assets/setenforce.png)
 
@@ -452,13 +474,35 @@ That's it! On your desktop there will be two new image files, the modified `boot
 
 6. Open `ramdisk/init.rc` (NOT `ramdisk/init`) and delete line 393 `setprop selinux.reload_policy 1` or mark a comment as shown. This will ultimately prevent SELinux from overwriting the policy changes we made above.
 
-![Screenshot of the modified content of the init.rc file, with line 393 marked as comment. This has the same effects as deleting the line altogether.](assets/reload_policy.png)
-
 7. (Optional) If you wish to disable the Low Memory Killer function, now's a good time to do so! In the same `ramdisk/init.rc` file, after line 420, make a new line and add:
 ```
 write /sys/module/lowmemorykiller/parameters/enable_lmk 0
 ```
 Indent the new line to match up with other lines as shown.
+
+```diff
+@@ +390,7 -390,7 @@
+  setusercryptopolicies /data/user
+
+  # Reload policy from /data/security if present.
+- setprop selinux.reload_policy 1
+
+  # Set SELinux security contexts on upgrade or policy update.
+  restorecon_recursive /data
+@@ -418,10 +418,10 @@
+  # Memory management.  Basic kernel parameters, and allow the high
+  # level system server to be able to adjust the kernel OOM driver
+  # parameters to match how it is managing things.
++ write /sys/module/lowmemorykiller/parameters/enable_lmk 0
+  write /proc/sys/vm/overcommit_memory 1
+  write /proc/sys/vm/min_free_order_shift 4
+  chown root system /sys/module/lowmemorykiller/parameters/adj
+  chmod 0664 /sys/module/lowmemorykiller/parameters/adj
+  chown root system /sys/module/lowmemorykiller/parameters/minfree
+  chmod 0664 /sys/module/lowmemorykiller/parameters/minfree
+```
+
+![Screenshot of the modified content of the init.rc file, with line 393 marked as comment. This has the same effects as deleting the line altogether.](assets/reload_policy.png)
 
 ![Screenshot of the modified content of the init.rc file, with line 421 added to disable the Low Memory Killer module](assets/disable_lmk.png)
 
