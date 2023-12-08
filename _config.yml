@@ -1,1 +1,5 @@
-remote_theme: just-the-docs/just-the-docs-template
+remote_theme: marella/jekyll-theme-documentation
+
+nav:
+  - Nokia 6300 4G (nokia-leo): ''
+  - Launch hidden settings: w2d

@@ -1,3 +1,7 @@
+---
+permalink: /
+---
+
 <details markdown="block">
   <summary dir="rtl">View device specification table</summary>
 <table style="font-size:small">
