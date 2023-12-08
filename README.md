@@ -28,7 +28,7 @@
     <tr><td>Peripherals</td><td colspan=2>GPS &amp; GLONASS</td></tr>
     <tr><td>Cameras</td><td>Rear: VGA with fixed focus, LED flash</td><td>Rear: 2MP with fixed focus, LED flash</td></tr>
     <tr><td>Dimensions<br>(HWD)</td><td>131.4 * 53 * 13.7 (mm)<br>5.17 * 2.09 * 0.54 (in)</td><td>132.2 * 56.5 * 12.3 (mm)<br>5.20 * 2.22 * 0.48 (in)</td></tr>
-    <tr><td>Weight</td><td>107.4 g (3.70 oz)</td><td>110.2 g (3.88 oz)</td></tr>
+    <tr><td>Weight<br>(incl. battery)</td><td>104.1g (3.67oz)</td><td>107.9g (3.81oz)</td></tr>
     <tr><td>Ports</td><td colspan=2>- microUSB charging &amp; USB 2.0 data transferring port<br>- 3.5mm headphone jack</td></tr>
     <tr><td>Battery</td><td colspan=2>Removable Li-Ion 1500mAh (BL-4XL), 5W wired charging<br>(up to 25 days of 4G standby advertised)</td></tr>
   <tr><td colspan=3 align="center"><strong>KaiOS info</strong></td></tr>
@@ -598,13 +598,15 @@ mount -o bind /data/enforce /sys/fs/selinux/enforce
 
 ## External links
 - [Nokia 6300 4G product page](https://www.nokia.com/phones/en_int/nokia-6300-4g) on Nokia Mobile's website
+- [Nokia 8000 4G product page](https://www.nokia.com/phones/en_int/nokia-8000-4g) on Nokia Mobile's website
 - [Discussion: Nokia 6300 4G and Nokia 8000 4G](https://4pda.to/forum/index.php?showtopic=1009510) on 4PDA Forum (Russian)
 - [Nokia 8000 4G and Nokia 6300 4G general discussion thread](https://groups.google.com/g/bananahackers/c/jxEC3RVMYvI) on BananaHackers Google Groups
 - [Nokia 8000 4G rooting research thread](https://groups.google.com/g/bananahackers/c/8lCqP15zHXg) on BananaHackers Google Groups
 - [Nokia 6300 4G (nokia-leo)](https://wiki.postmarketos.org/wiki/Nokia_6300_4G_(nokia-leo)) on postmarketOS Wiki
+- [Nokia 8000 4G (nokia-sparkler)](https://wiki.postmarketos.org/wiki/Nokia_8000_4G_(nokia-sparkler)) on postmarketOS Wiki
 - [Affe Null's Bananian project repository](https://git.abscue.de/bananian/bananian), a Debian port for KaiOS devices
 
-*and kudos to [riggraz/no-style-please](https://github.com/riggraz/no-style-please) for the GitHub Pages theme*
+*and kudos to MIT-licensed [riggraz/no-style-please](https://github.com/riggraz/no-style-please) for the GitHub Pages theme*
 
 ---
 
