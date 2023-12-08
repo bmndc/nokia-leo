@@ -7,4 +7,5 @@ remote_theme: riggraz/no-style-please
 
 theme_config:
   appearance: "auto"
+  back_home_text: "Back to main page"
   show_description: false
