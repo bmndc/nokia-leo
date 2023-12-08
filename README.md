@@ -604,6 +604,8 @@ mount -o bind /data/enforce /sys/fs/selinux/enforce
 - [Nokia 6300 4G (nokia-leo)](https://wiki.postmarketos.org/wiki/Nokia_6300_4G_(nokia-leo)) on postmarketOS Wiki
 - [Affe Null's Bananian project repository](https://git.abscue.de/bananian/bananian), a Debian port for KaiOS devices
 
+*and kudos to [riggraz/no-style-please](https://github.com/riggraz/no-style-please) for the GitHub Pages theme*
+
 ---
 
 <style>

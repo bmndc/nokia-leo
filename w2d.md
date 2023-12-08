@@ -1,4 +1,3 @@
-# Launch hidden settings
 **Table of Contents**
 - [W2D KaiOS Jailbreak](#w2d-kaios-jailbreak)
 - [Hotspot for JioPhones](#hotspot-for-jiophones)
@@ -89,3 +88,7 @@ On devices with dedicated volume buttons, you can quickly toggle on/off this fea
         }
     }
 </script>
+
+<style>
+    .w { max-width: 950px !important; padding: 4rem 1rem !important; font-size: large; }
+</style>
