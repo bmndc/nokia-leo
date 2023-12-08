@@ -607,6 +607,6 @@ mount -o bind /data/enforce /sys/fs/selinux/enforce
 ---
 
 <style>
-  .w { max-width: 1075px !important; padding: 4rem 1rem !important; font-size: large; }
-  li { margin-left: -1rem !important; }
+  .w { max-width: 900px !important; padding: 4rem 1rem !important; font-size: large; }
+  li { margin-left: -0.75rem !important; }
 </style>
