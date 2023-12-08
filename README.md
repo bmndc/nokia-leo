@@ -569,5 +569,5 @@ mount -o bind /data/enforce /sys/fs/selinux/enforce
 - [Affe Null's Bananian project repository](https://git.abscue.de/bananian/bananian), a Debian port for KaiOS devices
 
 <style>
-  .w { max-width: 1075px !important; }
+  .w { max-width: 1075px !important; padding: 4rem 1rem !important; }
 </style>
