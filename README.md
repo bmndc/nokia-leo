@@ -28,7 +28,7 @@
     <tr><td>Peripherals</td><td colspan=2>GPS &amp; GLONASS</td></tr>
     <tr><td>Cameras</td><td>Rear: VGA with fixed focus, LED flash</td><td>Rear: 2MP with fixed focus, LED flash</td></tr>
     <tr><td>Dimensions<br>(HWD)</td><td>131.4 * 53 * 13.7 (mm)<br>5.17 * 2.09 * 0.54 (in)</td><td>132.2 * 56.5 * 12.3 (mm)<br>5.20 * 2.22 * 0.48 (in)</td></tr>
-    <tr><td>Weight<br>(incl. battery)</td><td>104.1g (3.67oz)</td><td>107.9g (3.81oz)</td></tr>
+    <tr><td>Weight</td><td>With battery: 104.1g (3.67oz)</td><td>With battery: 107.9g (3.81oz)</td></tr>
     <tr><td>Ports</td><td colspan=2>- microUSB charging &amp; USB 2.0 data transferring port<br>- 3.5mm headphone jack</td></tr>
     <tr><td>Battery</td><td colspan=2>Removable Li-Ion 1500mAh (BL-4XL), 5W wired charging<br>(up to 25 days of 4G standby advertised)</td></tr>
   <tr><td colspan=3 align="center"><strong>KaiOS info</strong></td></tr>
