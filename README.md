@@ -251,10 +251,8 @@ andybalholm's EDL cannot be used on 8000 4G and 6300 4G due to some structural c
 - **Windows users also need:**
   - a computer with Python and `pip` installed for the EDL tools to work (Windows: both are packaged on Python's [official website](https://www.python.org/))
   - Qualcomm driver for your PC to detect the phone in EDL mode (included in the EDL tools)
-  - [Zadig 2.7](https://github.com/pbatard/libwdi/releases/tag/v1.4.1) to configure `libusb-win32` driver
+  - latest version of [Zadig](https://github.com/pbatard/libwdi/releases/latest) to configure `libusb-win32` driver; do NOT use the older version bundled as it has less chances of success
   - Android Debug Bridge (ADB) installed to read the boot image in Gerda Recovery (see [Development/WebIDE on BananaHackers Wiki](https://wiki.bananahackers.net/en/development/webide))
-
-*@cyan-2048 confirmed to me that Zadig 2.5 bundled within the EDL package doesn't work, so **DO NOT USE** that. I've also specifically chosen version 2.7 as it works best throughout my testing, and the latest 2.8 version of Zadig tool also has troubles detecting the phone's EDL driver.*
 
 - **macOS & Linux users also need:**
   - A package manager, such as [Homebrew](https://brew.sh), to quickly set up Python, ADB, `libusb` and configure the environment for EDL tools (setup guide with Homebrew can be found below)
@@ -340,16 +338,17 @@ pip3 install pyusb pyserial capstone keystone-engine docopt
   - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
   - From the turned off state, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
 
-In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
+In both cases, the phone's screen should blink with an 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
-7. To configure the previously installed driver, download and open [Zadig 2.7](https://github.com/pbatard/libwdi/releases/tag/v1.4.1) (do NOT use the one included in the EDL package). Tick Options, List All Devices and select `QHSUSB__BULK` (your device in EDL mode) in the main dropdown menu. In the target driver box—to which the green arrow is pointing—click the up/down arrows until you see `libusb-win32` and then click Replace Driver.
+7. To replace the installed `qcusbser` driver with `libusb-win32` for use with edl.py, download and open [Zadig](https://github.com/pbatard/libwdi/releases/latest) (do NOT use the version included in the EDL package). Tick Options, List All Devices and select `QHSUSB__BULK` (your device in EDL mode) in the main dropdown menu. In the target driver box—to which the green arrow is pointing—click the up/down arrows until you see `libusb-win32` and then click Replace Driver.
 {:start="7"}
 
-![Screenshot of Zadig program with the Option dropdown menu shown, in which the List All Devices option is highlighted and selected](assets/listall.png)
-![Screenshot of Zadig's main interface with the front dropdown list shown listing all devices connected to computer, in which the option for QHSUSB_BULK is highlighted](assets/qhsusb.png)
-![Screenshot of Zadig's main interface with the second label box on the Drivers line, which the green arrow points to, showing 'libusb-win32 (v1.2.6.0)'. Two smaller up/down arrows are shown to the right of that box.](assets/arg.png)
+<p align="center">
+  <img src="assets/qhsusb-zadig.gif" alt="9-frame GIF demostrating Zadig's main interface, List All Devices option being selected from Option menu, QHSUSB_BULK being selected from the main dropdown list, followed by the second label box on the Drivers line, to which the green arrow points, changed to 'libusb-win32 (v1.2.6.0)'. Two smaller up/down arrows are right next to that box.">
+</p>
 
-*If driver configuration takes too much time and Zadig aborts the process, kill Zadig with Task Manager, exit and re-enter EDL mode on the phone, then try to install again.*
+> [!NOTE]
+> Windows will automatically create restore points on driver installation, as Zadig suggests in its tooltips. On older PCs, this might cause issues with driver configuration process being lengthened past the 5-minute mark. If Zadig aborts the process and hangs, kill Zadig with Task Manager, exit and re-enter EDL mode on the phone, then try to install again.
 
 8. If you're configuring the driver for the first time, an "USB Device Not Recognised" pop-up may appear. Exit EDL mode by removing and re-inserting the battery, then turn on the phone in EDL mode again.
 {:start="8"}
@@ -367,7 +366,6 @@ python edl.py w recovery recovery-8110.img --loader=8k.mbn
 *If the progress bar stops at 99% (and not earlier) and you get error `'usb.core.USBError: [Errno None] b'libusb0-dll:err [_usb_reap_async] timeout error\n'` or `usb.core.USBError: [Errno 60] Command timed out`, this is false. Don't mind the error and proceed with the next step.*
 
 3. When finished, disconnect the phone from your computer and exit EDL mode by removing and re-inserting the battery. 
-
 4. Then, hold down the top Power button and `*` to turn on the phone in recovery mode. Connect the phone to your computer again.
 
 > [!WARNING]
@@ -434,18 +432,31 @@ You can disconnect the phone from your computer for now.
 ```
 git clone https://gitlab.com/suborg/8k-boot-patcher.git && cd 8k-boot-patcher && docker build -t 8kbootpatcher .
 ```
-
 ![Screenshot of a macOS Terminal window showing some logs in purple text after typing the command above](assets/docker_build.png)
 
 3. Copy the `boot.img` file we've just pulled from our phone to the desktop and do not change its name. Type this into the command-line to run the patching process:
 {:start="3"}
 
 ```
-docker run --rm -it -v ~/Desktop:/image 8kbootpatcher
+$ docker run --rm -it -v ~/Desktop:/image 8kbootpatcher
+
+Boot image found, patching...
+writing boot image config in bootimg.cfg
+extracting kernel in zImage
+extracting ramdisk in initrd.img
+charger
+data
+[...]
+ueventd.qcom.rc
+ueventd.rc
+verity_key
+4037 blocks
+4979 blocks
+reading config file bootimg.cfg
+reading ramdisk from myinitrd.img
+Writing Boot Image boot.img
+Boot image patched!
 ```
-
-![Screenshot of a macOS Terminal window listing a list of processed files after typing the command above](assets/docker_patch.png)
-
 That's it! On your desktop there will be two new image files, the modified `boot.img` and the original `boot-orig.img`. You can now head to [part 4](#part-4-flashing-the-modified-boot-partition).
 
 ![Screenshot of boot.img and boot-orig.img files as shown on desktop](assets/after_patch.png)
@@ -537,7 +548,7 @@ Indent the new line to match up with other lines as shown.
   chown root system /sys/module/lowmemorykiller/parameters/minfree
   chmod 0664 /sys/module/lowmemorykiller/parameters/minfree
 ```
-![Screenshot of the modified content of the init.rc file, with line 393 marked as comment which has the same effects as deleting the line altogether, and line 421 added to disable the Low Memory Killer module](assets/reload_policy.png)
+![Screenshot of the modified content of the init.rc file, with line 393 marked as comment which has the same effects as deleting the line altogether, and line 421 added to disable the Low Memory Killer module](assets/f5-selinux.png)
 
 8. And that's a wrap! Open the root Android Image Kitchen folder in a command-line window and type `repackimg` to package our modified boot partition.
 {:start="8"}
@@ -552,8 +563,7 @@ If the newly packaged image is barely over 1/3 the size of the original image, i
 
 ### Part 4: Flashing the modified boot partition
 1. Turn on your phone in EDL mode and connect it to your computer.
-
-2. Move the newly created `boot.img`, `unsigned-new.img` or `image-new.img` to the EDL tools folder and open a command-line window within it. From here type either of these commands depending on which image file you have:
+2. Move the newly created `boot.img`, `unsigned-new.img` or `image-new.img` to the EDL tools folder and open Command Prompt/Terminal within it. From here type either of these commands depending on which image file you have:
 ```
 python edl.py w boot boot.img --loader=8k.mbn
 ```
@@ -579,7 +589,6 @@ python edl.py -w boot boot.img -loader 800t.mbn
 python edl.py w boot boot.img --loader=8k.mbn
 python edl.py reset
 ```
-
 ![Demostration of a command-line window showing the results after typing the first command above](assets/edl_bootog.png)
 
 #### Next steps
