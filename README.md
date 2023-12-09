@@ -95,7 +95,7 @@ Kosher is indeed a great way to make your phone truly basic, but HMD already off
 *Photo provided by nuxx on r/KaiOS Discord server in October 2021.*
 
 <p align="center">
-  <img alt="A Kosher-customized Nokia 8000 4G with no Browser, KaiStore or third-party apps shown in 3-by-3 grid of apps. Center D-Pad key is engraved with a Hebrew symbol indicating Kosher phone" src="assets/kosher-sparkler.jpg" width="500">
+  <img alt="A Kosher-customized Nokia 8000 4G with no Browser, KaiStore or third-party apps shown in 3-by-3 grid of apps. Center D-Pad key is engraved with a Hebrew symbol indicating Kosher phone" src="assets/kosher-sparkler.jpg" width="400">
 </p>
 
 ## Differences between US and international variants
@@ -484,9 +484,9 @@ That's it! On your desktop there will be two new image files, the modified `boot
   ro.adb.secure=0
   ro.zygote=zygote32
 ```
-
-<img width="487" src="assets/default_prop.png" alt="Screenshot of the original content of the default.prop file">
-<img width="487" src="assets/default_prop_edited.png" alt="Screenshot of the modified content of the default.prop file">
+<p align="center">
+  <img src="assets/default_prop_edited.png" alt="Screenshot of the modified content of the default.prop file">
+</p>
 
 4. Open `ramdisk/init.qcom.early_boot.sh` in Notepad++ and add `setenforce 0` as a new line at the end of the file.
 {:start="4"}
@@ -496,8 +496,9 @@ That's it! On your desktop there will be two new image files, the modified `boot
   setprop ro.gps.enabled $gps_enabled
 + setenforce 0
 ```
-
-![Screenshot of the modified content of the init.qcom.early_boot.sh file](assets/setenforce.png)
+<p align="center">
+  <img src="assets/setenforce.png" alt="Screenshot of the modified content of the init.qcom.early_boot.sh file">
+</p>
 
 5. Go back to the root Android Image Kitchen folder and open `split_img/boot.img-cmdline` in Notepad++. Without adding a new line, scroll to the end of the first line and append `androidboot.selinux=permissive enforcing=0`.
 {:start="5"}
@@ -536,10 +537,7 @@ Indent the new line to match up with other lines as shown.
   chown root system /sys/module/lowmemorykiller/parameters/minfree
   chmod 0664 /sys/module/lowmemorykiller/parameters/minfree
 ```
-
-![Screenshot of the modified content of the init.rc file, with line 393 marked as comment. This has the same effects as deleting the line altogether.](assets/reload_policy.png)
-
-![Screenshot of the modified content of the init.rc file, with line 421 added to disable the Low Memory Killer module](assets/disable_lmk.png)
+![Screenshot of the modified content of the init.rc file, with line 393 marked as comment which has the same effects as deleting the line altogether, and line 421 added to disable the Low Memory Killer module](assets/reload_policy.png)
 
 8. And that's a wrap! Open the root Android Image Kitchen folder in a command-line window and type `repackimg` to package our modified boot partition.
 {:start="8"}
@@ -609,7 +607,6 @@ mount -o bind /data/enforce /sys/fs/selinux/enforce
 *and kudos to MIT-licensed [riggraz/no-style-please](https://github.com/riggraz/no-style-please) for the GitHub Pages theme*
 
 ---
-
 <style>
   .w { max-width: 950px !important; padding: 4rem 1rem !important; font-size: large; }
   li { margin-left: -0.75rem !important; }
