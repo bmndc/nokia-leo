@@ -269,7 +269,7 @@ andybalholm's EDL cannot be used on 8000 4G and 6300 4G due to some structural c
   - (Windows) [Notepad++](https://notepad-plus-plus.org/downloads) to edit the needed files while [preserving line endings](https://www.cs.toronto.edu/~krueger/csc209h/tut/line-endings.html)
   - [Java Runtime Environment](https://www.java.com/en/download) for properly signing the boot image (optional)
 
-For the sake of simplicity, the guide assumes you've moved the Gerda Recovery image and the MBN loader file into the root of EDL tools folder, which you should do for convenience. If you'd like to have those in other folders, change the directory path accordingly.
+For the sake of simplicity, the guide assumes you've moved the Gerda Recovery image and the MBN loader file into the root of `edl-3.1` or `edl-master` folder, which you should do for convenience. If you need to have those in other folders, change the directory path accordingly.
 
 ### Part 1: Set up environment for EDL tools
 > This portion of the guide was taken from [Development/EDL tools on BananaHackers Wiki](https://wiki.bananahackers.net/development/edl) so that you don't have to switch tabs. Kudos to Cyan for the guides!
@@ -283,9 +283,9 @@ sudo apt-get install python pip3
 ```
 sudo -H pip3 install pyusb pyserial capstone keystone-engine docopt
 ```
-3. Switch your phone to EDL mode and connect it to your computer.
-  - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
-  - From the turned off state, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
+3. Switch your phone to EDL mode and connect it to your computer. Either:
+  - if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
+  - if your phone is off, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
 
 In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
@@ -300,9 +300,9 @@ Additionally, if you have issue with device access:
 ```
 brew install python android-platform-tools libusb && pip3 install pyusb pyserial capstone keystone-engine docopt
 ```
-3. Switch your phone to EDL mode and connect it to your computer.
-  - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
-  - From the turned off state, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
+3. Switch your phone to EDL mode and connect it to your computer. Either:
+  - if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
+  - if your phone is off, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
 
 In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
@@ -333,10 +333,10 @@ pip3 install pyusb pyserial capstone keystone-engine docopt
 
 ![Screenshot of an installation window for Qualcomm's diagnostic driver, in which two radio buttons are shown labelled 'WWAN-DHCP is not used to get IPAddress' and 'ETHERNET-DHCP is used to get IPAddress' respectively. The first button is selected.](assets/whatever.png)
 
-6. Switch your phone to EDL mode and connect it to your computer.
+6. Switch your phone to EDL mode and connect it to your computer. Either:
 {:start="6"}
-  - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
-  - From the turned off state, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
+  - if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
+  - if your phone is off, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
 
 In both cases, the phone's screen should blink with an 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
@@ -348,7 +348,7 @@ In both cases, the phone's screen should blink with an 'enabled by KaiOS' logo t
 </p>
 
 > [!NOTE]
-> Windows will automatically create restore points on driver installation, as Zadig suggests in its tooltips. On older PCs, this might cause issues with driver configuration process being lengthened past the 5-minute mark. If Zadig aborts the process and hangs, kill Zadig with Task Manager, exit and re-enter EDL mode on the phone, then try to install again.
+> Windows will automatically create restore points on driver installation, as Zadig suggests in its tooltips. On older PCs, this might cause issues with driver configuration process being lengthened past the 5-minute mark. If Zadig aborts the process and hangs, kill Zadig with Task Manager, remove and re-insert the battery on the phone to exit and re-enter EDL mode, then try to install again.
 
 8. If you're configuring the driver for the first time, an "USB Device Not Recognised" pop-up may appear. Exit EDL mode by removing and re-inserting the battery, then turn on the phone in EDL mode again.
 {:start="8"}
@@ -375,7 +375,7 @@ Don't worry if this boots into a white screen: this is because the display drive
 
 Check if ADB can recognise the phone by typing `adb devices` into the command-line.
 
-5. Navigate the command-line to the extracted `platform-tools` folder (if needed) and pull the boot image from the phone with ADB by typing:
+5. Navigate the command-line to the extracted `platform-tools` folder (if needed) and pull the boot image from the phone to the current directory on your computer with ADB by typing:
 {:start="5"}
 
 ```
@@ -391,13 +391,13 @@ You can disconnect the phone from your computer for now.
 #### Nokia 2720 Flip and Nokia 800 Tough with andybalholm's EDL
 Unlike the 6300 4G and 8000 4G, our phones' EDL loader properly works with both reading and writing, so the steps are more straightforward.
 
-1. Switch your phone to EDL mode and connect it to your computer.
-  - From the turned on state, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
-  - From the turned off state, hold down both side volume keys (2720 Flip) or both D-Pad Up and Down keys (800 Tough) at the same time while inserting the USB cable to the phone.
+1. Switch your phone to EDL mode and connect it to your computer. Either:
+  - if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
+  - if your phone is off, hold down both side volume keys (2720 Flip) or both D-Pad Up and Down keys (800 Tough) at the same time while inserting the USB cable to the phone.
 
 In both cases, the phone's screen should blink with a 'Powered by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
-2. Open the extracted EDL folder in a command-line shell. Extract the boot partition of the phone by typing either of these commands depending on which file you have:
+2. Open the extracted EDL folder in a command-line shell. Extract the boot partition of the phone to the current directory on your computer =by typing either of these commands depending on which file you have:
 {:start="2"}
 ```
 python edl.py -r boot boot.img -loader 2720.mbn
@@ -426,7 +426,7 @@ You can disconnect the phone from your computer for now.
 
 ![Screenshot of a window titled as 'Docker Subscription Service Agreement' which declares that you will have to accept Docker's Subscription Service Agreements, Data Processing Agreement and Data Privacy Policy in order to use the program, and the free scope of it is limited to personal and small business uses. The window also lists the options to view the full agreements, accept them or reject and close the program.](assets/docker_abomination.png)
 
-2. Clone/download the boot patcher toolkit by typing this into a command-line window. This will download the toolkit and have Docker set it up. Do not omit the dot/period at the end of this command, this tells Docker where our downloaded toolkit are located on the system.
+2. Use [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) to clone/download the boot patcher toolkit by typing this into Command Prompt/Terminal. This will download the toolkit and have Docker set it up. Do not omit the dot/period at the end of this command, this tells Docker where our downloaded toolkit are located on the system.
 {:start="2"}
 
 ```
@@ -434,8 +434,10 @@ git clone https://gitlab.com/suborg/8k-boot-patcher.git && cd 8k-boot-patcher &&
 ```
 ![Screenshot of a macOS Terminal window showing some logs in purple text after typing the command above](assets/docker_build.png)
 
-3. Copy the `boot.img` file we've just pulled from our phone to the desktop and do not change its name. Type this into the command-line to run the patching process:
+3. Copy the `boot.img` file we've just pulled from our phone to the desktop and do not change its name. Type this into Command Prompt/Terminal to run the patching process:
 {:start="3"}
+  - Windows: `docker run --rm -it -v %cd%/Desktop:/image 8kbootpatcher`
+  - macOS/Linux: `docker run --rm -it -v ~/Desktop:/image 8kbootpatcher`
 
 ```
 $ docker run --rm -it -v ~/Desktop:/image 8kbootpatcher
