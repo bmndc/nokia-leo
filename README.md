@@ -229,7 +229,7 @@ To remove unwanted apps from the phone, you can use [this fork of Luxferre's App
 ## ROOT: Boot partition patching (non-US only)
 On KaiOS 2.5.4 devices, such as the 6300 4G and 8000 4G, ADB and WebIDE can be used to install most third-party apps. However, apps with special ‘forbidden’ permissions are not allowed, including most BananaHackers apps with `engmode-extension` like Wallace Toolbox, which can be used to gain exclusive access of the phone. You also cannot make changes to the system. On the 2720 Flip and 800 Tough with KaiOS 2.5.2.2, with HMD/Nokia Mobile changing their release branches from `dev-keys` to `release-keys`, the situation is even worse as you cannot sideload at all. 
 
-This is because in order for WhatsApp's VoIP feature to work on these KaiOS versions, a security module called SELinux is now set to be `Enforced` which checks and reverts system modifications on boot. To get total read-write access to the devices, you'll now have to permanently root them by setting SELinux to `Permissive` mode.
+This is because in order for WhatsApp's VoIP feature to work on these KaiOS versions, a security module called SELinux[^2] is now set to be `Enforced` which checks and reverts system modifications on boot. To get total read-write access to the devices, you'll now have to permanently root them by setting SELinux to `Permissive` mode.
 
 The guide below is based on the main guide from BananaHackers website, but has been rewritten to make it easier to follow. The process will take somewhat considerable 30 minutes to an hour, so do this when you have enough time.
 
@@ -617,9 +617,11 @@ mount -o bind /data/enforce /sys/fs/selinux/enforce
 - [Nokia 8000 4G (nokia-sparkler)](https://wiki.postmarketos.org/wiki/Nokia_8000_4G_(nokia-sparkler)) on postmarketOS Wiki
 - [Affe Null's Bananian project repository](https://git.abscue.de/bananian/bananian), a Debian port for KaiOS devices
 
-[^1]: Aleph Security has a deep-dive blog post into exploiting the nature of EDL mode on Qualcomm-chipset devices that you can read [here](https://alephsecurity.com/2018/01/22/qualcomm-edl-1).
+*GitHub Pages theme: MIT-licensed [riggraz/no-style-please](https://github.com/riggraz/no-style-please)*
+*Logo by [Vitaly Gorbachev](https://www.flaticon.com/free-icons/banana) from Flaticons*
 
-*and kudos to MIT-licensed [riggraz/no-style-please](https://github.com/riggraz/no-style-please) for the GitHub Pages theme*
+[^1]: Aleph Security has a [deep-dive blog post](https://alephsecurity.com/2018/01/22/qualcomm-edl-1) into exploiting the nature of EDL mode on Qualcomm devices. If you're into the overall boot process, check out LineageOS team's breakdown of Qualcomm's Chain of Trust on [their Engineering Blog](https://lineageos.org/engineering/Qualcomm-Firmware).
+[^2]: Read more about SELinux on [LineageOS team's Engineering Blog](https://lineageos.org/engineering/HowTo-SELinux).
 
 ---
 [officially provided by HMD]: https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz
