@@ -239,39 +239,31 @@ The guide below is based on the main guide from BananaHackers website, but has b
 > Remember, you don't have to root your phone to do things that usually need root access e.g. you can use [this fork of Luxferre's AppBuster] to disable apps from the launcher instead of deleting them with Wallace Toolbox. You can also install [Luxferre's CrossTweak], a Wallace Toolbox alternative also made by Luxferre that does not need `engmode-extension` and therefore can be easily installed on KaiOS 2.5.4 devices.
 
 ### What we'll need
-- an international non-US version of Nokia 6300 4G (not TA-1324) or Nokia 8000 4G, Nokia 2720 Flip or Nokia 800 Tough;
-- an USB cable capable of data transferring (EDL cables will also do);
-- an Internet connection to download the tools needed;
-- a somewhat-working firehose programmer MBN file for the [8000 4G and 6300 4G], [2720 Flip] or [800 Tough];
-- an [image file of Gerda Recovery] ([backup]) for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from the recovery mode and get the boot partition from there (not needed for 2720 Flip/800 Tough);
-- a EDL tools package to read and write system partitions in low-level access (in this guide we'll be using [bkerler's edl.py v3.1] for 8000 4G/6300 4G, [andybalholm's edl] for 2720 Flip/800 Tough)
-
-andybalholm's EDL cannot be used on 8000 4G and 6300 4G due to some structural changes within the GPT partition table, which will result in an error `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`. **Do note that the command structures used between bkerler's and andybalholm's are different, which we'll mention below.**
-
-*We'll be using open-sourced Python scripts from GitHub for the sake of cross-platform usage (and my obsession of open-source tools), instead of QFIL which is proprietary and only supports Windows.*
-
-- **Windows users also need:**
-  - a computer with Python and `pip` installed for the EDL tools to work (both are packaged on [Python's official download page for Windows])
-  - Qualcomm driver for your PC to detect the phone in EDL mode (included in the EDL tools)
-  - latest version of [Zadig] to configure `libusb-win32` driver; do NOT use the older version bundled as it has less chances of success
-  - Android Debug Bridge (ADB) installed to read the boot image in Gerda Recovery (see [Sideloading and debugging/WebIDE])
-
-- **macOS & Linux users also need:**
-  - A package manager, such as [Homebrew], to quickly set up Python, ADB, `libusb` and configure the environment for EDL tools (setup guide with Homebrew can be found below)
+- a Nokia 6300 4G (excl. TA-1324), 8000 4G, 2720 Flip, 800 Tough or Alcatel Go Flip 3;
+- an USB cable capable of data transferring (EDL cables work as well);
+- MBN firehose programmer file: [8000 4G and 6300 4G], [2720 Flip], [800 Tough] or Go Flip 3 ([AT&T/Cricket], [T-Mobile/Metro/Rogers]);
+- EDL utility to read and write system partitions: [bkerler's edl.py v3.1] for 8000 4G/6300 4G, [andybalholm's edl] for 2720 Flip/800 Tough/Go Flip 3;
+- required for 6300 4G/8000 4G: [Gerda Recovery image file] ([backup]) for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from the recovery mode and get the boot partition from there;
+- Python and `pip` as dependencies for `edl.py` (setup guide can be found below)
+- Android Debug Bridge (ADB) installed to read the boot image in Gerda Recovery (see [Sideloading and debugging/WebIDE])
+- Windows: Qualcomm driver to contact the phone in EDL mode (included in the `edl.py` package)
+- Windows: latest version of [Zadig] to configure `libusb-win32` driver; do NOT use the older version bundled as it has less chances of success
+- macOS: [Homebrew] to quickly set up Python, ADB, `libusb` and configure the environment for EDL tools (setup guide can be found below)
   - *Python 2.7 bundled with macOS 10.8 to 12 is NOT recommended for following this guide.*
-
-*If you're on Linux, Python and ADB can be quickly set up by installing with your built-in package manager. We won't be covering this here, as each Linux distro has its own way of installing from package manager.*
-
 - **If you're going the automatic boot partition patching and compilation via Docker route (only recommended for 5-6 year old computers):**
   - [Git] to clone/download the repository of the patcher tool to your computer;
   - Docker Compose to provide the environment for the patcher tool to work (included in [Docker Desktop])
-  - (Windows) WSL2 with [Linux kernel update package] installed (to install WSL2, turn on Virtualization in BIOS, then open Command Prompt with administrative rights and type `wsl --install`)
+  - Windows: WSL2 with [Linux kernel update package] installed (to install WSL2, turn on Virtualization in BIOS, then open Command Prompt with administrative rights and type `wsl --install`)
 - **If you're going the extracting and manual editing by hand route:**
   - Android Image Kitchen v3.8 ([Windows], [macOS/Linux])
-  - (Windows) [Notepad++] to edit the needed files while [preserving line endings]
-  - [Java Runtime Environment] for properly signing the boot image (optional)
+  - on Windows 10 pre-1809: [Notepad++] to edit files while [preserving line endings]
+  - (optional) [Java Runtime Environment] to properly sign the boot image with AVBv1
 
-For the sake of simplicity, the guide assumes you've moved the Gerda Recovery image and the MBN loader file into the root of `edl-3.1` or `edl-master` folder, which you should do for convenience. If you need to have those in other folders, change the directory path accordingly.
+For the sake of convenience, move the Gerda Recovery image and the MBN file into the root of `edl-3.1` or `edl-master` folder. If you need to have those in other folders, change the directory path accordingly.
+
+andybalholm's EDL cannot be used on 8000 4G and 6300 4G due to some structural changes within the GPT partition table, which will result in an error `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`. **Do note that the command structures used between bkerler's and andybalholm's are different, which we'll mention below.**
+
+*If you're on Linux, Python and ADB can be quickly set up by installing with your built-in package manager. We won't be covering this here, as each Linux distro has its own way of installing from package manager.*
 
 ### Part 1: Set up environment for EDL tools
 > This portion of the guide was taken from [Development/EDL tools on BananaHackers Wiki] so that you don't have to switch tabs. Kudos to Cyan for the guides!
@@ -659,7 +651,7 @@ mount -o bind /data/enforce /sys/fs/selinux/enforce
 [8000 4G and 6300 4G]: https://edl.bananahackers.net/loaders/8k.mbn
 [2720 Flip]: https://edl.bananahackers.net/loaders/2720.mbn
 [800 Tough]: https://edl.bananahackers.net/loaders/800t.mbn
-[image file of Gerda Recovery]: https://cloud.disroot.org/s/3ojAfcF6J2jQrRg/download
+[Gerda Recovery image file]: https://cloud.disroot.org/s/3ojAfcF6J2jQrRg/download
 [backup]: https://drive.google.com/open?id=1ot9rQDTYON8mZu57YWDy52brEhK3-PGh
 [bkerler's edl.py v3.1]: https://github.com/bkerler/edl/releases/tag/3.1 
 [andybalholm's edl]: https://github.com/andybalholm/edl
