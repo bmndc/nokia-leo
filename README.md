@@ -43,7 +43,7 @@
 </table>
 </details>
 
-*B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries' source code [officially provided by HMD] for the 6300 4G can be found in `leo-v20` branch of this repository. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and cannot be used to compile an entire KaiOS build.*
+*Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in `leo-v20` branch of this repository. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and cannot be used to compile an entire KaiOS build.*
 
 <img width="420" align="right" src="assets/nokia_6300_4G-emotional-Range.png">
 
@@ -134,7 +134,7 @@ Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the 
   - *This can be permanently mitigated by modifying scripts in /boot to disable the Low Memory Killer module, which I'll mention in [Manual patching with Android Image Kitchen] below.*
 - On certain network providers where this phone isn't yet certified, such as Jio Reliance in India, you may [temporarily mute yourself on phone calls with VoLTE/VoWiFi enabled]. Putting yourself on hold and off does ease the problem.
 - Normally, you can wake up the phone from sleep by either pressing the Power, Volume up or Volume down buttons, regardless of whether keyguard is in place or not. On this phone there are no volume buttons, but some of their functions, such as triggering boot modes or waking the phone up, are mapped to * and # keys respectively. This can be problematic as those keys are located close to the bottom edge of the phone and can be randomly mashed if you store the phone in your front pockets, leading to [unintended screenshots].
-- If you forgot your lockscreen passcode (not SIM or Anti-Theft ones), you can bypass it by holding down the top Power button, then select *Memory Cleaner* and *Deep Memory Cleaning*.
+- If you forgot your lockscreen passcode (not SIM or Anti-Theft ones), you can [bypass it] by holding down the top Power button, then select *Memory Cleaner* and *Deep Memory Cleaning*.
 - *According to reports from GSMArena and Reddit, some call and text entries may not be registered in the log. I've not been able to replicate those during my usage however, could be related to other mentioned issues.*
 
 ### KaiOS-specific
@@ -243,9 +243,10 @@ The guide below is based on the main guide from BananaHackers website, but has b
 - an USB cable capable of data transferring (EDL cables work as well);
 - MBN firehose programmer file: [8000 4G and 6300 4G], [2720 Flip], [800 Tough] or Go Flip 3 ([AT&T/Cricket], [T-Mobile/Metro/Rogers]);
 - EDL utility to read and write system partitions: [bkerler's edl.py v3.1] for 8000 4G/6300 4G, [andybalholm's edl] for 2720 Flip/800 Tough/Go Flip 3;
-- required for 6300 4G/8000 4G: [Gerda Recovery image file] ([backup]) for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from the recovery mode and get the boot partition from there;
-- Python and `pip` as dependencies for `edl.py` (setup guide can be found below)
-- Android Debug Bridge (ADB) installed to read the boot image in Gerda Recovery (see [Sideloading and debugging/WebIDE])
+- required for 6300 4G/8000 4G: [Gerda Recovery image file] ([backup]) for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from Recovery mode and get the boot partition from there;
+- Python and `pip` for `edl.py` to work (setup guide can be found for each OS below);
+  - Don't have an Internet connection? Download and install manually from PyPI: [pyusb], [pyserial], [keystone-engine], [capstone], [docopt]
+- [Android Debug Bridge (ADB)] to read the boot image in Gerda Recovery (see [Sideloading and debugging/WebIDE])
 - Windows: Qualcomm driver to contact the phone in EDL mode (included in the `edl.py` package)
 - Windows: latest version of [Zadig] to configure `libusb-win32` driver; do NOT use the older version bundled as it has less chances of success
 - macOS: [Homebrew] to quickly set up Python, ADB, `libusb` and configure the environment for EDL tools (setup guide can be found below)
@@ -259,9 +260,9 @@ The guide below is based on the main guide from BananaHackers website, but has b
   - on Windows 10 pre-1809: [Notepad++] to edit files while [preserving line endings]
   - (optional) [Java Runtime Environment] to properly sign the boot image with AVBv1
 
-For the sake of convenience, move the Gerda Recovery image and the MBN file into the root of `edl-3.1` or `edl-master` folder. If you need to have those in other folders, change the directory path accordingly.
+andybalholm's EDL cannot be used on 8000 4G and 6300 4G due to structural changes within GPT, which will result in an error `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`. **Do note that the command structures used between bkerler's and andybalholm's are different, which we'll mention below.**
 
-andybalholm's EDL cannot be used on 8000 4G and 6300 4G due to some structural changes within the GPT partition table, which will result in an error `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`. **Do note that the command structures used between bkerler's and andybalholm's are different, which we'll mention below.**
+For the sake of convenience, move the Gerda Recovery image and the MBN file into the root of `edl-3.1` or `edl-master` folder. If you need to have those in other folders, change the directory path accordingly.
 
 *If you're on Linux, Python and ADB can be quickly set up by installing with your built-in package manager. We won't be covering this here, as each Linux distro has its own way of installing from package manager.*
 
@@ -610,13 +611,14 @@ mount -o bind /data/enforce /sys/fs/selinux/enforce
 - [Affe Null's Bananian project repository](https://git.abscue.de/bananian/bananian), a Debian port for KaiOS devices
 
 *GitHub Pages theme: MIT-licensed [riggraz/no-style-please](https://github.com/riggraz/no-style-please)*
+
 *Logo by [Vitaly Gorbachev](https://www.flaticon.com/free-icons/banana) from Flaticons*
 
 [^1]: Aleph Security has a [deep-dive blog post](https://alephsecurity.com/2018/01/22/qualcomm-edl-1) into exploiting the nature of EDL mode on Qualcomm devices. If you're into the overall boot process, check out LineageOS team's breakdown of Qualcomm's Chain of Trust on [their Engineering Blog](https://lineageos.org/engineering/Qualcomm-Firmware).
 [^2]: Read more about SELinux on [LineageOS team's Engineering Blog](https://lineageos.org/engineering/HowTo-SELinux).
 
 ---
-[officially provided by HMD]: https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz
+[provided by HMD]: https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz
 [To quote u/cannotelaborate on Reddit]: https://www.reddit.com/r/KaiOS/comments/xglkr7/well_darn_it_i_just_received_a_counterfeit_nokia
 [the system's `hosts` file]: https://ivan-hc.github.io/bananahackers/ADBlock.html
 [Sideloading and debugging third-party applications]: #sideloading-and-debugging-third-party-applications
@@ -625,6 +627,7 @@ mount -o bind /data/enforce /sys/fs/selinux/enforce
 [a playlist of silent MP3s played in background]: https://www.reddit.com/r/KaiOS/comments/15slovs/nokia_6300_4g_hotspot_drops_problem_workaround
 [Manual patching with Android Image Kitchen]: #manual-patching-with-android-image-kitchen
 [temporarily mute yourself on phone calls with VoLTE/VoWiFi enabled]: https://www.reddit.com/r/KaiOS/comments/15g5vo6/nokia_6300_4g_phone_calls_not_working_properly
+[bypass it]: https://www.youtube.com/watch?v=0vTcQ_vY9LY
 [unintended screenshots]: https://www.reddit.com/r/KaiOS/comments/vjnz83/screenshotting_every_time_i_sit_down_or_pedal_my
 [arma7x's K-Music]: https://github.com/arma7x/kaimusic
 [FabianOvrWrt's Explorer]: https://github.com/FabianOvrWrt/kaios-freshapps
@@ -651,11 +654,19 @@ mount -o bind /data/enforce /sys/fs/selinux/enforce
 [8000 4G and 6300 4G]: https://edl.bananahackers.net/loaders/8k.mbn
 [2720 Flip]: https://edl.bananahackers.net/loaders/2720.mbn
 [800 Tough]: https://edl.bananahackers.net/loaders/800t.mbn
+[AT&T/Cricket]: https://github.com/programmer-collection/alcatel/blob/master/Gflip3_ATT/Gflip3_ATT_NPRG.mbn
+[T-Mobile/Metro/Rogers]: https://github.com/programmer-collection/alcatel/blob/master/Gflip3_TMO/Gflip3_TMO_NPRG.mbn
 [Gerda Recovery image file]: https://cloud.disroot.org/s/3ojAfcF6J2jQrRg/download
 [backup]: https://drive.google.com/open?id=1ot9rQDTYON8mZu57YWDy52brEhK3-PGh
+[pyusb]: https://pypi.org/project/pyusb/
+[pyserial]: https://pypi.org/project/pyserial/
+[keystone-engine]: https://pypi.org/project/keystone-engine/
+[capstone]: https://pypi.org/project/capstone/
+[docopt]: https://pypi.org/project/docopt/
 [bkerler's edl.py v3.1]: https://github.com/bkerler/edl/releases/tag/3.1 
 [andybalholm's edl]: https://github.com/andybalholm/edl
 [Python's official download page for Windows]: https://www.python.org/downloads/windows
+[Android Debug Bridge (ADB)]: https://developer.android.com/studio/releases/platform-tools
 [Zadig]: https://github.com/pbatard/libwdi/releases/latest
 [Homebrew]: https://brew.sh
 [Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
@@ -673,5 +684,5 @@ mount -o bind /data/enforce /sys/fs/selinux/enforce
 
 <style>
   .w { max-width: 980px !important; padding: 4rem 1rem !important; font-size: large; }
-  li { margin-left: -0.75rem !important; }
+  li { margin-left: -0.5rem !important; }
 </style>
