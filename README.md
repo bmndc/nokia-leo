@@ -72,17 +72,16 @@
 - [External links](#external-links)
 
 ## Don't buy a counterfeit
-A lot of fake KaiOS phones, like the Nokia 8110 4G, 2720 Flip and 6300 4G are sold at many tech shops and online platforms for amazingly cheap prices; these are not the real ones, and if you were to buy them you wouldn't be able to get a refund.
+Beware of Wish.com, sorry, eBay listings if you plan to get yourself a 8110 4G, 2720 Flip or 6300 4G.
 
-Look out for signs of fake KaiOS phones:
-- Price: Brand-new ones, even after being removed from the shelves, don't cost less than 2/3 of their retail prices.
-- Packaging: 8110 4G and 2720 Flip come in semi-clear plastic boxes with flaps on both ends, while the 6300 4G comes in a solid cardboard box. Prints on the box may lack features, have poor printing quality, odd grammar or spacing.
+- Brand-new KaiOS phones, even off the shelves, don't cost less than 2/3 of their retail prices.
+- Packaging: 8110 4G and 2720 Flip come in semi-clear plastic boxes with flaps on both ends; 6300 4G comes in a solid cardboard box. Prints on the box may lack features, have poor quality, odd grammar or spacing.
 - Terrible build quality when compared side-by-side. [To quote u/cannotelaborate on Reddit]: *Build quality is horrific, the battery and SIM cards barely fit in [their trays]. It takes only like 10 seconds to boot, shows KaiOS logo briefly, then plays the old Nokia chime. Speaker quality is awful. The buttons' faces are low quality and aren't flush with the overall surface, some of them are crooked.*
 - Dial *#0000# and check the country code on the sticker under the battery for any mismatches.
 - UI elements may not be aligned or spaced properly. KaiStore and related services should always be present on any KaiOS devices.
 - Apps: KaiOS cannot run Opera Mini 4.4 or any Java/MRE apps.
 - Network: KaiOS phones from HMD support Wi-Fi and 4G LTE. KaiOS phones are required to have 3G, as 2G is being phased out.
-- When connected to a computer: check if the internal storage size is significantly lower than advertised.
+- When connected to a computer: check if the internal storage size is much lower than advertised.
 
 Remember, **only buy from trusted, reputable sources**, even if they charge more. That extra bit of price usually guarantees that you're getting a real device.
 
