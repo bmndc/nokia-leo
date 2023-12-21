@@ -45,7 +45,7 @@
 
 *Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in `leo-v20` branch of this repository. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and cannot be used to compile an entire KaiOS build.*
 
-<img width="420" align="right" src="assets/nokia_6300_4G-emotional-Range.png">
+<img width="410" align="right" src="assets/nokia_6300_4G-emotional-Range.png">
 
 **Table of Contents**
 - [Don’t buy a counterfeit](#dont-buy-a-counterfeit)
@@ -74,15 +74,15 @@
 ## Don't buy a counterfeit
 A lot of fake KaiOS phones, like the Nokia 8110 4G, 2720 Flip and 6300 4G are sold at many tech shops and online platforms for amazingly cheap prices; these are not the real ones, and if you were to buy them you wouldn't be able to get a refund.
 
-Some signs that can indicate a fake KaiOS phone are:
-- Price: Brand-new KaiOS phones, even after their lifespan on the shelf, don't cost less than two-thirds of their retail prices.
-- Network: All KaiOS phones from HMD/Nokia Mobile have 4G LTE support. KaiOS devices are required to have at least 3G, as 2G is being phased out.
-- Packaging: 8110 4G and 2720 Flip comes in semi-clear plastic boxes with flaps on both ends, while the 6300 4G comes in a solid cardboard box. Prints on the box may lack features, poor printing quality, odd grammar or spacing.
-- Terrible build quality when comparing side-by-side. [To quote u/cannotelaborate on Reddit]: *Build quality is horrific, the battery and SIM cards barely fit in [their trays]. It takes only like 10 seconds to boot, shows KaiOS logo briefly, then plays the old Nokia chime. Speaker quality is awful. The buttons' faces are low quality and aren't flush with the overall surface, some of them are crooked.*
-- Check the country code on the information sticker under the battery. For example, if the CODE is 23BTS70**VN**00, the phone is intended for Vietnam only. You can also dial *#0000# in the OS to see the code.
-- User interface: Elements are not aligned or spaced properly. KaiStore and related services should always be present on any KaiOS device.
-- Apps: KaiOS does not support Java or MRE apps, and does not have Opera Mini 4.4.
-- Storage: Connect the phone to a computer and see if the actual storage is much lower than the advertised one.
+Look out for signs of fake KaiOS phones:
+- Price: Brand-new ones, even after being removed from the shelves, don't cost less than 2/3 of their retail prices.
+- Packaging: 8110 4G and 2720 Flip come in semi-clear plastic boxes with flaps on both ends, while the 6300 4G comes in a solid cardboard box. Prints on the box may lack features, have poor printing quality, odd grammar or spacing.
+- Terrible build quality when compared side-by-side. [To quote u/cannotelaborate on Reddit]: *Build quality is horrific, the battery and SIM cards barely fit in [their trays]. It takes only like 10 seconds to boot, shows KaiOS logo briefly, then plays the old Nokia chime. Speaker quality is awful. The buttons' faces are low quality and aren't flush with the overall surface, some of them are crooked.*
+- Dial *#0000# and check the country code on the sticker under the battery for any mismatches.
+- UI elements may not be aligned or spaced properly. KaiStore and related services should always be present on any KaiOS devices.
+- Apps: KaiOS cannot run Opera Mini 4.4 or any Java/MRE apps.
+- Network: KaiOS phones from HMD support Wi-Fi and 4G LTE. KaiOS phones are required to have 3G, as 2G is being phased out.
+- When connected to a computer: check if the internal storage size is significantly lower than advertised.
 
 Remember, **only buy from trusted, reputable sources**, even if they charge more. That extra bit of price usually guarantees that you're getting a real device.
 
@@ -581,23 +581,23 @@ python edl.py -w boot boot.img -loader 800t.mbn
 
 3. Restart the phone to normal operation mode by typing `python edl.py reset`. And we're done!
 
-*If you still have the original boot partition and wish to revert all the messes and damages, connect the phone to your computer in EDL mode, move the image file to the EDL tools folder, open a command-line window within it and type these one-line at a time:*
-```
-python edl.py w boot boot.img --loader=8k.mbn
-python edl.py reset
-```
-![Demostration of a command-line window showing the results after typing the first command above](assets/edl_bootog.png)
-
 #### Next steps
-- Now that you've rooted your phone, to install applications with 'forbidden' permissions, connect it to a WebIDE session, then open Device Preferences by the right pane, search for `devTools.apps.forbiddenPermissions`, clear its value, then either restart the phone or hold the top Power button and choose Memory Cleaner > Deep Clean Memory to restart B2G.
+- Now that you've rooted your phone, to install applications with 'forbidden' permissions, connect your phone to a WebIDE session, open Device Preferences in the right pane, clear the value of `devTools.apps.forbiddenPermissions`, then restart B2G by either reboot the phone or hold the top Power button and select *Memory Cleaner, Deep Clean Memory*.
 
 ![Screenshot of a WebIDE window in which the location of Device Preferences is highlighted in the right pane and the value of devTools.apps.forbiddenPermissions has been emptied](assets/devpref.png)
 
+- If you disabled the Low Memory Killer module, hooray, more tasks can run in background but are prone to crashes. [Increasing the swapfile size] prevents that from happening.
 - If you wish to retain privileged permissions after restoring the phone to its unrooted state, before doing so, back up all data, sideload [Luxferre's CrossTweak] then press # to perform a privileged factory reset — this will wipe all data of the phone and let you set up with a privileged session. This session will last until an OTA update overrides or you choose to factory reset normally yourself.
 - After rooting, you can spoof SELinux's Enforced status for WhatsApp VoIP by typing these commands one-by-one into the rooted ADB shell. This will last until a restart.
 ```
 echo -n 1 > /data/enforce
 mount -o bind /data/enforce /sys/fs/selinux/enforce
+```
+
+If you wish to revert all changes made, connect the phone to your computer in EDL mode, move the original boot image file to `edl-3.1` or `edl-master` folder, open Command Prompt/Terminal within the folder and type:
+```
+python edl.py w boot boot.img --loader=8k.mbn
+python edl.py reset
 ```
 
 ## External links
@@ -614,7 +614,7 @@ mount -o bind /data/enforce /sys/fs/selinux/enforce
 
 *Logo by [Vitaly Gorbachev](https://www.flaticon.com/free-icons/banana) from Flaticons*
 
-[^1]: Aleph Security has a [deep-dive blog post](https://alephsecurity.com/2018/01/22/qualcomm-edl-1) into exploiting the nature of EDL mode on Qualcomm devices. If you're into the overall boot process, check out LineageOS team's breakdown of Qualcomm's Chain of Trust on [their Engineering Blog](https://lineageos.org/engineering/Qualcomm-Firmware).
+[^1]: Aleph Security has a [deep-dive blog post](https://alephsecurity.com/2018/01/22/qualcomm-edl-1) into exploiting the nature of EDL mode on Qualcomm devices. If you're into the overall boot process, check out the breakdown of Qualcomm's Chain of Trust on [LineageOS Engineering Blog](https://lineageos.org/engineering/Qualcomm-Firmware).
 [^2]: Read more about SELinux on [LineageOS team's Engineering Blog](https://lineageos.org/engineering/HowTo-SELinux).
 
 ---
@@ -684,5 +684,5 @@ mount -o bind /data/enforce /sys/fs/selinux/enforce
 
 <style>
   .w { max-width: 980px !important; padding: 4rem 1rem !important; font-size: large; }
-  li { margin-left: -0.5rem !important; }
+  li { margin-left: -0.25rem !important; }
 </style>
