@@ -72,26 +72,26 @@
 - [External links](#external-links)
 
 ## Don't buy a counterfeit
-Beware of Wish.com, sorry, eBay listings if you plan to get yourself a 8110 4G, 2720 Flip or 6300 4G.
+Beware of Wish.com, sorry, eBay listings if you plan to get yourself an 8110 4G, 2720 Flip or 6300 4G.
 
-- Brand-new KaiOS phones, even off the shelves, don't cost less than 2/3 of their retail prices.
+- Brand-new KaiOS phones, even off the shelf, don't cost less than 2/3 of their retail prices.
 - Packaging: 8110 4G and 2720 Flip come in semi-clear plastic boxes with flaps on both ends; 6300 4G comes in a solid cardboard box. Prints on the box may lack features, have poor quality, odd grammar or spacing.
-- Terrible build quality when compared side-by-side. [To quote u/cannotelaborate on Reddit]: *Build quality is horrific, the battery and SIM cards barely fit in [their trays]. It takes only like 10 seconds to boot, shows KaiOS logo briefly, then plays the old Nokia chime. Speaker quality is awful. The buttons' faces are low quality and aren't flush with the overall surface, some of them are crooked.*
-- Dial *#0000# and check the country code on the sticker under the battery for any mismatches.
-- UI elements may not be aligned or spaced properly. KaiStore and related services should always be present on any KaiOS devices.
-- Apps: KaiOS cannot run Opera Mini 4.4 or any Java/MRE apps.
+- Terrible build quality when compared side-by-side. [To quote u/cannotelaborate on Reddit]: *Build quality is horrific; the battery and SIM cards barely fit in [their trays]. It takes only like 10 seconds to boot, shows KaiOS logo briefly, then plays the old Nokia chime. Speaker quality is awful. The buttons' faces are low quality and aren't flush with the overall surface, some of them are crooked.*
+- Dial `*#0000#` and look for country code mismatches between that and on the sticker under the battery.
+- UI elements may not be aligned or spaced properly. KaiStore and related services should should be available on all KaiOS devices at all times.
+- Apps: KaiOS does not natively support Opera Mini 4.4 or any Java/MRE apps.
 - Network: KaiOS phones from HMD support Wi-Fi and 4G LTE. KaiOS phones are required to have 3G, as 2G is being phased out.
-- When connected to a computer: check if the internal storage size is much lower than advertised.
+- When connected to a computer: check if the internal storage size is much smaller than advertised.
 
-Remember, **only buy from trusted, reputable sources**, even if they charge more. That extra bit of price usually guarantees that you're getting a real device.
+**Only buy from trusted, reputable sources**, even if they charge more. Those extra bucks usually ensure that you're buying a genuine device.
 
 ### About Kosher phones
-Kosher is a category of devices which have their software (sometimes hardware) heavily modified to limit access or even get rid of content and features deemed distracting or against religious values, such as unnecessary apps, methods to access the Internet and debugging over ADB, while maintaining features and user interface almost identical to the original. Companies specialized in customizing Kosher phones exist, and you can easily come across Kosher phone listings on eBay advertising those as productivity and focus improvement.
+Kosher is a category of devices of which the software (sometimes hardware) is heavily modified to limit access or even to get rid of content and features deemed distracting or against religious values, including unnecessary apps, Internet access, and debugging over ADB, while maintaining other features and user interface to be identical to the original. Companies specializing in customizing Kosher phones exist, and you can easily come across Kosher phone listings on eBay advertising as productivity and focus improvement tools.
 
 As the build and UI remain identical, it's difficult to tell Kosher phones and genuine ones apart. As of now, my key takeaways to differentiate them are:
-- there might be logo embedded on hardware and/or splash screen displayed on boot sequence to indicate a Kosher phone (original only shows 'enabled by KaiOS' followed by the NOKIA logo and chime);
-- Browser, KaiStore and other bloat games are missing even if you have an active cellular service, links in Messages don't work, options to manage KaiOS accounts in Settings are greyed out (depending on each variant WhatsApp and APIs it relies on might go missing or be intentionally left in);
-- no options to switch ADB and DevTools access on: dialing `*#*#debug#*#*` triggers nothing, cannot boot into Recovery mode, getting access to EDL mode varies
+- there might be logos embedded on hardware and/or splash screen displayed on the boot sequence to indicate a Kosher phone (original only shows 'enabled by KaiOS' followed by the Nokia logo and chime);
+- Browser, KaiStore and other bloat games are missing even if you have an active cellular service; links in Messages don't work; options to manage KaiOS accounts in Settings are greyed out (depending on each variant, WhatsApp and APIs it relies on might go missing or be intentionally left in);
+- no options to toggle ADB and DevTools access: dialing `*#*#debug#*#*` triggers nothing; cannot boot into Recovery mode; getting access to EDL mode varies
 
 Kosher is indeed a great way to make your phone truly basic, but HMD already offers more basic phones with 4G in their feature phone lineup, so the choice is yours. **Double-check the description and pictures of the listings before you buy.**
 
@@ -307,11 +307,12 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 
 ![Screenshot of an installation window for Python 3.9 showing two options, 'Install Now' and 'Customize installation', with the checkbox for 'Add Python 3.9 to PATH' being selected](assets/python.png)
 
-3. On Windows 10/11, typing `python` or `python3` within Command Prompt/Windows Terminal will run the Microsoft Store version of Python. To override this default into running the locally installed version, head over to Settings, Apps, Apps & features, App execution aliases and toggle off both App Installer (python.exe) and App Installer (python3.exe).
+3. On Windows 10/11, typing `python` or `python3` within Command Prompt/Windows Terminal will run the Microsoft Store version of Python. To override this default into running the locally installed version, toggle off App Installer (python.exe) and App Installer (python3.exe) under:
 {:start="3"}
+  - Windows 10: Settings → Apps → [Apps & features] → App execution aliases
+  - Windows 11: Settings → Apps → Advanced app settings → App execution aliases
 
-<img alt="Screenshot of the Apps & features page in Windows 10's Settings app, of which the App execution aliases link is located under the Apps & features section" src="assets/settings_alias.png" width="605">
-<img alt="Screenshot of the App execution alias page, where the toggles for App Installer (python.exe) and App Installer (python3.exe) are both turned off. Description says Apps can declare a name used to run the app from a command prompt. If multiple apps use the same name, choose which one to use" src="assets/alias_off.png" width="370">
+<img alt="Demostration of Settings app on Windows 11. User is already on Apps page and clicking on Advanced app settings. User then clicks on App execution aliases, where the toggles for App Installer (python.exe) and App Installer (python3.exe) are turned off. Description says Apps can declare a name used to run the app from a command prompt. If multiple apps use the same name, choose which one to use." src="assets/settings-alias-off.gif">
 
 4. Open Command Prompt/Windows Terminal with administrator privileges and run this command to install the required dependencies for EDL:
 {:start="4"}
@@ -325,7 +326,9 @@ pip3 install pyusb pyserial capstone keystone-engine docopt
 5. Extract the previously downloaded EDL package, open Drivers, Windows and run `Qualcomm_Diag_QD_Loader_2016_driver.exe` with administrator rights. Proceed with installation and leave everything as default, restart the computer if it prompts you to do so.
 {:start="5"}
 
-![Screenshot of an installation window for Qualcomm's diagnostic driver, in which two radio buttons are shown labelled 'WWAN-DHCP is not used to get IPAddress' and 'ETHERNET-DHCP is used to get IPAddress' respectively. The first button is selected.](assets/whatever.png)
+<p align="center">
+  <img alt="Screenshot of an installation window for Qualcomm's diagnostic driver, in which two radio buttons are shown labelled 'WWAN-DHCP is not used to get IPAddress' and 'ETHERNET-DHCP is used to get IPAddress' respectively. The first button is selected." src="assets/whatever.png">
+</p>
 
 6. Switch your phone to EDL mode and connect it to your computer. Either:
 {:start="6"}
@@ -679,6 +682,7 @@ python edl.py reset
 [Development/EDL tools on BananaHackers Wiki]: https://wiki.bananahackers.net/development/edl
 [Microsoft Store]: https://apps.microsoft.com/search/publisher?name=Python+Software+Foundation
 [environment variable]: https://en.wikipedia.org/wiki/Environment_variable
+[Apps & features]: ms-settings:appsfeatures
 [part 4]: #part-4-flashing-the-modified-boot-partition
 
 <style>
