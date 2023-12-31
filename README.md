@@ -71,6 +71,12 @@
   - [Part 4: Flashing the modified boot partition](#part-4-flashing-the-modified-boot-partition)
 - [External links](#external-links)
 
+<!-- Amid the rise of then COVID-19 global pandemic, and with everyone gradually shifting to the new normal, HMD saw the need of getting families and friends to stay in touch. As such, in late 2020, they announced two new Nokia phones: Nokia 8000 4G and Nokia 6300 4G.
+
+Inheriting the classic candy-bar design of the original Nokia 6300, the new Nokia 6300 4G features the less-premium feel polycarbonate apps
+
+The first to feature WhatsApp calls -->
+
 ## Don't buy a counterfeit
 Beware of Wish.com, sorry, eBay listings if you plan to get yourself an 8110 4G, 2720 Flip or 6300 4G.
 
