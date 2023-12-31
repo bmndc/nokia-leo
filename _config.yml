@@ -8,7 +8,7 @@ favicon: "assets/banana.png"
 remote_theme: riggraz/no-style-please
 
 theme_config:
-  appearance: "light"
+  appearance: "auto"
   back_home_text: "Back to main page"
   date_format: "%d-%m-%Y"
   show_description: false

@@ -7,7 +7,7 @@
     <tr><td>Model</td><td>TA-1286, TA-1287, TA-1291, TA-1294, TA-1307, TA-1324</td>
       <td>TA-1300, TA-1303, TA-1305, TA-1311</td></tr>
   <tr><td colspan=3 align="center"><strong>Specifications</strong></td></tr>
-    <tr><td>SoC</td><td colspan=2>Qualcomm MSM8909 Snapdragon 210<br>(4 x 1.1GHz Cortex-A7)</td></tr>
+    <tr><td>SoC</td><td colspan=2>Qualcomm MSM8909 Snapdragon 210 (4 × 1.1GHz Cortex-A7)</td></tr>
     <tr><td>RAM</td><td colspan=2>512MB LPDDR2/3</td></tr>
     <tr><td>GPU</td><td colspan=2>Adreno 304</td></tr>
     <tr><td>Storage</td><td colspan=2>4GB eMMC 4.5 (+ up to 32GB microSDHC card)</td></tr>
@@ -23,14 +23,14 @@
       + HK, Macau, MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>
       + ROW: band 1, 3, 5, 7, 8, 20, 28, 38, 40</em><br>
       VoLTE &amp; VoWiFi support<br>Single or Dual SIM (Nano-SIM, dual-standby)</td></tr>
-    <tr><td>Screen</td><td>320 * 240 @ 167 PPI<br>2.4 inches QVGA TFT LCD, 16M colors</td>
-      <td>320 * 240 @ 143 PPI<br>2.8 inches QVGA TFT LCD, 16M colors</td></tr>
+    <tr><td>Screen</td><td>320 × 240 @ 167 PPI<br>2.4 inches QVGA TFT LCD, 16M colors</td>
+      <td>320 × 240 @ 143 PPI<br>2.8 inches QVGA TFT LCD, 16M colors</td></tr>
     <tr><td>Bluetooth</td><td colspan=2>4.0, A2DP, LE</td></tr>
     <tr><td>Wi-Fi</td><td colspan=2>802.11b/g/n, 2.4GHz, Hotspot (up to 8 devices)</td></tr>
     <tr><td>Peripherals</td><td colspan=2>GPS &amp; GLONASS</td></tr>
     <tr><td>Cameras</td><td>Rear: VGA with fixed focus, LED flash</td><td>Rear: 2MP with fixed focus, LED flash</td></tr>
-    <tr><td>Dimensions<br>(HWD)</td><td>131.4 * 53 * 13.7 (mm)<br>5.17 * 2.09 * 0.54 (in)</td>
-      <td>132.2 * 56.5 * 12.3 (mm)<br>5.20 * 2.22 * 0.48 (in)</td></tr>
+    <tr><td>Dimensions<br>(HWD)</td><td>131.4 × 53 × 13.7 (mm)<br>5.17 × 2.09 × 0.54 (in)</td>
+      <td>132.2 × 56.5 × 12.3 (mm)<br>5.20 × 2.22 × 0.48 (in)</td></tr>
     <tr><td>Weight</td><td>With battery: 104.1g (3.67oz)</td><td>With battery: 107.9g (3.81oz)</td></tr>
     <tr><td>Ports</td><td colspan=2>- microUSB charging &amp; USB 2.0 data transferring port<br>- 3.5mm headphone jack</td></tr>
     <tr><td>Battery</td><td colspan=2>Removable Li-Ion 1500mAh (BL-4XL), 5W wired charging<br>
@@ -43,7 +43,7 @@
 </table>
 </details>
 
-*Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in `leo-v20` branch of this repository. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and cannot be used to compile an entire KaiOS build.*
+*Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in `leo-v20` branch of this repository. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and thus cannot be used to compile an entire KaiOS build.*
 
 <img width="410" align="right" src="assets/nokia_6300_4G-emotional-Range.png">
 
@@ -71,11 +71,13 @@
   - [Part 4: Flashing the modified boot partition](#part-4-flashing-the-modified-boot-partition)
 - [External links](#external-links)
 
-<!-- Amid the rise of then COVID-19 global pandemic, and with everyone gradually shifting to the new normal, HMD saw the need of getting families and friends to stay in touch. As such, in late 2020, they announced two new Nokia phones: Nokia 8000 4G and Nokia 6300 4G.
+Amidst the rise of [COVID-19 pandemic], as the world gradually shifted to *the new normal*, in late 2020, HMD launched two new Nokia phones: the Nokia 8000 4G and the Nokia 6300 4G. While the Nokia 8000 4G features a sleek glossy plastic finish, bigger screen and camera at the price point of €79, the Nokia 6300 4G is one of the more budget-friendly phones HMD has ever offered in their KaiOS lineup[^1] at just €49/$69.99.
 
-Inheriting the classic candy-bar design of the original Nokia 6300, the new Nokia 6300 4G features the less-premium feel polycarbonate apps
+Inheriting the classic candy-bar design from the original Nokia 6300, the new Nokia 6300 4G took a modern twist with the more inexpensive but sturdy polycarbonate shell, and 4G LTE support with Wi-Fi hotspot capability. It runs on KaiOS 2.5.4, which features popular apps like WhatsApp, Facebook, YouTube and Google Maps.
 
-The first to feature WhatsApp calls -->
+With a recent software update to 12.00.17.01 (see [ROOT: Boot partition patching (non-US only)]), the 6300 4G is now also one of the few KaiOS phones to be able to make and receive WhatsApp voice calls, allowing you to easily stay in touch with loved ones.
+
+However, reception for this phone has been mostly negative, with user complaints on Amazon and GSMArena reporting software problems, including keypress handling issues, RAM management issues and outdated OS (see [Known issues]). Starting with a software update to 30.00.17.01, as Google pulled off support, Google Assistant on KaiOS was completely removed.
 
 ## Don't buy a counterfeit
 Beware of Wish.com, sorry, eBay listings if you plan to get yourself an 8110 4G, 2720 Flip or 6300 4G.
@@ -204,7 +206,7 @@ Most of these codes requires `userdebug` or `eng` versions to work.
   <summary>What the heck is EDL mode?</summary>
 
 ---
-**Qualcomm Emergency Download mode**, commonly known as EDL mode, is a special engineering interface implemented on devices with Qualcomm chipsets. It lets you do special operations on the phone that only the device manufacturer can do, such as unlocking the bootloader, read and write firmwares on the phone's filesystem or recover from being a dead paperweight. Unlike bootloader or Fastboot mode, system files needed by the EDL mode resides on a separate 'primary bootloader' that aren't affected by software modifications.[^1]
+**Qualcomm Emergency Download mode**, commonly known as EDL mode, is a special engineering interface implemented on devices with Qualcomm chipsets. It lets you do special operations on the phone that only the device manufacturer can do, such as unlocking the bootloader, read and write firmwares on the phone's filesystem or recover from being a dead paperweight. Unlike bootloader or Fastboot mode, system files needed by the EDL mode resides on a separate 'primary bootloader' that aren't affected by software modifications.[^2]
 
 Booting into this mode, the phone's screen will briefly show the 'enabled by KaiOS' logo, then turn almost black as if it's off, but in fact it's still listening to commands over Qualcomm's proprietary protocol called Sahara (or Firehose on newer devices). With a [suitable digitally-signed programmer in MBN/ELF file format] and some instruction-bundled tools, the most popular one being QFIL (Qualcomm Flash Image Loader), one can send commands from a computer to the phone over USB.
 
@@ -234,7 +236,7 @@ To remove unwanted apps from the phone, you can use [this fork of Luxferre's App
 ## ROOT: Boot partition patching (non-US only)
 On KaiOS 2.5.4 devices, such as the 6300 4G and 8000 4G, ADB and WebIDE can be used to install most third-party apps. However, apps with special ‘forbidden’ permissions are not allowed, including most BananaHackers apps with `engmode-extension` like Wallace Toolbox, which can be used to gain exclusive access of the phone. You also cannot make changes to the system. On the 2720 Flip and 800 Tough with KaiOS 2.5.2.2, with HMD/Nokia Mobile changing their release branches from `dev-keys` to `release-keys`, the situation is even worse as you cannot sideload at all. 
 
-This is because in order for WhatsApp's VoIP feature to work on these KaiOS versions, a security module called SELinux[^2] is now set to be `Enforced` which checks and reverts system modifications on boot. To get total read-write access to the devices, you'll now have to permanently root them by setting SELinux to `Permissive` mode.
+This is because in order for WhatsApp's VoIP feature to work on these KaiOS versions, a security module called SELinux[^3] is now set to be `Enforced` which checks and reverts system modifications on boot. To get total read-write access to the devices, you'll now have to permanently root them by setting SELinux to `Permissive` mode.
 
 The guide below is based on the main guide from BananaHackers website, but has been rewritten to make it easier to follow. The process will take somewhat considerable 30 minutes to an hour, so do this when you have enough time.
 
@@ -622,11 +624,17 @@ python edl.py reset
 
 *Logo by [Vitaly Gorbachev](https://www.flaticon.com/free-icons/banana) from Flaticons*
 
-[^1]: Aleph Security has a [deep-dive blog post](https://alephsecurity.com/2018/01/22/qualcomm-edl-1) into exploiting the nature of EDL mode on Qualcomm devices. If you're into the overall boot process, check out the breakdown of Qualcomm's Chain of Trust on [LineageOS Engineering Blog](https://lineageos.org/engineering/Qualcomm-Firmware).
-[^2]: Read more about SELinux on [LineageOS team's Engineering Blog](https://lineageos.org/engineering/HowTo-SELinux).
+[^1]: Taken from HMD's official [press release](https://www.hmdglobal.com/new-nokia-feature-phones-nokia-6300-4g-and-nokia-8000-4g) and [promotional video](https://www.youtube.com/watch?v=pub47YzYBJs).
+
+[^2]: Aleph Security has a [deep-dive blog post](https://alephsecurity.com/2018/01/22/qualcomm-edl-1) into exploiting the nature of EDL mode on Qualcomm devices. If you're into the overall boot process, check out the breakdown of Qualcomm's Chain of Trust on [LineageOS Engineering Blog](https://lineageos.org/engineering/Qualcomm-Firmware).
+
+[^3]: Read more about SELinux on [LineageOS team's Engineering Blog](https://lineageos.org/engineering/HowTo-SELinux).
 
 ---
 [provided by HMD]: https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz
+[COVID-19 pandemic]: https://en.wikipedia.org/wiki/COVID-19_pandemic
+[ROOT: Boot partition patching (non-US only)]: #root-boot-partition-patching-non-us-only
+[Known issues]: #known-issues
 [To quote u/cannotelaborate on Reddit]: https://www.reddit.com/r/KaiOS/comments/xglkr7/well_darn_it_i_just_received_a_counterfeit_nokia
 [the system's `hosts` file]: https://ivan-hc.github.io/bananahackers/ADBlock.html
 [Sideloading and debugging third-party applications]: #sideloading-and-debugging-third-party-applications
