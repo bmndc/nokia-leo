@@ -87,7 +87,13 @@ Reception of the phone has been mostly negative, however, with users on sites li
 ## Don't buy a counterfeit
 Beware of ~~Wish.com~~ eBay listings if you plan to get yourself an 8110 4G, 2720 Flip or 6300 4G.
 
-- Brand-new KaiOS phones, even off the shelf, don't cost less than 2/3 of their retail prices.
+On eBay, Shopee and similar online shopping platforms, you'll see hundreds of listings for used 6300 4Gs in various conditions and claimed specifications. While the listings seem to look identical showing the phone's exterior, many of those are NOT genuine, but are cheap Chinese knock-offs with [terrible build quality] and software experience.
+
+- Do keep in mind that HMD has never sold any of their devices in their KaiOS lineup 2G-only. All of their KaiOS phones are equipped with 4G LTE, Wi-Fi and Bluetooth by default.
+- It's highly suspicious if the seller only uploaded generic photos of the phone that can be easily found online. Request a photo of the box that the phone came in. A genuine phone's packaging box would show all the phone’s features on the back, as well as a sticker that indicates the model number (which should match the device specification table above) and the targeted regional market.
+- 
+
+<!-- Brand-new KaiOS phones, even off the shelf, don't cost less than 2/3 of their retail prices.
 - Packaging: 8110 4G and 2720 Flip come in semi-clear plastic boxes with flaps on both ends; 6300 4G comes in a solid cardboard box. Prints on the box may lack features, have poor quality, odd grammar or spacing.
 - Terrible build quality when compared side-by-side. [To quote u/cannotelaborate on Reddit]: *Build quality is horrific; the battery and SIM cards barely fit in [their trays]. It takes only like 10 seconds to boot, shows KaiOS logo briefly, then plays the old Nokia chime. Speaker quality is awful. The buttons' faces are low quality and aren't flush with the overall surface, some of them are crooked.*
 - Dial `*#0000#` and look for country code mismatches between that and on the sticker under the battery.
@@ -96,7 +102,7 @@ Beware of ~~Wish.com~~ eBay listings if you plan to get yourself an 8110 4G, 272
 - Network: KaiOS phones from HMD support Wi-Fi and 4G LTE. KaiOS phones are required to have 3G, as 2G is being phased out.
 - When connected to a computer: check if the internal storage size is much smaller than advertised.
 
-**Only buy from trusted, reputable sources**, even if they charge more. Those extra bucks usually ensure that you're buying a genuine device.
+**Only buy from trusted, reputable sources**, even if they charge more. Those extra bucks usually ensure that you're buying a genuine device. -->
 
 ### About Kosher phones
 Kosher is a category of devices of which the software (sometimes hardware) is heavily modified to limit access or even to get rid of content and features deemed distracting or against religious values, including unnecessary apps, Internet access, and debugging over ADB, while maintaining other features and user interface to be identical to the original. Companies specializing in customizing Kosher phones exist, and you can easily come across Kosher phone listings on eBay advertising as productivity and focus improvement tools.
@@ -645,7 +651,7 @@ python edl.py reset
 [Nokia 6300 4G review after a month of use]: https://www.reddit.com/r/dumbphones/comments/15ghqx1/nokia_6300_4g_review_after_a_month_of_use/
 [One week of use, the good, bad and the ugly… (Nokia 6300 4G)]: https://www.reddit.com/r/dumbphones/comments/oocmly/one_week_of_use_the_good_bad_and_the_ugly_nokia/
 
-[To quote u/cannotelaborate on Reddit]: https://www.reddit.com/r/KaiOS/comments/xglkr7/well_darn_it_i_just_received_a_counterfeit_nokia
+[terrible build quality]: https://www.reddit.com/r/KaiOS/comments/xglkr7/well_darn_it_i_just_received_a_counterfeit_nokia
 [the system's `hosts` file]: https://ivan-hc.github.io/bananahackers/ADBlock.html
 [Sideloading and debugging third-party applications]: #sideloading-and-debugging-third-party-applications
 [CrossTweak]: https://gitlab.com/suborg/crosstweak
