@@ -71,13 +71,18 @@
   - [Part 4: Flashing the modified boot partition](#part-4-flashing-the-modified-boot-partition)
 - [External links](#external-links)
 
-Amidst the rise of [COVID-19 pandemic], as the world gradually shifted to *the new normal*, in late 2020, HMD launched two new Nokia phones: the Nokia 8000 4G and the Nokia 6300 4G. While the Nokia 8000 4G features a sleek glossy plastic finish, bigger screen and camera at the price point of €79, the Nokia 6300 4G is one of the more budget-friendly phones HMD has ever offered in their KaiOS lineup[^1] at just €49/$69.99.
+Amidst the rise of [COVID-19 pandemic], as the world shifted to *the new normal*, in late 2020, HMD launched two all-new Nokia phones: the Nokia 8000 4G and the Nokia 6300 4G. Both are aimed to "connect those who need it the most and give [Nokia] fans the opportunity to choose what phone fits their lifestyle best". While the Nokia 8000 4G features a sleek glossy plastic finish, bigger screen and camera at the price point of €79, the Nokia 6300 4G is one of the more affordable phones HMD has ever offered in their KaiOS lineup[^1] at just €49/$69.99.
 
-Inheriting the classic candy-bar design from the original Nokia 6300, the new Nokia 6300 4G took a modern twist with the more inexpensive but sturdy polycarbonate shell, and 4G LTE support with Wi-Fi hotspot capability. It runs on KaiOS 2.5.4, which features popular apps like WhatsApp, Facebook, YouTube and Google Maps.
+Inheriting the classic candy-bar design from the original Nokia 6300, the new Nokia 6300 4G took a modern twist with its tall, narrow design, rounded corners and inexpensive polycarbonate shell that feel sturdy and easy to hold in the palm of your hand. It includes 4G LTE support with Wi-Fi hotspot capability, and runs on KaiOS 2.5.4, which features popular apps like WhatsApp, Facebook, YouTube, Google Maps, and formerly, Google Assistant.
 
-With a recent software update to 12.00.17.01 (see [ROOT: Boot partition patching (non-US only)]), the 6300 4G is now also one of the few KaiOS phones to be able to make and receive WhatsApp voice calls, allowing you to easily stay in touch with loved ones.
+With the software update to 12.00.17.01 (see [ROOT: Boot partition patching (non-US only)]), the new 6300 4G is now also one of the few KaiOS phones to be able to make and receive WhatsApp voice calls, allowing you to easily stay in touch with your loved ones.
 
-However, reception for this phone has been mostly negative, with user complaints on Amazon and GSMArena reporting software problems, including keypress handling issues, RAM management issues and outdated OS (see [Known issues]). Starting with a software update to 30.00.17.01, as Google pulled off support, Google Assistant on KaiOS was completely removed.
+Reception for this phone has been mostly negative, however, with user complaints on Amazon and GSMArena reporting software problems, citing keypress handling, RAM management issues and outdated operating system based on the old B2G kernel from 2016 (see [Known issues]). Starting with the software update to 30.00.17.01 in selected regions, as Google gradually pulled support, Google Assistant was removed from the OS.
+
+- [Nokia 6300 4G review] by PC Magazine
+- [In-Depth Review of the Nokia 6300 4G] on Reddit
+- [Nokia 6300 4G review after a month of use] by u/Successful_Craft_281 on Reddit
+- [One week of use, the good, bad and the ugly… (Nokia 6300 4G)] by u/nemanjitca on Reddit
 
 ## Don't buy a counterfeit
 Beware of Wish.com, sorry, eBay listings if you plan to get yourself an 8110 4G, 2720 Flip or 6300 4G.
@@ -635,6 +640,11 @@ python edl.py reset
 [COVID-19 pandemic]: https://en.wikipedia.org/wiki/COVID-19_pandemic
 [ROOT: Boot partition patching (non-US only)]: #root-boot-partition-patching-non-us-only
 [Known issues]: #known-issues
+[Nokia 6300 4G review]: https://www.pcmag.com/reviews/nokia-6300-4g
+[In-Depth Review of the Nokia 6300 4G]: https://www.reddit.com/r/dumbphones/comments/t146b9/indepth_review_of_the_nokia_6300_4g/
+[Nokia 6300 4G review after a month of use]: https://www.reddit.com/r/dumbphones/comments/15ghqx1/nokia_6300_4g_review_after_a_month_of_use/
+[One week of use, the good, bad and the ugly… (Nokia 6300 4G)]: https://www.reddit.com/r/dumbphones/comments/oocmly/one_week_of_use_the_good_bad_and_the_ugly_nokia/
+
 [To quote u/cannotelaborate on Reddit]: https://www.reddit.com/r/KaiOS/comments/xglkr7/well_darn_it_i_just_received_a_counterfeit_nokia
 [the system's `hosts` file]: https://ivan-hc.github.io/bananahackers/ADBlock.html
 [Sideloading and debugging third-party applications]: #sideloading-and-debugging-third-party-applications
