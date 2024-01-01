@@ -71,21 +71,21 @@
   - [Part 4: Flashing the modified boot partition](#part-4-flashing-the-modified-boot-partition)
 - [External links](#external-links)
 
-Amidst the rise of [COVID-19 pandemic], as the world shifted to *the new normal*, in late 2020, HMD launched two all-new Nokia phones: the Nokia 8000 4G and the Nokia 6300 4G. Both are aimed to "connect those who need it the most and give [Nokia] fans the opportunity to choose what phone fits their lifestyle best". While the Nokia 8000 4G features a sleek glossy plastic finish, bigger screen and camera at the price point of €79, the Nokia 6300 4G is one of the more affordable phones HMD has ever offered in their KaiOS lineup[^1] at just €49/$69.99.
+Amidst the rise of the [COVID-19 pandemic] and the need for families and friends to stay connected during isolation, in late 2020, HMD introduced two new Nokia phones: the Nokia 8000 4G and the Nokia 6300 4G. While the Nokia 8000 4G features a glossy 3D-textured plastic finish, larger screen and camera at the price point of €79, the Nokia 6300 4G is one of the more affordable phones HMD has ever offered in their KaiOS lineup[^1] at just €49/$69.99.
 
-Inheriting the classic candy-bar design from the original Nokia 6300, the new Nokia 6300 4G took a modern twist with its tall, narrow design, rounded corners and inexpensive polycarbonate shell that feel sturdy and easy to hold in the palm of your hand. It includes 4G LTE support with Wi-Fi hotspot capability, and runs on KaiOS 2.5.4, which features popular apps like WhatsApp, Facebook, YouTube, Google Maps, and formerly, Google Assistant.
+Inheriting the classic candy-bar design from the original Nokia 6300, the new Nokia 6300 4G took a modern twist with its tall, narrow design, rounded corners and *low-cost* polycarbonate shell that feel sturdy and comfortable to hold in the palm of your hand. It includes 4G LTE support with Wi-Fi hotspot capability, and runs on KaiOS 2.5.4, which features popular apps like WhatsApp, Facebook, YouTube, Google Maps, and until recently, Google Assistant.
 
-With the software update to 12.00.17.01 (see [ROOT: Boot partition patching (non-US only)]), the new 6300 4G is now also one of the few KaiOS phones to be able to make and receive WhatsApp voice calls, allowing you to easily stay in touch with your loved ones.
+With the software update to 12.00.17.01 (see [ROOT: Boot partition patching (non-US only)]), the new 6300 4G became one of the few KaiOS phones to be able to make and receive WhatsApp voice calls, allowing you to easily stay in touch with your loved ones.
 
-Reception for this phone has been mostly negative, however, with user complaints on Amazon and GSMArena reporting software problems, citing keypress handling, RAM management issues and outdated operating system based on the old B2G kernel from 2016 (see [Known issues]). Starting with the software update to 30.00.17.01 in selected regions, as Google gradually pulled support, Google Assistant was removed from the OS.
+Reception of the phone has been mostly negative, however, with users on sites like Amazon, Best Buy and GSMArena complaining about software issues: poor battery life when using on Wi-Fi or mobile data, unintended keypresses, RAM management issues and outdated operating system kernel (see [Known issues]). Starting with a software update to 30.00.17.01 in selected regions, as Google gradually withdrew support, Google Assistant was removed from the OS.
 
 - [Nokia 6300 4G review] by PC Magazine
-- [In-Depth Review of the Nokia 6300 4G] on Reddit
-- [Nokia 6300 4G review after a month of use] by u/Successful_Craft_281 on Reddit
-- [One week of use, the good, bad and the ugly… (Nokia 6300 4G)] by u/nemanjitca on Reddit
+- [In-Depth Review of the Nokia 6300 4G] on r/dumbphones
+- [Nokia 6300 4G review after a month of use] by u/Successful_Craft_281 on r/dumbphones
+- [One week of use, the good, bad and the ugly… (Nokia 6300 4G)] by u/nemanjitca on r/dumbphones
 
 ## Don't buy a counterfeit
-Beware of Wish.com, sorry, eBay listings if you plan to get yourself an 8110 4G, 2720 Flip or 6300 4G.
+Beware of ~~Wish.com~~ eBay listings if you plan to get yourself an 8110 4G, 2720 Flip or 6300 4G.
 
 - Brand-new KaiOS phones, even off the shelf, don't cost less than 2/3 of their retail prices.
 - Packaging: 8110 4G and 2720 Flip come in semi-clear plastic boxes with flaps on both ends; 6300 4G comes in a solid cardboard box. Prints on the box may lack features, have poor quality, odd grammar or spacing.
