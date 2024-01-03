@@ -89,20 +89,11 @@ Beware of ~~Wish.com~~ eBay listings if you plan to get yourself an 8110 4G, 272
 
 On eBay, Shopee and similar online shopping platforms, you'll see hundreds of listings for used 6300 4Gs in various conditions and claimed specifications. While the listings seem to look identical showing the phone's exterior, many of those are NOT genuine, but are cheap Chinese knock-offs with [terrible build quality] and software experience.
 
-- Do keep in mind that HMD has never sold any of their devices in their KaiOS lineup 2G-only. All of their KaiOS phones are equipped with 4G LTE, Wi-Fi and Bluetooth by default.
-- It's highly suspicious if the seller only uploaded generic photos of the phone that can be easily found online. Request a photo of the box that the phone came in. A genuine phone's packaging box would show all the phone’s features on the back, as well as a sticker that indicates the model number (which should match the device specification table above) and the targeted regional market.
-- 
-
-<!-- Brand-new KaiOS phones, even off the shelf, don't cost less than 2/3 of their retail prices.
-- Packaging: 8110 4G and 2720 Flip come in semi-clear plastic boxes with flaps on both ends; 6300 4G comes in a solid cardboard box. Prints on the box may lack features, have poor quality, odd grammar or spacing.
-- Terrible build quality when compared side-by-side. [To quote u/cannotelaborate on Reddit]: *Build quality is horrific; the battery and SIM cards barely fit in [their trays]. It takes only like 10 seconds to boot, shows KaiOS logo briefly, then plays the old Nokia chime. Speaker quality is awful. The buttons' faces are low quality and aren't flush with the overall surface, some of them are crooked.*
-- Dial `*#0000#` and look for country code mismatches between that and on the sticker under the battery.
-- UI elements may not be aligned or spaced properly. KaiStore and related services should should be available on all KaiOS devices at all times.
-- Apps: KaiOS does not natively support Opera Mini 4.4 or any Java/MRE apps.
-- Network: KaiOS phones from HMD support Wi-Fi and 4G LTE. KaiOS phones are required to have 3G, as 2G is being phased out.
-- When connected to a computer: check if the internal storage size is much smaller than advertised.
-
-**Only buy from trusted, reputable sources**, even if they charge more. Those extra bucks usually ensure that you're buying a genuine device. -->
+- Brand-new KaiOS phones, even off the shelf, don't cost less than 2/3 of their retail prices.
+- Do keep in mind that HMD has never sold any of their devices in their KaiOS lineup 2G-only. All KaiOS phones from HMD are equipped with 4G LTE, Wi-Fi and Bluetooth. KaiOS devices are required to have 3G at minimum.
+- If the seller only uploaded generic photos showing the phone's exterior, ask for additional photos of the box that it came in. A genuine phone's box would show all its features on fine print, as well as an information sticker that indicates its model number (which matches the device specification table above) and targeted regional market.
+  - Check the printed model number on the packaging box with that on another information sticker under the back of the phone, and when dialing `*#0000#` in the operating system.
+- Look for signs of the phone running KaiOS and not MRE: KaiOS uses the distinct [Open Sans] UI font and vibrant, properly aligned UI elements. KaiStore and related services should be available at all time. It does not natively run Opera Mini 4.4 or other Java/MRE apps.
 
 ### About Kosher phones
 Kosher is a category of devices of which the software (sometimes hardware) is heavily modified to limit access or even to get rid of content and features deemed distracting or against religious values, including unnecessary apps, Internet access, and debugging over ADB, while maintaining other features and user interface to be identical to the original. Companies specializing in customizing Kosher phones exist, and you can easily come across Kosher phone listings on eBay advertising as productivity and focus improvement tools.
@@ -229,10 +220,10 @@ You can also **force reboot** the phone by holding the top Power button and the 
 EDL programmer for the international version of this phone (not TA-1324) can be found on BananaHackers' [EDL archive site] with hardware ID 0x009600e100420029 (a copy is available in the content of this repository). The US version of this phone has been signed with a different PK_HASH and needs a different firehose loader which we currently don't have in archive.
 
 ### UART debugging testpoint
-As discovered by atipls on Discord, on the mainboard of the 6300 4G, there are 3 UART testing points: RX, TX and GND just above the SIM2 slot. Shorting TX and GND takes you to Fastboot and Linux terminal interface.
+[As discovered by atipls on Discord], on the mainboard of the 6300 4G, there are 3 UART testing points: TX, RX and GND just above the SIM2 slot. Shorting TX and GND takes you to Fastboot and Linux terminal interface.
 
 <p align="center">
-  <img alt="Mainboard of a TA-1307 Nokia 6300 4G, with the red arrow pointing to three gold contacts in the middle of the board, those being the UART testpoints in the order of RX, TX and ground" src="assets/testpoint.png">
+  <img alt="Mainboard of a TA-1307 Nokia 6300 4G, with the red arrow pointing to three gold contacts in the middle of the board, those being the UART testpoints in the order of TX, RX and ground" src="assets/testpoint.png">
 </p>
 
 ## Sideloading and debugging third-party applications
@@ -603,7 +594,7 @@ python edl.py -w boot boot.img -loader 800t.mbn
 3. Restart the phone to normal operation mode by typing `python edl.py reset`. And we're done!
 
 #### Next steps
-- Now that you've rooted your phone, to install applications with 'forbidden' permissions, connect your phone to a WebIDE session, open Device Preferences in the right pane, clear the value of `devTools.apps.forbiddenPermissions`, then restart B2G by either reboot the phone or hold the top Power button and select *Memory Cleaner, Deep Clean Memory*.
+- Now that you've rooted your phone, to install applications with 'forbidden' permissions, connect your phone to a WebIDE session, open Device Preferences in the right pane, clear the value of `devtools.apps.forbidden-permissions`, then restart B2G by either reboot the phone or hold the top Power button and select *Memory Cleaner, Deep Clean Memory*.
 
 ![Screenshot of a WebIDE window in which the location of Device Preferences is highlighted in the right pane and the value of devTools.apps.forbiddenPermissions has been emptied](assets/devpref.png)
 
@@ -675,6 +666,7 @@ python edl.py reset
 [Luxferre's CrossTweak]: https://gitlab.com/luxferre/crosstweak
 [suitable digitally-signed programmer in MBN/ELF file format]: https://edl.bananahackers.net
 [EDL archive site]: https://edl.bananahackers.net/loaders/8k.mbn
+[As discovered by atipls on Discord]: https://discord.com/channels/472006912846594048/539074521580437504/1155993357206700205
 
 [Sideloading and debugging/WebIDE]: https://github.com/minhduc-bui1/nokia-leo/wiki/Sideloading-and-debugging
 [BananaHackers Store]: https://store.bananahackers.net
