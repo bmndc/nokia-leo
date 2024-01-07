@@ -1,0 +1,3631 @@
+[{
+    "curef": "CNT-23CNT80TW00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "SPROCOMM-M764",
+    "description": "ORANGE_M764F4"
+}, {
+    "curef": "BLEPHONE-M560M3",
+    "description": "MTN_M560"
+}, {
+    "curef": "TA1059-AAROW1DSROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "VODACOM-VIBE-4G-ZA",
+    "description": "VODACOM_VIBE4G"
+}, {
+    "curef": "LEO-23LIO86BD10",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "CNT-23CNT76IT00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "4056SPP-2AALUS5-N",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "GOMOBILE-MS248-512",
+    "description": "MS_248_512"
+}, {
+    "curef": "TA1067-AAROW1SS01ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "F3161-GF-VIDA-T",
+    "description": "VIDA_K242"
+}, {
+    "curef": "TINNO-ATT2019-ATT",
+    "description": "TINNO_ATT"
+}, {
+    "curef": "QRD-JIO25",
+    "description": "INTER_TEST"
+}, {
+    "curef": "4052C-QARKUS3",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "F3116A-FS-VIETTEL",
+    "description": "VIETEL_V1207"
+}, {
+    "curef": "CALLONG-CL002",
+    "description": "CALLONG_CL002"
+}, {
+    "curef": "DFC-0300-S10A",
+    "description": "DORO_0300"
+}, {
+    "curef": "LEO-23LIO03MY00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "BTS-23BTS73GB00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "BTS-23BTS73KR00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "4056L-2A3UUS1",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "BTS-23BTS73FR00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "9820E-PRV",
+    "description": "INTER_TEST"
+}, {
+    "curef": "TA1059-AAROW1DS24ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "SMARTA-MS248-K1",
+    "description": "MS_248_512"
+}, {
+    "curef": "ALPHA-MOBILITY-B10",
+    "description": "ALPHA_MOBILITY_B10"
+}, {
+    "curef": "ACCENT-NUBIA50K-A503",
+    "description": "ACCENT_NUBIA50K_24256"
+}, {
+    "curef": "SKG-COMET-4G1",
+    "description": "COMET_3G"
+}, {
+    "curef": "F-3102-M2431-AIS",
+    "description": "FISE_512DEMO"
+}, {
+    "curef": "LEO-23LIO86BD00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "CNT-23CNT89BW00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "CNT-23CNT80TR00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "LEO-23LIO11CN00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "F3102-PD14G-SYMPHONY",
+    "description": "SYMPHONY_P1D4G"
+}, {
+    "curef": "WW2402-1NFCN",
+    "description": "INTER_TEST"
+}, {
+    "curef": "QRD8905-4FOTA",
+    "description": "INTER_TEST"
+}, {
+    "curef": "BTS-23BTS75DK00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "DEMO-MTKODM-018",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "F2402A-SKY-A356-512",
+    "description": "SKY_SOCIAL_3G"
+}, {
+    "curef": "TA1059-AAROW1DS01FIH1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "LEO-23LIO03TH00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "LEO-23LIO11BH00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "POS-P70S4G-OPEN",
+    "description": "POSITIVO_P70S_4G"
+}, {
+    "curef": "ACCENT-NUBIA60K-A356",
+    "description": "ACCENT_60K_24"
+}, {
+    "curef": "LEO-23LIO91SW00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "DEMO-SPRODM-007",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "LEO-23LIO87CN10",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "4052W-2ATBUS3",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "ACCENT-50K-05",
+    "description": "ACCENT_NUBIA50K_28256"
+}, {
+    "curef": "B35D18035001",
+    "description": "BULLITT_B35"
+}, {
+    "curef": "3078A-3XAVDO1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "DFP-TEST1",
+    "description": "DFP_TEST"
+}, {
+    "curef": "BTS-23BTS73VF02",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "POS-P70S4G-CLARO02",
+    "description": "POSITIVO_P70S_4G"
+}, {
+    "curef": "MTK-DEMO[ABCDEF]",
+    "description": "FISE_512DEMO"
+}, {
+    "curef": "MTK6572-QWY",
+    "description": "MTK_DEVPHASE"
+}, {
+    "curef": "3088X-3AALHK1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "MAXCOM-4G-512",
+    "description": "MAXCOM_MK281"
+}, {
+    "curef": "F246-SKY-A356",
+    "description": "SKY_SOCIAL_3G"
+}, {
+    "curef": "A406DL-2FOTAUSER",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "LEO-23LIO00VF01",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "AFRICELL-K1-F7203CL002",
+    "description": "CALLONG_CL002"
+}, {
+    "curef": "MS249-TECH4U-256",
+    "description": "MS_249_256"
+}, {
+    "curef": "REVO-CMCCMTN-M561M3SD",
+    "description": "MTN_M561"
+}, {
+    "curef": "F7207A-TLSJ-PLUM",
+    "description": "E900_PLUM"
+}, {
+    "curef": "BTS-23BTS73TI00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "A405DL-2AKFUS0-A",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "3078G-3AALHK1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "4052R-2AAQUS5-R",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "F42842-SC-ENERGIZER",
+    "description": "ENEGIZER_E282SC"
+}, {
+    "curef": "4052C-2ARKUS0-A",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "BTS-23BTS75BT00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "LOGICOM-LK284-002",
+    "description": "LOGICOM_LK284"
+}, {
+    "curef": "SPROCOMM-M562F3",
+    "description": "ORANGE_M562F3"
+}, {
+    "curef": "ACCENT-NUBIA50-MOOV",
+    "description": "ACCENT_NUBIA50K_24"
+}, {
+    "curef": "3088X-3BALTR1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "LEO-23LIO03BW00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "TA1059-AAROW1DSROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "4052W-2FOTAUM",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "3088X-3CTBNL1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "QWERTY-F300B",
+    "description": "INTER_TEST"
+}, {
+    "curef": "L2402-SKY-A503-512",
+    "description": "SKY_SOCIAL_3G"
+}, {
+    "curef": "MS351-512-003",
+    "description": "MS_351_512"
+}, {
+    "curef": "TA1067-AAROW1SSROW212ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "BTS-23BTS73HR00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "MTK6731TEST",
+    "description": "INTER_TEST"
+}, {
+    "curef": "LEO-23LIO86VF01",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "FS362-MTN-512",
+    "description": "IPRO_K24"
+}, {
+    "curef": "4052O-2BRRCA0-A",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "A405DL-2A3FCA1",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "ENERGIZER-H280A-512-4G",
+    "description": "ENERGIZER_H280"
+}, {
+    "curef": "F-6572-MTK-DEMO",
+    "description": "FISE_512DEMO"
+}, {
+    "curef": "TA1059-AAROW1DS13ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "LEO-23LIO91UU01",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "DIGIT-AWAMI-DFP1",
+    "description": "DIGIT_AWAMI"
+}, {
+    "curef": "MS260-512",
+    "description": "MS_260_512"
+}, {
+    "curef": "CNT-23CNT76SS01",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "WW6K26-ALTAN-4G",
+    "description": "WATERWORLD_K26"
+}, {
+    "curef": "LEO-23LIO86ES00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "LEO-23LIO05FR00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "F7202MA-B8K-LOGIC-1",
+    "description": "LOGIC_B8K"
+}, {
+    "curef": "LANIX-U340-MX",
+    "description": "LANIX_U340"
+}, {
+    "curef": "CMCCMTN-M561M3PRO-AF",
+    "description": "MTN_M561PRO"
+}, {
+    "curef": "3088X-3XZAIN1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "BTS-23BTS70UU01",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "3088X-3CALAP1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "MS350-H8-3G",
+    "description": "MS_350_512"
+}, {
+    "curef": "WND-23WND00TP96",
+    "description": "NOKIA_XXXX"
+}, {
+    "curef": "LEO-23LIO87PH10",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "QWERTY-F400B",
+    "description": "INTER_TEST"
+}, {
+    "curef": "TA1059-AAROW1DSFIH1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "CNT-23CNT86CO00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "LEO-23LIO87DU01",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "F7261F-JLK-ORANGE",
+    "description": "ORANGE_W6"
+}, {
+    "curef": "TA1067-AAROW1SS24ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "F3105LF-HW-MANGO",
+    "description": "MANGO_AKABUTO"
+}, {
+    "curef": "4052C-2ARKUS3",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "3078A-3ATLEC1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "IPRO-S24-I324MS5",
+    "description": "IPRO_K24"
+}, {
+    "curef": "NJR-Z2316-SD951STCC",
+    "description": "ZTE_ZTEZ2316"
+}, {
+    "curef": "TA1067-AAROW1SS11ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "4056V-2ALCUS3",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "VIIM-C1-CL002",
+    "description": "CALLONG_CL002"
+}, {
+    "curef": "F7261H-GF-VIDA",
+    "description": "VIDA_ATOM"
+}, {
+    "curef": "BLU-CF731-FS361-01",
+    "description": "BLU_ZOEYSMART"
+}, {
+    "curef": "3078A-3XOFCO1-1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "4056W-2XTBUS1",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "BTS-23BTS75DT00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "LEO-23LIO86PL10",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "F3102LM-FS-IDC",
+    "description": "IDC_VOICE20"
+}, {
+    "curef": "CNT-23CNT76VF01",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "4056W-2ARXUS2-PR",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "D7050TL",
+    "description": "DORO_7050"
+}, {
+    "curef": "TA1059-AAROW1DS29ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "MS247-MSOTA-512",
+    "description": "MS_247_512"
+}, {
+    "curef": "3078A-3ATLEC1-1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "BLEPHONE-M560M3YE",
+    "description": "MTN_M560"
+}, {
+    "curef": "F7261H-GF-VIDAATOM",
+    "description": "VIDA_ATOM"
+}, {
+    "curef": "ACCENT-NUBIA60K-A356-512",
+    "description": "ACCENT_60K_24"
+}, {
+    "curef": "F3105LF-HW-MANGO-T",
+    "description": "MANGO_AKABUTO"
+}, {
+    "curef": "4052W-2FOTAUS",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "SPRD7731E-PRV",
+    "description": "INTER_TEST"
+}, {
+    "curef": "3078G-3XTGMX1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "DUNE-D55-CL002",
+    "description": "CALLONG_CL002"
+}, {
+    "curef": "ENERGIZER-A356-VI",
+    "description": "ENERGIZER_E241S"
+}, {
+    "curef": "QRD8905TEST2",
+    "description": "INTER_TEST_NEW"
+}, {
+    "curef": "DIGIT-DFP-NCCAUDIT",
+    "description": "DIGIT_4G"
+}, {
+    "curef": "T920-VODACOM-L",
+    "description": "TECNO_T920"
+}, {
+    "curef": "CNT-23CNT86PL00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "SKG-COMET-3G",
+    "description": "COMET_3G"
+}, {
+    "curef": "LEO-23LIO94TW10",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "4056W-2ARXUS0-A",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "4056S-2ALCUS3",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "TECNO-T901-ORA-SKU1",
+    "description": "TRANSSION_T901"
+}, {
+    "curef": "ALPHA-MOBILITY-B10-2",
+    "description": "ALPHA_MOBILITY_B10"
+}, {
+    "curef": "3078A-3ARGDO1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "WW6-S225-4G",
+    "description": "WW_S225"
+}, {
+    "curef": "F3102LQ-FS-DIGIT-R3",
+    "description": "DIGIT_4G"
+}, {
+    "curef": "CNT-23CNT89BD00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "F3105LW-GF-QMOBILE",
+    "description": "QMOBILE_4GPLUSBIG"
+}, {
+    "curef": "TA1059-AAROW2DS",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "DEMO-MTKODM-009",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "F7265-YHS-MYPHONE",
+    "description": "MYPHONE_UPSMART"
+}, {
+    "curef": "BTS-23BTS70BH02",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "ENERGIZER-A356",
+    "description": "ENERGIZER_E241S"
+}, {
+    "curef": "WWDFP-TEST-CU",
+    "description": "WWDFP_TESTPRJ"
+}, {
+    "curef": "ACCENT-50K-01",
+    "description": "ACCENT_NUBIA50K_28256"
+}, {
+    "curef": "F7202Y-FS-DIGIT-T",
+    "description": "DIGIT_K2"
+}, {
+    "curef": "F3102LAD4N-FS-DIGIT",
+    "description": "DIGIT_DIGIT4GMUSIC"
+}, {
+    "curef": "LEO-23LIO91ES00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "TA1059-AAROW1DS22ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "LEO-23LIO05DT00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "DEMO-MTKODM-014",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "ACCENT-51K-05",
+    "description": "ACCENT_51K"
+}, {
+    "curef": "LEO-23LIO05GR00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "BTV-23BTV95VS01",
+    "description": "NOKIA_2720_V_FLIP"
+}, {
+    "curef": "QRD8905-000-0001",
+    "description": "INTER_TEST"
+}, {
+    "curef": "M764F4",
+    "description": "ORANGE_M764F4"
+}, {
+    "curef": "LEO-23LIO03ZA00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "BTS-23BTS70TW00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "LEO-23LIO07DU01",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "IT9200-TIGO",
+    "description": "TECNO_T920"
+}, {
+    "curef": "SP9820E-2FOTA",
+    "description": "INTER_TEST"
+}, {
+    "curef": "SPC-JASPER-11",
+    "description": "SPC_JASPER"
+}, {
+    "curef": "F3102LQ-FS-DIGIT",
+    "description": "DIGIT_4G"
+}, {
+    "curef": "ENERGIZER-A356-SSIM",
+    "description": "ENERGIZER_E241S"
+}, {
+    "curef": "BTS-23BTS70VN00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "LEO-23LIO86IL00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "LEO-23LIO87AU00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "CNT-23CNT86DK00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "CNT-23CNT76VF02",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "F7202LW-FISE-GHIA",
+    "description": "GHIA_M32433"
+}, {
+    "curef": "9820E-256-KK",
+    "description": "INTER_TEST"
+}, {
+    "curef": "SENWA-SQ380K-TELCEL",
+    "description": "SENWA_SQ380K"
+}, {
+    "curef": "CNT-23CNT89VN00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "3088X-3XE8GB1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "F-7202F-AZUMI-L3K-T",
+    "description": "AZUMI_L3K"
+}, {
+    "curef": "TA1067-AAROW1SS39ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "ZTE-Z2317-AF",
+    "description": "ZTE_ZTEZ2317"
+}, {
+    "curef": "DEMO-MTKODM-010",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "3088X-3XOBGB1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "CNT-23CNT89ZA02",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "ENERGY-E280S-512",
+    "description": "ENERGIZER_E280S"
+}, {
+    "curef": "LEO-23LIO94KH00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "F32421AZ-L3K-AZUMI-4",
+    "description": "AZUMI_L3K"
+}, {
+    "curef": "4056Z-2AOTAZ1",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "LEO-23LIO94MY10",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "LANGLOBAL-A1776-US01",
+    "description": "ECS_A1776"
+}, {
+    "curef": "F7209B-FS-ZONDA",
+    "description": "ZONDA_ZM009"
+}, {
+    "curef": "CNT-23CNT89LK00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "TA1059-AAROW1DS17ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "4044L-2COSUS1",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "LEO-23LIO87CN00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "CNT-23CNT89NG00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "3088X-3XTBMK1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "LEO-23LIO87HK00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "LEO-23LIO87BH00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "3078A-3XAVCM1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "CNT-23CNT80ZA00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "901",
+    "description": "TRANSSION_T901"
+}, {
+    "curef": "ACCENT-K50-02",
+    "description": "ACCENT_NUBIAK50"
+}, {
+    "curef": "CONDOR-FP216L-TS",
+    "description": "CONDOR_FP216L"
+}, {
+    "curef": "VIIM-C1-F7203CL002",
+    "description": "CALLONG_CL002"
+}, {
+    "curef": "IPRO-K24-WIKIF",
+    "description": "IPRO_K24"
+}, {
+    "curef": "3088X-3XRGES1-R",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "CNT-23CNT76ES00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "SFC-VIBE-DFPTEST2",
+    "description": "SAFARICOM_VIBEDFP"
+}, {
+    "curef": "ENERGIZER-A503",
+    "description": "ENERGIZER_E241S"
+}, {
+    "curef": "4052R-2AAQUS3-R",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "BTS-23BTS68UG00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "TA1067-AAROW1SS13ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "TA1067-AAROW1SS01ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "MULTILASER-S224-04",
+    "description": "MULTILASER_224"
+}, {
+    "curef": "3088X-3XWNIT1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "23BTS70SA00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "QF2809A-HANUS2",
+    "description": "ATT_Q28X"
+}, {
+    "curef": "CONDOR-FP216L-TE",
+    "description": "CONDOR_FP216L"
+}, {
+    "curef": "MULTILASER-ZSLIDE-01",
+    "description": "MULTILASER_ZAPPSLIDE"
+}, {
+    "curef": "LEO-23LIO91HR00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "F248A-SKY-A503-512",
+    "description": "SKY_SOCIAL_3G"
+}, {
+    "curef": "CMCCMTN-M571M3PRO-ZM",
+    "description": "MTN_M571PRO"
+}, {
+    "curef": "B35D18033009",
+    "description": "BULLITT_B35"
+}, {
+    "curef": "MS352-512-002",
+    "description": "MS_350_512"
+}, {
+    "curef": "LEO-23LIO87DS00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "3078A-3XTLEC1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "4052R-QAAQUS3-R",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "4044V-2CGUUS1",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "BLEPHONE-M560M3RW",
+    "description": "MTN_M560"
+}, {
+    "curef": "F246-SKY-A356-512",
+    "description": "SKY_SOCIAL_3G"
+}, {
+    "curef": "4052R-2AAQUSK-R",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "DEMO-MTKODM-003",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "L2402-SKY-A503",
+    "description": "SKY_SOCIAL_3G"
+}, {
+    "curef": "F7202Y-FS-ZAMTEL",
+    "description": "ZAMTEL_CZS3"
+}, {
+    "curef": "LEO-23LIO03NP00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "BTS-23BTS68SS02",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "DFC-0190-S23A",
+    "description": "DORO_7060"
+}, {
+    "curef": "BKAV-C85-FP01",
+    "description": "BKAV_C85"
+}, {
+    "curef": "BLEPHONE-M560M3CG",
+    "description": "MTN_M560"
+}, {
+    "curef": "LEO-23LIO00SS01",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "3088X-3BE8GB1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "MS350-IYOU-G10-256",
+    "description": "MS_350_256"
+}, {
+    "curef": "BTS-23BTS68TW00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "WW6K27-JOY-4G",
+    "description": "WATERWORLD_K27"
+}, {
+    "curef": "ACCENT-51K-02",
+    "description": "ACCENT_51K"
+}, {
+    "curef": "F3102-TLSJ-MYPHONE",
+    "description": "HAMMER_5SMART"
+}, {
+    "curef": "BTS-23BTS70LK00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "QRD8905TEST1",
+    "description": "INTER_TEST_UPDATE"
+}, {
+    "curef": "CNT-23CNT86TM00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "DIGIT-AWAMI-003",
+    "description": "DIGIT_AWAMI_NODFP"
+}, {
+    "curef": "4044V-2CVHCA1",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "QRD8905-3FOTA",
+    "description": "INTER_TEST"
+}, {
+    "curef": "L740",
+    "description": "CROSSCALL_CORES4"
+}, {
+    "curef": "ADVAN-FISE-INDONESIA",
+    "description": "ADVAN_TC2486A"
+}, {
+    "curef": "ACCENT-51K-01",
+    "description": "ACCENT_51K"
+}, {
+    "curef": "3088X-3COBGB2",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "QRDAUTOADD2",
+    "description": "INTER_TEST"
+}, {
+    "curef": "TA1059-AAROW1DS27ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "F3102LAB-TLSJ-GPLUS",
+    "description": "GPLUS_L249"
+}, {
+    "curef": "REVO-IT9301-ITEL-OR",
+    "description": "ORANGE_IT9301"
+}, {
+    "curef": "DFC-0190-S17A",
+    "description": "DORO_7060"
+}, {
+    "curef": "CNT-23CNT89KE00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "3078A-3XOFUS1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "TECNO-T901-ORANGE-SKU1",
+    "description": "TRANSSION_T901"
+}, {
+    "curef": "TA1059-AAROW1DS17ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "WND-23WND00TP01",
+    "description": "NOKIA_XXXX"
+}, {
+    "curef": "F7202W-FISE-GHIA-T",
+    "description": "GHIA_M32433"
+}, {
+    "curef": "LEO-23LIO91FR00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "4052O-2ALZCA1",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "D7050BL-S21A",
+    "description": "DORO_7050"
+}, {
+    "curef": "IT9301-SKU2-ITEL-OR",
+    "description": "ORANGE_IT9301"
+}, {
+    "curef": "A406DL-2AKFUS3-R",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "CNT-23CNT86DU01",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "CNT-23CNT76RO00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "AGENEWTECH-TEST",
+    "description": "AGENEWTECH_A15_EF39"
+}, {
+    "curef": "SKG-COMET-3G1",
+    "description": "COMET_3G"
+}, {
+    "curef": "LEO-23LIO05DS00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "TA1067-AAROW1SS21ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "TA1059-AAROW1DS01DU01",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "AIS-B2430A",
+    "description": "RUIO_B2430"
+}, {
+    "curef": "BTS-23BTS70HK00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "LEO-23LIO07SS01",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "SPROCOMM-M562F3-SML",
+    "description": "ORANGE_M562F3"
+}, {
+    "curef": "BLAUPUNKT-KFP-2461",
+    "description": "BLAUPUNKT_GALACTIC_ROVER"
+}, {
+    "curef": "MS230-ELIAS",
+    "description": "MS_230_512"
+}, {
+    "curef": "ADVAN-FISE-TEST1",
+    "description": "ADVAN_TC2486A"
+}, {
+    "curef": "3088X-3AOBGB1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "QRD8905-TFOTA",
+    "description": "INTER_TEST"
+}, {
+    "curef": "F3102-I4G-IPLUS",
+    "description": "IPLUS_I4G"
+}, {
+    "curef": "ACCENT-NUBIA50K-GAB",
+    "description": "ACCENT_NUBIA50K_24"
+}, {
+    "curef": "TA1059-AAROW1DS10ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "CNT-23CNT89AF00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "3088X-3XRGES1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "CNT-23CNT76VF00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "TA1067-AAROW1SS05ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "ENERGY-E241S",
+    "description": "ENERGIZER_E241S"
+}, {
+    "curef": "DFC-0180",
+    "description": "DORO_7050"
+}, {
+    "curef": "F-7202F-AZUMI-L3K",
+    "description": "AZUMI_L3K"
+}, {
+    "curef": "BTS-23BTS68AU02",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "F32433-G02-F",
+    "description": "FPLUS_G02"
+}, {
+    "curef": "A405DL-2AKFUS3-R",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "DEMO-SPRODM-003",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "TA1067-AAROW1SSROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "ACCENT-60K28-01",
+    "description": "ACCENT_60K_28"
+}, {
+    "curef": "BTS-23BTS75CO00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "LEO-23LIO86HR00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "3088X-3XTBDE1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "F7202H-FS-DIGIT",
+    "description": "DIGIT_K2"
+}, {
+    "curef": "WIZWP006-WBTKINQ",
+    "description": "WIZPHONE_WP006"
+}, {
+    "curef": "LEO-23LIO94NP00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "3088T-3AALHK1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "BTS-23BTS70AF00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "TA1067-AAROW1SS01FIH2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "WWDFP-TEST-CU2",
+    "description": "WWDFP_TESTPRJ"
+}, {
+    "curef": "LEO-23LIO00HR00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "3088X-3CALAV1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "CNT-23CNT86DT01",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "TA1059-AAROW1DS08ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "F3102LAD1-FS-DIGIT",
+    "description": "DIGIT_4G"
+}, {
+    "curef": "4044V-2CB6CA1",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "F3102LAD-FS-DIGIT",
+    "description": "DIGIT_4G"
+}, {
+    "curef": "ACCENT-50K-03",
+    "description": "ACCENT_NUBIA50K_28256"
+}, {
+    "curef": "MS250-512-4G",
+    "description": "MS_250_512"
+}, {
+    "curef": "VODACOM-VIBE-4G-MZ",
+    "description": "VODACOM_VIBE4G"
+}, {
+    "curef": "MS260-HYUNDAI-L365",
+    "description": "MS_260_512"
+}, {
+    "curef": "TECNO-T901-TEST",
+    "description": "TRANSSION_T901"
+}, {
+    "curef": "REVO-T930-TECNO",
+    "description": "TECNO_T930"
+}, {
+    "curef": "DEMO-SPRODM-005",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "3078A-3AALBD1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "MTK-673XNEW-TESTONLY1",
+    "description": "MTK_DEVPHASE"
+}, {
+    "curef": "WND-23WND00TP98",
+    "description": "NOKIA_XXXX"
+}, {
+    "curef": "3088X-3BALAP1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "T407DL-2AKFUS0-A",
+    "description": "TCT_T407DL"
+}, {
+    "curef": "F3105LH-FS-DIGIT",
+    "description": "DIGIT_4G"
+}, {
+    "curef": "F32421AZ-L3K-AZUMI-2",
+    "description": "AZUMI_L3K"
+}, {
+    "curef": "TA1059-AAROW1DS15ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "4044V-2CLZCA1",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "4052W-ALPHA1",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "3078G-2ATGMX1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "CNT-23CNT76IL00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "4056L-2A3UUS0-A",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "BTS-23BTS70DS00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "MS351-256-001",
+    "description": "MS_351_256"
+}, {
+    "curef": "4052Z-AHPHA1",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "TA1067-AAROW1DS01ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "TA1067-AAROW1SS20ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "LEO-23LIO11DS00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "F7202-FS-CELLALLURE",
+    "description": "CELLALLURE_SMARTTEMP"
+}, {
+    "curef": "TA1067-AAROW1SS08DU01",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "B35D18040916",
+    "description": "BULLITT_B35"
+}, {
+    "curef": "F7202K-AZUMI-L3K",
+    "description": "AZUMI_L3K"
+}, {
+    "curef": "LOGICOM-LK284-003",
+    "description": "LOGICOM_LK284"
+}, {
+    "curef": "LEO-23LIO87NG00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "QRD8905-TEST",
+    "description": "INTER_TEST"
+}, {
+    "curef": "3088X-3XALGB1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "LEO-23LIO86FR00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "3078A-3AAVCM1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "4056W-2AOTABB",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "3078A-3AOFUS1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "QRD8905-AUTO4",
+    "description": "INTER_TEST"
+}, {
+    "curef": "KFP2460",
+    "description": "BLAUPUNKT_GALACTIC_ROVER"
+}, {
+    "curef": "LEO-23LIO11DS02",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "4056W-2ATBUS1-PR",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "NJR-SD951-211-V01",
+    "description": "ZTE_ZTEZ2316"
+}, {
+    "curef": "4056SPP-2AALUS0-A",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "ENERGIZER-A356-EVE",
+    "description": "ENERGIZER_E241S"
+}, {
+    "curef": "LEO-23LIO00ES00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "4056Z-2AE4US1-PR",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "SKG-COMET-3G1-512",
+    "description": "COMET_3G"
+}, {
+    "curef": "SKG-COMET-3G3",
+    "description": "COMET_3G"
+}, {
+    "curef": "CMCCMTN-M571M3PRO-YE",
+    "description": "MTN_M571PRO"
+}, {
+    "curef": "TELKOM-MS248Z",
+    "description": "MS_248_512"
+}, {
+    "curef": "LEO-23LIO87SA10",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "SFC-VIBE-DFPTEST1",
+    "description": "SAFARICOM_VIBEDFP"
+}, {
+    "curef": "TA1059-AAROW1DS16ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "ZTE-Z2317-CLA",
+    "description": "ZTE_ZTEZ2317"
+}, {
+    "curef": "LEO-23LIO86VN00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "XLS-T18A-V03",
+    "description": "HAMMER_R1T"
+}, {
+    "curef": "LEO-23LIO87AU10",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "BTS-23BTS70MY00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "F3102LAD2-DIGIT-DFP",
+    "description": "DIGIT_4G"
+}, {
+    "curef": "TC2401-1FOTA",
+    "description": "TECHAIN-SPRD"
+}, {
+    "curef": "F3102LQ-FS-DEFENDER",
+    "description": "DIGIT_4G"
+}, {
+    "curef": "4044N-2BTBUS1-1",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "LEO-23LIO00SW00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "TA1059-AAROW1DS07ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "F32421AZ-L3K-AZUMI-3",
+    "description": "AZUMI_L3K"
+}, {
+    "curef": "4052C-2ARKUS3-R",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "LEO-23LIO86UU01",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "F3161-GF-VIDA-F",
+    "description": "VIDA_K242"
+}, {
+    "curef": "CNT-23CNT76SW00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "KAIOS-DEMO",
+    "description": "INTER_TEST"
+}, {
+    "curef": "MS351-512-002",
+    "description": "MS_351_512"
+}, {
+    "curef": "BTS-23BTS75UU01",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "POS-P70S-512",
+    "description": "POSITIVO_P70S"
+}, {
+    "curef": "BTS-23BTS73DU01",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "3088X-3CALGB1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "3088X-3CTBPL1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "3088X-3CALTR1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "P280-QUBO-512",
+    "description": "QUBO_P280_512"
+}, {
+    "curef": "ACCENT-NUBIA60K-FR",
+    "description": "ACCENT_60K_24"
+}, {
+    "curef": "3088X-3XALAV1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "LOGICOM-LK284-001",
+    "description": "LOGICOM_LK284"
+}, {
+    "curef": "TA1067-AAROW1SS",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "CNT-23CNT89EG00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "CNT-23CNT89DS02",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "F3105LP-FS-DIGIT",
+    "description": "DIGIT_4G"
+}, {
+    "curef": "BTS-23BTS75RU02",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "QRD8905-QRD-1111",
+    "description": "INTER_TEST"
+}, {
+    "curef": "A405DL-2AKFUS3-R1",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "7731E-256-KK",
+    "description": "INTER_TEST"
+}, {
+    "curef": "3088X-3XTBCZ1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "DIGIT-DFP-PK-TRIAL",
+    "description": "DIGIT_4G"
+}, {
+    "curef": "L2402A-SKY-A356",
+    "description": "SKY_SOCIAL_3G"
+}, {
+    "curef": "LEO-23LIO94MY00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "4056S-2AALUS3-PN",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "3088X-3COBGB1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "3088X-3ATBCZ1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "SKG-COMET-4G",
+    "description": "COMET_3G"
+}, {
+    "curef": "3088X-3BALE51",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "QRD8905-FOTAQUOIN",
+    "description": "INTER_TEST"
+}, {
+    "curef": "T920D-ORANGE",
+    "description": "TECNO_T920"
+}, {
+    "curef": "LEO-23LIO87AF01",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "4044W-2BTBUS1-1",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "SKG-COMET-4G2",
+    "description": "COMET_3G"
+}, {
+    "curef": "3088X-3DALWE1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "F32421AZ-L3K-AZUMI-1",
+    "description": "AZUMI_L3K"
+}, {
+    "curef": "TA1059-AAROW1DS05DU01",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "BTS-23BTS73IL00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "BTS-23BTS70TH00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "3088X-3ATBAL1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "RADISYS-MOZ-4G",
+    "description": "TBD_TBD"
+}, {
+    "curef": "XLS-ALIGATOR-K50V03",
+    "description": "HAMMER_R1T"
+}, {
+    "curef": "3088X-3XALTR1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "WW-TEST-3G",
+    "description": "MS_247_512"
+}, {
+    "curef": "BTS-23BTS70NP00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "MS249-3G-256",
+    "description": "MS_249_256"
+}, {
+    "curef": "IKU-V400-02",
+    "description": "IKU_V400"
+}, {
+    "curef": "4052W-2ATBUS0-A",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "LEO-23LIO94BW00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "CNT-23CNT86FR00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "4044O-2AAQUS0",
+    "description": "APP_TEST"
+}, {
+    "curef": "CONDOR-FP216L-TS-C2",
+    "description": "CONDOR_FP216L"
+}, {
+    "curef": "F3161-GF-VIDA-F-T",
+    "description": "VIDA_K242"
+}, {
+    "curef": "LEO-23LIO00RO00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "3088X-3CE8GB1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "3088X-3AALAP1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "TA1067-AAROW1SS04DU01",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "LEO-23LIO91SS01",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "ACCENT-50K-512-02",
+    "description": "ACCENT_50K_28"
+}, {
+    "curef": "IKU-V300-3G",
+    "description": "IKU_V300"
+}, {
+    "curef": "F3102LQ-FS-DFP-OTP",
+    "description": "DIGIT_4G"
+}, {
+    "curef": "WW6-S2803-LILY",
+    "description": "WATERWORLD_S2803"
+}, {
+    "curef": "4052C-2ARKUS3-PR",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "TA1067-AAROW1DSROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "MTK-657XNEW-TESTONLY1",
+    "description": "MTK_DEVPHASE"
+}, {
+    "curef": "B35D18034001",
+    "description": "BULLITT_B35"
+}, {
+    "curef": "4052R-2AAQUS3-PR",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "CNT-23CNT86RO00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "LEO-23LIO05DK00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "F3102LN-L4K-AZUMI",
+    "description": "AZUMI_L4K"
+}, {
+    "curef": "WW6-B2415-MUNI",
+    "description": "WATERWORLD_B2415"
+}, {
+    "curef": "3088X-3XTBSK1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "LEO-23LIO11AU00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "BTS-23BTS70IN00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "LEO-23LIO86RO00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "DFC-0190-S16A",
+    "description": "DORO_7060"
+}, {
+    "curef": "F7202Q1-FS-WIN",
+    "description": "WIN_F4"
+}, {
+    "curef": "3078G-3XOFUS1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "3078A-3XLDUS1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "LEO-23LIO87UU01",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "4056W-2ATBUSK",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "3088X-3XTBHU1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "4052W-2TESTUM",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "LEO-23LIO94LA00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "BTS-23BTS70AE00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "CNT-23CNT80AU00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "F7209K-FS-XANDOS",
+    "description": "XANDOS_X5"
+}, {
+    "curef": "AFRICELL-K1-CL002",
+    "description": "CALLONG_CL002"
+}, {
+    "curef": "TA1059-AAROW1DS20ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "T920-SAFARICOM",
+    "description": "TECNO_T920"
+}, {
+    "curef": "MS352-512-003",
+    "description": "MS_350_512"
+}, {
+    "curef": "BTS-23BTS70MY02",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "BTS-23BTS70PK00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "3088X-3BALHK1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "BTS-23BTS73SW01",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "TA1059-AAROW1DS02ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "FLIP1D18110801",
+    "description": "ECS_A1776"
+}, {
+    "curef": "REVO-CMCCMTN-M561M3AF",
+    "description": "MTN_M561"
+}, {
+    "curef": "TA1067-AAROW1SS01FIH1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "3088X-3CTBDE1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "TA1059-AAROW1DS12ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "BTS-23BTS70BH00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "DEMO-MTKODM-006",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "TA1067-AAROW1SS12ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "BTS-23BTS75ES00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "3078A-3AAVCO1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "BTS-23BTS73UU01",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "CNT-23CNT89PH00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "QF2809A-HANUS1",
+    "description": "ATT_Q28X"
+}, {
+    "curef": "EA-23ACD01AT01",
+    "description": "ATT_EA211101"
+}, {
+    "curef": "BTS-23BTS75DS01",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "SD951-211-V01-ZTEZ2316-NJR",
+    "description": "ZTE_ZTEZ2316"
+}, {
+    "curef": "LEO-23LIO94DS00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "ACD-23ACD01AT01",
+    "description": "ATT_EA211101"
+}, {
+    "curef": "4044C-2ARKUS1",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "TA1059-AAROW1DS08ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "3088X-3BTBNL1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "B35D18033003",
+    "description": "BULLITT_B35"
+}, {
+    "curef": "CNT-23CNT80CN00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "QMOBILE-512-4G",
+    "description": "QMOBILE_4GPLUS"
+}, {
+    "curef": "POS-P70S512-OPEN",
+    "description": "POSITIVO_P70S"
+}, {
+    "curef": "CMCCMTN-M571M3PRO-RW",
+    "description": "MTN_M571PRO"
+}, {
+    "curef": "4052W-AHPHA1",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "3088X-3XBYFR1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "LEO-23LIO91DU01",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "LEO-23LIO11SA00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "TECNO-T920-DFPTEST",
+    "description": "TECNO_T920"
+}, {
+    "curef": "LEO-23LIO05LK00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "4056Z-2AE4US0-A",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "SKG-COMET-4G2-512",
+    "description": "SKG_COMET4G"
+}, {
+    "curef": "LEO-23LIO00FR00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "CNT-23CNT76UU01",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "3088X-3AALWE1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "WW833-11C-DL241",
+    "description": "DIGICEL_DL241"
+}, {
+    "curef": "4052Z-2TESTUP",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "4052W-2FATAAA",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "MS247-CAL-512",
+    "description": "MS_247_512"
+}, {
+    "curef": "LEO-23LIO07CL00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "ACCENT-K50-03",
+    "description": "ACCENT_NUBIAK50"
+}, {
+    "curef": "4052O-2ARRCA0-A",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "3088X-2XTIIT1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "CNT-23CNT89HK00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "LEO-23LIO05RO00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "POS-P70S4G-CLARO01",
+    "description": "POSITIVO_P70S_4G"
+}, {
+    "curef": "QRD8905-JIO50",
+    "description": "INTER_TEST"
+}, {
+    "curef": "3088X-3CTBAL1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "F7261-GF-TELMA",
+    "description": "TELMA_WIKIF3G"
+}, {
+    "curef": "MS249-SMOOTH-512",
+    "description": "MS_249_512"
+}, {
+    "curef": "3078A-3XALBD1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "F7261E-XBT-WINTEK",
+    "description": "WINTEK_W29"
+}, {
+    "curef": "TA1067-AAROW1SS18ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "WW833-79C-NYX-K2-TELCELL",
+    "description": "NYXMOBILE_K2"
+}, {
+    "curef": "WW2402-2NFCN",
+    "description": "INTER_TEST"
+}, {
+    "curef": "PCD-F2401-TEST1",
+    "description": "PCD_UK01"
+}, {
+    "curef": "CMCCMTN-M561M3PRO-NG",
+    "description": "MTN_M561PRO"
+}, {
+    "curef": "3088X-3XTBGR1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "TA1067-AAROW2SS02",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "CNT-23CNT89MY00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "M562F3",
+    "description": "ORANGE_M562F3"
+}, {
+    "curef": "REVO-CMCCMTN-M561M3CM",
+    "description": "MTN_M561"
+}, {
+    "curef": "CMCCMTN-M571M3PRO-CM",
+    "description": "MTN_M571PRO"
+}, {
+    "curef": "ORANGE-NEVA-LINK-SP",
+    "description": "ORANGE_GF2922"
+}, {
+    "curef": "3088X-3CALE51",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "SMARTA-MS2489-R3",
+    "description": "MS_248_512"
+}, {
+    "curef": "SPROCOMM-M570S4",
+    "description": "SMART_M570S4"
+}, {
+    "curef": "DEMO-SPRODM-006",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "DFC-0180-S21A",
+    "description": "DORO_7050"
+}, {
+    "curef": "CNT-23CNT86IT00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "LEO-23LIO94DU01",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "ACCENT-NUBIA50K-A503-512",
+    "description": "ACCENT_NUBIA50K_24"
+}, {
+    "curef": "TA1067-AAROW1SS19ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "REVO-CMCCMTN-M561M3ZM",
+    "description": "MTN_M561"
+}, {
+    "curef": "BLAUPUNKT-KFP-2460",
+    "description": "BLAUPUNKT_GALACTIC_ROVER"
+}, {
+    "curef": "ENERGIZER-A356-NCAM2",
+    "description": "ENERGIZER_E241S"
+}, {
+    "curef": "QM215-GF5",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "3088X-3CBYFR1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "ORANGE-NEVA-LINK-EU",
+    "description": "ORANGE_GF2922"
+}, {
+    "curef": "TA1059-AAROW1DS26ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "BTS-23BTS70BD00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "LEO-23LIO87AF00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "F3102LQ-FS-DIGIT-DFP",
+    "description": "DIGIT_4G"
+}, {
+    "curef": "ENERGIZER-A356-TU",
+    "description": "ENERGIZER_E241S"
+}, {
+    "curef": "CNT-23CNT89TW00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "DFC-0190-S13A",
+    "description": "DORO_7060"
+}, {
+    "curef": "ACCENT-51K-04",
+    "description": "ACCENT_51K"
+}, {
+    "curef": "3088X-2FOTADB",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "F248A-SKY-A503",
+    "description": "SKY_SOCIAL_3G"
+}, {
+    "curef": "B35D18033002",
+    "description": "BULLITT_B35"
+}, {
+    "curef": "3078G-3ATGMX1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "LEO-23LIO94UU01",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "ENERGIZER-A356-NCAM",
+    "description": "ENERGIZER_E241S"
+}, {
+    "curef": "3078A-3ALDUS1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "BTS-23BTS70LA00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "BTS-23BTS73VF00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "4052O-2FOTAUD",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "F3102LN-AZUMI-TAN",
+    "description": "AZUMI_L4K"
+}, {
+    "curef": "BTS-23BTS73TI01",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "IPRO-K24-SMART",
+    "description": "IPRO_K24"
+}, {
+    "curef": "TA1059-AAROW1DS25ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "LEO-23LIO86IT00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "TA1067-AAROW1SS19ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "SPRD982-JIO25",
+    "description": "INTER_TEST"
+}, {
+    "curef": "KFP-2461",
+    "description": "BLAUPUNKT_GALACTIC_ROVER"
+}, {
+    "curef": "CNT-23CNT76KR00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "LEO-23LIO24SD00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "F3102LAD3-FS-DIGIT",
+    "description": "DIGIT_DIGIT4GBOLD"
+}, {
+    "curef": "LEO-23LIO00DK00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "BTS-23BTS73SW00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "CNT-23CNT89NP00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "BTS-23BTS70DS11",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "4056W-2ARXUS1-PR",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "WW-TEST-4G",
+    "description": "MS_247_512"
+}, {
+    "curef": "QRD8905-25R2",
+    "description": "INTER_TEST"
+}, {
+    "curef": "LEO-23LIO87DS02",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "F3105-POWER-DIGIT",
+    "description": "DIGIT4G_POWER"
+}, {
+    "curef": "ENERGY-E241S-512",
+    "description": "ENERGIZER_E241S"
+}, {
+    "curef": "B35D18041609",
+    "description": "BULLITT_B35"
+}, {
+    "curef": "4056S-2ALCUS0-A",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "4056Z-2XE4US1",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "4052Z-QATBUS",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "F7202LAC-FS-BMOBILE",
+    "description": "BMOBILE_W125K"
+}, {
+    "curef": "POS-P70S4G-TIM01",
+    "description": "POSITIVO_P70S_4G"
+}, {
+    "curef": "LEO-23LIO11HK00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "F3102LQ-FS-DIGIT-T",
+    "description": "DIGIT_4G"
+}, {
+    "curef": "3088X-3CALWE1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "TA1059-AAROW1DS06DU01",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "LEO-23LIO86GR00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "TA1059-AAROW1DS08DU01",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "4044T-2ARXUS1-PR1",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "TINNO-ATT2019-TESTA",
+    "description": "TINNO_ATT"
+}, {
+    "curef": "LEO-23LIO05VN00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "MS250J-W30-512",
+    "description": "MS_250J"
+}, {
+    "curef": "CNT-23CNT89DS00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "4052O-2AVHCA1",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "SENWA-S340K-TELCEL",
+    "description": "SENWA_S340K"
+}, {
+    "curef": "CMCCMTN-M561M3PRO-ZM",
+    "description": "MTN_M561PRO"
+}, {
+    "curef": "4044V-2CVBUS1",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "4052W-2AALUS3",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "DEMO-SPRODM-010",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "TEST-F2402",
+    "description": "UTIME_F240231A1"
+}, {
+    "curef": "QRDINTERTEST",
+    "description": "INTER_TEST_ADD"
+}, {
+    "curef": "DEMO-MTKODM-012",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "BLEPHONE-M560M3GH",
+    "description": "MTN_M560"
+}, {
+    "curef": "ZTE-Z2317-AMX",
+    "description": "ZTE_ZTEZ2317"
+}, {
+    "curef": "LEO-23LIO00IT00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "CNT-23CNT89CN02",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "3078A-3XRGDO1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "IPRO-K24-ONE",
+    "description": "IPRO_K24"
+}, {
+    "curef": "BTS-23BTS75RU00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "SP9820E-2C10",
+    "description": "INTER_TEST"
+}, {
+    "curef": "3088T-3XALHK1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "DEMO-SPRODM-001",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "F3102-TLSJ-HAMMER-T",
+    "description": "HAMMER_5SMART"
+}, {
+    "curef": "NEUO-K24-EARTH",
+    "description": "IPRO_K24"
+}, {
+    "curef": "T-SMART-MS248-K1",
+    "description": "MS_248_512"
+}, {
+    "curef": "DFC-0190-S12A",
+    "description": "DORO_7060"
+}, {
+    "curef": "DEMO-MTKODM-007",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "3078A-3AUFMX1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "BTS-23BTS68ZA00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "4052O-2ARRCA1",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "4052W-QATBUS3",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "CNT-23CNT80KE00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "3088T-3XTUAU1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "F-3102-M2431-DEMO",
+    "description": "FISE_512DEMO"
+}, {
+    "curef": "3088X-3BTBAL1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "4052R-2AAQUS0",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "UTIME-S1502-T302B01",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "F3105LM-FS-GEOPHONE",
+    "description": "GEO_T19"
+}, {
+    "curef": "4052Z-2ATBUS0-A",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "CNT-23CNT86RU00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "ACCENT-K50-01",
+    "description": "ACCENT_NUBIAK50"
+}, {
+    "curef": "3088X-3CBTGB1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "LEO-23LIO91DK00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "LEO-23LIO86DT00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "LEO-23LIO94ZA00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "DORO7060",
+    "description": "DORO_7050"
+}, {
+    "curef": "GWIN-NT2403K",
+    "description": "KLITE_NT2403K"
+}, {
+    "curef": "BLU-TANKMEGA",
+    "description": "BLU_TANKMEGA"
+}, {
+    "curef": "DORO7050",
+    "description": "DORO_7050"
+}, {
+    "curef": "TA1067-AAROW1SS09ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "F7202Y-FS-DIGIT",
+    "description": "DIGIT_K2"
+}, {
+    "curef": "3088X-3AALAV1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "QRD8905-000-0000",
+    "description": "INTER_TEST"
+}, {
+    "curef": "BTS-23BTS75FR00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "4056L-2FOTAU1",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "LOGICOM-LK283-002",
+    "description": "LOGICOM_LK283"
+}, {
+    "curef": "LEO-23LIO07TL00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "BTS-AAROWSS",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "DEMO-MTKODM-017",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "3088X-3AWNIT1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "3088X-3XTBPL1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "BTS-23BTS75HR00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "MULTILASER-S224-01",
+    "description": "MULTILASER_224"
+}, {
+    "curef": "T920D-TIGO",
+    "description": "TECNO_T920"
+}, {
+    "curef": "MS234-LEGEND-512",
+    "description": "MS_234_512"
+}, {
+    "curef": "4052W-2ATBUS3-1",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "BLU-Z230L-CF1-01",
+    "description": "BLU_ZOEYSMART"
+}, {
+    "curef": "CNT-23CNT86DS01",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "TA1059-AAROW1DS01FIH2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "LEO-23LIO91RO00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "REVO-CMCCMTN-M561M3BJ",
+    "description": "MTN_M561"
+}, {
+    "curef": "3088X-3ATBPL1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "4052C-QARKUS3-R",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "3088X-3ATBSK1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "TEST-9820E-512",
+    "description": "INTER_TEST"
+}, {
+    "curef": "WW6-S2803-VIET1",
+    "description": "WATERWORLD_S2803"
+}, {
+    "curef": "WND-23WND00TP97",
+    "description": "NOKIA_XXXX"
+}, {
+    "curef": "LEO-23LIO00VF00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "LEO-23LIO03TW00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "BTS-23BTS75GR00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "DEMO-MTKODM-019",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "DEMO-MTKODM-004",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "BTS-23BTS73VF01",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "F3102LM-AZUMI-MOZ",
+    "description": "AZUMI_L4K"
+}, {
+    "curef": "LEO-23LIO86LK00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "TA1067-AAROW1SS07DU01",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "WND-23WND00TP99",
+    "description": "NOKIA_XXXX"
+}, {
+    "curef": "LEO-23LIO91PL10",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "POS-P70S-URBR",
+    "description": "POSITIVO_P70S"
+}, {
+    "curef": "QRD8905-5FOTA",
+    "description": "INTER_TEST"
+}, {
+    "curef": "BTS-23BTS75DT01",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "REVO-CMCCMTN-M561M3KT",
+    "description": "MTN_M561"
+}, {
+    "curef": "CNT-23CNT89SA00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "P70S4G-TIM-URBR",
+    "description": "POSITIVO_P70S_4G"
+}, {
+    "curef": "BTS-23BTS68DU01",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "TA1067-AAROW1SS06ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "3088X-3BWNIT1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "CNT-23CNT86GR00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "TA1059-AAROW1DS18ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "EVERCOSS-I2A-L2407",
+    "description": "EVERCOSS_I2A"
+}, {
+    "curef": "F7202H-FS-DIGIT-T",
+    "description": "DIGIT_K2"
+}, {
+    "curef": "BTS-23BTS70BW00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "POS-P70S4G-URBR",
+    "description": "POSITIVO_P70S_4G"
+}, {
+    "curef": "NJR-Z2316-TEST01",
+    "description": "ZTE_ZTEZ2316"
+}, {
+    "curef": "3088X-3XETIS1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "DEMO-MTKODM-016",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "4056V-2AALUS0-A",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "CNT-23CNT80UU01",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "LEO-23LIO94ZA10",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "3088X-3CTBCZ1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "QRDAUTOADD1",
+    "description": "INTER_TEST_NEW"
+}, {
+    "curef": "4044T-2ARXUS1-R1",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "QRD8905-PRV",
+    "description": "INTER_TEST"
+}, {
+    "curef": "LEO-23LIO94RU00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "LEO-23LIO00SW01",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "LEO-23LIO05BD00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "TA1067-AAROW1SS15ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "T920-VODACOM",
+    "description": "TECNO_T920"
+}, {
+    "curef": "ELEPHONIC-K104",
+    "description": "CALLONG_CL002"
+}, {
+    "curef": "BLEPHONE-M560F3",
+    "description": "ORANGE_SANZA"
+}, {
+    "curef": "CNT-23CNT89TH00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "3088X-3CTBSK1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "MS250-C7-512",
+    "description": "MS_250_512"
+}, {
+    "curef": "TA1059-AAROW1DS06ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "TA1059-AAROW1DS05ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "F3161M-DD-TOGOCEL",
+    "description": "TOGOCEL_WIKIF4G"
+}, {
+    "curef": "4056W-2FOTAU3",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "F3161-GF-TELMA-T",
+    "description": "TELMA_WIKIF4G"
+}, {
+    "curef": "IPRO-K24-I324MS",
+    "description": "IPRO_K24"
+}, {
+    "curef": "LEO-23LIO87SA00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "3088X-3AALE51",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "BTS-23BTS73RO00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "DEMO-SPRODM-008",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "F7209M-FS-DOPPIOX5",
+    "description": "DOPPIO_TEXTER"
+}, {
+    "curef": "MS261-512",
+    "description": "MS_261_512"
+}, {
+    "curef": "F3165A-YHS-MYPHONE",
+    "description": "MYPHONE_S330"
+}, {
+    "curef": "3088X-3ATBGR1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "STC-512-4G",
+    "description": "STCPAY_MK10POS"
+}, {
+    "curef": "NJR-Z2316-SD951CHNNL",
+    "description": "ZTE_ZTEZ2316"
+}, {
+    "curef": "LOGICOM-LK283-001",
+    "description": "LOGICOM_LK283"
+}, {
+    "curef": "F3105LS-FS-DIGIT",
+    "description": "DIGIT_4G"
+}, {
+    "curef": "CMCCMTN-M561M3PRO-CM",
+    "description": "MTN_M561PRO"
+}, {
+    "curef": "3078G-3XAVDO1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "LEO-23LIO94SG10",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "3078A-3AOFCO1-1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "BTS-23BTS70DS01",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "LEO-23LIO91DT00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "BTS-23BTS73ES00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "F3102LQ-FS-DIGIT-EFU",
+    "description": "DIGIT_4G"
+}, {
+    "curef": "QRD8905-AUTO1",
+    "description": "INTER_TEST"
+}, {
+    "curef": "LEO-23LIO94TH00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "LEO-23LIO86DU01",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "F-7261-X9A-S3500-T",
+    "description": "SIGMAMOBILE_S3500"
+}, {
+    "curef": "CNT-23CNT86UU01",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "IPRO-K24-SMART24",
+    "description": "IPRO_K24"
+}, {
+    "curef": "CNT-23CNT76FR00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "LEO-23LIO86PL00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "3088T-3CALMY1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "SPROCOMM-M764F4",
+    "description": "SMART_M570S4"
+}, {
+    "curef": "TA1059-AAROW1DSROW203ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "3088X-AAAA",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "SKG-COMET-3G2-512",
+    "description": "COMET_3G"
+}, {
+    "curef": "BTS-23BTS70PH00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "TA1048-AAROW2DS01",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "EA-23BTV95SS01",
+    "description": "ATT_EA211101"
+}, {
+    "curef": "SIGMAMOBILE-S3500-UK",
+    "description": "SIGMAMOBILE_S3500"
+}, {
+    "curef": "QRD8905-AUTO3",
+    "description": "INTER_TEST"
+}, {
+    "curef": "BLEPHONE-M560M3TEST",
+    "description": "MTN_M560"
+}, {
+    "curef": "F3102-TLSJ-TMOBILEC",
+    "description": "HAMMER_5SMART"
+}, {
+    "curef": "MS350-H8-512",
+    "description": "MS_350_512"
+}, {
+    "curef": "BTS-AAROWDS",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "XLS-MAXWEST-RANGERV05",
+    "description": "HAMMER_R1T"
+}, {
+    "curef": "ASPERA-F30-01",
+    "description": "ASPERA_F30"
+}, {
+    "curef": "NJR-Z2316-SD95101",
+    "description": "ZTE_ZTEZ2316"
+}, {
+    "curef": "F3102LW-FS-GEOPHONE",
+    "description": "EBS_T15"
+}, {
+    "curef": "WW833-79C-K2-TEST",
+    "description": "NYXMOBILE_K2"
+}, {
+    "curef": "TECNO-T901-ORA-SKU2",
+    "description": "TRANSSION_T901"
+}, {
+    "curef": "TA1059-AAROW1DS04ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "LEO-23LIO05ES00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "BTS-23BTS68CN00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "MS249-CAL-512",
+    "description": "MS_249_512"
+}, {
+    "curef": "F3161-GF-FREE",
+    "description": "FREE_WIKIF4G"
+}, {
+    "curef": "MS247-NJX-512",
+    "description": "MS_247_512"
+}, {
+    "curef": "IPRO-K24-TTFONE",
+    "description": "IPRO_K24"
+}, {
+    "curef": "4056V-2ALCUS3-PN",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "TA1059-AAROW1DS01ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "IPRO-K24-CAPTAIN",
+    "description": "IPRO_K24"
+}, {
+    "curef": "3088X-2X6SGB",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "F7209M-FS-DOPPIO",
+    "description": "DOPPIO_TEXTER"
+}, {
+    "curef": "F3105-POWER-DIGIG",
+    "description": "DIGIT4G_POWER"
+}, {
+    "curef": "QRD8909-JIO25",
+    "description": "INTER_TEST"
+}, {
+    "curef": "MS247-512",
+    "description": "MS_247_512"
+}, {
+    "curef": "TA1067-AAROW1SS03DU01",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "ACCENT-K50-04",
+    "description": "ACCENT_NUBIAK50"
+}, {
+    "curef": "XLS-T18A-V01",
+    "description": "HAMMER_R1T"
+}, {
+    "curef": "3088X-3XALE51",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "LEO-23LIO05VF01",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "CONDOR-FP216L-ZT-C2",
+    "description": "CONDOR_FP216L"
+}, {
+    "curef": "F3161-GF-FREE-T",
+    "description": "FREE_WIKIF4G"
+}, {
+    "curef": "LEO-23LIO07LTM0",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "WW6-L2407-WONDER",
+    "description": "WONDER_L2407"
+}, {
+    "curef": "BTS-23BTS68TR00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "GFLIP3TFFOTATEST",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "MS230-512",
+    "description": "MS_230_512"
+}, {
+    "curef": "4052R-2XAQUS5-PR",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "3078A-3AOFMX1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "TINNO-ATT2019-CRICKET",
+    "description": "TINNO_ATT"
+}, {
+    "curef": "TA1067-AAROW1SS25ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "LEO-23LIO03RU00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "F7202W-FISE-GHIA",
+    "description": "GHIA_M32433"
+}, {
+    "curef": "DIGIT-AWAMI-001",
+    "description": "DIGIT_AWAMI_NODFP"
+}, {
+    "curef": "F2802B-4G-001",
+    "description": "TOGOCEL_WIKIFMAX4G"
+}, {
+    "curef": "4056W-2ATBUS1",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "4052Z-2ATBUS3-1",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "ENERGIZER-A356-512-R",
+    "description": "ENERGIZER_E241S"
+}, {
+    "curef": "BTS-23BTS70KH00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "XLS-T18A-V02",
+    "description": "HAMMER_R1T"
+}, {
+    "curef": "BTV-23BTV95VS02",
+    "description": "NOKIA_2720_V_FLIP"
+}, {
+    "curef": "4052Z-2ATBUSK",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "B35D18042412",
+    "description": "BULLITT_B35"
+}, {
+    "curef": "4044T-2ARXUS1-R",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "4056S-2ALCUS5-N",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "REVO-CMCCMTN-M561M3UG",
+    "description": "MTN_M561"
+}, {
+    "curef": "AIS-E2430",
+    "description": "AIS_E2430"
+}, {
+    "curef": "BTS-23BTS73DT00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "CNT-23CNT89IN00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "4052O-2AL4CA1",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "LEO-23LIO91IT00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "F3161N-GF-REDX",
+    "description": "REDX_RX2441"
+}, {
+    "curef": "DFC-0190-S24A",
+    "description": "DORO_7060"
+}, {
+    "curef": "4044C-2ARKUSK",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "REVO-CMCCMTN-M561M3RW",
+    "description": "MTN_M561"
+}, {
+    "curef": "POS-P70S-DEBUG",
+    "description": "POSITIVO_P70S"
+}, {
+    "curef": "MS351-512-001",
+    "description": "MS_351_512"
+}, {
+    "curef": "TA1059-AAROW2DS02",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "4052R-2XAQUSL-R",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "SPRD-9820A",
+    "description": "INTER_TEST"
+}, {
+    "curef": "4052R-2XAQUS5-R",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "4044T-2ARXUS1-PR",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "TA1059-AAROW1DS15ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "ENERGY-E241-512",
+    "description": "ENERGIZER_E241"
+}, {
+    "curef": "3088X-3XSTCK1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "LEO-23LIO87EG00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "F3161K-GF-REDX",
+    "description": "REDX_RX2441"
+}, {
+    "curef": "4056Z-2AE4US1",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "LEO-23LIO05PL00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "MS249-TECH4U-512",
+    "description": "MS_249_512"
+}, {
+    "curef": "LEO-23LIO91VF00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "F7261E-XBT-DIXON",
+    "description": "DIXON_XK1"
+}, {
+    "curef": "REVO-IT9300-TIGO",
+    "description": "ITEL_IT9300"
+}, {
+    "curef": "ACCENT-NUBIA60K-UK",
+    "description": "ACCENT_60K_24"
+}, {
+    "curef": "ACCENT-50K-04",
+    "description": "ACCENT_NUBIA50K_28256"
+}, {
+    "curef": "XLS-T18A-V04",
+    "description": "HAMMER_R1T"
+}, {
+    "curef": "LEO-23LIO00GB00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "INOI-KGTEL-Q28F02-AC",
+    "description": "INOI_Q28F02"
+}, {
+    "curef": "BTS-23BTS75IT00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "ACCENT-50K-512-01",
+    "description": "ACCENT_50K_28"
+}, {
+    "curef": "BTV-23BTV95VS11",
+    "description": "NOKIA_2720_V_FLIP"
+}, {
+    "curef": "3078A-3XUFMX1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "ACCENT-K50-05",
+    "description": "ACCENT_NUBIAK50"
+}, {
+    "curef": "PCD-F2401-CLARO",
+    "description": "PCD_UK01"
+}, {
+    "curef": "SPRD7731E-TEST",
+    "description": "INTER_TEST"
+}, {
+    "curef": "3088X-3CTBHU1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "LEO-23LIO11EG00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "TA1059-AAROW1DS02ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "3078A-3XOFUS1-1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "IT9200-ITEL",
+    "description": "TECNO_T920"
+}, {
+    "curef": "3078A-3AAVDO1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "POS-P70S512-TIM",
+    "description": "POSITIVO_P70S"
+}, {
+    "curef": "4052Z-2ATBUS3",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "BTS-23BTS70KE00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "BTS-23BTS70EG00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "F32456-FS-MX3K",
+    "description": "SEWA_MX3K"
+}, {
+    "curef": "BTS-23BTS70CN00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "QRD8905-6FOTA",
+    "description": "INTER_TEST"
+}, {
+    "curef": "F3102LQ-FS-DT-BOLD",
+    "description": "DIGIT_DIGIT4GBOLD"
+}, {
+    "curef": "3088X-3CTBGR1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "LEO-23LIO03KH00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "F7261H-GF-VIDAATOMF",
+    "description": "VIDA_ATOM"
+}, {
+    "curef": "CNT-23CNT76DT00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "TRANSSION-R1-TEST",
+    "description": "TECNO_T920"
+}, {
+    "curef": "TECNO-T901-ORANGE-SKU2",
+    "description": "TRANSSION_T901"
+}, {
+    "curef": "LEO-23LIO07UU01",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "4052W-2ATBUSK",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "CNT-23CNT89UU01",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "A406DL-2AKFUS0-A",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "ENERGIZER-A356-512",
+    "description": "ENERGIZER_E241S"
+}, {
+    "curef": "TINNO-ATT2019-TESTB",
+    "description": "TINNO_ATT"
+}, {
+    "curef": "4056S-2AALUS0-A",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "LEO-23LIO24DU01",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "LEO-23LIO87PK00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "3088X-3CTBMK1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "ACCENT-50K-02",
+    "description": "ACCENT_NUBIA50K_28256"
+}, {
+    "curef": "REVO-CMCCMTN-M561M3GN",
+    "description": "MTN_M561"
+}, {
+    "curef": "WW6K25-SOCIAL-4G",
+    "description": "WATERWORLD_K25"
+}, {
+    "curef": "QRD8905-D1FOTA",
+    "description": "INTER_TEST"
+}, {
+    "curef": "TA1059-AAROW1DS02DU01",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "XLS-T19-V01",
+    "description": "ALIGATOR_R1T"
+}, {
+    "curef": "B35D18033001",
+    "description": "BULLITT_B35"
+}, {
+    "curef": "4052W-2ARXUS3",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "4052O-2FOTAUV",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "ATEL-FR150-US01",
+    "description": "R3DI_FR150"
+}, {
+    "curef": "3088X-3CRGES1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "TA1067-AAROW1SS22ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "IPRO-K24-AR",
+    "description": "IPRO_K24"
+}, {
+    "curef": "DFC-0190-S15A",
+    "description": "DORO_7060"
+}, {
+    "curef": "3078G-3XALHK1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "TA1059-AAROW1DS07ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "SKG-COMET-3G3-512",
+    "description": "COMET_3G"
+}, {
+    "curef": "DEMO-MTKODM-020",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "TA1059-AAROW1DS04ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "CNT-23CNT89LA00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "CNT-23CNT80ZA02",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "TECNO-T901-AF-B1B8",
+    "description": "TRANSSION_T901"
+}, {
+    "curef": "VODACOM-VIBE-4G-LS",
+    "description": "VODACOM_VIBE4G"
+}, {
+    "curef": "CROSSCALL-L740-00",
+    "description": "CROSSCALL_CORES4"
+}, {
+    "curef": "F3102-STAR-DIGIT",
+    "description": "DIGIT4G_STAR"
+}, {
+    "curef": "4056W-2ATBUS0-A",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "CNT-23CNT76HR00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "CNT-23CNT76DU01",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "D7050BL",
+    "description": "DORO_7050"
+}, {
+    "curef": "3088T-3XALMY1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "MULTILASER-S224-05",
+    "description": "MULTILASER_224"
+}, {
+    "curef": "TA1067-AAROW1SS23ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "LEO-23LIO24US00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "LEO-23LIO87PH00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "SKYWORTH-MOZ-4G",
+    "description": "TBD_TBD"
+}, {
+    "curef": "POS-P70S512-URBR",
+    "description": "POSITIVO_P70S"
+}, {
+    "curef": "F7261M-JLK-TECHPAD",
+    "description": "TECHPAD_KAIOSONE"
+}, {
+    "curef": "LEO-23LIO00IL00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "TA1059-AAROW1DS11ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "CNT-23CNT89BH00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "BTS-23BTS70PH02",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "LEO-23LIO03SG00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "LEO-23LIO91GB00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "BTS-23BTS75DU01",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "F3165A-YHS-MYPHONEO",
+    "description": "MYPHONE_S330"
+}, {
+    "curef": "DEMO-MTKODM-002",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "ALTICE-ODO-DOLI3",
+    "description": "MOBIWIRE_DOLI3"
+}, {
+    "curef": "BTS-23BTS70DU01",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "LEO-23LIO03DS00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "SKG-COMET-4G1-512",
+    "description": "SKG_COMET4G"
+}, {
+    "curef": "4044V-2CRRCA1",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "3088X-3ABTGB1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "CONDOR-FP216L-ZT",
+    "description": "CONDOR_FP216L"
+}, {
+    "curef": "TECNO-TIGOFINTECH-T",
+    "description": "TECNO_T920D_TIGODFP"
+}, {
+    "curef": "3078A-3XTLCO1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "CNT-23CNT89DU01",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "LEO-23LIO11NG00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "TA1067-AAROW1SS16ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "LEO-23LIO24DS00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "NJR-Z2316-SD951BULG",
+    "description": "ZTE_ZTEZ2316"
+}, {
+    "curef": "NJR-Z2316-SD951TIGO",
+    "description": "ZTE_ZTEZ2316"
+}, {
+    "curef": "B35D18041910",
+    "description": "BULLITT_B35"
+}, {
+    "curef": "NJR-Z2316-SD951DU",
+    "description": "ZTE_ZTEZ2316"
+}, {
+    "curef": "L2402A-SKY-A356-512",
+    "description": "SKY_SOCIAL_3G"
+}, {
+    "curef": "CNT-23CNT86DT00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "F2402-SKY-A503",
+    "description": "SKY_SOCIAL_3G"
+}, {
+    "curef": "MAXCOM-MK399-512",
+    "description": "MAXCOM_MK399"
+}, {
+    "curef": "BTS-23BTS70TW02",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "F3102-YF-TIM-T",
+    "description": "TIM_EASY_4G"
+}, {
+    "curef": "QRD8905-2FOTA",
+    "description": "INTER_TEST"
+}, {
+    "curef": "IPRO-K24-SMB300A",
+    "description": "IPRO_K24"
+}, {
+    "curef": "TA1059-AAROW1DS01ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "F3161-GF-TELMA",
+    "description": "TELMA_WIKIF4G"
+}, {
+    "curef": "4044M-2CL4CA1",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "BTV-23BTV95SS01",
+    "description": "NOKIA_2720_V_FLIP"
+}, {
+    "curef": "LEO-23LIO91IL00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "3088X-3BALAV1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "4044L-2DOSUS1",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "LEO-23LIO94TH10",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "3088X-3XTWGB1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "BTS-23BTS68UU01",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "QRD8905-1414FOTA",
+    "description": "INTER_TEST"
+}, {
+    "curef": "4052W-2AALUS0-A",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "CNT-23CNT76TI00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "TA1067-AAROW1SS14ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "4044N-2BTBUS1",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "QRD8905-QATEST",
+    "description": "INTER_TEST"
+}, {
+    "curef": "F3165A-YHS-MYPHONET",
+    "description": "MYPHONE_S330"
+}, {
+    "curef": "MS249-LEGEND-512",
+    "description": "MS_249_512"
+}, {
+    "curef": "QRD8905-1413FOTA",
+    "description": "INTER_TEST"
+}, {
+    "curef": "4056W-2ARXUS2",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "BTS-23BTS75RO00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "F32424-GQWERTY-GHIA",
+    "description": "GHIA_GOWERTY"
+}, {
+    "curef": "LEO-23LIO05IT00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "3078A-3XAVCO1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "B35D18033008",
+    "description": "BULLITT_B35"
+}, {
+    "curef": "3078A-3AOFUS1-1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "ENERGY-E241",
+    "description": "ENERGIZER_E241S"
+}, {
+    "curef": "LEO-23LIO24UU01",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "MS250N-C71-512",
+    "description": "MS_250_512"
+}, {
+    "curef": "POLAROID-U2408-TEST",
+    "description": "POLAROID_TSPPA30NA"
+}, {
+    "curef": "3088X-3AALTR1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "DFC-0190",
+    "description": "DORO_7060"
+}, {
+    "curef": "F61F-DBJIINB",
+    "description": "F61"
+}, {
+    "curef": "B35D18040204",
+    "description": "BULLITT_B35"
+}, {
+    "curef": "TMCELL-BK11-001",
+    "description": "TMCELL_BK11"
+}, {
+    "curef": "DIGIT-AWAMI-002",
+    "description": "DIGIT_AWAMI_NODFP"
+}, {
+    "curef": "4056W-2FOTAUM",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "BTS-23BTS75TM00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "LEO-23LIO91SW01",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "MTK6731-EFUSE",
+    "description": "INTER_TEST"
+}, {
+    "curef": "SMARTA-MS248Y",
+    "description": "MS_248_512"
+}, {
+    "curef": "4052O-2FOTAUO",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "LEO-23LIO05IL00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "BTS-23BTS13VR01",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "QRD8905-CSFOTA",
+    "description": "INTER_TEST"
+}, {
+    "curef": "UTIME-S1503-F2407B01",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "QRD8905-AUTO2",
+    "description": "INTER_TEST"
+}, {
+    "curef": "BTS-23BTS75PL00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "TA1059-AAROW1DS03ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "SIGMAMOBILE-S3500T1-UK",
+    "description": "SIGMAMOBILE_S3500"
+}, {
+    "curef": "4052O-2ALZCA0-A",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "LEO-23LIO11PH00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "LEO-23LIO11PK00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "IT9200-SA",
+    "description": "TECNO_T920"
+}, {
+    "curef": "MTK6572-PRV",
+    "description": "MTK_DEVPHASE"
+}, {
+    "curef": "CNT-AAROWSS",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "F7261N-XBT-GHIA",
+    "description": "GHIA_GK3G"
+}, {
+    "curef": "3078A-2AOFUS1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "DEMO-MTKODM-013",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "F3161-GF-VIDA",
+    "description": "VIDA_K242"
+}, {
+    "curef": "F7261H-GF-VIDA-T",
+    "description": "VIDA_ATOM"
+}, {
+    "curef": "LEO-23LIO86DS00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "LEO-23LIO05HR00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "POSP70-CLARO-URBR",
+    "description": "POSITIVO_P70S_4G"
+}, {
+    "curef": "F3102LM-FS-AZUMI",
+    "description": "AZUMI_L4K"
+}, {
+    "curef": "LEO-23LIO87FR00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "F3102LAB-TLSJ-ASPERA",
+    "description": "ASPERA_R40"
+}, {
+    "curef": "MULTILASER-S224-V4-TO-V7",
+    "description": "MULTILASER_224"
+}, {
+    "curef": "BLU-CF731-FS361-02",
+    "description": "BLU_ZOEYSMART"
+}, {
+    "curef": "4052Z-ALPHA1",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "4056W-2XRXUS1",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "CNT-23CNT80DU01",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "ORANGE-NEVA-MINI-FR",
+    "description": "ORANGE_GM2883"
+}, {
+    "curef": "BTS-23BTS70DS02",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "MULTILASER-S224-03",
+    "description": "MULTILASER_224"
+}, {
+    "curef": "MTK-PR3K44HY",
+    "description": "HAMMER_4SMART"
+}, {
+    "curef": "DFC-0190-S20A",
+    "description": "DORO_7060"
+}, {
+    "curef": "ZTE-Z2317-GT",
+    "description": "ZTE_ZTEZ2317"
+}, {
+    "curef": "M764F4-1FOTA",
+    "description": "ORANGE_M764F4"
+}, {
+    "curef": "CONDOR-FP216L-4G",
+    "description": "CONDOR_FP216L"
+}, {
+    "curef": "TA1071-AAROW2SS01",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "4056Z-2FOTAUP",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "WW843-10H-WIKIF-MAX-4G",
+    "description": "TELMA_WIKIFMAX4G"
+}, {
+    "curef": "4044C-2ARKUS1-R2",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "F3102-YF-TIM",
+    "description": "TIM_EASY_4G"
+}, {
+    "curef": "BTS-23BTS68AU00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "BTS-23CNT89HK00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "MS249-3G-512",
+    "description": "MS_249_512"
+}, {
+    "curef": "3078A-3XTGMX1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "F2402A-SKY-A356",
+    "description": "SKY_SOCIAL_3G"
+}, {
+    "curef": "INOI-KGTEL-TEST01",
+    "description": "INOI_Q28F02"
+}, {
+    "curef": "DEMO-MTKODM-001",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "F3112L-E19-SGINO",
+    "description": "CP168_4G"
+}, {
+    "curef": "QRD8905-7FOTA",
+    "description": "INTER_TEST"
+}, {
+    "curef": "BLEPHONE-UNM560F3",
+    "description": "ORANGE_SANZA"
+}, {
+    "curef": "GEOPHONE-T19I-512",
+    "description": "EBS_GEOT19I"
+}, {
+    "curef": "LEO-23LIO00DT00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "3088X-3XRGES",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "TA1067-AAROW1SS23ROW1",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "4056S-2ALCUS5-PN",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "TA1059-AAROW1DS14ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "MS350-512-3G",
+    "description": "MS_350_512"
+}, {
+    "curef": "A405DL-2A3FCA1-PR",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "ENERGIZER-A503-512",
+    "description": "ENERGIZER_E241"
+}, {
+    "curef": "CNT-23CNT86HR00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "TECNO-T901-AF",
+    "description": "TRANSSION_T901"
+}, {
+    "curef": "3088X-3XALWE1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "CNT-23CNT89KH00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "4044V-2C5SCA1",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "LEO-23LIO86DK00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "IKU-V400-4G",
+    "description": "IKU_V400"
+}, {
+    "curef": "F3102-TLSJ-HAMMER",
+    "description": "HAMMER_5SMART"
+}, {
+    "curef": "DEMO-SPRODM-009",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "CMCCMTN-M571M3PRO-NG",
+    "description": "MTN_M571PRO"
+}, {
+    "curef": "DEMO-MTKODM-015",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "CNT-23CNT89PK00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "CNT-23CNT86ES00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "3088T-3CALHK1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "B35D18040906",
+    "description": "BULLITT_B35"
+}, {
+    "curef": "3088X-3XTLES1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "3088X-3CRGES1-R",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "BTS-23BTS75IL00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "F2402-SKY-A503-512",
+    "description": "SKY_SOCIAL_3G"
+}, {
+    "curef": "INOI-KGTEL-Q28F02",
+    "description": "INOI_Q28F02"
+}, {
+    "curef": "ENERGIZER-H280A-512",
+    "description": "ENERGIZER_H280"
+}, {
+    "curef": "3088X-3ATBDE1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "SENWA-LSQ380K-TELCEL",
+    "description": "SENWA_LSQ380K"
+}, {
+    "curef": "LEO-23LIO94RU10",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "4052W-2ARXUS0-A",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "MK241D18110801",
+    "description": "MAXCOM_MK241"
+}, {
+    "curef": "LEO-23LIO11AF00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "LEO-23LIO03LA00",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "3088X-3CWNIT1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "VODACOM-VIBE-4G-DFP",
+    "description": "VODACOM_VIBE4G"
+}, {
+    "curef": "CNT-AAROWDS",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "SKG-COMET-3G2",
+    "description": "COMET_3G"
+}, {
+    "curef": "TA1059-AAROW1DS10ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "4043",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "3088X-3ATBHU1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "3078A-3XTLEC1-1",
+    "description": "ALCATEL_3078"
+}, {
+    "curef": "4056S-2ALCUS3-PN",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "DEMO-MTKODM-008",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "TA1067-AAROW1SSROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "BTS-23BTS75IL01",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "F7202X-AZUMI-L3K",
+    "description": "AZUMI_L3K"
+}, {
+    "curef": "LEO-23LIO94SG00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "F32456-FS-MX340K",
+    "description": "SEWA_MX340K"
+}, {
+    "curef": "A355-TEST-FOTA",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "TA1059-AAROW1DS",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "4044O-2BAQUS1-PR",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "4044O-2BAQUSK-R",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "LEO-23LIO11AF01",
+    "description": "NOKIA_8000_4G"
+}, {
+    "curef": "REVO-CMCCMTN-M561M3",
+    "description": "MTN_M561"
+}, {
+    "curef": "CNT-23CNT89AE00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "F7202AA-XBT-WUKONG",
+    "description": "WUKONG_X10"
+}, {
+    "curef": "BLU-Z230L-CF1-02",
+    "description": "BLU_ZOEYSMART"
+}, {
+    "curef": "BTS-23BTS70SA00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "ENERGY-E241-512-NCAM",
+    "description": "ENERGIZER_E241"
+}, {
+    "curef": "DEMO-SPRODM-004",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "4044O-2BAQUS1-R",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "4052W-MATBUS3",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "F7202MA-B8K-LOGIC-3",
+    "description": "LOGIC_B8K"
+}, {
+    "curef": "3088X-3CALHK1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "TA1059-AAROW1DS09ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "TA1059-AAROW1DS21ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "CNT-23CNT76GB00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "MS247-BEAFON-512",
+    "description": "MS_247_512"
+}, {
+    "curef": "CNT-23CNT76TI01",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "QRD8905-1FOTA",
+    "description": "INTER_TEST"
+}, {
+    "curef": "LEO-23LIO91VF01",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "CNT-23CNT76DK00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "F7261K-DD-TOGOCEL",
+    "description": "TOGOCEL_WIKIF3G"
+}, {
+    "curef": "CONDOR-FP216L-4G-512",
+    "description": "CONDOR_FP216L"
+}, {
+    "curef": "F3102-TLSJ-TMOBILED",
+    "description": "HAMMER_5SMART"
+}, {
+    "curef": "MS350-256-3G",
+    "description": "MS_350_256"
+}, {
+    "curef": "WW2402-1NFCT",
+    "description": "INTER_TEST"
+}, {
+    "curef": "TA1059-AAROW1DS03ROW2",
+    "description": "NOKIA_8110_4G"
+}, {
+    "curef": "3088X-3AOBGB2",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "DEMO-MTKODM-011",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "DEMO-MTKODM-005",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "DFC-0190-S14A",
+    "description": "DORO_7060"
+}, {
+    "curef": "MS352-512-001",
+    "description": "MS_350_512"
+}, {
+    "curef": "4052R-2BAQUS0-A",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "MULTILASER-S224-02",
+    "description": "MULTILASER_224"
+}, {
+    "curef": "4044W-2BTBUS1",
+    "description": "ALCATEL_A405DL_4044"
+}, {
+    "curef": "F3102-FS-AZUMI-T",
+    "description": "AZUMI_L4K"
+}, {
+    "curef": "LEO-23LIO94TW00",
+    "description": "NOKIA_6300_4G"
+}, {
+    "curef": "3088X-3ATBMK1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "BTS-23BTS73SS01",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "4056L-2A3UUS1-N",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "F3102-TLSJ-TMOBILE",
+    "description": "HAMMER_5SMART"
+}, {
+    "curef": "BTS-23BTS70NG00",
+    "description": "NOKIA_2720_FLIP"
+}, {
+    "curef": "4056S-2AALUS3",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "WW833-79C-NYX-K2-CLARO",
+    "description": "NYXMOBILE_K2"
+}, {
+    "curef": "DEMO-SPRODM-002",
+    "description": "PARTNER_DEMO"
+}, {
+    "curef": "ENERGY-E241-512-EVE",
+    "description": "ENERGIZER_E241"
+}, {
+    "curef": "4052Z-MATBUS3",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "F7261-GF-TELMA-T",
+    "description": "TELMA_WIKIF3G"
+}, {
+    "curef": "F3102LAD4-FS-DIGIT",
+    "description": "DIGIT_DIGIT4GMUSIC"
+}, {
+    "curef": "CNT-23CNT80SS02",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "4052R-2AAQUS0-A",
+    "description": "ALCATEL_4052"
+}, {
+    "curef": "F7202MA-B8K-LOGIC-2",
+    "description": "LOGIC_B8K"
+}, {
+    "curef": "4056Z-2AE4USK",
+    "description": "ALCATEL_4056"
+}, {
+    "curef": "CNT-23CNT89CN00",
+    "description": "NOKIA_800_TOUGH"
+}, {
+    "curef": "3088X-3CTLES1",
+    "description": "ALCATEL_3088"
+}, {
+    "curef": "F3102-TLSJ-ORANGE",
+    "description": "HAMMER_5SMART"
+}, {
+    "curef": "ACCENT-51K-03",
+    "description": "ACCENT_51K"
+}]
