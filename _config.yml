@@ -5,13 +5,13 @@ description: >
 
 favicon: "assets/banana.png"
 
-# remote_theme: riggraz/no-style-please
-#
-# theme_config:
-#   appearance: "auto"
-#   back_home_text: "Back to main page"
-#   date_format: "%d-%m-%Y"
-#   show_description: false
+remote_theme: riggraz/no-style-please
+
+theme_config:
+  appearance: "auto"
+  back_home_text: "Back to main page"
+  date_format: "%d-%m-%Y"
+  show_description: false
 
 plugins:
   - jekyll-seo-tag

@@ -710,4 +710,5 @@ python edl.py reset
 <style>
   .w { max-width: 980px !important; padding: 4rem 1rem !important; font-size: large; }
   li { margin-left: -0.25rem !important; }
+  body { font-family: system-ui, -apple-system, blinkmacsystemfont, "Segoe UI", roboto, "Helvetica Neue", arial, sans-serif, "Segoe UI Emoji" }
 </style>
