@@ -71,13 +71,13 @@
     - [Part 4: Flashing the modified boot partition](#part-4-flashing-the-modified-boot-partition)
 - [External links](#external-links)
 
-Amidst the rise of the [COVID-19 pandemic] and the need for families and friends to stay connected during isolation, in late 2020, HMD introduced two new Nokia phones: the Nokia 8000 4G and the Nokia 6300 4G. While the Nokia 8000 4G features a glossy 3D-textured plastic finish, larger screen and camera at the price point of €79, the Nokia 6300 4G is one of the more affordable phones HMD has ever offered in their KaiOS lineup[^1] at just €49/$69.99.
+Amid the rise of the [COVID-19 pandemic] and the need for families and friends to stay connected during isolation, in late 2020, HMD introduced two new Nokia phones: the Nokia 8000 4G and the Nokia 6300 4G. While the 8000 4G featured a glossy 3D-textured plastic finish, larger screen and camera at the price point of €79, the Nokia 6300 4G is one of the more affordable phones HMD has ever offered in their KaiOS lineup[^1] at just €49/$69.99.
 
-Inheriting the classic candy-bar design from the original Nokia 6300, the new Nokia 6300 4G took a modern twist with its tall, narrow design, rounded corners and *low-cost* polycarbonate shell that feel sturdy and comfortable to hold in the palm of your hand. It includes 4G LTE support with Wi-Fi hotspot capability, and runs on KaiOS 2.5.4, which features popular apps like WhatsApp, Facebook, YouTube, Google Maps, and until recently, Google Assistant.
+Inheriting the classic candy-bar design from the original Nokia 6300, the new Nokia 6300 4G took a modern twist with its tall, narrow design, rounded corners and ~~cheap~~ low-cost polycarbonate shell that feel sturdy and comfortable to hold in the palm of hand. It included 4G LTE support with capability of broadcasting Wi-Fi hotspot, and ran on KaiOS 2.5.4, which features popular apps like WhatsApp, Facebook, YouTube, Google Maps, and until recently, Google Assistant.
 
-With the software update to 12.00.17.01 (see [ROOT: Boot partition patching (non-US only)]), the new 6300 4G became one of the few KaiOS phones to be able to make and receive WhatsApp voice calls, allowing you to easily stay in touch with your loved ones.
+With the firmware update to 12.00.17.01 (see [ROOT: Boot partition patching (non-US only)]), the new 6300 4G became one of the few KaiOS phones to be able to make and receive WhatsApp voice calls, allowing you to easily stay in touch with your loved ones.
 
-Reception of the phone has been mostly negative, however, with users on sites like Amazon, Best Buy and GSMArena complaining about software issues: poor battery life when using on Wi-Fi or mobile data, unintended keypresses, RAM management issues and outdated operating system kernel (see [Known issues]). Starting with a software update to 30.00.17.01 in selected regions, as Google gradually withdrew support, Google Assistant was removed from the OS.
+Reception of the phone has been mostly negative, however, with users on sites like Amazon, Best Buy and GSMArena complaining about software issues: poor battery life when using on Wi-Fi or mobile data, unintended keypresses, RAM management issues and outdated operating system kernel (see [Known issues]). Starting with the update to 30.00.17.01 in selected regions, as Google gradually withdrew support, Google Assistant was removed from the OS.
 
 - [Nokia 6300 4G review] by PC Magazine
 - [In-Depth Review of the Nokia 6300 4G] on r/dumbphones
