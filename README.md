@@ -206,14 +206,13 @@ Most of these codes requires `userdebug` or `eng` versions to work.
 
 <details markdown="block">
   <summary>What the heck is EDL mode?</summary>
+<hr style="font-family:monospace;">
 
----
 **Qualcomm Emergency Download mode**, commonly known as EDL mode, is a special engineering interface implemented on devices with Qualcomm chipsets. It lets you do special operations on the phone that only the device manufacturer can do, such as unlocking the bootloader, read and write firmwares on the phone's filesystem or recover from being a dead paperweight. Unlike bootloader or Fastboot mode, system files needed by the EDL mode resides on a separate 'primary bootloader' that aren't affected by software modifications.[^2]
 
 Booting into this mode, the phone's screen will briefly show the 'enabled by KaiOS' logo, then turn almost black as if it's off, but in fact it's still listening to commands over Qualcomm's proprietary protocol called Sahara (or Firehose on newer devices). With a [suitable digitally-signed programmer in MBN/ELF file format] and some instruction-bundled tools, the most popular one being QFIL (Qualcomm Flash Image Loader), one can send commands from a computer to the phone over USB.
 
----
-</details>
+<hr style="font-family:monospace;"></details>
 
 You can also **force reboot** the phone by holding the top Power button and the # key at any time.
 
@@ -632,7 +631,8 @@ python edl.py reset
 
 [^3]: Read more about SELinux on [LineageOS team's Engineering Blog](https://lineageos.org/engineering/HowTo-SELinux).
 
----
+<hr style="font-family:monospace;">
+
 [provided by HMD]: https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz
 [COVID-19 pandemic]: https://en.wikipedia.org/wiki/COVID-19_pandemic
 [ROOT: Boot partition patching (non-US only)]: #root-boot-partition-patching-non-us-only
@@ -710,5 +710,5 @@ python edl.py reset
 <style>
   .w { max-width: 980px !important; padding: 4rem 1rem !important; font-size: large; }
   li { margin-left: -0.25rem !important; }
-  body :not(hr:before, hr:after) { font-family: system-ui, sans-serif; }
+  body { font-family: system-ui, sans-serif; }
 </style>
