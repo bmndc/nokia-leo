@@ -708,7 +708,7 @@ python edl.py reset
 [part 4]: #part-4-flashing-the-modified-boot-partition
 
 <style>
-  .w { max-width: 980px !important; padding: 4rem 1rem !important; font-size: large; }
+  .w { max-width: 980px !important; padding: 4rem 1rem !important; }
   li { margin-left: -0.25rem !important; }
   body { font-family: system-ui, sans-serif; }
 </style>
