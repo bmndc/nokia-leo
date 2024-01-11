@@ -60,6 +60,7 @@
   - [UART debugging testpoint](#uart-debugging-testpoint)
 - [Sideloading and debugging third-party applications](#sideloading-and-debugging-third-party-applications)
 - [ROOT: Boot partition patching (non-US only)](#root-boot-partition-patching-non-us-only)
+  - [Before proceeding: back up your data](#before-proceeding-back-up-your-data)
   - [What we’ll need](#what-well-need)
   - [Part 1: Set up environment for EDL tools](#part-1-set-up-environment-for-edl-tools)
   - [Part 2: Obtaining the boot partition](#part-2-obtaining-the-boot-partition)
@@ -241,10 +242,22 @@ This is because in order for WhatsApp's VoIP feature to work on these KaiOS vers
 
 The guide below is based on the main guide from BananaHackers website, but has been rewritten to make it easier to follow. The process will take somewhat considerable 30 minutes to an hour, so do this when you have enough time.
 
-> [!IMPORTANT]
 > **DISCLAIMER: This process will void your phone's warranty, disable its ability to receive WhatsApp calls and over-the-air updates, but you can undo this if you save a copy of the original boot partition. However, you might also brick your phone if you make a mistake in the process, so proceed at your own risk and with caution! I won't be responsible for any damages done to your phone by following these.**
 > 
 > Remember, you don't have to root your phone to do things that usually need root access e.g. you can use [this fork of Luxferre's AppBuster] to disable apps from the launcher instead of deleting them with Wallace Toolbox. You can also install [Luxferre's CrossTweak], a Wallace Toolbox alternative also made by Luxferre that does not need `engmode-extension` and therefore can be easily installed on KaiOS 2.5.4 devices.
+
+### Before proceeding: [back up] your data
+> [Murphy's Law] states, "Anything that can go wrong, will go wrong". It's a proverb from the late 1940s, and while it may not be as academically accurate and influential as [Newton's laws of motion], it's generally acknowledged in technology as a rule of thumb. Even if you do the best you can, things can unexpectedly go south, so it's always good to prepare for the worst.
+
+- To export your contacts from the built-in Contacts app, go to *Contacts → Options → Settings → Export contacts*. From there, choose to either save to a CSV file on your SD card, send through Bluetooth to other devices, or upload to Web services such as Google Contacts and Microsoft Outlook.
+  - You can also use third-party backup services and tools such as [PhoneCopy in KaiStore] or D3SXX's [kaios-backup] etc.
+- On debug-enabled devices, you can sideload `certified` apps such as D3SXX's [kaios-backup] or Fiachra1993's [kaios-sms-backup], which uses Firefox OS APIs to export your text messages to JSON or CSV files.
+- Built-in Calendar app allows syncing events through Google, ActiveSync or CalDAV accounts. If you only have a small number of events, you can migrate each of those to your online calendars. strukturart's [greg] also allows syncing events with Nextcloud.
+- Each entry in the Notes app can be shared over texts, Bluetooth or email.
+- On internal storage or SD card (whichever you chose under *Settings → Storage → Default media location*), captured photos and videos are stored under `DCIM`; whereas recorded voice files are stored under `audio`.
+  - To get your phone to show up on the computer as external storage, turn on *USB Storage* under *Settings 
+
+For backing up application data (excluding WhatsApp chats), system preferences and partition images, see [Backup].
 
 ### What we'll need
 - a Nokia 6300 4G (excl. TA-1324), 8000 4G, 2720 Flip, 800 Tough or Alcatel Go Flip 3;
@@ -484,9 +497,9 @@ That's it! On your desktop there will be two new image files, the modified `boot
 
 3. Let the editing begin! First, open `ramdisk/default.prop` using Notepad++ and change:
 {:start="3"}
-  - line 7: `ro.secure=1` -> `ro.secure=0`
-  - line 8: `security.perf_harden=1` -> `security.perf_harden=0`
-  - line 10: `ro.debuggable=0` -> `ro.debuggable=1`
+  - line 7: `ro.secure=1` → `ro.secure=0`
+  - line 8: `security.perf_harden=1` → `security.perf_harden=0`
+  - line 10: `ro.debuggable=0` → `ro.debuggable=1`
 
 ```diff
 @@ -4,9 +4,9 @@
@@ -511,9 +524,21 @@ That's it! On your desktop there will be two new image files, the modified `boot
 {:start="4"}
 
 ```diff
-@@ -323,2 +323,2 @@
+@@ -312,14 +312,14 @@
+  else
+      # nand configuration
+      if [ -e $nand_file ]
+      then
+          if grep ${partition_name} $nand_file
+          then
+             gps_enabled=false
+          fi
+      fi
+  fi
+
   setprop ro.gps.enabled $gps_enabled
 + setenforce 0
+
 ```
 <p align="center">
   <img src="assets/setenforce.png" alt="Screenshot of the modified content of the init.qcom.early_boot.sh file">
@@ -668,12 +693,23 @@ python edl.py reset
 [EDL archive site]: https://edl.bananahackers.net/loaders/8k.mbn
 [As discovered by atipls on Discord]: https://discord.com/channels/472006912846594048/539074521580437504/1155993357206700205
 
+<!-- Sideloading and debugging third-party applications -->
 [Sideloading and debugging/WebIDE]: https://github.com/minhduc-bui1/nokia-leo/wiki/Sideloading-and-debugging
 [BananaHackers Store]: https://store.bananahackers.net
 [B-Hackers Store]: https://sites.google.com/view/b-hackers-store/home
 [list of KaiOS apps]: https://github.com/stars/minhduc-bui1/lists/kaios-apps
 [Next steps]: #next-steps
 [this fork of Luxferre's AppBuster]: https://github.com/minhduc-bui1/AppBuster
+
+<!-- Before proceeding: back up your data-->
+[back up]: https://simple.wikipedia.org/wiki/Backup
+[Murphy's Law]: https://en.wikipedia.org/wiki/Murphy%27s_law
+[Newton's laws of motion]: https://www.britannica.com/science/Newtons-laws-of-motion
+[PhoneCopy in KaiStore]: https://www.kaiostech.com/store/apps/?bundle_id=com.phonecopy.phonecopy
+[kaios-backup]: https://github.com/D3SXX/kaios-backup
+[kaios-sms-backup]: https://github.com/Fiachra1993/kaios-sms-backup
+[greg]: https://github.com/strukturart/greg
+[Backup]: https://github.com/minhduc-bui1/nokia-leo/wiki/Backup
 
 [8000 4G and 6300 4G]: https://edl.bananahackers.net/loaders/8k.mbn
 [2720 Flip]: https://edl.bananahackers.net/loaders/2720.mbn
