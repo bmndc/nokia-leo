@@ -710,5 +710,5 @@ python edl.py reset
 <style>
   .w { max-width: 980px !important; padding: 4rem 1rem !important; font-size: large; }
   li { margin-left: -0.25rem !important; }
-  body :not(hr) { font-family: system-ui, sans-serif; }
+  body :not(hr:before, hr:after) { font-family: system-ui, sans-serif; }
 </style>
