@@ -1,47 +1,46 @@
 <details markdown="block">
-  <summary dir="rtl">View device specification table</summary>
+    <summary dir="rtl">View device specification table</summary>
 <table style="font-size:small">
-  <thead><tr><th></th><th>Nokia 6300 4G (nokia-leo)</th><th>Nokia 8000 4G (nokia-sparkler)</th></tr></thead>
-  <tbody>
-    <tr><td>Released</td><td colspan=2>13 November 2020</td></tr>
-    <tr><td>Model</td><td>TA-1286, TA-1287, TA-1291, TA-1294, TA-1307, TA-1324</td>
-      <td>TA-1300, TA-1303, TA-1305, TA-1311</td></tr>
-  <tr><td colspan=3 align="center"><strong>Specifications</strong></td></tr>
-    <tr><td>SoC</td><td colspan=2>Qualcomm MSM8909 Snapdragon 210 (4 × 1.1GHz Cortex-A7)</td></tr>
-    <tr><td>RAM</td><td colspan=2>512MB LPDDR2/3</td></tr>
-    <tr><td>GPU</td><td colspan=2>Adreno 304</td></tr>
-    <tr><td>Storage</td><td colspan=2>4GB eMMC 4.5 (+ up to 32GB microSDHC card)</td></tr>
-    <tr><td>Network</td><td>2G GSM, 3G UMTS, 4G LTE Cat4 150/50Mbps<br><em>
-      + EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>
-      + MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>
-      + US: band 2, 4, 5, 12, 17, 66, 71<br>
-      + LATAM: band 2, 3, 4, 5, 7, 28<br>
-      + ROW: band 1, 3, 5, 7, 8, 20, 38, 40</em><br>
-      VoLTE &amp; VoWiFi support<br>Single or Dual SIM (Nano-SIM, dual-standby)</td>
-      <td>2G GSM, 3G UMTS, 4G LTE Cat4 150/50Mbps<br><em>
-      + EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>
-      + HK, Macau, MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>
-      + ROW: band 1, 3, 5, 7, 8, 20, 28, 38, 40</em><br>
-      VoLTE &amp; VoWiFi support<br>Single or Dual SIM (Nano-SIM, dual-standby)</td></tr>
-    <tr><td>Screen</td><td>320 × 240 @ 167 PPI<br>2.4 inches QVGA TFT LCD, 16M colors</td>
-      <td>320 × 240 @ 143 PPI<br>2.8 inches QVGA TFT LCD, 16M colors</td></tr>
-    <tr><td>Bluetooth</td><td colspan=2>4.0, A2DP, LE</td></tr>
-    <tr><td>Wi-Fi</td><td colspan=2>802.11b/g/n, 2.4GHz, Hotspot (up to 8 devices)</td></tr>
-    <tr><td>Peripherals</td><td colspan=2>GPS &amp; GLONASS</td></tr>
-    <tr><td>Cameras</td><td>Rear: VGA with fixed focus, LED flash</td><td>Rear: 2MP with fixed focus, LED flash</td></tr>
-    <tr><td>Dimensions<br>(HWD)</td><td>131.4 × 53 × 13.7 (mm)<br>5.17 × 2.09 × 0.54 (in)</td>
-      <td>132.2 × 56.5 × 12.3 (mm)<br>5.20 × 2.22 × 0.48 (in)</td></tr>
-    <tr><td>Weight</td><td>With battery: 104.1g (3.67oz)</td><td>With battery: 107.9g (3.81oz)</td></tr>
-    <tr><td>Ports</td><td colspan=2>- microUSB charging &amp; USB 2.0 data transferring port<br>- 3.5mm headphone jack</td></tr>
-    <tr><td>Battery</td><td colspan=2>Removable Li-Ion 1500mAh (BL-4XL), 5W wired charging<br>
-      (up to 25 days of 4G standby advertised)</td></tr>
-  <tr><td colspan=3 align="center"><strong>KaiOS info</strong></td></tr>
-    <tr><td>Version</td><td colspan=2>KaiOS 2.5.4</td></tr>
-    <tr><td>WA VoIP</td><td colspan=2>Supported</td></tr>
-    <tr><td>Build no.</td><td colspan=2>10.00.17.01, 12.00.17.01, 20.00.17.01, 30.00.17.01</td></tr>
-  </tbody>
-</table>
-</details>
+    <thead><tr><th></th><th>Nokia 6300 4G (nokia-leo)</th><th>Nokia 8000 4G (nokia-sparkler)</th></tr></thead>
+    <tbody>
+        <tr><td>Released</td><td colspan=2>13 November 2020</td></tr>
+        <tr><td>Model</td><td>TA-1286, TA-1287, TA-1291, TA-1294, TA-1307, TA-1324</td>
+            <td>TA-1300, TA-1303, TA-1305, TA-1311</td></tr>
+        <tr><td colspan=3 align="center"><strong>Specifications</strong></td></tr>
+        <tr><td>SoC</td><td colspan=2>Qualcomm MSM8909 Snapdragon 210 (4 × 1.1GHz Cortex-A7)</td></tr>
+        <tr><td>RAM</td><td colspan=2>512MB LPDDR2/3</td></tr>
+        <tr><td>GPU</td><td colspan=2>Adreno 304</td></tr>
+        <tr><td>Storage</td><td colspan=2>4GB eMMC 4.5 (+ up to 32GB microSDHC card)</td></tr>
+        <tr><td>Network</td><td>2G GSM, 3G UMTS, 4G LTE Cat4 150/50Mbps<br><em>
+            + EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>
+            + MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>
+            + US: band 2, 4, 5, 12, 17, 66, 71<br>
+            + LATAM: band 2, 3, 4, 5, 7, 28<br>
+            + ROW: band 1, 3, 5, 7, 8, 20, 38, 40</em><br>
+            VoLTE &amp; VoWiFi support<br>Single or Dual SIM (Nano-SIM, dual-standby)</td>
+            <td>2G GSM, 3G UMTS, 4G LTE Cat4 150/50Mbps<br><em>
+            + EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>
+            + HK, Macau, MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>
+            + ROW: band 1, 3, 5, 7, 8, 20, 28, 38, 40</em><br>
+            VoLTE &amp; VoWiFi support<br>Single or Dual SIM (Nano-SIM, dual-standby)</td></tr>
+        <tr><td>Screen</td><td>320 × 240 @ 167 PPI<br>2.4 inches QVGA TFT LCD, 16M colors</td>
+            <td>320 × 240 @ 143 PPI<br>2.8 inches QVGA TFT LCD, 16M colors</td></tr>
+        <tr><td>Bluetooth</td><td colspan=2>4.0, A2DP, LE</td></tr>
+        <tr><td>Wi-Fi</td><td colspan=2>802.11b/g/n, 2.4GHz, Hotspot (up to 8 devices)</td></tr>
+        <tr><td>Peripherals</td><td colspan=2>GPS &amp; GLONASS</td></tr>
+        <tr><td>Cameras</td><td>Rear: VGA with fixed focus, LED flash</td><td>Rear: 2MP with fixed focus, LED flash</td></tr>
+        <tr><td>Dimensions<br>(HWD)</td><td>131.4 × 53 × 13.7 (mm)<br>5.17 × 2.09 × 0.54 (in)</td>
+            <td>132.2 × 56.5 × 12.3 (mm)<br>5.20 × 2.22 × 0.48 (in)</td></tr>
+        <tr><td>Weight</td><td>With battery: 104.1g (3.67oz)</td><td>With battery: 107.9g (3.81oz)</td></tr>
+        <tr><td>Ports</td><td colspan=2>- microUSB charging &amp; USB 2.0 data transferring port<br>- 3.5mm headphone jack</td></tr>
+        <tr><td>Battery</td><td colspan=2>Removable Li-Ion 1500mAh (BL-4XL), 5W wired charging<br>
+            (up to 25 days of 4G standby advertised)</td></tr>
+        <tr><td colspan=3 align="center"><strong>KaiOS info</strong></td></tr>
+        <tr><td>Version</td><td colspan=2>KaiOS 2.5.4</td></tr>
+        <tr><td>WA VoIP</td><td colspan=2>Supported</td></tr>
+        <tr><td>Build no.</td><td colspan=2>10.00.17.01, 12.00.17.01, 20.00.17.01, 30.00.17.01</td></tr>
+    </tbody>
+</table></details>
 
 *Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in `leo-v20` branch of this repository. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and thus cannot be used to compile an entire KaiOS build.*
 
@@ -49,27 +48,27 @@
 
 **Table of Contents**
 - [Don’t buy a counterfeit](#dont-buy-a-counterfeit)
-  - [About Kosher phones](#about-kosher-phones)
+    - [About Kosher phones](#about-kosher-phones)
 - [Differences between US and international variants](#differences-between-us-and-international-variants)
 - [Tips and tricks](#tips-and-tricks)
 - [Known issues](#known-issues)
-  - [KaiOS-specific](#kaios-specific)
-  - [WhatsApp-specific](#whatsapp-specific)
+    - [KaiOS-specific](#kaios-specific)
+    - [WhatsApp-specific](#whatsapp-specific)
 - [Secret codes](#secret-codes)
 - [Special boot modes](#special-boot-modes)
-  - [UART debugging testpoint](#uart-debugging-testpoint)
+    - [UART debugging testpoint](#uart-debugging-testpoint)
 - [Sideloading and debugging third-party applications](#sideloading-and-debugging-third-party-applications)
 - [ROOT: Boot partition patching (non-US only)](#root-boot-partition-patching-non-us-only)
-  - [Before proceeding: back up your data](#before-proceeding-back-up-your-data)
-  - [What we’ll need](#what-well-need)
-  - [Part 1: Set up environment for EDL tools](#part-1-set-up-environment-for-edl-tools)
-  - [Part 2: Obtaining the boot partition](#part-2-obtaining-the-boot-partition)
-    - [Nokia 8000 4G and Nokia 6300 4G with bkerler’s EDL](#nokia-8000-4g-and-nokia-6300-4g-with-bkerlers-edl)
-    - [Nokia 2720 Flip and Nokia 800 Tough with andybalholm’s EDL](#nokia-2720-flip-and-nokia-800-tough-with-andybalholms-edl)
-  - [Part 3: Patching the boot partition](#part-3-patching-the-boot-partition)
-    - [Automatic patching with `8k-boot-patcher`](#automatic-patching-with-8k-boot-patcher)
-    - [Manual patching with Android Image Kitchen](#manual-patching-with-android-image-kitchen)
-  - [Part 4: Flashing the modified boot partition](#part-4-flashing-the-modified-boot-partition)
+    - [Before proceeding: back up your data](#before-proceeding-back-up-your-data)
+    - [What we’ll need](#what-well-need)
+    - [Part 1: Set up environment for EDL tools](#part-1-set-up-environment-for-edl-tools)
+    - [Part 2: Obtaining the boot partition](#part-2-obtaining-the-boot-partition)
+        - [Nokia 8000 4G and Nokia 6300 4G with bkerler’s EDL](#nokia-8000-4g-and-nokia-6300-4g-with-bkerlers-edl)
+        - [Nokia 2720 Flip and Nokia 800 Tough with andybalholm’s EDL](#nokia-2720-flip-and-nokia-800-tough-with-andybalholms-edl)
+    - [Part 3: Patching the boot partition](#part-3-patching-the-boot-partition)
+        - [Automatic patching with `8k-boot-patcher`](#automatic-patching-with-8k-boot-patcher)
+        - [Manual patching with Android Image Kitchen](#manual-patching-with-android-image-kitchen)
+    - [Part 4: Flashing the modified boot partition](#part-4-flashing-the-modified-boot-partition)
 - [External links](#external-links)
 
 Amidst the rise of the [COVID-19 pandemic] and the need for families and friends to stay connected during isolation, in late 2020, HMD introduced two new Nokia phones: the Nokia 8000 4G and the Nokia 6300 4G. While the Nokia 8000 4G features a glossy 3D-textured plastic finish, larger screen and camera at the price point of €79, the Nokia 6300 4G is one of the more affordable phones HMD has ever offered in their KaiOS lineup[^1] at just €49/$69.99.
@@ -124,24 +123,24 @@ Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the 
 - You can capture a screenshot by pressing both * and # keys at the same time.
 - You don’t need a KaiOS account to use your phone or download apps from KaiStore, but you can create one in Settings, Accounts if you want to use Anti-Theft features.
 - To stop getting ad notifications from KaiStore, go to *Settings → Personalization → Notices → App notices → Store* and turn off *Allow Notices*. Then go to *Store → Options → Settings & Account → Show rich content* and select *Do not show*.
-  - To block KaiAds altogether, add `ssp.kaiads.com` in your Wi-Fi routers' blacklist or [the system's `hosts` file]. Be aware that this might prevent you from installing apps from KaiStore like WhatsApp.
+    - To block KaiAds altogether, add `ssp.kaiads.com` in your Wi-Fi routers' blacklist or [the system's `hosts` file]. Be aware that this might prevent you from installing apps from KaiStore like WhatsApp.
 - Speed Dial lets you call a contact quickly by pressing and holding a number key from 2 to 9 on the homescreen. To assign a contact to a number key, press and hold an empty key on the homescreen or go to *Contacts → Options → Settings → Set Speed Dial Contacts*. You can also change your voicemail number in the same menu.
-  - *ICE (In Case of Emergency) Contacts, however, is an useless feature on this phone, since there's basically no way to activate it. On the 2720 Flip, you could hold or double-press the side button to trigger SOS Call.*
+    - *ICE (In Case of Emergency) Contacts, however, is an useless feature on this phone, since there's basically no way to activate it. On the 2720 Flip, you could hold or double-press the side button to trigger SOS Call.*
 - You can use a GIF as your homescreen wallpaper, but it will drain your battery faster.
 - If you prefer a different layout than the default 3-by-3 grid view, you can choose *Options → List view/Single view* and rearrange the items as you like.
 - This phone has a hidden screen reader feature that might not work well with some third-party apps that have unlabeled buttons. To turn on the hidden Readout feature, open Browser, go to cyan-2048.github.io/kaios_scripts, use D-Pad to move the cursor and select *Screen Reader*.
 - There's also a hidden call recording feature that has been made available on KaiOS 2.5.2 and later. To toggle, connect the phone to a WebIDE session (see [Sideloading and debugging third-party applications]), then open *Device Settings* in the right sidebar, search for `callrecording.mode` and set it to either `on` (press D-Pad Left to record), `auto` or `off`.
-  - Alternatively you can sideload [CrossTweak] and press 3 to toggle call recording.
+    - Alternatively you can sideload [CrossTweak] and press 3 to toggle call recording.
 
 ## Known issues
 - The multiple clips holding the back panel can be stressed and quickly broken. Speaker is decent, but muffled on strong bass. *For tactile responses on keypad presses, turn on Keypad vibration under Settings → Device → Accessibility.*
-  - *Note that phone shutting itself down or not receiving any charges often come down to loose or dirty battery connectors or charging port and not software problem. Happened to me once, got the phone checked and repaired for less than $10.*
+    - *Note that phone shutting itself down or not receiving any charges often come down to loose or dirty battery connectors or charging port and not software problem. Happened to me once, got the phone checked and repaired for less than $10.*
 - **[MAJOR]** Battery can drain heavily (from 5–7 days of 4G standby to 18 hours, or 2 hours in active usage) if you leave Wi-Fi or mobile data on at all time, e.g. to be immediately notified of incoming WhatsApp messages. It's better to turn them off if you don't plan to use Internet connection, and only turn them on periodically to check for notifications.
 - **[MAJOR]** Keypad frequently registering multiple or no keystrokes instead of a single-press, because of keypad design and keypress timeout interval being too short in `keyboard.gaiamobile.org`. [BananaHackers' guide on fixing the keypad speed] may help
 - **[MAJOR]** A-GPS failing to lock your current position on 4G LTE, possibly due to interferences with TDD bands ⇒ workaround: change your A-GPS APN settings under *Settings → Mobile network & data → APN settings* or switch to 2G/3G for the phone to retrieve GPS information properly (*Settings → Mobile network & data → Carrier - SIMx → Network type → 3G/2G*). Might be major issue for those in the US where 2G/3G has been shut down.
 - **[MAJOR]** B2G takes up large chunk of memory, and RAM optimizations leading to the phone joining Doze deep sleep immediately and aggressive task killing after a few minutes, making opening or exiting apps horribly slow, and notifications—including incoming WhatsApp calls—being delayed.
-  - Wi-Fi hotspot feature will stop transmitting data packets with your other devices when you put the phone into sleep. *As a workaround, you can have [a playlist of silent MP3s played in background] to prevent the phone from Doze sleep.*
-  - *This can be permanently mitigated by modifying scripts in /boot to disable the Low Memory Killer module, which I'll mention in [Manual patching with Android Image Kitchen] below.*
+    - Wi-Fi hotspot feature will stop transmitting data packets with your other devices when you put the phone into sleep. *As a workaround, you can have [a playlist of silent MP3s played in background] to prevent the phone from Doze sleep.*
+    - *This can be permanently mitigated by modifying scripts in /boot to disable the Low Memory Killer module, which I'll mention in [Manual patching with Android Image Kitchen] below.*
 - On certain network providers where this phone isn't yet certified, such as Jio Reliance in India, you may [temporarily mute yourself on phone calls with VoLTE/VoWiFi enabled]. Putting yourself on hold and off does ease the problem.
 - Normally, you can wake up the phone from sleep by either pressing the Power, Volume up or Volume down buttons, regardless of whether keyguard is in place or not. On this phone there are no volume buttons, but some of their functions, such as triggering boot modes or waking the phone up, are mapped to * and # keys respectively. This can be problematic as those keys are located close to the bottom edge of the phone and can be randomly mashed if you store the phone in your front pockets, leading to [unintended screenshots].
 - If you forgot your lockscreen passcode (not SIM or Anti-Theft ones), you can [bypass it] by holding down the top Power button, then select *Memory Cleaner → Deep Memory Cleaning*.
@@ -149,31 +148,31 @@ Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the 
 
 ### KaiOS-specific
 - If you're setting up the phone for the first time with no SIM card, pre-installed apps such as WhatsApp, Facebook and Google apps may not appear in the app list or in KaiStore. After popping in a SIM, those apps will show up as normal.
-  - *KaiStore will show up in all circumstances, regardless of whether there's a SIM card inserted or not.*
+    - *KaiStore will show up in all circumstances, regardless of whether there's a SIM card inserted or not.*
 - This phone runs KaiOS 2.5, which itself is based on Gecko 48 from 2016, meaning without optimizations and new web technologies, some websites like Instagram and Uber just fall apart and the overall performance is unbearable.
-  - No built-in Widevine DRM decoders, which means the phone is NOT capable of playing DRM-protected content from e.g. Spotify
+    - No built-in Widevine DRM decoders, which means the phone is NOT capable of playing DRM-protected content from e.g. Spotify
 - **[MAJOR]** Some built-in apps, such as Call logs, Contacts or Music, are written in a way that is performance-intensive and not optimized for the phone, causing slow rendering and system lags if you store a large number of contacts (technically infinite but 100 recommended), call logs (max 40), music files or other items in a list. 
-  - *Performance issues has been addressed on later versions, for now you should opt for alternatives such as [arma7x's K-Music] in KaiStore if possible.*
+    - *Performance issues has been addressed on later versions, for now you should opt for alternatives such as [arma7x's K-Music] in KaiStore if possible.*
 - **[MAJOR]** Sending text messages don't automatically convert to MMS in group chats. You'll have to add a message subject or file attachment before sending to manually do so, otherwise your message will be sent separately to each individual in the thread. Receiving works flawlessly. *Group messaging over MMS has been properly implemented as a feature on later versions.*
 - **[MAJOR]** Alarms can be delayed, unable to go off or go off unexpectedly if the Clock app is killed. Before going to sleep, make sure to open the Clock app and lock the phone without pressing the End call key or closing the app.
 - Predictive typing mode doesn't last between inputs, meaning if you switch between input boxes, it'll return to the normal T9 mode.
 - Photos larger than 6000-by-4000 in size aren't viewable in the Gallery app due to restrictions in place preventing memory constraints. As a workaround, you can download [FabianOvrWrt's Explorer] and [mochaSoft Aps' Photo Zoom] from KaiStore to view them instead.
 - Built-in File Manager app doesn't show folders in the internal storage other than pre-configured ones (audio, music, photos, books, videos, DCIM, downloads, others). This is [hardcoded within its code] as a measure to hide system files (such as DIC files for storing added T9 words), but can be easily misused. *To fully browse the internal storage, use third-party file managers from KaiStore, or turn on Settings → Storage → USB Storage and connect your phone to a computer.*
 - Built-in email, calendar and contact syncing function with Google account may completely fail at times. Use IMAP and import contacts instead.
-  - In December 2021, in order to [replace the expired Let's Encrypt root certificate DST Root CA X3 with the newer ISRG Root X1], KaiOS Technologies issued a Service Update over KaiStore to all active KaiOS devices. This caused the Contacts app on various phones, notably HMD/Nokia KaiOS phones and Alcatel MyFlip 2, to [freeze on open]. In some reported cases, apps such as E-Mail, Calendar and Settings failed to work as well, and Google accounts set up in the Settings app couldn't be removed. This was later classified as a bug of Google account syncing feature, and affected people were advised to wipe their devices as a fix.
-  - T9 search in Contacts app is missing. For those missing the feature, there's a port called [FastContact] by Luxferre that you can sideload to use as an alternative.
-  - E-Mail app lacks many crucial enterprise features, such as OAuth2 secure sign-in.
-  - Speaking of built-in Calendar app, if you manage to opt for syncing your Google account with the phone, only the calendar *with your email address as its name* will sync.
+    - In December 2021, in order to [replace the expired Let's Encrypt root certificate DST Root CA X3 with the newer ISRG Root X1], KaiOS Technologies issued a Service Update over KaiStore to all active KaiOS devices. This caused the Contacts app on various phones, notably HMD/Nokia KaiOS phones and Alcatel MyFlip 2, to [freeze on open]. In some reported cases, apps such as E-Mail, Calendar and Settings failed to work as well, and Google accounts set up in the Settings app couldn't be removed. This was later classified as a bug of Google account syncing feature, and affected people were advised to wipe their devices as a fix.
+    - T9 search in Contacts app is missing. For those missing the feature, there's a port called [FastContact] by Luxferre that you can sideload to use as an alternative.
+    - E-Mail app lacks many crucial enterprise features, such as OAuth2 secure sign-in.
+    - Speaking of built-in Calendar app, if you manage to opt for syncing your Google account with the phone, only the calendar *with your email address as its name* will sync.
 - You cannot change message notification tone or alarm tone on the phone outside the defaults provided. This is because both are not managed by the system, but by the Messages and Clock app themselves.
-  - To change them, you'll have to use ADB to pull `sms.gaiamobile.org` and `clock.gaiamobile.org` from `/system/b2g/webapps`, extract, edit the audio files and repackage the apps, then push them back under `/data/local/webapps` and edit the `basePath` in `/data/local/webapps/webapps.json` to reflect the change (see [BananaHackers' guide] for instructions)
+    - To change them, you'll have to use ADB to pull `sms.gaiamobile.org` and `clock.gaiamobile.org` from `/system/b2g/webapps`, extract, edit the audio files and repackage the apps, then push them back under `/data/local/webapps` and edit the `basePath` in `/data/local/webapps/webapps.json` to reflect the change (see [BananaHackers' guide] for instructions)
 - D-Pad shortcuts and app shortcuts in the carousel menu (when you press Left on the home screen) are not customizable. *The former has been addressed on later versions*, but to change them on this phone you'll have to edit `launcher.gaiamobile.org`.
  
 ### WhatsApp-specific
 - (mostly 2720 Flip) Upon getting the confirmation code needed to set up WhatsApp, you may be indefinitely stuck at Connecting WhatsApp... regardless of whether you're on Wi-Fi/mobile data or had a SIM in. Some suggested that leftover pre-configuration files seem to have caused the issue and, in most cases, can be fixed with a factory reset.
-  - *[Temporarily putting your SIM in another phone to receive the code] may help as well.*
+    - *[Temporarily putting your SIM in another phone to receive the code] may help as well.*
 - 8MB download/5MB upload limit: This is to avoid 'out of memory' errors with the nature of WhatsApp's end-to-end encryption. All things sent through the app's servers—including photos and videos—are encrypted on device. Decrypt them bit-by-bit would use too much memory for KaiOS devices, having only as much as 512MB of RAM.
 - Pairing account with the WhatsApp Web interface or desktop applications is NOT possible. This is because KaiOS cannot hold background processes or handle battery life well enough to sync decryption keys and mirrors messages & calls from the phone.
-  - Note that you cannot sign into another device, pair with WhatsApp Web and then sign into WhatsApp on KaiOS. This will cause the decryption keys to be renewed and all other devices to be logged off automatically.
+    - Note that you cannot sign into another device, pair with WhatsApp Web and then sign into WhatsApp on KaiOS. This will cause the decryption keys to be renewed and all other devices to be logged off automatically.
 
 ## Secret codes
 *Tip: You can save these codes as contacts for quick dialing later. When the phone suggests a saved code, you'll have to press Call to activate the code's function.*
@@ -184,7 +183,7 @@ Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the 
 - `*#33#` (call): Check the [Call barring] service status from carrier for blocking or whitelisting calls, whether incoming or outgoing, domestic or international. Requires a 4-digit passcode to use. To toggle, go to *Settings → Network & Connectivity → Calling → Call barring*.
 - `*#43#` (call): Check the [Call waiting] service status from carrier. To toggle, go to *Settings → Network & Connectivity → Calling → Call waiting*.
 - `*#*#372733#*#*`: Open KaiOS MMI Test, an internal tool to test hardware performance of a KaiOS device through an automatic routine or manually by hand, including LCD backlight, T9 keyboard, camera, LED flash, RTC, speaker, microphone, vibrator, 3.5mm audio jack, SIM trays, Wi-Fi, Bluetooth, NFC, microSD and microUSB slots etc.
-  - Throughout the manual speaker test, you'll hear some English and Chinese dialog from a female speaker, which transcribes to: *Hello. Please dial 110 for police, 119 for fire, 120 for ambulance, 122 for traffic accidents, and dial area code before 112 for six full obstacles.* [?]
+    - Throughout the manual speaker test, you'll hear some English and Chinese dialog from a female speaker, which transcribes to: *Hello. Please dial 110 for police, 119 for fire, 120 for ambulance, 122 for traffic accidents, and dial area code before 112 for six full obstacles.* [?]
 
 ### Codes that don't work
 Most of these codes requires `userdebug` or `eng` versions to work.
@@ -251,12 +250,12 @@ The guide below is based on the main guide from BananaHackers website, but has b
 > [Murphy's Law] states, "Anything that can go wrong, will go wrong". It's a proverb from the late 1940s, and while it may not be as academically accurate and influential as [Newton's laws of motion], it's generally acknowledged in technology as a rule of thumb. Even if you do the best you can, things can unexpectedly go south, so it's always good to prepare for the worst.
 
 - To export your contacts from the built-in Contacts app, go to *Contacts → Options → Settings → Export contacts*. From there, choose to either save to a CSV file on your SD card, send through Bluetooth to other devices, or upload to Web services such as Google Contacts and Microsoft Outlook.
-  - You can also use third-party backup services and tools such as [PhoneCopy in KaiStore] or D3SXX's [kaios-backup] etc.
+    - You can also use third-party backup services and tools such as [PhoneCopy in KaiStore] or D3SXX's [kaios-backup] etc.
 - On debug-enabled devices, you can sideload `certified` apps such as D3SXX's [kaios-backup] or Fiachra1993's [kaios-sms-backup], which uses Firefox OS APIs to export your text messages to JSON or CSV files.
 - Built-in Calendar app allows syncing events through Google, ActiveSync or CalDAV accounts. If you only have a small number of events, you can migrate each of those to your online calendars. strukturart's [greg] also allows syncing events with Nextcloud.
 - Each entry in the Notes app can be shared over texts, Bluetooth or email.
 - On internal storage or SD card (whichever you chose under *Settings → Storage → Default media location*), captured photos and videos are stored under `DCIM`; whereas recorded voice files are stored under `audio`.
-  - To get your phone to show up on the computer as external storage, turn on *USB Storage* under *Settings 
+    - To get your phone to show up on the computer as external storage, turn on *USB Storage* under *Settings 
 
 For backing up application data (excluding WhatsApp chats), system preferences and partition images, see [Backup].
 
@@ -267,20 +266,20 @@ For backing up application data (excluding WhatsApp chats), system preferences a
 - EDL utility to read and write system partitions: [bkerler's edl.py v3.1] for 8000 4G/6300 4G, [andybalholm's edl] for 2720 Flip/800 Tough/Go Flip 3;
 - required for 6300 4G/8000 4G: [Gerda Recovery image file] ([backup]) for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from Recovery mode and get the boot partition from there;
 - Python and `pip` for `edl.py` to work (setup guide can be found for each OS below);
-  - Don't have an Internet connection? Download and install manually from PyPI: [pyusb], [pyserial], [keystone-engine], [capstone], [docopt]
+    - Don't have an Internet connection? Download and install manually from PyPI: [pyusb], [pyserial], [keystone-engine], [capstone], [docopt]
 - [Android Debug Bridge (ADB)] to read the boot image in Gerda Recovery (see [Sideloading and debugging/WebIDE])
 - Windows: Qualcomm driver to contact the phone in EDL mode (included in the `edl.py` package)
 - Windows: latest version of [Zadig] to configure `libusb-win32` driver; do NOT use the older version bundled as it has less chances of success
 - macOS: [Homebrew] to quickly set up Python, ADB, `libusb` and configure the environment for EDL tools (setup guide can be found below)
-  - *Python 2.7 bundled with macOS 10.8 to 12 is NOT recommended for following this guide.*
+    - *Python 2.7 bundled with macOS 10.8 to 12 is NOT recommended for following this guide.*
 - **If you're going the automatic boot partition patching and compilation via Docker route (only recommended for 5-6 year old computers):**
-  - [Git] to clone/download the repository of the patcher tool to your computer;
-  - Docker Compose to provide the environment for the patcher tool to work (included in [Docker Desktop])
-  - Windows: WSL2 with [Linux kernel update package] installed (to install WSL2, turn on Virtualization in BIOS, then open Command Prompt with administrative rights and type `wsl --install`)
+    - [Git] to clone/download the repository of the patcher tool to your computer;
+    - Docker Compose to provide the environment for the patcher tool to work (included in [Docker Desktop])
+    - Windows: WSL2 with [Linux kernel update package] installed (to install WSL2, turn on Virtualization in BIOS, then open Command Prompt with administrative rights and type `wsl --install`)
 - **If you're going the extracting and manual editing by hand route:**
-  - Android Image Kitchen v3.8 ([Windows], [macOS/Linux])
-  - on Windows 10 pre-1809: [Notepad++] to edit files while [preserving line endings]
-  - (optional) [Java Runtime Environment] to properly sign the boot image with AVBv1
+    - Android Image Kitchen v3.8 ([Windows], [macOS/Linux])
+    - on Windows 10 pre-1809: [Notepad++] to edit files while [preserving line endings]
+    - (optional) [Java Runtime Environment] to properly sign the boot image with AVBv1
 
 andybalholm's EDL cannot be used on 8000 4G and 6300 4G due to structural changes within GPT, which will result in an error `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`. **Do note that the command structures used between bkerler's and andybalholm's are different, which we'll mention below.**
 
