@@ -114,7 +114,7 @@ Kosher is indeed a great way to make your phone truly basic, but HMD already off
 ## Differences between US and international variants
 "Buying Western-customized products will always give you the best quality possible" is unwise when it comes to consumer electronics, including mobile phones, and the 6300 4G is no exception. When buying the TA-1324 variant of this phone, you should expect:
 - No cellular access: From the dawn of mobile phone technologies, for national security, the US has been using different cellular technologies from the rest of the world with little to no compatibility. On 4G LTE, the US variant receives different bands with little overlaps on international variants' bands, primarily band 7 (see the device specification table above). This means that you will have trouble making or receiving calls and texts on the US variant outside the country without roaming.
-- Restricted device settings, notably device and T9 languages, as the phone software has to follow the FCC's regulations. On the US 6300 4G, the only languages available are English (US), español (US), Français (CA) and Português (BR). 
+- Restricted device settings, notably device and T9 languages, as the phone software has to follow the FCC's regulations. On the US 6300 4G, the only languages available are English (US), español (US), Français (CA) and Português (BR).
 - Tighten device security: US 6300 4G currently cannot be rooted due to different hash signature used for EDL handshake (see [Sideloading and debugging third-party applications] below).
 
 Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the availability of the phone in the closest place or nearby countries to where you are.
@@ -151,7 +151,7 @@ Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the 
     - *KaiStore will show up in all circumstances, regardless of whether there's a SIM card inserted or not.*
 - This phone runs KaiOS 2.5, which itself is based on Gecko 48 from 2016, meaning without optimizations and new web technologies, some websites like Instagram and Uber just fall apart and the overall performance is unbearable.
     - No built-in Widevine DRM decoders, which means the phone is NOT capable of playing DRM-protected content from e.g. Spotify
-- **[MAJOR]** Some built-in apps, such as Call logs, Contacts or Music, are written in a way that is performance-intensive and not optimized for the phone, causing slow rendering and system lags if you store a large number of contacts (technically infinite but 100 recommended), call logs (max 40), music files or other items in a list. 
+- **[MAJOR]** Some built-in apps, such as Call logs, Contacts or Music, are written in a way that is performance-intensive and not optimized for the phone, causing slow rendering and system lags if you store a large number of contacts (technically infinite but 100 recommended), call logs (max 40), music files or other items in a list.
     - *Performance issues has been addressed on later versions, for now you should opt for alternatives such as [arma7x's K-Music] in KaiStore if possible.*
 - **[MAJOR]** Sending text messages don't automatically convert to MMS in group chats. You'll have to add a message subject or file attachment before sending to manually do so, otherwise your message will be sent separately to each individual in the thread. Receiving works flawlessly. *Group messaging over MMS has been properly implemented as a feature on later versions.*
 - **[MAJOR]** Alarms can be delayed, unable to go off or go off unexpectedly if the Clock app is killed. Before going to sleep, make sure to open the Clock app and lock the phone without pressing the End call key or closing the app.
@@ -166,7 +166,7 @@ Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the 
 - You cannot change message notification tone or alarm tone on the phone outside the defaults provided. This is because both are not managed by the system, but by the Messages and Clock app themselves.
     - To change them, you'll have to use ADB to pull `sms.gaiamobile.org` and `clock.gaiamobile.org` from `/system/b2g/webapps`, extract, edit the audio files and repackage the apps, then push them back under `/data/local/webapps` and edit the `basePath` in `/data/local/webapps/webapps.json` to reflect the change (see [BananaHackers' guide] for instructions)
 - D-Pad shortcuts and app shortcuts in the carousel menu (when you press Left on the home screen) are not customizable. *The former has been addressed on later versions*, but to change them on this phone you'll have to edit `launcher.gaiamobile.org`.
- 
+
 ### WhatsApp-specific
 - (mostly 2720 Flip) Upon getting the confirmation code needed to set up WhatsApp, you may be indefinitely stuck at Connecting WhatsApp... regardless of whether you're on Wi-Fi/mobile data or had a SIM in. Some suggested that leftover pre-configuration files seem to have caused the issue and, in most cases, can be fixed with a factory reset.
     - *[Temporarily putting your SIM in another phone to receive the code] may help as well.*
@@ -235,7 +235,7 @@ Detailed instructions can be found at [Sideloading and debugging/WebIDE]. Feel f
 To remove unwanted apps from the phone, you can use [this fork of Luxferre's AppBuster] which lets you disable any apps you don't need and enable them again if you want.
 
 ## ROOT: Boot partition patching (non-US only)
-On KaiOS 2.5.4 devices, such as the 6300 4G and 8000 4G, ADB and WebIDE can be used to install most third-party apps. However, apps with special ‘forbidden’ permissions are not allowed, including most BananaHackers apps with `engmode-extension` like Wallace Toolbox, which can be used to gain exclusive access of the phone. You also cannot make changes to the system. On the 2720 Flip and 800 Tough with KaiOS 2.5.2.2, with HMD/Nokia Mobile changing their release branches from `dev-keys` to `release-keys`, the situation is even worse as you cannot sideload at all. 
+On KaiOS 2.5.4 devices, such as the 6300 4G and 8000 4G, ADB and WebIDE can be used to install most third-party apps. However, apps with special ‘forbidden’ permissions are not allowed, including most BananaHackers apps with `engmode-extension` like Wallace Toolbox, which can be used to gain exclusive access of the phone. You also cannot make changes to the system. On the 2720 Flip and 800 Tough with KaiOS 2.5.2.2, with HMD/Nokia Mobile changing their release branches from `dev-keys` to `release-keys`, the situation is even worse as you cannot sideload at all.
 
 This is because in order for WhatsApp's VoIP feature to work on these KaiOS versions, a security module called SELinux[^3] is now set to be `Enforced` which checks and reverts system modifications on boot. To get total read-write access to the devices, you'll now have to permanently root them by setting SELinux to `Permissive` mode.
 
@@ -243,7 +243,7 @@ The guide below is based on the main guide from BananaHackers website, but has b
 
 > [!IMPORTANT]
 > **DISCLAIMER: This process will void your phone's warranty, disable its ability to receive WhatsApp calls and over-the-air updates, but you can undo this if you save a copy of the original boot partition. However, you might also brick your phone if you make a mistake in the process, so proceed at your own risk and with caution! I won't be responsible for any damages done to your phone by following these.**
-> 
+>
 > Remember, you don't have to root your phone to do things that usually need root access e.g. you can use [this fork of Luxferre's AppBuster] to disable apps from the launcher instead of deleting them with Wallace Toolbox. You can also install [Luxferre's CrossTweak], a Wallace Toolbox alternative also made by Luxferre that does not need `engmode-extension` and therefore can be easily installed on KaiOS 2.5.4 devices.
 
 ### Before proceeding: [back up] your data
@@ -255,7 +255,7 @@ The guide below is based on the main guide from BananaHackers website, but has b
 - Built-in Calendar app allows syncing events through Google, ActiveSync or CalDAV accounts. If you only have a small number of events, you can migrate each of those to your online calendars. strukturart's [greg] also allows syncing events with Nextcloud.
 - Each entry in the Notes app can be shared over texts, Bluetooth or email.
 - On internal storage or SD card (whichever you chose under *Settings → Storage → Default media location*), captured photos and videos are stored under `DCIM`; whereas recorded voice files are stored under `audio`.
-    - To get your phone to show up on the computer as external storage, turn on *USB Storage* under *Settings 
+    - To get your phone to show up on the computer as external storage, turn on *USB Storage* under *Settings
 
 For backing up application data (excluding WhatsApp chats), system preferences and partition images, see [Backup].
 
@@ -384,7 +384,7 @@ python edl.py w recovery recovery-8110.img --loader=8k.mbn
 ```
 *If the progress bar stops at 99% (and not earlier) and you get error `'usb.core.USBError: [Errno None] b'libusb0-dll:err [_usb_reap_async] timeout error\n'` or `usb.core.USBError: [Errno 60] Command timed out`, this is false. Don't mind the error and proceed with the next step.*
 
-3. When finished, disconnect the phone from your computer and exit EDL mode by removing and re-inserting the battery. 
+3. When finished, disconnect the phone from your computer and exit EDL mode by removing and re-inserting the battery.
 4. Then, hold down the top Power button and `*` to turn on the phone in recovery mode. Connect the phone to your computer again.
 
 > [!WARNING]
@@ -723,7 +723,7 @@ python edl.py reset
 [keystone-engine]: https://pypi.org/project/keystone-engine/
 [capstone]: https://pypi.org/project/capstone/
 [docopt]: https://pypi.org/project/docopt/
-[bkerler's edl.py v3.1]: https://github.com/bkerler/edl/releases/tag/3.1 
+[bkerler's edl.py v3.1]: https://github.com/bkerler/edl/releases/tag/3.1
 [andybalholm's edl]: https://github.com/andybalholm/edl
 [Python's official download page for Windows]: https://www.python.org/downloads/windows
 [Android Debug Bridge (ADB)]: https://developer.android.com/studio/releases/platform-tools
