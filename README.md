@@ -543,14 +543,14 @@ That's it! On your desktop there will be two new image files, the modified `boot
 ```diff
 @@ -312,14 +312,14 @@
   else
-	  # nand configuration
-	  if [ -e $nand_file ]
-	  then
-		  if grep ${partition_name} $nand_file
-		  then
-			  gps_enabled=false
-		  fi
-	  fi
+      # nand configuration
+      if [ -e $nand_file ]
+      then
+          if grep ${partition_name} $nand_file
+          then
+              gps_enabled=false
+          fi
+      fi
   fi
 
   setprop ro.gps.enabled $gps_enabled
