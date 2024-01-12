@@ -11,7 +11,7 @@ theme_config:
   appearance: "auto"
   back_home_text: "Back to main page"
   date_format: "%d-%m-%Y"
-  show_description: true
+  show_description: false
 
 plugins:
   - jekyll-seo-tag
