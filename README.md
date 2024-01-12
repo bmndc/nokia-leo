@@ -602,11 +602,11 @@ Indent the new line to match up with other lines as shown.
 8. And that's a wrap! Open the root Android Image Kitchen folder in a command-line window and type `repackimg` to package our modified boot partition.
 {:start="8"}
 
-![Screenshot of a Windows Command Prompt window showing some logs of the boot partition repacking process after typing the above command, but has a signing error at the end](img/repack_unsigned.png)
+<!-- ![Screenshot of a Windows Command Prompt window showing some logs of the boot partition repacking process after typing the above command, but has a signing error at the end](img/repack_unsigned.png) -->
+
+![Screenshot of a Windows Command Prompt window showing some logs of the fully successful boot partition process after typing the above command](img/repackimg_signed.png)
 
 *If you happen to encounter an error during the signing process, that's likely because the process uses `java` to power the `boot-signer.jar` sequence and you don't have it installed. The image will still be packaged and ready for flashing, but if you're a perfectionist, you can install JRE and try again.*
-
-![Screenshot of a Windows Command Prompt window showing some logs of the fully successful boot partition process](img/repackimg_signed.png)
 
 If the newly packaged image is barely over 1/3 the size of the original image, it's a normal behaviour and you can proceed.
 
