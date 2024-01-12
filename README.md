@@ -1,45 +1,45 @@
 <details markdown="block">
-  <summary dir="rtl">View device specification table</summary>
+	<summary dir="rtl">View device specification table</summary>
 <table style="font-size:small">
-    <thead><tr><th></th><th>Nokia 6300 4G (nokia-leo)</th><th>Nokia 8000 4G (nokia-sparkler)</th></tr></thead>
-    <tbody>
-        <tr><td>Released</td><td colspan=2>13 November 2020</td></tr>
-        <tr><td>Model</td><td>TA-1286, TA-1287, TA-1291, TA-1294, TA-1307, TA-1324</td>
-            <td>TA-1300, TA-1303, TA-1305, TA-1311</td></tr>
-        <tr><td colspan=3 align="center"><strong>Specifications</strong></td></tr>
-        <tr><td>SoC</td><td colspan=2>Qualcomm MSM8909 Snapdragon 210 (4 × 1.1GHz Cortex-A7)</td></tr>
-        <tr><td>RAM</td><td colspan=2>512MB LPDDR2/3</td></tr>
-        <tr><td>GPU</td><td colspan=2>Adreno 304</td></tr>
-        <tr><td>Storage</td><td colspan=2>4GB eMMC 4.5 (+ up to 32GB microSDHC card)</td></tr>
-        <tr><td>Network</td><td>2G GSM, 3G UMTS, 4G LTE Cat4 150/50Mbps<br><em>
-            + EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>
-            + MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>
-            + US: band 2, 4, 5, 12, 17, 66, 71<br>
-            + LATAM: band 2, 3, 4, 5, 7, 28<br>
-            + ROW: band 1, 3, 5, 7, 8, 20, 38, 40</em><br>
-            VoLTE &amp; VoWiFi support<br>Single or Dual SIM (Nano-SIM, dual-standby)</td>
-            <td>2G GSM, 3G UMTS, 4G LTE Cat4 150/50Mbps<br><em>
-            + EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>
-            + HK, Macau, MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>
-            + ROW: band 1, 3, 5, 7, 8, 20, 28, 38, 40</em><br>
-            VoLTE &amp; VoWiFi support<br>Single or Dual SIM (Nano-SIM, dual-standby)</td></tr>
-        <tr><td>Screen</td><td>320 × 240 @ 167 PPI<br>2.4 inches QVGA TFT LCD, 16M colors</td>
-            <td>320 × 240 @ 143 PPI<br>2.8 inches QVGA TFT LCD, 16M colors</td></tr>
-        <tr><td>Bluetooth</td><td colspan=2>4.0, A2DP, LE</td></tr>
-        <tr><td>Wi-Fi</td><td colspan=2>802.11b/g/n, 2.4GHz, Hotspot (up to 8 devices)</td></tr>
-        <tr><td>Peripherals</td><td colspan=2>GPS &amp; GLONASS</td></tr>
-        <tr><td>Cameras</td><td>Rear: VGA with fixed focus, LED flash</td><td>Rear: 2MP with fixed focus, LED flash</td></tr>
-        <tr><td>Dimensions<br>(HWD)</td><td>131.4 × 53 × 13.7 (mm)<br>5.17 × 2.09 × 0.54 (in)</td>
-            <td>132.2 × 56.5 × 12.3 (mm)<br>5.20 × 2.22 × 0.48 (in)</td></tr>
-        <tr><td>Weight</td><td>With battery: 104.1g (3.67oz)</td><td>With battery: 107.9g (3.81oz)</td></tr>
-        <tr><td>Ports</td><td colspan=2>- microUSB charging &amp; USB 2.0 data transferring port<br>- 3.5mm headphone jack</td></tr>
-        <tr><td>Battery</td><td colspan=2>Removable Li-Ion 1500mAh (BL-4XL), 5W wired charging<br>
-            (up to 25 days of 4G standby advertised)</td></tr>
-        <tr><td colspan=3 align="center"><strong>KaiOS info</strong></td></tr>
-        <tr><td>Version</td><td colspan=2>KaiOS 2.5.4</td></tr>
-        <tr><td>WA VoIP</td><td colspan=2>Supported</td></tr>
-        <tr><td>Build no.</td><td colspan=2>10.00.17.01, 12.00.17.01, 20.00.17.01, 30.00.17.01</td></tr>
-    </tbody>
+	<thead><tr><th></th><th>Nokia 6300 4G (nokia-leo)</th><th>Nokia 8000 4G (nokia-sparkler)</th></tr></thead>
+	<tbody>
+		<tr><td>Released</td><td colspan=2>13 November 2020</td></tr>
+		<tr><td>Model</td><td>TA-1286, TA-1287, TA-1291, TA-1294, TA-1307, TA-1324</td><td>TA-1300, TA-1303, TA-1305, TA-1311</td></tr>
+		<tr><td>Colors</td><td>Light Charcoal, White, Cyan Green</td><td>Onyx/Black, Opal/White, Topaz/Blue, Cintrine/Gold</td></tr>
+		<tr><td>MSRP</td><td>€49/£59.99/$69.99/1,290,000₫</td><td>€79/£79.99/1,790,000₫</td></tr>
+		<tr><td colspan=3 align="center"><strong>Specifications</strong></td></tr>
+		<tr><td>SoC</td><td colspan=2>Qualcomm MSM8909 Snapdragon 210 (4 × 1.1GHz Cortex-A7)</td></tr>
+		<tr><td>RAM</td><td colspan=2>512MB LPDDR2/3</td></tr>
+		<tr><td>GPU</td><td colspan=2>Adreno 304</td></tr>
+		<tr><td>Storage</td><td colspan=2>4GB eMMC 4.5 (+ up to 32GB microSDHC card)</td></tr>
+		<tr><td>Network</td><td>2G GSM, 3G UMTS, 4G LTE Cat4 150/50Mbps<br><em>
+			+ EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>
+			+ MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>
+			+ US: band 2, 4, 5, 12, 17, 66, 71<br>
+			+ LATAM: band 2, 3, 4, 5, 7, 28<br>
+			+ ROW: band 1, 3, 5, 7, 8, 20, 38, 40</em><br>
+			VoLTE &amp; VoWiFi support<br>Single or Dual SIM (Nano-SIM, dual-standby)</td>
+			<td>2G GSM, 3G UMTS, 4G LTE Cat4 150/50Mbps<br><em>
+			+ EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>
+			+ HK, Macau, MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>
+			+ ROW: band 1, 3, 5, 7, 8, 20, 28, 38, 40</em><br>
+			VoLTE &amp; VoWiFi support<br>Single or Dual SIM (Nano-SIM, dual-standby)</td></tr>
+		<tr><td>Screen</td><td>320 × 240 @ 167 PPI<br>2.4 inches QVGA TFT LCD, 16M colors</td>
+			<td>320 × 240 @ 143 PPI<br>2.8 inches QVGA TFT LCD, 16M colors</td></tr>
+		<tr><td>Bluetooth</td><td colspan=2>4.0, A2DP, LE</td></tr>
+		<tr><td>Wi-Fi</td><td colspan=2>802.11b/g/n, 2.4GHz, Hotspot (up to 8 devices)</td></tr>
+		<tr><td>Peripherals</td><td colspan=2>GPS &amp; GLONASS</td></tr>
+		<tr><td>Cameras</td><td>Rear: VGA with fixed focus, LED flash</td><td>Rear: 2MP with fixed focus, LED flash</td></tr>
+		<tr><td>Dimensions<br>(HWD)</td><td>131.4 × 53 × 13.7 (mm)<br>5.17 × 2.09 × 0.54 (in)</td>
+			<td>132.2 × 56.5 × 12.3 (mm)<br>5.20 × 2.22 × 0.48 (in)</td></tr>
+		<tr><td>Weight</td><td>With battery: 104.1g (3.67oz)</td><td>With battery: 107.9g (3.81oz)</td></tr>
+		<tr><td>Ports</td><td colspan=2>- microUSB charging &amp; USB 2.0 data transferring port<br>- 3.5mm headphone jack</td></tr>
+		<tr><td>Battery</td><td colspan=2>Removable Li-Ion 1500mAh (BL-4XL), 5W wired charging<br>(up to 25 days of 4G standby advertised)</td></tr>
+		<tr><td colspan=3 align="center"><strong>KaiOS info</strong></td></tr>
+		<tr><td>Version</td><td colspan=2>KaiOS 2.5.4</td></tr>
+		<tr><td>WA VoIP</td><td colspan=2>Supported</td></tr>
+		<tr><td>Build no.</td><td colspan=2>10.00.17.01, 12.00.17.01, 20.00.17.01, 30.00.17.01</td></tr>
+	</tbody>
 </table></details>
 
 *Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in `leo-v20` branch of this repository. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and thus cannot be used to compile an entire KaiOS build.*
@@ -47,29 +47,29 @@
 <img width="410" align="right" src="assets/nokia_6300_4G-emotional-Range.png">
 
 **Table of Contents**
-- [Don’t buy a counterfeit](#dont-buy-a-counterfeit)
-    - [About Kosher phones](#about-kosher-phones)
-- [Differences between US and international variants](#differences-between-us-and-international-variants)
-- [Tips and tricks](#tips-and-tricks)
-- [Known issues](#known-issues)
-    - [KaiOS-specific](#kaios-specific)
-    - [WhatsApp-specific](#whatsapp-specific)
-- [Secret codes](#secret-codes)
-- [Special boot modes](#special-boot-modes)
-    - [UART debugging testpoint](#uart-debugging-testpoint)
-- [Sideloading and debugging third-party applications](#sideloading-and-debugging-third-party-applications)
-- [ROOT: Boot partition patching (non-US only)](#root-boot-partition-patching-non-us-only)
-    - [Before proceeding: back up your data](#before-proceeding-back-up-your-data)
-    - [What we’ll need](#what-well-need)
-    - [Part 1: Set up environment for EDL tools](#part-1-set-up-environment-for-edl-tools)
-    - [Part 2: Obtaining the boot partition](#part-2-obtaining-the-boot-partition)
-        - [Nokia 8000 4G and Nokia 6300 4G with bkerler’s EDL](#nokia-8000-4g-and-nokia-6300-4g-with-bkerlers-edl)
-        - [Nokia 2720 Flip and Nokia 800 Tough with andybalholm’s EDL](#nokia-2720-flip-and-nokia-800-tough-with-andybalholms-edl)
-    - [Part 3: Patching the boot partition](#part-3-patching-the-boot-partition)
-        - [Automatic patching with `8k-boot-patcher`](#automatic-patching-with-8k-boot-patcher)
-        - [Manual patching with Android Image Kitchen](#manual-patching-with-android-image-kitchen)
-    - [Part 4: Flashing the modified boot partition](#part-4-flashing-the-modified-boot-partition)
-- [External links](#external-links)
+- [Don’t buy a counterfeit]
+	- [About Kosher phones]
+- [Differences between US and international variants]
+- [Tips and tricks]
+- [Known issues]
+	- [KaiOS-specific]
+	- [WhatsApp-specific]
+- [Secret codes]
+- [Special boot modes]
+	- [UART debugging testpoint]
+- [Sideloading and debugging third-party applications]
+- [ROOT: Boot partition patching (non-US only)]
+	- [Before proceeding: back up your data]
+	- [What we’ll need]
+	- [Part 1: Set up environment for EDL tools]
+	- [Part 2: Obtaining the boot partition]
+		- [Nokia 8000 4G and Nokia 6300 4G with bkerler’s EDL]
+		- [Nokia 2720 Flip and Nokia 800 Tough with andybalholm’s EDL]
+	- [Part 3: Patching the boot partition]
+		- [Automatic patching with `8k-boot-patcher`]
+		- [Manual patching with Android Image Kitchen]
+	- [Part 4: Flashing the modified boot partition]
+- [External links]
 
 Amid the rise of the [COVID-19 pandemic] and the need for families and friends to stay connected during isolation, in late 2020, HMD introduced two new Nokia phones: the Nokia 8000 4G and the Nokia 6300 4G. While the 8000 4G featured a glossy 3D-textured plastic finish, larger screen and camera at the price point of €79, the Nokia 6300 4G is one of the more affordable phones HMD has ever offered in their KaiOS lineup[^1] at just €49/$69.99.
 
@@ -658,10 +658,33 @@ python edl.py reset
 
 <hr style="font-family:monospace;">
 
+<!-- Table of Contents -->
+[Don’t buy a counterfeit]: #dont-buy-a-counterfeit
+[About Kosher phones]: #about-kosher-phones
+[Differences between US and international variants]: #differences-between-us-and-international-variants
+[Tips and tricks]: #tips-and-tricks
+[Known issues]: #known-issues
+[KaiOS-specific]: #kaios-specific
+[WhatsApp-specific]: #whatsapp-specific
+[Secret codes]: #secret-codes
+[Special boot modes]: #special-boot-modes
+[UART debugging testpoint]: #uart-debugging-testpoint
+[Sideloading and debugging third-party applications]: #sideloading-and-debugging-third-party-applications
+[ROOT: Boot partition patching (non-US only)]: #root-boot-partition-patching-non-us-only
+[Before proceeding: back up your data]: #before-proceeding-back-up-your-data
+[What we’ll need]: #what-well-need
+[Part 1: Set up environment for EDL tools]: #part-1-set-up-environment-for-edl-tools
+[Part 2: Obtaining the boot partition]: #part-2-obtaining-the-boot-partition
+[Nokia 8000 4G and Nokia 6300 4G with bkerler’s EDL]: #nokia-8000-4g-and-nokia-6300-4g-with-bkerlers-edl
+[Nokia 2720 Flip and Nokia 800 Tough with andybalholm’s EDL]: #nokia-2720-flip-and-nokia-800-tough-with-andybalholms-edl
+[Part 3: Patching the boot partition]: #part-3-patching-the-boot-partition
+[Automatic patching with `8k-boot-patcher`]: #automatic-patching-with-8k-boot-patcher
+[Manual patching with Android Image Kitchen]: #manual-patching-with-android-image-kitchen
+[Part 4: Flashing the modified boot partition]: #part-4-flashing-the-modified-boot-partition
+[External links]: #external-links
+
 [provided by HMD]: https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz
 [COVID-19 pandemic]: https://en.wikipedia.org/wiki/COVID-19_pandemic
-[ROOT: Boot partition patching (non-US only)]: #root-boot-partition-patching-non-us-only
-[Known issues]: #known-issues
 [Nokia 6300 4G review]: https://www.pcmag.com/reviews/nokia-6300-4g
 [In-Depth Review of the Nokia 6300 4G]: https://www.reddit.com/r/dumbphones/comments/t146b9/indepth_review_of_the_nokia_6300_4g/
 [Nokia 6300 4G review after a month of use]: https://www.reddit.com/r/dumbphones/comments/15ghqx1/nokia_6300_4g_review_after_a_month_of_use/
@@ -669,11 +692,9 @@ python edl.py reset
 
 [terrible build quality]: https://www.reddit.com/r/KaiOS/comments/xglkr7/well_darn_it_i_just_received_a_counterfeit_nokia
 [the system's `hosts` file]: https://ivan-hc.github.io/bananahackers/ADBlock.html
-[Sideloading and debugging third-party applications]: #sideloading-and-debugging-third-party-applications
 [CrossTweak]: https://gitlab.com/suborg/crosstweak
 [BananaHackers' guide on fixing the keypad speed]: https://ivan-hc.github.io/bananahackers/fix-the-keypad-speed.html
 [a playlist of silent MP3s played in background]: https://www.reddit.com/r/KaiOS/comments/15slovs/nokia_6300_4g_hotspot_drops_problem_workaround
-[Manual patching with Android Image Kitchen]: #manual-patching-with-android-image-kitchen
 [temporarily mute yourself on phone calls with VoLTE/VoWiFi enabled]: https://www.reddit.com/r/KaiOS/comments/15g5vo6/nokia_6300_4g_phone_calls_not_working_properly
 [bypass it]: https://www.youtube.com/watch?v=0vTcQ_vY9LY
 [unintended screenshots]: https://www.reddit.com/r/KaiOS/comments/vjnz83/screenshotting_every_time_i_sit_down_or_pedal_my
