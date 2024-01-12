@@ -70,7 +70,7 @@
 	- [Part 4: Flashing the modified boot partition]
 - [External links]
 
-In late 2020, following the successful relaunch of the retro 2720 Flip and 800 Tough, HMD Global quietly introduced the new Nokia 6300 4G based on KaiOS 2.5.4. The new phone takes a modern twist whilst inheriting the classic candy-bar design of its predecessor Nokia 6300.
+In late 2020, following the successful relaunch of the retro 2720 Flip and 800 Tough, HMD Global quietly introduced the new Nokia 6300 4G based on KaiOS 2.5.4. The new phone takes a minimalistic twist whilst inheriting the classic candy-bar design of the original Nokia 6300.
 
 <!-- Being the fifth Nokia-branded KaiOS devices to be released under HMD-era, it is one of the most affordable the company has ever offered in its KaiOS lineup[^1] at €49/$69.99.
 
