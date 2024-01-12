@@ -36,7 +36,7 @@
 		<tr><td>Battery</td><td colspan=2>Removable Li-Ion 1500mAh (BL-4XL), 5W wired charging<br>(up to 25 days of 4G standby advertised)</td></tr>
 		<tr><td colspan=3 align="center"><strong>KaiOS info</strong></td></tr>
 		<tr><td>Version</td><td colspan=2>KaiOS 2.5.4</td></tr>
-		<tr><td>WA VoIP</td><td colspan=2>Supported</td></tr>
+		<tr><td>WA VoIP</td><td colspan=2>Supported (12.00.17.01 onwards)</td></tr>
 		<tr><td>Build no.</td><td colspan=2>10.00.17.01, 12.00.17.01, 20.00.17.01, 30.00.17.01</td></tr>
 	</tbody>
 </table></details>
@@ -70,7 +70,7 @@
 	- [Part 4: Flashing the modified boot partition]
 - [External links]
 
-In late 2020, following the successful relaunch of the retro 2720 Flip and 800 Tough, HMD Global introduced the new Nokia 6300 4G. The new phone takes a modern twist whilst inheriting the classic candy-bar design of its predecessor Nokia 6300.
+In late 2020, following the successful relaunch of the retro 2720 Flip and 800 Tough, HMD Global quietly introduced the new Nokia 6300 4G based on KaiOS 2.5.4. The new phone takes a modern twist whilst inheriting the classic candy-bar design of its predecessor Nokia 6300.
 
 <!-- Being the fifth Nokia-branded KaiOS devices to be released under HMD-era, it is one of the most affordable the company has ever offered in its KaiOS lineup[^1] at €49/$69.99.
 
