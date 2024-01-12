@@ -137,24 +137,24 @@ Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the 
 - You can capture a screenshot by pressing both * and # keys at the same time.
 - You don’t need a KaiOS account to use your phone or download apps from KaiStore, but you can create one in Settings, Accounts if you want to use Anti-Theft features.
 - To stop getting ad notifications from KaiStore, go to *Settings → Personalization → Notices → App notices → Store* and turn off *Allow Notices*. Then go to *Store → Options → Settings & Account → Show rich content* and select *Do not show*.
-		- To block KaiAds altogether, add `ssp.kaiads.com` in your Wi-Fi routers' blacklist or [the system's `hosts` file]. Be aware that this might prevent you from installing apps from KaiStore like WhatsApp.
+	- To block KaiAds altogether, add `ssp.kaiads.com` in your Wi-Fi routers' blacklist or [the system's `hosts` file]. Be aware that this might prevent you from installing apps from KaiStore like WhatsApp.
 - Speed Dial lets you call a contact quickly by pressing and holding a number key from 2 to 9 on the homescreen. To assign a contact to a number key, press and hold an empty key on the homescreen or go to *Contacts → Options → Settings → Set Speed Dial Contacts*. You can also change your voicemail number in the same menu.
-		- *ICE (In Case of Emergency) Contacts, however, is an useless feature on this phone, since there's basically no way to activate it. On the 2720 Flip, you could hold or double-press the side button to trigger SOS Call.*
+	- *ICE (In Case of Emergency) Contacts, however, is an useless feature on this phone, since there's basically no way to activate it. On the 2720 Flip, you could hold or double-press the side button to trigger SOS Call.*
 - You can use a GIF as your homescreen wallpaper, but it will drain your battery faster.
 - If you prefer a different layout than the default 3-by-3 grid view, you can choose *Options → List view/Single view* and rearrange the items as you like.
 - This phone has a hidden screen reader feature that might not work well with some third-party apps that have unlabeled buttons. To turn on the hidden Readout feature, open Browser, go to cyan-2048.github.io/kaios_scripts, use D-Pad to move the cursor and select *Screen Reader*.
 - There's also a hidden call recording feature that has been made available on KaiOS 2.5.2 and later. To toggle, connect the phone to a WebIDE session (see [Sideloading and debugging third-party applications]), then open *Device Settings* in the right sidebar, search for `callrecording.mode` and set it to either `on` (press D-Pad Left to record), `auto` or `off`.
-		- Alternatively you can sideload [CrossTweak] and press 3 to toggle call recording.
+	- Alternatively you can sideload [CrossTweak] and press 3 to toggle call recording.
 
 ## Known issues
 - The multiple clips holding the back panel can be stressed and quickly broken. Speaker is decent, but muffled on strong bass. *For tactile responses on keypad presses, turn on Keypad vibration under Settings → Device → Accessibility.*
-		- *Note that phone shutting itself down or not receiving any charges often come down to loose or dirty battery connectors or charging port and not software problem. Happened to me once, got the phone checked and repaired for less than $10.*
+	- *Note that phone shutting itself down or not receiving any charges often come down to loose or dirty battery connectors or charging port and not software problem. Happened to me once, got the phone checked and repaired for less than $10.*
 - **[MAJOR]** Battery can drain heavily (from 5–7 days of 4G standby to 18 hours, or 2 hours in active usage) if you leave Wi-Fi or mobile data on at all time, e.g. to be immediately notified of incoming WhatsApp messages. It's better to turn them off if you don't plan to use Internet connection, and only turn them on periodically to check for notifications.
 - **[MAJOR]** Keypad frequently registering multiple or no keystrokes instead of a single-press, because of keypad design and keypress timeout interval being too short in `keyboard.gaiamobile.org`. [BananaHackers' guide on fixing the keypad speed] may help
 - **[MAJOR]** A-GPS failing to lock your current position on 4G LTE, possibly due to interferences with TDD bands ⇒ workaround: change your A-GPS APN settings under *Settings → Mobile network & data → APN settings* or switch to 2G/3G for the phone to retrieve GPS information properly (*Settings → Mobile network & data → Carrier - SIMx → Network type → 3G/2G*). Might be major issue for those in the US where 2G/3G has been shut down.
 - **[MAJOR]** B2G takes up large chunk of memory, and RAM optimizations leading to the phone joining Doze deep sleep immediately and aggressive task killing after a few minutes, making opening or exiting apps horribly slow, and notifications—including incoming WhatsApp calls—being delayed.
-		- Wi-Fi hotspot feature will stop transmitting data packets with your other devices when you put the phone into sleep. *As a workaround, you can have [a playlist of silent MP3s played in background] to prevent the phone from Doze sleep.*
-		- *This can be permanently mitigated by modifying scripts in /boot to disable the Low Memory Killer module, which I'll mention in [Manual patching with Android Image Kitchen] below.*
+	- Wi-Fi hotspot feature will stop transmitting data packets with your other devices when you put the phone into sleep. *As a workaround, you can have [a playlist of silent MP3s played in background] to prevent the phone from Doze sleep.*
+	- *This can be permanently mitigated by modifying scripts in /boot to disable the Low Memory Killer module, which I'll mention in [Manual patching with Android Image Kitchen] below.*
 - On certain network providers where this phone isn't yet certified, such as Jio Reliance in India, you may [temporarily mute yourself on phone calls with VoLTE/VoWiFi enabled]. Putting yourself on hold and off does ease the problem.
 - Normally, you can wake up the phone from sleep by either pressing the Power, Volume up or Volume down buttons, regardless of whether keyguard is in place or not. On this phone there are no volume buttons, but some of their functions, such as triggering boot modes or waking the phone up, are mapped to * and # keys respectively. This can be problematic as those keys are located close to the bottom edge of the phone and can be randomly mashed if you store the phone in your front pockets, leading to [unintended screenshots].
 - If you forgot your lockscreen passcode (not SIM or Anti-Theft ones), you can [bypass it] by holding down the top Power button, then select *Memory Cleaner → Deep Memory Cleaning*.
@@ -162,31 +162,31 @@ Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the 
 
 ### KaiOS-specific
 - If you're setting up the phone for the first time with no SIM card, pre-installed apps such as WhatsApp, Facebook and Google apps may not appear in the app list or in KaiStore. After popping in a SIM, those apps will show up as normal.
-		- *KaiStore will show up in all circumstances, regardless of whether there's a SIM card inserted or not.*
+	- *KaiStore will show up in all circumstances, regardless of whether there's a SIM card inserted or not.*
 - This phone runs KaiOS 2.5, which itself is based on Gecko 48 from 2016, meaning without optimizations and new web technologies, some websites like Instagram and Uber just fall apart and the overall performance is unbearable.
-		- No built-in Widevine DRM decoders, which means the phone is NOT capable of playing DRM-protected content from e.g. Spotify
+	- No built-in Widevine DRM decoders, which means the phone is NOT capable of playing DRM-protected content from e.g. Spotify
 - **[MAJOR]** Some built-in apps, such as Call logs, Contacts or Music, are written in a way that is performance-intensive and not optimized for the phone, causing slow rendering and system lags if you store a large number of contacts (technically infinite but 100 recommended), call logs (max 40), music files or other items in a list.
-		- *Performance issues has been addressed on later versions, for now you should opt for alternatives such as [arma7x's K-Music] in KaiStore if possible.*
+	- *Performance issues has been addressed on later versions, for now you should opt for alternatives such as [arma7x's K-Music] in KaiStore if possible.*
 - **[MAJOR]** Sending text messages don't automatically convert to MMS in group chats. You'll have to add a message subject or file attachment before sending to manually do so, otherwise your message will be sent separately to each individual in the thread. Receiving works flawlessly. *Group messaging over MMS has been properly implemented as a feature on later versions.*
 - **[MAJOR]** Alarms can be delayed, unable to go off or go off unexpectedly if the Clock app is killed. Before going to sleep, make sure to open the Clock app and lock the phone without pressing the End call key or closing the app.
 - Predictive typing mode doesn't last between inputs, meaning if you switch between input boxes, it'll return to the normal T9 mode.
 - Photos larger than 6000-by-4000 in size aren't viewable in the Gallery app due to restrictions in place preventing memory constraints. As a workaround, you can download [FabianOvrWrt's Explorer] and [mochaSoft Aps' Photo Zoom] from KaiStore to view them instead.
 - Built-in File Manager app doesn't show folders in the internal storage other than pre-configured ones (audio, music, photos, books, videos, DCIM, downloads, others). This is [hardcoded within its code] as a measure to hide system files (such as DIC files for storing added T9 words), but can be easily misused. *To fully browse the internal storage, use third-party file managers from KaiStore, or turn on Settings → Storage → USB Storage and connect your phone to a computer.*
 - Built-in email, calendar and contact syncing function with Google account may completely fail at times. Use IMAP and import contacts instead.
-		- In December 2021, in order to [replace the expired Let's Encrypt root certificate DST Root CA X3 with the newer ISRG Root X1], KaiOS Technologies issued a Service Update over KaiStore to all active KaiOS devices. This caused the Contacts app on various phones, notably HMD/Nokia KaiOS phones and Alcatel MyFlip 2, to [freeze on open]. In some reported cases, apps such as E-Mail, Calendar and Settings failed to work as well, and Google accounts set up in the Settings app couldn't be removed. This was later classified as a bug of Google account syncing feature, and affected people were advised to wipe their devices as a fix.
-		- T9 search in Contacts app is missing. For those missing the feature, there's a port called [FastContact] by Luxferre that you can sideload to use as an alternative.
-		- E-Mail app lacks many crucial enterprise features, such as OAuth2 secure sign-in.
-		- Speaking of built-in Calendar app, if you manage to opt for syncing your Google account with the phone, only the calendar *with your email address as its name* will sync.
+	- In December 2021, in order to [replace the expired Let's Encrypt root certificate DST Root CA X3 with the newer ISRG Root X1], KaiOS Technologies issued a Service Update over KaiStore to all active KaiOS devices. This caused the Contacts app on various phones, notably HMD/Nokia KaiOS phones and Alcatel MyFlip 2, to [freeze on open]. In some reported cases, apps such as E-Mail, Calendar and Settings failed to work as well, and Google accounts set up in the Settings app couldn't be removed. This was later classified as a bug of Google account syncing feature, and affected people were advised to wipe their devices as a fix.
+	- T9 search in Contacts app is missing. For those missing the feature, there's a port called [FastContact] by Luxferre that you can sideload to use as an alternative.
+	- E-Mail app lacks many crucial enterprise features, such as OAuth2 secure sign-in.
+	- Speaking of built-in Calendar app, if you manage to opt for syncing your Google account with the phone, only the calendar *with your email address as its name* will sync.
 - You cannot change message notification tone or alarm tone on the phone outside the defaults provided. This is because both are not managed by the system, but by the Messages and Clock app themselves.
-		- To change them, you'll have to use ADB to pull `sms.gaiamobile.org` and `clock.gaiamobile.org` from `/system/b2g/webapps`, extract, edit the audio files and repackage the apps, then push them back under `/data/local/webapps` and edit the `basePath` in `/data/local/webapps/webapps.json` to reflect the change (see [BananaHackers' guide] for instructions)
+	- To change them, you'll have to use ADB to pull `sms.gaiamobile.org` and `clock.gaiamobile.org` from `/system/b2g/webapps`, extract, edit the audio files and repackage the apps, then push them back under `/data/local/webapps` and edit the `basePath` in `/data/local/webapps/webapps.json` to reflect the change (see [BananaHackers' guide] for instructions)
 - D-Pad shortcuts and app shortcuts in the carousel menu (when you press Left on the home screen) are not customizable. *The former has been addressed on later versions*, but to change them on this phone you'll have to edit `launcher.gaiamobile.org`.
 
 ### WhatsApp-specific
 - (mostly 2720 Flip) Upon getting the confirmation code needed to set up WhatsApp, you may be indefinitely stuck at Connecting WhatsApp... regardless of whether you're on Wi-Fi/mobile data or had a SIM in. Some suggested that leftover pre-configuration files seem to have caused the issue and, in most cases, can be fixed with a factory reset.
-		- *[Temporarily putting your SIM in another phone to receive the code] may help as well.*
+	- *[Temporarily putting your SIM in another phone to receive the code] may help as well.*
 - 8MB download/5MB upload limit: This is to avoid 'out of memory' errors with the nature of WhatsApp's end-to-end encryption. All things sent through the app's servers—including photos and videos—are encrypted on device. Decrypt them bit-by-bit would use too much memory for KaiOS devices, having only as much as 512MB of RAM.
 - Pairing account with the WhatsApp Web interface or desktop applications is NOT possible. This is because KaiOS cannot hold background processes or handle battery life well enough to sync decryption keys and mirrors messages & calls from the phone.
-		- Note that you cannot sign into another device, pair with WhatsApp Web and then sign into WhatsApp on KaiOS. This will cause the decryption keys to be renewed and all other devices to be logged off automatically.
+	- Note that you cannot sign into another device, pair with WhatsApp Web and then sign into WhatsApp on KaiOS. This will cause the decryption keys to be renewed and all other devices to be logged off automatically.
 
 ## Secret codes
 *Tip: You can save these codes as contacts for quick dialing later. When the phone suggests a saved code, you'll have to press Call to activate the code's function.*
@@ -197,7 +197,7 @@ Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the 
 - `*#33#` (call): Check the [Call barring] service status from carrier for blocking or whitelisting calls, whether incoming or outgoing, domestic or international. Requires a 4-digit passcode to use. To toggle, go to *Settings → Network & Connectivity → Calling → Call barring*.
 - `*#43#` (call): Check the [Call waiting] service status from carrier. To toggle, go to *Settings → Network & Connectivity → Calling → Call waiting*.
 - `*#*#372733#*#*`: Open KaiOS MMI Test, an internal tool to test hardware performance of a KaiOS device through an automatic routine or manually by hand, including LCD backlight, T9 keyboard, camera, LED flash, RTC, speaker, microphone, vibrator, 3.5mm audio jack, SIM trays, Wi-Fi, Bluetooth, NFC, microSD and microUSB slots etc.
-		- Throughout the manual speaker test, you'll hear some English and Chinese dialog from a female speaker, which transcribes to: *Hello. Please dial 110 for police, 119 for fire, 120 for ambulance, 122 for traffic accidents, and dial area code before 112 for six full obstacles.* [?]
+	- Throughout the manual speaker test, you'll hear some English and Chinese dialog from a female speaker, which transcribes to: *Hello. Please dial 110 for police, 119 for fire, 120 for ambulance, 122 for traffic accidents, and dial area code before 112 for six full obstacles.* [?]
 
 ### Codes that don't work
 Most of these codes requires `userdebug` or `eng` versions to work.
@@ -218,8 +218,7 @@ Most of these codes requires `userdebug` or `eng` versions to work.
 - **Fastboot mode**: Only accessible and automatically kick in when both /boot and /recovery is corrupted. Allows you to restore partitions under `fastboot` interface.
 - **EDL mode**: With the device powered off, hold the top Power button and both the * and # keys, or type `adb reboot edl` when connected to a computer. Boots into a black screen, allows you to read and write partitions in low-level with proprietary Qualcomm tools. Remove the battery to exit.
 
-<details markdown="block">
-	<summary>What the heck is EDL mode?</summary>
+<details markdown="block"><summary>What the heck is EDL mode?</summary>
 <hr style="font-family:monospace;">
 
 **Qualcomm Emergency Download mode**, commonly known as EDL mode, is a special engineering interface implemented on devices with Qualcomm chipsets. It lets you do special operations on the phone that only the device manufacturer can do, such as unlocking the bootloader, read and write firmwares on the phone's filesystem or recover from being a dead paperweight. Unlike bootloader or Fastboot mode, system files needed by the EDL mode resides on a separate 'primary bootloader' that aren't affected by software modifications.[^2]
