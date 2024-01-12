@@ -772,7 +772,7 @@ python edl.py reset
 [preserving line endings]: https://www.cs.toronto.edu/~krueger/csc209h/tut/line-endings.html
 [Java Runtime Environment]: https://www.java.com/en/download
 [Development/EDL tools on BananaHackers Wiki]: https://wiki.bananahackers.net/development/edl
-[Microsoft Store]: https://apps.microsoft.com/search/publisher?name=Python+Software+Foundation
+[Microsoft Store]: ms-windows-store://publisher/?name=Python%20Software%20Foundation
 [environment variable]: https://en.wikipedia.org/wiki/Environment_variable
 [Apps & features]: ms-settings:appsfeatures
 [part 4]: #part-4-flashing-the-modified-boot-
