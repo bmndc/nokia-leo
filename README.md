@@ -248,7 +248,7 @@ Detailed instructions can be found at [Sideloading and debugging/WebIDE]. Feel f
 
 To remove unwanted apps from the phone, you can use [this fork of Luxferre's AppBuster] which lets you disable any apps you don't need and enable them again if you want.
 
-# ROOT: Boot partition patching (non-US only)
+## ROOT: Boot partition patching (non-US only)
 On KaiOS 2.5.4 devices, such as the 6300 4G and 8000 4G, ADB and WebIDE can be used to install most third-party apps. However, apps with special ‘forbidden’ permissions are not allowed, including most BananaHackers apps with `engmode-extension` like Wallace Toolbox, which can be used to gain exclusive access of the phone. You also cannot make changes to the system. On the 2720 Flip and 800 Tough with KaiOS 2.5.2.2, with HMD/Nokia Mobile changing their release branches from `dev-keys` to `release-keys`, the situation is even worse as you cannot sideload at all.
 
 This is because in order for WhatsApp's VoIP feature to work on these KaiOS versions, a security module called SELinux[^3] is now set to be `Enforced` which checks and reverts system modifications on boot. To get total read-write access to the devices, you'll now have to permanently root them by setting SELinux to `Permissive` mode.
@@ -260,7 +260,7 @@ The guide below is based on the main guide from BananaHackers website, but has b
 >
 > Remember, you don't have to root your phone to do things that usually need root access e.g. you can use [this fork of Luxferre's AppBuster] to disable apps from the launcher instead of deleting them with Wallace Toolbox. You can also install [Luxferre's CrossTweak], a Wallace Toolbox alternative also made by Luxferre that does not need `engmode-extension` and therefore can be easily installed on KaiOS 2.5.4 devices.
 
-## Before proceeding: [back up] your data
+### Before proceeding: [back up] your data
 > [Murphy's Law] states, "Anything that can go wrong, will go wrong". It's a proverb from the late 1940s, and while it may not be as academically accurate and influential as [Newton's laws of motion], it's generally acknowledged in technology as a rule of thumb. Even if you do the best you can, things can unexpectedly go south, so it's always good to prepare for the worst.
 
 - To export your contacts from the built-in Contacts app, go to *Contacts → Options → Settings → Export contacts*. From there, choose to either save to a CSV file on your SD card, send through Bluetooth to other devices, or upload to Web services such as Google Contacts and Microsoft Outlook.
@@ -273,7 +273,7 @@ The guide below is based on the main guide from BananaHackers website, but has b
 
 For backing up application data (excluding WhatsApp chats), system preferences and partition images, see [Backup].
 
-## What we'll need
+### What we'll need
 - a Nokia 6300 4G (excl. TA-1324), 8000 4G, 2720 Flip, 800 Tough or Alcatel Go Flip 3;
 - an USB cable capable of data transferring (EDL cables work as well);
 - MBN firehose programmer file: [8000 4G and 6300 4G], [2720 Flip], [800 Tough] or Go Flip 3 ([AT&T/Cricket], [T-Mobile/Metro/Rogers]);
@@ -301,10 +301,10 @@ For the sake of convenience, move the Gerda Recovery image and the MBN file into
 
 *If you're on Linux, Python and ADB can be quickly set up by installing with your built-in package manager. We won't be covering this here, as each Linux distro has its own way of installing from package manager.*
 
-## Part 1: Set up environment for EDL tools
+### Part 1: Set up environment for EDL tools
 > This portion of the guide was taken from [Development/EDL tools on BananaHackers Wiki] so that you don't have to switch tabs. Kudos to Cyan for the guides!
 
-### Linux
+#### Linux
 1. Install Python from your operating system's package manager e.g.
 ```
 sudo apt-get install python pip3
@@ -323,7 +323,7 @@ Additionally, if you have issue with device access:
 - Open `/etc/modprobe.d/blacklist.conf` in a text editor and append `blacklist qcserial`.
 - Copy both `51-edl.rules` and `50-android.rules` in the root of extracted EDL tools folder to `/etc/udev/rules.d`.
 
-### macOS
+#### macOS
 1. Follow the instructions to install [Homebrew] on its homepage. Basically just open Terminal and copy the long streak of code shown on the page, and type your password when prompted.
 
 2. While you're in Terminal, type this into the command-line:
@@ -336,7 +336,7 @@ brew install python android-platform-tools libusb && pip3 install pyusb pyserial
 
 In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
-### Windows
+#### Windows
 1. Head over to [Python's official download page for Windows] and download the correct installer for your architecture, or download the latest version of Python from [Microsoft Store]. If you're downloading from Microsoft Store, skip to step 4.
 
 2. Proceed with installing Python as usual. If you choose to customize your installation, include `pip`. Don't forget to tick the box next to "Add Python to PATH" to add Python as a global [environment variable], otherwise you'll have a hard time using Python to run scripts later on.
@@ -386,8 +386,8 @@ In both cases, the phone's screen should blink with an 'enabled by KaiOS' logo t
 8. If you're configuring the driver for the first time, an "USB Device Not Recognised" pop-up may appear. Exit EDL mode by removing and re-inserting the battery, then turn on the phone in EDL mode again.
 {:start="8"}
 
-## Part 2: Obtaining the boot partition
-### Nokia 8000 4G and Nokia 6300 4G with bkerler's EDL
+### Part 2: Obtaining the boot partition
+#### Nokia 8000 4G and Nokia 6300 4G with bkerler's EDL
 > Beware: due to the firehose loader being malfunctioned, the EDL tool only accepts one command each session, after which you'll have to disconnect the phone and restart the phone in EDL mode. If you try to throw a second command, it'll result in a `bytearray index out of range` error.
 
 1. Turn on the phone in EDL mode.
@@ -421,7 +421,7 @@ You should now see `/dev/block/bootdevice/by-name/boot: 1 file pulled, 0 skipped
 
 You can disconnect the phone from your computer for now.
 
-### Nokia 2720 Flip and Nokia 800 Tough with andybalholm's EDL
+#### Nokia 2720 Flip and Nokia 800 Tough with andybalholm's EDL
 Unlike the 6300 4G and 8000 4G, our phones' EDL loader properly works with both reading and writing, so the steps are more straightforward.
 
 1. Switch your phone to EDL mode and connect it to your computer. Either:
@@ -453,8 +453,8 @@ You can disconnect the phone from your computer for now.
 > [!WARNING]
 > **Copy and keep the original boot partition somewhere safe in case you need to restore to the original state for over-the-air updates or re-enabling WhatsApp calls.**
 
-## Part 3: Patching the boot partition
-### Automatic patching with `8k-boot-patcher`
+### Part 3: Patching the boot partition
+#### Automatic patching with `8k-boot-patcher`
 1. Download and install [Docker Desktop]. Once set up, open the program, click Accept on this box and let the Docker Engine start before exiting.
 
 ![Screenshot of a window titled as 'Docker Subscription Service Agreement' which declares that you will have to accept Docker's Subscription Service Agreements, Data Processing Agreement and Data Privacy Policy in order to use the program, and the free scope of it is limited to personal and small business uses. The window also lists the options to view the full agreements, accept them or reject and close the program.](img/docker_abomination.png)
@@ -496,7 +496,7 @@ That's it! On your desktop there will be two new image files, the modified `boot
 
 ![Screenshot of boot.img and boot-orig.img files as shown on desktop](img/after_patch.png)
 
-### Manual patching with Android Image Kitchen
+#### Manual patching with Android Image Kitchen
 1. Extract the Android Image Kitchen tools and copy the boot image we've just obtained over to the root of the extracted folder.
 
 ![Screenshot of a list of folders and files contained in the extracted Android Image Kitchen folder](img/aik.png)
@@ -608,7 +608,7 @@ Indent the new line to match up with other lines as shown.
 
 If the newly packaged image is barely over 1/3 the size of the original image, it's a normal behaviour and you can proceed.
 
-## Part 4: Flashing the modified boot partition
+### Part 4: Flashing the modified boot partition
 1. Turn on your phone in EDL mode and connect it to your computer.
 2. Move the newly created `boot.img`, `unsigned-new.img` or `image-new.img` to the EDL tools folder and open Command Prompt/Terminal within it. From here type either of these commands depending on which image file you have:
 ```
@@ -631,7 +631,7 @@ python edl.py -w boot boot.img -loader 800t.mbn
 
 3. Restart the phone to normal operation mode by typing `python edl.py reset`. And we're done!
 
-### Next steps
+#### Next steps
 - Now that you've rooted your phone, to install applications with 'forbidden' permissions, connect your phone to a WebIDE session, open Device Preferences in the right pane, clear the value of `devtools.apps.forbidden-permissions`, then restart B2G by either reboot the phone or hold the top Power button and select *Memory Cleaner, Deep Clean Memory*.
 
 ![Screenshot of a WebIDE window in which the location of Device Preferences is highlighted in the right pane and the value of devTools.apps.forbiddenPermissions has been emptied](img/devpref.png)
