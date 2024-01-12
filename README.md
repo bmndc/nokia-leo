@@ -348,6 +348,7 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 
 3. On Windows 10/11, typing `python` or `python3` within Command Prompt/Windows Terminal will run the Microsoft Store version of Python. To override this default into running the locally installed version, toggle off App Installer (python.exe) and App Installer (python3.exe) under:
 {:start="3"}
+
 	- Windows 10: Settings → Apps → [Apps & features] → App execution aliases
 	- Windows 11: Settings → Apps → Advanced app settings → App execution aliases
 
