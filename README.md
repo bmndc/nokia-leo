@@ -514,10 +514,9 @@ That's it! On your desktop there will be two new image files, the modified `boot
 
 3. Let the editing begin! First, open `ramdisk/default.prop` using Notepad++ and change:
 {:start="3"}
-
-	- line 7: `ro.secure=1` → `ro.secure=0`
-	- line 8: `security.perf_harden=1` → `security.perf_harden=0`
-	- line 10: `ro.debuggable=0` → `ro.debuggable=1`
+- line 7: `ro.secure=1` → `ro.secure=0`
+- line 8: `security.perf_harden=1` → `security.perf_harden=0`
+- line 10: `ro.debuggable=0` → `ro.debuggable=1`
 
 ```diff
 @@ -4,9 +4,9 @@
