@@ -1,5 +1,4 @@
-<details markdown="block">
-  <summary dir="rtl">View device specification table</summary>
+<details markdown="block"><summary dir="rtl">View device specification table</summary>
 <table style="font-size:small">
 	<thead><tr><th></th><th>Nokia 6300 4G (nokia-leo)</th><th>Nokia 8000 4G (nokia-sparkler)</th></tr></thead>
 	<tbody>
