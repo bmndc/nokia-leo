@@ -346,11 +346,9 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 	<img alt="Screenshot of an installation window for Python 3.9 showing two options, 'Install Now' and 'Customize installation', with the checkbox for 'Add Python 3.9 to PATH' being selected" src="img/python.png">
 </p>
 
-3. On Windows 10/11, typing `python` or `python3` within Command Prompt/Windows Terminal will run the Microsoft Store version of Python. To override this default into running the locally installed version, toggle off App Installer (python.exe) and App Installer (python3.exe) under:
-{:start="3"}
-
-- Windows 10: Settings → Apps → [Apps & features] → App execution aliases
-- Windows 11: Settings → Apps → Advanced app settings → App execution aliases
+3. On Windows 10/11, typing `python` or `python3` within Command Prompt/Windows Terminal will run the Microsoft Store version of Python. To override this default into running the locally installed version, toggle off App Installer (python.exe) and App Installer (python3.exe) under: {:start="3"}
+	- Windows 10: Settings → Apps → [Apps & features] → App execution aliases
+	- Windows 11: Settings → Apps → Advanced app settings → App execution aliases
 
 <img alt="Demostration of Settings app on Windows 11. User is already on Apps page and clicking on Advanced app settings. User then clicks on App execution aliases, where the toggles for App Installer (python.exe) and App Installer (python3.exe) are turned off. Description says Apps can declare a name used to run the app from a command prompt. If multiple apps use the same name, choose which one to use." src="img/settings-alias-off.gif">
 
