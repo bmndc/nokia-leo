@@ -3,7 +3,7 @@ author: Bùi Minh Đức
 description: >
   Archive of guides, source code and firmware backups for Nokia 6300 4G.
 
-favicon: "assets/banana.png"
+favicon: "banana.png"
 
 remote_theme: riggraz/no-style-please
 
@@ -11,7 +11,7 @@ theme_config:
   appearance: "auto"
   back_home_text: "Back to main page"
   date_format: "%d-%m-%Y"
-  show_description: false
+  show_description: true
 
 plugins:
   - jekyll-seo-tag
