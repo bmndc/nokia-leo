@@ -43,7 +43,7 @@
 
 *Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and thus cannot be used to compile an entire KaiOS build.*
 
-<img width="410" align="right" src="assets/nokia_6300_4G-emotional-Range.png">
+<img width="410" align="right" src="img/nokia_6300_4G-emotional-Range.png">
 
 **Table of Contents**
 - [Don’t buy a counterfeit]
@@ -122,7 +122,7 @@ Kosher is indeed a great way to make your phone truly basic, but HMD already off
 *Photo provided by nuxx on r/KaiOS Discord server in October 2021.*
 
 <p align="center">
-  <img alt="A Kosher-customized Nokia 8000 4G with no Browser, KaiStore or third-party apps shown in 3-by-3 grid of apps. Center D-Pad key is engraved with a Hebrew symbol indicating Kosher phone" src="assets/kosher-sparkler.jpg" width="400">
+  <img alt="A Kosher-customized Nokia 8000 4G with no Browser, KaiStore or third-party apps shown in 3-by-3 grid of apps. Center D-Pad key is engraved with a Hebrew symbol indicating Kosher phone" src="img/kosher-sparkler.jpg" width="400">
 </p>
 
 ## Differences between US and international variants
@@ -236,7 +236,7 @@ EDL programmer for the international version of this phone (not TA-1324) can be 
 [As discovered by atipls on Discord], on the mainboard of the 6300 4G, there are 3 UART testing points: TX, RX and GND just above the SIM2 slot. Shorting TX and GND takes you to Fastboot and Linux terminal interface.
 
 <p align="center">
-  <img alt="Mainboard of a TA-1307 Nokia 6300 4G, with the red arrow pointing to three gold contacts in the middle of the board, those being the UART testpoints in the order of TX, RX and ground" src="assets/testpoint.png">
+  <img alt="Mainboard of a TA-1307 Nokia 6300 4G, with the red arrow pointing to three gold contacts in the middle of the board, those being the UART testpoints in the order of TX, RX and ground" src="img/testpoint.png">
 </p>
 
 ## Sideloading and debugging third-party applications
@@ -341,14 +341,14 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 
 2. Proceed with installing Python as usual. If you choose to customize your installation, include `pip`. Don't forget to tick the box next to "Add Python to PATH" to add Python as a global [environment variable], otherwise you'll have a hard time using Python to run scripts later on.
 
-![Screenshot of an installation window for Python 3.9 showing two options, 'Install Now' and 'Customize installation', with the checkbox for 'Add Python 3.9 to PATH' being selected](assets/python.png)
+![Screenshot of an installation window for Python 3.9 showing two options, 'Install Now' and 'Customize installation', with the checkbox for 'Add Python 3.9 to PATH' being selected](img/python.png)
 
 3. On Windows 10/11, typing `python` or `python3` within Command Prompt/Windows Terminal will run the Microsoft Store version of Python. To override this default into running the locally installed version, toggle off App Installer (python.exe) and App Installer (python3.exe) under:
 {:start="3"}
   - Windows 10: Settings → Apps → [Apps & features] → App execution aliases
   - Windows 11: Settings → Apps → Advanced app settings → App execution aliases
 
-<img alt="Demostration of Settings app on Windows 11. User is already on Apps page and clicking on Advanced app settings. User then clicks on App execution aliases, where the toggles for App Installer (python.exe) and App Installer (python3.exe) are turned off. Description says Apps can declare a name used to run the app from a command prompt. If multiple apps use the same name, choose which one to use." src="assets/settings-alias-off.gif">
+<img alt="Demostration of Settings app on Windows 11. User is already on Apps page and clicking on Advanced app settings. User then clicks on App execution aliases, where the toggles for App Installer (python.exe) and App Installer (python3.exe) are turned off. Description says Apps can declare a name used to run the app from a command prompt. If multiple apps use the same name, choose which one to use." src="img/settings-alias-off.gif">
 
 4. Open Command Prompt/Windows Terminal with administrator privileges and run this command to install the required dependencies for EDL:
 {:start="4"}
@@ -357,13 +357,13 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 pip3 install pyusb pyserial capstone keystone-engine docopt
 ```
 
-![Screenshot of a console window showing the successful process of collecting and downloading dependencies after typing the above command](assets/pythoooon.png)
+![Screenshot of a console window showing the successful process of collecting and downloading dependencies after typing the above command](img/pythoooon.png)
 
 5. Extract the previously downloaded EDL package, open Drivers, Windows and run `Qualcomm_Diag_QD_Loader_2016_driver.exe` with administrator rights. Proceed with installation and leave everything as default, restart the computer if it prompts you to do so.
 {:start="5"}
 
 <p align="center">
-  <img alt="Screenshot of an installation window for Qualcomm's diagnostic driver, in which two radio buttons are shown labelled 'WWAN-DHCP is not used to get IPAddress' and 'ETHERNET-DHCP is used to get IPAddress' respectively. The first button is selected." src="assets/whatever.png">
+  <img alt="Screenshot of an installation window for Qualcomm's diagnostic driver, in which two radio buttons are shown labelled 'WWAN-DHCP is not used to get IPAddress' and 'ETHERNET-DHCP is used to get IPAddress' respectively. The first button is selected." src="img/whatever.png">
 </p>
 
 6. Switch your phone to EDL mode and connect it to your computer. Either:
@@ -377,7 +377,7 @@ In both cases, the phone's screen should blink with an 'enabled by KaiOS' logo t
 {:start="7"}
 
 <p align="center">
-  <img src="assets/qhsusb-zadig.gif" alt="9-frame GIF demostrating Zadig's main interface, List All Devices option being selected from Option menu, QHSUSB_BULK being selected from the main dropdown list, followed by the second label box on the Drivers line, to which the green arrow points, changed to 'libusb-win32 (v1.2.6.0)'. Two smaller up/down arrows are right next to that box.">
+  <img src="img/qhsusb-zadig.gif" alt="9-frame GIF demostrating Zadig's main interface, List All Devices option being selected from Option menu, QHSUSB_BULK being selected from the main dropdown list, followed by the second label box on the Drivers line, to which the green arrow points, changed to 'libusb-win32 (v1.2.6.0)'. Two smaller up/down arrows are right next to that box.">
 </p>
 
 > [!NOTE]
@@ -457,7 +457,7 @@ You can disconnect the phone from your computer for now.
 ### Automatic patching with `8k-boot-patcher`
 1. Download and install [Docker Desktop]. Once set up, open the program, click Accept on this box and let the Docker Engine start before exiting.
 
-![Screenshot of a window titled as 'Docker Subscription Service Agreement' which declares that you will have to accept Docker's Subscription Service Agreements, Data Processing Agreement and Data Privacy Policy in order to use the program, and the free scope of it is limited to personal and small business uses. The window also lists the options to view the full agreements, accept them or reject and close the program.](assets/docker_abomination.png)
+![Screenshot of a window titled as 'Docker Subscription Service Agreement' which declares that you will have to accept Docker's Subscription Service Agreements, Data Processing Agreement and Data Privacy Policy in order to use the program, and the free scope of it is limited to personal and small business uses. The window also lists the options to view the full agreements, accept them or reject and close the program.](img/docker_abomination.png)
 
 2. Use [Git] to clone/download the boot patcher toolkit by typing this into Command Prompt/Terminal. This will download the toolkit and have Docker set it up. Do not omit the dot/period at the end of this command, this tells Docker where our downloaded toolkit are located on the system.
 {:start="2"}
@@ -465,7 +465,7 @@ You can disconnect the phone from your computer for now.
 ```
 git clone https://gitlab.com/suborg/8k-boot-patcher.git && cd 8k-boot-patcher && docker build -t 8kbootpatcher .
 ```
-![Screenshot of a macOS Terminal window showing some logs in purple text after typing the command above](assets/docker_build.png)
+![Screenshot of a macOS Terminal window showing some logs in purple text after typing the command above](img/docker_build.png)
 
 3. Copy the `boot.img` file we've just pulled from our phone to the desktop and do not change its name. Type this into Command Prompt/Terminal to run the patching process:
 {:start="3"}
@@ -494,17 +494,17 @@ Boot image patched!
 ```
 That's it! On your desktop there will be two new image files, the modified `boot.img` and the original `boot-orig.img`. You can now head to [part 4].
 
-![Screenshot of boot.img and boot-orig.img files as shown on desktop](assets/after_patch.png)
+![Screenshot of boot.img and boot-orig.img files as shown on desktop](img/after_patch.png)
 
 ### Manual patching with Android Image Kitchen
 1. Extract the Android Image Kitchen tools and copy the boot image we've just obtained over to the root of the extracted folder.
 
-![Screenshot of a list of folders and files contained in the extracted Android Image Kitchen folder](assets/aik.png)
+![Screenshot of a list of folders and files contained in the extracted Android Image Kitchen folder](img/aik.png)
 
 2. Open the folder in Command Prompt/Terminal and type `unpackimg boot.img`. This will split the image file and unpack the ramdisk to their subdirectories.
 {:start="2"}
 
-![Screenshot of a Windows Command Prompt window showing some logs of the boot partition extracting process after typing the command above](assets/unpack.png)
+![Screenshot of a Windows Command Prompt window showing some logs of the boot partition extracting process after typing the command above](img/unpack.png)
 
 > [!WARNING]
 > **Be sure to edit the files correctly, else the phone won't boot!**
@@ -531,7 +531,7 @@ That's it! On your desktop there will be two new image files, the modified `boot
   ro.zygote=zygote32
 ```
 <p align="center">
-  <img src="assets/default_prop_edited.png" alt="Screenshot of the modified content of the default.prop file">
+  <img src="img/default_prop_edited.png" alt="Screenshot of the modified content of the default.prop file">
 </p>
 
 4. Open `ramdisk/init.qcom.early_boot.sh` in Notepad++ and add `setenforce 0` as a new line at the end of the file.
@@ -555,13 +555,13 @@ That's it! On your desktop there will be two new image files, the modified `boot
 
 ```
 <p align="center">
-  <img src="assets/setenforce.png" alt="Screenshot of the modified content of the init.qcom.early_boot.sh file">
+  <img src="img/setenforce.png" alt="Screenshot of the modified content of the init.qcom.early_boot.sh file">
 </p>
 
 5. Go back to the root Android Image Kitchen folder and open `split_img/boot.img-cmdline` in Notepad++. Without adding a new line, scroll to the end of the first line and append `androidboot.selinux=permissive enforcing=0`.
 {:start="5"}
 
-![Screenshot of the modified content of the boot.img-cmdline file](assets/append.png)
+![Screenshot of the modified content of the boot.img-cmdline file](img/append.png)
 
 6. Open `ramdisk/init.rc` (NOT `ramdisk/init`) and delete line 393 `setprop selinux.reload_policy 1` or mark a comment as shown. This will ultimately prevent SELinux from overwriting the policy changes we made above.
 {:start="6"}
@@ -595,16 +595,16 @@ Indent the new line to match up with other lines as shown.
   chown root system /sys/module/lowmemorykiller/parameters/minfree
   chmod 0664 /sys/module/lowmemorykiller/parameters/minfree
 ```
-![Screenshot of the modified content of the init.rc file, with line 393 marked as comment which has the same effects as deleting the line altogether, and line 421 added to disable the Low Memory Killer module](assets/f5-selinux.png)
+![Screenshot of the modified content of the init.rc file, with line 393 marked as comment which has the same effects as deleting the line altogether, and line 421 added to disable the Low Memory Killer module](img/f5-selinux.png)
 
 8. And that's a wrap! Open the root Android Image Kitchen folder in a command-line window and type `repackimg` to package our modified boot partition.
 {:start="8"}
 
-![Screenshot of a Windows Command Prompt window showing some logs of the boot partition repacking process after typing the above command, but has a signing error at the end](assets/repack_unsigned.png)
+![Screenshot of a Windows Command Prompt window showing some logs of the boot partition repacking process after typing the above command, but has a signing error at the end](img/repack_unsigned.png)
 
 *If you happen to encounter an error during the signing process, that's likely because the process uses `java` to power the `boot-signer.jar` sequence and you don't have it installed. The image will still be packaged and ready for flashing, but if you're a perfectionist, you can install JRE and try again.*
 
-![Screenshot of a Windows Command Prompt window showing some logs of the fully successful boot partition process](assets/repackimg_signed.png)
+![Screenshot of a Windows Command Prompt window showing some logs of the fully successful boot partition process](img/repackimg_signed.png)
 
 If the newly packaged image is barely over 1/3 the size of the original image, it's a normal behaviour and you can proceed.
 
@@ -634,7 +634,7 @@ python edl.py -w boot boot.img -loader 800t.mbn
 ### Next steps
 - Now that you've rooted your phone, to install applications with 'forbidden' permissions, connect your phone to a WebIDE session, open Device Preferences in the right pane, clear the value of `devtools.apps.forbidden-permissions`, then restart B2G by either reboot the phone or hold the top Power button and select *Memory Cleaner, Deep Clean Memory*.
 
-![Screenshot of a WebIDE window in which the location of Device Preferences is highlighted in the right pane and the value of devTools.apps.forbiddenPermissions has been emptied](assets/devpref.png)
+![Screenshot of a WebIDE window in which the location of Device Preferences is highlighted in the right pane and the value of devTools.apps.forbiddenPermissions has been emptied](img/devpref.png)
 
 - If you disabled the Low Memory Killer module, hooray, more tasks can run in background but are prone to crashes. [Increasing the swapfile size] prevents that from happening.
 - If you wish to retain privileged permissions after restoring the phone to its unrooted state, before doing so, back up all data, sideload [Luxferre's CrossTweak] then press # to perform a privileged factory reset — this will wipe all data of the phone and let you set up with a privileged session. This session will last until an OTA update overrides or you choose to factory reset normally yourself.
