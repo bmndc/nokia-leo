@@ -70,7 +70,9 @@
 	- [Part 4: Flashing the modified boot partition]
 - [External links]
 
-In late 2020, following the successful launch of the 2720 Flip and 800 Tough, alongside the new Nokia 8000 4G, HMD Global introduced the new Nokia 6300 4G. Being the fifth Nokia-branded KaiOS devices to be released under HMD-era, it is one of the most affordable the company has ever offered in its KaiOS lineup[^1] at €49/$69.99.
+In late 2020, following the successful relaunch of the retro 2720 Flip and 800 Tough, HMD Global introduced the new Nokia 6300 4G. The new phone takes a modern twist whilst inheriting the classic candy-bar design of its predecessor Nokia 6300.
+
+<!-- Being the fifth Nokia-branded KaiOS devices to be released under HMD-era, it is one of the most affordable the company has ever offered in its KaiOS lineup[^1] at €49/$69.99.
 
 The new phone takes a modern twist whilst resembling the classic candy-bar design of its predecessor Nokia 6300. It features a tall, narrow look with rounded corners, and is made out of polycarbonate shell that *feels* sturdy and comfortable to hold in the palm of hand.
 
@@ -80,19 +82,7 @@ It runs on KaiOS 2.5.4, which features popular apps like WhatsApp, Facebook, You
 
 With the firmware update to 12.00.17.01 (see [ROOT: Boot partition patching (non-US only)]), the new 6300 4G became one of the few KaiOS phones to be able to make and receive WhatsApp voice calls, allowing you to easily stay connected with your loved ones amid the [COVID-19 pandemic] lockdown.
 
-Reception of the phone has been mostly negative, however, with users on sites like Amazon, Best Buy and GSMArena complaining about software issues: poor battery life when using on Wi-Fi or mobile data, unintended keypresses, RAM management issues and outdated operating system kernel (see [Known issues]). Starting with the update to 30.00.17.01 in selected regions, as Google phased out support, Google Assistant was removed from the OS.
-
-<!-- In late 2020, following the successful launch of the redesigned 2720 Flip and 800 Tough, alongside the new Nokia 8000 4G, HMD Global introduced the new Nokia 6300 4G based on KaiOS. The phone takes a modern twist on the classic candy-bar shape of its predecessor Nokia 6300, with a taller, narrower look and rounded corners. It has a polycarbonate shell, which *feels* sturdy and comfortable to hold in the palm of the hand.
-
-Being the fifth Nokia-branded KaiOS device to be released under HMD-era, it is one of the most affordable the company has ever offered in its KaiOS lineup[^1] at €49/$69.99.  
-
-It features 4G LTE connectivity, which allows faster Internet speed and clearer calls with VoLTE; as well as Wi-Fi calling, which improves call quality in areas with poor cellular coverage. Moreover, they can be used as Wi-Fi hotspot to share Internet connection with other devices.
-
-It runs on KaiOS 2.5.4, which includes popular apps like WhatsApp, Facebook, YouTube, Google Maps, and until recently, Google Assistant.
-
-With the firmware update to 12.00.17.01 (see [ROOT: Boot partition patching (non-US only)]), the new 6300 4G became one of the few KaiOS phones to be able to make and receive WhatsApp voice calls. This allowed users to easily stay in touch with their loved ones amid the [COVID-19 pandemic].
-
-Reception of the phone has been unfavourable, nevertheless, with users on sites like Amazon, Best Buy and GSMArena complaining about software issues: poor battery life when using on Wi-Fi or mobile data, unintended keypresses, RAM management issues and outdated operating system kernel (see [Known issues]). Starting with the update to 30.00.17.01 in selected regions, as Google phased out support, Google Assistant was removed from the OS. -->
+Reception of the phone has been mostly unfavorable, nevertheless, with users on sites like Amazon, Best Buy and GSMArena complaining about software issues: poor battery life when using on Wi-Fi or mobile data, unintended keypresses, RAM management issues and outdated operating system kernel (see [Known issues]). Starting with the update to 30.00.17.01 in selected regions, as Google phased out support, Google Assistant was removed from the OS. -->
 
 <!-- One of the features of the Nokia 6300 4G phone is that it has a dual-SIM feature. This means that you can use two different phone numbers on the same device. This can be useful if you travel to different countries or want to separate your personal and work calls. You can also switch between the SIM cards easily on the phone settings.
 
@@ -102,12 +92,12 @@ The phone runs on KaiOS, which is a simple operating system that lets you use so
 
 However, the phone also has some drawbacks. The phone has a 0.3MP camera, which is very low quality compared to most smartphones. You can take photos and videos, but they will not look very sharp or clear. The phone also has a 2.4-inch screen, which is small and has low resolution. This can make it hard to see the details or read the text on the screen.
 
-The phone also has some software issues that many users have complained about. Some of the problems are: poor battery life, unintended keypresses, RAM management issues, and outdated operating system kernel. These issues can affect the performance and usability of the phone. The phone also lost the Google Assistant feature, which was a useful way to control the phone with your voice. Google stopped supporting the phone, so it no longer has the voice assistant. -->
+The phone also has some software issues that many users have complained about. Some of the problems are: poor battery life, unintended keypresses, RAM management issues, and outdated operating system kernel. These issues can affect the performance and usability of the phone. The phone also lost the Google Assistant feature, which was a useful way to control the phone with your voice. Google stopped supporting the phone, so it no longer has the voice assistant.
 
 - [Nokia 6300 4G review] by PC Magazine
 - [In-Depth Review of the Nokia 6300 4G] on r/dumbphones
 - [Nokia 6300 4G review after a month of use] by u/Successful_Craft_281 on r/dumbphones
-- [One week of use, the good, bad and the ugly… (Nokia 6300 4G)] by u/nemanjitca on r/dumbphones
+- [One week of use, the good, bad and the ugly… (Nokia 6300 4G)] by u/nemanjitca on r/dumbphones -->
 
 ## Don't buy a counterfeit
 Beware of ~~Wish.com~~ eBay listings if you plan to get yourself an 8110 4G, 2720 Flip or 6300 4G.
