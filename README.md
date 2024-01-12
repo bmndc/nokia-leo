@@ -346,9 +346,10 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 	<img alt="Screenshot of an installation window for Python 3.9 showing two options, 'Install Now' and 'Customize installation', with the checkbox for 'Add Python 3.9 to PATH' being selected" src="img/python.png">
 </p>
 
-3. On Windows 10/11, typing `python` or `python3` within Command Prompt/Windows Terminal will run the Microsoft Store version of Python. To override this default into running the locally installed version, toggle off App Installer (python.exe) and App Installer (python3.exe) under: {:start="3"}
-	- Windows 10: Settings → Apps → [Apps & features] → App execution aliases
-	- Windows 11: Settings → Apps → Advanced app settings → App execution aliases
+3. On Windows 10/11, typing `python` or `python3` within Command Prompt/Windows Terminal will run the Microsoft Store version of Python. To override this default into running the locally installed version, toggle off App Installer (python.exe) and App Installer (python3.exe) under:
+{:start="3"}
+- Windows 10: Settings → Apps → [Apps & features] → App execution aliases
+- Windows 11: Settings → Apps → Advanced app settings → App execution aliases
 
 <img alt="Demostration of Settings app on Windows 11. User is already on Apps page and clicking on Advanced app settings. User then clicks on App execution aliases, where the toggles for App Installer (python.exe) and App Installer (python3.exe) are turned off. Description says Apps can declare a name used to run the app from a command prompt. If multiple apps use the same name, choose which one to use." src="img/settings-alias-off.gif">
 
@@ -370,9 +371,8 @@ pip3 install pyusb pyserial capstone keystone-engine docopt
 
 6. Switch your phone to EDL mode and connect it to your computer. Either:
 {:start="6"}
-
-	- if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
-	- if your phone is off, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
+- if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
+- if your phone is off, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
 
 In both cases, the phone's screen should blink with an 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
@@ -428,7 +428,6 @@ You can disconnect the phone from your computer for now.
 Unlike the 6300 4G and 8000 4G, our phones' EDL loader properly works with both reading and writing, so the steps are more straightforward.
 
 1. Switch your phone to EDL mode and connect it to your computer. Either:
-
 	- if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
 	- if your phone is off, hold down both side volume keys (2720 Flip) or both D-Pad Up and Down keys (800 Tough) at the same time while inserting the USB cable to the phone.
 
@@ -473,9 +472,8 @@ git clone https://gitlab.com/suborg/8k-boot-patcher.git && cd 8k-boot-patcher &&
 
 3. Copy the `boot.img` file we've just pulled from our phone to the desktop and do not change its name. Type this into Command Prompt/Terminal to run the patching process:
 {:start="3"}
-
-	- Windows: `docker run --rm -it -v %cd%/Desktop:/image 8kbootpatcher`
-	- macOS/Linux: `docker run --rm -it -v ~/Desktop:/image 8kbootpatcher`
+- Windows: `docker run --rm -it -v %cd%/Desktop:/image 8kbootpatcher`
+- macOS/Linux: `docker run --rm -it -v ~/Desktop:/image 8kbootpatcher`
 
 ```
 $ docker run --rm -it -v ~/Desktop:/image 8kbootpatcher
