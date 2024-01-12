@@ -41,7 +41,7 @@
 	</tbody>
 </table></details>
 
-*Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in `leo-v20` branch of this repository. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and thus cannot be used to compile an entire KaiOS build.*
+*Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and thus cannot be used to compile an entire KaiOS build.*
 
 <img width="410" align="right" src="assets/nokia_6300_4G-emotional-Range.png">
 
@@ -70,9 +70,9 @@
 	- [Part 4: Flashing the modified boot partition]
 - [External links]
 
-In late 2020, following the successful relaunch of the retro 2720 Flip and 800 Tough, HMD Global quietly introduced the new Nokia 6300 4G based on KaiOS 2.5.4. The new phone takes a minimalistic twist whilst inheriting the classic candy-bar design of the original Nokia 6300.
+<!-- In late 2020, following the successful relaunch of the retro 2720 Flip and 800 Tough, HMD Global quietly introduced the new Nokia 6300 4G based on KaiOS 2.5.4. The new phone takes a minimalistic twist whilst inheriting the classic candy-bar design of the original Nokia 6300.
 
-<!-- Being the fifth Nokia-branded KaiOS devices to be released under HMD-era, it is one of the most affordable the company has ever offered in its KaiOS lineup[^1] at €49/$69.99.
+Being the fifth Nokia-branded KaiOS devices to be released under HMD-era, it is one of the most affordable the company has ever offered in its KaiOS lineup[^1] at €49/$69.99.
 
 The new phone takes a modern twist whilst resembling the classic candy-bar design of its predecessor Nokia 6300. It features a tall, narrow look with rounded corners, and is made out of polycarbonate shell that *feels* sturdy and comfortable to hold in the palm of hand.
 
@@ -94,7 +94,6 @@ However, the phone also has some drawbacks. The phone has a 0.3MP camera, which 
 
 The phone also has some software issues that many users have complained about. Some of the problems are: poor battery life, unintended keypresses, RAM management issues, and outdated operating system kernel. These issues can affect the performance and usability of the phone. The phone also lost the Google Assistant feature, which was a useful way to control the phone with your voice. Google stopped supporting the phone, so it no longer has the voice assistant.
 
-- [Nokia 6300 4G review] by PC Magazine
 - [In-Depth Review of the Nokia 6300 4G] on r/dumbphones
 - [Nokia 6300 4G review after a month of use] by u/Successful_Craft_281 on r/dumbphones
 - [One week of use, the good, bad and the ugly… (Nokia 6300 4G)] by u/nemanjitca on r/dumbphones -->
@@ -261,7 +260,7 @@ The guide below is based on the main guide from BananaHackers website, but has b
 >
 > Remember, you don't have to root your phone to do things that usually need root access e.g. you can use [this fork of Luxferre's AppBuster] to disable apps from the launcher instead of deleting them with Wallace Toolbox. You can also install [Luxferre's CrossTweak], a Wallace Toolbox alternative also made by Luxferre that does not need `engmode-extension` and therefore can be easily installed on KaiOS 2.5.4 devices.
 
-### Before proceeding: [back up] your data
+## Before proceeding: [back up] your data
 > [Murphy's Law] states, "Anything that can go wrong, will go wrong". It's a proverb from the late 1940s, and while it may not be as academically accurate and influential as [Newton's laws of motion], it's generally acknowledged in technology as a rule of thumb. Even if you do the best you can, things can unexpectedly go south, so it's always good to prepare for the worst.
 
 - To export your contacts from the built-in Contacts app, go to *Contacts → Options → Settings → Export contacts*. From there, choose to either save to a CSV file on your SD card, send through Bluetooth to other devices, or upload to Web services such as Google Contacts and Microsoft Outlook.
@@ -274,7 +273,7 @@ The guide below is based on the main guide from BananaHackers website, but has b
 
 For backing up application data (excluding WhatsApp chats), system preferences and partition images, see [Backup].
 
-### What we'll need
+## What we'll need
 - a Nokia 6300 4G (excl. TA-1324), 8000 4G, 2720 Flip, 800 Tough or Alcatel Go Flip 3;
 - an USB cable capable of data transferring (EDL cables work as well);
 - MBN firehose programmer file: [8000 4G and 6300 4G], [2720 Flip], [800 Tough] or Go Flip 3 ([AT&T/Cricket], [T-Mobile/Metro/Rogers]);
@@ -302,10 +301,10 @@ For the sake of convenience, move the Gerda Recovery image and the MBN file into
 
 *If you're on Linux, Python and ADB can be quickly set up by installing with your built-in package manager. We won't be covering this here, as each Linux distro has its own way of installing from package manager.*
 
-### Part 1: Set up environment for EDL tools
+## Part 1: Set up environment for EDL tools
 > This portion of the guide was taken from [Development/EDL tools on BananaHackers Wiki] so that you don't have to switch tabs. Kudos to Cyan for the guides!
 
-#### Linux
+### Linux
 1. Install Python from your operating system's package manager e.g.
 ```
 sudo apt-get install python pip3
@@ -324,7 +323,7 @@ Additionally, if you have issue with device access:
 - Open `/etc/modprobe.d/blacklist.conf` in a text editor and append `blacklist qcserial`.
 - Copy both `51-edl.rules` and `50-android.rules` in the root of extracted EDL tools folder to `/etc/udev/rules.d`.
 
-#### macOS
+### macOS
 1. Follow the instructions to install [Homebrew] on its homepage. Basically just open Terminal and copy the long streak of code shown on the page, and type your password when prompted.
 
 2. While you're in Terminal, type this into the command-line:
@@ -337,7 +336,7 @@ brew install python android-platform-tools libusb && pip3 install pyusb pyserial
 
 In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
-#### Windows
+### Windows
 1. Head over to [Python's official download page for Windows] and download the correct installer for your architecture, or download the latest version of Python from [Microsoft Store]. If you're downloading from Microsoft Store, skip to step 4.
 
 2. Proceed with installing Python as usual. If you choose to customize your installation, include `pip`. Don't forget to tick the box next to "Add Python to PATH" to add Python as a global [environment variable], otherwise you'll have a hard time using Python to run scripts later on.
@@ -387,8 +386,8 @@ In both cases, the phone's screen should blink with an 'enabled by KaiOS' logo t
 8. If you're configuring the driver for the first time, an "USB Device Not Recognised" pop-up may appear. Exit EDL mode by removing and re-inserting the battery, then turn on the phone in EDL mode again.
 {:start="8"}
 
-### Part 2: Obtaining the boot partition
-#### Nokia 8000 4G and Nokia 6300 4G with bkerler's EDL
+## Part 2: Obtaining the boot partition
+### Nokia 8000 4G and Nokia 6300 4G with bkerler's EDL
 > Beware: due to the firehose loader being malfunctioned, the EDL tool only accepts one command each session, after which you'll have to disconnect the phone and restart the phone in EDL mode. If you try to throw a second command, it'll result in a `bytearray index out of range` error.
 
 1. Turn on the phone in EDL mode.
@@ -422,7 +421,7 @@ You should now see `/dev/block/bootdevice/by-name/boot: 1 file pulled, 0 skipped
 
 You can disconnect the phone from your computer for now.
 
-#### Nokia 2720 Flip and Nokia 800 Tough with andybalholm's EDL
+### Nokia 2720 Flip and Nokia 800 Tough with andybalholm's EDL
 Unlike the 6300 4G and 8000 4G, our phones' EDL loader properly works with both reading and writing, so the steps are more straightforward.
 
 1. Switch your phone to EDL mode and connect it to your computer. Either:
@@ -454,8 +453,8 @@ You can disconnect the phone from your computer for now.
 > [!WARNING]
 > **Copy and keep the original boot partition somewhere safe in case you need to restore to the original state for over-the-air updates or re-enabling WhatsApp calls.**
 
-### Part 3: Patching the boot partition
-#### Automatic patching with `8k-boot-patcher`
+## Part 3: Patching the boot partition
+### Automatic patching with `8k-boot-patcher`
 1. Download and install [Docker Desktop]. Once set up, open the program, click Accept on this box and let the Docker Engine start before exiting.
 
 ![Screenshot of a window titled as 'Docker Subscription Service Agreement' which declares that you will have to accept Docker's Subscription Service Agreements, Data Processing Agreement and Data Privacy Policy in order to use the program, and the free scope of it is limited to personal and small business uses. The window also lists the options to view the full agreements, accept them or reject and close the program.](assets/docker_abomination.png)
@@ -497,7 +496,7 @@ That's it! On your desktop there will be two new image files, the modified `boot
 
 ![Screenshot of boot.img and boot-orig.img files as shown on desktop](assets/after_patch.png)
 
-#### Manual patching with Android Image Kitchen
+### Manual patching with Android Image Kitchen
 1. Extract the Android Image Kitchen tools and copy the boot image we've just obtained over to the root of the extracted folder.
 
 ![Screenshot of a list of folders and files contained in the extracted Android Image Kitchen folder](assets/aik.png)
@@ -609,7 +608,7 @@ Indent the new line to match up with other lines as shown.
 
 If the newly packaged image is barely over 1/3 the size of the original image, it's a normal behaviour and you can proceed.
 
-### Part 4: Flashing the modified boot partition
+## Part 4: Flashing the modified boot partition
 1. Turn on your phone in EDL mode and connect it to your computer.
 2. Move the newly created `boot.img`, `unsigned-new.img` or `image-new.img` to the EDL tools folder and open Command Prompt/Terminal within it. From here type either of these commands depending on which image file you have:
 ```
@@ -632,7 +631,7 @@ python edl.py -w boot boot.img -loader 800t.mbn
 
 3. Restart the phone to normal operation mode by typing `python edl.py reset`. And we're done!
 
-#### Next steps
+### Next steps
 - Now that you've rooted your phone, to install applications with 'forbidden' permissions, connect your phone to a WebIDE session, open Device Preferences in the right pane, clear the value of `devtools.apps.forbidden-permissions`, then restart B2G by either reboot the phone or hold the top Power button and select *Memory Cleaner, Deep Clean Memory*.
 
 ![Screenshot of a WebIDE window in which the location of Device Preferences is highlighted in the right pane and the value of devTools.apps.forbiddenPermissions has been emptied](assets/devpref.png)
@@ -652,28 +651,26 @@ python edl.py reset
 ```
 
 ## External links
-- [Nokia 6300 4G product page](https://www.nokia.com/phones/en_int/nokia-6300-4g) on Nokia Mobile's website
-- [Nokia 8000 4G product page](https://www.nokia.com/phones/en_int/nokia-8000-4g) on Nokia Mobile's website
-- [Discussion: Nokia 6300 4G and Nokia 8000 4G](https://4pda.to/forum/index.php?showtopic=1009510) on 4PDA Forum (Russian)
-- [Nokia 8000 4G and Nokia 6300 4G general discussion thread](https://groups.google.com/g/bananahackers/c/jxEC3RVMYvI) on BananaHackers Google Groups
-- [Nokia 8000 4G rooting research thread](https://groups.google.com/g/bananahackers/c/8lCqP15zHXg) on BananaHackers Google Groups
-- [Nokia 6300 4G (nokia-leo)](https://wiki.postmarketos.org/wiki/Nokia_6300_4G_(nokia-leo)) on postmarketOS Wiki
-- [Nokia 8000 4G (nokia-sparkler)](https://wiki.postmarketos.org/wiki/Nokia_8000_4G_(nokia-sparkler)) on postmarketOS Wiki
-- [Affe Null's Bananian project repository](https://git.abscue.de/bananian/bananian), a Debian port for KaiOS devices
+- [Nokia 6300 4G product page] on Nokia Mobile's website
+- [Nokia 8000 4G product page] on Nokia Mobile's website
+- [Nokia 6300 4G review] by PC Magazine
+- [Discussion: Nokia 6300 4G and Nokia 8000 4G] on 4PDA Forum (Russian)
+- [Nokia 8000 4G and Nokia 6300 4G general discussion thread] on BananaHackers Google Groups
+- [Nokia 8000 4G rooting research thread] on BananaHackers Google Groups
+- [Nokia 6300 4G (nokia-leo)] on postmarketOS Wiki
+- [Nokia 8000 4G (nokia-sparkler)] on postmarketOS Wiki
+- [Affe Null's Bananian project repository], a Debian port for KaiOS devices
 
-*GitHub Pages theme: MIT-licensed [riggraz/no-style-please](https://github.com/riggraz/no-style-please)*
+*GitHub Pages theme: MIT-licensed [riggraz/no-style-please](https://github.com/riggraz/no-style-please). Logo by [Vitaly Gorbachev](https://www.flaticon.com/free-icons/banana) from Flaticons*
 
-*Logo by [Vitaly Gorbachev](https://www.flaticon.com/free-icons/banana) from Flaticons*
-
+<!-- these are called footnotes -->
 [^1]: Taken from HMD's official [press release](https://www.hmdglobal.com/new-nokia-feature-phones-nokia-6300-4g-and-nokia-8000-4g) and [promotional video](https://www.youtube.com/watch?v=pub47YzYBJs).
-
 [^2]: Aleph Security has a [deep-dive blog post](https://alephsecurity.com/2018/01/22/qualcomm-edl-1) into exploiting the nature of EDL mode on Qualcomm devices. If you're into the overall boot process, check out the breakdown of Qualcomm's Chain of Trust on [LineageOS Engineering Blog](https://lineageos.org/engineering/Qualcomm-Firmware).
-
 [^3]: Read more about SELinux on [LineageOS team's Engineering Blog](https://lineageos.org/engineering/HowTo-SELinux).
 
-<hr style="font-family:monospace;">
-
 <!-- Table of Contents -->
+[provided by HMD]: https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz
+[`leo-v20` branch of this repository]: https://github.com/minhduc-bui1/nokia-leo/tree/leo-v20
 [Don’t buy a counterfeit]: #dont-buy-a-counterfeit
 [About Kosher phones]: #about-kosher-phones
 [Differences between US and international variants]: #differences-between-us-and-international-variants
@@ -698,9 +695,7 @@ python edl.py reset
 [Part 4: Flashing the modified boot partition]: #part-4-flashing-the-modified-boot-partition
 [External links]: #external-links
 
-[provided by HMD]: https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz
 [COVID-19 pandemic]: https://en.wikipedia.org/wiki/COVID-19_pandemic
-[Nokia 6300 4G review]: https://www.pcmag.com/reviews/nokia-6300-4g
 [In-Depth Review of the Nokia 6300 4G]: https://www.reddit.com/r/dumbphones/comments/t146b9/indepth_review_of_the_nokia_6300_4g/
 [Nokia 6300 4G review after a month of use]: https://www.reddit.com/r/dumbphones/comments/15ghqx1/nokia_6300_4g_review_after_a_month_of_use/
 [One week of use, the good, bad and the ugly… (Nokia 6300 4G)]: https://www.reddit.com/r/dumbphones/comments/oocmly/one_week_of_use_the_good_bad_and_the_ugly_nokia/
@@ -747,6 +742,7 @@ python edl.py reset
 [greg]: https://github.com/strukturart/greg
 [Backup]: https://github.com/minhduc-bui1/nokia-leo/wiki/Backup
 
+<!-- ROOT -->
 [8000 4G and 6300 4G]: https://edl.bananahackers.net/loaders/8k.mbn
 [2720 Flip]: https://edl.bananahackers.net/loaders/2720.mbn
 [800 Tough]: https://edl.bananahackers.net/loaders/800t.mbn
@@ -768,8 +764,8 @@ python edl.py reset
 [Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 [Docker Desktop]: https://docs.docker.com/compose/install
 [Linux kernel update package]: https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
-[Windows]: https://forum.xda-developers.com/attachments/android-image-kitchen-v3-8-win32-zip.5300919
-[macOS/Linux]: https://forum.xda-developers.com/attachments/aik-linux-v3-8-all-tar-gz.5300923
+[Windows]: https://github.com/osm0sis/Android-Image-Kitchen/tree/master
+[macOS/Linux]: https://github.com/osm0sis/Android-Image-Kitchen/tree/AIK-Linux
 [Notepad++]: https://notepad-plus-plus.org/downloads
 [preserving line endings]: https://www.cs.toronto.edu/~krueger/csc209h/tut/line-endings.html
 [Java Runtime Environment]: https://www.java.com/en/download
@@ -777,7 +773,18 @@ python edl.py reset
 [Microsoft Store]: https://apps.microsoft.com/search/publisher?name=Python+Software+Foundation
 [environment variable]: https://en.wikipedia.org/wiki/Environment_variable
 [Apps & features]: ms-settings:appsfeatures
-[part 4]: #part-4-flashing-the-modified-boot-partition
+[part 4]: #part-4-flashing-the-modified-boot-
+
+<!-- External links -->
+[Nokia 6300 4G product page]: https://www.nokia.com/phones/en_int/nokia-6300-4g
+[Nokia 8000 4G product page]: https://www.nokia.com/phones/en_int/nokia-8000-4g
+[Nokia 6300 4G review]: https://www.pcmag.com/reviews/nokia-6300-4g
+[Discussion: Nokia 6300 4G and Nokia 8000 4G]: https://4pda.to/forum/index.php?showtopic=1009510
+[Nokia 8000 4G and Nokia 6300 4G general discussion thread]: https://groups.google.com/g/bananahackers/c/jxEC3RVMYvI
+[Nokia 8000 4G rooting research thread]: https://groups.google.com/g/bananahackers/c/8lCqP15zHXg
+[Nokia 6300 4G (nokia-leo)]: https://wiki.postmarketos.org/wiki/Nokia_6300_4G_(nokia-leo)
+[Nokia 8000 4G (nokia-sparkler)]: https://wiki.postmarketos.org/wiki/Nokia_8000_4G_(nokia-sparkler)
+[Affe Null's Bananian project repository]: https://git.abscue.de/bananian/bananian
 
 <style>
   .w { max-width: 1000px; padding: 4rem 1rem }

@@ -1,4 +1,4 @@
-# Launch hidden settings
+## Launch hidden settings
 **Table of Contents**
 - [W2D KaiOS Jailbreak](#w2d-kaios-jailbreak)
 - [Hotspot for JioPhones](#hotspot-for-jiophones)
@@ -31,20 +31,6 @@ You can find your phone's local IP address (192.168.1.x) by going to *Settings, 
 Note that both the phone and computer have to be on the same Wi-Fi network (you can tether to your computer), your phone has to allow at least one of these three permissions: `engmodeExtension`, `jrdExtension`, `kaiosExtension` and you have to turn on debugging mode on your phone prior to clicking this button.
 
 <button onclick="wadb()">Set ADB port to 5555</button>
-<script>
-    function wadb() {
-        var masterExt = navigator.engmodeExtension || navigator.jrdExtension || navigator.kaiosExtension
-        var propSet = {
-            'service.adb.tcp.port': 5555,
-            'ctl.stop': 'adbd',
-            'ctl.start': 'adbd'
-        };
-        for(var key in propSet) {
-            masterExt.setPropertyValue(key, propSet[key])
-        };
-        window.alert('ADB port has been set to 5555.')
-    }
-</script>
 
 ## Readout (not recommended)
 This button below will attempt to open the hidden Readout screen reader menu in Settings, which is hidden on many devices because it is unusable outside of KaiOS's built-in apps. Note that on most devices, the menu will be blank. 
@@ -61,7 +47,6 @@ On devices with dedicated volume buttons, you can quickly toggle on/off this fea
             var id = e.target.id;
             if (id) openMenu(id);
         }, true);
-
     function openMenu(t){
         if(window.MozActivity) {
             var act = new MozActivity({
@@ -87,6 +72,18 @@ On devices with dedicated volume buttons, you can quickly toggle on/off this fea
         } else {
             window.alert('Please open the page from the device itself!')
         }
+    }
+    function wadb() {
+        var masterExt = navigator.engmodeExtension || navigator.jrdExtension || navigator.kaiosExtension
+        var propSet = {
+            'service.adb.tcp.port': 5555,
+            'ctl.stop': 'adbd',
+            'ctl.start': 'adbd'
+        };
+        for(var key in propSet) {
+            masterExt.setPropertyValue(key, propSet[key])
+        };
+        window.alert('ADB port has been set to 5555.')
     }
 </script>
 
