@@ -70,13 +70,35 @@
 	- [Part 4: Flashing the modified boot partition]
 - [External links]
 
-Amid the rise of the [COVID-19 pandemic] and the need for families and friends to stay connected during isolation, in late 2020, HMD introduced two new Nokia phones: the Nokia 8000 4G and the Nokia 6300 4G. While the 8000 4G featured a glossy 3D-textured plastic finish, larger screen and camera at the price point of €79, the Nokia 6300 4G is one of the more affordable phones HMD has ever offered in their KaiOS lineup[^1] at just €49/$69.99.
+<!-- Amid the rise of the COVID-19 pandemic and the need for families and friends to stay connected during isolation, in late 2020, HMD introduced two new Nokia phones: the Nokia 8000 4G and the Nokia 6300 4G. While the 8000 4G featured a glossy 3D-textured plastic finish, larger screen and camera at the price point of €79, the Nokia 6300 4G is one of the more affordable phones HMD has ever offered in their KaiOS lineup1 at just €49/$69.99.
 
-Inheriting the classic candy-bar design from the original Nokia 6300, the new Nokia 6300 4G took a modern twist with its tall, narrow design, rounded corners and ~~cheap~~ low-cost polycarbonate shell that feel sturdy and comfortable to hold in the palm of hand. It included 4G LTE support with capability of broadcasting Wi-Fi hotspot, and ran on KaiOS 2.5.4, which features popular apps like WhatsApp, Facebook, YouTube, Google Maps, and until recently, Google Assistant.
+Inheriting the classic candy-bar design from the original Nokia 6300, the new Nokia 6300 4G took a modern twist with its tall, narrow design, rounded corners and cheap low-cost polycarbonate shell that feel sturdy and comfortable to hold in the palm of hand. It included 4G LTE support with capability of broadcasting Wi-Fi hotspot, and ran on KaiOS 2.5.4, which features popular apps like WhatsApp, Facebook, YouTube, Google Maps, and until recently, Google Assistant.
 
-With the firmware update to 12.00.17.01 (see [ROOT: Boot partition patching (non-US only)]), the new 6300 4G became one of the few KaiOS phones to be able to make and receive WhatsApp voice calls, allowing you to easily stay in touch with your loved ones.
+With the firmware update to 12.00.17.01 (see ROOT: Boot partition patching (non-US only)), the new 6300 4G became one of the few KaiOS phones to be able to make and receive WhatsApp voice calls, allowing you to easily stay in touch with your loved ones.
 
-Reception of the phone has been mostly negative, however, with users on sites like Amazon, Best Buy and GSMArena complaining about software issues: poor battery life when using on Wi-Fi or mobile data, unintended keypresses, RAM management issues and outdated operating system kernel (see [Known issues]). Starting with the update to 30.00.17.01 in selected regions, as Google gradually withdrew support, Google Assistant was removed from the OS.
+Reception of the phone has been mostly negative, however, with users on sites like Amazon, Best Buy and GSMArena complaining about software issues: poor battery life when using on Wi-Fi or mobile data, unintended keypresses, RAM management issues and outdated operating system kernel (see Known issues). Starting with the update to 30.00.17.01 in selected regions, as Google gradually withdrew support, Google Assistant was removed from the OS. --->
+
+In late 2020, following the successful launch of the redesigned 2720 Flip and 800 Tough, alongside the new Nokia 8000 4G, HMD Global introduced the new Nokia 6300 4G based on KaiOS. Being the fifth Nokia-branded KaiOS device to be released under HMD-era, it is one of the most affordable the company has ever offered in its KaiOS lineup[^1] at €49/$69.99. 
+
+The phone takes a modern twist on the classic candy-bar shape of its predecessor Nokia 6300, with a taller, narrower look and rounded corners. It has a polycarbonate shell, which *feels* sturdy and comfortable to hold in the palm of the hand. 
+
+It features 4G LTE connectivity, which allows faster Internet speed and clearer calls with VoLTE; as well as Wi-Fi calling, which improves call quality in areas with poor cellular coverage. Moreover, they can be used as Wi-Fi hotspot to share Internet connection with other devices.
+
+It runs on KaiOS 2.5.4, which includes popular apps like WhatsApp, Facebook, YouTube, Google Maps, and until recently, Google Assistant.
+
+With the firmware update to 12.00.17.01 (see [ROOT: Boot partition patching (non-US only)]), the new 6300 4G became one of the few KaiOS phones to be able to make and receive WhatsApp voice calls. This allowed users to easily stay in touch with their loved ones amid the [COVID-19 pandemic].
+
+Reception of the phone has been unfavourable, nevertheless, with users on sites like Amazon, Best Buy and GSMArena complaining about software issues: poor battery life when using on Wi-Fi or mobile data, unintended keypresses, RAM management issues and outdated operating system kernel (see [Known issues]). Starting with the update to 30.00.17.01 in selected regions, as Google phased out support, Google Assistant was removed from the OS.
+
+<!-- One of the features of the Nokia 6300 4G phone is that it has a dual-SIM feature. This means that you can use two different phone numbers on the same device. This can be useful if you travel to different countries or want to separate your personal and work calls. You can also switch between the SIM cards easily on the phone settings.
+
+Another feature of the phone is that it supports 4G LTE and Wi-Fi calling. This means that you can make and receive calls over the internet. This can save you money on roaming charges and improve your call quality in areas with poor cellular coverage. You can also use the phone as a Wi-Fi hotspot to share your internet connection with other devices.
+
+The phone runs on KaiOS, which is a simple operating system that lets you use some popular apps like WhatsApp, Facebook, YouTube, and Google Maps. You can also use speech-to-text to type messages or search the web with your voice. The phone has a dedicated button to launch the KaiOS app store, where you can download more apps.
+
+However, the phone also has some drawbacks. The phone has a 0.3MP camera, which is very low quality compared to most smartphones. You can take photos and videos, but they will not look very sharp or clear. The phone also has a 2.4-inch screen, which is small and has low resolution. This can make it hard to see the details or read the text on the screen.
+
+The phone also has some software issues that many users have complained about. Some of the problems are: poor battery life, unintended keypresses, RAM management issues, and outdated operating system kernel. These issues can affect the performance and usability of the phone. The phone also lost the Google Assistant feature, which was a useful way to control the phone with your voice. Google stopped supporting the phone, so it no longer has the voice assistant. -->
 
 - [Nokia 6300 4G review] by PC Magazine
 - [In-Depth Review of the Nokia 6300 4G] on r/dumbphones
@@ -233,7 +255,7 @@ Detailed instructions can be found at [Sideloading and debugging/WebIDE]. Feel f
 
 To remove unwanted apps from the phone, you can use [this fork of Luxferre's AppBuster] which lets you disable any apps you don't need and enable them again if you want.
 
-## ROOT: Boot partition patching (non-US only)
+# ROOT: Boot partition patching (non-US only)
 On KaiOS 2.5.4 devices, such as the 6300 4G and 8000 4G, ADB and WebIDE can be used to install most third-party apps. However, apps with special ‘forbidden’ permissions are not allowed, including most BananaHackers apps with `engmode-extension` like Wallace Toolbox, which can be used to gain exclusive access of the phone. You also cannot make changes to the system. On the 2720 Flip and 800 Tough with KaiOS 2.5.2.2, with HMD/Nokia Mobile changing their release branches from `dev-keys` to `release-keys`, the situation is even worse as you cannot sideload at all.
 
 This is because in order for WhatsApp's VoIP feature to work on these KaiOS versions, a security module called SELinux[^3] is now set to be `Enforced` which checks and reverts system modifications on boot. To get total read-write access to the devices, you'll now have to permanently root them by setting SELinux to `Permissive` mode.
