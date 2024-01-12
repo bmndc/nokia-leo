@@ -372,6 +372,7 @@ pip3 install pyusb pyserial capstone keystone-engine docopt
 
 6. Switch your phone to EDL mode and connect it to your computer. Either:
 {:start="6"}
+
 	- if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
 	- if your phone is off, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
 
@@ -429,6 +430,7 @@ You can disconnect the phone from your computer for now.
 Unlike the 6300 4G and 8000 4G, our phones' EDL loader properly works with both reading and writing, so the steps are more straightforward.
 
 1. Switch your phone to EDL mode and connect it to your computer. Either:
+
 	- if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
 	- if your phone is off, hold down both side volume keys (2720 Flip) or both D-Pad Up and Down keys (800 Tough) at the same time while inserting the USB cable to the phone.
 
@@ -473,6 +475,7 @@ git clone https://gitlab.com/suborg/8k-boot-patcher.git && cd 8k-boot-patcher &&
 
 3. Copy the `boot.img` file we've just pulled from our phone to the desktop and do not change its name. Type this into Command Prompt/Terminal to run the patching process:
 {:start="3"}
+
 	- Windows: `docker run --rm -it -v %cd%/Desktop:/image 8kbootpatcher`
 	- macOS/Linux: `docker run --rm -it -v ~/Desktop:/image 8kbootpatcher`
 
@@ -515,24 +518,25 @@ That's it! On your desktop there will be two new image files, the modified `boot
 
 3. Let the editing begin! First, open `ramdisk/default.prop` using Notepad++ and change:
 {:start="3"}
+
 	- line 7: `ro.secure=1` → `ro.secure=0`
 	- line 8: `security.perf_harden=1` → `security.perf_harden=0`
 	- line 10: `ro.debuggable=0` → `ro.debuggable=1`
 
 ```diff
 @@ -4,9 +4,9 @@
-	ro.sw.release.date=21-08-13
-	ro.build.version.fih=20.00.17.01
-	ro.build.elabel=false
+  ro.sw.release.date=21-08-13
+  ro.build.version.fih=20.00.17.01
+  ro.build.elabel=false
 - ro.secure=1
 - security.perf_harden=1
 + ro.secure=0
 + security.perf_harden=0
-	ro.allow.mock.location=0
+  ro.allow.mock.location=0
 - ro.debuggable=0
 + ro.debuggable=1
-	ro.adb.secure=0
-	ro.zygote=zygote32
+  ro.adb.secure=0
+  ro.zygote=zygote32
 ```
 <p align="center">
 	<img src="img/default_prop_edited.png" alt="Screenshot of the modified content of the default.prop file">
@@ -543,18 +547,18 @@ That's it! On your desktop there will be two new image files, the modified `boot
 
 ```diff
 @@ -312,14 +312,14 @@
-	else
-			# nand configuration
-			if [ -e $nand_file ]
-			then
-					if grep ${partition_name} $nand_file
-					then
-						 gps_enabled=false
-					fi
-			fi
-	fi
+  else
+	  # nand configuration
+	  if [ -e $nand_file ]
+	  then
+		  if grep ${partition_name} $nand_file
+		  then
+			  gps_enabled=false
+		  fi
+	  fi
+  fi
 
-	setprop ro.gps.enabled $gps_enabled
+  setprop ro.gps.enabled $gps_enabled
 + setenforce 0
 
 ```
@@ -580,24 +584,24 @@ Indent the new line to match up with other lines as shown.
 
 ```diff
 @@ -390,7 +390,6 @@
-	setusercryptopolicies /data/user
+  setusercryptopolicies /data/user
 
-	# Reload policy from /data/security if present.
+  # Reload policy from /data/security if present.
 - setprop selinux.reload_policy 1
 
-	# Set SELinux security contexts on upgrade or policy update.
-	restorecon_recursive /data
+  # Set SELinux security contexts on upgrade or policy update.
+  restorecon_recursive /data
 @@ -418,9 +418,10 @@
-	# Memory management.  Basic kernel parameters, and allow the high
-	# level system server to be able to adjust the kernel OOM driver
-	# parameters to match how it is managing things.
+  # Memory management.  Basic kernel parameters, and allow the high
+  # level system server to be able to adjust the kernel OOM driver
+  # parameters to match how it is managing things.
 + write /sys/module/lowmemorykiller/parameters/enable_lmk 0
-	write /proc/sys/vm/overcommit_memory 1
-	write /proc/sys/vm/min_free_order_shift 4
-	chown root system /sys/module/lowmemorykiller/parameters/adj
-	chmod 0664 /sys/module/lowmemorykiller/parameters/adj
-	chown root system /sys/module/lowmemorykiller/parameters/minfree
-	chmod 0664 /sys/module/lowmemorykiller/parameters/minfree
+  write /proc/sys/vm/overcommit_memory 1
+  write /proc/sys/vm/min_free_order_shift 4
+  chown root system /sys/module/lowmemorykiller/parameters/adj
+  chmod 0664 /sys/module/lowmemorykiller/parameters/adj
+  chown root system /sys/module/lowmemorykiller/parameters/minfree
+  chmod 0664 /sys/module/lowmemorykiller/parameters/minfree
 ```
 ![Screenshot of the modified content of the init.rc file, with line 393 marked as comment which has the same effects as deleting the line altogether, and line 421 added to disable the Low Memory Killer module](img/f5-selinux.png)
 
