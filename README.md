@@ -70,15 +70,17 @@
 	- [Part 4: Flashing the modified boot partition]
 - [External links]
 
-In late 2020, amid the outbreak of the [COVID-19 pandemic] and the need for people to stay connected during lockdown, HMD Global quietly introduced the new Nokia 6300 4G based on KaiOS 2.5.4. Following the successful relaunch of the retro 2720 Flip and 800 Tough, the new phone takes a minimalistic, low-cost polycarbonate twist whilst inheriting the classic candy-bar design of the original Nokia 6300. It was then one of the most affordable the company had ever offered in its KaiOS lineup[^1] at €49/$69.99.
+<hr style="font-family:monospace;">
 
-The phone features 4G LTE support with Wi-Fi calling on selected carriers, which means that you can make and receive calls over the Internet.
+In late 2020, amid the outbreak of the [COVID-19 pandemic] and the need for people to stay connected during lockdown, HMD Global quietly introduced the new Nokia 6300 4G based on KaiOS 2.5.4. Following the successful relaunch of the retro 2720 Flip and 800 Tough, the new phone takes a minimalistic, polycarbonate twist whilst inheriting the classic candy-bar design of the original Nokia 6300. It was then one of the most affordable the company had ever offered in its KaiOS lineup[^1] at €49/$69.99.
 
-It runs on KaiOS 2.5.4, which features popular apps like WhatsApp, Facebook, YouTube, Google Maps, and until recently, Google Assistant.
+The phone features 4G LTE support with Wi-Fi calling on selected carriers, which can improve your call quality in areas with poor cellular coverage. You can also use the phone as a Wi-Fi hotspot to share your internet connection with other devices.
 
-With the firmware update to 12.00.17.01 (see [ROOT: Boot partition patching (non-US only)]), the new 6300 4G became one of the few KaiOS phones to be able to make and receive WhatsApp voice calls, allowing you to easily stay connected with your loved ones amid the [COVID-19 pandemic] lockdown.
+It runs on KaiOS 2.5.4, which features popular apps like WhatsApp, Facebook, YouTube, Google Maps, and until recently, Google Assistant. With the firmware update to 12.00.17.01 (see [ROOT: Boot partition patching (non-US only)]), the new 6300 4G became one of the few KaiOS phones to be able to make and receive WhatsApp voice calls, allowing you to easily stay connected with your loved ones.
 
 Reception of the phone has been mostly unfavorable, however, with users on sites like Amazon, Best Buy and GSMArena complaining about software issues: poor battery life when using on Wi-Fi or mobile data, unintended keypresses, RAM management issues and outdated operating system kernel (see [Known issues]). Starting with the update to 30.00.17.01 in selected regions, as Google phased out support, Google Assistant was removed from the OS.
+
+<hr style="font-family:monospace;">
 
 <!-- One of the features of the Nokia 6300 4G phone is that it has a dual-SIM feature. This means that you can use two different phone numbers on the same device. This can be useful if you travel to different countries or want to separate your personal and work calls. You can also switch between the SIM cards easily on the phone settings.
 
