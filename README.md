@@ -70,19 +70,15 @@
 	- [Part 4: Flashing the modified boot partition]
 - [External links]
 
-<!-- In late 2020, following the successful relaunch of the retro 2720 Flip and 800 Tough, HMD Global quietly introduced the new Nokia 6300 4G based on KaiOS 2.5.4. The new phone takes a minimalistic twist whilst inheriting the classic candy-bar design of the original Nokia 6300.
+In late 2020, amid the outbreak of the [COVID-19 pandemic] and the need for people to stay connected during lockdown, HMD Global quietly introduced the new Nokia 6300 4G based on KaiOS 2.5.4. Following the successful relaunch of the retro 2720 Flip and 800 Tough, the new phone takes a minimalistic, low-cost polycarbonate twist whilst inheriting the classic candy-bar design of the original Nokia 6300. It was then one of the most affordable the company had ever offered in its KaiOS lineup[^1] at €49/$69.99.
 
-Being the fifth Nokia-branded KaiOS devices to be released under HMD-era, it is one of the most affordable the company has ever offered in its KaiOS lineup[^1] at €49/$69.99.
-
-The new phone takes a modern twist whilst resembling the classic candy-bar design of its predecessor Nokia 6300. It features a tall, narrow look with rounded corners, and is made out of polycarbonate shell that *feels* sturdy and comfortable to hold in the palm of hand.
-
-It included 4G LTE support with capability of broadcasting Wi-Fi hotspot.
+The phone features 4G LTE support with Wi-Fi calling on selected carriers, which means that you can make and receive calls over the Internet.
 
 It runs on KaiOS 2.5.4, which features popular apps like WhatsApp, Facebook, YouTube, Google Maps, and until recently, Google Assistant.
 
 With the firmware update to 12.00.17.01 (see [ROOT: Boot partition patching (non-US only)]), the new 6300 4G became one of the few KaiOS phones to be able to make and receive WhatsApp voice calls, allowing you to easily stay connected with your loved ones amid the [COVID-19 pandemic] lockdown.
 
-Reception of the phone has been mostly unfavorable, nevertheless, with users on sites like Amazon, Best Buy and GSMArena complaining about software issues: poor battery life when using on Wi-Fi or mobile data, unintended keypresses, RAM management issues and outdated operating system kernel (see [Known issues]). Starting with the update to 30.00.17.01 in selected regions, as Google phased out support, Google Assistant was removed from the OS. -->
+Reception of the phone has been mostly unfavorable, however, with users on sites like Amazon, Best Buy and GSMArena complaining about software issues: poor battery life when using on Wi-Fi or mobile data, unintended keypresses, RAM management issues and outdated operating system kernel (see [Known issues]). Starting with the update to 30.00.17.01 in selected regions, as Google phased out support, Google Assistant was removed from the OS.
 
 <!-- One of the features of the Nokia 6300 4G phone is that it has a dual-SIM feature. This means that you can use two different phone numbers on the same device. This can be useful if you travel to different countries or want to separate your personal and work calls. You can also switch between the SIM cards easily on the phone settings.
 
@@ -279,20 +275,20 @@ For backing up application data (excluding WhatsApp chats), system preferences a
 - EDL utility to read and write system partitions: [bkerler's edl.py v3.1] for 8000 4G/6300 4G, [andybalholm's edl] for 2720 Flip/800 Tough/Go Flip 3;
 - required for 6300 4G/8000 4G: [Gerda Recovery image file] ([backup]) for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from Recovery mode and get the boot partition from there;
 - Python and `pip` for `edl.py` to work (setup guide can be found for each OS below);
-		- Don't have an Internet connection? Download and install manually from PyPI: [pyusb], [pyserial], [keystone-engine], [capstone], [docopt]
+	- Don't have an Internet connection? Download and install manually from PyPI: [pyusb], [pyserial], [keystone-engine], [capstone], [docopt]
 - [Android Debug Bridge (ADB)] to read the boot image in Gerda Recovery (see [Sideloading and debugging/WebIDE])
 - Windows: Qualcomm driver to contact the phone in EDL mode (included in the `edl.py` package)
 - Windows: latest version of [Zadig] to configure `libusb-win32` driver; do NOT use the older version bundled as it has less chances of success
 - macOS: [Homebrew] to quickly set up Python, ADB, `libusb` and configure the environment for EDL tools (setup guide can be found below)
-		- *Python 2.7 bundled with macOS 10.8 to 12 is NOT recommended for following this guide.*
+	- *Python 2.7 bundled with macOS 10.8 to 12 is NOT recommended for following this guide.*
 - **If you're going the automatic boot partition patching and compilation via Docker route (only recommended for 5-6 year old computers):**
-		- [Git] to clone/download the repository of the patcher tool to your computer;
-		- Docker Compose to provide the environment for the patcher tool to work (included in [Docker Desktop])
-		- Windows: WSL2 with [Linux kernel update package] installed (to install WSL2, turn on Virtualization in BIOS, then open Command Prompt with administrative rights and type `wsl --install`)
+	- [Git] to clone/download the repository of the patcher tool to your computer;
+	- Docker Compose to provide the environment for the patcher tool to work (included in [Docker Desktop])
+	- Windows: WSL2 with [Linux kernel update package] installed (to install WSL2, turn on Virtualization in BIOS, then open Command Prompt with administrative rights and type `wsl --install`)
 - **If you're going the extracting and manual editing by hand route:**
-		- Android Image Kitchen v3.8 ([Windows], [macOS/Linux])
-		- on Windows 10 pre-1809: [Notepad++] to edit files while [preserving line endings]
-		- (optional) [Java Runtime Environment] to properly sign the boot image with AVBv1
+	- Android Image Kitchen v3.8 ([Windows], [macOS/Linux])
+	- on Windows 10 pre-1809: [Notepad++] to edit files while [preserving line endings]
+	- (optional) [Java Runtime Environment] to properly sign the boot image with AVBv1
 
 andybalholm's EDL cannot be used on 8000 4G and 6300 4G due to structural changes within GPT, which will result in an error `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`. **Do note that the command structures used between bkerler's and andybalholm's are different, which we'll mention below.**
 
@@ -789,7 +785,7 @@ python edl.py reset
 [Affe Null's Bananian project repository]: https://git.abscue.de/bananian/bananian
 
 <style>
-	.w { max-width: 1000px; padding: 4rem 1rem }
+	.w { max-width: 1012px; padding: 4rem 1rem }
 	li { margin-left: -0.5rem }
 	body { font-family: system-ui, sans-serif; font-size: 14px }
 </style>
