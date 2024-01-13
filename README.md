@@ -70,45 +70,31 @@
 	- [Part 4: Flashing the modified boot partition]
 - [External links]
 
-<hr style="font-family:monospace;">
+In late 2020, amid the outbreak of the [COVID-19 pandemic] and the need for people to stay connected during lockdown, HMD Global quietly introduced the new Nokia 6300 4G based on KaiOS 2.5.4. Following the successful relaunch of the retro 2720 Flip and 800 Tough, the new phone takes a minimalistic twist whilst inheriting the classic candy-bar design of the original Nokia 6300. It was then one of the most affordable phones the company had ever offered in its KaiOS lineup[^1] at €49/$69.99.
 
-In late 2020, amid the outbreak of the [COVID-19 pandemic] and the need for people to stay connected during lockdown, HMD Global quietly introduced the new Nokia 6300 4G based on KaiOS 2.5.4. Following the successful relaunch of the retro 2720 Flip and 800 Tough, the new phone takes a minimalistic, polycarbonate twist whilst inheriting the classic candy-bar design of the original Nokia 6300. It was then one of the most affordable phones the company had ever offered in its KaiOS lineup[^1] at €49/$69.99.
+Packaged in a polycarbonate shell, the mighty 6300 4G supports 4G LTE support for better data connection, plus Wi-Fi calling for clearer calls in areas with poor cellular coverage. You can also use the phone as a Wi-Fi hotspot to share your connection with other devices. It runs on KaiOS 2.5.4, which includes social apps such as WhatsApp, Facebook, YouTube, Google Maps, and up until recently[^2], Google Assistant. 
 
-The phone features 4G LTE support with Wi-Fi calling on selected carriers, which can improve your call quality in areas with poor cellular coverage. You can also use the phone as a Wi-Fi hotspot to share your internet connection with other devices.
+With the firmware update to 12.00.17.01 (see [ROOT: Boot partition patching (non-US only)]), the new 6300 4G became one of the few KaiOS phones to be able to make and receive WhatsApp voice calls.
 
-It runs on KaiOS 2.5.4, which features popular apps like WhatsApp, Facebook, YouTube, Google Maps, and until recently[^2], Google Assistant. With the firmware update to 12.00.17.01 (see [ROOT: Boot partition patching (non-US only)]), the new 6300 4G became one of the few KaiOS phones to be able to make and receive WhatsApp voice calls, allowing you to easily stay connected with your loved ones.
-
-Reception of the phone has been mostly unfavorable, however, with users on sites like Amazon, Best Buy and GSMArena complaining about software issues: poor battery life when using on Wi-Fi or mobile data, unintended keypresses, RAM management issues and outdated operating system kernel (see [Known issues]).
-
-<hr style="font-family:monospace;">
-
-<!-- One of the features of the Nokia 6300 4G phone is that it has a dual-SIM feature. This means that you can use two different phone numbers on the same device. This can be useful if you travel to different countries or want to separate your personal and work calls. You can also switch between the SIM cards easily on the phone settings.
-
-Another feature of the phone is that it supports 4G LTE and Wi-Fi calling. This means that you can make and receive calls over the internet. This can save you money on roaming charges and improve your call quality in areas with poor cellular coverage. You can also use the phone as a Wi-Fi hotspot to share your internet connection with other devices.
-
-The phone runs on KaiOS, which is a simple operating system that lets you use some popular apps like WhatsApp, Facebook, YouTube, and Google Maps. You can also use speech-to-text to type messages or search the web with your voice. The phone has a dedicated button to launch the KaiOS app store, where you can download more apps.
-
-However, the phone also has some drawbacks. The phone has a 0.3MP camera, which is very low quality compared to most smartphones. You can take photos and videos, but they will not look very sharp or clear. The phone also has a 2.4-inch screen, which is small and has low resolution. This can make it hard to see the details or read the text on the screen.
-
-The phone also has some software issues that many users have complained about. Some of the problems are: poor battery life, unintended keypresses, RAM management issues, and outdated operating system kernel. These issues can affect the performance and usability of the phone. The phone also lost the Google Assistant feature, which was a useful way to control the phone with your voice. Google stopped supporting the phone, so it no longer has the voice assistant.
-
-- [In-Depth Review of the Nokia 6300 4G] on r/dumbphones
-- [Nokia 6300 4G review after a month of use] by u/Successful_Craft_281 on r/dumbphones
-- [One week of use, the good, bad and the ugly… (Nokia 6300 4G)] by u/nemanjitca on r/dumbphones -->
+Reception of the phone has been unfavorable, however, with users on sites like Amazon UK, Best Buy and GSMArena citing software issues, poor battery life and outdated operating system kernel (see [Known issues]).
 
 ## Don't buy a counterfeit
-Beware of ~~Wish.com~~ eBay listings if you plan to get yourself an 8110 4G, 2720 Flip or 6300 4G.
+**Beware of ~~Wish.com~~ eBay listings if you plan to get yourself an 8110 4G, 2720 Flip or 6300 4G.**
 
-On eBay, Shopee and similar online shopping platforms, you'll see hundreds of listings for used 6300 4Gs in various conditions and claimed specifications. While the listings seem to look identical showing the phone's exterior, many of those are NOT genuine, but are cheap Chinese knock-offs with [terrible build quality] and software experience.
+On eBay, Shopee and [many online shopping platforms], you'll see hundreds of listings for used 6300 4Gs in various conditions and specifications. While the listings seem to look identical showing the phone's exterior, many of those are NOT genuine, but are knock-offs with [terrible build quality] and experience.
 
 - Brand-new KaiOS phones, even off the shelf, don't cost less than 2/3 of their retail prices.
-- Do keep in mind that HMD has never sold any of their devices in their KaiOS lineup 2G-only. All KaiOS phones from HMD are equipped with 4G LTE, Wi-Fi and Bluetooth. KaiOS devices are required to have 3G at minimum.
-- If the seller only uploaded generic photos showing the phone's exterior, ask for additional photos of the box that it came in. A genuine phone's box would show all its features on fine print, as well as an information sticker that indicates its model number (which matches the device specification table above) and targeted regional market.
+- Do keep in mind that HMD has [never sold 2G-only version of any of its devices in KaiOS lineup], at least in its official capacity. All KaiOS phones from HMD are well-equipped with 4G LTE, Wi-Fi and Bluetooth. KaiOS devices are required to have 3G at minimum.
+- If the seller only uploaded generic photos showing the phone's exterior, ask for additional photos of the box that it came in. A genuine phone's box would show all its features on the fine print, as well as an information sticker that indicates its model number (which matches the device specification table above) and targeted regional market.
 	- Check the printed model number on the packaging box with that on another information sticker under the back of the phone, and when dialing `*#0000#` in the operating system.
-- Look for signs of the phone running KaiOS and not MRE: KaiOS uses the distinct [Open Sans] UI font and vibrant, properly aligned UI elements. KaiStore and related services should be available at all time. It does not natively run Opera Mini 4.4 or other Java/MRE apps.
+- Look for signs of the phone running KaiOS and not MRE: KaiOS uses the distinct [Open Sans UI font] and vibrant, properly aligned UI elements. KaiStore and related services should be available at all time. It does not natively run Opera Mini 4.4 or other Java/MRE apps.
+
+*Photos provided by various Reddit posts ([second], [third], [fourth]) and r/KaiOS Discord server in June 2023.*
+
+![](img/leo-counterfeit.png)
 
 ### About Kosher phones
-Kosher is a category of devices of which the software (sometimes hardware) is heavily modified to limit access or even to get rid of content and features deemed distracting or against religious values, including unnecessary apps, Internet access, and debugging over ADB, while maintaining other features and user interface to be identical to the original. Companies specializing in customizing Kosher phones exist, and you can easily come across Kosher phone listings on eBay advertising as productivity and focus improvement tools.
+Kosher is a category of devices whose the software (sometimes hardware) is heavily modified to limit access, or even get rid of content and features deemed distracting or against religious values, while keeping other features and user interface almost identical to the original. Companies specializing in customizing Kosher phones exist, and you can easily come across Kosher phone listings on eBay advertising as productivity and focus improvement tools.
 
 As the build and UI remain identical, it's difficult to tell Kosher phones and genuine ones apart. As of now, my key takeaways to differentiate them are:
 - there might be logos embedded on hardware and/or splash screen displayed on the boot sequence to indicate a Kosher phone (original only shows 'enabled by KaiOS' followed by the Nokia logo and chime);
@@ -699,11 +685,13 @@ python edl.py reset
 [External links]: #external-links
 
 [COVID-19 pandemic]: https://en.wikipedia.org/wiki/COVID-19_pandemic
-[In-Depth Review of the Nokia 6300 4G]: https://www.reddit.com/r/dumbphones/comments/t146b9/indepth_review_of_the_nokia_6300_4g/
-[Nokia 6300 4G review after a month of use]: https://www.reddit.com/r/dumbphones/comments/15ghqx1/nokia_6300_4g_review_after_a_month_of_use/
-[One week of use, the good, bad and the ugly… (Nokia 6300 4G)]: https://www.reddit.com/r/dumbphones/comments/oocmly/one_week_of_use_the_good_bad_and_the_ugly_nokia/
-
+[many online shopping platforms]: https://www.youtube.com/watch?v=b2-FJ3RuYhE
 [terrible build quality]: https://www.reddit.com/r/KaiOS/comments/xglkr7/well_darn_it_i_just_received_a_counterfeit_nokia
+[never sold 2G-only version of any of its devices in KaiOS lineup]: https://www.reddit.com/r/dumbphones/comments/18ueonx/first_dumbphone_and_a_bad_start/
+[Open Sans UI font]: #sideloading-and-debugging-third-party-applications 
+[second]: https://www.reddit.com/r/dumbphones/comments/15z7b07/problems_with_nokia_6300_4g/
+[third]: https://www.reddit.com/r/KaiOS/comments/z5u8e0/nokia_6300_4g_ta1287_in_on_tmobile_us_things_dont/
+[fourth]: https://www.reddit.com/r/KaiOS/comments/12cjnlc/is_my_kaios_device_fake_nokia_6300/
 [the system's `hosts` file]: https://ivan-hc.github.io/bananahackers/ADBlock.html
 [CrossTweak]: https://gitlab.com/suborg/crosstweak
 [BananaHackers' guide on fixing the keypad speed]: https://ivan-hc.github.io/bananahackers/fix-the-keypad-speed.html
