@@ -72,13 +72,13 @@
 
 <hr style="font-family:monospace;">
 
-In late 2020, amid the outbreak of the [COVID-19 pandemic] and the need for people to stay connected during lockdown, HMD Global quietly introduced the new Nokia 6300 4G based on KaiOS 2.5.4. Following the successful relaunch of the retro 2720 Flip and 800 Tough, the new phone takes a minimalistic, polycarbonate twist whilst inheriting the classic candy-bar design of the original Nokia 6300. It was then one of the most affordable the company had ever offered in its KaiOS lineup[^1] at €49/$69.99.
+In late 2020, amid the outbreak of the [COVID-19 pandemic] and the need for people to stay connected during lockdown, HMD Global quietly introduced the new Nokia 6300 4G based on KaiOS 2.5.4. Following the successful relaunch of the retro 2720 Flip and 800 Tough, the new phone takes a minimalistic, polycarbonate twist whilst inheriting the classic candy-bar design of the original Nokia 6300. It was then one of the most affordable phones the company had ever offered in its KaiOS lineup[^1] at €49/$69.99.
 
 The phone features 4G LTE support with Wi-Fi calling on selected carriers, which can improve your call quality in areas with poor cellular coverage. You can also use the phone as a Wi-Fi hotspot to share your internet connection with other devices.
 
-It runs on KaiOS 2.5.4, which features popular apps like WhatsApp, Facebook, YouTube, Google Maps, and until recently, Google Assistant. With the firmware update to 12.00.17.01 (see [ROOT: Boot partition patching (non-US only)]), the new 6300 4G became one of the few KaiOS phones to be able to make and receive WhatsApp voice calls, allowing you to easily stay connected with your loved ones.
+It runs on KaiOS 2.5.4, which features popular apps like WhatsApp, Facebook, YouTube, Google Maps, and until recently[^2], Google Assistant. With the firmware update to 12.00.17.01 (see [ROOT: Boot partition patching (non-US only)]), the new 6300 4G became one of the few KaiOS phones to be able to make and receive WhatsApp voice calls, allowing you to easily stay connected with your loved ones.
 
-Reception of the phone has been mostly unfavorable, however, with users on sites like Amazon, Best Buy and GSMArena complaining about software issues: poor battery life when using on Wi-Fi or mobile data, unintended keypresses, RAM management issues and outdated operating system kernel (see [Known issues]). Starting with the update to 30.00.17.01 in selected regions, as Google phased out support, Google Assistant was removed from the OS.
+Reception of the phone has been mostly unfavorable, however, with users on sites like Amazon, Best Buy and GSMArena complaining about software issues: poor battery life when using on Wi-Fi or mobile data, unintended keypresses, RAM management issues and outdated operating system kernel (see [Known issues]).
 
 <hr style="font-family:monospace;">
 
@@ -219,7 +219,7 @@ Most of these codes requires `userdebug` or `eng` versions to work.
 <details markdown="block"><summary>What the heck is EDL mode?</summary>
 <hr style="font-family:monospace;">
 
-**Qualcomm Emergency Download mode**, commonly known as EDL mode, is a special engineering interface implemented on devices with Qualcomm chipsets. It lets you do special operations on the phone that only the device manufacturer can do, such as unlocking the bootloader, read and write firmwares on the phone's filesystem or recover from being a dead paperweight. Unlike bootloader or Fastboot mode, system files needed by the EDL mode resides on a separate 'primary bootloader' that aren't affected by software modifications.[^2]
+**Qualcomm Emergency Download mode**, commonly known as EDL mode, is a special engineering interface implemented on devices with Qualcomm chipsets. It lets you do special operations on the phone that only the device manufacturer can do, such as unlocking the bootloader, read and write firmwares on the phone's filesystem or recover from being a dead paperweight. Unlike bootloader or Fastboot mode, system files needed by the EDL mode resides on a separate 'primary bootloader' that aren't affected by software modifications.[^3]
 
 Booting into this mode, the phone's screen will briefly show the 'enabled by KaiOS' logo, then turn almost black as if it's off, but in fact it's still listening to commands over Qualcomm's proprietary protocol called Sahara (or Firehose on newer devices). With a [suitable digitally-signed programmer in MBN/ELF file format] and some instruction-bundled tools, the most popular one being QFIL (Qualcomm Flash Image Loader), one can send commands from a computer to the phone over USB.
 
@@ -248,7 +248,7 @@ To remove unwanted apps from the phone, you can use [this fork of Luxferre's App
 ## ROOT: Boot partition patching (non-US only)
 On KaiOS 2.5.4 devices, such as the 6300 4G and 8000 4G, ADB and WebIDE can be used to install most third-party apps. However, apps with special ‘forbidden’ permissions are not allowed, including most BananaHackers apps with `engmode-extension` like Wallace Toolbox, which can be used to gain exclusive access of the phone. You also cannot make changes to the system. On the 2720 Flip and 800 Tough with KaiOS 2.5.2.2, with HMD/Nokia Mobile changing their release branches from `dev-keys` to `release-keys`, the situation is even worse as you cannot sideload at all.
 
-This is because in order for WhatsApp's VoIP feature to work on these KaiOS versions, a security module called SELinux[^3] is now set to be `Enforced` which checks and reverts system modifications on boot. To get total read-write access to the devices, you'll now have to permanently root them by setting SELinux to `Permissive` mode.
+This is because in order for WhatsApp's VoIP feature to work on these KaiOS versions, a security module called SELinux[^4] is now set to be `Enforced` which checks and reverts system modifications on boot. To get total read-write access to the devices, you'll now have to permanently root them by setting SELinux to `Permissive` mode.
 
 The guide below is based on the main guide from BananaHackers website, but has been rewritten to make it easier to follow. The process will take somewhat considerable 30 minutes to an hour, so do this when you have enough time.
 
@@ -665,8 +665,11 @@ python edl.py reset
 
 <!-- these are called footnotes -->
 [^1]: Taken from HMD's official [press release](https://www.hmdglobal.com/new-nokia-feature-phones-nokia-6300-4g-and-nokia-8000-4g) and [promotional video](https://www.youtube.com/watch?v=pub47YzYBJs).
-[^2]: Aleph Security has a [deep-dive blog post](https://alephsecurity.com/2018/01/22/qualcomm-edl-1) into exploiting the nature of EDL mode on Qualcomm devices. If you're into the overall boot process, check out the breakdown of Qualcomm's Chain of Trust on [LineageOS Engineering Blog](https://lineageos.org/engineering/Qualcomm-Firmware).
-[^3]: Read more about SELinux on [LineageOS team's Engineering Blog](https://lineageos.org/engineering/HowTo-SELinux).
+[^2]: In August 2021, Google decided to [pull the plugs from Assistant on KaiOS]https://9to5google.com/2021/08/30/google-assistant-kaios-text/. Prior to that, Assistant can be used to make calls, send texts, change device settings and do various on-device functions with your voice. 
+[^3]: Aleph Security has a [deep-dive blog post](https://alephsecurity.com/2018/01/22/qualcomm-edl-1) into exploiting the nature of EDL mode on Qualcomm devices. If you're into the overall boot process, check out the breakdown of Qualcomm's Chain of Trust on [LineageOS Engineering Blog](https://lineageos.org/engineering/Qualcomm-Firmware).
+[^4]: Read more about SELinux on [LineageOS team's Engineering Blog](https://lineageos.org/engineering/HowTo-SELinux).
+
+[press release]: https://www.hmdglobal.com/new-nokia-feature-phones-nokia-6300-4g-and-nokia-8000-4g
 
 <!-- Table of Contents -->
 [provided by HMD]: https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz
