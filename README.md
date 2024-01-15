@@ -46,37 +46,39 @@
 <img width="410" align="right" src="img/nokia_6300_4G-emotional-Range.png">
 
 **Table of Contents**
-- [Don’t buy a counterfeit]
-	- [About Kosher phones]
-- [Differences between US and international variants]
-- [Tips and tricks]
-- [Known issues]
-	- [KaiOS-specific]
-	- [WhatsApp-specific]
-- [Secret codes]
-- [Special boot modes]
-	- [UART debugging testpoint]
-- [Sideloading and debugging third-party applications]
-- [ROOT: Boot partition patching (non-US only)]
-	- [Before proceeding: back up your data]
-	- [What we’ll need]
-	- [Part 1: Set up environment for EDL tools]
-	- [Part 2: Obtaining the boot partition]
-		- [Nokia 8000 4G and Nokia 6300 4G with bkerler’s EDL]
-		- [Nokia 2720 Flip and Nokia 800 Tough with andybalholm’s EDL]
-	- [Part 3: Patching the boot partition]
-		- [Automatic patching with `8k-boot-patcher`]
-		- [Manual patching with Android Image Kitchen]
-	- [Part 4: Flashing the modified boot partition]
-- [External links]
+- [Don’t buy a counterfeit](#dont-buy-a-counterfeit)
+	- [About Kosher phones](#about-kosher-phones)
+- [Differences between US and international variants](#differences-between-us-and-international-variants)
+- [Tips and tricks](#tips-and-tricks)
+- [Known issues](#known-issues)
+	- [KaiOS-specific](#kaios-specific)
+	- [WhatsApp-specific](#whatsapp-specific)
+- [Secret codes](#secret-codes)
+- [Special boot modes](#special-boot-modes)
+	- [UART debugging testpoint](#uart-debugging-testpoint)
+- [Sideloading and debugging third-party applications](#sideloading-and-debugging-third-party-applications)
+- [ROOT: Boot partition patching (non-US only)](#root-boot-partition-patching-non-us-only)
+	- [Before proceeding: back up your data](#before-proceeding-back-up-your-data)
+	- [What we’ll need](#what-well-need)
+	- [Part 1: Set up environment for EDL tools](#part-1-set-up-environment-for-edl-tools)
+	- [Part 2: Obtaining the boot partition](#part-2-obtaining-the-boot-partition)
+		- [Nokia 8000 4G and Nokia 6300 4G with bkerler’s EDL](#nokia-8000-4g-and-nokia-6300-4g-with-bkerlers-edl)
+		- [Nokia 2720 Flip and Nokia 800 Tough with andybalholm’s EDL](#nokia-2720-flip-and-nokia-800-tough-with-andybalholms-edl)
+	- [Part 3: Patching the boot partition](#part-3-patching-the-boot-partition)
+		- [Automatic patching with `8k-boot-patcher`](#automatic-patching-with-8k-boot-patcher)
+		- [Manual patching with Android Image Kitchen](#manual-patching-with-android-image-kitchen)
+	- [Part 4: Flashing the modified boot partition](#part-4-flashing-the-modified-boot-partition)
+- [External links](#external-links)
 
-In late 2020, amid the outbreak of the [COVID-19 pandemic] and the need for people to stay connected during lockdown, HMD Global quietly introduced the new Nokia 6300 4G based on KaiOS 2.5.4. Following the successful relaunch of the retro 2720 Flip and 800 Tough, the new phone takes a minimalistic twist whilst inheriting the classic candy-bar design of the original Nokia 6300. It was then one of the most affordable phones the company had ever offered in its KaiOS lineup[^1] at €49/$69.99.
+In late 2020, amid the outbreak of the [COVID-19 pandemic] and the need for people to stay connected during lockdown, HMD Global quietly introduced the new Nokia 6300 4G based on KaiOS 2.5.4. Following the successful relaunch of the retro 2720 Flip and 800 Tough, the new phone takes a minimalistic twist whilst inheriting the classic candy-bar design of the original Nokia 6300. 
 
-Packaged in a polycarbonate shell, the mighty 6300 4G supports 4G LTE support for better data connection, plus Wi-Fi calling for clearer calls in areas with poor cellular coverage. You can also use the phone as a Wi-Fi hotspot to share your connection with other devices. It runs on KaiOS 2.5.4, which includes social apps such as WhatsApp, Facebook, YouTube, Google Maps, and up until recently[^2], Google Assistant. 
+It was then one of the most affordable phones the company had ever offered in its KaiOS lineup[^1] at €49/$69.99.
 
-With the firmware update to 12.00.17.01 (see [ROOT: Boot partition patching (non-US only)]), the new 6300 4G became one of the few KaiOS phones to be able to make and receive WhatsApp voice calls.
+Packaged in a tiny footprint with sturdy, yet comfortable feel of the polycarbonate shell, the 6300 4G is truly designed for social needs. It features 4G LTE support for better data connection, plus Wi-Fi calling for clearer calls in areas with poor cellular coverage. You can also use the phone as a Wi-Fi hotspot to share your connection with other devices.
 
-Reception of the phone has been unfavorable, however, with users on sites like Amazon UK, Best Buy and GSMArena citing software issues, poor battery life and outdated operating system kernel (see [Known issues]).
+The phone runs on KaiOS 2.5.4, which includes social apps such as WhatsApp, Facebook, YouTube, Google Maps, and up until recently[^2], Google Assistant. With the firmware update to 12.00.17.01 (see [ROOT: Boot partition patching (non-US only)]), it became one of the few KaiOS phones to be able to make and receive WhatsApp voice calls.
+
+Reception of the phone has been unfavorable, however, with users on sites such as Amazon UK, Best Buy and GSMArena citing software issues, poor battery life and outdated operating system (see [Known issues]).
 
 ## Don't buy a counterfeit
 **Beware of ~~Wish.com~~ eBay listings if you plan to get yourself an 8110 4G, 2720 Flip or 6300 4G.**
@@ -89,7 +91,7 @@ On eBay, Shopee and [many online shopping platforms], you'll see hundreds of lis
 	- Check the printed model number on the packaging box with that on another information sticker under the back of the phone, and when dialing `*#0000#` in the operating system.
 - Look for signs of the phone running KaiOS and not MRE: KaiOS uses the distinct [Open Sans UI font] and vibrant, properly aligned UI elements. KaiStore and related services should be available at all time. It does not natively run Opera Mini 4.4 or other Java/MRE apps.
 
-*Photos provided by various Reddit posts ([second], [third], [fourth]) and r/KaiOS Discord server in June 2023.*
+*Photos provided by [thurmendes on r/KaiOS Discord server] in June 2023 and various Reddit posts ([second], [third], [fourth]).*
 
 ![](img/leo-counterfeit.png)
 
@@ -650,45 +652,33 @@ python edl.py reset
 *GitHub Pages theme: MIT-licensed [riggraz/no-style-please](https://github.com/riggraz/no-style-please). Logo by [Vitaly Gorbachev](https://www.flaticon.com/free-icons/banana) from Flaticons*
 
 <!-- these are called footnotes -->
-[^1]: Taken from HMD's official [press release](https://www.hmdglobal.com/new-nokia-feature-phones-nokia-6300-4g-and-nokia-8000-4g) and [promotional video](https://www.youtube.com/watch?v=pub47YzYBJs).
-[^2]: In August 2021, Google decided to [pull the plugs from Assistant on KaiOS]https://9to5google.com/2021/08/30/google-assistant-kaios-text/. Prior to that, Assistant can be used to make calls, send texts, change device settings and do various on-device functions with your voice. 
-[^3]: Aleph Security has a [deep-dive blog post](https://alephsecurity.com/2018/01/22/qualcomm-edl-1) into exploiting the nature of EDL mode on Qualcomm devices. If you're into the overall boot process, check out the breakdown of Qualcomm's Chain of Trust on [LineageOS Engineering Blog](https://lineageos.org/engineering/Qualcomm-Firmware).
-[^4]: Read more about SELinux on [LineageOS team's Engineering Blog](https://lineageos.org/engineering/HowTo-SELinux).
+[^1]: Taken from HMD's official [press release] and [promotional video].
+[^2]: In August 2021, Google decided to [pull the plugs from Assistant on KaiOS]. Prior to that, Assistant can be used to make calls, send texts, change device settings and do various on-device functions with your voice. 
+[^3]: Aleph Security has a [deep-dive blog post] into exploiting the nature of EDL mode on Qualcomm devices. If you're into the overall boot process, check out the breakdown of [Qualcomm's Chain of Trust on LineageOS Engineering Blog].
+[^4]: Read more about [SELinux on LineageOS Engineering Blog].
 
 [press release]: https://www.hmdglobal.com/new-nokia-feature-phones-nokia-6300-4g-and-nokia-8000-4g
+[promotional video]: https://www.youtube.com/watch?v=pub47YzYBJs
+[pull the plugs from Assistant on KaiOS]: https://9to5google.com/2021/08/30/google-assistant-kaios-text/
+[deep-dive blog post]: (https://alephsecurity.com/2018/01/22/qualcomm-edl-1
+[Qualcomm's Chain of Trust on LineageOS Engineering Blog]:(https://lineageos.org/engineering/Qualcomm-Firmware
+[SELinux on LineageOS Engineering Blog]: https://lineageos.org/engineering/HowTo-SELinux
 
 <!-- Table of Contents -->
 [provided by HMD]: https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz
 [`leo-v20` branch of this repository]: https://github.com/minhduc-bui1/nokia-leo/tree/leo-v20
-[Don’t buy a counterfeit]: #dont-buy-a-counterfeit
-[About Kosher phones]: #about-kosher-phones
-[Differences between US and international variants]: #differences-between-us-and-international-variants
-[Tips and tricks]: #tips-and-tricks
+
 [Known issues]: #known-issues
-[KaiOS-specific]: #kaios-specific
-[WhatsApp-specific]: #whatsapp-specific
-[Secret codes]: #secret-codes
-[Special boot modes]: #special-boot-modes
-[UART debugging testpoint]: #uart-debugging-testpoint
 [Sideloading and debugging third-party applications]: #sideloading-and-debugging-third-party-applications
 [ROOT: Boot partition patching (non-US only)]: #root-boot-partition-patching-non-us-only
-[Before proceeding: back up your data]: #before-proceeding-back-up-your-data
-[What we’ll need]: #what-well-need
-[Part 1: Set up environment for EDL tools]: #part-1-set-up-environment-for-edl-tools
-[Part 2: Obtaining the boot partition]: #part-2-obtaining-the-boot-partition
-[Nokia 8000 4G and Nokia 6300 4G with bkerler’s EDL]: #nokia-8000-4g-and-nokia-6300-4g-with-bkerlers-edl
-[Nokia 2720 Flip and Nokia 800 Tough with andybalholm’s EDL]: #nokia-2720-flip-and-nokia-800-tough-with-andybalholms-edl
-[Part 3: Patching the boot partition]: #part-3-patching-the-boot-partition
-[Automatic patching with `8k-boot-patcher`]: #automatic-patching-with-8k-boot-patcher
 [Manual patching with Android Image Kitchen]: #manual-patching-with-android-image-kitchen
-[Part 4: Flashing the modified boot partition]: #part-4-flashing-the-modified-boot-partition
-[External links]: #external-links
 
 [COVID-19 pandemic]: https://en.wikipedia.org/wiki/COVID-19_pandemic
 [many online shopping platforms]: https://www.youtube.com/watch?v=b2-FJ3RuYhE
 [terrible build quality]: https://www.reddit.com/r/KaiOS/comments/xglkr7/well_darn_it_i_just_received_a_counterfeit_nokia
 [never sold 2G-only version of any of its devices in KaiOS lineup]: https://www.reddit.com/r/dumbphones/comments/18ueonx/first_dumbphone_and_a_bad_start/
 [Open Sans UI font]: #sideloading-and-debugging-third-party-applications 
+[thurmendes on r/KaiOS Discord server]: https://discord.com/channels/472006912846594048/472006912846594050/1117973846830633061
 [second]: https://www.reddit.com/r/dumbphones/comments/15z7b07/problems_with_nokia_6300_4g/
 [third]: https://www.reddit.com/r/KaiOS/comments/z5u8e0/nokia_6300_4g_ta1287_in_on_tmobile_us_things_dont/
 [fourth]: https://www.reddit.com/r/KaiOS/comments/12cjnlc/is_my_kaios_device_fake_nokia_6300/
@@ -755,8 +745,8 @@ python edl.py reset
 [Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 [Docker Desktop]: https://docs.docker.com/compose/install
 [Linux kernel update package]: https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
-[Windows]: https://github.com/osm0sis/Android-Image-Kitchen/tree/master
-[macOS/Linux]: https://github.com/osm0sis/Android-Image-Kitchen/tree/AIK-Linux
+[Windows]: https://forum.xda-developers.com/attachments/android-image-kitchen-v3-8-win32-zip.5300919
+[macOS/Linux]: https://forum.xda-developers.com/attachments/aik-linux-v3-8-all-tar-gz.5300923
 [Notepad++]: https://notepad-plus-plus.org/downloads
 [preserving line endings]: https://www.cs.toronto.edu/~krueger/csc209h/tut/line-endings.html
 [Java Runtime Environment]: https://www.java.com/en/download
