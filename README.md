@@ -43,7 +43,7 @@
 
 *Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and thus cannot be used to compile an entire KaiOS build.*
 
-<img width="410" align="right" src="img/nokia_6300_4G-emotional-Range.png">
+<img width="390" align="right" src="img/nokia_6300_4G-emotional-Range.png">
 
 **Table of Contents**
 - [Don’t buy a counterfeit](#dont-buy-a-counterfeit)
