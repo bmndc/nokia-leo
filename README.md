@@ -1,8 +1,7 @@
 <details markdown="block"><summary dir="rtl">View device specification table</summary>
 <table style="font-size:small">
 	<thead><tr><th></th><th>Nokia 6300 4G (nokia-leo)</th><th>Nokia 8000 4G (nokia-sparkler)</th></tr></thead>
-	<tbody>
-		<tr><td>Released</td><td colspan=2>13 November 2020</td></tr>
+	<tbody><tr><td>Released</td><td colspan=2>13 November 2020</td></tr>
 		<tr><td>Model</td><td>TA-1286, TA-1287, TA-1291, TA-1294, TA-1307, TA-1324</td><td>TA-1300, TA-1303, TA-1305, TA-1311</td></tr>
 		<tr><td>Colors</td><td>Light Charcoal, White, Cyan Green</td><td>Onyx/Black, Opal/White, Topaz/Blue, Cintrine/Gold</td></tr>
 		<tr><td>MSRP</td><td>€49/£59.99/$69.99/1,290,000₫</td><td>€79/£79.99/1,790,000₫</td></tr>
@@ -43,7 +42,7 @@
 
 *Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and thus cannot be used to compile an entire KaiOS build.*
 
-<img width="390" align="right" src="img/nokia_6300_4G-emotional-Range.png">
+<img width="390" align="right" src="img/nokia_6300_4G-emotional-Range.png" alt="Three colour models of the Nokia 6300 4G stacking on top of each other">
 
 **Table of Contents**
 - [Don’t buy a counterfeit](#dont-buy-a-counterfeit)
@@ -93,7 +92,7 @@ On eBay, Shopee and [many online shopping platforms], you'll see hundreds of lis
 
 *Photos provided by [thurmendes on r/KaiOS Discord server] in June 2023 and various Reddit posts ([second], [third], [fourth]).*
 
-![](img/leo-counterfeit.png)
+![Photo collage of fake 6300 4G](img/leo-counterfeit.png)
 
 ### About Kosher phones
 Kosher is a category of devices whose the software (sometimes hardware) is heavily modified to limit access, or even get rid of content and features deemed distracting or against religious values, while keeping other features and user interface almost identical to the original. Companies specializing in customizing Kosher phones exist, and you can easily come across Kosher phone listings on eBay advertising as productivity and focus improvement tools.
