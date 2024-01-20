@@ -769,5 +769,5 @@ python edl.py reset
 <style>
 	.w { max-width: 1012px; padding: 4rem 1rem }
 	li { margin-left: -0.5rem }
-	body { font-family: system-ui, sans-serif; font-size: 14px }
+	body { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.5 }
 </style>
