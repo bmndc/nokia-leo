@@ -88,6 +88,6 @@ On devices with dedicated volume buttons, you can quickly toggle on/off this fea
 </script>
 
 <style>
-    .w { max-width: 950px !important; padding: 4rem 1rem !important; font-size: large; }
-    h1 { display: none !important; }
+    .w { max-width: 1012px; padding: 4rem 1rem; font-size: large; }
+    h1 { display: none; }
 </style>
