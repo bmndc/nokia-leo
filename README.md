@@ -255,7 +255,7 @@ The guide below is based on the main guide from BananaHackers website, but has b
 - On internal storage or SD card (whichever you chose under *Settings → Storage → Default media location*), captured photos and videos are stored under `DCIM`; whereas recorded voice files are stored under `audio`.
 		- To get your phone to show up on the computer as external storage, turn on *USB Storage* under *Settings
 
-For backing up application data (excluding WhatsApp chats), system preferences and partition images, see [Backup].
+For backing up application data (excluding WhatsApp chats), system preferences and partition images, see [Back up system partitions].
 
 ### What we'll need
 - a Nokia 6300 4G (excl. TA-1324), 8000 4G, 2720 Flip, 800 Tough or Alcatel Go Flip 3;
@@ -720,7 +720,7 @@ python edl.py reset
 [kaios-backup]: https://github.com/D3SXX/kaios-backup
 [kaios-sms-backup]: https://github.com/Fiachra1993/kaios-sms-backup
 [greg]: https://github.com/strukturart/greg
-[Backup]: https://github.com/minhduc-bui1/nokia-leo/wiki/Backup
+[Back up system partitions]: https://github.com/minhduc-bui1/nokia-leo/wiki/Backup
 
 <!-- ROOT -->
 [8000 4G and 6300 4G]: https://edl.bananahackers.net/loaders/8k.mbn
@@ -767,7 +767,7 @@ python edl.py reset
 [Affe Null's Bananian project repository]: https://git.abscue.de/bananian/bananian
 
 <style>
-	.w { max-width: 1012px; padding: 4rem 1rem }
+	.w { max-width: 1030px; padding: 4rem 1rem }
 	li { margin-left: -0.5rem }
 	body { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.5 }
 </style>
