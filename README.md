@@ -1,11 +1,11 @@
 <details markdown=block><summary dir=rtl>View device specification table</summary>
-<table style=font-size:small>
+<table style="font-size:small">
 	<thead><tr><th></th><th>Nokia 6300 4G (nokia-leo)</th><th>Nokia 8000 4G (nokia-sparkler)</th></tr></thead>
 	<tbody><tr><td>Released</td><td colspan=2>13 November 2020</td></tr>
 		<tr><td>Model</td><td>TA-1286, TA-1287, TA-1291, TA-1294, TA-1307, TA-1324</td><td>TA-1300, TA-1303, TA-1305, TA-1311</td></tr>
 		<tr><td>Colors</td><td>Light Charcoal, White, Cyan Green</td><td>Onyx/Black, Opal/White, Topaz/Blue, Cintrine/Gold</td></tr>
 		<tr><td>MSRP</td><td>€49/£59.99/$69.99/1,290,000₫</td><td>€79/£79.99/1,790,000₫</td></tr>
-		<tr><td colspan=3 align=center><strong>Specifications</strong></td></tr>
+		<tr><td colspan=3 align="center"><strong>Specifications</strong></td></tr>
 		<tr><td>SoC</td><td colspan=2>Qualcomm MSM8909 Snapdragon 210 (4 × 1.1GHz Cortex-A7)</td></tr>
 		<tr><td>RAM</td><td colspan=2>512MB LPDDR2/3</td></tr>
 		<tr><td>GPU</td><td colspan=2>Adreno 304</td></tr>
@@ -33,7 +33,7 @@
 		<tr><td>Weight</td><td>With battery: 104.1g (3.67oz)</td><td>With battery: 107.9g (3.81oz)</td></tr>
 		<tr><td>Ports</td><td colspan=2>- microUSB charging &amp; USB 2.0 data transferring port<br>- 3.5mm headphone jack</td></tr>
 		<tr><td>Battery</td><td colspan=2>Removable Li-Ion 1500mAh (BL-4XL), 5W wired charging<br>(up to 25 days of 4G standby advertised)</td></tr>
-		<tr><td colspan=3 align=center><strong>KaiOS info</strong></td></tr>
+		<tr><td colspan=3 align="center"><strong>KaiOS info</strong></td></tr>
 		<tr><td>Version</td><td colspan=2>KaiOS 2.5.4</td></tr>
 		<tr><td>WA VoIP</td><td colspan=2>Supported (12.00.17.01 onwards)</td></tr>
 		<tr><td>Build no.</td><td colspan=2>10.00.17.01, 12.00.17.01, 20.00.17.01, 30.00.17.01</td></tr>
