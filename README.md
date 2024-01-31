@@ -1,4 +1,4 @@
-<details markdown=block><summary dir=rtl>View device specification table</summary>
+<details><summary dir=rtl>View device specification table</summary>
 <table style="font-size:small">
 	<thead><tr><th></th><th>Nokia 6300 4G (nokia-leo)</th><th>Nokia 8000 4G (nokia-sparkler)</th></tr></thead>
 	<tbody><tr><td>Released</td><td colspan=2>13 November 2020</td></tr>
@@ -42,7 +42,7 @@
 
 *Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and thus cannot be used to compile an entire KaiOS firmware.*
 
-<img width="390" align="right" src="img/nokia_6300_4G-emotional-Range.png" alt="Three colour models of the Nokia 6300 4G stacking on top of each other">
+<img width=390 align=right src="img/nokia_6300_4G-emotional-Range.png" alt="Three colour models of the Nokia 6300 4G stacking on top of each other">
 
 **Table&nbsp;of&nbsp;Contents**
 - [Don’t buy a counterfeit](#dont-buy-a-counterfeit)
@@ -106,9 +106,7 @@ Kosher is indeed a great way to make your phone truly basic, but HMD already off
 
 *Photo provided by nuxx on r/KaiOS Discord server in October 2021.*
 
-<p align="center">
-	<img alt="A Kosher-customized Nokia 8000 4G with no Browser, KaiStore or third-party apps shown in 3-by-3 grid of apps. Center D-Pad key is engraved with a Hebrew symbol indicating Kosher phone" src="img/kosher-sparkler.jpg" width="400">
-</p>
+<p align="center"><img alt="A Kosher-customized Nokia 8000 4G with no Browser, KaiStore or third-party apps shown in 3-by-3 grid of apps. Center D-Pad key is engraved with a Hebrew symbol indicating Kosher phone" src="img/kosher-sparkler.jpg" width="400"></p>
 
 ## Differences between US and international variants
 "Buying Western-customized products will always give you the best quality possible" is unwise when it comes to consumer electronics, including mobile phones, and the 6300 4G is no exception. When buying the TA-1324 variant of this phone, you should expect:
@@ -219,9 +217,7 @@ EDL programmer for the international version of this phone (not TA-1324) can be 
 ### UART debugging testpoint
 [As discovered by atipls on Discord], on the mainboard of the 6300 4G, there are 3 UART testing points: TX, RX and GND just above the SIM2 slot. Shorting TX and GND takes you to Fastboot and Linux terminal interface.
 
-<p align="center">
-	<img alt="Mainboard of a TA-1307 Nokia 6300 4G, with the red arrow pointing to three gold contacts in the middle of the board, those being the UART testpoints in the order of TX, RX and ground" src="img/testpoint.png">
-</p>
+<p align="center"><img alt="Mainboard of a TA-1307 Nokia 6300 4G, with the red arrow pointing to three gold contacts in the middle of the board, those being the UART testpoints in the order of TX, RX and ground" src="img/testpoint.png"></p>
 
 ## Sideloading and debugging third-party applications
 Don't want to download apps from KaiStore? Both the 6300 4G and 8000 4G have been classified as debug-enabled by the BananaHackers team. As with other KaiOS 2.5.4 devices, you can install and debug apps from outside sources on these phones, so long as they don't use 'forbidden' permissions, such as `engmode-extension`, `embed-apps` and `embed-widgets`, and you cannot debug pre-installed apps on the phone using WebIDE's Developer Tools (you're free to use `adb logcat` to view system logs instead).
@@ -650,20 +646,13 @@ python edl.py reset
 
 *GitHub Pages theme: MIT-licensed [riggraz/no-style-please](https://github.com/riggraz/no-style-please). Logo by [Vitaly Gorbachev](https://www.flaticon.com/free-icons/banana) from Flaticons*
 
-<!-- these are called footnotes -->
+<!-- Footnotes -->
 [^1]: Taken from HMD's official [press release] and [promotional video].
 [^2]: In August 2021, Google decided to [pull the plugs from Assistant on KaiOS]. Prior to that, Assistant can be used to make calls, send texts, change device settings and do various on-device functions with your voice. 
 [^3]: Aleph Security has a [deep-dive blog post] into exploiting the nature of EDL mode on Qualcomm devices. If you're into the overall boot process, check out the breakdown of [Qualcomm's Chain of Trust on LineageOS Engineering Blog].
 [^4]: Read more about [SELinux on LineageOS Engineering Blog].
 
-[press release]: https://www.hmdglobal.com/new-nokia-feature-phones-nokia-6300-4g-and-nokia-8000-4g
-[promotional video]: https://www.youtube.com/watch?v=pub47YzYBJs
-[pull the plugs from Assistant on KaiOS]: https://9to5google.com/2021/08/30/google-assistant-kaios-text/
-[deep-dive blog post]: (https://alephsecurity.com/2018/01/22/qualcomm-edl-1
-[Qualcomm's Chain of Trust on LineageOS Engineering Blog]:(https://lineageos.org/engineering/Qualcomm-Firmware
-[SELinux on LineageOS Engineering Blog]: https://lineageos.org/engineering/HowTo-SELinux
-
-<!-- Table of Contents -->
+<!-- Links -->
 [provided by HMD]: https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz
 [`leo-v20` branch of this repository]: https://github.com/minhduc-bui1/nokia-leo/tree/leo-v20
 
@@ -704,7 +693,6 @@ python edl.py reset
 [EDL archive site]: https://edl.bananahackers.net/loaders/8k.mbn
 [As discovered by atipls on Discord]: https://discord.com/channels/472006912846594048/539074521580437504/1155993357206700205
 
-<!-- Sideloading and debugging third-party applications -->
 [Sideloading and debugging/WebIDE]: https://github.com/minhduc-bui1/nokia-leo/wiki/Sideloading-and-debugging
 [BananaHackers Store]: https://store.bananahackers.net
 [B-Hackers Store]: https://sites.google.com/view/b-hackers-store/home
@@ -712,7 +700,6 @@ python edl.py reset
 [Next steps]: #next-steps
 [this fork of Luxferre's AppBuster]: https://github.com/minhduc-bui1/AppBuster
 
-<!-- Before proceeding: back up your data-->
 [back up]: https://simple.wikipedia.org/wiki/Backup
 [Murphy's Law]: https://en.wikipedia.org/wiki/Murphy%27s_law
 [Newton's laws of motion]: https://www.britannica.com/science/Newtons-laws-of-motion
@@ -722,7 +709,6 @@ python edl.py reset
 [greg]: https://github.com/strukturart/greg
 [Back up system partitions]: https://github.com/minhduc-bui1/nokia-leo/wiki/Backup
 
-<!-- ROOT -->
 [8000 4G and 6300 4G]: https://edl.bananahackers.net/loaders/8k.mbn
 [2720 Flip]: https://edl.bananahackers.net/loaders/2720.mbn
 [800 Tough]: https://edl.bananahackers.net/loaders/800t.mbn
@@ -755,7 +741,6 @@ python edl.py reset
 [Apps & features]: ms-settings:appsfeatures
 [part 4]: #part-4-flashing-the-modified-boot-
 
-<!-- External links -->
 [Nokia 6300 4G product page]: https://www.nokia.com/phones/en_int/nokia-6300-4g
 [Nokia 8000 4G product page]: https://www.nokia.com/phones/en_int/nokia-8000-4g
 [Nokia 6300 4G review]: https://www.pcmag.com/reviews/nokia-6300-4g
@@ -766,8 +751,11 @@ python edl.py reset
 [Nokia 8000 4G (nokia-sparkler)]: https://wiki.postmarketos.org/wiki/Nokia_8000_4G_(nokia-sparkler)
 [Affe Null's Bananian project repository]: https://git.abscue.de/bananian/bananian
 
-<style>
-	.w { max-width: 1030px; padding: 4rem 1rem }
-	li { margin-left: -0.5rem }
-	body { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.5 }
-</style>
+[press release]: https://www.hmdglobal.com/new-nokia-feature-phones-nokia-6300-4g-and-nokia-8000-4g
+[promotional video]: https://www.youtube.com/watch?v=pub47YzYBJs
+[pull the plugs from Assistant on KaiOS]: https://9to5google.com/2021/08/30/google-assistant-kaios-text
+[deep-dive blog post]: (https://alephsecurity.com/2018/01/22/qualcomm-edl-1
+[Qualcomm's Chain of Trust on LineageOS Engineering Blog]:(https://lineageos.org/engineering/Qualcomm-Firmware
+[SELinux on LineageOS Engineering Blog]: https://lineageos.org/engineering/HowTo-SELinux
+
+<style>.w {max-width: 1030px;padding: 4rem 1rem;}li {margin-left: -0.5rem;}body {font-family: system-ui, sans-serif;font-size: 14px;line-height: 1.5;}</style>
