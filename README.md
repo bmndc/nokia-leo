@@ -149,9 +149,12 @@ Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the 
 - This phone runs KaiOS 2.5, which itself is based on Gecko 48 from 2016, meaning without optimizations and new web technologies, some websites like Instagram and Uber just fall apart and the overall performance is unbearable.
 	- No built-in Widevine DRM decoders, which means the phone is NOT capable of playing DRM-protected content from e.g. Spotify
 - **[MAJOR]** Some built-in apps, such as Call logs, Contacts or Music, are written in a way that is performance-intensive and not optimized for the phone, causing slow rendering and system lags if you store a large number of contacts (technically infinite but 100 recommended), call logs (max 40), music files or other items in a list.
-	- *Performance issues has been addressed on later versions, for now you should opt for alternatives such as [arma7x's K-Music] in KaiStore if possible.*
+	- Performance issues have been addressed on later versions, with the use of new Gonk layer, ECMAScript 2021 and modern technologies such as WebRender.
+	- *For now you should opt for alternatives such as [arma7x's K-Music] in KaiStore if possible.*
 - **[MAJOR]** Sending text messages don't automatically convert to MMS in group chats. You'll have to add a message subject or file attachment before sending to manually do so, otherwise your message will be sent separately to each individual in the thread. Receiving works flawlessly. *Group messaging over MMS has been properly implemented as a feature on later versions.*
-- **[MAJOR]** Alarms can be delayed, unable to go off or go off unexpectedly if the Clock app is killed. Before going to sleep, make sure to open the Clock app and lock the phone without pressing the End call key or closing the app.
+- **[MAJOR]** If the Clock app is killed, alarms might be delayed, unable to go off or go off unexpectedly at the wrong time, even when the system clock is set correctly. Before going to bed, keep the Clock app on by locking the phone or closing the app only with the Back key AND not the End call key.
+	- For context, alarms set in the Clock app and some app notifications use the system in-built Alarm API, which should be always active in the background and not rely on whether the application itself was closed or not. But for some unknown reasons—likely due to optimisation issues, see above—the API does not run at the registered time. *TODO: connect the phone to a computer, run `adb logcat` and read through the system logs!*
+	- *If you're a developer, alternatives to Alarm API can be found on Tom Barrasso's KaiOS.dev blog post [Running in the Background on KaiOS].*
 - Predictive typing mode doesn't last between inputs, meaning if you switch between input boxes, it'll return to the normal T9 mode.
 - Photos larger than 6000-by-4000 in size aren't viewable in the Gallery app due to restrictions in place preventing memory constraints. As a workaround, you can download [FabianOvrWrt's Explorer] and [mochaSoft Aps' Photo Zoom] from KaiStore to view them instead.
 - Built-in File Manager app doesn't show folders in the internal storage other than pre-configured ones (audio, music, photos, books, videos, DCIM, downloads, others). This is [hardcoded within its code] as a measure to hide system files (such as DIC files for storing added T9 words), but can be easily misused. *To fully browse the internal storage, use third-party file managers from KaiStore, or turn on Settings → Storage → USB Storage and connect your phone to a computer.*
@@ -678,6 +681,7 @@ python edl.py reset
 [bypass it]: https://www.youtube.com/watch?v=0vTcQ_vY9LY
 [unintended screenshots]: https://www.reddit.com/r/KaiOS/comments/vjnz83/screenshotting_every_time_i_sit_down_or_pedal_my
 [arma7x's K-Music]: https://github.com/arma7x/kaimusic
+[Running in the Background on KaiOS]: https://kaios.dev/2023/10/running-in-the-background-on-kaios/
 [FabianOvrWrt's Explorer]: https://github.com/FabianOvrWrt/kaios-freshapps
 [mochaSoft Aps' Photo Zoom]: https://www.kaiostech.com/store/apps/?bundle_id=dk.mochasoft.photozoom
 [hardcoded within its code]: https://discordapp.com/channels/472006912846594048/472144586295345153/1173300055361458257
