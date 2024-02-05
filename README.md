@@ -40,9 +40,9 @@
 	</tbody>
 </table></details>
 
-In late 2020, amid the outbreak of the [COVID-19 pandemic] and the need for people to stay connected during lockdown, HMD Global quietly re-introduced the new Nokia 6300 4G based on KaiOS 2.5.4. Following the successful 4G launch of the retro 2720 Flip and 800 Tough, the new phone packs the modern features of 4G LTE, Wi-Fi and social apps in a tiny footprint, whilst inheriting the classic candy-bar design of the original Nokia 6300. It was one of the most affordable phones the company had ever priced in its KaiOS lineup at €49/$69.99.[^1]
+In late 2020, amid the [COVID-19 pandemic] outbreak and the need for people to stay connected during lockdown, HMD Global quietly re-introduced the new Nokia 6300 4G based on KaiOS 2.5.4. Following the successful relaunch of the retro 2720 Flip and 800 Tough, the new phone packs the modern features of 4G LTE, Wi-Fi and social apps in a tiny footprint, whilst inheriting the classic candy-bar design of the original Nokia 6300. It was one of the most affordable phones the company had ever priced in its KaiOS lineup at €49/$69.99.[^1]
 
-As the phone gained popularity (and [hatred reputation for its performance]) within the basic phone community, despite already having the 2720 Flip and @cyan-2048's advise against buying another crap, I decided to purchase one used in mid-May 2022. This drew me further into the rabbit hole of KaiOS, and the note I've compiled below is a result of my bad decision.
+As the phone gained popularity (and [hatred reputation for its performance]) within the community, despite already having the 2720 Flip and @cyan-2048's advise against buying another crap, I decided to purchase one used in mid-May 2022. This drew me further into the rabbit hole of KaiOS, and the note I've compiled below is a result of my bad decision.
 
 *Source code [published by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and thus cannot be used to compile an entire KaiOS firmware.*
 
