@@ -22,8 +22,8 @@
 			+ HK, Macau, MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>
 			+ ROW: band 1, 3, 5, 7, 8, 20, 28, 38, 40</em><br>
 			VoLTE &amp; VoWiFi support<br>Single or Dual SIM (Nano-SIM, dual-standby)</td></tr>
-		<tr><td>Screen</td><td>320 × 240 @ 167 PPI<br>2.4 inches 24-bit QVGA TFT LCD</td>
-			<td>320 × 240 @ 143 PPI<br>2.8 inches 24-bit QVGA TFT LCD</td></tr>
+		<tr><td>Screen</td><td>320 × 240 @ 167 PPI<br>2.4 inches QVGA TFT LCD, 16M colors (24-bit)</td>
+			<td>320 × 240 @ 143 PPI<br>2.8 inches QVGA TFT LCD, 16M colors (24-bit)</td></tr>
 		<tr><td>Bluetooth</td><td colspan=2>4.0, A2DP, LE</td></tr>
 		<tr><td>Wi-Fi</td><td colspan=2>802.11b/g/n, 2.4GHz, Hotspot (up to 8 devices)</td></tr>
 		<tr><td>Peripherals</td><td colspan=2>GPS &amp; GLONASS</td></tr>
@@ -44,7 +44,7 @@
 
 In late 2020, amid the [COVID-19 pandemic] outbreak and the need for people to stay connected during lockdown, HMD Global quietly introduced the new Nokia 6300 4G with KaiOS 2.5.4. Following the successful relaunch of the retro 2720 Flip and 800 Tough, the new phone packs the modern features of 4G LTE, Wi-Fi and social apps in a tiny footprint, whilst inheriting the classic candy-bar design of the original Nokia 6300. It was [one of the most affordable phones] the company had ever priced in its KaiOS lineup at €49/$69.99.
 
-I decided to purchase an used 6300 4G in mid-May 2022 as the phone gained popularity (and [hatred reputation for its performance]) within the community, despite already having the 2720 Flip and Cyan's advise against buying another crap. Nevertheless, this drew me further into the rabbit hole of KaiOS; I was impressed at first by the compact design, more vibrant, colorful screen... and then amazed with how the phone strikes the balance between being [fully-featured yet still developer-friendly]. As such, I've compiled this note as a result of my almost 2-year experience with this phone, so you can decide whether my buying decision was worth it or not.
+I decided to purchase an used 6300 4G in mid-May 2022 as the phone gained popularity (and [hatred reputation for its performance]) within the community, despite already having the 2720 Flip and Cyan's advise against buying another crap. Nevertheless, this drew me further into the rabbit hole of KaiOS; I was impressed at first by the compact design, more vibrant 24-bit screen... and then amazed with how the phone strikes the balance between being [fully-featured yet still developer-friendly]. As such, I've compiled this note as a result of my almost 2-year experience with this phone, so you can decide whether my buying decision was worth it or not.
 
 <img width=390 align=right src="img/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other">
 
