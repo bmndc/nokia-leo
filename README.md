@@ -74,22 +74,18 @@ As the phone gained popularity (and [hatred reputation for its performance]) wit
 - [External links](#external-links)
 
 ## Don't buy a counterfeit
-**Beware of ~~Wish.com~~ eBay listings if you plan to get yourself an 8110 4G, 2720 Flip or 6300 4G.**
-
-On eBay, Shopee and [many online shopping platforms], you'll see hundreds of listings for used 6300 4Gs in various conditions and specifications. While the listings seem to look identical showing the phone's exterior, many of those are NOT genuine, but are knock-offs with [terrible build quality] and experience.
-
-- Brand-new KaiOS phones, even off the shelf, don't cost less than 2/3 of their retail prices.
-- Do keep in mind that HMD has [never sold 2G-only version of any of its devices in KaiOS lineup], at least in its official capacity. All KaiOS phones from HMD are well-equipped with 4G LTE, Wi-Fi and Bluetooth. KaiOS devices are required to have 3G at minimum.
-- If the seller only uploaded generic photos showing the phone's exterior, ask for additional photos of the box that it came in. A genuine phone's box would show all its features on the fine print, as well as an information sticker that indicates its model number (which matches the device specification table above) and targeted regional market.
-	- Check the printed model number on the packaging box with that on another information sticker under the back of the phone, and when dialing `*#0000#` in the operating system.
-- Look for signs of the phone running KaiOS and not MRE: KaiOS uses the distinct [Open Sans UI font] and vibrant, properly aligned UI elements. KaiStore and related services should be available at all time. It does not natively run Opera Mini 4.4 or other Java/MRE apps.
+Here's the funny thing: it's easier to get a genuine version of the original Nokia 6300 than its rebranded version. On eBay, Shopee and [other online shopping sites], you may see hundreds of listings of used 6300 4Gs in various conditions. While the listings seem to look identical, many of those are NOT genuine but are knock-offs with [terrible build quality] and experience. Do keep an eye on those:
+- Brand-new KaiOS phones, even when off the shelves, don't cost less than 2/3 of their retail prices.
+- Keep in mind that HMD has [never sold 2G-only version of any of its devices in KaiOS lineup], at least in its official capacity. All KaiOS phones from HMD are well-equipped with 4G LTE, Wi-Fi and Bluetooth. KaiOS devices are required to have 3G at minimum.
+- If the seller only uploaded generic photos showing the phone's exterior, ask for some additional photos of the box it came in. A genuine phone's box would show all its features on the fine print, as well as an information sticker indicating its model number (which matches the device specification table above) and targeted regional market. Check the model number on the packaging box with that on another information sticker under the battery, and when dialing `*#0000#` in the operating system!
+- Look for signs of the phone running KaiOS and not MRE: KaiOS uses the distinct [Open Sans UI font] and vibrant, properly aligned UI elements. KaiStore and related services should be available at all time. It does NOT natively run Opera Mini 4.4 or other Java/MRE apps.
 
 *Photos provided by [thurmendes on r/KaiOS Discord server] in June 2023 and various Reddit posts ([second], [third], [fourth]).*
 
 ![Photo collage of fake 6300 4G](img/leo-counterfeit.png)
 
 ### About Kosher phones
-Kosher is a category of devices whose the software (sometimes hardware) is heavily modified to limit access, or even get rid of content and features deemed distracting or against religious values, while keeping other features and user interface almost identical to the original. Companies specializing in customizing Kosher phones exist, and you can easily come across Kosher phone listings on eBay advertising as productivity and focus improvement tools.
+Kosher is a category of devices whose software (sometimes hardware) is heavily modified to limit access, or even get rid of content and features deemed distracting or against religious values, while keeping other features and user interface almost identical to the original. Companies specializing in customizing Kosher phones exist, and you can easily come across Kosher phone listings on eBay advertising as productivity and focus improvement tools.
 
 As the build and UI remain identical, it's difficult to tell Kosher phones and genuine ones apart. As of now, my key takeaways to differentiate them are:
 - there might be logos embedded on hardware and/or splash screen displayed on the boot sequence to indicate a Kosher phone (original only shows 'enabled by KaiOS' followed by the Nokia logo and chime);
@@ -659,7 +655,7 @@ python edl.py reset
 [Manual patching with Android Image Kitchen]: #manual-patching-with-android-image-kitchen
 
 [COVID-19 pandemic]: https://en.wikipedia.org/wiki/COVID-19_pandemic
-[many online shopping platforms]: https://www.youtube.com/watch?v=b2-FJ3RuYhE
+[other online shopping sites]: https://www.youtube.com/watch?v=b2-FJ3RuYhE
 [terrible build quality]: https://www.reddit.com/r/KaiOS/comments/xglkr7/well_darn_it_i_just_received_a_counterfeit_nokia
 [never sold 2G-only version of any of its devices in KaiOS lineup]: https://www.reddit.com/r/dumbphones/comments/18ueonx/first_dumbphone_and_a_bad_start/
 [Open Sans UI font]: #sideloading-and-debugging-third-party-applications 
