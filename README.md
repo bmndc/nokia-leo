@@ -40,9 +40,13 @@
 	</tbody>
 </table></details>
 
-*Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and thus cannot be used to compile an entire KaiOS firmware.*
+In late 2020, amid the outbreak of the [COVID-19 pandemic] and the need for people to stay connected during lockdown, HMD Global quietly re-introduced the new Nokia 6300 4G based on KaiOS 2.5.4. Following the successful 4G launch of the retro 2720 Flip and 800 Tough, the new phone packs the modern features of 4G LTE, Wi-Fi and social apps in a tiny footprint, whilst inheriting the classic candy-bar design of the original Nokia 6300. It was one of the most affordable phones the company had ever priced in its KaiOS lineup at €49/$69.99.[^1]
 
-<img width=390 align=right src="img/nokia_6300_4G-emotional-Range.png" alt="Three colour models of the Nokia 6300 4G stacking on top of each other">
+As the phone gained popularity (and [hatred reputation for its performance]) within the basic phone community, despite already having the 2720 Flip and @cyan-2048's advise against buying another crap, I decided to purchase one used in mid-May 2022. This drew me further into the rabbit hole of KaiOS, and the note I've compiled below is a result of my bad decision.
+
+*Source code [published by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and thus cannot be used to compile an entire KaiOS firmware.*
+
+<img width=390 align=right src="img/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other">
 
 **Table&nbsp;of&nbsp;Contents**
 - [Don’t buy a counterfeit](#dont-buy-a-counterfeit)
@@ -68,16 +72,6 @@
 		- [Manual patching with Android Image Kitchen](#manual-patching-with-android-image-kitchen)
 	- [Part 4: Flashing the modified boot partition](#part-4-flashing-the-modified-boot-partition)
 - [External links](#external-links)
-
-In late 2020, amid the outbreak of the [COVID-19 pandemic] and the need for people to stay connected during lockdown, HMD Global quietly introduced the new Nokia 6300 4G based on KaiOS 2.5.4. Following the successful relaunch of the retro 2720 Flip and 800 Tough, the new phone takes a minimalistic twist whilst inheriting the classic candy-bar design of the original Nokia 6300. 
-
-It was then one of the most affordable phones the company had ever offered in its KaiOS lineup[^1] at €49/$69.99.
-
-Packaged in a tiny footprint with sturdy, yet comfortable feel of the polycarbonate shell, the 6300 4G is truly designed for social needs. It features 4G LTE support for better data connection, plus Wi-Fi calling for clearer calls in areas with poor cellular coverage. You can also use the phone as a Wi-Fi hotspot to share your connection with other devices.
-
-The phone runs on KaiOS 2.5.4, which includes social apps such as WhatsApp, Facebook, YouTube, Google Maps, and up until recently[^2], Google Assistant. With the firmware update to 12.00.17.01 (see [ROOT: Boot partition patching (non-US only)]), it became one of the few KaiOS phones to be able to make and receive WhatsApp voice calls.
-
-Reception of the phone has been unfavorable, however, with users on sites such as Amazon UK, Best Buy and GSMArena citing software issues, poor battery life and outdated operating system (see [Known issues]).
 
 ## Don't buy a counterfeit
 **Beware of ~~Wish.com~~ eBay listings if you plan to get yourself an 8110 4G, 2720 Flip or 6300 4G.**
@@ -651,15 +645,15 @@ python edl.py reset
 
 <!-- Footnotes -->
 [^1]: Taken from HMD's official [press release] and [promotional video].
-[^2]: In August 2021, Google decided to [pull the plugs from Assistant on KaiOS]. Prior to that, Assistant can be used to make calls, send texts, change device settings and do various on-device functions with your voice. 
+<!-- [^2]: In August 2021, Google decided to [pull the plugs from Assistant on KaiOS]. Prior to that, Assistant can be used to make calls, send texts, change device settings and do various on-device functions with your voice. -->
 [^3]: Aleph Security has a [deep-dive blog post] into exploiting the nature of EDL mode on Qualcomm devices. If you're into the overall boot process, check out the breakdown of [Qualcomm's Chain of Trust on LineageOS Engineering Blog].
 [^4]: Read more about [SELinux on LineageOS Engineering Blog].
 
 <!-- Links -->
-[provided by HMD]: https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz
+[published by HMD]: https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz
 [`leo-v20` branch of this repository]: https://github.com/minhduc-bui1/nokia-leo/tree/leo-v20
 
-[Known issues]: #known-issues
+[hatred reputation for its performance]: #known-issues
 [Sideloading and debugging third-party applications]: #sideloading-and-debugging-third-party-applications
 [ROOT: Boot partition patching (non-US only)]: #root-boot-partition-patching-non-us-only
 [Manual patching with Android Image Kitchen]: #manual-patching-with-android-image-kitchen
