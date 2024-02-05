@@ -42,6 +42,10 @@
 
 *Source code [published by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and thus cannot be used to compile an entire KaiOS firmware.*
 
+In late 2020, amid the [COVID-19 pandemic] outbreak and the need for people to stay connected during lockdown, HMD Global quietly introduced the new Nokia 6300 4G with KaiOS 2.5.4. Following the successful relaunch of the retro 2720 Flip and 800 Tough, the new phone packs the modern features of 4G LTE, Wi-Fi and social apps in a tiny footprint, whilst inheriting the classic candy-bar design of the original Nokia 6300. It was [one of the most affordable phones] the company had ever priced in its KaiOS lineup at €49/$69.99.
+
+I decided to purchase an used 6300 4G in mid-May 2022 as the phone gained popularity (and [hatred reputation for its performance]) within the community, despite already having the 2720 Flip and Cyan's advise against buying another crap. Nevertheless, this drew me further into the rabbit hole of KaiOS; I was impressed at first by the compact design, more vibrant 24-bit screen... and then amazed with how the phone strikes the balance between being [fully-featured yet still developer-friendly]. As such, I've compiled this note as a result of my almost 2-year experience with this phone, so you can decide whether my buying decision was worth it or not.
+
 <img width=390 align=right src="img/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other">
 
 **Table&nbsp;of&nbsp;Contents**
@@ -68,10 +72,6 @@
 		- [Manual patching with Android Image Kitchen](#manual-patching-with-android-image-kitchen)
 	- [Part 4: Flashing the modified boot partition](#part-4-flashing-the-modified-boot-partition)
 - [External links](#external-links)
-
-In late 2020, amid the [COVID-19 pandemic] outbreak and the need for people to stay connected during lockdown, HMD Global quietly introduced the new Nokia 6300 4G with KaiOS 2.5.4. Following the successful relaunch of the retro 2720 Flip and 800 Tough, the new phone packs the modern features of 4G LTE, Wi-Fi and social apps in a tiny footprint, whilst inheriting the classic candy-bar design of the original Nokia 6300. It was [one of the most affordable phones] the company had ever priced in its KaiOS lineup at €49/$69.99.
-
-I decided to purchase an used 6300 4G in mid-May 2022 as the phone gained popularity (and [hatred reputation for its performance]) within the community, despite already having the 2720 Flip and Cyan's advise against buying another crap. Nevertheless, this drew me further into the rabbit hole of KaiOS; I was impressed at first by the compact design, more vibrant 24-bit screen... and then amazed with how the phone strikes the balance between being [fully-featured yet still developer-friendly]. As such, I've compiled this note as a result of my almost 2-year experience with this phone, so you can decide whether my buying decision was worth it or not.
 
 ## Don't buy a counterfeit
 Here's the funny thing: it's easier to get a genuine version of the original Nokia 6300 than its rebranded version. On eBay, Shopee and [other online shopping sites], you may see hundreds of listings of used 6300 4G in various conditions. While the listings seem to look identical, many of those are NOT genuine but are knock-offs with [terrible build quality] and user experience. Do keep an eye on those:
