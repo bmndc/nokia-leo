@@ -32,7 +32,7 @@
 			<td>132.2 × 56.5 × 12.3 (mm)<br>5.20 × 2.22 × 0.48 (in)</td></tr>
 		<tr><td>Weight</td><td>With battery: 104.1g (3.67oz)</td><td>With battery: 107.9g (3.81oz)</td></tr>
 		<tr><td>Ports</td><td colspan=2>- microUSB charging &amp; USB 2.0 data transferring port<br>- 3.5mm headphone jack</td></tr>
-		<tr><td>Battery</td><td colspan=2>Removable Li-Ion 1500mAh (BL-4XL), 5W wired charging<br>(up to 25 days of 4G standby advertised)</td></tr>
+		<tr><td>Battery</td><td colspan=2>Removable Li-Ion 1500mAh (BL-4XL), 5W wired charging (up to 25 days of 4G standby advertised)</td></tr>
 		<tr><td colspan=3 align="center"><strong>KaiOS info</strong></td></tr>
 		<tr><td>Version</td><td colspan=2>KaiOS 2.5.4</td></tr>
 		<tr><td>WA VoIP</td><td colspan=2>Supported (12.00.17.01 onwards)</td></tr>
@@ -40,11 +40,11 @@
 	</tbody>
 </table></details>
 
-*Source code [published by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Note that it doesn't contain proprietary code from parties i.e. Qualcomm and thus cannot be used to compile an entire KaiOS firmware.*
+*Source code [published by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Note that it doesn't contain proprietary code from certain parties and thus cannot be used to compile a fully working KaiOS firmware.*
 
 In late 2020, amid the [COVID-19 pandemic] outbreak and the need for people to stay connected during lockdown, HMD Global quietly introduced the new Nokia 6300 4G with KaiOS 2.5.4. Following the successful relaunch of the retro 2720 Flip and 800 Tough, the new phone packs the modern features of 4G LTE, Wi-Fi and social apps in a tiny footprint, whilst inheriting the classic candy-bar design of the original Nokia 6300. It was [one of the most affordable phones] the company had ever priced in its KaiOS lineup at €49/$69.99.
 
-I decided to purchase an used 6300 4G in mid-May 2022 as the phone gained popularity (and [hatred reputation for its performance]) within the community, despite already having the 2720 Flip and Cyan's advise against buying another crap. Nevertheless, this drew me further into the rabbit hole of KaiOS; I was impressed at first by the compact design, more vibrant 24-bit screen... and then amazed with how the phone strikes the balance between being [fully-featured yet still developer-friendly]. As such, I've compiled this note as a result of my almost 2-year experience with this phone, so you can decide whether my buying decision was worth it or not.
+I decided to purchase an used 6300 4G in mid-May 2022 as the phone gained popularity (and [hatred reputation for its performance]) within the community, despite already having the 2720 Flip and Cyan's advise against buying another crap. Nevertheless, this drew me further into the rabbit hole of KaiOS; I was impressed at first by the compact design, more vibrant 24-bit screen, and then amazed with how the phone strikes the balance between being [fully-featured yet still developer-friendly]. As such, I've compiled this note as a result of my almost 2-year experience with this phone, so you can decide whether my buying decision was worth it or not.
 
 <img width=390 align=right src="img/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other">
 
