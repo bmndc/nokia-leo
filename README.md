@@ -31,7 +31,7 @@
 		<tr><td>Dimensions<br>(HWD)</td><td>131.4 × 53 × 13.7 (mm)<br>5.17 × 2.09 × 0.54 (in)</td>
 			<td>132.2 × 56.5 × 12.3 (mm)<br>5.20 × 2.22 × 0.48 (in)</td></tr>
 		<tr><td>Weight</td><td>With battery: 104.1g (3.67oz)</td><td>With battery: 107.9g (3.81oz)</td></tr>
-		<tr><td>Ports</td><td colspan=2>- microUSB charging &amp; USB 2.0 data transferring port<br>- 3.5mm headphone jack</td></tr>
+		<tr><td>Ports</td><td colspan=2>- microUSB 2.0 charging &amp; data transferring port<br>- 3.5mm headphone jack</td></tr>
 		<tr><td>Battery</td><td colspan=2>Removable Li-Ion 1500mAh (BL-4XL), 5W wired charging (up to 25 days of 4G standby advertised)</td></tr>
 		<tr><td colspan=3 align="center"><strong>KaiOS info</strong></td></tr>
 		<tr><td>Version</td><td colspan=2>KaiOS 2.5.4</td></tr>
@@ -57,16 +57,6 @@
 	- [UART debugging testpoint](#uart-debugging-testpoint)
 - [Sideloading and debugging third-party applications](#sideloading-and-debugging-third-party-applications)
 - [ROOT: Boot partition patching (non-US only)](#root-boot-partition-patching-non-us-only)
-	- [Before proceeding: back up your data](#before-proceeding-back-up-your-data)
-	- [What we’ll need](#what-well-need)
-	- [Part 1: Set up environment for EDL tools](#part-1-set-up-environment-for-edl-tools)
-	- [Part 2: Obtaining the boot partition](#part-2-obtaining-the-boot-partition)
-		- [Nokia 8000 4G and Nokia 6300 4G with bkerler’s EDL](#nokia-8000-4g-and-nokia-6300-4g-with-bkerlers-edl)
-		- [Nokia 2720 Flip and Nokia 800 Tough with andybalholm’s EDL](#nokia-2720-flip-and-nokia-800-tough-with-andybalholms-edl)
-	- [Part 3: Patching the boot partition](#part-3-patching-the-boot-partition)
-		- [Automatic patching with `8k-boot-patcher`](#automatic-patching-with-8k-boot-patcher)
-		- [Manual patching with Android Image Kitchen](#manual-patching-with-android-image-kitchen)
-	- [Part 4: Flashing the modified boot partition](#part-4-flashing-the-modified-boot-partition)
 - [External links](#external-links)
 
 In late 2020, amid the [COVID-19 pandemic] outbreak and the need for people to stay connected during lockdown, HMD Global quietly introduced the new Nokia 6300 4G with KaiOS 2.5.4. Following the successful relaunch of the retro 2720 Flip and 800 Tough, the new phone packs the modern features of 4G LTE, Wi-Fi and social apps in a tiny footprint, whilst inheriting the classic candy-bar design of the original Nokia 6300. It was [one of the most affordable phones] the company had ever priced in its KaiOS lineup at €49/$69.99.
@@ -620,7 +610,7 @@ echo -n 1 > /data/enforce
 mount -o bind /data/enforce /sys/fs/selinux/enforce
 ```
 
-If you wish to revert all changes made, connect the phone to your computer in EDL mode, move the original boot image file to `edl-3.1` or `edl-master` folder, open Command Prompt/Terminal within the folder and type:
+If you wish to revert all changes you've made, connect your phone to the computer in EDL mode, move the original boot image file to `edl-3.1` or `edl-master` folder, open Command Prompt/Terminal within the folder and type:
 ```
 python edl.py w boot boot.img --loader=8k.mbn
 python edl.py reset
@@ -639,13 +629,13 @@ python edl.py reset
 
 *GitHub Pages theme: MIT-licensed [riggraz/no-style-please](https://github.com/riggraz/no-style-please). Logo by [Vitaly Gorbachev](https://www.flaticon.com/free-icons/banana) from Flaticons*
 
-<!-- Footnotes -->
+<!-- footnotes -->
 [^1]: Taken from HMD's official [press release] and [promotional video].
 <!-- [^2]: In August 2021, Google decided to [pull the plugs from Assistant on KaiOS]. Prior to that, Assistant can be used to make calls, send texts, change device settings and do various on-device functions with your voice. -->
 [^3]: Aleph Security has a [deep-dive blog post] into exploiting the nature of EDL mode on Qualcomm devices. If you're into the overall boot process, check out the breakdown of [Qualcomm's Chain of Trust on LineageOS Engineering Blog].
 [^4]: Read more about [SELinux on LineageOS Engineering Blog].
 
-<!-- Links -->
+<!-- links -->
 [published by HMD]: https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz
 [`leo-v20` branch of this repository]: https://github.com/minhduc-bui1/nokia-leo/tree/leo-v20
 
@@ -752,4 +742,4 @@ python edl.py reset
 [Qualcomm's Chain of Trust on LineageOS Engineering Blog]:(https://lineageos.org/engineering/Qualcomm-Firmware
 [SELinux on LineageOS Engineering Blog]: https://lineageos.org/engineering/HowTo-SELinux
 
-<style>.w {max-width: 1030px;padding: 4rem 1rem;}li {margin-left: -0.5rem;}body {font-family: system-ui, sans-serif;font-size: 14px;}</style>
+<style>.w {max-width:1030px;padding:4rem 1rem;}li {margin-left:-1rem;}body {font-family:system-ui,sans-serif;font-size:14px;line-height:1.5;}</style>
