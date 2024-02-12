@@ -5,15 +5,14 @@ description: >
 
 favicon: "img/banana.png"
 
-remote_theme: michaelnordmeyer/jekyll-theme-nix
+remote_theme: riggraz/no-style-please
 exclude: [root.sh, fota.sh, curef.json, 8k.mbn, recovery-8110.img]
 
-# theme_config:
-#   appearance: "auto"
-#   back_home_text: "Back to main page"
-#   date_format: "%d-%m-%Y"
-#   show_description: false
+theme_config:
+  appearance: "auto"
+  back_home_text: "Back to main page"
+  date_format: "%d-%m-%Y"
+  show_description: false
 
 plugins:
   - jekyll-seo-tag
-  - jekyll-redirect-from
