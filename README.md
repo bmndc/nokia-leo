@@ -752,4 +752,4 @@ python edl.py reset
 [Qualcomm's Chain of Trust on LineageOS Engineering Blog]:(https://lineageos.org/engineering/Qualcomm-Firmware
 [SELinux on LineageOS Engineering Blog]: https://lineageos.org/engineering/HowTo-SELinux
 
-<style>.w {max-width:1030px;padding:4rem 1rem;}li {margin-left:-1rem;}body {font-family:system-ui,sans-serif;font-size:14px;line-height:1.5;}</style>
+<style>.w{max-width:1048px;padding:4rem 1rem;}li{margin-left:-1rem;}body{font-family:system-ui,sans-serif;font-size:14px;line-height:1.5;}</style>
