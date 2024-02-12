@@ -40,7 +40,7 @@
 	</tbody>
 </table></details>
 
-*Source code [published by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Note that it doesn't contain proprietary code from certain parties and thus cannot be used to compile a fully working KaiOS firmware.*
+*Source code [published by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Note that it doesn't contain proprietary code from some parties and thus cannot be used to compile a fully working KaiOS firmware.*
 
 <img width=390 align=right src="img/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other">
 
@@ -57,11 +57,21 @@
 	- [UART debugging testpoint](#uart-debugging-testpoint)
 - [Sideloading and debugging third-party applications](#sideloading-and-debugging-third-party-applications)
 - [ROOT: Boot partition patching (non-US only)](#root-boot-partition-patching-non-us-only)
+	- [Before proceeding: back up your data](#before-proceeding-back-up-your-data)
+	- [What we’ll need](#what-well-need)
+	- [Part 1: Set up environment for EDL tools](#part-1-set-up-environment-for-edl-tools)
+	- [Part 2: Obtaining the boot partition](#part-2-obtaining-the-boot-partition)
+		- [Nokia 8000 4G and Nokia 6300 4G with bkerler’s EDL](#nokia-8000-4g-and-nokia-6300-4g-with-bkerlers-edl)
+		- [Nokia 2720 Flip and Nokia 800 Tough with andybalholm’s EDL](#nokia-2720-flip-and-nokia-800-tough-with-andybalholms-edl)
+	- [Part 3: Patching the boot partition](#part-3-patching-the-boot-partition)
+		- [Automatic patching with `8k-boot-patcher`](#automatic-patching-with-8k-boot-patcher)
+		- [Manual patching with Android Image Kitchen](#manual-patching-with-android-image-kitchen)
+	- [Part 4: Flashing the modified boot partition](#part-4-flashing-the-modified-boot-partition)
 - [External links](#external-links)
 
-In late 2020, amid the [COVID-19 pandemic] outbreak and the need for people to stay connected during lockdown, HMD Global quietly introduced the new Nokia 6300 4G with KaiOS 2.5.4. Following the successful relaunch of the retro 2720 Flip and 800 Tough, the new phone packs the modern features of 4G LTE, Wi-Fi and social apps in a tiny footprint, whilst inheriting the classic candy-bar design of the original Nokia 6300. It was [one of the most affordable phones] the company had ever priced in its KaiOS lineup at €49/$69.99.
+In late 2020, as people need to stay connected amid the [COVID-19 pandemic] outbreak, HMD Global quietly introduced the new Nokia 6300 4G with KaiOS 2.5.4. Following the successful relaunch of the Nokia-branded retro 2720 Flip and 800 Tough, the new phone packs the modern features of 4G LTE, Wi-Fi and social apps into a tiny footprint, whilst inheriting the classic candy-bar design of the original Nokia 6300. It was [one of the most affordable phones] ever in the company's KaiOS lineup at €49/$69.99.
 
-I decided to purchase an used 6300 4G in mid-May 2022 as the phone gained popularity (and [hatred reputation for its performance]) within the community, despite already having the 2720 Flip and Cyan's advise against buying another crap. Nevertheless, this drew me further into the rabbit hole of KaiOS; I was impressed at first by the compact design, more vibrant 24-bit screen, and then amazed with how the phone strikes the balance between being [fully-featured yet still developer-friendly]. As such, I've compiled this note as a result of my almost 2-year experience with this phone, so you can decide whether my buying decision was worth it or not.
+I decided to purchase an used 6300 4G in mid-May 2022 as the phone gained popularity and [hatred reputation for its performance] within the community, despite already having the 2720 Flip and Cyan's advise against buying another phone. Nevertheless, this drew me further into the rabbit hole of KaiOS; the more compact design, vibrant screen, and the balance kept between being [fully-featured yet still developer-friendly] on the phone really striked me. This inspired me into compiling this note as a result of my almost 2-year experience with it.
 
 ## Don't buy a counterfeit
 Here's the funny thing: it's easier to get a genuine version of the original Nokia 6300 than its rebranded version. On eBay, Shopee and [other online shopping sites] across North America, Europe and Southeast Asia, you may see hundreds of listings of used 6300 4G in various conditions. While the listings seem to look identical, many of those are NOT genuine but are knock-offs with [terrible build quality] and user experience. Do note that:
@@ -630,7 +640,7 @@ python edl.py reset
 *GitHub Pages theme: MIT-licensed [riggraz/no-style-please](https://github.com/riggraz/no-style-please). Logo by [Vitaly Gorbachev](https://www.flaticon.com/free-icons/banana) from Flaticons*
 
 <!-- footnotes -->
-[^1]: Taken from HMD's official [press release] and [promotional video].
+[^1]: A year after release of the 8000 4G and 6300 4G, HMD inherently pushed an OTA update to the 2720 Flip and 800 Tough, numbered build 30.00.17.05, which traded off DevTools access to strengthen SELinux for the ability to make and receive WhatsApp calls.
 <!-- [^2]: In August 2021, Google decided to [pull the plugs from Assistant on KaiOS]. Prior to that, Assistant can be used to make calls, send texts, change device settings and do various on-device functions with your voice. -->
 [^3]: Aleph Security has a [deep-dive blog post] into exploiting the nature of EDL mode on Qualcomm devices. If you're into the overall boot process, check out the breakdown of [Qualcomm's Chain of Trust on LineageOS Engineering Blog].
 [^4]: Read more about [SELinux on LineageOS Engineering Blog].
