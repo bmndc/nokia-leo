@@ -165,7 +165,7 @@ Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the 
 	- Note that you cannot sign into another device, pair with WhatsApp Web and then sign into WhatsApp on KaiOS. This will cause the decryption keys to be renewed and all other devices to be logged off automatically.
 
 ## Secret codes
-*Tip: You can save these codes as contacts to quickly dial later. When the phone suggests a saved code, you'll have to press Call to activate the code's function.*
+*Tip: You can save these codes as contacts to dial later or as Speed Dial entries. When the phone suggests a saved code, you can press Call to activate the code's function.*
 - `*#*#33284#*#*` (`*#*#debug#*#*`): Toggle debugging mode, allowing the phone to be debugged over ADB and DevTools (see [Sideloading and debugging/WebIDE]). A bug icon will appear in the status bar letting you know debugging mode is on. This can also be turned on under *Settings → Device → Developer → Debugger → ADB and DevTools*.
 - `*#06#`: Display the hidden International Mobile Equipment Identity numbers or IMEI(s) to uniquely identify a specific cell phone on GSM networks. **Do not modify, delete or show them to anyone else**: they're crucial for calling functions on the phone.
 - `*#0606#` (TA-1324 only): Display the Mobile Equipment Identifier numbers or MEID(s) to uniquely identify a specific cell phone on CDMA networks. Note that this only applies to US models; on international models the MEIDs would be all zeroes, and thus this secret code does nothing.
