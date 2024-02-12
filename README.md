@@ -274,8 +274,10 @@ For the sake of convenience, move the Gerda Recovery image and the MBN file into
 
 *If you're on Linux, Python and ADB can be quickly set up by installing with your built-in package manager. We won't be covering this here, as each Linux distro has its own way of installing from package manager.*
 
+> Note for Arch Linux users: I've made an experimental `root.sh` that you can use to automate all 4 parts of the process (see the root of the repository) based on @Llixuma's tutorial. Debian-based distro users stay tuned!
+
 ### Part 1: Set up environment for EDL tools
-> This portion of the guide was taken from [Development/EDL tools on BananaHackers Wiki] so that you don't have to switch tabs. Kudos to Cyan for the guides!
+*This portion of the guide was taken from [Development/EDL tools on BananaHackers Wiki] so that you don't have to switch tabs. Kudos to Cyan for the guides!*
 
 #### Linux
 1. Install Python from your operating system's package manager e.g.
@@ -637,8 +639,6 @@ python edl.py reset
 - [Nokia 8000 4G (nokia-sparkler)] on postmarketOS Wiki
 - [Affe Null's Bananian project repository], a Debian port for KaiOS devices
 
-*GitHub Pages theme: MIT-licensed [riggraz/no-style-please](https://github.com/riggraz/no-style-please). Logo by [Vitaly Gorbachev](https://www.flaticon.com/free-icons/banana) from Flaticons*
-
 <!-- footnotes -->
 [^1]: A year after release of the 8000 4G and 6300 4G, HMD inherently pushed an OTA update to the 2720 Flip and 800 Tough, numbered build 30.00.17.05, which traded off DevTools access to strengthen SELinux for the ability to make and receive WhatsApp calls.
 <!-- [^2]: In August 2021, Google decided to [pull the plugs from Assistant on KaiOS]. Prior to that, Assistant can be used to make calls, send texts, change device settings and do various on-device functions with your voice. -->
@@ -734,7 +734,7 @@ python edl.py reset
 [Microsoft Store]: ms-windows-store://publisher/?name=Python%20Software%20Foundation
 [environment variable]: https://en.wikipedia.org/wiki/Environment_variable
 [Apps & features]: ms-settings:appsfeatures
-[part 4]: #part-4-flashing-the-modified-boot-
+[part 4]: #part-4-flashing-the-modified-boot-partition
 
 [Nokia 6300 4G product page]: https://www.nokia.com/phones/en_int/nokia-6300-4g
 [Nokia 8000 4G product page]: https://www.nokia.com/phones/en_int/nokia-8000-4g
@@ -751,5 +751,7 @@ python edl.py reset
 [deep-dive blog post]: (https://alephsecurity.com/2018/01/22/qualcomm-edl-1
 [Qualcomm's Chain of Trust on LineageOS Engineering Blog]:(https://lineageos.org/engineering/Qualcomm-Firmware
 [SELinux on LineageOS Engineering Blog]: https://lineageos.org/engineering/HowTo-SELinux
+
+*GitHub Pages theme: MIT-licensed [riggraz/no-style-please](https://github.com/riggraz/no-style-please). Logo by [Vitaly Gorbachev](https://www.flaticon.com/free-icons/banana) from Flaticons*
 
 <style>.w{max-width:1081px;padding:4rem 1rem;}li{margin-left:-1rem;}body{font-family:system-ui,sans-serif;font-size:14px;line-height:1.5;}</style>
