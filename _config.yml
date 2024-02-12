@@ -1,17 +1,19 @@
 title: Nokia 6300 4G (nokia-leo)
 author: Bùi Minh Đức
 description: >
-  Archive of guides, source code and firmware backups for Nokia 6300 4G.
+	Archive of guides, source code and firmware backups for Nokia 6300 4G.
 
 favicon: "img/banana.png"
 
-remote_theme: riggraz/no-style-please
+remote_theme: michaelnordmeyer/jekyll-theme-nix
+exclude: [root.sh, fota.sh, curef.json, 8k.mbn, recovery-8110.img]
 
-theme_config:
-  appearance: "auto"
-  back_home_text: "Back to main page"
-  date_format: "%d-%m-%Y"
-  show_description: false
+# theme_config:
+#   appearance: "auto"
+#   back_home_text: "Back to main page"
+#   date_format: "%d-%m-%Y"
+#   show_description: false
 
 plugins:
-  - jekyll-seo-tag
+	- jekyll-seo-tag
+	- jekyll-redirect-from
