@@ -44,7 +44,7 @@
 
 <img width=390 align=right src="img/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other">
 
-[←&nbsp;Back&nbsp;to&nbsp;BananaHackers&nbsp;Wiki]
+**Table&nbsp;of&nbsp;Contents**
 - [Don’t buy a counterfeit](#dont-buy-a-counterfeit)
 	- [About Kosher phones](#about-kosher-phones)
 - [Differences between US and international variants](#differences-between-us-and-international-variants)
@@ -648,7 +648,6 @@ python edl.py reset
 <!-- links -->
 [provided by HMD]: https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz
 [`leo-v20` branch of this repository]: https://github.com/minhduc-bui1/nokia-leo/tree/leo-v20
-[←&nbsp;Back&nbsp;to&nbsp;BananaHackers&nbsp;Wiki]: https://wiki.bananahackers.net/devices
 
 [one of the most affordable phones]: https://www.hmdglobal.com/new-nokia-feature-phones-nokia-6300-4g-and-nokia-8000-4g
 [hatred reputation for its performance]: #known-issues
@@ -755,4 +754,4 @@ python edl.py reset
 
 *GitHub Pages theme: MIT-licensed [riggraz/no-style-please](https://github.com/riggraz/no-style-please). Logo by [Vitaly Gorbachev](https://www.flaticon.com/free-icons/banana) from Flaticons*
 
-<style>.w{max-width:1081px;padding:4rem 1rem;}li{margin-left:-1rem;}body{font-family:system-ui,sans-serif;font-size:14px;line-height:1.5;}</style>
+<style>.w{max-width:1081px;padding:4rem .8rem;}li{margin-left:-1rem;}body{font-family:system-ui,sans-serif;font-size:14px;line-height:1.5;}</style>
