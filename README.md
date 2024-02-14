@@ -152,7 +152,7 @@ Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the 
 - Photos larger than 6000-by-4000 in size cannot be opened in the Gallery app due to restrictions in place preventing memory constraints. As a workaround, you can download [FabianOvrWrt's Explorer] and [mochaSoft Aps' Photo Zoom] from KaiStore to view them instead.
 - Built-in File Manager app doesn't show folders in the internal storage other than pre-configured ones (audio, music, photos, books, videos, DCIM, downloads, others). This is [hardcoded within its code] as a measure to hide system files (such as DIC files for storing added T9 words), but can be easily misused. *To browse the entire internal storage, use third-party file managers from KaiStore, or turn on Settings → Storage → USB Storage and connect to a computer.*
 - Built-in email, calendar and contact syncing with Google account may completely fail at times. You should use IMAP and import contacts instead.
-	- In December 2021, in order to [replace the expired Let's Encrypt root certificate DST Root CA X3 with the newer ISRG Root X1], KaiOS Technologies issued a Service Update via KaiStore to all active KaiOS devices. This caused the Contacts app on some phones, notably HMD/Nokia KaiOS phones and Alcatel MyFlip 2, to [freeze on open]. In some cases, apps such as E-Mail, Calendar and Settings freezed as well, and Google accounts configured in the Settings app couldn't be removed. As a fix, people were advised to factory reset their affected devices.
+	- In December 2021, in order to [replace the expired Let's Encrypt root certificate DST Root CA X3 with the newer ISRG Root X1], KaiOS Technologies issued a Service Update via KaiStore to all active KaiOS devices. This caused the Contacts app on some phones, notably HMD/Nokia KaiOS phones and Alcatel MyFlip 2, to [freeze on open]. In some cases, apps such as E-Mail, Calendar and Settings freezed as well, and Google accounts configured in the Settings app couldn't be removed. As a fix, people were advised to factory reset their affected devices. See [openGiraffe's guide to properly update the certificates]
 	- *If you miss T9 fuzzy search in Contacts app, there's a port called [FastContact] by Luxferre that you can sideload to use as an alternative.*
 	- E-Mail app lacks many crucial enterprise features, such as OAuth2 secure sign-in.
 	- Speaking of built-in Calendar app, if you manage to sync your Google account with the phone, only the calendar *with your email address as its name* will sync.
@@ -203,9 +203,11 @@ You can also **force reboot** the phone by holding the top Power button and the 
 EDL programmer for the international version of this phone (not TA-1324) can be found on BananaHackers' [EDL archive site] with hardware ID 0x009600e100420029 (a copy is available in the content of this repository). The US version of this phone has been signed with a different PK_HASH and needs a different firehose loader which we currently don't have in archive.
 
 ### UART debugging testpoint
-[As discovered by atipls on Discord], on the mainboard of the 6300 4G, there are 3 UART testing points: TX, RX and GND just above the SIM2 slot. Shorting TX and GND takes you to Fastboot and Linux terminal interface.
+[As discovered by atipls on Discord and @Llixuma], on the mainboard of the 6300 4G, there are 3 UART testing points in the order of TX, RX and GND just above the SIM2 slot. Shorting TX at 1.8V and GND takes you to Fastboot and Linux terminal interface.
 
 <p align="center"><img alt="Mainboard of a TA-1307 Nokia 6300 4G, with the red arrow pointing to three gold contacts in the middle of the board, those being the UART testpoints in the order of TX, RX and ground" src="img/testpoint.png"></p>
+
+Note that by default, KaiOS kernel disables the UART testpoints; kernel logs from UART testpoints will stop once the Linux kernel kicks in. To read the full output from UART, compile the Linux kernel from OSS release [provided by HMD]—also available under [`leo-v20` branch of this repository]—with `LEO_defconfig` flag (not `LEO_defconfig-perf`).
 
 ## Sideloading and debugging third-party applications
 Don't want to download apps from KaiStore? Both the 6300 4G and 8000 4G have been classified as debug-enabled by the BananaHackers team. As with other KaiOS 2.5.4 devices, you can install and debug apps from outside sources on these phones, so long as they don't use 'forbidden' permissions, such as `engmode-extension`, `embed-apps` and `embed-widgets`, and you cannot debug pre-installed apps on the phone using WebIDE's Developer Tools (you're free to use `adb logcat` to view system logs instead).
@@ -674,6 +676,7 @@ python edl.py reset
 [mochaSoft Aps' Photo Zoom]: https://www.kaiostech.com/store/apps/?bundle_id=dk.mochasoft.photozoom
 [hardcoded within its code]: https://discordapp.com/channels/472006912846594048/472144586295345153/1173300055361458257
 [replace the expired Let's Encrypt root certificate DST Root CA X3 with the newer ISRG Root X1]: https://letsencrypt.org/docs/dst-root-ca-x3-expiration-september-2021
+[openGiraffe's guide to properly update the certificates]: https://opengiraffes.top/en/manually-import-new-root-ca/
 [freeze on open]: https://www.reddit.com/r/KaiOS/comments/rawcu5/my_contacts_app_does_not_work
 [FastContact]: https://gitlab.com/suborg/fastcontact
 [BananaHackers' guide]: https://ivan-hc.github.io/bananahackers/clock-alarms.html#h.unmy3yif91xs
@@ -683,7 +686,7 @@ python edl.py reset
 [Luxferre's CrossTweak]: https://gitlab.com/luxferre/crosstweak
 [suitable digitally-signed programmer in MBN/ELF file format]: https://edl.bananahackers.net
 [EDL archive site]: https://edl.bananahackers.net/loaders/8k.mbn
-[As discovered by atipls on Discord]: https://discord.com/channels/472006912846594048/539074521580437504/1155993357206700205
+[As discovered by atipls on Discord and @Llixuma]: https://discord.com/channels/472006912846594048/539074521580437504/1155993357206700205
 
 [Sideloading and debugging/WebIDE]: https://github.com/minhduc-bui1/nokia-leo/wiki/Sideloading-and-debugging
 [BananaHackers Store]: https://store.bananahackers.net
