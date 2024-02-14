@@ -108,6 +108,7 @@ Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the 
 
 ## Tips and tricks
 - You can capture a screenshot by pressing both * and # keys at the same time.
+- For tactile responses on keypad presses, turn on Keypad vibration under Settings → Device → Accessibility.
 - You don’t need a KaiOS account to use your phone or download apps from KaiStore, but you can create one in Settings, Accounts if you want to use Anti-Theft features.
 - To stop getting ad notifications from KaiStore, go to *Settings → Personalization → Notices → App notices → Store* and turn off *Allow Notices*. Then go to *Store → Options → Settings & Account → Show rich content* and select *Do not show*.
 	- To block KaiAds altogether, add `ssp.kaiads.com` in your Wi-Fi routers' blacklist or [the system's `hosts` file]. Be aware that this might prevent you from installing apps from KaiStore like WhatsApp.
@@ -120,9 +121,12 @@ Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the 
 	- Alternatively you can sideload [CrossTweak] and press 3 to toggle call recording.
 
 ## Known issues
-- The multiple clips holding the back panel can be stressed and quickly broken. Speaker is decent, but muffled on strong bass. *For tactile responses on keypad presses, turn on Keypad vibration under Settings → Device → Accessibility.*
-	- *Note that phone shutting itself down or not receiving any charges often come down to loose or dirty battery connectors or charging port and not software problem. Happened to me once, got the phone checked and repaired for less than $10.*
-- **[MAJOR]** Battery can drain heavily (from 5–7 days of 4G standby to 18 hours, or 2 hours in active usage) if you leave Wi-Fi or mobile data on at all time, e.g. to be immediately notified of incoming WhatsApp messages. It's better to turn them off if you don't plan to use Internet connection, and only turn them on periodically to check for notifications.
+- While HMD claimed the shell as being made from "durable" polycarbonate and glossy plastic finish, I quickly discovered that the phone is susceptible to scratches if you're not careful. Not as serious as the plastic back panel of the 2720 Flip, and with the phone being my burner I've decided to leave it bareboned, but consider getting a protective case for peace of mind.
+- If you open the back panel too often, the clips holding the panel might be stressed and quickly broken. 
+	- Decent speaker, but can be muffled on strong bass.
+	- *Note that phone shutting itself down or not receiving any power usually come down to loose or dirty battery connectors or charging port, and not software problem. Happened to me once, got the phone repaired for less than $10.*
+- **[MAJOR]** Battery can drain quickly (from 3–5 days of 4G standby to 18 hours, or 2 hours in active usage) if you leave Wi-Fi or mobile data on at all time, e.g. to be immediately notified of incoming WhatsApp messages.
+	- It's better to turn them off if you don't plan to use Internet connection, and only turn them on periodically to check for notifications.
 - **[MAJOR]** Keypad frequently registering multiple or no keystrokes instead of a single-press, because of keypad design and keypress timeout interval being too short in `keyboard.gaiamobile.org`. [BananaHackers' guide on fixing the keypad speed] may help
 - **[MAJOR]** A-GPS failing to lock your current position on 4G LTE, possibly due to interferences with TDD bands ⇒ workaround: change your A-GPS APN settings under *Settings → Mobile network & data → APN settings* or switch to 2G/3G for the phone to retrieve GPS information properly (*Settings → Mobile network & data → Carrier - SIMx → Network type → 3G/2G*). Might be major issue for those in the US where 2G/3G has been shut down.
 - **[MAJOR]** B2G takes up large chunk of memory, and RAM optimizations leading to the phone joining Doze deep sleep immediately and aggressive task killing after a few minutes, making opening or exiting apps horribly slow, and notifications—including incoming WhatsApp calls—being delayed.
