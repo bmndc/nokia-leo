@@ -1,4 +1,4 @@
-title: Nokia 6300 4G (nokia-leo)
+title: Nokia 6300 4G (2020) (nokia-leo)
 author: Bùi Minh Đức
 description: >
   Archive of guides, source code and firmware backups for Nokia 6300 4G.
@@ -15,4 +15,5 @@ theme_config:
   show_description: false
 
 plugins:
+  - jekyll-feed
   - jekyll-seo-tag
