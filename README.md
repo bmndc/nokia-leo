@@ -44,32 +44,7 @@
 
 <img width=390 align=right src="img/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other">
 
-<details open><summary><strong>Table of Contents</strong></summary><ul>
-	<li><a href="#dont-buy-a-counterfeit">Don’t buy a counterfeit</a><ul>
-		<li><a href="#about-kosher-phones">About Kosher phones</a></li></ul></li>
-	<li><a href="#differences-between-us-and-international-variants">Differences between US and international variants</a></li>
-	<li><a href="#tips-and-tricks">Tips and tricks</a></li>
-	<li><a href="#known-issues">Known issues</a><ul>
-		<li><a href="#kaios-specific">KaiOS-specific</a></li></ul></li>
-	<li><a href="#secret-codes">Secret codes</a></li>
-	<li><a href="#special-boot-modes">Special boot modes</a><ul>
-		<li><a href="#uart-debugging-testpoint">UART debugging testpoint</a></li></ul></li>
-	<li><a href="#sideloading-and-debugging-third-party-applications">Sideloading and debugging third-party applications</a></li>
-	<li><a href="#root-boot-partition-patching-non-us-only">ROOT: Boot partition patching (non-US only)</a><ul>
-   		<li><a href="#before-proceeding-back-up-your-data">Before proceeding: back up your data</a></li>
-   		<li><a href="#what-well-need">What we’ll need</a></li>
-   		<li><a href="#part-1-set-up-environment-for-edl-tools">Part 1: Set up environment for EDL tools</a></li>
-   		<li><a href="#part-2-obtaining-the-boot-partition">Part 2: Obtaining the boot partition</a><ul>
-       		<li><a href="#nokia-8000-4g-and-nokia-6300-4g-with-bkerlers-edl">Nokia 8000 4G and Nokia 6300 4G with bkerler’s EDL</a></li>
-       		<li><a href="#nokia-2720-flip-and-nokia-800-tough-with-andybalholms-edl">Nokia 2720 Flip and Nokia 800 Tough with andybalholm’s EDL</a></li></ul></li>
-   		<li><a href="#part-3-patching-the-boot-partition">Part 3: Patching the boot partition</a><ul>
-       		<li><a href="#automatic-patching-with-8k-boot-patcher">Automatic patching with <code>8k-boot-patcher</code></a></li>
-       		<li><a href="#manual-patching-with-android-image-kitchen">Manual patching with Android Image Kitchen</a></li></ul></li>
-   		<li><a href="#part-4-flashing-the-modified-boot-partition">Part 4: Flashing the modified boot partition</a></li></ul></li>
-	<li><a href="#external-links">External links</a></li>
-</ul></details>
-
-<!-- 
+**Table&nbsp;of&nbsp;Contents**
 - [Don’t buy a counterfeit](#dont-buy-a-counterfeit)
 	- [About Kosher phones](#about-kosher-phones)
 - [Differences between US and international variants](#differences-between-us-and-international-variants)
@@ -92,7 +67,6 @@
 		- [Manual patching with Android Image Kitchen](#manual-patching-with-android-image-kitchen)
 	- [Part 4: Flashing the modified boot partition](#part-4-flashing-the-modified-boot-partition)
 - [External links](#external-links)
--->
 
 In late 2020, as people need to stay connected amid the [COVID-19 pandemic] outbreak, HMD Global quietly introduced the new Nokia 6300 4G with KaiOS 2.5.4. Following the successful relaunch of the Nokia-branded retro 2720 Flip and 800 Tough, the new phone packs the modern features of 4G LTE, Wi-Fi and social apps into a tiny footprint, whilst inheriting the classic candy-bar design of the original Nokia 6300. It was [one of the most affordable phones] ever in the company's KaiOS lineup at €49/$69.99.
 
