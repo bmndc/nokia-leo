@@ -107,7 +107,7 @@ Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the 
 
 ## Tips and tricks
 - You can capture a screenshot by pressing both * and # keys at the same time.
-- For tactile responses on keypad presses, turn on Keypad vibration under Settings → Device → Accessibility.
+- For tactile responses on keypresses, turn on *Keypad vibration* under *Settings → Device → Accessibility*.
 - You don’t need a KaiOS account to use your phone or download apps from KaiStore, but you can create one in Settings, Accounts if you want to use Anti-Theft features.
 - To stop getting ad notifications from KaiStore, go to *Settings → Personalization → Notices → App notices → Store* and turn off *Allow Notices*. Then go to *Store → Options → Settings & Account → Show rich content* and select *Do not show*.
 	- To block KaiAds altogether, add `ssp.kaiads.com` in your Wi-Fi routers' blacklist or [the system's `hosts` file]. Be aware that this might prevent you from installing apps from KaiStore like WhatsApp.
@@ -115,7 +115,8 @@ Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the 
 	- *ICE (In Case of Emergency) Contacts, however, is an useless feature on this phone, since there's basically no way to activate it. On the 2720 Flip, you could hold or double-press the side button to trigger SOS Call.*
 - You can use a GIF as your homescreen wallpaper, but it will drain your battery faster.
 - If you prefer a different layout than the default 3-by-3 grid view, you can choose *Options → List view/Single view* and rearrange the items as you like.
-- This phone has a hidden screen reader feature that might not work well with some third-party apps that have unlabeled buttons. To turn on the hidden Readout feature, open Browser, go to cyan-2048.github.io/kaios_scripts, use D-Pad to move the cursor and select *Screen Reader*.
+- Readout is a hidden accessibility feature for blind and visually-impaired users, which reads the focused content on your screen and your selection out loud. To toggle Readout, turn on debugging mode on the phone and connect it to a WebIDE session, then toggle the `accessibility.screen-reader.enabled` Device Settings flag.
+	- Note that this feature might not work well with some third-party apps which have unlabelled buttons.
 - There's also a hidden call recording feature that has been made available on KaiOS 2.5.2 and later. To toggle, connect the phone to a WebIDE session (see [Sideloading and debugging third-party applications]), then open *Device Settings* in the right sidebar, search for `callrecording.mode` and set it to either `on` (press D-Pad Left to record), `auto` or `off`.
 	- Alternatively you can sideload [CrossTweak] and press 3 to toggle call recording.
 
@@ -648,6 +649,7 @@ python edl.py reset
 [one of the most affordable phones]: https://www.hmdglobal.com/new-nokia-feature-phones-nokia-6300-4g-and-nokia-8000-4g
 [hatred reputation for its performance]: #known-issues
 [fully-featured yet still developer-friendly]: #sideloading-and-debugging-third-party-applications
+[Sideloading and debugging third-party applications]: #sideloading-and-debugging-third-party-applications
 [ROOT: Boot partition patching (non-US only)]: #root-boot-partition-patching-non-us-only
 [Manual patching with Android Image Kitchen]: #manual-patching-with-android-image-kitchen
 
