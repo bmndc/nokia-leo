@@ -5,6 +5,8 @@ description: >
 
 favicon: "img/banana.png"
 
+markdown: kramdown
+
 remote_theme: riggraz/no-style-please
 exclude: [root.sh, fota.sh, curef.json, 8k.mbn, recovery-8110.img]
 
@@ -13,9 +15,6 @@ theme_config:
   back_home_text: "Back to main page"
   date_format: "%d-%m-%Y"
   show_description: false
-
-markdown_extensions:
-  - sane_lists
 
 plugins:
   - jekyll-feed
