@@ -361,20 +361,16 @@ In both cases, the phone's screen should blink with an 'enabled by KaiOS' logo t
 ### Part 2: Obtaining the boot partition
 #### Nokia 8000 4G and Nokia 6300 4G with bkerler's EDL
 > Beware: due to the firehose loader being malfunctioned, the EDL tool only accepts one command each session, after which you'll have to disconnect the phone and restart the phone in EDL mode. If you try to throw a second command, it'll result in a `bytearray index out of range` error.
-
 1. Turn on the phone in EDL mode.
-
 2. Open the extracted EDL folder in a command-line shell. Flash the Gerda Recovery image to the recovery partition by typing:
 ```
 python edl.py w recovery recovery-8110.img --loader=8k.mbn
 ```
 *If the progress bar stops at 99% (not earlier) and you get error `'usb.core.USBError: [Errno None] b'libusb0-dll:err [_usb_reap_async] timeout error\n'` or `usb.core.USBError: [Errno 60] Command timed out`, this is false. Don't mind the error and proceed with the next step.*
-
 3. When finished, disconnect the phone from your computer and exit EDL mode by removing and re-inserting the battery.
 4. Then, hold down the top Power button and `*` to turn on the phone in recovery mode. Connect the phone to your computer again.
-	> [!WARNING]
-	> Be careful not to boot into system at this point! As stated above, while SELinux is still in `Enforced` mode, it'll try to revert all system modifications on startup, in this case, the custom recovery image we've just flashed will be overwritten by the stock one. If you accidentally start into normal mode (with the usual Nokia chime), you'll have to start over from step 1.
-
+> [!WARNING]
+> Be careful not to boot into system at this point! As stated above, while SELinux is still in `Enforced` mode, it'll try to revert all system modifications on startup, in this case, the custom recovery image we've just flashed will be overwritten by the stock one. If you accidentally start into normal mode (with the usual Nokia chime), you'll have to start over from step 1.
 	Don't worry if this boots into a white screen: this is because the display driver for the Nokia 8110 4G included in the recovery image are not compatible with the display of 8000 4G/6300 4G.
 
 	Check if ADB can recognise the phone by typing `adb devices` into the command-line.
@@ -588,8 +584,7 @@ python edl.py -w boot boot.img -loader 2720.mbn
 ```
 python edl.py -w boot boot.img -loader 800t.mbn
 ```
-*Again, if the progress bar stops at 99% and you get a timeout error, this is because the phone doesn't send any indicator information back to the EDL tool when in fact the image has been successfully written. Don't mind the error and go on with the next step.*
-
+*Again, if the progress bar stops at 99% and you get a timeout error, this is because the phone doesn't send any indicator information back to the EDL tool when in fact the image has been successfully written. Don't mind the error and go on with the next step.*7
 3. Restart the phone to normal operation mode by typing `python edl.py reset`. And we're done!
 
 #### Next steps
@@ -725,7 +720,7 @@ python edl.py reset
 
 [Nokia 6300 4G product page]: https://www.nokia.com/phones/en_int/nokia-6300-4g
 [Nokia 8000 4G product page]: https://www.nokia.com/phones/en_int/nokia-8000-4g
-[Nokia 6300 4G review]: https://www.pcmag.com/reviews/nokia-6300-4g
+0[Nokia 6300 4G review]: https://www.pcmag.com/reviews/nokia-6300-4g
 [Discussion: Nokia 6300 4G and Nokia 8000 4G]: https://4pda.to/forum/index.php?showtopic=1009510
 [Nokia 8000 4G and Nokia 6300 4G general discussion thread]: https://groups.google.com/g/bananahackers/c/jxEC3RVMYvI
 [Nokia 8000 4G rooting research thread]: https://groups.google.com/g/bananahackers/c/8lCqP15zHXg
