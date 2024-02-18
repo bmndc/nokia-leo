@@ -84,9 +84,6 @@ Here's the funny thing: it's easier to get a genuine version of the original Nok
 ![Photo collage of fake 6300 4G](img/leo-counterfeit.png)
 
 ### About Kosher phones
-
-<img alt="A Kosher-customized Nokia 8000 4G with no Browser, KaiStore or third-party apps shown in 3-by-3 grid of apps. Center D-Pad key is engraved with a Hebrew symbol indicating Kosher phone" src="img/kosher-sparkler.jpg" width="325" align="right" style="margin-left:25px">
-
 Kosher is a category of devices whose software (sometimes hardware) is heavily modified to limit access, or even get rid of content and features deemed distracting or against religious values, while keeping other features and user interface almost identical to the original. Companies specializing in customizing Kosher phones exist, and you can easily come across Kosher phone listings on eBay advertising as productivity and focus improvement tools.
 
 As the build and UI remain identical, it's difficult to tell Kosher phones and genuine ones apart. As of now, my key takeaways to differentiate them are:
@@ -97,6 +94,8 @@ As the build and UI remain identical, it's difficult to tell Kosher phones and g
 Kosher is indeed a great way to make your phone truly basic, but HMD already offers more basic phones with 4G in their feature phone lineup, so the choice is yours. **Double-check the description and pictures of the listings before you buy.**
 
 *Photo provided by nuxx on r/KaiOS Discord server in October 2021.*
+
+<p align="center"><img alt="A Kosher-customized Nokia 8000 4G with no Browser, KaiStore or third-party apps shown in 3-by-3 grid of apps. Center D-Pad key is engraved with a Hebrew symbol indicating Kosher phone" src="img/kosher-sparkler.jpg" width="350"></p>
 
 ## Differences between US and international variants
 "Buying Western-customized products will always give you the best quality possible" is unwise when it comes to consumer electronics, including mobile phones, and the 6300 4G is no exception. When buying the TA-1324 variant of this phone, you should expect:
