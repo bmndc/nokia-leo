@@ -1,4 +1,9 @@
-## Launch hidden settings
+---
+title: Launch hidden settings
+---
+> [!NOTE]
+> Since I've migrated GitHub Pages to use GitHub-flavoured Markdown (GfM) for sorting out some styling issue, and with GfM not allowing HTML script tags to run, this page no longer does any functions. @cyan-2048 has since created a fork of this on https://wiki.bananahackers.net that you can visit instead.
+
 **Table of Contents**
 - [W2D KaiOS Jailbreak](#w2d-kaios-jailbreak)
 - [Hotspot for JioPhones](#hotspot-for-jiophones)
