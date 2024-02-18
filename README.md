@@ -311,7 +311,6 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 
 2. Proceed with installing Python as usual. If you choose to customize your installation, include `pip`. Don't forget to tick the box next to "Add Python to PATH" to add Python as a global [environment variable], otherwise you'll have a hard time using Python to run scripts later on.
 	- If you decide to customize your installation, choose to install `pip` and tick *Add Python to environment variables*.
-
 <p align="center">
 	<img alt="Screenshot of an installation window for Python 3.9 showing two options, 'Install Now' and 'Customize installation', with the checkbox for 'Add Python 3.9 to PATH' being selected" src="assets/img/python.png">
 </p>
@@ -319,18 +318,15 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 3. On Windows 10/11, typing `python` or `python3` within Command Prompt/Windows Terminal will run the Microsoft Store version of Python. To override this default into running the locally installed version, toggle off App Installer (python.exe) and App Installer (python3.exe) under: 
 	- Windows 10: Settings → Apps → [Apps & features] → App execution aliases
 	- Windows 11: Settings → Apps → Advanced app settings → App execution aliases
-
 <img alt="Demostration of Settings app on Windows 11. User is already on Apps page and clicking on Advanced app settings. User then clicks on App execution aliases, where the toggles for App Installer (python.exe) and App Installer (python3.exe) are turned off. Description says Apps can declare a name used to run the app from a command prompt. If multiple apps use the same name, choose which one to use." src="assets/img/settings-alias-off.gif">
 
 4. Open Command Prompt/Windows Terminal with administrator privileges and run this command to install the required dependencies for EDL:
 ```console
 pip3 install pyusb pyserial capstone keystone-engine docopt
 ```
-
 ![Screenshot of a console window showing the successful process of collecting and downloading dependencies after typing the above command](assets/img/pythoooon.png)
 
 5. Extract the previously downloaded EDL package, open Drivers, Windows and run `Qualcomm_Diag_QD_Loader_2016_driver.exe` with administrator rights. Proceed with installation and leave everything as default, restart the computer if it prompts you to do so. 
-
 <p align="center">
 	<img alt="Screenshot of an installation window for Qualcomm's diagnostic driver, in which two radio buttons are shown labelled 'WWAN-DHCP is not used to get IPAddress' and 'ETHERNET-DHCP is used to get IPAddress' respectively. The first button is selected." src="assets/img/whatever.png">
 </p>
@@ -339,7 +335,8 @@ pip3 install pyusb pyserial capstone keystone-engine docopt
 	- if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
 	- if your phone is off, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
 
-	In both cases, the phone's screen should blink with an 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
+In both cases, the phone's screen should blink with an 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
+
 7. To replace the installed `qcusbser` driver with `libusb-win32` for use with edl.py, download and open [Zadig] (do NOT use the version included in the EDL package). Tick Options, List All Devices and select `QHSUSB__BULK` (your device in EDL mode) in the main dropdown menu. In the target driver box—to which the green arrow is pointing—click the up/down arrows until you see `libusb-win32` and then click Replace Driver.
 
 <p align="center">
@@ -389,7 +386,8 @@ Unlike the 6300 4G and 8000 4G, our phones' EDL loader properly works with both 
 	- if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in Command Prompt/Terminal;
 	- if your phone is off, hold down both volume keys on the side (2720 Flip) or both D-Pad Up and Down keys (800 Tough) at the same time while inserting the USB cable to the phone.
 	
-	In both cases, the phone's screen should blink with a 'Powered by KaiOS' logo then go blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
+In both cases, the phone's screen should blink with a 'Powered by KaiOS' logo then go blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
+
 2. Open the extracted EDL folder in a command-line shell. Extract the boot partition of the phone to the current directory on your computer by typing either of these commands depending on which file you have:
 ```console
 python edl.py -r boot boot.img -loader 2720.mbn
@@ -412,20 +410,17 @@ You can disconnect the phone from your computer for now.
 ### Part 3: Patching the boot partition
 #### Automatic patching with `8k-boot-patcher`
 1. Download and install [Docker Desktop]. Once set up, open the program, click Accept on this box and let the Docker Engine start before exiting.
-
 ![Screenshot of a window titled as 'Docker Subscription Service Agreement' which declares that you will have to accept Docker's Subscription Service Agreements, Data Processing Agreement and Data Privacy Policy in order to use the program, and the free scope of it is limited to personal and small business uses. The window also lists the options to view the full agreements, accept them or reject and close the program.](assets/img/docker_abomination.png)
 
 2. Use [Git] to clone/download the boot patcher toolkit by typing this into Command Prompt/Terminal. This will download the toolkit and have Docker set it up. Do not omit the dot/period at the end of this command, this tells Docker where our downloaded toolkit are located on the system.
 ```console
 git clone https://gitlab.com/suborg/8k-boot-patcher.git && cd 8k-boot-patcher && docker build -t 8kbootpatcher .
 ```
-
 ![Screenshot of a macOS Terminal window showing some logs in purple text after typing the command above](assets/img/docker_build.png)
 
 3. Copy the `boot.img` file we've just pulled from our phone to the desktop and do not change its name. Type this into Command Prompt/Terminal to run the patching process:
 	- Windows: `docker run --rm -it -v %cd%/Desktop:/image 8kbootpatcher`
 	- macOS/Linux: `docker run --rm -it -v ~/Desktop:/image 8kbootpatcher`
-
 ```console
 $ docker run --rm -it -v ~/Desktop:/image 8kbootpatcher
 
@@ -447,16 +442,13 @@ Writing Boot Image boot.img
 Boot image patched!
 ```
 That's it! On your desktop there will be two new image files, the modified `boot.img` and the original `boot-orig.img`. You can now head to [part 4].
-
 ![Screenshot of boot.img and boot-orig.img files as shown on desktop](assets/img/after_patch.png)
 
 #### Manual patching with Android Image Kitchen
 1. Extract the Android Image Kitchen tools and copy the boot image we've just obtained over to the root of the extracted folder.
-
 ![Screenshot of a list of folders and files contained in the extracted Android Image Kitchen folder](assets/img/aik.png)
 
 2. Open the folder in Command Prompt/Terminal and type `unpackimg boot.img`. This will split the image file and unpack the ramdisk to their subdirectories.
-
 ![Screenshot of a Windows Command Prompt window showing some logs of the boot partition extracting process after typing the command above](assets/img/unpack.png)
 
 > [!WARNING]
@@ -571,7 +563,8 @@ python edl.py -w boot boot.img -loader 2720.mbn
 ```console
 python edl.py -w boot boot.img -loader 800t.mbn
 ```
-*Again, if the progress bar stops at 99% and you get a timeout error, this is because the phone doesn't send any indicator information back to the EDL tool when in fact the image has been successfully written. Don't mind the error and go on with the next step.*7
+*Again, if the progress bar stops at 99% and you get a timeout error, this is because the phone doesn't send any indicator information back to the EDL tool when in fact the image has been successfully written. Don't mind the error and go on with the next step.*
+
 3. Restart the phone to normal operation mode by typing `python edl.py reset`. And we're done!
 
 #### Next steps
