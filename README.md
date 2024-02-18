@@ -724,4 +724,6 @@ python edl.py reset
 
 *GitHub Pages theme: MIT-licensed [riggraz/no-style-please](https://github.com/riggraz/no-style-please). Logo by [Vitaly Gorbachev](https://www.flaticon.com/free-icons/banana) from Flaticons*
 
-<style type="text/css">body{font-family:system-ui,sans-serif;font-size:14px;line-height:1.5;}.w{max-width:1081px;padding:4rem .8rem;}li{margin-left:-1rem;}div.highlighter-rouge code{white-space:pre;}</style>
+<style type="text/css">
+	body{font-family:system-ui,sans-serif;font-size:14px;line-height:1.5;}.w{max-width:1081px;padding:4rem .8rem;}li{margin-left:-1rem;}div.highlighter-rouge code{white-space:pre;}
+</style>
