@@ -2,7 +2,7 @@
 title: Launch hidden settings
 ---
 > [!NOTE]
-> Since I've migrated GitHub Pages to use GitHub-flavoured Markdown (GfM) for sorting out some styling issues, and with GfM not allowing HTML script tags to run, this page no longer does any functions. @cyan-2048 has since created a fork of this on https://wiki.bananahackers.net/w2d that you can visit.
+> Since I've migrated GitHub Pages to use GitHub-flavoured Markdown (GfM) for sorting out some styling issues, and with GfM not allowing HTML script tags to run, this page no longer functions. @cyan-2048 has since created a fork of this on https://wiki.bananahackers.net/w2d that you can visit.
 
 **Table of Contents**
 - [W2D KaiOS Jailbreak](#w2d-kaios-jailbreak)

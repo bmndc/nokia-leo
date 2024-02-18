@@ -1,0 +1,4 @@
+entries:
+  - title: News
+    post_list:
+      limit: 3
