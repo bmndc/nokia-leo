@@ -410,6 +410,7 @@ You can disconnect the phone from your computer for now.
 ### Part 3: Patching the boot partition
 #### Automatic patching with `8k-boot-patcher`
 1. Download and install [Docker Desktop]. Once set up, open the program, click Accept on this box and let the Docker Engine start before exiting.
+
 ![Screenshot of a window titled as 'Docker Subscription Service Agreement' which declares that you will have to accept Docker's Subscription Service Agreements, Data Processing Agreement and Data Privacy Policy in order to use the program, and the free scope of it is limited to personal and small business uses. The window also lists the options to view the full agreements, accept them or reject and close the program.](assets/img/docker_abomination.png)
 
 2. Use [Git] to clone/download the boot patcher toolkit by typing this into Command Prompt/Terminal. This will download the toolkit and have Docker set it up. Do not omit the dot/period at the end of this command, this tells Docker where our downloaded toolkit are located on the system.
@@ -442,13 +443,16 @@ Writing Boot Image boot.img
 Boot image patched!
 ```
 That's it! On your desktop there will be two new image files, the modified `boot.img` and the original `boot-orig.img`. You can now head to [part 4].
+
 ![Screenshot of boot.img and boot-orig.img files as shown on desktop](assets/img/after_patch.png)
 
 #### Manual patching with Android Image Kitchen
 1. Extract the Android Image Kitchen tools and copy the boot image we've just obtained over to the root of the extracted folder.
+
 ![Screenshot of a list of folders and files contained in the extracted Android Image Kitchen folder](assets/img/aik.png)
 
 2. Open the folder in Command Prompt/Terminal and type `unpackimg boot.img`. This will split the image file and unpack the ramdisk to their subdirectories.
+
 ![Screenshot of a Windows Command Prompt window showing some logs of the boot partition extracting process after typing the command above](assets/img/unpack.png)
 
 > [!WARNING]
