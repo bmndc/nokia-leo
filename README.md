@@ -397,24 +397,24 @@ You can disconnect the phone from your computer for now.
 Unlike the 6300 4G and 8000 4G, our phones' EDL loader properly works with both reading and writing, so the steps are more straightforward.
 
 1. Switch your phone to EDL mode and connect it to your computer. Either:
-	- if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
-	- if your phone is off, hold down both side volume keys (2720 Flip) or both D-Pad Up and Down keys (800 Tough) at the same time while inserting the USB cable to the phone.  
-In both cases, the phone's screen should blink with a 'Powered by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
-2. Open the extracted EDL folder in a command-line shell. Extract the boot partition of the phone to the current directory on your computer =by typing either of these commands depending on which file you have:
-	```
-	python edl.py -r boot boot.img -loader 2720.mbn
-	```
-	```
-	python edl.py -r boot boot.img -loader 800t.mbn
-	```
+	- if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in Command Prompt/Terminal;
+	- if your phone is off, hold down both volume keys on the side (2720 Flip) or both D-Pad Up and Down keys (800 Tough) at the same time while inserting the USB cable to the phone.
+	
+	In both cases, the phone's screen should blink with a 'Powered by KaiOS' logo then go blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
+2. Open the extracted EDL folder in a command-line shell. Extract the boot partition of the phone to the current directory on your computer by typing either of these commands depending on which file you have:
+```
+python edl.py -r boot boot.img -loader 2720.mbn
+```
+```
+python edl.py -r boot boot.img -loader 800t.mbn
+```
 3. When finished, reboot the phone into normal operation by typing either of these into the command-line, or remove and re-insert the battery:
-	```
-	python edl.py -reset -loader 2720.mbn
-	```
-	```
-	python edl.py -reset -loader 800t.mbn
-	```
-
+```
+python edl.py -reset -loader 2720.mbn
+```
+```
+python edl.py -reset -loader 800t.mbn
+```
 You can disconnect the phone from your computer for now.
 
 > [!WARNING]
