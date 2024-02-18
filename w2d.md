@@ -91,5 +91,3 @@ On devices with dedicated volume buttons, you can quickly toggle on/off this fea
         window.alert('ADB port has been set to 5555.')
     }
 </script>
-
-<style>h1{display:none;}</style>
