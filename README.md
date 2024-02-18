@@ -722,7 +722,7 @@ python edl.py reset
 
 [Nokia 6300 4G product page]: https://www.nokia.com/phones/en_int/nokia-6300-4g
 [Nokia 8000 4G product page]: https://www.nokia.com/phones/en_int/nokia-8000-4g
-0[Nokia 6300 4G review]: https://www.pcmag.com/reviews/nokia-6300-4g
+[Nokia 6300 4G review]: https://www.pcmag.com/reviews/nokia-6300-4g
 [Discussion: Nokia 6300 4G and Nokia 8000 4G]: https://4pda.to/forum/index.php?showtopic=1009510
 [Nokia 8000 4G and Nokia 6300 4G general discussion thread]: https://groups.google.com/g/bananahackers/c/jxEC3RVMYvI
 [Nokia 8000 4G rooting research thread]: https://groups.google.com/g/bananahackers/c/8lCqP15zHXg
