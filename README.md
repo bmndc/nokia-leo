@@ -232,12 +232,12 @@ The guide below is based on the main guide from BananaHackers website, but has b
 > [Murphy's Law] states, "Anything that can go wrong, will go wrong". It's a proverb from the late 1940s, and while it may not be as academically accurate and influential as [Newton's laws of motion], it's generally acknowledged in technology as a rule of thumb. Even if you do the best you can, things can unexpectedly go south, so it's always good to prepare for the worst.
 
 - To export your contacts from the built-in Contacts app, go to *Contacts → Options → Settings → Export contacts*. From there, choose to either save to a CSV file on your SD card, send through Bluetooth to other devices, or upload to Web services such as Google Contacts and Microsoft Outlook.
-		- You can also use third-party backup services and tools such as [PhoneCopy in KaiStore] or D3SXX's [kaios-backup] etc.
+	- You can also use third-party backup services and tools such as [PhoneCopy in KaiStore] or D3SXX's [kaios-backup] etc.
 - On debug-enabled devices, you can sideload `certified` apps such as D3SXX's [kaios-backup] or Fiachra1993's [kaios-sms-backup], which uses Firefox OS APIs to export your text messages to JSON or CSV files.
 - Built-in Calendar app allows syncing events through Google, ActiveSync or CalDAV accounts. If you only have a small number of events, you can migrate each of those to your online calendars. strukturart's [greg] also allows syncing events with Nextcloud.
 - Each entry in the Notes app can be shared over texts, Bluetooth or email.
 - On internal storage or SD card (whichever you chose under *Settings → Storage → Default media location*), captured photos and videos are stored under `DCIM`; whereas recorded voice files are stored under `audio`.
-		- To get your phone to show up on the computer as external storage, turn on *USB Storage* under *Settings
+	- To get your phone to show up on the computer as external storage, turn on *USB Storage* under *Settings → Storage*.
 
 For backing up application data (excluding WhatsApp chats), system preferences and partition images, see [Back up system partitions].
 
@@ -341,8 +341,8 @@ pip3 install pyusb pyserial capstone keystone-engine docopt
 
 6. Switch your phone to EDL mode and connect it to your computer. Either:
 {:start="6"}
-- if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
-- if your phone is off, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
+	- if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
+	- if your phone is off, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
 
 In both cases, the phone's screen should blink with an 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
@@ -413,14 +413,12 @@ python edl.py -r boot boot.img -loader 800t.mbn
 ```
 3. When finished, reboot the phone into normal operation by typing either of these into the command-line, or remove and re-insert the battery:
 {:start="3"}
-
 ```
 python edl.py -reset -loader 2720.mbn
 ```
 ```
 python edl.py -reset -loader 800t.mbn
 ```
-
 You can disconnect the phone from your computer for now.
 
 > [!WARNING]
@@ -429,12 +427,10 @@ You can disconnect the phone from your computer for now.
 ### Part 3: Patching the boot partition
 #### Automatic patching with `8k-boot-patcher`
 1. Download and install [Docker Desktop]. Once set up, open the program, click Accept on this box and let the Docker Engine start before exiting.
-
 ![Screenshot of a window titled as 'Docker Subscription Service Agreement' which declares that you will have to accept Docker's Subscription Service Agreements, Data Processing Agreement and Data Privacy Policy in order to use the program, and the free scope of it is limited to personal and small business uses. The window also lists the options to view the full agreements, accept them or reject and close the program.](img/docker_abomination.png)
 
 2. Use [Git] to clone/download the boot patcher toolkit by typing this into Command Prompt/Terminal. This will download the toolkit and have Docker set it up. Do not omit the dot/period at the end of this command, this tells Docker where our downloaded toolkit are located on the system.
 {:start="2"}
-
 ```
 git clone https://gitlab.com/suborg/8k-boot-patcher.git && cd 8k-boot-patcher && docker build -t 8kbootpatcher .
 ```
@@ -442,8 +438,8 @@ git clone https://gitlab.com/suborg/8k-boot-patcher.git && cd 8k-boot-patcher &&
 
 3. Copy the `boot.img` file we've just pulled from our phone to the desktop and do not change its name. Type this into Command Prompt/Terminal to run the patching process:
 {:start="3"}
-- Windows: `docker run --rm -it -v %cd%/Desktop:/image 8kbootpatcher`
-- macOS/Linux: `docker run --rm -it -v ~/Desktop:/image 8kbootpatcher`
+	- Windows: `docker run --rm -it -v %cd%/Desktop:/image 8kbootpatcher`
+	- macOS/Linux: `docker run --rm -it -v ~/Desktop:/image 8kbootpatcher`
 
 ```
 $ docker run --rm -it -v ~/Desktop:/image 8kbootpatcher
@@ -471,7 +467,6 @@ That's it! On your desktop there will be two new image files, the modified `boot
 
 #### Manual patching with Android Image Kitchen
 1. Extract the Android Image Kitchen tools and copy the boot image we've just obtained over to the root of the extracted folder.
-
 ![Screenshot of a list of folders and files contained in the extracted Android Image Kitchen folder](img/aik.png)
 
 2. Open the folder in Command Prompt/Terminal and type `unpackimg boot.img`. This will split the image file and unpack the ramdisk to their subdirectories.
@@ -484,9 +479,9 @@ That's it! On your desktop there will be two new image files, the modified `boot
 
 3. Let the editing begin! First, open `ramdisk/default.prop` using Notepad++ and change:
 {:start="3"}
-- line 7: `ro.secure=1` → `ro.secure=0`
-- line 8: `security.perf_harden=1` → `security.perf_harden=0`
-- line 10: `ro.debuggable=0` → `ro.debuggable=1`
+	- line 7: `ro.secure=1` → `ro.secure=0`
+	- line 8: `security.perf_harden=1` → `security.perf_harden=0`
+	- line 10: `ro.debuggable=0` → `ro.debuggable=1`
 
 ```diff
 @@ -4,9 +4,9 @@
