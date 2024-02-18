@@ -317,15 +317,12 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 </p>
 
 3. On Windows 10/11, typing `python` or `python3` within Command Prompt/Windows Terminal will run the Microsoft Store version of Python. To override this default into running the locally installed version, toggle off App Installer (python.exe) and App Installer (python3.exe) under:
-{:start="3"}
-- Windows 10: Settings → Apps → [Apps & features] → App execution aliases
-- Windows 11: Settings → Apps → Advanced app settings → App execution aliases
+	- Windows 10: Settings → Apps → [Apps & features] → App execution aliases
+	- Windows 11: Settings → Apps → Advanced app settings → App execution aliases
 
 <img alt="Demostration of Settings app on Windows 11. User is already on Apps page and clicking on Advanced app settings. User then clicks on App execution aliases, where the toggles for App Installer (python.exe) and App Installer (python3.exe) are turned off. Description says Apps can declare a name used to run the app from a command prompt. If multiple apps use the same name, choose which one to use." src="img/settings-alias-off.gif">
 
 4. Open Command Prompt/Windows Terminal with administrator privileges and run this command to install the required dependencies for EDL:
-{:start="4"}
-
 ```
 pip3 install pyusb pyserial capstone keystone-engine docopt
 ```
@@ -333,21 +330,18 @@ pip3 install pyusb pyserial capstone keystone-engine docopt
 ![Screenshot of a console window showing the successful process of collecting and downloading dependencies after typing the above command](img/pythoooon.png)
 
 5. Extract the previously downloaded EDL package, open Drivers, Windows and run `Qualcomm_Diag_QD_Loader_2016_driver.exe` with administrator rights. Proceed with installation and leave everything as default, restart the computer if it prompts you to do so.
-{:start="5"}
 
 <p align="center">
 	<img alt="Screenshot of an installation window for Qualcomm's diagnostic driver, in which two radio buttons are shown labelled 'WWAN-DHCP is not used to get IPAddress' and 'ETHERNET-DHCP is used to get IPAddress' respectively. The first button is selected." src="img/whatever.png">
 </p>
 
 6. Switch your phone to EDL mode and connect it to your computer. Either:
-{:start="6"}
 	- if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
 	- if your phone is off, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
 
 In both cases, the phone's screen should blink with an 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
 7. To replace the installed `qcusbser` driver with `libusb-win32` for use with edl.py, download and open [Zadig] (do NOT use the version included in the EDL package). Tick Options, List All Devices and select `QHSUSB__BULK` (your device in EDL mode) in the main dropdown menu. In the target driver box—to which the green arrow is pointing—click the up/down arrows until you see `libusb-win32` and then click Replace Driver.
-{:start="7"}
 
 <p align="center">
 	<img src="img/qhsusb-zadig.gif" alt="9-frame GIF demostrating Zadig's main interface, List All Devices option being selected from Option menu, QHSUSB_BULK being selected from the main dropdown list, followed by the second label box on the Drivers line, to which the green arrow points, changed to 'libusb-win32 (v1.2.6.0)'. Two smaller up/down arrows are right next to that box.">
@@ -357,7 +351,6 @@ In both cases, the phone's screen should blink with an 'enabled by KaiOS' logo t
 > Windows will automatically create restore points on driver installation, as Zadig suggests in its tooltips. On older PCs, this might cause issues with driver configuration process being lengthened past the 5-minute mark. If Zadig aborts the process and hangs, kill Zadig with Task Manager, remove and re-insert the battery on the phone to exit and re-enter EDL mode, then try to install again.
 
 8. If you're configuring the driver for the first time, an "USB Device Not Recognised" pop-up may appear. Exit EDL mode by removing and re-inserting the battery, then turn on the phone in EDL mode again.
-{:start="8"}
 
 ### Part 2: Obtaining the boot partition
 #### Nokia 8000 4G and Nokia 6300 4G with bkerler's EDL
@@ -382,15 +375,12 @@ Don't worry if this boots into a white screen: this is because the display drive
 Check if ADB can recognise the phone by typing `adb devices` into the command-line.
 
 5. Navigate the command-line to the extracted `platform-tools` folder (if needed) and pull the boot image from the phone to the current directory on your computer with ADB by typing:
-{:start="5"}
-
 ```
 adb pull /dev/block/bootdevice/by-name/boot boot.img
 ```
 You should now see `/dev/block/bootdevice/by-name/boot: 1 file pulled, 0 skipped.` and have a copy of the boot partition with the size of 32.0MB (32,768KB). Fetched boot image will be saved to the current directory.
 
 6. Reboot the phone into normal mode by typing `adb reboot` into the command-line, or remove and re-insert the battery. Our custom Gerda Recovery partition will now be overwritten by the default one.
-{:start="6"}
 
 You can disconnect the phone from your computer for now.
 
@@ -404,7 +394,6 @@ Unlike the 6300 4G and 8000 4G, our phones' EDL loader properly works with both 
 In both cases, the phone's screen should blink with a 'Powered by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
 2. Open the extracted EDL folder in a command-line shell. Extract the boot partition of the phone to the current directory on your computer =by typing either of these commands depending on which file you have:
-{:start="2"}
 ```
 python edl.py -r boot boot.img -loader 2720.mbn
 ```
@@ -412,7 +401,6 @@ python edl.py -r boot boot.img -loader 2720.mbn
 python edl.py -r boot boot.img -loader 800t.mbn
 ```
 3. When finished, reboot the phone into normal operation by typing either of these into the command-line, or remove and re-insert the battery:
-{:start="3"}
 ```
 python edl.py -reset -loader 2720.mbn
 ```
@@ -430,14 +418,12 @@ You can disconnect the phone from your computer for now.
 ![Screenshot of a window titled as 'Docker Subscription Service Agreement' which declares that you will have to accept Docker's Subscription Service Agreements, Data Processing Agreement and Data Privacy Policy in order to use the program, and the free scope of it is limited to personal and small business uses. The window also lists the options to view the full agreements, accept them or reject and close the program.](img/docker_abomination.png)
 
 2. Use [Git] to clone/download the boot patcher toolkit by typing this into Command Prompt/Terminal. This will download the toolkit and have Docker set it up. Do not omit the dot/period at the end of this command, this tells Docker where our downloaded toolkit are located on the system.
-{:start="2"}
 ```
 git clone https://gitlab.com/suborg/8k-boot-patcher.git && cd 8k-boot-patcher && docker build -t 8kbootpatcher .
 ```
 ![Screenshot of a macOS Terminal window showing some logs in purple text after typing the command above](img/docker_build.png)
 
 3. Copy the `boot.img` file we've just pulled from our phone to the desktop and do not change its name. Type this into Command Prompt/Terminal to run the patching process:
-{:start="3"}
 	- Windows: `docker run --rm -it -v %cd%/Desktop:/image 8kbootpatcher`
 	- macOS/Linux: `docker run --rm -it -v ~/Desktop:/image 8kbootpatcher`
 
@@ -470,7 +456,6 @@ That's it! On your desktop there will be two new image files, the modified `boot
 ![Screenshot of a list of folders and files contained in the extracted Android Image Kitchen folder](img/aik.png)
 
 2. Open the folder in Command Prompt/Terminal and type `unpackimg boot.img`. This will split the image file and unpack the ramdisk to their subdirectories.
-{:start="2"}
 
 ![Screenshot of a Windows Command Prompt window showing some logs of the boot partition extracting process after typing the command above](img/unpack.png)
 
@@ -478,7 +463,6 @@ That's it! On your desktop there will be two new image files, the modified `boot
 > **Be sure to edit the files correctly, else the phone won't boot!**
 
 3. Let the editing begin! First, open `ramdisk/default.prop` using Notepad++ and change:
-{:start="3"}
 	- line 7: `ro.secure=1` → `ro.secure=0`
 	- line 8: `security.perf_harden=1` → `security.perf_harden=0`
 	- line 10: `ro.debuggable=0` → `ro.debuggable=1`
@@ -503,8 +487,6 @@ That's it! On your desktop there will be two new image files, the modified `boot
 </p>
 
 4. Open `ramdisk/init.qcom.early_boot.sh` in Notepad++ and add `setenforce 0` as a new line at the end of the file.
-{:start="4"}
-
 ```diff
 @@ -312,14 +312,14 @@
   else
@@ -527,16 +509,11 @@ That's it! On your desktop there will be two new image files, the modified `boot
 </p>
 
 5. Go back to the root Android Image Kitchen folder and open `split_img/boot.img-cmdline` in Notepad++. Without adding a new line, scroll to the end of the first line and append `androidboot.selinux=permissive enforcing=0`.
-{:start="5"}
-
 ![Screenshot of the modified content of the boot.img-cmdline file](img/append.png)
 
 6. Open `ramdisk/init.rc` (NOT `ramdisk/init`) and delete line 393 `setprop selinux.reload_policy 1` or mark a comment as shown. This will ultimately prevent SELinux from overwriting the policy changes we made above.
-{:start="6"}
 
 7. (Optional) If you wish to disable the Low Memory Killer function, now's a good time to do so! In the same `ramdisk/init.rc` file, after line 420, make a new line and add:
-{:start="7"}
-
 ```
 write /sys/module/lowmemorykiller/parameters/enable_lmk 0
 ```
@@ -566,7 +543,6 @@ Indent the new line to match up with other lines as shown.
 ![Screenshot of the modified content of the init.rc file, with line 393 marked as comment which has the same effects as deleting the line altogether, and line 421 added to disable the Low Memory Killer module](img/f5-selinux.png)
 
 8. And that's a wrap! Open the root Android Image Kitchen folder in a command-line window and type `repackimg` to package our modified boot partition.
-{:start="8"}
 
 <!-- ![Screenshot of a Windows Command Prompt window showing some logs of the boot partition repacking process after typing the above command, but has a signing error at the end](img/repack_unsigned.png) -->
 
