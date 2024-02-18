@@ -372,7 +372,7 @@ python edl.py w recovery recovery-8110.img --loader=8k.mbn
 4. Then, hold down the top Power button and `*` to turn on the phone in recovery mode. Connect the phone to your computer again.
 > [!WARNING]
 > Be careful not to boot into system at this point! As stated above, while SELinux is still in `Enforced` mode, it'll try to revert all system modifications on startup, in this case, the custom recovery image we've just flashed will be overwritten by the stock one. If you accidentally start into normal mode (with the usual Nokia chime), you'll have to start over from step 1.
-	
+
 	Don't worry if this boots into a white screen: this is because the display driver for the Nokia 8110 4G included in the recovery image are not compatible with the display of 8000 4G/6300 4G.
 
 	Check if ADB can recognise the phone by typing `adb devices` into the command-line.
@@ -738,4 +738,4 @@ python edl.py reset
 
 *GitHub Pages theme: MIT-licensed [riggraz/no-style-please](https://github.com/riggraz/no-style-please). Logo by [Vitaly Gorbachev](https://www.flaticon.com/free-icons/banana) from Flaticons*
 
-<style>.w{max-width:1081px;padding:4rem .8rem;}li{margin-left:-1rem;}div.highlighter-rouge code{white-space:pre;}body{font-family:system-ui,sans-serif;font-size:14px;line-height:1.5;}</style>
+<!-- <style>.w{max-width:1081px;padding:4rem .8rem;}li{margin-left:-1rem;}div.highlighter-rouge code{white-space:pre;}body{font-family:system-ui,sans-serif;font-size:14px;line-height:1.5;}</style> -->
