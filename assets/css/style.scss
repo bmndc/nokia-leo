@@ -1,7 +1,7 @@
 ---
 ---
 
-@import "no-style-please";
+{ @import "{{ site.theme }}"; }
 
 .w {
     max-width: 1081px;
