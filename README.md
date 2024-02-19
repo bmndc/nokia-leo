@@ -480,7 +480,7 @@ That's it! On your desktop there will be two new image files, the modified `boot
 	<img src="assets/img/default_prop_edited.png" alt="Screenshot of the modified content of the default.prop file">
 </p>
 
-4. Open `ramdisk/init.qcom.early_boot.sh` in Notepad++ and add `setenforce 0` as a new line at the end of the file.
+4. Open `ramdisk/init.qcom.early_boot.sh` in Notepad++ and add `setenforce 0` `echo -n 1 > /data/enforce` `mount -o bind /data/enforce /sys/fs/selinux/enforce`   as the seperate lines at the end of the file.
 ```diff
 @@ -312,14 +312,14 @@
   else
@@ -496,6 +496,8 @@ That's it! On your desktop there will be two new image files, the modified `boot
 
   setprop ro.gps.enabled $gps_enabled
 + setenforce 0
++ echo -n 1 > /data/enforce
++ mount -o bind /data/enforce /sys/fs/selinux/enforce
 
 ```
 <p align="center">
@@ -576,11 +578,6 @@ python edl.py -w boot boot.img -loader 800t.mbn
 
 - If you disabled the Low Memory Killer module, hooray, more tasks can run in background but are prone to crashes. [Increasing the swapfile size] prevents that from happening.
 - If you wish to retain privileged permissions after restoring the phone to its unrooted state, before doing so, back up all data, sideload [Luxferre's CrossTweak] then press # to perform a privileged factory reset — this will wipe all data of the phone and let you set up with a privileged session. This session will last until an OTA update overrides or you choose to factory reset normally yourself.
-- After rooting, you can spoof SELinux's Enforced status for WhatsApp VoIP by typing these commands one-by-one into the rooted ADB shell. This will last until a restart.
-```console
-echo -n 1 > /data/enforce
-mount -o bind /data/enforce /sys/fs/selinux/enforce
-```
 
 If you wish to revert all changes you've made, connect your phone to the computer in EDL mode, move the original boot image file to `edl-3.1` or `edl-master` folder, open Command Prompt/Terminal within the folder and type:
 ```console
