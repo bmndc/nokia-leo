@@ -44,7 +44,7 @@
 
 <img class="header" align="right" width="390" src="assets/img/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other">
 
-**Table&nbsp;of&nbsp;Contents**
+**Table of Contents**
 - [Don’t buy a counterfeit](#dont-buy-a-counterfeit)
 	- [About Kosher phones](#about-kosher-phones)
 - [Differences between US and international variants](#differences-between-us-and-international-variants)
