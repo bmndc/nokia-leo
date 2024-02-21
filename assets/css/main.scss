@@ -19,8 +19,6 @@ body {
 }
 .header {
     @media (max-width: 800px) {
-        max-width: 100%;      
+        float: none !important;      
     }
-    float: right;
-    width: 390px;
 }
