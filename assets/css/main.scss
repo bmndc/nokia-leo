@@ -17,3 +17,10 @@ body {
     font-size: 14px;
     line-height: 1.5;
 }
+.header {
+    @media (max-width: 800px) {
+        max-width: 100%;      
+    }
+    float: right;
+    width: 390px;
+}
