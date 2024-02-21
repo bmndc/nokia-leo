@@ -507,11 +507,8 @@ That's it! On your desktop there will be two new image files, the modified `boot
 ![Screenshot of the modified content of the boot.img-cmdline file](assets/img/append.png)
 
 6. Open `ramdisk/init.rc` (NOT `ramdisk/init`) and delete line 393 `setprop selinux.reload_policy 1` or mark a comment as shown. This will ultimately prevent SELinux from overwriting the policy changes we made above.
-7. (Optional) If you wish to disable the Low Memory Killer function, now's a good time to do so! In the same `ramdisk/init.rc` file, after line 420, make a new line and add:
-```console
-write /sys/module/lowmemorykiller/parameters/enable_lmk 0
-```
-Indent the new line to match up with other lines as shown.
+
+*If you want to know why I put an additional line to set `/sys/module/lowmemorykiller/parameters/enable_lmk` to 0, see [Expanding RAM with swapfile].*
 
 ```diff
 @@ -390,7 +390,6 @@
@@ -536,7 +533,7 @@ Indent the new line to match up with other lines as shown.
 ```
 ![Screenshot of the modified content of the init.rc file, with line 393 marked as comment which has the same effects as deleting the line altogether, and line 421 added to disable the Low Memory Killer module](assets/img/f5-selinux.png)
 
-8. And that's a wrap! Open the root Android Image Kitchen folder in a command-line window and type `repackimg` to package our modified boot partition.
+7. And that's a wrap! Open the root Android Image Kitchen folder in a command-line window and type `repackimg` to package our modified boot partition.
 
 <!-- ![Screenshot of a Windows Command Prompt window showing some logs of the boot partition repacking process after typing the above command, but has a signing error at the end](assets/img/repack_unsigned.png) -->
 
@@ -574,7 +571,6 @@ python edl.py -w boot boot.img -loader 800t.mbn
 
 ![Screenshot of a WebIDE window in which the location of Device Preferences is highlighted in the right pane and the value of devTools.apps.forbiddenPermissions has been emptied](assets/img/devpref.png)
 
-- If you disabled the Low Memory Killer module, hooray, more tasks can run in background but are prone to crashes. [Increasing the swapfile size] prevents that from happening.
 - If you wish to retain privileged permissions after restoring the phone to its unrooted state, before doing so, back up all data, sideload [Luxferre's CrossTweak] then press # to perform a privileged factory reset — this will wipe all data of the phone and let you set up with a privileged session. This session will last until an OTA update overrides or you choose to factory reset normally yourself.
 - After rooting, you can spoof SELinux's Enforced status for WhatsApp VoIP by typing these commands one-by-one into the rooted ADB shell. This will last until a restart.
 ```console
