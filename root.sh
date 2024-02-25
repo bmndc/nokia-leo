@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Taken and modified from https://unix.stackexchange.com/a/415155
 function select_option {
     ESC=$( printf "\e")
@@ -49,18 +49,20 @@ function select_opt {
     local result=$?
     echo $result
     return $result
-    echo -en "\e[0m"
+    printf "\e[0m\n"
 }
 # Prompt user confirmation before proceeding, kill script if user didn't confirm
 echo ":: Begin boot partition patching process"
 echo "Make sure you've backed up all your data before proceeding! See https://wiki.bananahackers.net/backup for details."
-echo -e "\e[0;31mWARNING: This process will void your warranty and disable system functions. See https://github.com/minhduc-bui1/nokia-leo for information. I will not be responsible for any damages or loss from now on. Proceed?"
+printf "\e[0;31m"
+echo "WARNING: This process will void your warranty and disable system functions. See https://github.com/minhduc-bui1/nokia-leo for information. I will not be responsible for any damages or loss from now on. Proceed?"
 case `select_opt "Exit program" "I understand"` in
     0)
-        echo "\e[0mThe process was aborted. Run this script again when you're ready."
+        printf "\e[0m"
+        echo "The process was aborted. Run this script again when you're ready."
         exit -1;;
     1)
-        echo -en "\e[0m";;
+        printf "\e[0m";;
 esac
 # Interactive menu for choosing AUR helpers to install dependencies
 echo ":: Setting up environment for EDL tools"
@@ -82,6 +84,7 @@ case `select_opt "yay" "pamac" "Build manually" "Exit program"` in
         cd .. && git clone https://aur.archlinux.org/abootimg.git && cd abootimg && makepkg -si
         sudo pacman -U abootimg-*.pkg.tar.zst;;
     3)
+        printf "\e[0m"
         echo "The process was aborted. Run this script again when you're ready."
         exit -1;;
 esac
@@ -113,8 +116,14 @@ sed -i 's/ro\.debuggable.*/ro.debuggable=1/' ./default.prop
 sed -i 's/.*perf_harden.*/security.perf_harden=0/' ./default.prop
 sed -i '/.*reload_policy.*/d' ./init.rc
 echo 'setenforce 0' >> ./init.qcom.early_boot.sh
-echo 'echo -n 1 > /data/enforce' >> ./init.qcom.early_boot.sh
-echo 'mount -o bind /data/enforce /sys/fs/selinux/enforce' >> ./init.qcom.early_boot.sh
+echo "Do you want to spoof SELinux status?"
+case `select_opt "Yes" "No"` in
+    0)
+        echo 'echo -n 1 > /data/enforce' >> ./init.qcom.early_boot.sh
+        echo 'mount -o bind /data/enforce /sys/fs/selinux/enforce' >> ./init.qcom.early_boot.sh;;
+    1)
+        printf "\e[0m";;
+esac
 # initrd root patch process end
 find . | cpio --create --format='newc' | gzip > ../myinitrd.img
 cd ..
