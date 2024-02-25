@@ -67,29 +67,40 @@ esac
 # Interactive menu for choosing AUR helpers to install dependencies
 echo ":: Setting up environment for EDL tools"
 echo "Which AUR helpers do you want to install 'edl-git' and 'abootimg' with?"
-case `select_opt "yay" "pamac" "Build manually" "Exit program"` in
+case `select_opt "AUR (yay)" "AUR (pamac)" "AUR (Build manually)" "macOS" "Exit program"` in
     0)
         echo ":: Building and installing 'edl-git' and 'abootimg' from AUR (yay)"
-        yay -S edl-git abootimg;;
+        yay -S edl-git abootimg
+        sudo pacman -S android-tools;;
     1)
         echo ":: Building and installing 'edl-git' and 'abootimg' from AUR (pamac)"
-        pamac build edl-git abootimg;;
+        pamac build edl-git abootimg
+        sudo pacman -S android-tools;;
     2)
         echo ":: Installing necessary development tools"
-        sudo pacman -S base-devel
-        git clone https://aur.archlinux.org/edl-git.git && cd edl-git && makepkg -si
+        sudo pacman -S base-devel android-tools
         echo ":: Building and installing 'edl-git' directly from AUR"
+        git clone https://aur.archlinux.org/edl-git.git && cd edl-git && makepkg -si
         sudo pacman -U edl-git-*.pkg.tar.zst
         echo ":: Building and installing 'abootimg' directly from AUR"
         cd .. && git clone https://aur.archlinux.org/abootimg.git && cd abootimg && makepkg -si
         sudo pacman -U abootimg-*.pkg.tar.zst;;
     3)
+        echo ":: Downloading and installing Homebrew"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        echo ":: Installing git, libusb and ADB from Homebrew"
+        brew install libusb git android-platform-tools
+        git clone https://github.com/bkerler/edl.git
+        cd edl
+        git submodule update --init --recursive
+        python3 setup.py build
+        sudo python3 setup.py install
+    4)
         printf "\e[0m"
         echo "The process was aborted. Run this script again when you're ready."
         exit -1;;
 esac
-echo ":: Installing Android Debug Bridge and downloading additional files"
-sudo pacman -S android-tools
+echo ":: Downloading additional files"
 curl -L -o adbd https://gitlab.com/suborg/8k-boot-patcher/-/raw/master/adbd
 curl -L -o slua https://gitlab.com/suborg/8k-boot-patcher/-/raw/master/slua
 curl -L -o sluac https://gitlab.com/suborg/8k-boot-patcher/-/raw/master/sluac
