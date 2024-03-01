@@ -161,9 +161,9 @@ Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the 
 ## Secret codes
 *Tip: You can save these codes as contacts to dial later or as Speed Dial entries. When the phone suggests a saved code, you can press Call to activate the code's function.*
 - `*#*#33284#*#*` (`*#*#debug#*#*`): Toggle debugging mode, allowing the phone to be debugged over ADB and DevTools (see [Sideloading and debugging/WebIDE]). A bug icon will appear in the status bar letting you know debugging mode is on. This can also be turned on under *Settings → Device → Developer → Debugger → ADB and DevTools*.
-- `*#06#`: View the hidden International Mobile Equipment Identity numbers or IMEI(s) to uniquely identify a specific cell phone on GSM networks. **Do not modify, delete or show them to anyone else**: they're crucial for calling functions on the phone.
-- `*#0606#` (TA-1324 only): View the Mobile Equipment Identifier numbers or MEID(s) to uniquely identify a specific cell phone on CDMA networks. Note that this only applies to US models; on international models the MEIDs would be invalid (all zeroes) and thus this secret code does nothing.
-- `*#0000#`: Display device information, including firmware version, build date, model number, regional variant and CUID.
+- `*#06#`: View the 15-digit [International Mobile Equipment Identity numbers] or IMEI(s) to uniquely identify a specific cell phone on GSM networks. **Do not modify, delete or show these numbers to anyone else without taking any precautions**: invalid or duplicated IMEI(s) will prevent you from receiving cellular signals or even get you into legal issues.
+- `*#0606#` (TA-1324 only): View the 14-digit [Mobile Equipment Identifier numbers] or MEID(s) to uniquely identify a specific cell phone on CDMA networks. Note that this only applies to US models; on international models the MEIDs would be invalid (all zeroes) and thus this secret code does nothing.
+- `*#0000#`: View device information, including firmware version, build date, model number, regional variant and CUID.
 - `*#33#` (call): Check the [Call barring] service status from carrier for blocking or whitelisting calls, whether incoming or outgoing, domestic or international. Requires a 4-digit passcode to use. To toggle, go to *Settings → Network & Connectivity → Calling → Call barring*.
 - `*#43#` (call): Check the [Call waiting] service status from carrier. To toggle, go to *Settings → Network & Connectivity → Calling → Call waiting*.
 - `*#*#372733#*#*` (`*#*#draped#*#*`): Open KaiOS MMI Test, an internal tool to test each hardware component of a KaiOS device. Tests can be done through an automatic routine or by hand, and include LCD backlight, T9 keyboard, camera, LED flash, RTC, speaker, microphone, vibrator, 3.5mm audio jack, SIM trays, Wi-Fi, Bluetooth, NFC, microSD and microUSB slots.
@@ -641,6 +641,8 @@ python edl.py reset
 [FastContact]: https://gitlab.com/suborg/fastcontact
 [BananaHackers' guide]: https://ivan-hc.github.io/bananahackers/clock-alarms.html#h.unmy3yif91xs
 [Temporarily putting your SIM in another phone to receive the code]: https://www.reddit.com/r/KaiOS/comments/17rgyw5/comment/k8krpcd/?context=3
+[International Mobile Equipment Identity numbers]: https://en.wikipedia.org/wiki/International_Mobile_Equipment_Identity
+[Mobile Equipment Identifier numbers]: https://en.wikipedia.org/wiki/Mobile_equipment_identifier
 [Call barring]: https://www.communityphone.org/blogs/call-barring
 [Call waiting]: https://en.wikipedia.org/wiki/Call_waiting
 [Luxferre's CrossTweak]: https://gitlab.com/suborg/crosstweak
