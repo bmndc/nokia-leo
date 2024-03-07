@@ -5,7 +5,7 @@ description: >
 
 favicon: "assets/img/banana.png"
 
-markdown: CommonMarkGhPages
+markdown: gfm
 
 remote_theme: riggraz/no-style-please
 exclude: [root.sh, fota.sh, curef.json, 8k.mbn, recovery-8110.img]
@@ -19,4 +19,3 @@ theme_config:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-commonmark-ghpages
