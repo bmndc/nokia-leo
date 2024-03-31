@@ -44,7 +44,7 @@
 
 <img class="header" align="right" width="400" src="assets/img/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other">
 
-**Table of Contents**
+**Table&nbsp;of&nbsp;Contents**
 - [Don’t buy a counterfeit](#dont-buy-a-counterfeit)
 	- [About Kosher phones](#about-kosher-phones)
 - [Differences between US and international variants](#differences-between-us-and-international-variants)
@@ -55,7 +55,7 @@
 - [Special boot modes](#special-boot-modes)
 	- [UART debugging testpoint](#uart-debugging-testpoint)
 - [Sideloading and debugging third-party applications](#sideloading-and-debugging-third-party-applications)
-- [ROOT: Boot partition patching (non-US only)](#root-boot-partition-patching-non-us-only)
+- [ROOT: Patching the boot partition (non-US only)](#root-patching-the-boot-partition-non-us-only)
 	- [Before proceeding: back up your data](#before-proceeding-back-up-your-data)
 	- [What we’ll need](#what-well-need)
 	- [Part 1: Set up environment for EDL tools](#part-1-set-up-environment-for-edl-tools)
@@ -218,7 +218,7 @@ Detailed instructions can be found at [Sideloading and debugging/WebIDE]. Feel f
 
 To remove unwanted apps from the phone, you can use [this fork of Luxferre's AppBuster] which lets you disable any apps you don't need and enable them again if you want.
 
-## ROOT: Boot partition patching (non-US only)
+## ROOT: Patching the boot partition (non-US only)
 On KaiOS 2.5.4 devices, such as the 6300 4G and 8000 4G, ADB and WebIDE can be used to install most third-party apps. However, apps with special ‘forbidden’ permissions are not allowed, including most BananaHackers apps with `engmode-extension` like Wallace Toolbox, which can be used to gain exclusive access of the phone. You also cannot make changes to the system. On the 2720 Flip and 800 Tough with KaiOS 2.5.2.2, with HMD/Nokia Mobile changing their release branches from `dev-keys` to `release-keys`, the situation is even worse as you cannot sideload at all.
 
 This is because in order for WhatsApp's VoIP feature to work on these KaiOS versions, a security module called SELinux[^4] is now set to be `Enforced` which checks and reverts system modifications on boot. To get total read-write access to the devices, you'll now have to permanently root them by setting SELinux to `Permissive` mode.
@@ -227,7 +227,7 @@ The guide below is based on the main guide from BananaHackers website, but has b
 
 > [!IMPORTANT]
 > **DISCLAIMER: This process will void your phone's warranty, disable its ability to receive WhatsApp calls and over-the-air updates, but you can undo this if you save a copy of the original boot partition. However, you might also brick your phone if you make a mistake in the process, so proceed at your own risk and with caution! I won't be responsible for any damages done to your phone by following these.**
->
+> 
 > Remember, you don't have to root your phone to do things that usually need root access e.g. you can use [this fork of Luxferre's AppBuster] to disable apps from the launcher instead of deleting them with Wallace Toolbox. You can also install [Luxferre's CrossTweak], a Wallace Toolbox alternative also made by Luxferre that does not need `engmode-extension` and therefore can be easily installed on KaiOS 2.5.4 devices.
 
 ### Before proceeding: [back up] your data
@@ -611,7 +611,6 @@ python edl.py reset
 [hatred reputation for its performance]: #known-issues
 [fully-featured yet still developer-friendly]: #sideloading-and-debugging-third-party-applications
 [Sideloading and debugging third-party applications]: #sideloading-and-debugging-third-party-applications
-[ROOT: Boot partition patching (non-US only)]: #root-boot-partition-patching-non-us-only
 [Manual patching with Android Image Kitchen]: #manual-patching-with-android-image-kitchen
 
 [COVID-19 pandemic]: https://en.wikipedia.org/wiki/COVID-19_pandemic
