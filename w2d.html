@@ -10,23 +10,23 @@
                 <li><a href="#readout-not-recommended">Readout (not recommended)</a></li>
             </ul>
             <p>Note that for the buttons on this page to function, you need to open this page in the built-in Browser app on your KaiOS device.</p>
-
-            <radio name="autoopen" value="none">Do not automatically open any settings when I visit this page.</radio>
+            <p><input type="radio" id="norad" name="autoopen" value="none">
+                Do not automatically open any settings when I visit this page.</label></p>
 
             <h2 id="w2d-kaios-jailbreak">W2D KaiOS Jailbreak</h2>
             <p>This button below will attempt to open the hidden Developer menu in your phone's Settings app, where you can enable ADB and DevTools access to the low-level functions of the phone. This allows many devices previously categorized as debug-locked to be debugged from a computer.</p>
             <p>Works on both KaiOS 2.5 and KaiOS 3.</p>
             <p><em>This was discovered in 2020 by <a href="https://kaios.dev">tbrrss</a> and Luxferre, and later fine-tuned by <a href="https://github.com/cyan-2048">Cyan</a> for GitHub Pages environment.</em></p>
             <p><button id="developer">Launch Developer menu</button></p>
-            
-            <radio name="autoopen" value="w2d">Open the Developer menu automatically each time I visit this page.</radio>
+            <p><input type="radio" id="w2drad" name="autoopen" value="w2d"><label for="w2drad">
+                Open the Developer menu automatically each time I visit this page.</label></p>
             
             <h2 id="hotspot-for-jiophones">Hotspot for JioPhones</h2>
             <p>On some devices, particularly JioPhones and newer locked Nokia phones, the Internet sharing menu under Network &amp; Connectivity in Settings is hidden although the hardware is perfectly capable of doing such thing. The button below should attempt to open that page.</p>
             <p>Works on both KaiOS 2.5 and KaiOS 3.</p>
             <p><button id="hotspot">Launch Hotspot menu</button></p>
-
-            <radio name="autoopen" value="hotspot">Open the Internet sharing menu automatically each time I visit this page.</radio>
+            <p><input type="radio" id="hotspotrad" name="autoopen" value="hotspot"><label for="hotspotrad">
+                Open the Internet sharing menu automatically each time I visit this page.</label></p>
             
             <h2 id="connect-to-adb-wirelessly">Connect to ADB wirelessly</h2>
             <p>If you don't have an USB cable nearby and need to quickly debug your app, this button below will open an ADB port of 5555 on your phone so that you can connect to your computer's ADB wirelessly by typing <code>adb connect [your.phone.ip.address]:5555</code>. For more details, see Sideloading and debugging/ADB and WebIDE.</p>
