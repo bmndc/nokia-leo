@@ -15,12 +15,12 @@
             <p>This button below will attempt to open the hidden Developer menu in your phone's Settings app, where you can enable ADB and DevTools access to the low-level functions of the phone. This allows many devices previously categorized as debug-locked to be debugged from a computer.</p>
             <p>Works on both KaiOS 2.5 and KaiOS 3.</p>
             <p><em>This was discovered in 2020 by <a href="https://kaios.dev">tbrrss</a> and Luxferre, and later fine-tuned by <a href="https://github.com/cyan-2048">Cyan</a> for GitHub Pages environment.</em></p>
-            <button onclick="openMenu(developer)">Launch Developer menu</button>
+            <button onclick="openMenu('developer')">Launch Developer menu</button>
             
             <h2 id="hotspot-for-jiophones">Hotspot for JioPhones</h2>
             <p>On some devices, particularly JioPhones and newer locked Nokia phones, the Internet sharing menu under Network &amp; Connectivity in Settings is hidden although the hardware is perfectly capable of doing such thing. The button below should attempt to open that page.</p>
             <p>Works on both KaiOS 2.5 and KaiOS 3.</p>
-            <button onclick="openMenu(hotspot)">Launch Hotspot menu</button>
+            <button onclick="openMenu('hotspot')">Launch Hotspot menu</button>
             
             <h2 id="connect-to-adb-wirelessly">Connect to ADB wirelessly</h2>
             <p>If you don't have an USB cable nearby and need to quickly debug your app, this button below will open an ADB port of 5555 on your phone so that you can connect to your computer's ADB wirelessly by typing <code>adb connect [your.phone.ip.address]:5555</code>. For more details, see Sideloading and debugging/ADB and WebIDE.</p>
@@ -31,7 +31,7 @@
             <h2 id="readout-not-recommended">Readout (not recommended)</h2>
             <p>This button below will attempt to open the hidden Readout screen reader menu in Settings, which is hidden on many devices because it is unusable outside of KaiOS's built-in apps. Note that on most devices, the menu will be blank.</p>
             <p>On devices with dedicated volume buttons, you can quickly toggle on/off this feature by repeatedly pressing Volume up and Volume down. You can also toggle the feature under Device Settings in WebIDE.</p>
-            <button onclick="openMenu(readout)">Launch Readout menu</button>
+            <button onclick="openMenu('readout')">Launch Readout menu</button>
             
             <p><em>For list of all hidden settings accessible via mozActivity, check out <a href="https://cyan-2048.github.io/kaios_scripts">Cyan's dedicated website</a>.</em></p>
             
