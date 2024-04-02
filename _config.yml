@@ -7,7 +7,7 @@ favicon: "assets/img/banana.png"
 
 markdown: gfm
 
-remote_theme: minhduc-bui1/no-style-please
+theme: no-style-please
 exclude: [root.sh, fota.sh, curef.json, 8k.mbn, recovery-8110.img]
 
 theme_config:
