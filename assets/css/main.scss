@@ -2,21 +2,6 @@
 ---
 
 @import "no-style-please";
-.w {
-    max-width: 1081px;
-    padding: 4rem .8rem;
-}
-li {
-    margin-left:-1rem;
-}
-div.highlighter-rouge code {
-    white-space: pre;
-}
-body {
-    font-family: system-ui, sans-serif;
-    font-size: 14px;
-    line-height: 1.5;
-}
 .header {
     @media (max-width: 800px) {
         float: none;      
