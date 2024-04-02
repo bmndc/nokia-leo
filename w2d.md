@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Launch hidden settings
-custom_js: w2d.js 
+custom_js: w2d
 ---
 **Table of Contents**
 - [W2D KaiOS Jailbreak](#w2d-kaios-jailbreak)
