@@ -6,7 +6,7 @@ description: >
 favicon: "assets/img/banana.png"
 
 theme: no-style-please
-exclude: [root.sh, fota.sh, curef.json, 8k.mbn, recovery-8110.img]
+exclude: [root.sh, fota.sh, curef.json, 8k.mbn, recovery-8110.img, vendor]
 
 theme_config:
   appearance: "auto"
