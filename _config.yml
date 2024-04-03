@@ -29,7 +29,3 @@ theme_config:
   back_home_text: "Back to main page"
   date_format: "%d-%m-%Y"
   show_description: false
-
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag

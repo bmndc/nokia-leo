@@ -3,7 +3,7 @@
 Gem::Specification.new do |spec|
   spec.name          = "no-style-please"
   spec.version       = "0.4.7"
-  spec.authors       = ["Riccardo Graziosi"]
+  spec.authors       = ["Riccardo Graziosi", "Minh Duc Bui"]
   spec.email         = ["riccardo.graziosi97@gmail.com"]
 
   spec.summary       = "A (nearly) no-CSS, fast, minimalist Jekyll theme."
@@ -19,4 +19,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "jekyll-default-layout", "~> 0.1.5"
   spec.add_runtime_dependency "jekyll-optional-front-matter", "~> 0.3.2"
   spec.add_runtime_dependency "jekyll-sass-converter", "~> 1.0"
+  spec.add_runtime_dependency "jekyll-commonmark-ghpages", "~> 0.4.0"
 end
