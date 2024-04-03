@@ -5,8 +5,6 @@ description: >
 
 favicon: "assets/img/banana.png"
 
-markdown: gfm
-
 theme: no-style-please
 exclude: [root.sh, fota.sh, curef.json, 8k.mbn, recovery-8110.img]
 
