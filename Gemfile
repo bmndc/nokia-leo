@@ -2,10 +2,13 @@
 
 source "https://rubygems.org"
 
-gem "jekyll"
+gem 'jekyll'
 gem 'kramdown-parser-gfm', '~> 1.1'
 
+gem 'no-style-please'
+
 group :jekyll_plugins do
+  gem 'jekyll-commonmark-ghpages', '~> 0.4.0'
   gem 'jekyll-readme-index', '~> 0.3.0'
   gem 'jekyll-feed', '~> 0.17.0'
   gem 'jekyll-seo-tag', '~> 2.8'
