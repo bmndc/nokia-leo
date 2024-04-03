@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 
 gem "github-pages"
-gem "no-style-please", "0.4.7"
+gem "no-style-please"
 
 group :jekyll_plugins do
   gem "jekyll-readme-index"
