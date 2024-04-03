@@ -5,7 +5,7 @@ source "https://rubygems.org"
 gem 'jekyll'
 gem 'kramdown-parser-gfm', '~> 1.1'
 
-gem 'no-style-please'
+gem 'no-style-please', '~> 0.4.7'
 
 group :jekyll_plugins do
   gem 'jekyll-commonmark-ghpages', '~> 0.4.0'
