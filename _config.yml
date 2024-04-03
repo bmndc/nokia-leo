@@ -5,6 +5,8 @@ description: >
 
 favicon: "assets/img/banana.png"
 
+markdown: CommonMarkGhPages
+
 theme: no-style-please
 exclude: 
   - root.sh
@@ -29,3 +31,7 @@ theme_config:
   back_home_text: "Back to main page"
   date_format: "%d-%m-%Y"
   show_description: false
+
+commonmark:
+  options: ["UNSAFE", "SMART", "FOOTNOTES"]
+  extensions: ["strikethrough", "autolink", "table", "tagfilter"]
