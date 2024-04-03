@@ -6,7 +6,23 @@ description: >
 favicon: "assets/img/banana.png"
 
 theme: no-style-please
-exclude: [root.sh, fota.sh, curef.json, 8k.mbn, recovery-8110.img, vendor]
+exclude: 
+  - root.sh
+  - fota.sh
+  - curef.json
+  - 8k.mbn
+  - recovery-8110.img
+  - vendor
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
 
 theme_config:
   appearance: "auto"
