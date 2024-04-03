@@ -16,5 +16,3 @@ group :jekyll_plugins do
   gem 'jekyll-default-layout', '~> 0.1.5'
   gem 'jekyll-optional-front-matter', '~> 0.3.2'
 end
-
-gemspec
