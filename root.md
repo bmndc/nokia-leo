@@ -1,8 +1,6 @@
 ---
 layout: page
-title: ROOT: Patching the boot partition (non-US only)
-redirect-from:
-	- /#root-patching-the-boot-partition-non-us-only
+title: "ROOT: Patching the boot partition (non-US only)"
 ---
 **Table of Contents**
 - [Before proceeding: back up your data](#before-proceeding-back-up-your-data)
@@ -382,3 +380,45 @@ If you wish to revert all changes you've made, connect your phone to the compute
 python edl.py w boot boot.img --loader=8k.mbn
 python edl.py reset
 ```
+
+[this fork of Luxferre's AppBuster]: https://github.com/minhduc-bui1/AppBuster
+[back up]: https://simple.wikipedia.org/wiki/Backup
+[Murphy's Law]: https://en.wikipedia.org/wiki/Murphy%27s_law
+[Newton's laws of motion]: https://www.britannica.com/science/Newtons-laws-of-motion
+[PhoneCopy in KaiStore]: https://www.kaiostech.com/store/apps/?bundle_id=com.phonecopy.phonecopy
+[kaios-backup]: https://github.com/D3SXX/kaios-backup
+[kaios-sms-backup]: https://github.com/Fiachra1993/kaios-sms-backup
+[greg]: https://github.com/strukturart/greg
+[Back up system partitions]: https://github.com/minhduc-bui1/nokia-leo/wiki/Backup
+
+[8000 4G and 6300 4G]: https://edl.bananahackers.net/loaders/8k.mbn
+[2720 Flip]: https://edl.bananahackers.net/loaders/2720.mbn
+[800 Tough]: https://edl.bananahackers.net/loaders/800t.mbn
+[AT&T/Cricket]: https://github.com/programmer-collection/alcatel/blob/master/Gflip3_ATT/Gflip3_ATT_NPRG.mbn
+[T-Mobile/Metro/Rogers]: https://github.com/programmer-collection/alcatel/blob/master/Gflip3_TMO/Gflip3_TMO_NPRG.mbn
+[Gerda Recovery image file]: https://cloud.disroot.org/s/3ojAfcF6J2jQrRg/download
+[backup]: https://drive.google.com/open?id=1ot9rQDTYON8mZu57YWDy52brEhK3-PGh
+[pyusb]: https://pypi.org/project/pyusb/
+[pyserial]: https://pypi.org/project/pyserial/
+[keystone-engine]: https://pypi.org/project/keystone-engine/
+[capstone]: https://pypi.org/project/capstone/
+[docopt]: https://pypi.org/project/docopt/
+[bkerler's edl.py v3.1]: https://github.com/bkerler/edl/releases/tag/3.1
+[andybalholm's edl]: https://github.com/andybalholm/edl
+[Python's official download page for Windows]: https://www.python.org/downloads/windows
+[Android Debug Bridge (ADB)]: https://developer.android.com/studio/releases/platform-tools
+[Zadig]: https://github.com/pbatard/libwdi/releases/latest
+[Homebrew]: https://brew.sh
+[Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+[Docker Desktop]: https://docs.docker.com/compose/install
+[Linux kernel update package]: https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
+[Windows]: https://forum.xda-developers.com/attachments/android-image-kitchen-v3-8-win32-zip.5300919
+[macOS/Linux]: https://forum.xda-developers.com/attachments/aik-linux-v3-8-all-tar-gz.5300923
+[Notepad++]: https://notepad-plus-plus.org/downloads
+[preserving line endings]: https://www.cs.toronto.edu/~krueger/csc209h/tut/line-endings.html
+[Java Runtime Environment]: https://www.java.com/en/download
+[Development/EDL tools on BananaHackers Wiki]: https://wiki.bananahackers.net/development/edl
+[Microsoft Store]: ms-windows-store://publisher/?name=Python%20Software%20Foundation
+[environment variable]: https://en.wikipedia.org/wiki/Environment_variable
+[Apps & features]: ms-settings:appsfeatures
+[part 4]: #part-4-flashing-the-modified-boot-partition
