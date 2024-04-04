@@ -39,9 +39,10 @@
 		<tr><td>Build no.</td><td colspan=2>10.00.17.01, 12.00.17.01, 20.00.17.01, 30.00.17.01</td></tr>
 	</tbody>
 </table></details>
-<img class="header" align="right" width="400" src="assets/img/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other">
 
-*Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Note that it doesn't contain proprietary code from some parties and thus cannot be used to compile a fully working KaiOS firmware.*
+*Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Note that it doesn't contain proprietary code from third parties and thus cannot be used to compile a fully working KaiOS firmware.*
+
+<img class="header" align="right" width="400" src="assets/img/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other">
 
 **Table&nbsp;of&nbsp;Contents**
 - [Don’t buy a counterfeit](#dont-buy-a-counterfeit)
@@ -54,11 +55,13 @@
 - [Special boot modes](#special-boot-modes)
 	- [UART debugging testpoint](#uart-debugging-testpoint)
 - [Sideloading and debugging third-party applications](#sideloading-and-debugging-third-party-applications)
+- [ROOT: Patching the boot partition (non-US only)](#root-patching-the-boot-partition-non-us-only)
+- [postmarketOS](#postmarketos)
 - [External links](#external-links)
 
-In late 2020, as people need to stay connected amid the [COVID-19 pandemic] outbreak, HMD Global quietly introduced the new Nokia 6300 4G with KaiOS 2.5.4. Following the successful relaunch of the Nokia-branded retro 2720 Flip and 800 Tough, the new phone packs the modern features of 4G LTE, Wi-Fi and social apps into a tiny footprint, whilst inheriting the classic candy-bar design of the original Nokia 6300. It was [one of the most affordable phones] ever in the company's KaiOS lineup at €49/$69.99.
+In late 2020, as people need to stay connected amid the height of the [COVID-19 pandemic], HMD Global quietly introduced the new Nokia 6300 4G with KaiOS 2.5.4. Following the successful relaunch of the Nokia-branded retros 2720 Flip and 800 Tough, the 6300 4G packs a bunch of modern features, such as 4G LTE, Wi-Fi and social apps like WhatsApp and Facebook into a pocket-friendly design, whilst inheriting the classic candy-bar look of the original Nokia 6300. It was [one of the most affordable] the company has ever offered in its KaiOS lineup, at €49/$69.99, though still pricier than the general KaiOS devices. Since then, the phone has gained popularity and also mixed reviews from the community, notably on its performance and keypad typing experience.
 
-I decided to purchase an used 6300 4G in mid-May 2022 as the phone gained popularity and [hatred reputation for its performance] within the community, despite already having the 2720 Flip and Cyan's advise against buying another phone. Nevertheless, this drew me further into the rabbit hole of KaiOS; the more compact design, vibrant screen, and the balance kept between being [fully-featured yet still developer-friendly] on the phone really striked me. This inspired me into compiling this note as a result of my almost 2-year experience with it.
+I decided to get an used 6300 4G in mid-May 2022, despite already having the 2720 Flip and Cyan's advise against buying another phone. Nevertheless, this drew me further into the rabbit hole of KaiOS; the more compact design, vibrant screen, and the balance kept between being [fully-featured yet still developer-friendly] on the phone really striked me. This inspired me into documenting this as a result of my almost 2-year experience with it.
 
 ## Don't buy a counterfeit
 Here's the funny thing: it's easier to get a genuine version of the original Nokia 6300 than its rebranded version. On eBay, Shopee and [other online shopping sites] across North America, Europe and Southeast Asia, you may see hundreds of listings of used 6300 4G in various conditions. While the listings seem to look identical, many of those are NOT genuine but are knock-offs with [terrible build quality] and user experience. Do note that:
@@ -206,6 +209,10 @@ Detailed instructions can be found at [Sideloading and debugging/WebIDE]. Feel f
 
 To remove unwanted apps from the phone, you can use [this fork of Luxferre's AppBuster] which lets you disable any apps you don't need and enable them again if you want.
 
+## ROOT: Patching the boot partition (non-US only)
+
+## postmarketOS
+
 ## External links
 - [Nokia 6300 4G product page] on Nokia Mobile's website
 - [Nokia 8000 4G product page] on Nokia Mobile's website
@@ -217,17 +224,17 @@ To remove unwanted apps from the phone, you can use [this fork of Luxferre's App
 - [Nokia 8000 4G (nokia-sparkler)] on postmarketOS Wiki
 - [Affe Null's Bananian project repository], a Debian port for KaiOS devices
 
-<!-- footnotes -->
+<!------------------------------ FOOTNOTES ------------------------------>
 [^1]: A year after release of the 8000 4G and 6300 4G, HMD inherently pushed an OTA update to the 2720 Flip and 800 Tough, numbered build 30.00.17.05, which traded off DevTools access to strengthen SELinux for the ability to make and receive WhatsApp calls.
 <!-- [^2]: In August 2021, Google decided to [pull the plugs from Assistant on KaiOS]. Prior to that, Assistant can be used to make calls, send texts, change device settings and do various on-device functions with your voice. -->
 [^3]: Aleph Security has a [deep-dive blog post] into exploiting the nature of EDL mode on Qualcomm devices. If you're into the overall boot process, check out the breakdown of [Qualcomm's Chain of Trust on LineageOS Engineering Blog].
 [^4]: Read more about [SELinux on LineageOS Engineering Blog].
 
-<!-- links -->
+<!-------------------------------- LINKS -------------------------------->
 [provided by HMD]: https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz
 [`leo-v20` branch of this repository]: https://github.com/minhduc-bui1/nokia-leo/tree/leo-v20
 
-[one of the most affordable phones]: https://www.hmdglobal.com/new-nokia-feature-phones-nokia-6300-4g-and-nokia-8000-4g
+[one of the most affordable]: https://www.hmdglobal.com/new-nokia-feature-phones-nokia-6300-4g-and-nokia-8000-4g
 [hatred reputation for its performance]: #known-issues
 [fully-featured yet still developer-friendly]: #sideloading-and-debugging-third-party-applications
 [Sideloading and debugging third-party applications]: #sideloading-and-debugging-third-party-applications
@@ -295,5 +302,3 @@ To remove unwanted apps from the phone, you can use [this fork of Luxferre's App
 [SELinux on LineageOS Engineering Blog]: https://lineageos.org/engineering/HowTo-SELinux
 
 *GitHub Pages theme: MIT-licensed [riggraz/no-style-please](https://github.com/riggraz/no-style-please). Logo by [Vitaly Gorbachev](https://www.flaticon.com/free-icons/banana) from Flaticons*
-
-<!-- <style>.w{max-width:1081px;padding:4rem .8rem;}li{margin-left:-1rem;}div.highlighter-rouge code{white-space:pre;}body{font-family:system-ui,sans-serif;font-size:14px;line-height:1.5;}</style> -->
