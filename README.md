@@ -232,8 +232,8 @@ To remove unwanted apps from the phone, you can use [this fork of Luxferre's App
 [hatred reputation for its performance]: #known-issues
 [fully-featured yet still developer-friendly]: #sideloading-and-debugging-third-party-applications
 [Sideloading and debugging third-party applications]: #sideloading-and-debugging-third-party-applications
-[Manual patching with Android Image Kitchen]: root/#manual-patching-with-android-image-kitchen
-[Next steps]: root/#next-steps
+[Manual patching with Android Image Kitchen]: root#manual-patching-with-android-image-kitchen
+[Next steps]: root#next-steps
 
 [COVID-19 pandemic]: https://en.wikipedia.org/wiki/COVID-19_pandemic
 [other online shopping sites]: https://www.youtube.com/watch?v=b2-FJ3RuYhE
