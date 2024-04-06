@@ -45,15 +45,15 @@
 <div id="toc">
 	<img align="right" width="400" src="assets/img/leo-emotionalRange-600px.png" alt="Nokia 6300 4G in three colours stacking on top of each other">
 	<p><strong>Table of Contents</strong></p>
-	<ul><li><a href="#dont-buy-a-counterfeit">Don't buy a counterfeit</a></li>
-	<ul><li><a href="#about-kosher-phones">About Kosher phones</a></li></ul>
+	<ul><li><a href="#dont-buy-a-counterfeit">Don't buy a counterfeit</a>
+	<ul><li><a href="#about-kosher-phones">About Kosher phones</a></li></ul></li>
 		<li><a href="#differences-between-us-and-international-variants">Differences between US and international variants</a></li>
 		<li><a href="#tips-and-tricks">Tips and tricks</a></li>
-		<li><a href="#known-issues">Known issues</a></li>
-	<ul><li><a href="#kaios-specific">KaiOS-specific</a></li></ul>
+		<li><a href="#known-issues">Known issues</a>
+	<ul><li><a href="#kaios-specific">KaiOS-specific</a></li></ul></li>
 		<li><a href="#secret-codes">Secret codes</a></li>
-		<li><a href="#special-boot-modes">Special boot modes</a></li>
-	<ul><li><a href="#uart-debugging-testpoint">UART debugging testpoint</a></li></ul>
+		<li><a href="#special-boot-modes">Special boot modes</a>
+	<ul><li><a href="#uart-debugging-testpoint">UART debugging testpoint</a></li></ul></li>
 		<li><a href="#sideloading-and-debugging-third-party-applications">Sideloading and debugging third-party applications</a></li>
 		<li><a href="#external-links">External links</a></li>
 	</ul>

@@ -2,9 +2,9 @@
 ---
 
 @import "no-style-please";
-body ul {
+li {
     /* Indent all bullet points with less width so that on 6300 4G's viewport more words can be shown on one line */
-    padding-left: 24px;
+    margin-left: -16px;
 }
 #toc img {
     height: 100%;
