@@ -42,22 +42,22 @@
 
 *Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Note that it doesn't contain proprietary code from third parties and thus cannot be used to compile a fully working KaiOS firmware.*
 
-<img class="header" align="right" width="400" height="100%" src="assets/img/leo-emotionalRange-600px.png" alt="Nokia 6300 4G in three colours stacking on top of each other">
-
-**Table&nbsp;of&nbsp;Contents**
-- [Don’t buy a counterfeit](#dont-buy-a-counterfeit)
-	- [About Kosher phones](#about-kosher-phones)
-- [Differences between US and international variants](#differences-between-us-and-international-variants)
-- [Tips and tricks](#tips-and-tricks)
-- [Known issues](#known-issues)
-	- [KaiOS-specific](#kaios-specific)
-- [Secret codes](#secret-codes)
-- [Special boot modes](#special-boot-modes)
-	- [UART debugging testpoint](#uart-debugging-testpoint)
-- [Sideloading and debugging third-party applications](#sideloading-and-debugging-third-party-applications)
-- [ROOT: Patching the boot partition (non-US only)](#root-patching-the-boot-partition-non-us-only)
-- [postmarketOS](#postmarketos)
-- [External links](#external-links)
+<div id="toc">
+	<img align="right" width="400" height="100%" src="assets/img/leo-emotionalRange-600px.png" alt="Nokia 6300 4G in three colours stacking on top of each other">
+	<p><strong>Table of Contents</strong></p>
+	<ul><li><a href="#dont-buy-a-counterfeit">Don't buy a counterfeit</a></li>
+	<ul><li><a href="#about-kosher-phones">About Kosher phones</a></li></ul>
+		<li><a href="#differences-between-us-and-international-variants">Differences between US and international variants</a></li>
+		<li><a href="#tips-and-tricks">Tips and tricks</a></li>
+		<li><a href="#known-issues">Known issues</a></li>
+	<ul><li><a href="#kaios-specific">KaiOS-specific</a></li></ul>
+		<li><a href="#secret-codes">Secret codes</a></li>
+		<li><a href="#special-boot-modes">Special boot modes</a></li>
+	<ul><li><a href="#uart-debugging-testpoint">UART debugging testpoint</a></li></ul>
+		<li><a href="#sideloading-and-debugging-third-party-applications"></a></li>
+		<li><a href="#external-links">External links</a></li>
+	</ul>
+</div>
 
 In late 2020, as people need to stay connected amid the height of the [COVID-19 pandemic], HMD Global quietly introduced the new Nokia 6300 4G with KaiOS 2.5.4. Following the successful relaunch of the Nokia-branded retros 2720 Flip and 800 Tough, the 6300 4G packs a bunch of modern features, such as 4G LTE, Wi-Fi and social apps like WhatsApp and Facebook into a pocket-friendly design, whilst inheriting the classic candy-bar look of the original Nokia 6300. It was [one of the most affordable] the company has ever offered in its KaiOS lineup, at €49/$69.99, though still pricier than the general KaiOS devices. Since then, the phone has gained popularity and also mixed reviews from the community, notably on its performance and keypad typing experience.
 

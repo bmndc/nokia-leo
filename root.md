@@ -2,18 +2,6 @@
 layout: page
 title: "ROOT: Patching the boot partition (non-US only)"
 ---
-**Table of Contents**
-- [Before proceeding: back up your data](#before-proceeding-back-up-your-data)
-- [What we’ll need](#what-well-need)
-- [Part 1: Set up environment for EDL tools](#part-1-set-up-environment-for-edl-tools)
-- [Part 2: Obtaining the boot partition](#part-2-obtaining-the-boot-partition)
-	- [Nokia 8000 4G and Nokia 6300 4G with bkerler’s EDL](#nokia-8000-4g-and-nokia-6300-4g-with-bkerlers-edl)
-	- [Nokia 2720 Flip and Nokia 800 Tough with andybalholm’s EDL](#nokia-2720-flip-and-nokia-800-tough-with-andybalholms-edl)
-- [Part 3: Patching the boot partition](#part-3-patching-the-boot-partition)
-	- [Automatic patching with `8k-boot-patcher`](#automatic-patching-with-8k-boot-patcher)
-	- [Manual patching with Android Image Kitchen](#manual-patching-with-android-image-kitchen)
-- [Part 4: Flashing the modified boot partition](#part-4-flashing-the-modified-boot-partition)
-
 On KaiOS 2.5.4 devices, such as the 6300 4G and 8000 4G, ADB and WebIDE can be used to install most third-party apps. However, apps with special ‘forbidden’ permissions are not allowed, including most BananaHackers apps with `engmode-extension` like Wallace Toolbox, which can be used to gain exclusive access of the phone. You also cannot make changes to the system. On the 2720 Flip and 800 Tough with KaiOS 2.5.2.2, with HMD/Nokia Mobile changing their release branches from `dev-keys` to `release-keys`, the situation is even worse as you cannot sideload at all.
 
 This is because in order for WhatsApp's VoIP feature to work on these KaiOS versions, a security module called SELinux[^4] is now set to be `Enforced` which checks and reverts system modifications on boot. To get total read-write access to the devices, you'll now have to permanently root them by setting SELinux to `Permissive` mode.
