@@ -11,7 +11,7 @@
 {%-endif-%}
 
 {%- if posts.size > 0 -%}
-  <div class="post-list"><ul>
+  <div id="post-list"><ul>
     {%- for post in posts limit: include.limit -%}
         <li>
           <span>{{- post.date | date: site.theme_config.date_format -}}</span>
