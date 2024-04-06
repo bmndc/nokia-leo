@@ -2,14 +2,20 @@
 ---
 
 @import "no-style-please";
+body li {
+    /* Indent all bullet points with less width so that on 6300 4G's viewport more words can be shown on one line */
+    margin-left: -1rem;
+}
 #toc img {
+    height: 100%;
+    /* Undo float: right on header image on small screens */
     @media (max-width: 800px) {
-        float: none;      
+        float: none;  
     }
 }
 #post-list li {
     width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap; // Don't do new lines after ellipsis
+    overflow: hidden; // Don't show anything after ellipsis
 }
