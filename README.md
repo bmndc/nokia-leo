@@ -42,7 +42,7 @@
 
 *Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Note that it doesn't contain proprietary code from third parties and thus cannot be used to compile a fully working KaiOS firmware.*
 
-<img class="header" align="right" src="assets/img/nokia_6300_4G-emotional-Range-400px.png" alt="Nokia 6300 4G in three colours stacking on top of each other">
+<img class="header" align="right" width="400" height="400" src="assets/img/nokia_6300_4G-emotional-Range-800px.png" alt="Nokia 6300 4G in three colours stacking on top of each other">
 
 **Table&nbsp;of&nbsp;Contents**
 - [Don’t buy a counterfeit](#dont-buy-a-counterfeit)
@@ -86,7 +86,7 @@ Kosher is indeed a great way to make your phone truly basic, but HMD already off
 
 *Photo provided by nuxx on r/KaiOS Discord server in October 2021.*
 
-<p align="center"><img alt="A Kosher-customized Nokia 8000 4G with no Browser, KaiStore or third-party apps shown in 3-by-3 grid of apps. Center D-Pad key is engraved with a Hebrew symbol indicating Kosher phone" src="assets/img/kosher-sparkler-350px.jpg"></p>
+<p align="center"><img alt="A Kosher-customized Nokia 8000 4G with no Browser, KaiStore or third-party apps shown in 3-by-3 grid of apps. Center D-Pad key is engraved with a Hebrew symbol indicating Kosher phone" src="assets/img/kosher-sparkler-350px.jpeg"></p>
 
 ## Differences between US and international variants
 "Buying Western-customized products will always give you the best quality possible" is unwise when it comes to consumer electronics, including mobile phones, and the 6300 4G is no exception. When buying the TA-1324 variant of this phone, you should expect:
