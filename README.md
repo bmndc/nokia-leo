@@ -196,7 +196,7 @@ EDL programmer for the international version of this phone (not TA-1324) can be 
 ### UART debugging testpoint
 [As discovered by atipls on Discord and @Llixuma], on the mainboard of the 6300 4G, there are 3 UART testing points in the order of TX, RX and GND just above the SIM2 slot. Shorting TX at 1.8V and GND takes you to Fastboot and Linux terminal interface.
 
-<p align="center"><img alt="Mainboard of a TA-1307 Nokia 6300 4G, with the red arrow pointing to three gold contacts in the middle of the board, those being the UART testpoints in the order of TX, RX and ground" src="assets/img/testpoint.png"></p>
+<p align="center"><img width="100%" height="100%" alt="Mainboard of a TA-1307 Nokia 6300 4G, with the red arrow pointing to three gold contacts in the middle of the board, those being the UART testpoints in the order of TX, RX and ground" src="assets/img/testpoint.png"></p>
 
 Note that by default, KaiOS kernel disables the UART testpoints; kernel logs from UART testpoints will stop once the Linux kernel kicks in. To read the full output from UART, compile the Linux kernel from OSS release [provided by HMD]—also available under [`leo-v20` branch of this repository]—with `LEO_defconfig` flag (not `LEO_defconfig-perf`).
 
@@ -209,9 +209,7 @@ Detailed instructions can be found at [Sideloading and debugging/WebIDE]. Feel f
 
 To remove unwanted apps from the phone, you can use [this fork of Luxferre's AppBuster] which lets you disable any apps you don't need and enable them again if you want.
 
-## ROOT: Patching the boot partition (non-US only)
-
-## postmarketOS
+> Looking for guide to root the 6300 4G? This has now been moved to [ROOT: Patching the boot partition (non-US only)].
 
 ## External links
 - [Nokia 6300 4G product page] on Nokia Mobile's website
@@ -240,6 +238,7 @@ To remove unwanted apps from the phone, you can use [this fork of Luxferre's App
 [Sideloading and debugging third-party applications]: #sideloading-and-debugging-third-party-applications
 [Manual patching with Android Image Kitchen]: root#manual-patching-with-android-image-kitchen
 [Next steps]: root#next-steps
+[ROOT: Patching the boot partition (non-US only)]: root
 
 [COVID-19 pandemic]: https://en.wikipedia.org/wiki/COVID-19_pandemic
 [other online shopping sites]: https://www.youtube.com/watch?v=b2-FJ3RuYhE

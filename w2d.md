@@ -3,12 +3,6 @@ layout: page
 title: Launch hidden settings
 custom_js: w2d
 ---
-**Table of Contents**
-- [W2D KaiOS Jailbreak](#w2d-kaios-jailbreak)
-- [Hotspot for JioPhones](#hotspot-for-jiophones)
-- [Connect to ADB wirelessly](#connect-to-adb-wirelessly)
-- [Readout (not recommended)](#readout-not-recommended)
-
 Note that for the buttons on this page to function, you need to open this page in the built-in Browser app on your KaiOS device.
 
 ## W2D KaiOS Jailbreak
