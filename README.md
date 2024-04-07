@@ -43,7 +43,7 @@
 *Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Note that it doesn't contain proprietary code from third parties and thus cannot be used to compile a fully working KaiOS firmware.*
 
 <div id="toc">
-	<img align="right" width="400" height="100%" src="assets/img/leo-emotionalRange-600px.png" alt="Nokia 6300 4G in three colours stacking on top of each other">
+	<img class="header" align="right" width="400" src="assets/img/leo-emotionalRange-600px.png" alt="Nokia 6300 4G in three colours stacking on top of each other">
 	<p><strong>Table of Contents</strong></p>
 	<ul><li><a href="#dont-buy-a-counterfeit">Don't buy a counterfeit</a>
 	<ul><li><a href="#about-kosher-phones">About Kosher phones</a></li></ul></li>
@@ -57,7 +57,7 @@
 		<li><a href="#sideloading-and-debugging-third-party-applications">Sideloading and debugging third-party applications</a></li>
 		<li><a href="#external-links">External links</a></li>
 	</ul>
-	<img width="100%" height="100%" src="assets/img/blank.png" alt="Placeholder">
+	<img width="100%" src="assets/img/blank.png" alt="Placeholder">
 </div>
 
 In late 2020, as people need to stay connected amid the height of the [COVID-19 pandemic], HMD Global quietly introduced the new Nokia 6300 4G with KaiOS 2.5.4. Following the successful relaunch of the Nokia-branded retros 2720 Flip and 800 Tough, the 6300 4G packs a bunch of modern features, such as 4G LTE, Wi-Fi and social apps like WhatsApp and Facebook into a pocket-friendly design, whilst inheriting the classic candy-bar look of the original Nokia 6300. It was [one of the most affordable] the company has ever offered in its KaiOS lineup, at €49/$69.99, though still pricier than the general KaiOS devices. Since then, the phone has gained popularity and also mixed reviews from the community, notably on its performance and keypad typing experience.
@@ -73,7 +73,7 @@ Here's the funny thing: it's easier to get a genuine version of the original Nok
 
 *Photos provided by [thurmendes on r/KaiOS Discord server] in June 2023 and various Reddit posts ([second], [third], [fourth]).*
 
-<img width="100%" height="100%" src="assets/img/leo-counterfeit.png" alt="Photo collage of fake 6300 4G">
+<img width="100%" src="assets/img/leo-counterfeit.png" alt="Photo collage of fake 6300 4G">
 
 ### About Kosher phones
 Kosher is a category of devices whose software (sometimes hardware) is heavily modified to limit access, or even get rid of content and features deemed distracting or against religious values, while keeping other features and user interface almost identical to the original. Companies specializing in customizing Kosher phones exist, and you can easily come across Kosher phone listings on eBay advertising as productivity and focus improvement tools.
@@ -87,7 +87,7 @@ Kosher is indeed a great way to make your phone truly basic, but HMD already off
 
 *Photo provided by nuxx on r/KaiOS Discord server in October 2021.*
 
-<p align="center"><img width="350" height="100%" alt="A Kosher-customized Nokia 8000 4G with no Browser, KaiStore or third-party apps shown in 3-by-3 grid of apps. Center D-Pad key is engraved with a Hebrew symbol indicating Kosher phone" src="assets/img/kosher-sparkler-350px.jpg"></p>
+<p align="center"><img width="350" alt="A Kosher-customized Nokia 8000 4G with no Browser, KaiStore or third-party apps shown in 3-by-3 grid of apps. Center D-Pad key is engraved with a Hebrew symbol indicating Kosher phone" src="assets/img/kosher-sparkler-350px.jpg"></p>
 
 ## Differences between US and international variants
 "Buying Western-customized products will always give you the best quality possible" is unwise when it comes to consumer electronics, including mobile phones, and the 6300 4G is no exception. When buying the TA-1324 variant of this phone, you should expect:
@@ -197,7 +197,7 @@ EDL programmer for the international version of this phone (not TA-1324) can be 
 ### UART debugging testpoint
 [As discovered by atipls on Discord and @Llixuma], on the mainboard of the 6300 4G, there are 3 UART testing points in the order of TX, RX and GND just above the SIM2 slot. Shorting TX at 1.8V and GND takes you to Fastboot and Linux terminal interface.
 
-<p align="center"><img width="220" height="100%" alt="Mainboard of a TA-1307 Nokia 6300 4G, with the red arrow pointing to three gold contacts in the middle of the board, those being the UART testpoints in the order of TX, RX and ground" src="assets/img/testpoint.png"></p>
+<p align="center"><img width="220" alt="Mainboard of a TA-1307 Nokia 6300 4G, with the red arrow pointing to three gold contacts in the middle of the board, those being the UART testpoints in the order of TX, RX and ground" src="assets/img/testpoint.png"></p>
 
 Note that by default, KaiOS kernel disables the UART testpoints; kernel logs from UART testpoints will stop once the Linux kernel kicks in. To read the full output from UART, compile the Linux kernel from OSS release [provided by HMD]—also available under [`leo-v20` branch of this repository]—with `LEO_defconfig` flag (not `LEO_defconfig-perf`).
 
