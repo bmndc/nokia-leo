@@ -2,10 +2,6 @@
 ---
 
 @import "no-style-please";
-li {
-    /* Indent all bullet points with less width so that on 6300 4G's viewport more words can be shown on one line */
-    margin-left: -16px;
-}
 #toc {
     display: flow-root;
 }
