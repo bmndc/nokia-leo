@@ -55,6 +55,7 @@
 		<li><a href="#special-boot-modes">Special boot modes</a>
 	<ul><li><a href="#uart-debugging-testpoint">UART debugging testpoint</a></li></ul></li>
 		<li><a href="#sideloading-and-debugging-third-party-applications">Sideloading and debugging third-party applications</a></li>
+		<li><a href="root">ROOT: Patching the boot partition (non-US only)</a></li>
 		<li><a href="#external-links">External links</a></li>
 	</ul>
 	<img width="100%" height="100%" src="assets/img/blank.png" alt="Placeholder">
@@ -210,7 +211,7 @@ Detailed instructions can be found at [Sideloading and debugging/WebIDE]. Feel f
 
 To remove unwanted apps from the phone, you can use [this fork of Luxferre's AppBuster] which lets you disable any apps you don't need and enable them again if you want.
 
-> Looking for guide to root the 6300 4G? This has now been moved to [ROOT: Patching the boot partition (non-US only)].
+> Looking for guide to root the 6300 4G? This section has now been moved to [ROOT: Patching the boot partition (non-US only)].
 
 ## External links
 - [Nokia 6300 4G product page] on Nokia Mobile's website
