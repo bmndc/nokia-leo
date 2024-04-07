@@ -7,12 +7,13 @@ li {
     margin-left: -16px;
 }
 img {
-    height: 100%;
+    height: auto;
 }
 #toc {
     display: flow-root;
 }
-#toc img {
+#toc header {
+    aspect-ratio: auto 1;
     /* Undo float: right on header image on small screens */
     @media (max-width: 800px) {
         float: none;  
