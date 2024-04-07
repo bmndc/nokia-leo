@@ -6,8 +6,13 @@ li {
     /* Indent all bullet points with less width so that on 6300 4G's viewport more words can be shown on one line */
     margin-left: -16px;
 }
-#toc img {
+img {
     height: 100%;
+}
+#toc {
+    display: flow-root;
+}
+#toc img {
     /* Undo float: right on header image on small screens */
     @media (max-width: 800px) {
         float: none;  
