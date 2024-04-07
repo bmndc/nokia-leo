@@ -12,8 +12,7 @@ img {
 #toc {
     display: flow-root;
 }
-#toc header {
-    aspect-ratio: auto 1;
+#toc img {
     /* Undo float: right on header image on small screens */
     @media (max-width: 800px) {
         float: none;  
