@@ -1,12 +1,12 @@
 If you're looking for the 6300 4G's source code, it's under the 'leo-v20' branch.
 Otherwise, open index.md if you're unsure what to do.
 
-──────────────────────────────────Nokia 6300 4G (nokia-leo)────────────────────────────────── 
+───────────────────────────────── Nokia 6300 4G (nokia-leo) ───────────────────────────────── 
  Released      13 November 2020                                                               
  Model         TA-1286, TA-1287, TA-1291, TA-1294, TA-1307, TA-1324                           
  Colours       Light Charcoal, White, Cyan Green                                              
  MSRP          €49/£59.99/$69.99/1,290,000₫                                                   
- ──────────────────────────────────────Specifications────────────────────────────────────────
+────────────────────────────────────── Specifications ───────────────────────────────────────
  SoC           Qualcomm MSM8909 Snapdragon 210 (4 × 1.1GHz Cortex-A7)                         
  RAM           512MB LPDDR2/3                                                                 
  GPU           Adreno 304                                                                     
@@ -32,7 +32,7 @@ Otherwise, open index.md if you're unsure what to do.
                - 3.5mm headphone jack                                                         
  Battery       Removable Li-Ion 1500mAh (BL-4XL), 5W wired charging                           
                (up to 25 days of 4G standby advertised)                                       
- ────────────────────────────────────────KaiOS info────────────────────────────────────────── 
+──────────────────────────────────────── KaiOS info ───────────────────────────────────────── 
  Version       KaiOS 2.5.4                                                                    
  WA VoIP       Supported (12.00.17.01 onwards)                                                
  Build no.     10.00.17.01, 12.00.17.01, 20.00.17.01, 30.00.17.01                             
