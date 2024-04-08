@@ -16,6 +16,7 @@ on:
       - '**.md'
       - '**.html'
       - '_config.yml'
+      - 'assets/css/**'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:

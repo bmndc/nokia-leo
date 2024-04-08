@@ -1,95 +1,141 @@
-// -------------- THEME SWITCHER -------------- //
+// Forked from MIT-licensed https://github.com/riggraz/no-style-please; see LICENSE
+
 @mixin dark-appearance {
-  filter: invert(1);
-  img {
-    filter: invert(1);
+	/* Attempt to create dark appearance by invert colour of the background and all items on the page in "light mode"
+	Note that extensions like Dark Reader and Chrome's Auto Dark Mode flag will invert over this 
+	See https://github.com/riggraz/no-style-please/blob/master/README.md#dark-mode-for-images */
+	filter: invert(1);
 
-    &.ioda { filter: invert(0); }
-  }
+	/* By default, the invert(1) setting above will also invert the colours of images;
+	this below setting re-invert inverted images so that they don't look weird */
+	img { 
+		filter: invert(1);
+
+		/* If the image is explicitly classified as "invert on dark appearance" (class="ioda"):
+		let the invert(1) setting invert its colour. This would work best on black-and-white images */
+		&.ioda { 
+			filter: invert(0);
+		}
+	}
 }
 
-body[a="dark"] { @include dark-appearance; }
+// theme_config: Invert colors if 'appearance' is set to dark in _config.yml
+body[a="dark"] {
+	@include dark-appearance;
+}
 
-
+/* theme_config: Also invert colors if 'appearance' is set to auto in _config.yml
+and browser suggests visitor prefers dark mode */
 @media (prefers-color-scheme: dark) {
-  body[a="auto"] { @include dark-appearance; }
+	body[a="auto"] {
+		@include dark-appearance;
+	}
 }
-// -------------------------------------------- //
 
-// bg color is also needed in html in order to
-// block body's background propagation
-// see: https://stackoverflow.com/a/61265706
-html, body { background: white; }
+/* Explicitly set html's background colour to white so that filter: invert() has something to work with
+See https://stackoverflow.com/a/61265706 */
+html, body {
+	background: white;
+}
 
-html { height: 100%; }
+html {
+	height: 100%;
+}
 
 body {
-  color: black;
-  font-family: system-ui, sans-serif;
-  font-size: 14px;
-  line-height: 1.5;
-  margin: 0;
-  min-height: 100%;
-  overflow-wrap: break-word;
+	color: black;							// Set text colour to black;
+	font-family: system-ui, sans-serif;		// Set font to use system font. Default is "monospace";
+	font-size: 14px;						// Set smaller font for viewing on the 6300 4G. Default is 16px;
+	line-height: 1.5;						// Set line spacing for text walls. Default is 1.4;
+	margin: 0;								// Remove the default 8px margin around body
+	min-height: 100%;
+	overflow-wrap: break-word;
 }
 
-.post-meta { text-align: right; }
+// Right-aligning metadata for posts (i.e. publishing date)
+.post-meta {
+	text-align: right;
+}
 
-h2, h3, h4, h5, h6 { margin-top: 3rem; }
-
-hr { margin: 2rem 0; }
-
-p { margin: 1rem 0; }
-
-li { margin: 0.4rem 0 0.4rem -1rem; }
-
-*:target { background: yellow; }
-
-.w {
-  max-width: 1081px;
-  margin: 0 auto;
-  padding: 4rem .8rem;
+/* Add some spacing above section headings, paragraphs and bullet lists; stylise thematic breaks.
+You're welcome to change the content of the thematic breaks as you wish */
+h2, h3, h4, h5, h6 {
+	margin-top: 3rem;
 }
 
 hr {
-  text-align: center;
-  border: 0;
+	margin: 2rem 0;
+	text-align: center;
+	border: 0;
 
-  &:before { content: '/////' }
-  &:after { content: attr(data-content) '/////' }
+	&:before {
+		content: '/////'
+	}
+
+	&:after {
+		content: attr(data-content) '/////'
+	}
 }
 
-table { width: 100%; }
-
-table, th, td {
-  border: thin solid black;
-  border-collapse: collapse;
-  padding: 0.4rem;
+p {
+	margin: 1rem 0;
 }
 
+li {
+	margin: 0.4rem 0 0.4rem -1rem; // Default is "0.4rem 0"; margin-left is deducted for viewing on mobile
+}
+
+// Highlight a section heading if it is referenced from a href
+*:target {
+	background: yellow;
+}
+
+// div container for content
+.w {
+	max-width: 1081px;		// Set content width, will dynamically adjust on mobile. Default is 640px;
+	margin: 0 auto;			// Centre the content div;
+	padding: 4rem .8rem;	// Add spacing around content div. Default is "4rem 2rem"; margins are deducted for viewing on mobile
+}
+
+// Adjust table to fill content div width rather than dynamically to its content
+table {
+	width: 100%;
+}
+
+table,
+th,
+td {
+	border: thin solid black;		// too little border
+	border-collapse: collapse;		// too much border
+	padding: 0.4rem;				// Add content spacing for readability
+}
+
+// Add visual colours for <code> to differentiate from surrounding paragraphs
 code {
-  color: white;
-  background: black;
+	color: white;
+	background: black;
 }
 
 div.highlighter-rouge code {
-  display: block;
-  overflow-x: auto;
-  white-space: pre;
-  padding: 1rem;
+	display: block;		// Codeblocks should be displayed in... block, not inline;
+	overflow-x: auto;
+	white-space: pre;	// Allow code in codeblocks to be scrollable on smaller screens. Default is "pre-wrap"
+	padding: 1rem;		// Add spacing for content in codeblocks
 }
 
+// Stylise blockquotes
 blockquote {
-  font-style: italic;
-  border: thin solid black;
-  padding: 1rem;
+	font-style: italic;				// Visually differentiates between blockquotes and surrounding paragraphs;
+	border: thin solid black;
+	padding: 1rem;					// Add spacing between the content in blockquote and the surrounding border
 
-  p { margin: 0; }
+	p {
+		margin: 0;					// Overriding the paragraph spacing above as spacing is already added
+	}
 }
 
 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+	max-width: 100%;	// Images are restricted to content div container width;
+	display: block;
+	margin: 0 auto;		// Centre the images; need "display: block" above
 }
