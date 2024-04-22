@@ -3,6 +3,11 @@
 
 @import "no-style-please";
 
+img {
+	width: 100%;
+	height: 100%;
+}
+
 #toc {
 	// Dynamically adjust the size of the 'toc' div to its largest containing item's width and height
 	display: flow-root;
