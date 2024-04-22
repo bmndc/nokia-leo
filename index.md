@@ -45,6 +45,7 @@
 <div id="toc">
 	<picture class="header">
 		<source media="(max-width:800px)" srcset="assets/img/0x00-600.webp" type="image/webp">
+		<source srcset="assets/img/0x00-3000.webp" type="image/webp">
 		<img align="right" width="450" style="width:450px;visibility:visible" src="assets/img/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
 	</picture>
 	<p><strong>Table of Contents</strong></p>
