@@ -45,7 +45,7 @@
 <div id="toc">
 	<picture class="header">
 		<source srcset="assets/img/0.webp" type="image/webp">
-		<img align="right" src="assets/img/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
+		<img align="right" width="500" height="100%" src="assets/img/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
 	</picture>
 	<p><strong>Table of Contents</strong></p>
 	<ul><li><a href="#dont-buy-a-counterfeit">Don't buy a counterfeit</a>
