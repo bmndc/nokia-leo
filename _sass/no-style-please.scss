@@ -43,11 +43,11 @@ html {
 }
 
 body {
-	color: black;							// Set text colour to black;
-	font-family: system-ui, sans-serif;		// Set font to use system font. Default is "monospace";
-	font-size: 14px;						// Set smaller font for viewing on the 6300 4G. Default is 16px;
-	line-height: 1.5;						// Set line spacing for text walls. Default is 1.4;
-	margin: 0;								// Remove the default 8px margin around body
+	color: black;
+	font-family: monospace;
+	font-size: 16px;
+	line-height: 1.4;
+	margin: 0;
 	min-height: 100%;
 	overflow-wrap: break-word;
 }
