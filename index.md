@@ -4,10 +4,7 @@
 
 <div style="display:flow-root">
 	<img id="toc" align="right" width="450" style="width:450px;visibility:visible" src="assets/img/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
-	{{ toc | markdownify }}
-</div>
 
-{% capture toc %}
 **Table of Contents**
 - [Don't buy a counterfeit](#dont-buy-a-counterfeit)
 	- [About Kosher phones](#about-kosher-phones)
@@ -20,7 +17,8 @@
 	- [UART debugging testpoint](#uart-debugging-testpoint)
 - [Sideloading and debugging third-party applications](#sideloading-and-debugging-third-party-applications)
 - [External links](#external-links)
-{% endcapture %}
+
+</div>
 
 In late 2020, as people need to stay connected amid the height of the [COVID-19 pandemic], HMD Global quietly introduced the new Nokia 6300 4G with KaiOS 2.5.4. Following the successful relaunch of the Nokia-branded retros 2720 Flip and 800 Tough, the 6300 4G packs a bunch of modern features, such as 4G LTE, Wi-Fi and social apps like WhatsApp and Facebook into a pocket-friendly design, whilst inheriting the classic candy-bar look of the original Nokia 6300. It was [one of the most affordable] the company has ever offered in its KaiOS lineup, at €49/$69.99, though still pricier than the general KaiOS devices. Since then, the phone has gained popularity and also mixed reviews from the community, notably on its performance and keypad typing experience.
 
