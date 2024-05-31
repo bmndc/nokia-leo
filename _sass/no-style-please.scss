@@ -8,7 +8,8 @@
 
 	/* By default, the invert(1) setting above will also invert the colours of images;
 	this below setting re-invert inverted images so that they don't look weird */
-	img { 
+	img,
+	.footnote-backref { 
 		filter: invert(1);
 
 		/* If the image is explicitly classified as "invert on dark appearance" (class="ioda"):
