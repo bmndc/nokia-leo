@@ -164,7 +164,7 @@ Note that by default, KaiOS kernel disables the UART testpoints; kernel logs fro
 ## Sideloading and debugging third-party applications
 Don't want to download apps from KaiStore? Both the 6300 4G and 8000 4G have been classified as debug-enabled by the BananaHackers team. As with other KaiOS 2.5.4 devices, you can install and debug apps from outside sources on these phones, so long as they don't use 'forbidden' permissions, such as `engmode-extension`, `embed-apps` and `embed-widgets`, and you cannot debug pre-installed apps on the phone using WebIDE's Developer Tools (you're free to use `adb logcat` to view system logs instead).
 
-Detailed instructions can be found at [Sideloading and debugging/WebIDE]. Feel free to check out apps made by the community on [BananaHackers Store], old [B-Hackers Store] and my personally curated [list of KaiOS apps].
+Detailed instructions can be found at [Sideloading and debugging third-party applications/ADB and WebIDE]. Feel free to check out apps made by the community on [BananaHackers Store], old [B-Hackers Store] or my personally curated [list of KaiOS apps].
 
 **Do note that OmniSD, one of the methods used for on-device sideloading, and many Gerda-related apps requires the `navigator.mozApps.mgmt.import` API that has been removed from KaiOS 2.5.2.2, and therefore no longer work on this phone.** However, after permanently rooting the phone, the Privileged factory reset feature to gain privileged userspace session that could be used on KaiOS 2.5.2 and older can now be used again (see [Next steps]).
 
@@ -191,7 +191,7 @@ To remove unwanted apps from the phone, you can use [this fork of Luxferre's App
 
 <!-------------------------------- LINKS -------------------------------->
 [provided by HMD]: https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz
-[`leo-v20` branch of this repository]: https://github.com/minhduc-bui1/nokia-leo/tree/leo-v20
+[`leo-v20` branch of this repository]: https://github.com/bmndc/nokia-leo/tree/leo-v20
 
 [one of the most affordable]: https://www.hmdglobal.com/new-nokia-feature-phones-nokia-6300-4g-and-nokia-8000-4g
 [hatred reputation for its performance]: #known-issues
@@ -239,11 +239,11 @@ To remove unwanted apps from the phone, you can use [this fork of Luxferre's App
 [EDL archive site]: https://edl.bananahackers.net/loaders/8k.mbn
 [As discovered by atipls on Discord and @Llixuma]: https://discord.com/channels/472006912846594048/539074521580437504/1155993357206700205
 
-[Sideloading and debugging/WebIDE]: https://github.com/minhduc-bui1/nokia-leo/wiki/Sideloading-and-debugging
+[Sideloading and debugging third-party applications/ADB and WebIDE]: https://github.com/bmndc/nokia-leo/wiki/Sideloading-and-debugging-third%E2%80%90party-applications
 [BananaHackers Store]: https://store.bananahackers.net
 [B-Hackers Store]: https://sites.google.com/view/b-hackers-store/home
-[list of KaiOS apps]: https://github.com/stars/minhduc-bui1/lists/kaios-apps
-[this fork of Luxferre's AppBuster]: https://github.com/minhduc-bui1/AppBuster
+[list of KaiOS apps]: https://github.com/stars/bmndc/lists/kaios-apps
+[this fork of Luxferre's AppBuster]: https://github.com/bmndc/AppBuster
 
 [Nokia 6300 4G product page]: https://www.nokia.com/phones/en_int/nokia-6300-4g
 [Nokia 8000 4G product page]: https://www.nokia.com/phones/en_int/nokia-8000-4g
@@ -257,8 +257,8 @@ To remove unwanted apps from the phone, you can use [this fork of Luxferre's App
 
 [promotional video]: https://www.youtube.com/watch?v=pub47YzYBJs
 [pull the plugs from Assistant on KaiOS]: https://9to5google.com/2021/08/30/google-assistant-kaios-text
-[deep-dive blog post]: (https://alephsecurity.com/2018/01/22/qualcomm-edl-1
-[Qualcomm's Chain of Trust on LineageOS Engineering Blog]:(https://lineageos.org/engineering/Qualcomm-Firmware
+[deep-dive blog post]: https://alephsecurity.com/2018/01/22/qualcomm-edl-1
+[Qualcomm's Chain of Trust on LineageOS Engineering Blog]: https://lineageos.org/engineering/Qualcomm-Firmware
 [SELinux on LineageOS Engineering Blog]: https://lineageos.org/engineering/HowTo-SELinux
 
 *GitHub Pages theme: MIT-licensed [riggraz/no-style-please](https://github.com/riggraz/no-style-please). Logo by [Vitaly Gorbachev](https://www.flaticon.com/free-icons/banana) from Flaticons*
