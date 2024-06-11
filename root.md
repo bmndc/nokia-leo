@@ -96,23 +96,23 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 2. Proceed with installing Python as usual. If you choose to customize your installation, include `pip`. Don't forget to tick the box next to "Add Python to PATH" to add Python as a global [environment variable], otherwise you'll have a hard time using Python to run scripts later on.
 	- If you decide to customize your installation, choose to install `pip` and tick *Add Python to environment variables*.
 <p align="center">
-	<img alt="Screenshot of an installation window for Python 3.9 showing two options, 'Install Now' and 'Customize installation', with the checkbox for 'Add Python 3.9 to PATH' being selected" src="assets/img/python.png">
+	<img alt="Screenshot of an installation window for Python 3.9 showing two options, 'Install Now' and 'Customize installation', with the checkbox for 'Add Python 3.9 to PATH' being selected" src="assets/images/python.png">
 </p>
 
 3. On Windows 10/11, typing `python` or `python3` within Command Prompt/Windows Terminal will run the Microsoft Store version of Python. To override this default into running the locally installed version, toggle off App Installer (python.exe) and App Installer (python3.exe) under: 
 	- Windows 10: Settings → Apps → [Apps & features] → App execution aliases
 	- Windows 11: Settings → Apps → Advanced app settings → App execution aliases
-<img alt="Demostration of Settings app on Windows 11. User is already on Apps page and clicking on Advanced app settings. User then clicks on App execution aliases, where the toggles for App Installer (python.exe) and App Installer (python3.exe) are turned off. Description says Apps can declare a name used to run the app from a command prompt. If multiple apps use the same name, choose which one to use." src="assets/img/settings-alias-off.gif">
+<img alt="Demostration of Settings app on Windows 11. User is already on Apps page and clicking on Advanced app settings. User then clicks on App execution aliases, where the toggles for App Installer (python.exe) and App Installer (python3.exe) are turned off. Description says Apps can declare a name used to run the app from a command prompt. If multiple apps use the same name, choose which one to use." src="assets/images/settings-alias-off.gif">
 
 4. Open Command Prompt/Windows Terminal with administrator privileges and run this command to install the required dependencies for EDL:
 ```console
 pip3 install pyusb pyserial capstone keystone-engine docopt
 ```
-![Screenshot of a console window showing the successful process of collecting and downloading dependencies after typing the above command](assets/img/pythoooon.png)
+![Screenshot of a console window showing the successful process of collecting and downloading dependencies after typing the above command](assets/images/pythoooon.png)
 
 5. Extract the previously downloaded EDL package, open Drivers, Windows and run `Qualcomm_Diag_QD_Loader_2016_driver.exe` with administrator rights. Proceed with installation and leave everything as default, restart the computer if it prompts you to do so. 
 <p align="center">
-	<img alt="Screenshot of an installation window for Qualcomm's diagnostic driver, in which two radio buttons are shown labelled 'WWAN-DHCP is not used to get IPAddress' and 'ETHERNET-DHCP is used to get IPAddress' respectively. The first button is selected." src="assets/img/whatever.png">
+	<img alt="Screenshot of an installation window for Qualcomm's diagnostic driver, in which two radio buttons are shown labelled 'WWAN-DHCP is not used to get IPAddress' and 'ETHERNET-DHCP is used to get IPAddress' respectively. The first button is selected." src="assets/images/whatever.png">
 </p>
 
 6. Switch your phone to EDL mode and connect it to your computer. Either:
@@ -123,7 +123,7 @@ In both cases, the phone's screen should blink with an 'enabled by KaiOS' logo t
 
 7. To replace the installed `qcusbser` driver with `libusb-win32` for use with edl.py, download and open [Zadig] (do NOT use the version included in the EDL package). Tick Options, List All Devices and select `QHSUSB__BULK` (your device in EDL mode) in the main dropdown menu. In the target driver box—to which the green arrow is pointing—click the up/down arrows until you see `libusb-win32` and then click Replace Driver.
 <p align="center">
-	<img src="assets/img/qhsusb-zadig.gif" alt="9-frame GIF demostrating Zadig's main interface, List All Devices option being selected from Option menu, QHSUSB_BULK being selected from the main dropdown list, followed by the second label box on the Drivers line, to which the green arrow points, changed to 'libusb-win32 (v1.2.6.0)'. Two smaller up/down arrows are right next to that box.">
+	<img src="assets/images/qhsusb-zadig.gif" alt="9-frame GIF demostrating Zadig's main interface, List All Devices option being selected from Option menu, QHSUSB_BULK being selected from the main dropdown list, followed by the second label box on the Drivers line, to which the green arrow points, changed to 'libusb-win32 (v1.2.6.0)'. Two smaller up/down arrows are right next to that box.">
 </p>
 
 > [!NOTE]
@@ -194,13 +194,13 @@ You can disconnect the phone from your computer for now.
 #### Automatic patching with `8k-boot-patcher`
 1. Download and install [Docker Desktop]. Once set up, open the program, click Accept on this box and let the Docker Engine start before exiting.
 
-![Screenshot of a window titled as 'Docker Subscription Service Agreement' which declares that you will have to accept Docker's Subscription Service Agreements, Data Processing Agreement and Data Privacy Policy in order to use the program, and the free scope of it is limited to personal and small business uses. The window also lists the options to view the full agreements, accept them or reject and close the program.](assets/img/docker_abomination.png)
+![Screenshot of a window titled as 'Docker Subscription Service Agreement' which declares that you will have to accept Docker's Subscription Service Agreements, Data Processing Agreement and Data Privacy Policy in order to use the program, and the free scope of it is limited to personal and small business uses. The window also lists the options to view the full agreements, accept them or reject and close the program.](assets/images/docker_abomination.png)
 
 2. Use [Git] to clone/download the boot patcher toolkit by typing this into Command Prompt/Terminal. This will download the toolkit and have Docker set it up. Do not omit the dot/period at the end of this command, this tells Docker where our downloaded toolkit are located on the system.
 ```console
 git clone https://gitlab.com/suborg/8k-boot-patcher.git && cd 8k-boot-patcher && docker build -t 8kbootpatcher .
 ```
-![Screenshot of a macOS Terminal window showing some logs in purple text after typing the command above](assets/img/docker_build.png)
+![Screenshot of a macOS Terminal window showing some logs in purple text after typing the command above](assets/images/docker_build.png)
 
 3. Copy the `boot.img` file we've just pulled from our phone to the desktop and do not change its name. Type this into Command Prompt/Terminal to run the patching process:
 	- Windows: `docker run --rm -it -v %cd%/Desktop:/image 8kbootpatcher`
@@ -227,16 +227,16 @@ Boot image patched!
 ```
 That's it! On your desktop there will be two new image files, the modified `boot.img` and the original `boot-orig.img`. You can now head to [part 4].
 
-![Screenshot of boot.img and boot-orig.img files as shown on desktop](assets/img/after_patch.png)
+![Screenshot of boot.img and boot-orig.img files as shown on desktop](assets/images/after_patch.png)
 
 #### Manual patching with Android Image Kitchen
 1. Extract the Android Image Kitchen tools and copy the boot image we've just obtained over to the root of the extracted folder.
 
-![Screenshot of a list of folders and files contained in the extracted Android Image Kitchen folder](assets/img/aik.png)
+![Screenshot of a list of folders and files contained in the extracted Android Image Kitchen folder](assets/images/aik.png)
 
 2. Open the folder in Command Prompt/Terminal and type `unpackimg boot.img`. This will split the image file and unpack the ramdisk to their subdirectories.
 
-![Screenshot of a Windows Command Prompt window showing some logs of the boot partition extracting process after typing the command above](assets/img/unpack.png)
+![Screenshot of a Windows Command Prompt window showing some logs of the boot partition extracting process after typing the command above](assets/images/unpack.png)
 
 > [!WARNING]
 > **Be sure to edit the files correctly, else the phone won't boot!**
@@ -262,7 +262,7 @@ That's it! On your desktop there will be two new image files, the modified `boot
   ro.zygote=zygote32
 ```
 <p align="center">
-	<img src="assets/img/default_prop_edited.png" alt="Screenshot of the modified content of the default.prop file">
+	<img src="assets/images/default_prop_edited.png" alt="Screenshot of the modified content of the default.prop file">
 </p>
 
 4. Open `ramdisk/init.qcom.early_boot.sh` in Notepad++ and add `setenforce 0` as a new line at the end of the file.
@@ -284,12 +284,12 @@ That's it! On your desktop there will be two new image files, the modified `boot
 
 ```
 <p align="center">
-	<img src="assets/img/setenforce.png" alt="Screenshot of the modified content of the init.qcom.early_boot.sh file">
+	<img src="assets/images/setenforce.png" alt="Screenshot of the modified content of the init.qcom.early_boot.sh file">
 </p>
 
 5. Go back to the root Android Image Kitchen folder and open `split_img/boot.img-cmdline` in Notepad++. Without adding a new line, scroll to the end of the first line and append `androidboot.selinux=permissive enforcing=0`.
 
-![Screenshot of the modified content of the boot.img-cmdline file](assets/img/append.png)
+![Screenshot of the modified content of the boot.img-cmdline file](assets/images/append.png)
 
 6. Open `ramdisk/init.rc` (NOT `ramdisk/init`) and delete line 393 `setprop selinux.reload_policy 1` or mark a comment as shown. This will ultimately prevent SELinux from overwriting the policy changes we made above.
 
@@ -316,13 +316,13 @@ That's it! On your desktop there will be two new image files, the modified `boot
   chown root system /sys/module/lowmemorykiller/parameters/minfree
   chmod 0664 /sys/module/lowmemorykiller/parameters/minfree
 ```
-![Screenshot of the modified content of the init.rc file, with line 393 marked as comment which has the same effects as deleting the line altogether, and line 421 added to disable the Low Memory Killer module](assets/img/f5-selinux.png)
+![Screenshot of the modified content of the init.rc file, with line 393 marked as comment which has the same effects as deleting the line altogether, and line 421 added to disable the Low Memory Killer module](assets/images/f5-selinux.png)
 
 7. And that's a wrap! Open the root Android Image Kitchen folder in a command-line window and type `repackimg` to package our modified boot partition.
 
-<!-- ![Screenshot of a Windows Command Prompt window showing some logs of the boot partition repacking process after typing the above command, but has a signing error at the end](assets/img/repack_unsigned.png) -->
+<!-- ![Screenshot of a Windows Command Prompt window showing some logs of the boot partition repacking process after typing the above command, but has a signing error at the end](assets/images/repack_unsigned.png) -->
 
-![Screenshot of a Windows Command Prompt window showing some logs of the fully successful boot partition process after typing the above command](assets/img/repackimg_signed.png)
+![Screenshot of a Windows Command Prompt window showing some logs of the fully successful boot partition process after typing the above command](assets/images/repackimg_signed.png)
 
 *If you happen to encounter an error during the signing process, that's likely because the process uses `java` to power the `boot-signer.jar` sequence and you don't have it installed. The image will still be packaged and ready for flashing, but if you're a perfectionist, you can install JRE and try again.*
 
@@ -354,7 +354,7 @@ python edl.py -w boot boot.img -loader 800t.mbn
 #### Next steps
 - Now that you've rooted your phone, to install applications with 'forbidden' permissions, connect your phone to a WebIDE session, open Device Preferences in the right pane, clear the value of `devtools.apps.forbidden-permissions`, then restart B2G by either reboot the phone or hold the top Power button and select *Memory Cleaner, Deep Clean Memory*.
 
-![Screenshot of a WebIDE window in which the location of Device Preferences is highlighted in the right pane and the value of devTools.apps.forbiddenPermissions has been emptied](assets/img/devpref.png)
+![Screenshot of a WebIDE window in which the location of Device Preferences is highlighted in the right pane and the value of devTools.apps.forbiddenPermissions has been emptied](assets/images/devpref.png)
 
 - If you wish to retain privileged permissions after restoring the phone to its unrooted state, before doing so, back up all data, sideload [Luxferre's CrossTweak] then press # to perform a privileged factory reset — this will wipe all data of the phone and let you set up with a privileged session. This session will last until an OTA update overrides or you choose to factory reset normally yourself.
 - After rooting, you can spoof SELinux's Enforced status for WhatsApp VoIP by typing these commands one-by-one into the rooted ADB shell. This will last until a restart.
