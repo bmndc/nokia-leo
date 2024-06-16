@@ -4,15 +4,8 @@
 @import "no-style-please";
 
 @mixin dark-appearance {
-	html, body {
-		background: #0F0F0F;
-	}
-	body {
-		color: #F0F0F0;
-	}
-	a {
-		color: #00B55B;
-	}
+	background: #0F0F0F;
+	color: #F0F0F0;
 }
 
 html, body {
