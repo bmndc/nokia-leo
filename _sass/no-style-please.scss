@@ -1,7 +1,10 @@
 // Forked from MIT-licensed https://github.com/riggraz/no-style-please; see LICENSE
 
-/* --- UNCOMMENT THIS IF YOU WISH TO USE NO-STYLE-PLEASE'S DEFAULT CONFIGURATION ---
 @mixin dark-appearance {
+	--text-color: #f0f0f0;
+	--bg-color: #0f0f0f;
+	--link-color: #00b55b;
+	/* --- UNCOMMENT THIS IF YOU WISH TO USE NO-STYLE-PLEASE'S DEFAULT CONFIGURATION ---
 	Attempt to create dark appearance by invert colour of the background and all items on the page in "light mode"
 	Note that extensions like Dark Reader and Chrome's Auto Dark Mode flag will invert over this 
 	See https://github.com/riggraz/no-style-please/blob/master/README.md#dark-mode-for-images
@@ -19,6 +22,13 @@
 			filter: invert(0);
 		}
 	}
+	================================================================================== */
+}
+
+:root {
+	--text-color: #0f0f0f;
+	--bg-color: #f0f0f0;
+	--link-color: #006446;
 }
 
 body[a="dark"] {
@@ -28,17 +38,16 @@ body[a="dark"] {
 
 @media (prefers-color-scheme: dark) {
 	/* theme_config: Also invert colors if 'appearance' is set to auto in _config.yml
-	and browser suggests visitor prefers dark mode
+	and browser suggests visitor prefers dark mode */
 	body[a="auto"] {
 		@include dark-appearance;
 	}
 }
-==================================================================================== */
 
 html, body {
 	/* Explicitly set html's background colour to white so that filter: invert() has something to work with
 	See https://stackoverflow.com/a/61265706 */
-	background: var(--bg-color);
+	background: var(--bg-color); // default: black
 }
 
 html {
@@ -46,7 +55,7 @@ html {
 }
 
 body {
-	color: var(--text-color);
+	color: var(--text-color); // default: white
 	// default: monospace
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	font-size: 14px; // default: 16px
