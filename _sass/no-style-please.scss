@@ -1,34 +1,39 @@
 // Forked from MIT-licensed https://github.com/riggraz/no-style-please; see LICENSE
+// Huge thanks to https://pedromarquez.dev/blog/2022/7/dark-mode-css
 
+/* --- UNCOMMENT THIS IF YOU WISH TO USE NO-STYLE-PLEASE'S DEFAULT CONFIGURATION ---
 @mixin dark-appearance {
-	--text-color: #f0f0f0;
-	--bg-color: #0f0f0f;
-	--link-color: #00b55b;
-	/* --- UNCOMMENT THIS IF YOU WISH TO USE NO-STYLE-PLEASE'S DEFAULT CONFIGURATION ---
 	Attempt to create dark appearance by invert colour of the background and all items on the page in "light mode"
 	Note that extensions like Dark Reader and Chrome's Auto Dark Mode flag will invert over this 
 	See https://github.com/riggraz/no-style-please/blob/master/README.md#dark-mode-for-images
 	filter: invert(1);
 
-	/* By default, the invert(1) setting above will also invert the colours of images;
+	By default, the invert(1) setting above will also invert the colours of images;
 	this below setting re-invert inverted images so that they don't look weird
-	img,
-	.footnote-backref { 
+	img, .footnote-backref { 
 		filter: invert(1);
 
-		/* If the image is explicitly classified as "invert on dark appearance" (class="ioda"):
+		If the image is explicitly classified as "invert on dark appearance" (class="ioda"):
 		let the invert(1) setting invert its colour. This would work best on black-and-white images
 		&.ioda { 
 			filter: invert(0);
 		}
 	}
-	================================================================================== */
+}
+================================================================================== */
+
+@mixin dark-appearance {
+	// Colour palette for dark mode
+	--text-color: white;
+	--bg-color: #121212;
+	--link-color: #00ad8e;
 }
 
 :root {
-	--text-color: #0f0f0f;
-	--bg-color: #f0f0f0;
-	--link-color: #006446;
+	// Colour palette for default/light mode
+	--text-color: darkgrey;
+	--bg-color: #fdfdfd;
+	--link-color: #0d614f;
 }
 
 body[a="dark"] {
@@ -59,7 +64,7 @@ body {
 	// default: monospace
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	font-size: 14px; // default: 16px
-	line-height: 1.6; // default: 1.4
+	line-height: 1.5; // default: 1.4
 	margin: 0;
 	min-height: 100%;
 	overflow-wrap: break-word;
