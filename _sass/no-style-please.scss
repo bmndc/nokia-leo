@@ -1,42 +1,50 @@
 // Forked from MIT-licensed https://github.com/riggraz/no-style-please; see LICENSE
+$color: #0f0f0f;
+$bg-color: #f0f0f0;
+$link-color: #007557;
 
 @mixin dark-appearance {
-	/* Attempt to create dark appearance by invert colour of the background and all items on the page in "light mode"
+	$color: #f0f0f0;
+	$bg-color: #0f0f0f;
+	$link-color: #00b55b;
+	/* Uncomment this if you wish to use no-style-please's default configuration
+	Attempt to create dark appearance by invert colour of the background and all items on the page in "light mode"
 	Note that extensions like Dark Reader and Chrome's Auto Dark Mode flag will invert over this 
-	See https://github.com/riggraz/no-style-please/blob/master/README.md#dark-mode-for-images */
+	See https://github.com/riggraz/no-style-please/blob/master/README.md#dark-mode-for-images
 	filter: invert(1);
 
 	/* By default, the invert(1) setting above will also invert the colours of images;
-	this below setting re-invert inverted images so that they don't look weird */
+	this below setting re-invert inverted images so that they don't look weird
 	img,
 	.footnote-backref { 
 		filter: invert(1);
 
 		/* If the image is explicitly classified as "invert on dark appearance" (class="ioda"):
-		let the invert(1) setting invert its colour. This would work best on black-and-white images */
+		let the invert(1) setting invert its colour. This would work best on black-and-white images
 		&.ioda { 
 			filter: invert(0);
 		}
 	}
+	*/
 }
 
-// theme_config: Invert colors if 'appearance' is set to dark in _config.yml
 body[a="dark"] {
+	// theme_config: Invert colors if 'appearance' is set to dark in _config.yml
 	@include dark-appearance;
 }
 
-/* theme_config: Also invert colors if 'appearance' is set to auto in _config.yml
-and browser suggests visitor prefers dark mode */
 @media (prefers-color-scheme: dark) {
+	/* theme_config: Also invert colors if 'appearance' is set to auto in _config.yml
+	and browser suggests visitor prefers dark mode */
 	body[a="auto"] {
 		@include dark-appearance;
 	}
 }
 
-/* Explicitly set html's background colour to white so that filter: invert() has something to work with
-See https://stackoverflow.com/a/61265706 */
 html, body {
-	background: white;
+	/* Explicitly set html's background colour to white so that filter: invert() has something to work with
+	See https://stackoverflow.com/a/61265706 */
+	background: $bg-color;
 }
 
 html {
@@ -44,17 +52,18 @@ html {
 }
 
 body {
-	color: black;
-	font-family: monospace;
-	font-size: 16px;
-	line-height: 1.4;
+	color: $color;
+	// default: monospace
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-size: 14px; // default: 16px
+	line-height: 1.6; // default: 1.4
 	margin: 0;
 	min-height: 100%;
 	overflow-wrap: break-word;
 }
 
-// Right-aligning metadata for posts (i.e. publishing date)
 .post-meta {
+	// Right-aligning metadata for posts (i.e. publishing date)
 	text-align: right;
 }
 
@@ -68,11 +77,9 @@ hr {
 	margin: 2rem 0;
 	text-align: center;
 	border: 0;
-
 	&:before {
 		content: '/////'
 	}
-
 	&:after {
 		content: attr(data-content) '/////'
 	}
@@ -86,57 +93,63 @@ li {
 	margin: 0.4rem 0 0.4rem -1rem; // Default is "0.4rem 0"; margin-left is deducted for viewing on mobile
 }
 
-// Highlight a section heading if it is referenced from a href
 *:target {
+	// Highlight a section heading if it is referenced from a href
 	background: yellow;
 }
 
-// div container for content
 .w {
-	max-width: 1083px;		// Set content width, will dynamically adjust on mobile. Default is 640px;
-	margin: 0 auto;			// Centre the content div;
-	padding: 4rem .8rem;	// Add spacing around content div. Default is "4rem 2rem"; margins are deducted for viewing on mobile
+	// div container for content
+	max-width: 1083px; // Set content width, will dynamically adjust on mobile. Default is 640px;
+	margin: 0 auto;	// Centre the content div;
+	padding: 4rem .8rem; // Add spacing around content div. Default is "4rem 2rem"; margins are deducted for viewing on mobile
 }
 
-// Adjust table to fill content div width rather than dynamically to its content
 table {
+	// Adjust table to fill content div width rather than dynamically to its content
 	width: 100%;
 }
 
-table,
-th,
-td {
-	border: thin solid black;		// too little border
-	border-collapse: collapse;		// too much border
-	padding: 0.4rem;				// Add content spacing for readability
+table, th, td {
+	border: thin solid $color; // too little border
+	border-collapse: collapse; // too much border
+	padding: 0.4rem; // Add content spacing for readability
 }
 
-// Add visual colours for <code> to differentiate from surrounding paragraphs
 code {
-	color: white;
-	background: black;
+	// Add visual colours for <code> to differentiate from surrounding paragraphs
+	color: $bg-color;
+	background: $color;
 }
 
 div.highlighter-rouge code {
-	display: block;		// Codeblocks should be displayed in... block, not inline;
+	display: block;	// Codeblocks should be displayed in... block, not inline;
 	overflow-x: auto;
-	white-space: pre;	// Allow code in codeblocks to be scrollable on smaller screens. Default is "pre-wrap"
-	padding: 1rem;		// Add spacing for content in codeblocks
+	white-space: pre; // Allow code in codeblocks to be scrollable on smaller screens. Default is "pre-wrap"
+	padding: 1rem; // Add spacing for content in codeblocks
 }
 
-// Stylise blockquotes
 blockquote {
-	font-style: italic;				// Visually differentiates between blockquotes and surrounding paragraphs;
-	border: thin solid black;
-	padding: 1rem;					// Add spacing between the content in blockquote and the surrounding border
-
+	font-style: italic;	// Visually differentiates between blockquotes and surrounding paragraphs;
+	border: thin solid $color;
+	padding: 1rem; // Add spacing between the content in blockquote and the surrounding border
 	p {
-		margin: 0;					// Overriding the paragraph spacing above as spacing is already added
+		margin: 0; // Overriding the paragraph spacing above as spacing is already added
 	}
 }
 
 img {
-	max-width: 100%;	// Images are restricted to content div container width;
+	max-width: 100%; // Images are restricted to content div container width;
 	display: block;
-	margin: 0 auto;		// Centre the images; need "display: block" above
+	margin: 0 auto;	// Centre the images; need "display: block" above
+	width: max-content; // Render images at its original size if there is no limitations
+	height: max-content;
+}
+
+#post-list li {
+	// End each post item with an ellipsis rather than wrapping its entire title
+	width: 100%;
+	text-overflow: ellipsis;
+	white-space: nowrap; // Don't do new lines after ellipsis
+	overflow: hidden; // Don't show anything after ellipsis
 }

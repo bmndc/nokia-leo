@@ -9,7 +9,7 @@ favicon: "assets/img/banana.png"
 
 markdown: CommonMarkGhPages
 
-theme: nsp-modified
+theme: no-style-please
 exclude: 
   - assets/
   - vendor
