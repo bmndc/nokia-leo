@@ -9,13 +9,9 @@ favicon: "assets/img/banana.png"
 
 markdown: CommonMarkGhPages
 
-theme: no-style-please
+theme: nsp-modified
 exclude: 
-  - root.sh
-  - fota.sh
-  - curef.json
-  - 8k.mbn
-  - recovery-8110.img
+  - assets/
   - vendor
   - .sass-cache/
   - .jekyll-cache/
