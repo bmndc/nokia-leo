@@ -1,13 +1,7 @@
 // Forked from MIT-licensed https://github.com/riggraz/no-style-please; see LICENSE
-$color: #0f0f0f;
-$bg-color: #f0f0f0;
-$link-color: #007557;
 
+/* --- UNCOMMENT THIS IF YOU WISH TO USE NO-STYLE-PLEASE'S DEFAULT CONFIGURATION ---
 @mixin dark-appearance {
-	$color: #f0f0f0;
-	$bg-color: #0f0f0f;
-	$link-color: #00b55b;
-	/* Uncomment this if you wish to use no-style-please's default configuration
 	Attempt to create dark appearance by invert colour of the background and all items on the page in "light mode"
 	Note that extensions like Dark Reader and Chrome's Auto Dark Mode flag will invert over this 
 	See https://github.com/riggraz/no-style-please/blob/master/README.md#dark-mode-for-images
@@ -25,7 +19,6 @@ $link-color: #007557;
 			filter: invert(0);
 		}
 	}
-	*/
 }
 
 body[a="dark"] {
@@ -35,16 +28,17 @@ body[a="dark"] {
 
 @media (prefers-color-scheme: dark) {
 	/* theme_config: Also invert colors if 'appearance' is set to auto in _config.yml
-	and browser suggests visitor prefers dark mode */
+	and browser suggests visitor prefers dark mode
 	body[a="auto"] {
 		@include dark-appearance;
 	}
 }
+==================================================================================== */
 
 html, body {
 	/* Explicitly set html's background colour to white so that filter: invert() has something to work with
 	See https://stackoverflow.com/a/61265706 */
-	background: $bg-color;
+	background: var(--bg-color);
 }
 
 html {
@@ -52,7 +46,7 @@ html {
 }
 
 body {
-	color: $color;
+	color: var(--text-color);
 	// default: monospace
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	font-size: 14px; // default: 16px
@@ -89,6 +83,10 @@ p {
 	margin: 1rem 0;
 }
 
+a {
+	color: var(--link-color);
+}
+
 li {
 	margin: 0.4rem 0 0.4rem -1rem; // Default is "0.4rem 0"; margin-left is deducted for viewing on mobile
 }
@@ -111,15 +109,15 @@ table {
 }
 
 table, th, td {
-	border: thin solid $color; // too little border
+	border: thin solid var(--text-color); // too little border
 	border-collapse: collapse; // too much border
 	padding: 0.4rem; // Add content spacing for readability
 }
 
 code {
 	// Add visual colours for <code> to differentiate from surrounding paragraphs
-	color: $bg-color;
-	background: $color;
+	color: var(--bg-color);
+	background: var(--text-color);
 }
 
 div.highlighter-rouge code {
@@ -131,7 +129,7 @@ div.highlighter-rouge code {
 
 blockquote {
 	font-style: italic;	// Visually differentiates between blockquotes and surrounding paragraphs;
-	border: thin solid $color;
+	border: thin solid var(--text-color);
 	padding: 1rem; // Add spacing between the content in blockquote and the surrounding border
 	p {
 		margin: 0; // Overriding the paragraph spacing above as spacing is already added
