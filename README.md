@@ -44,7 +44,7 @@
 *Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Note that it doesn't contain proprietary code from third parties and thus cannot be used to compile a fully working KaiOS firmware.*
 
 <div markdown="block" style="display:flow-root">
-    <img id="toc" align="right" width="450" style="width:450px;" src="assets/images/press/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
+    <img id="toc" align="right" width="390" style="width:390px;" src="assets/images/press/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
 
 **Table of Contents**
 - [Don't buy a counterfeit](#dont-buy-a-counterfeit)
