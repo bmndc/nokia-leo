@@ -5,7 +5,7 @@ baseurl: "/nokia-leo"
 description: >
   Archive of guides, source code and firmware backups for Nokia 6300 4G.
 
-favicon: "assets/img/banana.png"
+favicon: "assets/images/banana.png"
 
 markdown: CommonMarkGhPages
 

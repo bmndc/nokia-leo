@@ -1,15 +1,15 @@
 <details><summary dir="rtl">View device specification table</summary>
     <table style="font-size:small">
         <thead><tr><th></th><th>Nokia 6300 4G (nokia-leo)</th><th>Nokia 8000 4G (nokia-sparkler)</th></tr></thead>
-        <tbody><tr><td>Released</td><td colspan=2>13 November 2020</td></tr>
+        <tbody><tr><td>Released</td><td colspan="2">13 November 2020</td></tr>
             <tr><td>Model</td><td>TA-1286 (APAC), TA-1287 (CN), TA-1291, TA-1294, TA-1307, TA-1324 (US)</td><td>TA-1300, TA-1303, TA-1305, TA-1311</td></tr>
             <tr><td>Colors</td><td>Light Charcoal, White, Cyan Green</td><td>Onyx/Black, Opal/White, Topaz/Blue, Cintrine/Gold</td></tr>
             <tr><td>MSRP</td><td>€49/£59.99/$69.99/1,290,000₫</td><td>€79/£79.99/1,790,000₫</td></tr>
-            <tr><td colspan=3 align="center"><strong>Specifications</strong></td></tr>
-            <tr><td>SoC</td><td colspan=2>Qualcomm MSM8909 Snapdragon 210 (4 × 1.1GHz Cortex-A7)</td></tr>
-            <tr><td>RAM</td><td colspan=2>512MB LPDDR2/3</td></tr>
-            <tr><td>GPU</td><td colspan=2>Adreno 304</td></tr>
-            <tr><td>Storage</td><td colspan=2>4GB eMMC 4.5 (+ up to 32GB microSDHC card)</td></tr>
+            <tr><td colspan="3" align="center"><strong>Specifications</strong></td></tr>
+            <tr><td>SoC</td><td colspan="2">Qualcomm MSM8909 Snapdragon 210 (4 × 1.1GHz Cortex-A7)</td></tr>
+            <tr><td>RAM</td><td colspan="2">512MB LPDDR2/3</td></tr>
+            <tr><td>GPU</td><td colspan="2">Adreno 304</td></tr>
+            <tr><td>Storage</td><td colspan="2">4GB eMMC 4.5 (+ up to 32GB microSDHC card)</td></tr>
             <tr><td>Network</td><td>2G GSM, 3G UMTS, 4G LTE Cat4 150/50Mbps<br><em>
                 + EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>
                 + MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>
@@ -24,24 +24,24 @@
                 VoLTE &amp; VoWiFi support<br>Single or Dual SIM (Nano-SIM, dual-standby)</td></tr>
             <tr><td>Screen</td><td>320 × 240 @ 167 PPI<br>2.4 inches QVGA TFT LCD, 16M colors (24-bit)</td>
                 <td>320 × 240 @ 143 PPI<br>2.8 inches QVGA TFT LCD, 16M colors (24-bit)</td></tr>
-            <tr><td>Bluetooth</td><td colspan=2>4.0, A2DP, LE</td></tr>
-            <tr><td>Wi-Fi</td><td colspan=2>802.11b/g/n, 2.4GHz, Hotspot (up to 8 devices)</td></tr>
-            <tr><td>Peripherals</td><td colspan=2>GPS &amp; GLONASS</td></tr>
+            <tr><td>Bluetooth</td><td colspan="2">4.0, A2DP, LE</td></tr>
+            <tr><td>Wi-Fi</td><td colspan="2">802.11b/g/n, 2.4GHz, Hotspot (up to 8 devices)</td></tr>
+            <tr><td>Peripherals</td><td colspan="2">GPS &amp; GLONASS</td></tr>
             <tr><td>Cameras</td><td>Rear: VGA with fixed focus, LED flash</td><td>Rear: 2MP with fixed focus, LED flash</td></tr>
             <tr><td>Dimensions<br>(HWD)</td><td>131.4 × 53 × 13.7 (mm)<br>5.17 × 2.09 × 0.54 (in)</td>
                 <td>132.2 × 56.5 × 12.3 (mm)<br>5.20 × 2.22 × 0.48 (in)</td></tr>
             <tr><td>Weight</td><td>With battery: 104.1g (3.67oz)</td><td>With battery: 107.9g (3.81oz)</td></tr>
-            <tr><td>Ports</td><td colspan=2>- microUSB 2.0 charging &amp; data transferring port<br>- 3.5mm headphone jack</td></tr>
-            <tr><td>Battery</td><td colspan=2>Removable Li-Ion 1500mAh (BL-4XL), 5W wired charging (up to 25 days of 4G standby advertised)</td></tr>
-            <tr><td colspan=3 align="center"><strong>KaiOS info</strong></td></tr>
-            <tr><td>Version</td><td colspan=2>KaiOS 2.5.4 (CN: KaiOS 2.5.4.1)</td></tr>
-            <tr><td>WA VoIP</td><td colspan=2>Supported (12.00.17.01 onwards)</td></tr>
-            <tr><td>Build no.</td><td colspan=2>10.00.17.01, 12.00.17.01, 13.01.17.05 (CN), 20.00.17.01, 30.00.17.01</td></tr>
+            <tr><td>Ports</td><td colspan="2">- microUSB 2.0 charging &amp; data transferring port<br>- 3.5mm headphone jack</td></tr>
+            <tr><td>Battery</td><td colspan="2">Removable Li-Ion 1500mAh (BL-4XL), 5W wired charging (up to 25 days of 4G standby advertised)</td></tr>
+            <tr><td colspan="3" align="center"><strong>KaiOS info</strong></td></tr>
+            <tr><td>Version</td><td colspan="2">KaiOS 2.5.4 (CN: KaiOS 2.5.4.1)</td></tr>
+            <tr><td>WA VoIP</td><td colspan="2">Supported (12.00.17.01 onwards)</td></tr>
+            <tr><td>Build no.</td><td colspan="2">10.00.17.01, 12.00.17.01, 13.01.17.05 (CN), 20.00.17.01, 30.00.17.01</td></tr>
         </tbody>
     </table>
 </details>
 
-*Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Note that it doesn't contain proprietary code from third parties and thus cannot be used to compile a fully working KaiOS firmware.*
+*Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Do note that it doesn't contain proprietary code from third parties and thus cannot be used to compile a functional KaiOS build.*
 
 <div markdown="block" style="display:flow-root">
     <img id="toc" align="right" width="390" style="width:390px;" src="assets/images/press/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
@@ -49,7 +49,7 @@
 **Table of Contents**
 - [Don't buy a counterfeit](#dont-buy-a-counterfeit)
     - [About Kosher phones](#about-kosher-phones)
-- [Differences between US/CN and international models](#differences-between-us-cn-and-international-models)
+- [Differences between US/CN and international models](#differences-between-uscn-and-international-models)
 - [Tips and tricks](#tips-and-tricks)
 - [Known issues](#known-issues)
     - [KaiOS-specific](#kaios-specific)
@@ -61,9 +61,9 @@
     <img src="assets/images/press/0x01-1000.png" alt="">
 </div>
 
-In late 2020, as people need to stay connected amid the height of the [COVID-19 pandemic], HMD Global quietly introduced the new Nokia 6300 4G with KaiOS 2.5.4. Following the successful relaunch of the Nokia-branded retros 2720 Flip and 800 Tough, the 6300 4G packs a bunch of modern features, such as 4G LTE, Wi-Fi and social apps like WhatsApp and Facebook into a pocket-friendly design, whilst inheriting the classic candy-bar look of the original Nokia 6300. It was [one of the most affordable] the company has ever offered in its KaiOS lineup, at €49/$69.99, though still pricier than the general KaiOS devices. Since then, the phone has gained popularity and also mixed reviews from the community, notably on its performance and keypad typing experience.
+<!-- In late 2020, as people need to stay connected amid the height of the [COVID-19 pandemic], HMD Global quietly introduced the new Nokia 6300 4G with KaiOS 2.5.4. Following the successful relaunch of the Nokia-branded retros 2720 Flip and 800 Tough, the 6300 4G packs a bunch of modern features, such as 4G LTE, Wi-Fi and social apps like WhatsApp and Facebook into a pocket-friendly design, whilst inheriting the classic candy-bar look of the original Nokia 6300. It was [one of the most affordable] the company has ever offered in its KaiOS lineup, at €49/$69.99, though still pricier than the general KaiOS devices. Since then, the phone has gained popularity and also mixed reviews from the community, notably on its performance and keypad typing experience.
 
-I decided to get an used 6300 4G in mid-May 2022, despite already having the 2720 Flip and Cyan's advise against buying another phone. Nevertheless, this drew me further into the rabbit hole of KaiOS; the more compact design, vibrant screen, and the balance kept between being [fully-featured yet still developer-friendly] on the phone really striked me. This inspired me into documenting this as a result of my almost 2-year experience with it.
+I decided to get an used 6300 4G in mid-May 2022, despite already having the 2720 Flip and Cyan's advise against buying another phone. Nevertheless, this drew me further into the rabbit hole of KaiOS; the more compact design, vibrant screen, and the balance kept between being [fully-featured yet still developer-friendly] on the phone really striked me. This inspired me into documenting this as a result of my almost 2-year experience with it. -->
 
 ## Don't buy a counterfeit
 Here's the funny thing: it's easier to get a genuine version of the original Nokia 6300 than its rebranded version. On eBay, Shopee and [other online shopping sites] across North America, Europe and Southeast Asia, you may see hundreds of listings of used 6300 4G in various conditions. While the listings seem to look identical, many of those are NOT genuine but are knock-offs with [terrible build quality] and user experience. Do note that:
@@ -91,10 +91,13 @@ Kosher is indeed a great way to make your phone truly basic, but HMD already off
 <p align="center"><img loading="lazy" width="350" alt="A Kosher-customized Nokia 8000 4G with no Browser, KaiStore or third-party apps shown in 3-by-3 grid of apps. Center D-Pad key is engraved with a Hebrew symbol indicating Kosher phone" src="assets/images/kosher-sparkler-350px.jpg"></p>
 
 ## Differences between US/CN and international models
-US (TA-1324) and Mainland China (CN, TA-1287) 6300 4Gs has some key differences from international variants:
-- TA-1324 works on CDMA networks, which are used by most US carriers and has little to no compatibility with worldwide GSM networks. Its 4G LTE bands barely cover international bands (i.e. band 7); as such, you might have trouble making/receiving calls and texts outside the country without roaming.
-- Restricted device settings: On the US 6300 4G, you are only able to select English (US), español (US), Français (CA) and Português (BR) as display languages; on the CN variant, you cannot set Google as a search engine (Baidu is set as default) and Google apps are not available.
-- TA-1324 is yet to be rootable due to different hash signature used for EDL handshake (see [Sideloading and debugging third-party applications] below).
+US (TA-1324) and Mainland China (CN, TA-1287) 6300 4Gs has some key differences from other models:
+
+US models work on CDMA networks, which are used by most US carriers and have little to no compatibility with worldwide GSM networks. Its 4G LTE bands barely cover international bands (e.g. band 7); as such, you might have trouble making/receiving calls and texts outside the country without roaming.
+
+On the US 6300 4G, you are only able to select English (US), español (US), Français (CA) and Português (BR) as display languages; on the CN variant, you cannot set Google as a search engine (Baidu is set as default) and Google apps are not available.
+
+TA-1324 currently cannot be rooted due to different hash signature used for EDL handshake (see [Sideloading and debugging third-party applications] below).
 
 <!-- "Buying Western-customized products will always give you the best quality possible" is unwise when it comes to consumer electronics, including mobile phones, and the 6300 4G is no exception. When buying the TA-1324 variant of this phone, you should expect:
 - No cellular access: From the dawn of mobile phone technologies, for national security, the US has been using different cellular technologies from the rest of the world with little to no compatibility. On 4G LTE, the US variant receives different bands with little overlaps on international variants' bands, primarily band 7 (see the device specification table above). This means that you will have trouble making or receiving calls and texts on the US variant outside the country without roaming.
