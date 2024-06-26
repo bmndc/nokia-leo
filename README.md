@@ -2,7 +2,7 @@
     <table style="font-size:small">
         <thead><tr><th></th><th>Nokia 6300 4G (nokia-leo)</th><th>Nokia 8000 4G (nokia-sparkler)</th></tr></thead>
         <tbody><tr><td>Released</td><td colspan=2>13 November 2020</td></tr>
-            <tr><td>Model[^1]</td><td>TA-1286 (APAC), TA-1287 (CN), TA-1291, TA-1294, TA-1307, TA-1324 (US)</td><td>TA-1300, TA-1303, TA-1305, TA-1311</td></tr>
+            <tr><td>Model</td><td>TA-1286 (APAC), TA-1287 (CN), TA-1291, TA-1294, TA-1307, TA-1324 (US)</td><td>TA-1300, TA-1303, TA-1305, TA-1311</td></tr>
             <tr><td>Colors</td><td>Light Charcoal, White, Cyan Green</td><td>Onyx/Black, Opal/White, Topaz/Blue, Cintrine/Gold</td></tr>
             <tr><td>MSRP</td><td>€49/£59.99/$69.99/1,290,000₫</td><td>€79/£79.99/1,790,000₫</td></tr>
             <tr><td colspan=3 align="center"><strong>Specifications</strong></td></tr>
@@ -49,7 +49,7 @@
 **Table of Contents**
 - [Don't buy a counterfeit](#dont-buy-a-counterfeit)
     - [About Kosher phones](#about-kosher-phones)
-- [Differences between US and international variants](#differences-between-us-and-international-variants)
+- [Differences between US/CN and international models](#differences-between-us-cn-and-international-models)
 - [Tips and tricks](#tips-and-tricks)
 - [Known issues](#known-issues)
     - [KaiOS-specific](#kaios-specific)
@@ -90,13 +90,18 @@ Kosher is indeed a great way to make your phone truly basic, but HMD already off
 
 <p align="center"><img loading="lazy" width="350" alt="A Kosher-customized Nokia 8000 4G with no Browser, KaiStore or third-party apps shown in 3-by-3 grid of apps. Center D-Pad key is engraved with a Hebrew symbol indicating Kosher phone" src="assets/images/kosher-sparkler-350px.jpg"></p>
 
-## Differences between US and international variants
-"Buying Western-customized products will always give you the best quality possible" is unwise when it comes to consumer electronics, including mobile phones, and the 6300 4G is no exception. When buying the TA-1324 variant of this phone, you should expect:
+## Differences between US/CN and international models
+US (TA-1324) and Mainland China (CN, TA-1287) 6300 4Gs has some key differences from international variants:
+- TA-1324 works on CDMA networks, which are used by most US carriers and has little to no compatibility with worldwide GSM networks. Its 4G LTE bands barely cover international bands (i.e. band 7); as such, you might have trouble making/receiving calls and texts outside the country without roaming.
+- Restricted device settings: On the US 6300 4G, you are only able to select English (US), español (US), Français (CA) and Português (BR) as display languages; on the CN variant, you cannot set Google as a search engine (Baidu is set as default) and Google apps are not available.
+- TA-1324 is yet to be rootable due to different hash signature used for EDL handshake (see [Sideloading and debugging third-party applications] below).
+
+<!-- "Buying Western-customized products will always give you the best quality possible" is unwise when it comes to consumer electronics, including mobile phones, and the 6300 4G is no exception. When buying the TA-1324 variant of this phone, you should expect:
 - No cellular access: From the dawn of mobile phone technologies, for national security, the US has been using different cellular technologies from the rest of the world with little to no compatibility. On 4G LTE, the US variant receives different bands with little overlaps on international variants' bands, primarily band 7 (see the device specification table above). This means that you will have trouble making or receiving calls and texts on the US variant outside the country without roaming.
 - Restricted device settings, notably device and T9 languages, as the phone software has to follow the FCC's regulations. On the US 6300 4G, the only languages available are English (US), español (US), Français (CA) and Português (BR).
 - Tighten device security: US 6300 4G currently cannot be rooted due to different hash signature used for EDL handshake (see [Sideloading and debugging third-party applications] below).
 
-Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the availability of the phone in the closest place or nearby countries to where you are.
+Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the availability of the phone in the closest place or nearby countries to where you are. -->
 
 ## Tips and tricks
 - You can capture a screenshot by pressing both * and # keys at the same time.
