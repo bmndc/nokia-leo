@@ -2,7 +2,7 @@
     <table style="font-size:small">
         <thead><tr><th></th><th>Nokia 6300 4G (nokia-leo)</th><th>Nokia 8000 4G (nokia-sparkler)</th></tr></thead>
         <tbody><tr><td>Released</td><td colspan=2>13 November 2020</td></tr>
-            <tr><td>Model</td><td>TA-1286, TA-1287, TA-1291, TA-1294, TA-1307, TA-1324</td><td>TA-1300, TA-1303, TA-1305, TA-1311</td></tr>
+            <tr><td>Model[^1]</td><td>TA-1286 (APAC), TA-1287 (CN), TA-1291, TA-1294, TA-1307, TA-1324 (US)</td><td>TA-1300, TA-1303, TA-1305, TA-1311</td></tr>
             <tr><td>Colors</td><td>Light Charcoal, White, Cyan Green</td><td>Onyx/Black, Opal/White, Topaz/Blue, Cintrine/Gold</td></tr>
             <tr><td>MSRP</td><td>€49/£59.99/$69.99/1,290,000₫</td><td>€79/£79.99/1,790,000₫</td></tr>
             <tr><td colspan=3 align="center"><strong>Specifications</strong></td></tr>
@@ -34,9 +34,9 @@
             <tr><td>Ports</td><td colspan=2>- microUSB 2.0 charging &amp; data transferring port<br>- 3.5mm headphone jack</td></tr>
             <tr><td>Battery</td><td colspan=2>Removable Li-Ion 1500mAh (BL-4XL), 5W wired charging (up to 25 days of 4G standby advertised)</td></tr>
             <tr><td colspan=3 align="center"><strong>KaiOS info</strong></td></tr>
-            <tr><td>Version</td><td colspan=2>KaiOS 2.5.4</td></tr>
+            <tr><td>Version</td><td colspan=2>KaiOS 2.5.4 (CN: KaiOS 2.5.4.1)</td></tr>
             <tr><td>WA VoIP</td><td colspan=2>Supported (12.00.17.01 onwards)</td></tr>
-            <tr><td>Build no.</td><td colspan=2>10.00.17.01, 12.00.17.01, 20.00.17.01, 30.00.17.01</td></tr>
+            <tr><td>Build no.</td><td colspan=2>10.00.17.01, 12.00.17.01, 13.01.17.05 (CN), 20.00.17.01, 30.00.17.01</td></tr>
         </tbody>
     </table>
 </details>
@@ -225,7 +225,8 @@ To remove unwanted apps from the phone, you can use [this fork of Luxferre's App
 - [Affe Null's Bananian project repository], a Debian port for KaiOS devices
 
 <!------------------------------ FOOTNOTES ------------------------------>
-[^1]: A year after release of the 8000 4G and 6300 4G, HMD inherently pushed an OTA update to the 2720 Flip and 800 Tough, numbered build 30.00.17.05, which traded off DevTools access to strengthen SELinux for the ability to make and receive WhatsApp calls.
+[^1]: SKU variant is determined by the `ro.build.skuid` device flag, whose location is not in `/boot`, `/devinfo` or `/system/build.prop` but unknown. ([XDA], [via Cyan in #device-dev, r/KaiOS Discord server])
+[^2]: A year after release of the 8000 4G and 6300 4G, HMD inherently pushed an OTA update to the 2720 Flip and 800 Tough, numbered build 30.00.17.05, which traded off DevTools access to strengthen SELinux for the ability to make and receive WhatsApp calls.
 <!-- [^2]: In August 2021, Google decided to [pull the plugs from Assistant on KaiOS]. Prior to that, Assistant can be used to make calls, send texts, change device settings and do various on-device functions with your voice. -->
 [^3]: Aleph Security has a [deep-dive blog post] into exploiting the nature of EDL mode on Qualcomm devices. If you're into the overall boot process, check out the breakdown of [Qualcomm's Chain of Trust on LineageOS Engineering Blog].
 [^4]: Read more about [SELinux on LineageOS Engineering Blog].
@@ -296,6 +297,8 @@ To remove unwanted apps from the phone, you can use [this fork of Luxferre's App
 [Nokia 8000 4G (nokia-sparkler)]: https://wiki.postmarketos.org/wiki/Nokia_8000_4G_(nokia-sparkler)
 [Affe Null's Bananian project repository]: https://git.abscue.de/bananian/bananian
 
+[XDA]: https://xdaforums.com/t/guide-how-to-change-skuid-to-worldwide-or-china-root-required.3808520/
+[via Cyan in #device-dev, r/KaiOS Discord server]: https://discord.com/channels/472006912846594048/539074521580437504/1255592057146179697
 [promotional video]: https://www.youtube.com/watch?v=pub47YzYBJs
 [pull the plugs from Assistant on KaiOS]: https://9to5google.com/2021/08/30/google-assistant-kaios-text
 [deep-dive blog post]: https://alephsecurity.com/2018/01/22/qualcomm-edl-1
