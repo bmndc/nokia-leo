@@ -4,7 +4,6 @@
 @import "no-style-please";
 
 img {
-	aspect-ratio: 1;
 	// Undo float: right on header image on small screens
 	@media (max-width: 800px) {
 		float: none;  
