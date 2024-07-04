@@ -3,7 +3,7 @@ layout: post
 category: news
 title: The end of WhatsApp on KaiOS is nigh
 ---
-<img src="../assets/images/blog/2024-07-04-11-35-05.png" align="right" width="240" height="320" style="width:240px;margin:0 0 1rem 1rem" alt="Screenshot of the error message in WhatsApp, with a yellow warning sign and a text which reads Something went wrong">
+<img src="/assets/images/blog/2024-07-04-11-35-05.png" align="right" width="240" height="320" style="width:240px;margin:0 0 1rem 1rem" alt="Screenshot of the error message in WhatsApp, with a yellow warning sign and a text which reads Something went wrong">
 
 …and it starts with the latest WhatsApp version preventing new users from signing up.
 
