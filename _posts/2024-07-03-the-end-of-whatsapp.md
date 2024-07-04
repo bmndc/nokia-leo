@@ -1,19 +1,22 @@
 ---
 layout: post
 category: news
-title: The end of WhatsApp on KaiOS is nigh
 ---
+# The end of WhatsApp on KaiOS as we know it
+
 <img src="{{ site.baseurl }}/assets/images/blog/2024-07-04-11-35-05.png" align="right" width="240" height="320" style="width:240px;margin:0 0 1rem 1rem" alt="Screenshot of the error message in WhatsApp, with a yellow warning sign and a text which reads Something went wrong">
 
-…and it starts with the latest WhatsApp version preventing new users from signing up.
+It starts with the latest WhatsApp version preventing new users from signing up.
 
-On the 26th of June, a large number of Reddit users reported on r/KaiOS of not being able to sign up for WhatsApp on KaiOS. If you try to download and open WhatsApp for the first time, you may see a warning sign that reads “Something went wrong.” This message appears after people update to the latest version of the app, 2.2329.13, which came as part of its monthly update releases.
+On 26 June, several Reddit users reported on r/KaiOS that they were unable to sign up for WhatsApp after they have bought their KaiOS phones. When they try to download and open WhatsApp for the first time, they see a warning sign that simply reads “Something went wrong.” with no further clarification.
 
-KaiOS 2.5 devices which have yet to sign up for the service are all affected, with no exceptions so far have been recorded. Fortunately, it does seem to not affect users who have previously signed into the app at the moment. WhatsApp has not publicly announced any plans of deprecating its KaiOS app.
+This occurs after users update to the latest app version, 2.2329.13 and have yet to register their phone number in the app. People who previously signed into the app seem to be unaffected at the moment.
+
+WhatsApp has yet to comment, nor has it publicly announced any plans to drop support for its KaiOS app.
 
 Monitoring the phone’s network traffic over a proxy shows that this message is hardcoded as part of the update, with no data being sent to any of WhatsApp servers; which may indicate that the error is intentional and deliberate. All WhatsApp endpoints used by the app load and function as normal, even when updating the CA root store, so that excludes the possibility of any SSL certificate expirations.
 
-In addition to that, on the 3rd of July, the service decided to “nuke the time bomb” early for users who are staying on older versions, displaying a full screen message and [force users to update to the latest version via KaiStore](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lbelz97/).
+In addition to that, on 3 July, the service decided to “nuke the time bomb” early for users who are staying on older versions, displaying a full screen message and [forcing users to update to the latest version via KaiStore](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lbelz97/).
 
 All of which lead us to the point of when WhatsApp could eventually drop support for KaiOS devices.
 
