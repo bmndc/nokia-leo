@@ -62,7 +62,7 @@ html {
 body {
 	color: var(--text-color); // default: white
 	// default: monospace
-	font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-family: -apple-system, BlinkMacSystemFont, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 	font-size: 14px; // default: 16px
 	line-height: 1.5; // default: 1.4
 	margin: 0;
@@ -82,6 +82,7 @@ h2, h3, h4, h5, h6 {
 }
 
 hr {
+	font-family: monospace;
 	margin: 2rem 0;
 	text-align: center;
 	border: 0;
