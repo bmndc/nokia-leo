@@ -13,11 +13,11 @@ This occurs after users update to the latest app version, 2.2329.13 and have yet
 
 WhatsApp has yet to comment, nor has it publicly announced any plans to drop support for its KaiOS app.
 
-Monitoring the phone’s network traffic over a proxy shows that this message is hardcoded as part of the update, with no data being sent to any of WhatsApp servers; which may indicate that the error is intentional and deliberate. All WhatsApp endpoints used by the app load and function as normal, even when updating the CA root store, so that excludes the possibility of any SSL certificate expirations.
+Monitoring the phone’s network traffic over a proxy shows that this message is hardcoded as part of the update, with no data being sent to WhatsApp servers; which may indicate that the error is intentional and deliberate. All WhatsApp endpoints used by the app load and function as normal, even when updating the CA root store, so that excludes the possibility of any SSL certificate expirations.
 
 In addition to that, on 3 July, the service decided to “nuke the time bomb” early for users who are staying on older versions, displaying a full screen message and [forcing users to update to the latest version via KaiStore](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lbelz97/).
 
-All of which lead us to the point of when WhatsApp could eventually drop support for KaiOS devices.
+All of which lead us to the possibility of when WhatsApp could eventually drop support for KaiOS devices.
 
 Following this, a number of Reddit users have reached out to the customer support services of some parties involved, including WhatsApp, HMD, KaiOS Technologies and Jio. HMD’s online chat support stated that [there would be a hotfix OTA update “very soon”](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lanjcla/). WhatsApp and KaiOS Technologies have yet to comment. As of now, only Jio’s service centre confirmed that [WhatsApp would not be further supported on KaiOS 2.5](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lb9gej5/), there would be no upcoming app updates, and that the news will be publicly announced soon.
 
