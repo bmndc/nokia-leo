@@ -23,7 +23,7 @@ All of which lead us to the possibility of whether WhatsApp could eventually dro
 
 While WhatsApp has yet to deprecate its KaiOS app, Meta Platforms Inc. (formerly Facebook Inc.) has been pausing development of WhatsApp on KaiOS for a long time. Notably, some of the last major updates were [voice calls (VoIP)](https://www.kaiostech.com/whatsapp-data-voice-calls-available-on-kaios-devices/) in June 2021 and [polls](https://www.reddit.com/r/KaiOS/comments/zf5z76/testing_features_removed_as_the_latest_version_of/), which was first teased in November 2022. Since then, app updates have been periodically distributed over CI/CD on a monthly basis to maintain backend functionality in alignment with the Android and iOS versions, with minimal human involvement.
 
-Changing the time on your phone to the 15th of September 2024 at midnight UTC will [display the true payload message](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lbfjak6/):
+Normally, each WhatsApp version is associated with a "time bomb" that would display a reminder, telling users to update the app past a certain date. But changing the time on your phone to the 15th of September 2024 at midnight UTC will [display another payload message](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lbfjak6/):
 
 > **WhatsApp is no longer available on KaiOS phones. Find more information by selecting Learn more.**
 
@@ -33,16 +33,13 @@ If you eventually are able to sign into the service, you will see a banner at th
 > <br>
 > WhatsApp will soon stop working on KaiOS phones in the coming months. You will no longer have access to your account and chats on this phone. Select **Learn more** for more information.
 
-Finally, on the 10th of January 2025 at 8:00 UTC:
-
-> **WhatsApp is no longer available on KaiOS phones. Find more information by selecting Learn more.**
+On the 10th of January 2025 at 8:00 UTC, the app stops working and displays the payload message.
 
 Pressing Learn more redirects to the [About supported operating systems page on WhatsApp Help Center](https://faq.whatsapp.com/595164741332628).
 
-If these are true, looks like WhatsApp has plans to drop support for KaiOS after all. It’s only a matter of time. Touché.
+While these are observations only, if they are true looks like WhatsApp has plans to drop support for KaiOS after all. It’s only a matter of time. Touché.
 
 ---
-
 The good news is, while inspecting and comparing the code between the 2.2329.10 and 2.2329.13 versions, some people noticed a few new files which indicates that WhatsApp might be working on [some forms of device companion features on KaiOS](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lbfk6oz/) comparable to WhatsApp Web or multi-device on Android or iOS.
 
 For now, if you want to continue setting up WhatsApp on KaiOS, you will have to install an older version of the app via either ADB and WebIDE or KaiStore Developer Portal, change the date of your phone to between 28th of June and 1st of July, sign up the service with your phone number, and finally update the app again to the latest version with KaiStore. [u/NoMoreUsernameLeak has a great guide for this.](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lahl3bo/)
