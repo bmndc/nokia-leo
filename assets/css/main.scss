@@ -3,6 +3,9 @@
 
 @import "no-style-please";
 
+img {
+	max-height: 100%;
+}
 #post-list li {
 	// End each post item with an ellipsis rather than wrapping its entire title
 	width: 100%;
