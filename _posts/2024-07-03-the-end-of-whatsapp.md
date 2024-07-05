@@ -3,9 +3,9 @@ layout: post
 category: news
 title: The end of WhatsApp on KaiOS as we know it
 ---
-It starts with the latest WhatsApp version preventing new users from signing up.
+...and it starts with the latest WhatsApp version preventing new users from signing up.
 
-<img src="{{ site.baseurl }}/assets/images/blog/2024-07-04-11-35-05.png" align="right" width="240" height="320" style="width:240px;margin:0 0 1rem 1rem" alt="Screenshot of the error message in WhatsApp, with a yellow warning sign and a text which reads Something went wrong">
+<img class="toc" src="{{ site.baseurl }}/assets/images/blog/2024-07-04-11-35-05.png" align="right" width="240" height="320" style="width:240px" alt="Screenshot of the error message in WhatsApp, with a yellow warning sign and a text which reads Something went wrong">
 
 On June 26, several Reddit users reported on r/KaiOS that they were unable to sign up for WhatsApp after buying their KaiOS phones. When they tried to download and open WhatsApp for the first time, they saw a warning sign that simply read “Something went wrong.” with no further clarification.
 
@@ -45,10 +45,10 @@ On the 10th of January 2025 at 8:00 UTC, the app stops working and displays the 
 
 Pressing Learn more redirects to the [About supported operating systems page on WhatsApp Help Center](https://faq.whatsapp.com/595164741332628).
 
-<p style="display:inline">
-    <img src="{{ site.baseurl }}/assets/images/blog/2024-09-15-00-00-07.png" width="240" height="320" style="width:240px" alt="Screenshot of the payload message in WhatsApp, with a yellow warning sign">
-    <img src="{{ site.baseurl }}/assets/images/blog/2024-10-01-00-00-18.png" width="240" height="320" style="width:240px" alt="Screenshot of the yellow banner with a warning sign in WhatsApp's chat list, text says WhatsApp will soon be unavailable on KaiOS phones.">
-    <img src="{{ site.baseurl }}/assets/images/blog/2024-10-01-00-00-49.png" width="240" height="320" style="width:240px" alt="Screenshot of a popup with the message when selecting the banner">
+<p style="text-align:center">
+    <img src="{{ site.baseurl }}/assets/images/blog/2024-09-15-00-00-07.png" width="240" height="320" style="width:240px;display:inline-block" alt="Screenshot of the payload message in WhatsApp, with a yellow warning sign">
+    <img src="{{ site.baseurl }}/assets/images/blog/2024-10-01-00-00-18.png" width="240" height="320" style="width:240px;display:inline-block" alt="Screenshot of the yellow banner with a warning sign in WhatsApp's chat list, text says WhatsApp will soon be unavailable on KaiOS phones.">
+    <img src="{{ site.baseurl }}/assets/images/blog/2024-10-01-00-00-49.png" width="240" height="320" style="width:240px;display:inline-block" alt="Screenshot of a popup with the message when selecting the banner">
 </p>
 
 If these are true, looks like WhatsApp has plans to drop support for KaiOS after all. It’s only a matter of time. Touché.

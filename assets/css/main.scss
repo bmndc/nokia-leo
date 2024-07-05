@@ -3,9 +3,11 @@
 
 @import "no-style-please";
 
-img {
+.toc {
+	margin: 0 0 1rem 1rem;
 	// Undo float: right on header image on small screens
 	@media (max-width: 800px) {
-		float: none;  
+		float: none;
+		margin: 0 auto;
 	}
 }
