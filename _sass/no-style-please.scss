@@ -155,14 +155,4 @@ img {
 	max-width: 100%; // Images are restricted to content div container width;
 	display: block;
 	margin: 0 auto;	// Centre the images; need "display: block" above
-	width: max-content; // Render images at its original size if there is no limitations
-	height: max-content;
-}
-
-#post-list li {
-	// End each post item with an ellipsis rather than wrapping its entire title
-	width: 100%;
-	text-overflow: ellipsis;
-	white-space: nowrap; // Don't do new lines after ellipsis
-	overflow: hidden; // Don't show anything after ellipsis
 }
