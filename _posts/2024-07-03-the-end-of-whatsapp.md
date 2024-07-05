@@ -60,11 +60,9 @@ Pressing Learn more redirects to the [About supported operating systems page on 
 
 While these are only my observations, if these are true, looks like WhatsApp has plans to drop support for KaiOS after all. It’s only a matter of time. Touché.
 
-The good news is, as people inspect and compare the code between the 2.2329.10 and 2.2329.13 versions, some noticed a few new files which indicates that WhatsApp might be working on some forms of device companion features on KaiOS, comparable to WhatsApp Web or multi-device on Android or iOS:
+The good news is, as people inspect and compare the code between the 2.2329.10 and 2.2329.13 versions, some noticed a few new files which indicates that WhatsApp might be working on [some forms of device companion features](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lbfk6oz/) on KaiOS, comparable to WhatsApp Web or multi-device on Android or iOS:
 
-<a href="https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lbfk6oz/">
-    <img src="{{ site.baseurl }}/assets/images/blog/wa-vscode.png" width="100%" height="100%" alt="Screenshot of a full-screen Visual Studio Code window. In the left sidebar there is a Only in compared folder section, which lists several files, one of which is a JavaScript named addCompanionDeviceScreen">
-</a>
+<img src="{{ site.baseurl }}/assets/images/blog/wa-vscode.png" width="100%" height="100%" alt="Screenshot of a full-screen Visual Studio Code window. In the left sidebar there is a Only in compared folder section, which lists several files, one of which is a JavaScript named addCompanionDeviceScreen">
 
 *Kudos to [@fabricedesre](https://github.com/fabricedesre) and [@Tombarr](https://barrasso.me/) for fact-checking information in this blog post. OpenAI's GPT-4o was used to edit this blog post for natural wording.*
 
