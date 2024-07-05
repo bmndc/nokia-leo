@@ -40,7 +40,11 @@ Pressing Learn more redirects to the [About supported operating systems page on 
 If these are true, looks like WhatsApp has plans to drop support for KaiOS after all. It’s only a matter of time. Touché.
 
 ---
-While these are only observations, the good news is, as people inspect and compare the code between the 2.2329.10 and 2.2329.13 versions, some noticed a few new files which indicates that WhatsApp might be working on [some forms of device companion features on KaiOS](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lbfk6oz/) comparable to WhatsApp Web or multi-device on Android or iOS.
+While these are only observations, the good news is, as people inspect and compare the code between the 2.2329.10 and 2.2329.13 versions, some noticed a few new files which indicates that WhatsApp might be working on some forms of device companion features on KaiOS comparable to WhatsApp Web or multi-device on Android or iOS.
+
+<a href="https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lbfk6oz/">
+    <img src="{{ site.baseurl }}/assets/images/blog/compare-wa-version.png" alt="Screenshot of a full-screen Visual Studio Code window. In the left sidebar there is a Only in compared folder section, which lists several files, one of which is a JavaScript named addCompanionDeviceScreen">
+</a>
 
 For now, if you want to continue setting up WhatsApp on KaiOS, you will have to install an older version of the app via either ADB and WebIDE or KaiStore Developer Portal, change the date of your phone to between 28th of June and 1st of July, sign up the service with your phone number, and finally update the app again to the latest version with KaiStore. [u/NoMoreUsernameLeak has a great guide for this.](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lahl3bo/)
 
