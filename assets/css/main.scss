@@ -3,13 +3,13 @@
 
 @import "no-style-please";
 
-#post-list li {
-	// End each post item with an ellipsis rather than wrapping its entire title
-	width: 100%;
-	text-overflow: ellipsis;
-	white-space: nowrap; // Don't do new lines after ellipsis
-	overflow: hidden; // Don't show anything after ellipsis
-}
+// #post-list li {
+// 	// End each post item with an ellipsis rather than wrapping its entire title
+// 	width: 100%;
+// 	text-overflow: ellipsis;
+// 	white-space: nowrap; // Don't do new lines after ellipsis
+// 	overflow: hidden; // Don't show anything after ellipsis
+// }
 .leo {
 	margin: 0 0 1rem 1rem;
 	// Undo float: right on header image on small screens
