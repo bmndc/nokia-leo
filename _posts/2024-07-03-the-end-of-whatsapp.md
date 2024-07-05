@@ -22,7 +22,7 @@ Then, on 3 July, WhatsApp decided to trigger the "time bomb" early for users sta
 Following this, Reddit users reached out to customer support services of WhatsApp, HMD, KaiOS Technologies, Jio and others. While WhatsApp and KaiOS Technologies have yet to comment, HMD’s online chat support promised that [there would be a hotfix OTA update “very soon.”](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lanjcla/) So far, only Jio’s service center stated that [WhatsApp would no longer be supported on KaiOS 2.5](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lb9gej5/), there would be no upcoming app updates, and this news would be publicly announced soon.
 
 <p style="text-align:center">
-    <img src="{{ site.baseurl }}/assets/images/blog/wa-hmd.png" width="100%" height="100%" style="display:inline-block" alt="Screenshot of HMD customer support chat">
+    <img src="{{ site.baseurl }}/assets/images/blog/wa-hmd.png" style="display:inline-block" alt="Screenshot of HMD customer support chat">
     <img src="{{ site.baseurl }}/assets/images/blog/wa-support.jpeg" width="388" height="100%" style="display:inline-block" alt="Screenshot of WhatsApp support chat, telling user to keep themselves up-to-date with WhatsApp Help Centre and WhatsApp Blog">
 </p>
 
