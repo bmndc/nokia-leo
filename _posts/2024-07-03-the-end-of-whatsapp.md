@@ -21,7 +21,7 @@ Following this, Reddit users reached out to customer support services of WhatsAp
 
 Some users [discovered a workaround](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lahl3bo/) by installing an older version of the client, 2.2329.10, changing the date of the phone back between June 28 and July 1, setting up their accounts, and then updating again to the latest version through KaiStore. But a day later, when users received a verification code for their phone number via SMS, the app checked the time and latest version number, then threw the Critical Error message and prevented them from signing up.
 
-All of which lead us to the possibility of whether WhatsApp could eventually drop support for KaiOS devices.
+All of which lead us to the possibility that WhatsApp could eventually drop support for KaiOS devices.
 
 2018 was a significant year for KaiOS, with the global release of the Nokia 8110 4G and the rising popularity of affordable JioPhones in India&#8212;a country where mobile payments among small and medium businesses are rapidly growing. Meta Platforms Inc., then known as Facebook Inc., and WhatsApp anticipated this and partnered with KaiOS Technologies, going after Google by [bringing WhatsApp](https://www.theverge.com/2019/7/22/20703872/whatsapp-kaios-nokia-8110-jio-phone-feature-phones) and Facebook to KaiOS devices, hoping to attract more users to their services.
 
@@ -37,13 +37,19 @@ Normally, each WhatsApp version is associated with a "time bomb" that would disp
 
 > **WhatsApp is no longer available on KaiOS phones. Find more information by selecting Learn more.**
 
-If you eventually are able to sign into the service, you will see a banner at the same time: *WhatsApp will soon be unavailable on KaiOS phones.*
+If you eventually are able to sign into the service, you will see a banner at the same time: *WhatsApp will soon be unavailable on KaiOS phones.* On selecting the banner:
 
 > WhatsApp will soon stop working on KaiOS phones in the coming months. You will no longer have access to your account and chats on this phone. Select **Learn more** for more information.
 
 On the 10th of January 2025 at 8:00 UTC, the app stops working and displays the payload message.
 
 Pressing Learn more redirects to the [About supported operating systems page on WhatsApp Help Center](https://faq.whatsapp.com/595164741332628).
+
+<p style="display:inline">
+    <img src="{{ site.baseurl }}/assets/images/blog/2024-09-15-00-00-07.png" width="240" height="320" style="width:240px" alt="Screenshot of the payload message in WhatsApp, with a yellow warning sign">
+    <img src="{{ site.baseurl }}/assets/images/blog/2024-10-01-00-00-18.png" width="240" height="320" style="width:240px" alt="Screenshot of the yellow banner with a warning sign in WhatsApp's chat list, text says WhatsApp will soon be unavailable on KaiOS phones.">
+    <img src="{{ site.baseurl }}/assets/images/blog/2024-10-01-00-00-49.png" width="240" height="320" style="width:240px" alt="Screenshot of a popup with the message when selecting the banner">
+</p>
 
 If these are true, looks like WhatsApp has plans to drop support for KaiOS after all. It’s only a matter of time. Touché.
 
