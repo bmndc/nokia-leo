@@ -15,7 +15,7 @@ WhatsApp has yet to comment, nor has it publicly announced any plans to drop sup
 
 Monitoring the phone’s network traffic over a proxy shows that this message is hardcoded as part of the update, with no data being sent to WhatsApp servers; which may indicate that the error is intentional and deliberate. All WhatsApp endpoints used by the app load and function as normal, even when updating the CA root store, so that excludes the possibility of any SSL certificate expirations.
 
-In addition to that, on 3 July, the service decided to “nuke the time bomb” early for users who are staying on older versions, displaying a full screen message and [forcing users to update to the latest version via KaiStore](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lbelz97/).
+In addition to that, on 3 July, the service decided to “nuke the time bomb” early for users who are staying on older versions, displaying a full screen message and [forcing users to update to the latest version via KaiStore](https://www.reddit.com/r/KaiOS/comments/1du50sr/i_found_the_solution_guys_you_just_have_to_set/).
 
 Following this, Reddit users have reached out to customer support services of the involved parties, including WhatsApp, HMD, KaiOS Technologies and Jio. HMD’s online chat support stated that [there would be a hotfix OTA update “very soon”](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lanjcla/). WhatsApp and KaiOS Technologies have yet to comment. Only Jio’s service centre has confirmed that [WhatsApp would not be further supported on KaiOS 2.5](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lb9gej5/), there would be no upcoming app updates, and that the news will be publicly announced soon.
 
@@ -30,18 +30,20 @@ Normally, each WhatsApp version is associated with a "time bomb" that would disp
 If you eventually are able to sign into the service, you will see a banner at the same time:
 
 > WhatsApp will soon be unavailable on KaiOS phones.
-> <br>
+> &nbsp;
 > WhatsApp will soon stop working on KaiOS phones in the coming months. You will no longer have access to your account and chats on this phone. Select **Learn more** for more information.
 
 On the 10th of January 2025 at 8:00 UTC, the app stops working and displays the payload message.
 
 Pressing Learn more redirects to the [About supported operating systems page on WhatsApp Help Center](https://faq.whatsapp.com/595164741332628).
 
-While these are observations only, if they are true looks like WhatsApp has plans to drop support for KaiOS after all. It’s only a matter of time. Touché.
+If these are true, looks like WhatsApp has plans to drop support for KaiOS after all. It’s only a matter of time. Touché.
 
 ---
-The good news is, while inspecting and comparing the code between the 2.2329.10 and 2.2329.13 versions, some people noticed a few new files which indicates that WhatsApp might be working on [some forms of device companion features on KaiOS](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lbfk6oz/) comparable to WhatsApp Web or multi-device on Android or iOS.
+While these are only observations, the good news is, as people inspect and compare the code between the 2.2329.10 and 2.2329.13 versions, some noticed a few new files which indicates that WhatsApp might be working on [some forms of device companion features on KaiOS](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lbfk6oz/) comparable to WhatsApp Web or multi-device on Android or iOS.
 
 For now, if you want to continue setting up WhatsApp on KaiOS, you will have to install an older version of the app via either ADB and WebIDE or KaiStore Developer Portal, change the date of your phone to between 28th of June and 1st of July, sign up the service with your phone number, and finally update the app again to the latest version with KaiStore. [u/NoMoreUsernameLeak has a great guide for this.](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lahl3bo/)
+
+*(Note: this might not work anymore as WhatsApp checks for the server time when sending SMS verification code.)*
 
 [Join the discussion on Reddit](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/whatsapp_stopped_working_nokia_6300_4g/)
