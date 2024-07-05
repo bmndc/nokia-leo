@@ -3,7 +3,7 @@ layout: post
 category: news
 title: The end of WhatsApp on KaiOS as we know it
 ---
-...and it starts with the latest WhatsApp version preventing new users from signing up.
+It starts with the latest WhatsApp version preventing new users from signing up.
 
 <img class="leo" src="{{ site.baseurl }}/assets/images/blog/2024-07-04-11-35-05.png" align="right" width="240" height="320" style="max-width:240px" alt="Screenshot of the error message in WhatsApp, with a yellow warning sign and a text which reads Something went wrong">
 
