@@ -9,7 +9,7 @@ It starts with the latest WhatsApp version preventing new users from signing up.
 
 ***This is a observational/commentary blog post and should NOT be taken as an official statement.***
 
-On June 26, several Reddit users reported on r/KaiOS that they were unable to sign up for WhatsApp after buying their KaiOS phones. When they tried to download and open WhatsApp for the first time, they saw a warning sign that simply read “Something went wrong.” with no further clarification.
+On 26 June, several Reddit users reported on r/KaiOS that they were unable to sign up for WhatsApp after buying their KaiOS phones. When they tried to download and open WhatsApp for the first time, they saw a warning sign that simply read “Something went wrong.” with no further clarification.
 
 This issue occurs after users update WhatsApp on their phones to the latest version, 2.2329.13, and have yet to register their phone numbers. People who previously signed into the app seem to be unaffected at the moment.
 
@@ -17,7 +17,7 @@ WhatsApp has yet to release any official statements, nor has it publicly announc
 
 Monitoring the phone’s network traffic over a proxy shows that this message is hardcoded as part of the update, with no data being sent to WhatsApp servers; this may indicate that the error is intentional and deliberate. All WhatsApp endpoints used by the app load and function as normal, even when updating the CA root store, so that excludes the possibility of any SSL certificate expirations.
 
-Then, on July 3, WhatsApp decided to trigger the "time bomb" early for users staying on older versions, displaying a full-screen Critical Error message and [forcing users to update to the latest version via KaiStore](https://www.reddit.com/r/KaiOS/comments/1du50sr/i_found_the_solution_guys_you_just_have_to_set/).
+Then, on 3 July, WhatsApp decided to trigger the "time bomb" early for users staying on older versions, displaying a full-screen Critical Error message and [forcing users to update to the latest version via KaiStore](https://www.reddit.com/r/KaiOS/comments/1du50sr/i_found_the_solution_guys_you_just_have_to_set/).
 
 Following this, Reddit users reached out to customer support services of WhatsApp, HMD, KaiOS Technologies, Jio and others. While WhatsApp and KaiOS Technologies have yet to comment, HMD’s online chat support promised that [there would be a hotfix OTA update “very soon.”](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lanjcla/) So far, only Jio’s service center stated that [WhatsApp would no longer be supported on KaiOS 2.5](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lb9gej5/), there would be no upcoming app updates, and this news would be publicly announced soon.
 
