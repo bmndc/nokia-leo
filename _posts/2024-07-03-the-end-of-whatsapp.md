@@ -5,7 +5,7 @@ title: The end of WhatsApp on KaiOS as we know it
 ---
 ...and it starts with the latest WhatsApp version preventing new users from signing up.
 
-<img class="toc" src="{{ site.baseurl }}/assets/images/blog/2024-07-04-11-35-05.png" align="right" width="240" height="320" style="width:240px" alt="Screenshot of the error message in WhatsApp, with a yellow warning sign and a text which reads Something went wrong">
+<img class="leo" src="{{ site.baseurl }}/assets/images/blog/2024-07-04-11-35-05.png" align="right" width="240" height="320" style="width:240px" alt="Screenshot of the error message in WhatsApp, with a yellow warning sign and a text which reads Something went wrong">
 
 On June 26, several Reddit users reported on r/KaiOS that they were unable to sign up for WhatsApp after buying their KaiOS phones. When they tried to download and open WhatsApp for the first time, they saw a warning sign that simply read “Something went wrong.” with no further clarification.
 
