@@ -23,7 +23,7 @@ Following this, Reddit users reached out to customer support services of WhatsAp
 
 <p style="text-align:center">
     <img src="{{ site.baseurl }}/assets/images/blog/wa-hmd.png" style="max-height:450px;display:inline-block" alt="Screenshot of HMD customer support chat">
-    <img src="{{ site.baseurl }}/assets/images/blog/wa-support.jpeg" style="max-height:325px;display:inline-block" alt="Screenshot of WhatsApp support chat, telling user to keep themselves up-to-date with WhatsApp Help Centre and WhatsApp Blog">
+    <img src="{{ site.baseurl }}/assets/images/blog/wa-support.jpeg" style="max-width:415px;display:inline-block" alt="Screenshot of WhatsApp support chat, telling user to keep themselves up-to-date with WhatsApp Help Centre and WhatsApp Blog">
 </p>
 
 Some users [discovered a workaround](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lahl3bo/) by installing an older version of the client, 2.2329.10, changing the date of the phone back between June 28 and July 1, setting up their accounts, and then updating again to the latest version through KaiStore. But a day later, when users received a verification code for their phone number via SMS, the app checked the time and latest version number, then threw the Critical Error message and prevented them from signing up.
