@@ -3,21 +3,17 @@ layout: page
 title: Launch hidden settings
 custom_js: w2d
 ---
-Note that for the buttons on this page to function, you need to open this page in the built-in Browser app on your KaiOS device.
+Please note that for the buttons on this page to function correctly, you need to open this page from the built-in Browser app on your KaiOS phone.
+
+On 22 September 2020, Tom Barrasso (tbrrss) and Luxferre made a striking discovery: mozActivity classes from Firefox OS still exist in KaiOS, and not only installed apps can trigger mozActivity and webActivity classes, but websites in the built-in Browser also have access to them. mozActivity, and webActivity classes in KaiOS 3+, enable developers and enthusiasts to [share, view and perform actions across apps](https://kaios.dev/2023/02/web-activities-on-kaios/), including opening hidden items in the Settings app. Well, it certainly looks interesting &#x1f440;
 
 ## W2D KaiOS Jailbreak
-This button below will attempt to open the hidden Developer menu in your phone's Settings app, where you can enable ADB and DevTools access to the low-level functions of the phone. This allows many devices previously categorized as debug-locked to be debugged from a computer. 
-
-Works on both KaiOS 2.5 and KaiOS 3. 
-
-*This was discovered in 2020 by [tbrrss](https://kaios.dev) and Luxferre, and later fine-tuned by [Cyan](https://github.com/cyan-2048) for GitHub Pages environment.*
+Attempt to open the hidden Developer menu in the Settings app, where you can enable ADB and DevTools access. Works on both KaiOS 2.5 and KaiOS 3. (W2D: web-to-dev)
 
 <button onclick="openMenu('developer')">Launch Developer menu</button>
 
 ## Hotspot for JioPhones
-On some devices, particularly JioPhones and newer locked Nokia phones, the Internet sharing menu under Network & Connectivity in Settings is hidden although the hardware is perfectly capable of doing such thing. The button below should attempt to open that page. 
-
-Works on both KaiOS 2.5 and KaiOS 3.
+Attempt to open Internet sharing menu under Settings, Network & Connectivity, which is hidden on JioPhones and newer locked HMD/Nokia phones... although the hardware is perfectly capable of doing such thing. Works on both KaiOS 2.5 and KaiOS 3.
 
 <button onclick="openMenu('hotspot')">Launch Hotspot menu</button>
 
