@@ -1,0 +1,17 @@
+[general]
+host = "127.0.0.1"
+port = 8081
+message_max_time = 10 # In ms.
+verbose_log = false
+log_path = "/data/local"
+remote_services_config = "/data/local/service/api-daemon/remote_services.toml"
+remote_services_path = "/data/local/service/api-daemon/remote"
+
+[http]
+root_path = "/data/local/service/api-daemon/http_root"
+
+[telemetry]
+enabled = true
+send_app_opened_events = true
+token_uri = "https://api.kaiostech.com/v3.0/applications"
+metrics_uri = "https://api.kaiostech.com/v3.0/apps/metrics"

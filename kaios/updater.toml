@@ -1,0 +1,12 @@
+# A configuration file suitable for a production device.
+# Intervals are in seconds.
+update_interval = 86400   # try to connect every day.
+reconnect_interval = 1800 # try to reconnect every 30 minute if server access fails.
+socket_path = "/dev/socket/updater_socket"
+factory_path = "/system/kaios/updater/installed"
+running_path = "/data/local/service/updater"
+root_path = "/data/local"
+verbose = false
+cert_type = "production"
+base_url = "https://packages.kaiostech.com/base_23"
+auto_update = true

@@ -1,0 +1,10 @@
+
+# Javascript components
+# Startup notifications
+#Internal Contracts
+binary-component libframework.so
+category profile-after-change CneFramework @qti.qualcomm.com/cneframework;1
+category profile-after-change CneFrameworkWiFiSettingshelper @qti.qualcomm.com/CneFrameworkWiFiSettingshelper;1
+component {6759c654-6d40-4252-bcd3-4f3c4fe93e61} CneFrameworkWiFiSettingshelper.js
+contract @qti.qualcomm.com/CneFrameworkWiFiSettingshelper;1 {6759c654-6d40-4252-bcd3-4f3c4fe93e61}
+manifest interfaces.manifest

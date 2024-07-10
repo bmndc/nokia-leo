@@ -1,0 +1,23 @@
+{
+  "description": "KaiOS Plus",
+  "developer": {
+    "name": "KaiOS",
+    "url": "http://kaiostech.com"
+  },
+  "icons": {
+    "56": "/icons/store_56.png",
+    "112": "/icons/store_112.png"
+  },
+  "locales": {
+    "en-US": {
+      "name": "KaiOS Plus",
+      "description": "KaiOS Plus"
+    },
+    "zh-TW": {
+      "name": "KaiOS Plus",
+      "description": "KaiOS Plus"
+    }
+  },
+  "name": "KaiOS Plus",
+  "package_path": "/application.zip"
+}

@@ -1,0 +1,8 @@
+card=0
+device=0
+period_size=1024
+period_count=4
+mixer "MI2S_RX Channels" = One
+mixer "RX3 MIX1 INP1" = RX1
+mixer "SPK DAC Switch" = 1
+mixer "PRI_MI2S_RX Audio Mixer MultiMedia1" = 1

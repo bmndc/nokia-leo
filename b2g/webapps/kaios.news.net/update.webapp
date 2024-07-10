@@ -1,0 +1,180 @@
+{
+    "name": "KaiNews",
+    "version": "2.2.1",
+    "description": "News brings a personalized quality news experience. Choose your region and language to read events in different categories such as Business, Entertainment, Technology, etc.",
+    "subtitle": "A personalized quality news experience",
+    "launch_path": "/index.html",
+    "type": "privileged",
+    "permissions": {
+        "settings": {
+            "access": "readonly"
+        },
+        "cloud-authorization": {}
+    },
+    "categories": [
+        "news",
+        "lifestyle"
+    ],
+    "theme_color": "#0AAEB1",
+    "default_locale": "en-US",
+    "locales": {
+        "en-US": {
+            "name": "News",
+            "description": "News brings a personalized quality news experience. Choose your region and language to read the best coverage of current events in different categories such as Business, Entertainment, Technology, Science, etc.",
+            "subtitle": "A personalized quality news experience"
+        },
+        "pt-BR": {
+            "name": "Notícias",
+            "subtitle": "Uma experiência de notícias de qualidade personalizada",
+            "description": "A aplicação Notícias proporciona uma experiência de notícias de qualidade personalizada. Escolha a sua região e idioma para ler a melhor cobertura de eventos atuais em diferentes categorias como Empresarial, Entretenimento, Tecnologia, Ciência, etc."
+        },
+        "pt-PT": {
+            "name": "Notícias",
+            "subtitle": "Uma experiência de notícias de qualidade personalizada",
+            "description": "A aplicação Notícias proporciona uma experiência de notícias de qualidade personalizada. Escolha a sua região e idioma para ler a melhor cobertura de eventos atuais em diferentes categorias como Empresarial, Entretenimento, Tecnologia, Ciência, etc."
+        },
+        "ru-RU": {
+            "name": "Новости",
+            "subtitle": "Персонализированные новости",
+            "description": "«Новости» - высококачественный персонализированный подбор новостей. Выберите свой регион и язык, читайте лучшее освещение текущих событий в различных категориях, таких как Бизнес, Развлечения, Технологии, Наука и т.д."
+        },
+        "ar-SA": {
+            "name": "News",
+            "subtitle": "تجربة أخبار موثوقة قابلة للتخصيص",
+            "description": "يوفر تطبيق News تجربة أخبار موثوقة قابلة للتخصيص. اختر منطقتك ولغتك لقراءة أفضل تغطية للأحداث الحالية في فئات مختلفة مثل الأعمال والترفيه والتكنولوجيا والعلوم، إلخ."
+        },
+        "de-DE": {
+            "name": "News",
+            "subtitle": "Individualisierte Nachrichten",
+            "description": "Mit der App „News“ erhalten Sie individualisierte Nachrichten. Wählen Sie Ihre Region und Sprache aus, um die interessantesten Artikel zu aktuellen Ereignissen verschiedener Kategorien zu lesen, etwa aus den Bereichen Wirtschaft, Unterhaltung, Technologie und Wissenschaft."
+        },
+        "es-ES": {
+            "name": "Noticias",
+            "subtitle": "Una experiencia de noticias de calidad personalizada",
+            "description": "Noticias te ofrece una experiencia de noticias de calidad personalizada. Elige tu región e idioma para leer las noticias más actuales sobre eventos de diferentes categorías, como Negocios, Entretenimiento, Tecnología, Ciencia, etc."
+        },
+        "es-US": {
+            "name": "Noticias",
+            "subtitle": "Una experiencia de noticias de calidad personalizada",
+            "description": "Noticias te ofrece una experiencia de noticias de calidad personalizada. Elige tu región e idioma para leer las noticias más actuales sobre eventos de diferentes categorías, como Negocios, Entretenimiento, Tecnología, Ciencia, etc."
+        },
+        "fr-FR": {
+            "name": "Actualités",
+            "subtitle": "Des actualités personnalisées de qualité",
+            "description": "Actualités offre des actualités personnalisées de qualité. Indiquez votre région et votre langue pour lire la meilleure couverture des événements de l’actualité dans différentes catégories, telles que l’économie, les loisirs, la technologie, les sciences, etc."
+        },
+        "fr-CA": {
+            "name": "Actualités",
+            "subtitle": "Des actualités personnalisées de qualité",
+            "description": "Actualités offre des actualités personnalisées de qualité. Indiquez votre région et votre langue pour lire la meilleure couverture des événements de l’actualité dans différentes catégories, telles que l’économie, les loisirs, la technologie, les sciences, etc."
+        },
+        "it-IT": {
+            "name": "News",
+            "subtitle": "Una copertura delle news di qualità e personalizzata",
+            "description": "L’app News offre una copertura delle news di qualità e personalizzata. Scegli la regione e la lingua per leggere la migliore copertura degli eventi correnti in diverse categorie, ad esempio: Business, Intrattenimento, Tecnologia, Scienza ecc."
+        },
+        "cs-CZ": {
+            "name": "Zprávy",
+            "subtitle": "Přizpůsobené a kvalitní zprávy",
+            "description": "Aplikace Zprávy poskytuje přizpůsobené a kvalitní zprávy. Po zvolení oblasti a jazyka získáte to nejlepší zpravodajství o aktuálních událostech různých kategorií, například obchod, zábava, technologie, věda atd."
+        },
+        "fi-FI": {
+            "name": "Uutiset",
+            "subtitle": "Kiinnostavia uutisia, laadukas käyttökokemus",
+            "description": "News tarjoaa kiinnostavia uutisia ja laadukkaan käyttökokemuksen. Kun valitset alueen ja kielen, voit lukea syvällistä uutistarjontaa: talous, viihde, teknologia, tiede ja paljon muuta."
+        },
+        "pl-PL": {
+            "name": "Wiadomości",
+            "subtitle": "Spersonalizowane wiadomości w wygodnym formacie",
+            "description": "Aplikacja Wiadomości dostarcza spersonalizowanych wiadomości w wygodnym formacie. Wybierz swój region i język, aby uzyskać dostęp do rzetelnych informacji o najnowszych wydarzeniach z różnych kategorii, takich jak Biznes, Rozrywka, Technologia, Nauka itd."
+        },
+        "ro-RO": {
+            "name": "Știri",
+            "subtitle": "O experiență cu știrile personalizată și de calitate",
+            "description": "Aplicația de știri oferă o experiență cu știrile personalizată și de calitate. Alegeți regiunea și limba dvs. pentru a citi cele mai bune reportaje despre evenimentele de actualitate din diferite categorii precum afaceri, divertisment, tehnologie, știință etc."
+        },
+        "hu-HU": {
+            "name": "Hírek",
+            "subtitle": "Személyre szabott, minőségi hírélmény",
+            "description": "A News személyre szabott, minőségi hírélményt biztosít. Válassza ki a régióját és nyelvét a Pénzügy, Szórakozás, Technológia, Tudomány stb. kategóriák aktuális eseményeire vonatkozó legjobb hírek elolvasásához."
+        },
+        "sv-SE": {
+            "name": "Nyheter",
+            "subtitle": "En anpassad nyhetsupplevelse av hög kvalitet",
+            "description": "Nyheter ger en anpassad nyhetsupplevelse av hög kvalitet. Välj region och språk för att läsa den bästa täckningen av aktuella händelser i olika kategorier såsom näringsliv, nöje, teknik, vetenskap etc."
+        },
+        "el-GR": {
+            "name": "Ειδήσεις",
+            "subtitle": "Μια εξατομικευμένη εμπειρία ποιοτικής ενημέρωσης",
+            "description": "Η εφαρμογή Ειδήσεις προσφέρει μια εξατομικευμένη εμπειρία ποιοτικής ενημέρωσης. Επιλέξτε την περιοχή και τη γλώσσα σας για να διαβάζετε το καλύτερο ρεπορτάζ σχετικά με τα τελευταία γεγονότα σε διάφορες κατηγορίες όπως Επιχειρήσεις, Ψυχαγωγία, Τεχνολογία, Επιστήμη κλπ."
+        },
+        "nb-NO": {
+            "name": "News",
+            "subtitle": "En personlig tilpasset nyhetsopplevelse av høy kvalitet",
+            "description": "News gir deg en personlig tilpasset nyhetsopplevelse av høy kvalitet. Velg region og språk for å lese de beste nyhetene om aktuelle hendelser i forskjellige kategorier som næringsliv, underholdning, teknologi, vitenskap osv."
+        },
+        "da-DK": {
+            "name": "Nyheder",
+            "subtitle": "Nyhedsoplevelse med kvalitet på en personlig måde",
+            "description": "Nyheder giver en nyhedsoplevelse med kvalitet på en personlig måde. Vælg region og sprog for at læse den bedste dækning af aktuelle begivenheder i forskellige kategorier, som erhverv, underholdning, teknologi, videnskab etc."
+        },
+        "sk-SK": {
+            "name": "Správy",
+            "subtitle": "Kvalitné správy prispôsobené na mieru",
+            "description": "Správy vám prinášajú kvalitné informácie prispôsobené na mieru. Vyberte si oblasť a jazyk a čítajte najlepšie spracované informácie o aktuálnych udalostiach v rôznych kategóriách, ako je Biznis, Zábava, Technológie, Veda atď."
+        },
+        "bg-BG": {
+            "name": "Новини",
+            "subtitle": "Персонализирани качествени новини",
+            "description": "„Новини“ ви предоставя персонализирани качествени новини. Изберете своя регион и език, за да прочетете най-добрите репортажи за текущите събития в различни категории, като бизнес, развлечение, технологии, наука и други."
+        },
+        "zh-CN": {
+            "name": "新闻",
+            "subtitle": "个性化的优质新闻体验",
+            "description": "新闻应用为您带来个性化的优质新闻体验。选择您所在的地区和语言，以获取最佳时事分类阅读体验，例如商务，娱乐，技术，科学等。"
+        },
+        "hi-HI": {
+            "name": "समाचार",
+            "subtitle": "एक वैयक्तिकृत गुणवत्ता समाचार अनुभव",
+            "description": "समाचार एक वैयक्तिकृत गुणवत्ता का समाचार अनुभव प्रदान करता है। व्यवसाय, मनोरंजन, प्रौद्योगिकी, विज्ञान, आदि जैसे विभिन्न श्रेणियों में वर्तमान घटनाओं के सर्वोत्तम कवरेज को पढ़ने के लिए अपना क्षेत्र और भाषा चुनें।"
+        },
+        "vi-VN": {
+            "name": "Tin tức",
+            "subtitle": "Trải nghiệm tin tức chất lượng được cá nhân hóa",
+            "description": "Tin tức mang đến một trải nghiệm tin tức chất lượng được cá nhân hóa. Vui lòng chọn khu vực và ngôn ngữ của bạn để đọc tin tức tốt nhất của các sự kiện hiện tại trong các danh mục khác nhau như Kinh doanh, Giải trí, Công nghệ, Khoa học, v.v."
+        },
+        "zh-HK": {
+            "name": "News",
+            "subtitle": "個性化的優質新聞體驗",
+            "description": "News 帶來個性化的優質新聞體驗。選擇您所在的地區和語言，閱讀不同類別的時事新聞，如商業、娛樂、科技、科學等。"
+        },
+        "zh-TW": {
+            "name": "新聞",
+            "subtitle": "個人化的優質新聞體驗",
+            "description": "新聞可帶來個人化的優質新聞體驗。請選擇您所在的區域和語言，以獲得不同類別事件的最新新聞覆蓋。例如，商業、娛樂、技術、科學等。"
+        },
+        "he-IL": {
+            "name": "חדשות",
+            "subtitle": "חוויה מותאמת אישית של חדשות איכותיות",
+            "description": "חדשות שמעניקות חוויית חדשות איכותית ומותאמת אישית. בחר אזור ושפה וקרא את הכתבות הטובות ביותר אודות אירועים שמתרחשים, בקטגוריות שונות כגון עסקים, בידור, טכנולוגיה, מדע וכו'."
+        }
+    },
+    "developer": {
+        "name": "KaiOS",
+        "url": "http://kaiostech.com"
+    },
+    "icons": {
+        "56": "/resources/icons/ic_news_56.png",
+        "84": "/resources/icons/ic_news_84.png",
+        "112": "/resources/icons/ic_news_112.png"
+    },
+    "orientation": "default",
+    "activities": {},
+    "chrome": {
+        "statusbar": "overlap"
+    },
+    "origin": "app://kaios.news.net",
+    "dependencies": {
+        "ads-sdk": "1.3.0"
+    }
+}

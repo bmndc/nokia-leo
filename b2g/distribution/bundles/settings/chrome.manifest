@@ -1,0 +1,2 @@
+binary-component settings.so
+category profile-after-change Settings @qti.qualcomm.com/settings;1

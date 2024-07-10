@@ -1,0 +1,332 @@
+{
+  "kaidc.4g.hide": {
+    "category": "settings",
+    "name": "network.4g.ui",
+    "type": "number",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.adb-debugger.enable": {
+    "category": "settings",
+    "name": "debugger.remote-mode",
+    "type": "string",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.apps.restriction": {
+    "category": "settings",
+    "name": "dm.apps.restriction",
+    "type": "stringify",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.app-grid-layout.set": {
+    "category": "settings",
+    "name": "home.customization.rules",
+    "type": "stringify",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.bluetooth.enable": {
+    "category": "settings",
+    "name": "bluetooth.enabled",
+    "type": "boolean",
+    "recover": true,
+    "reboot": true
+  },
+  "kaidc.bluetooth.hide": {
+    "category": "settings",
+    "name": "bluetooth.settings.ui",
+    "type": "number",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.browser.homepage.url": {
+    "category": "settings",
+    "name": "browser.homepage.url",
+    "type": "string",
+    "recover": true,
+    "reboot": true
+  },
+  "kaidc.call-forward.enable": {
+    "category": "settings",
+    "name": "callforward.enabled",
+    "type": "boolean",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.call-forward.hide": {
+    "category": "settings",
+    "name": "callforward.settings.ui",
+    "type": "number",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.cb.disabled": {
+    "category": "settings",
+    "name": "ril.cellbroadcast.disabled",
+    "type": "object",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.cb.searchlist": {
+    "category": "settings",
+    "name": "ril.cellbroadcast.searchlist",
+    "type": "object",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.cb.preset": {
+    "category": "settings",
+    "name": "ril.cellbroadcast.preset.channelslist",
+    "type": "object",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.cb.custom": {
+    "category": "settings",
+    "name": "ril.cellbroadcast.custom.channelslist",
+    "type": "object",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.data-roaming.enable": {
+    "category": "settings",
+    "name": "ril.data.roaming_enabled",
+    "type": "boolean",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.data-roaming.hide": {
+    "category": "settings",
+    "name": "data.roaming.settings.ui",
+    "type": "number",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.data.enable": {
+    "category": "settings",
+    "name": "ril.data.enabled",
+    "type": "boolean",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.data.hide": {
+    "category": "settings",
+    "name": "data.settings.ui",
+    "type": "number",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.display-brightness.set": {
+    "category": "settings",
+    "name": "screen.brightness",
+    "type": "number",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.display-brightness.hide": {
+    "category": "settings",
+    "name": "screen.brightness.settings.ui",
+    "type": "number",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.display-timeout.set": {
+    "category": "settings",
+    "name": "screen.timeout",
+    "type": "number",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.display-timeout.hide": {
+    "category": "settings",
+    "name": "screen.timeout.settings.ui",
+    "type": "number",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.ftu-page-layout.set": {
+    "category": "settings",
+    "name": "ftu.config",
+    "type": "object",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.geo-location.enable": {
+    "category": "settings",
+    "name": "geolocation.enabled",
+    "type": "boolean",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.geo-location.hide": {
+    "category": "settings",
+    "name": "geolocation.settings.ui",
+    "type": "number",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.google.client_id": {
+    "category": "settings",
+    "name": "google.client_id",
+    "type": "string",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.keypad-lock.enable": {
+    "category": "settings",
+    "name": "pocketmode.autolock.enabled",
+    "type": "boolean",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.keypad-lock.hide": {
+    "category": "settings",
+    "name": "pocketmode.autolock.settings.ui",
+    "type": "number",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.language-default.set": {
+    "category": "settings",
+    "name": "language.current",
+    "type": "string",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.language-group.set": {
+    "category": "settings",
+    "name": "config.language.list",
+    "type": "object",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.locale-hour12.set": {
+    "category": "settings",
+    "name": "locale.hour12",
+    "type": "boolean",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.metrics.enable": {
+    "category": "settings",
+    "name": "eventlogger.telemetry.consent",
+    "type": "boolean",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.metrics.hide": {
+    "category": "settings",
+    "name": "debug.performance_data.settings.ui",
+    "type": "number",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.mms-send-size.set": {
+    "category": "settings",
+    "name": "dom.mms.operatorSizeLimitation",
+    "type": "number",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.sms-max-page.set": {
+    "category": "settings",
+    "name": "operatorResource.sms.maxConcat",
+    "type": "number",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.usb-tethering.enable": {
+    "category": "settings",
+    "name": "tethering.usb.enabled",
+    "type": "boolean",
+    "recover": true,
+    "reboot": true
+  },
+  "kaidc.usb-tethering.hide": {
+    "category": "settings",
+    "name": "tethering.usb.settings.ui",
+    "type": "number",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.volume-alarm.set": {
+    "category": "settings",
+    "name": "audio.volume.alarm",
+    "type": "number",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.volume-content.set": {
+    "category": "settings",
+    "name": "audio.volume.content",
+    "type": "number",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.volume-notification.set": {
+    "category": "settings",
+    "name": "audio.volume.notification",
+    "type": "number",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.wallpaper-set.enable": {
+    "category": "settings",
+    "name": "wallpaper.set",
+    "type": "boolean",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.wallpaper.set": {
+    "category": "settings",
+    "name": "wallpaper.image",
+    "type": "resource",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.wifi-hotspot.enable": {
+    "category": "settings",
+    "name": "tethering.wifi.enabled",
+    "type": "boolean",
+    "recover": true,
+    "reboot": true
+  },
+  "kaidc.wifi-hotspot.hide": {
+    "category": "settings",
+    "name": "wifi-hotspot.settings.ui",
+    "type": "number",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.wifi.enable": {
+    "category": "settings",
+    "name": "wifi.enabled",
+    "type": "boolean",
+    "recover": true,
+    "reboot": true
+  },
+  "kaidc.wifi.hide": {
+    "category": "settings",
+    "name": "wifi.settings.ui",
+    "type": "number",
+    "recover": true,
+    "reboot": false
+  },
+
+  "kaidc.fota.server.address": {
+    "category": "prefs",
+    "name": "fota.server.address",
+    "type": "string",
+    "recover": true,
+    "reboot": false
+  },
+  "kaidc.ril.telephony.mobile.whitelist": {
+    "category": "prefs",
+    "name": "ril.telephony.mobile.whitelist",
+    "type": "string",
+    "recover": true,
+    "reboot": false
+  }
+}

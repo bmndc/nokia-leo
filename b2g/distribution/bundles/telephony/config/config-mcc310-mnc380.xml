@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ * Copyright (c) 2016-2017 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc
+ *
+ * Not a Contribution, Apache license notifications and license are retained
+ * for attribution purposes only.
+ */
+-->
+
+<!--
+/*
+ * Copyright (C) 2013 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- If the MCC/MNC does not match any known configs, LTE will be used and
+         default behavior is to assume GSM for RAT -->
+    <config_volte_replacement_rat>0</config_volte_replacement_rat>
+
+    <!-- Flag indicating whether the IMS service can be turned off. If false
+         then the service will not be turned-off completely, but individual
+         Features can be disabled-->
+    <config_ims_service_allow_turnoff>false</config_ims_service_allow_turnoff>
+
+    <!-- Flag indicating whether to display WIFI calling Profile or not -->
+    <config_display_wifi_calling_profile>false</config_display_wifi_calling_profile>
+
+    <!-- This indicates default wifi calling preference.
+         Refer to WifiCallingPreference in ims/imsIF.proto -->
+    <config_default_wifi_calling_preference>4</config_default_wifi_calling_preference>
+
+    <!-- Flag indicating if tty is enabled,
+         by default enabled for all carriers -->
+    <config_tty_enabled>true</config_tty_enabled>
+
+    <!-- Flag specifying whether WFC over IMS is available on device -->
+    <config_device_wfc_ims_available>true</config_device_wfc_ims_available>
+
+    <!-- Flag indicating whether to use Ims always for emergency call -->
+    <config_use_ims_always_for_emergency_call>true</config_use_ims_always_for_emergency_call>
+
+    <!-- Flag indicating whether strict threshold is used, or lenient threshold is used,
+     when evaluating RSRP for LTE antenna bar display
+     0. Strict threshold
+     1. Lenient threshold -->
+    <config_LTE_RSRP_threshold_type>1</config_LTE_RSRP_threshold_type>
+
+    <!-- Do not translate. Defines the slots is
+         Two Digit Number for dialing normally not USSD -->
+    <config_two_digit_number_pattern>
+        <item>0</item>
+        <item>00</item>
+        <item>*0</item>
+        <item>*1</item>
+        <item>*2</item>
+        <item>*3</item>
+        <item>*4</item>
+        <item>*5</item>
+        <item>*6</item>
+        <item>*7</item>
+        <item>*8</item>
+        <item>*9</item>
+        <item>#0</item>
+        <item>#1</item>
+        <item>#2</item>
+        <item>#3</item>
+        <item>#4</item>
+        <item>#5</item>
+        <item>#6</item>
+        <item>#7</item>
+        <item>#8</item>
+        <item>#9</item>
+    </config_two_digit_number_pattern>
+    <config_same_named_operator_considered_roaming>
+        <item>310110</item>
+        <item>310140</item>
+        <item>310400</item>
+        <item>310470</item>
+        <item>311170</item>
+    </config_same_named_operator_considered_roaming>
+    <config_same_named_operator_considered_non_roaming>
+        <item>310</item>
+        <item>311</item>
+        <item>312</item>
+        <item>313</item>
+        <item>314</item>
+        <item>315</item>
+        <item>316</item>
+    </config_same_named_operator_considered_non_roaming>
+
+    <!--Flag indicating if host is to be shown in list in IMS conference call-->
+    <config_filter_ims_host_particpant>true</config_filter_ims_host_particpant>
+</resources>

@@ -1,0 +1,40 @@
+##!/system/bin/sh
+function lminitlogservice() {
+  if [ "$(getprop persist.sys.kaiosinitlog.enable)" == "1" ] ; then
+    KEY=$(getprop persist.sys.initkeys.enable)
+    PATH=$(getprop persist.sys.kaiosinitlog.path)
+    if [ -n "$PATH" ] ; then
+      echo 'KaiOS init log storage location: '"$PATH"
+      # upper the initlog parent folder permission
+      /system/bin/chmod -R 777 "${PATH%/initlog/*}"
+      # upper the initlog folder permission
+      /system/bin/chmod -R 777 "${PATH%/*}"
+
+      case "$KEY" in
+
+        qxdm)
+          /system/bin/diag_mdlog -f /vendor/diag.cfg -o "$PATH"
+        ;;
+
+        logcat)
+          /system/bin/logcat -b main -b system -b radio -b events -v time > "$PATH" 2>&1
+        ;;
+
+        dmesg)
+          /system/bin/cat /proc/kmsg > "$PATH"
+        ;;
+
+        tcpdump)
+          /system/xbin/tcpdump -i any -p -vv -s 0 -w "$PATH"
+        ;;
+
+        *)
+          echo 'KaiOS init log key parameter must be one of (qxdm/logcat/dmesg/tcpdump).'
+        ;;
+
+      esac
+    fi
+  fi
+}
+
+lminitlogservice

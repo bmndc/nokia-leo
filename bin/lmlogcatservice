@@ -1,0 +1,14 @@
+##!/system/bin/sh
+function startlmlogcatservice(){
+  LNU_tmp=$(getprop persist.sys.kaioslogcat.path)
+  if [ ! "$LNU_tmp" == "" ] ; then
+    echo '$LNU_tmp = '"$LNU_tmp"
+    /system/bin/logcat -b main -b system -b radio -b events -v time > "$LNU_tmp"
+  fi
+}
+function lmlogcatservice(){
+  if [ "$(getprop persist.sys.kaioslogcat.enable)" == "1" ] ; then
+    startlmlogcatservice
+  fi
+}
+lmlogcatservice

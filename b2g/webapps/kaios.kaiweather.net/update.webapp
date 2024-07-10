@@ -1,0 +1,172 @@
+{
+    "name": "KaiWeather",
+    "categories": [
+        "utilities"
+    ],
+    "version": "1.4.4",
+    "description": "Stay up-to-date with reliable weather forecasts and conditions wherever you are, at any time, with alerts and reports from the most trusted source in weather.",
+    "subtitle": "Get the latest weather updates",
+    "launch_path": "/index.html",
+    "type": "web",
+    "origin": "app://kaios.kaiweather.net",
+    "permissions": {
+        "geolocation": {}
+    },
+    "theme_color": "#6054EF",
+    "default_locale": "en-US",
+    "locales": {
+        "en-US": {
+            "name": "KaiWeather",
+            "description": "Stay up-to-date with reliable weather forecasts and conditions wherever you are, at any time, with alerts and reports from the most trusted source in weather.",
+            "subtitle": "Get the latest weather updates"
+        },
+        "pt-BR": {
+            "name": "Meteorologia",
+            "subtitle": "Obtenha as mais recentes atualizações de tempo",
+            "description": "Mantenha-se atualizado com previsões e condições meteorológicas fiáveis onde quer que esteja, em qualquer altura, com alertas e relatórios das fontes de meteorologia mais fidedignas."
+        },
+        "pt-PT": {
+            "name": "Meteorologia",
+            "subtitle": "Obtenha as mais recentes atualizações de tempo",
+            "description": "Mantenha-se atualizado com previsões e condições meteorológicas fiáveis onde quer que esteja, em qualquer altura, com alertas e relatórios das fontes de meteorologia mais fidedignas."
+        },
+        "ru-RU": {
+            "name": "Погода",
+            "subtitle": "Актуальные данные проноза погоды",
+            "description": "Будьте в курсе прогноза и актуальной погоды, где бы вы ни находились, в любое время, с оповещениями и отчетами от самого надежного ресурса погоды."
+        },
+        "ar-SA": {
+            "name": "Weather",
+            "subtitle": "احصل على آخر تحديثات الطقس",
+            "description": "كن على اطلاع دائم بتنبؤات وظروف الطقس الموثوقة أينما كنت، في أي وقت، مع التنبيهات والتقارير من المصدر الأكثر ثقة حول الطقس."
+        },
+        "de-DE": {
+            "name": "Weather",
+            "subtitle": "Aktuelles Wetter",
+            "description": "Dank der verlässlichen Wettervorhersagen sind Sie immer und überall bestens informiert. Die App greift auf Warnungen und Berichte vertrauenswürdiger Wetterdienste zurück."
+        },
+        "es-ES": {
+            "name": "Tiempo",
+            "subtitle": "Recibe las últimas actualizaciones del tiempo",
+            "description": "No te pierdas los partes meteorológicos más actualizados estés donde estés y en cualquier momento con alertas e informes de la fuente meteorológica más fiable."
+        },
+        "es-US": {
+            "name": "Tiempo",
+            "subtitle": "Recibe las últimas actualizaciones del tiempo",
+            "description": "No te pierdas los partes meteorológicos más actualizados estés donde estés y en cualquier momento con alertas e informes de la fuente meteorológica más fiable."
+        },
+        "fr-FR": {
+            "name": "Météo",
+            "subtitle": "Les dernières mises à jour météo",
+            "description": "Obtenez des prévisions et des conditions météorologiques fiables où que vous soyez, à tout moment, avec des alertes et des infos d’une source météo fiable."
+        },
+        "fr-CA": {
+            "name": "Météo",
+            "subtitle": "Les dernières mises à jour météo",
+            "description": "Obtenez des prévisions et des conditions météorologiques fiables où que vous soyez, à tout moment, avec des alertes et des infos d’une source météo fiable."
+        },
+        "it-IT": {
+            "name": "Meteo",
+            "subtitle": "Ottieni gli ultimissimi aggiornamenti meteo",
+            "description": "Resta aggiornato con previsioni e condizioni meteo affidabili ovunque ti trovi, in qualsiasi momento, con allerte e bollettini dalla fonte meteo più affidabile."
+        },
+        "cs-CZ": {
+            "name": "Počasí",
+            "subtitle": "Mějte k dispozici aktuální zprávy o počasí",
+            "description": "Aplikace nabízí spolehlivé předpovědi počasí a informace o aktuálních podmínkách, kdykoli a kdekoli, plus výstrahy a zprávy z nejdůvěryhodnějšího zdroje informací o počasí."
+        },
+        "fi-FI": {
+            "name": "Sää",
+            "subtitle": "Saat uusimmat säätiedot",
+            "description": "Pysy aina ja kaikkialla ajan tasalla luotettavien säätiedotusten ja -ennusteiden avulla. Saat varoitukset ja ennusteet luotetuimmalta sääasiantuntijalta."
+        },
+        "pl-PL": {
+            "name": "Pogoda",
+            "subtitle": "Uzyskaj najnowsze informacje o pogodzie",
+            "description": "Bądź zawsze na bieżąco dzięki rzetelnym prognozom pogody bez względu na to, gdzie jesteś – otrzymuj alerty i raporty pogodowe z najbardziej zaufanego źródła."
+        },
+        "ro-RO": {
+            "name": "Vremea",
+            "subtitle": "Obțineți cele mai recente informații privind vremea",
+            "description": "Rămâneți la curent cu prognoze și condiții meteo de încredere oriunde vă aflați, oricând, cu alerte și rapoarte de la cele mai credibile surse referitoare la vreme."
+        },
+        "hu-HU": {
+            "name": "Időjárás",
+            "subtitle": "Kérje le a legfrissebb időjárás-jelentéseket",
+            "description": "Maradjon naprakész helytől és időtől függetlenül pontos időjárás-jelentések segítségével, a legmegbízhatóbb időjárás-jelentő forrás értesítőinek és jelentéseinek köszönhetően."
+        },
+        "sv-SE": {
+            "name": "Väder",
+            "subtitle": "Få de senaste väderuppdateringarna",
+            "description": "Håll dig uppdaterad med tillförlitliga väderprognoser och förhållanden var och när som helst, med varningar och rapporter från den mest betrodda väderkällan."
+        },
+        "el-GR": {
+            "name": "Καιρός",
+            "subtitle": "Λάβετε τις τελευταίες ενημερώσεις για τον καιρό",
+            "description": "Παραμείνετε ενημερωμένοι με αξιόπιστες προβλέψεις καιρικών συνθηκών, όπου κι αν βρίσκεστε, ανά πάσα στιγμή, με ειδοποιήσεις και δελτία από την πιο έμπιστη πηγή για τον καιρό."
+        },
+        "nb-NO": {
+            "name": "Weather",
+            "subtitle": "Få de siste væroppdateringene",
+            "description": "Hold deg oppdatert med pålitelige værmeldinger og observasjoner uansett hvor du er, og når du er der, med varsler og rapporter fra en kilde som er til å stole på."
+        },
+        "da-DK": {
+            "name": "Vejr",
+            "subtitle": "Få de seneste opdatering på vejret",
+            "description": "Hold dig opdateret med pålidelige vejrudsigter og vejrforhold, lige meget hvor du er, til enhver tid, med advarsler og rapporteringer fra de mest pålidelige vejrtjenester."
+        },
+        "sk-SK": {
+            "name": "Počasie",
+            "subtitle": "Získajte najnovšie informácie o počasí",
+            "description": "Majte aktuálne informácie vďaka spoľahlivým predpovediam počasia a podmienkam, nech ste kdekoľvek, kedykoľvek. S upozorneniami a hláseniami od najdôveryhodnejšieho zdroja informácií o počasí."
+        },
+        "bg-BG": {
+            "name": "Прогноза за времето",
+            "subtitle": "Получавайте най-актуалните метеорологични данни",
+            "description": "Бъдете винаги подготвени с надеждни метеорологични прогнози и условия навсякъде и по всяко време – с известия и съобщения от най-сигурния източник за метеорология."
+        },
+        "hi-HI": {
+            "name": "मौसम",
+            "subtitle": "नवीनतम मौसम अपडेट प्राप्त करें",
+            "description": "आप जहां भी हो मौसम के सबसे विश्वसनीय स्रोत से अलर्ट और रिपोर्ट के साथ किसी भी समय, विश्वसनीय मौसम पूर्वानुमान और परिस्थितियों के साथ अद्यतित रहें।"
+        },
+        "vi-VN": {
+            "name": "Thời tiết",
+            "subtitle": "Nhận thông tin cập nhật thời tiết mới nhất",
+            "description": "Luôn cập nhật các dự báo và điều kiện thời tiết đáng tin cậy mọi lúc mọi nơi, với các cảnh báo và báo cáo từ nguồn đáng tin cậy nhất về thời tiết."
+        },
+        "zh-CN": {
+            "name": "天气",
+            "subtitle": "获取最新的天气更新",
+            "description": "无论身处何地，您随时都可以通过天气应用来获取最新的、可靠的天气预报信息，以及收到来源可靠的警报和报告。"
+        },
+        "zh-HK": {
+            "name": "天氣",
+            "subtitle": "獲取最新的天氣資訊",
+            "description": "無論何時何地，您都可以了解最新可靠的天氣預報和天氣狀況，並從最可靠的天氣來源獲得警報和報告。"
+        },
+        "zh-TW": {
+            "name": "天氣",
+            "subtitle": "獲得最新的天氣更新",
+            "description": "無論何時何地，您都可以透過可靠的天氣預報和天氣狀況獲得最新資訊，並從最受信賴的氣象資訊來源獲得警示和報告。"
+        },
+        "he-IL": {
+            "name": "מזג אויר",
+            "subtitle": "קבל את עדכוני מזג האוויר האחרונים",
+            "description": "התעדכן בתחזיות מזג אוויר אמינות בכל מקום בו תהיה, בכל שעה, עם התראות ודוחות מהמקור המהימן ביותר לנתוני מזג אוויר."
+        }
+    },
+    "fullscreen": false,
+    "developer": {
+        "name": "KaiOS",
+        "url": "http://kaiostech.com"
+    },
+    "icons": {
+        "56": "/resources/icons/weather_56.png",
+        "112": "/resources/icons/weather_112.png"
+    },
+    "orientation": "default",
+    "chrome": {
+        "statusbar": "overlap"
+    }
+}

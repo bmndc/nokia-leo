@@ -1,0 +1,3 @@
+component {276e9542-d226-45e5-9ac7-31e1a8d96b28} timeservice.js
+contract @qti.qualcomm.com/timeservice;1 {276e9542-d226-45e5-9ac7-31e1a8d96b28}
+category profile-after-change timeservice @qti.qualcomm.com/timeservice;1

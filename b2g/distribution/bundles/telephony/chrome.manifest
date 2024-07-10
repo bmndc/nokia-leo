@@ -1,0 +1,18 @@
+
+# Internal contracts
+# Javascript components
+# Resource path aliases
+# Startup notifications
+binary-component telephony.so
+category profile-after-change TelephonyLauncher @qti.qualcomm.com/TelephonyLauncher;1
+component {1D21C3F4-3D05-11E3-AD14-A3306288709B} content_helper/QMessageManager.js
+component {B5823794-683B-11E3-BF68-AA096288709B} content_helper/QTimeService.js
+component {E84CEB54-CF91-11E1-BACF-0D1F6188709B} content_helper/QContentHelper.js
+component {F69F4E4A-9858-48D7-8667-65FCF59206CB} SmsHelper.js
+contract @qti.qualcomm.com/QContentHelper;1 {E84CEB54-CF91-11E1-BACF-0D1F6188709B}
+contract @qti.qualcomm.com/QMessageManager;1 {1D21C3F4-3D05-11E3-AD14-A3306288709B}
+contract @qti.qualcomm.com/QTimeService;1 {B5823794-683B-11E3-BF68-AA096288709B}
+contract @qti.qualcomm.com/SmsHelper;1 {F69F4E4A-9858-48D7-8667-65FCF59206CB}
+manifest interfaces.manifest
+resource qcommon content_helper/
+resource test test/

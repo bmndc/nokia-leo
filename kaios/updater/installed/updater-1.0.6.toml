@@ -1,0 +1,11 @@
+name = "updater"
+version = "1.0.6"
+description = "Standalone KaiOS updater."
+download_size = 1066198
+disk_size = 1651908
+
+files = [
+"service/updater/updater-daemon",
+"service/updater/updater.toml",
+]
+

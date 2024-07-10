@@ -1,0 +1,10 @@
+name = "root"
+version = "1.0.0"
+description = "The virtual top level root package"
+download_size = 28
+disk_size = 0
+
+[dependencies]
+api-daemon = "^1.0"
+updater = "^1.0"
+ads-sdk = "^1.0"

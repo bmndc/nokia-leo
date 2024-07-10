@@ -1,0 +1,83 @@
+{
+  "version": "3.6.0",
+  "name": "Assistant",
+  "description": "The Google Assistant for KaiOS allows you to quickly access your Google Assistant from the main menu. Check if you need to take an umbrella when you leave home, make calls hands free during your commute, and unwind by playing your favorite tunes. You personal Google is here to help. Ask questions and get things done. Use it anytime, anywhere.",
+  "subtitle": "",
+  "launch_path": "/index.html",
+  "icons": {
+    "56": "/assets/icons/icon_56.png",
+    "84": "/assets/icons/icon_84.png"
+  },
+  "developer": {
+    "name": "Google Inc.",
+    "url": "http://google.com"
+  },
+  "theme": "#4285F4",
+  "display": "Google Assistant",
+  "type": "certified",
+  "origin": "app://assistant.google.com",
+  "messages": [
+    { "serviceworker-notification": "/index.html" }
+  ],
+  "permissions": {
+    "audio-capture": {},
+    "video-capture": {
+      "description": "Required to capture video using getUserMedia()"
+    },
+    "audio-channel-content": {},
+    "bluetooth": {},
+    "camera": {},
+    "desktop-notification": {
+      "description": "Required for creating system notifications."
+    },
+    "device-storage:pictures":{ "access": "readwrite" },
+    "flashlight": {},
+    "contacts": {
+      "access": "readwrite",
+      "description": "Required for contact viewer app"
+    },
+    "geolocation": {},
+    "mobileconnection": {},
+    "push": {
+      "description": "Required for sending notifications."
+    },
+    "serviceworker": {
+      "description": "Required for optimizing load times."
+    },
+    "settings": {
+      "access": "readwrite",
+      "description": "Required for device setting"
+    },
+    "sms": {},
+    "systemXHR": {},
+    "telephony": {},
+    "webapps-manage": {}
+  },
+  "installs_allowed_from": [
+    "app://kaios-plus.kaiostech.com"
+  ],
+  "locales": {
+    "en-US": {
+      "name": "Assistant",
+      "description": "The Google Assistant for KaiOS allows you to quickly access your Google Assistant from the main menu. Check if you need to take an umbrella when you leave home, make calls hands free during your commute, and unwind by playing your favorite tunes. You personal Google is here to help. Ask questions and get things done. Use it anytime, anywhere.",
+      "subtitle": "Meet your Assistant. Ask it questions or tell it to do things."
+    }
+  },
+  "default_locale": "en-US",
+  "fullscreen": true,
+  "background_color": "transparent",
+  "activities": {
+    "voice-input": {
+      "disposition": "inline",
+      "returnValue": true,
+      "href": "/index.html?activity=voice-input",
+      "inputStyle": {
+        "types" : ["text", "search", "url", "tel", "number", "month", "week"]
+      }
+    },
+    "voice-assistant": {
+      "disposition": "window",
+      "href": "/index.html?activity=voice-assistant"
+    }
+  }
+}

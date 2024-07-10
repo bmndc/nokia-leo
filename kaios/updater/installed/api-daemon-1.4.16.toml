@@ -1,0 +1,16 @@
+name = "api-daemon"
+version = "1.4.16"
+description = "A daemon to expose non standard apis."
+download_size = 1119699
+disk_size = 1918928
+service = "api-daemon"
+
+files = [
+"service/api-daemon/api-daemon",
+"service/api-daemon/config.toml",
+"service/api-daemon/http_root/api/v1/libsignal/service.js.gz",
+"service/api-daemon/http_root/api/v1/tcpsocket/service.js.gz",
+"service/api-daemon/http_root/api/v1/shared/session.js.gz",
+"service/api-daemon/http_root/api/v1/shared/core.js.gz",
+]
+

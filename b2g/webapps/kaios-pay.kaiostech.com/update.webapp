@@ -1,0 +1,22 @@
+{
+  "description": "KaiOS Pay",
+  "developer": {
+    "name": "KaiOS",
+    "url": "http://kaiostech.com"
+  },
+  "icons": {
+    "56": "/icons/Default.png"
+  },
+  "locales": {
+    "en-US": {
+      "name": "KaiOS Pay",
+      "description": "KaiOS Pay"
+    },
+    "zh-TW": {
+      "name": "KaiOS Pay",
+      "description": "KaiOS Pay"
+    }
+  },
+  "name": "KaiOS Pay",
+  "package_path": "/application.zip"
+}

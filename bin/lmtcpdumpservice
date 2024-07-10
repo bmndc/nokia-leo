@@ -1,0 +1,14 @@
+##!/system/bin/sh
+function startlmtcpdumpservice(){
+  LNU_tmp=$(getprop persist.sys.kaiostcpdump.path)
+  if [ ! "$LNU_tmp" == "" ] ; then
+    echo '$LNU_tmp = '"$LNU_tmp"
+    /system/xbin/tcpdump -i any -p -vv -s 0 -w "$LNU_tmp"
+  fi
+}
+function lmtcpdumpservice(){
+  if [ "$(getprop persist.sys.kaiostcpdump.enable)" == "1" ] ; then
+    startlmtcpdumpservice
+  fi
+}
+lmtcpdumpservice

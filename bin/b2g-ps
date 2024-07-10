@@ -1,0 +1,78 @@
+#!/system/bin/sh
+# ps output is: user pid ppid vss rss wchan eip state cmdline
+#
+# b2g-ps is essentially a filtered ps. It only shows the b2g apps and also
+# prepends each line with the name of the process.
+
+report_oom=0
+
+for arg in "$@"
+  do
+    case "$arg" in
+      "--oom")
+        report_oom=1
+        ;;
+      *)
+        args="${args} ${arg}"
+        ;;
+    esac
+  done
+
+toolbox ps $args | (
+  IFS= read header
+  new_hdr="APPLICATION    SEC"
+  if [ "${report_oom}" == "1" ]; then
+    new_hdr="${new_hdr}  OOM_ADJ  OOM_SCORE  OOM_SCORE_ADJ "
+  fi
+  echo "${new_hdr} ${header}"
+  #
+  # Make a pass and figure out which processes are the b2g processes
+  #
+  while read user pid ppid rest; do
+    pids="${pids} ${pid}"
+    pid_user[${pid}]="${user}"
+    pid_ppid[${pid}]="${ppid}"
+    pid_rest[${pid}]="${rest}"
+    if [ "${rest/*b2g*/b2g}" = "b2g" ] ||
+       [ "${rest/*api-daemon*/api-daemon}" = "api-daemon" ] ||
+       [ "${rest/*updater*/updater-daemon}" = "updater-daemon" ]; then
+        b2g[${pid}]=1
+    fi
+  done
+
+  # This is the format of the output of "toolbox ps"
+  #
+  # USER     PID   PPID  VSIZE  RSS     WCHAN    PC         NAME
+  # root      1     0     480    340   c013bfe4 00008728 S /init
+
+
+  for pid in ${pids}; do
+    ppid="${pid_ppid[${pid}]}"
+    # If this thread/process is b2g or its parent is b2g then we output
+    # it (using the -t option will cause toolbox ps to show all of threads)
+    if [ "${b2g[${pid}]}" == "1" -o "${b2g[${ppid}]}" == "1" ]; then
+      fmt_user="${pid_user[${pid}]}         "
+      fmt_pid="${pid}     "
+      fmt_ppid="${pid_ppid[${pid}]}     "
+      comm=
+      seccomp=
+      while read statkey statval; do
+        case $statkey in
+          Name:) comm=$statval ;;
+          Seccomp:) seccomp=$statval ;;
+        esac
+      done < /proc/${pid}/status
+      comm="$comm                "
+      new_fields="${comm:0:16} ${seccomp:-0}"
+      line="${fmt_user:0:9} ${fmt_pid:0:5} ${fmt_ppid:0:5} ${pid_rest[${pid}]}"
+      if [ "${report_oom}" == "1" ]; then
+        oom_adj="   $(cat /proc/${pid}/oom_adj)    "
+        oom_score="   $(cat /proc/${pid}/oom_score)      "
+        oom_score_adj="    $(cat /proc/${pid}/oom_score_adj)         "
+        new_fields="${new_fields}  ${oom_adj:0:7}  ${oom_score:0:9}  ${oom_score_adj:0:12}  "
+      fi
+      echo "${new_fields} ${line}"
+    fi
+  done
+)
+

@@ -1,0 +1,24 @@
+{
+  "version": "2.0.0",
+  "name": "YouTubeApp",
+  "description": "YouTube",
+  "type": "privileged",
+  "theme": "#e62117",
+  "launch_path": "/index.html",
+  "developer": {
+    "name": "YouTube, LLC",
+    "url": "https://www.youtube.com"
+  },
+  "default_locale": "en-US",
+  "display":"YouTube",
+  "locales": {
+    "en-US": {
+      "name":"YouTube"
+	}
+  },
+  "origin": "app://youtube.com",
+  "icons": {
+    "56": "/icon56.png",
+    "112": "/icon112.png"
+  }
+}

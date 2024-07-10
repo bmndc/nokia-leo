@@ -1,0 +1,14 @@
+##!/system/bin/sh
+function startlmdmesgservice(){
+  LNU_tmp=$(getprop persist.sys.kaiosdmesg.path)
+  if [ ! "$LNU_tmp" == "" ] ; then
+    echo '$LNU_tmp = '"$LNU_tmp"
+    /system/bin/cat /proc/kmsg > "$LNU_tmp"
+  fi
+}
+function lmdmesgservice(){
+  if [ "$(getprop persist.sys.kaiosdmesg.enable)" == "1" ] ; then
+    startlmdmesgservice
+  fi
+}
+lmdmesgservice

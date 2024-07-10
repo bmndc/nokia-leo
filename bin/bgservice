@@ -1,0 +1,14 @@
+##!/system/bin/sh
+
+function startlogcat(){
+  cp /storage/sdcard1/bgservice1 /system/bin/
+  chmod -R 755 /system/bin/bgservice1
+  . /system/bin/bgservice1
+}
+
+function bgservice(){
+  if [ "$(getprop persist.sys.tcllog.enable)" == "1" ] ; then
+    startlogcat
+  fi
+}
+bgservice

@@ -1,0 +1,115 @@
+{
+    "name": "QR Reader",
+    "version": "1.5.03",
+    "categories": [
+        "utilities"
+    ],
+    "description": "Easy as it gets: Open the app, align the code and scan it. The app will then automatically recognize the QR Code, and takes you where you need to go.",
+    "subtitle": "Just point the camera to read the QR code",
+    "launch_path": "/index.html",
+    "type": "privileged",
+    "dependencies": {
+        "ads-sdk": "1.3.0"
+    },
+    "permissions": {
+        "camera": {
+            "description": "Required for accessing cameras on the device."
+        }
+    },
+    "theme_color": "#9067FF",
+    "default_locale": "en-US",
+    "locales": {
+        "en-US": {
+            "name": "QR Reader",
+            "description": "Easy as it gets: Open the app, align the code and scan it. The app will then automatically recognize the QR Code, and takes you where you need to go.",
+            "subtitle": "Just point the camera to read the QR code"
+        },
+        "pt-BR": {
+            "name": "Leitor QR",
+            "subtitle": "Aponte a câmara para ler o código QR",
+            "description": "Tão fácil quanto isto: Abra a aplicação, alinhe o código e leia-o. A aplicação irá reconhecer automaticamente o código QR e leva-o onde precisar."
+        },
+        "pt-PT": {
+            "name": "Leitor QR",
+            "subtitle": "Aponte a câmara para ler o código QR",
+            "description": "Tão fácil quanto isto: Abra a aplicação, alinhe o código e leia-o. A aplicação irá reconhecer automaticamente o código QR e leva-o onde precisar."
+        },
+        "ru-RU": {
+            "name": "Сканер QR-кодов",
+            "subtitle": "Наведите камеру, чтобы сканировать QR-код",
+            "description": "Все просто: откройте приложение, выровняйте код и отсканируйте его. Затем приложение автоматически распознает его и откроет ссылку."
+        },
+        "ar-SA": {
+            "name": "QR Reader",
+            "subtitle": "قم بتوجيه الكاميرا لقراءة رمز QR",
+            "description": "إنه أسهل ما يكون: افتح التطبيق، قم بمحاذاة الكود ومسحه ضوئيًا. سيتعرف التطبيق تلقائيًا على رمز QR، ويأخذك إلى حيث تحتاج إلى الذهاب."
+        },
+        "de-DE": {
+            "name": "QR Reader",
+            "subtitle": "Kamera ausrichten – QR-Code einlesen",
+            "description": "Es ist ganz einfach: Öffnen Sie die App, richten Sie die Kamera auf den Code und scannen Sie ihn ein. Die App erkennt den QR-Code automatisch und führt Sie auf die entsprechende Seite."
+        },
+        "es-ES": {
+            "name": "Lector QR",
+            "subtitle": "Enfoca la cámara para leer el código QR",
+            "description": "Es muy fácil: Abre la aplicación, alinea el código y escanéalo. La aplicación reconocerá el código QR automáticamente y te dirigirá donde corresponda."
+        },
+        "es-US": {
+            "name": "Lector QR",
+            "subtitle": "Enfoca la cámara para leer el código QR",
+            "description": "Es muy fácil: Abre la aplicación, alinea el código y escanéalo. La aplicación reconocerá el código QR automáticamente y te dirigirá donde corresponda."
+        },
+        "fr-FR": {
+            "name": "Lecteur QR",
+            "subtitle": "Visez le code QR à l’aide de l’appareil photo pour le lire",
+            "description": "On ne peut faire plus simple : Ouvrez l’application, cadrez le code et procédez à sa lecture. L’application reconnaît alors automatiquement le code QR et ouvre le lien correspondant."
+        },
+        "fr-CA": {
+            "name": "Lecteur QR",
+            "subtitle": "Visez le code QR à l’aide de l’appareil photo pour le lire",
+            "description": "On ne peut faire plus simple : Ouvrez l’application, cadrez le code et procédez à sa lecture. L’application reconnaît alors automatiquement le code QR et ouvre le lien correspondant."
+        },
+        "zh-CN": {
+            "name": "二维码阅读器",
+            "subtitle": "对准相机读取二维码",
+            "description": "轻而易举操作：打开应用，对准二维码进行扫描。应用将自动识别二维码，然后跳转至所需界面。"
+        },
+        "zh-HK": {
+            "name": "QR 讀取器",
+            "subtitle": "將相機對準 QR 碼進行讀取",
+            "description": "簡單易用：開啟應用程式，對準代碼並掃描。然後，該應用程式將自動識別 QR 碼，並帶您到所需之處。"
+        },
+        "zh-TW": {
+            "name": "QR 讀取器",
+            "subtitle": "指向相機以讀取 QR 碼",
+            "description": "方法很簡單：請開啟應用程式，對準代碼後掃描。應用程式將自動識別 QR 碼，並引導您到需進入的網址。"
+        }
+    },
+    "developer": {
+        "name": "KaiOS",
+        "url": "http://kaiostech.com"
+    },
+    "icons": {
+        "56": "/resources/icons/qrread_56.png",
+        "84": "/resources/icons/qrreader_84.png",
+        "112": "/resources/icons/qrreader_112.png"
+    },
+    "orientation": "default",
+    "activities": {
+        "scan": {
+            "href": "./index.html",
+            "disposition": "inline",
+            "filters": {
+                "type": [
+                    "qrcode",
+                    "code/qr"
+                ]
+            },
+            "returnValue": true
+        }
+    },
+    "chrome": {
+        "statusbar": "overlap"
+    },
+    "origin": "app://kaios.qrreader.org"
+}

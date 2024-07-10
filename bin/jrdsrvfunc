@@ -1,0 +1,28 @@
+##!/bin/sh
+
+function kill2() {
+	echo $0
+	echo $1
+	echo $*
+	if [ $4 -eq "1" ] ;then
+		kill $3
+	fi
+
+}
+
+function killProcByPpid(){
+  touch /data/tmp.a
+  echo $*
+  echo "killProcByPpid"
+  echo $0 $1
+  ps | grep $1 > /data/tmp.txt
+  while read line
+  do
+	echo $line
+	echo "------------------"
+	kill2 $1 $line
+  done < /data/tmp.txt
+}
+
+
+killProcByPpid $*

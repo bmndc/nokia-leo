@@ -1,0 +1,35 @@
+##!/system/bin/sh
+function startlmqxdmservice(){
+  LNU_tmp=$(getprop persist.sys.kaiosqxdm.path)
+  if [ ! "$LNU_tmp" == "" ] ; then
+    echo '$LNU_tmp = '"$LNU_tmp"
+      if [ "$(getprop persist.sys.kaiosdiagcfg.enable)" == "1" ] ; then
+        /system/bin/diag_mdlog -f /sdcard/diag.cfg -o "$LNU_tmp"
+      else
+        /system/bin/diag_mdlog -f /vendor/diag.cfg -o "$LNU_tmp"
+      fi
+  fi
+}
+
+function startlmqxdmservice2(){
+  LNU_tmp=$(getprop persist.sys.kaiosqxdm.path)
+  LNU_props=$(getprop persist.sys.autolog.props)
+  if [ ! "$LNU_tmp" == "" ] ; then
+    /system/bin/diag_mdlog -f /vendor/diag.cfg -o "$LNU_tmp" -s "$LNU_props" -n 2
+  fi
+}
+
+function lmqxdmservice(){
+  PATH_base=$(getprop persist.sys.kaiosqxdm.path)
+  if [ ! "$PATH_base" == "" ] ; then
+    chmod -R 777 ${PATH_base%/*}
+  fi
+  if [ "$(getprop persist.sys.kaiosqxdm.enable)" == "1" ] ; then
+    if [ "$(getprop persist.sys.autolog.enable)" == "1" ] ; then
+      startlmqxdmservice2
+    else
+      startlmqxdmservice
+    fi
+  fi
+}
+lmqxdmservice

@@ -1,0 +1,15 @@
+name = "ads-sdk"
+version = "1.3.2"
+description = "SDK to allow loading of ads in packaged apps."
+download_size = 2375
+disk_size = 4350
+
+files = [
+"service/api-daemon/http_root/sdk/ads/wrapper.js",
+"service/api-daemon/http_root/sdk/ads/ad-wrapper.html",
+"service/api-daemon/http_root/sdk/ads/ads-sdk.js",
+]
+
+
+[dependencies]
+api-daemon = ">= 1.0.0"

@@ -1,0 +1,11 @@
+
+# JavaScript components
+# Startup notification
+#Internal Contracts
+binary-component location.so
+category profile-after-change GonkGPSGeolocationProvider @mozilla.org/gonk-gps-geolocation-provider;1
+component {54dcaec9-7f8e-4878-9292-465424d9f800} QMozSettingsShim.js
+component {b241dfef-562d-439e-8efa-8d6b001ef1d7} xtradownloader.js
+contract @qti.qualcomm.com/QMozSettingsShim;1 54dcaec9-7f8e-4878-9292-465424d9f800
+contract @qualcomm.com/XtraDownloader;1 b241dfef-562d-439e-8efa-8d6b001ef1d7
+manifest interfaces.manifest

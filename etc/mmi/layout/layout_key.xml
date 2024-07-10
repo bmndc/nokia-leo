@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2014-2015 Qualcomm Technologies, Inc. All Rights Reserved.
+    Qualcomm Technologies Proprietary and Confidential.
+-->
+<layout>
+   <button w_rel="32" h_rel="10" x_rel="0"  y_rel="0"  name="headphone" text="btn_headphone_insert" color="0x007D7DFF" />
+   <button w_rel="32" h_rel="10" x_rel="34" y_rel="0"  name="key_up" text="btn_key_up" color="0x007D7DFF" />
+   <button w_rel="32" h_rel="10" x_rel="68" y_rel="0"  name="hall_sensor" text="btn_hall" color="0x007D7DFF" />
+   <button w_rel="32" h_rel="10" x_rel="0"  y_rel="12" name="key_left" text="btn_key_left" color="0x007D7DFF" />
+   <button w_rel="32" h_rel="10" x_rel="34" y_rel="12" name="key_ok" text="btn_key_ok" color="0x007D7DFF" />
+   <button w_rel="32" h_rel="10" x_rel="68" y_rel="12" name="key_right" text="btn_key_right" color="0x007D7DFF" />
+   <button w_rel="32" h_rel="10" x_rel="0"  y_rel="24" name="key_send" text="btn_key_send" color="0x007D7DFF" />
+   <button w_rel="32" h_rel="10" x_rel="34" y_rel="24" name="key_down" text="btn_key_down" color="0x007D7DFF" />
+   <button w_rel="32" h_rel="10" x_rel="68" y_rel="24" name="power" text="btn_power" color="0x007D7DFF" />
+   <button w_rel="32" h_rel="10" x_rel="0"  y_rel="36" name="key_1" text="btn_key_1" color="0x007D7DFF" />
+   <button w_rel="32" h_rel="10" x_rel="34" y_rel="36" name="key_2" text="btn_key_2" color="0x007D7DFF" />
+   <button w_rel="32" h_rel="10" x_rel="68" y_rel="36" name="key_3" text="btn_key_3" color="0x007D7DFF" />
+   <button w_rel="32" h_rel="10" x_rel="0"  y_rel="48" name="key_4" text="btn_key_4" color="0x007D7DFF" />
+   <button w_rel="32" h_rel="10" x_rel="34" y_rel="48" name="key_5" text="btn_key_5" color="0x007D7DFF" />
+   <button w_rel="32" h_rel="10" x_rel="68" y_rel="48" name="key_6" text="btn_key_6" color="0x007D7DFF" />
+   <button w_rel="32" h_rel="10" x_rel="0"  y_rel="60" name="key_7" text="btn_key_7" color="0x007D7DFF" />
+   <button w_rel="32" h_rel="10" x_rel="34" y_rel="60" name="key_8" text="btn_key_8" color="0x007D7DFF" />
+   <button w_rel="32" h_rel="10" x_rel="68" y_rel="60" name="key_9" text="btn_key_9" color="0x007D7DFF" />
+   <button w_rel="32" h_rel="10" x_rel="0"  y_rel="72" name="key_star" text="btn_key_star" color="0x007D7DFF" />
+   <button w_rel="32" h_rel="10" x_rel="34" y_rel="72" name="key_0" text="btn_key_0" color="0x007D7DFF" />
+   <button w_rel="32" h_rel="10" x_rel="68" y_rel="72" name="key_pound" text="btn_key_pound" color="0x007D7DFF" />
+   <include layout="footer.xml"/>
+</layout>
