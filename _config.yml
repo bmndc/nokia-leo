@@ -1,6 +1,6 @@
 title: Nokia 6300 4G (nokia-leo)
 author: Bùi Minh Đức
-baseurl: "https://bmndc.github.io/nokia-leo/"
+# baseurl: "https://bmndc.github.io/nokia-leo/"
 description: >
   Archive of guides, source code and firmware backups for Nokia 6300 4G.
 
@@ -25,7 +25,7 @@ exclude:
 
 theme_config:
   appearance: "auto"
-  back_home_text: "Back to main page"
+  back_home_text: "&larr; Back to main page"
   date_format: "%d-%m-%Y"
   show_description: false
 
