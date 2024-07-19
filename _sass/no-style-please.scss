@@ -27,6 +27,7 @@
 	--text-color: white;
 	--bg-color: black;
 	--link-color: lightblue;
+	--highlight-color: blue;
 }
 
 :root {
@@ -34,6 +35,7 @@
 	--text-color: black;
 	--bg-color: white;
 	--link-color: #4c566a;
+	--highlight-color: yellow;
 }
 
 body[a="dark"] {
@@ -107,7 +109,7 @@ li {
 
 *:target {
 	// Highlight a section heading if it is referenced from a href
-	background: yellow;
+	background: var(--highlight-color);
 }
 
 .w {

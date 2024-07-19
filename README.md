@@ -41,10 +41,9 @@
     </table>
 </details>
 
-*Source code [provided by HMD] for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used on the 6300 4G can be found in [`leo-v20` branch of this repository]. Do note that it doesn't contain proprietary code from third parties and thus cannot be used to compile a functional KaiOS build.*
+*Source code for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used [by HMD] on the 6300 4G can be found in the [`leo-v20` branch of this repository]. Do note that it does NOT contain proprietary code from some vendors and thus cannot be used to compile a functional KaiOS build.*
 
-<div id="toc" markdown="block" style="display:flow-root">
-    <img class="leo" align="right" width="390" height="390" style="width:390px;" src="assets/images/press/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
+<img class="leo" align="right" width="390" height="390" style="width:390px;" src="assets/images/press/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
 
 **Table of Contents**
 - [Don't buy a counterfeit](#dont-buy-a-counterfeit)
@@ -55,12 +54,12 @@
     - [KaiOS-specific](#kaios-specific)
 - [Secret codes](#secret-codes)
 - [Special boot modes](#special-boot-modes)
+    - [Recovery mode](#recovery-mode)
+    - [Fastboot mode](#fastboot-mode)
+    - [EDL mode](#edl-mode)
     - [UART debugging testpoint](#uart-debugging-testpoint)
 - [Sideloading and debugging third-party applications](#sideloading-and-debugging-third-party-applications)
 - [External links](#external-links)
-
-    <img src="assets/images/press/0x01-1000.png" alt="">
-</div>
 
 <!-- In late 2020, as people need to stay connected amid the height of the [COVID-19 pandemic], HMD Global quietly introduced the new Nokia 6300 4G with KaiOS 2.5.4. Following the successful relaunch of the Nokia-branded retros 2720 Flip and 800 Tough, the 6300 4G packs a bunch of modern features, such as 4G LTE, Wi-Fi and social apps like WhatsApp and Facebook into a pocket-friendly design, whilst inheriting the classic candy-bar look of the original Nokia 6300. It was [one of the most affordable] the company has ever offered in its KaiOS lineup, at €49/$69.99, though still pricier than the general KaiOS devices. Since then, the phone has gained popularity and also mixed reviews from the community, notably on its performance and keypad typing experience.
 
@@ -188,28 +187,39 @@ Most of these codes requires `userdebug` or `eng` versions to work.
 - `*#1314#`: Switch the `auto.send.crash.sms` property, whose purpose is still unknown.
 
 ## Special boot modes
-- **Recovery mode**: With the device powered off, hold the top Power button and the * key, or type `adb reboot recovery` when connected to a computer. Allows you to factory reset the device by wiping /data and /cache, view boot and kernel logs, and install patches from `adb sideload` interface or SD card.
-- **Fastboot mode**: Only accessible and automatically kick in when both /boot and /recovery is corrupted. Allows you to restore partitions under `fastboot` interface.
-- **EDL mode**: With the device powered off, hold the top Power button and both the * and # keys, or type `adb reboot edl` when connected to a computer. Boots into a black screen, allows you to read and write partitions in low-level with proprietary Qualcomm tools. Remove the battery to exit.
+### Recovery mode
+With the phone powered off, hold the top Power button and the <kbd>*</kbd> key, or type `adb reboot recovery` when connected to a computer. Use D-Pad Up and Down to move between options, and press the Power button (not the center OK key) to select. 
 
-<details markdown="block"><summary>What the heck is EDL mode?</summary>
-<hr style="font-family:monospace;">
+Allows you to factory reset by wiping /data and /cache, view boot and kernel logs, install patches from `adb sideload` or SD card.
 
-**Qualcomm Emergency Download mode**, commonly known as EDL mode, is a special engineering interface implemented on devices with Qualcomm chipsets. It lets you do special operations on the phone that only the device manufacturer can do, such as unlocking the bootloader, read and write firmwares on the phone's filesystem or recover from being a dead paperweight. Unlike bootloader or Fastboot mode, system files needed by the EDL mode resides on a separate 'primary bootloader' that aren't affected by software modifications.[^3]
+**Tip:** `/recovery` partition has the same 32.0 MB (32,768 KB) size as `/boot`, which means that you can replace `/recovery` with a copy of `/boot` to boot into KaiOS, and reserve `/boot` for e.g. installing other operating systems such as postmarketOS.
 
-Booting into this mode, the phone's screen will briefly show the 'enabled by KaiOS' logo, then turn almost black as if it's off, but in fact it's still listening to commands over Qualcomm's proprietary protocol called Sahara (or Firehose on newer devices). With a [suitable digitally-signed programmer in MBN/ELF file format] and some instruction-bundled tools, the most popular one being QFIL (Qualcomm Flash Image Loader), one can send commands from a computer to the phone over USB.
-<hr style="font-family:monospace;"></details>
+### Fastboot mode
+Only accessible and automatically kick in when both /boot and /recovery is corrupted (you are stuck on the "enabled by KaiOS" logo). Part of Android bootloader, which allows you to write partitions should you wish to fix or modify them.
 
-You can also **force reboot** the phone by holding the top Power button and the # key at any time.
+To interact with the `fastboot` interface, you'll need the `fastboot` CLI tool on your computer. On macOS and Linux, `fastboot` is included in the `android-tools` package. On Windows, follow the [Sideloading and debugging third-party applications] guide to set up ADB; you'll also need to install [Google's driver] as an INF file for your computer to see your phone in `fastboot` mode.
 
-EDL programmer for the international version of this phone (not TA-1324) can be found on BananaHackers' [EDL archive site] with hardware ID 0x009600e100420029 (a copy is available in the content of this repository). TA-1324 version of this phone has been signed with a different PK_HASH and needs a different firehose loader which we currently don't have in archive.
+If you have plugged in your phone before setting up the driver: open Device Manager (<kbd>Win</kbd> + <kbd>R</kbd>, `devmgmt.msc`), look for an "Android" device with an exclamation mark, right click, Install Driver..., Browse my computer for drivers, Let me pick from a list of device drivers on my computer, Have Disk... and select the INF file.
+
+Once the driver is installed, you should see your phone in the Driver Manager list as `Android Bootloader Interface`.
+
+For a full list of commands you can use in the Fastboot interface, see the [Android/Fastboot entry on Gentoo Linux Wiki]. Do note that not all commands can be used on the 6300 4G.
+
+### EDL mode
+Emergency Download mode can typically be found on devices with Qualcomm chipset, and locates on a separate 'primary bootloader' in which software modifications cannot affect.[^3]
+
+With the phone powered off, hold the top Power button and both the <kbd>*</kbd> and <kbd>#</kbd> keys, or type `adb reboot edl` when connected to a computer. Boots into a black screen, allows you to read and write partitions over proprietary Sahara or Firehose protocol. Remove the battery to exit.
+
+You can also **force reboot** the phone by holding the top Power button and the <kbd>#</kbd> key at any time.
+
+An EDL programmer for the non-US variants of 6300 4G (other than TA-1324) can be found on BananaHackers' [EDL archive website] with hardware ID 0x009600e100420029 (a copy is available in this repository under `assets/`). TA-1324 variant has been signed with a different PK_HASH and needs a different firehose loader which we currently don't have in archive.
 
 ### UART debugging testpoint
-[As discovered by atipls on Discord and @Llixuma], on the mainboard of the 6300 4G, there are 3 UART testing points in the order of TX, RX and GND just above the SIM2 slot. Shorting TX at 1.8V and GND takes you to Fastboot and Linux terminal interface.
+[As discovered by atipls on Discord and @Llixuma], on the mainboard of the 6300 4G, there are 3 UART testing points: TX, RX and GND just above the SIM2 slot. Shorting TX at 1.8V and GND takes you to Fastboot mode and Linux terminal interface.
 
-<p align="center"><img loading="lazy" width="220" alt="Mainboard of a TA-1307 Nokia 6300 4G, with the red arrow pointing to three gold contacts in the middle of the board, those being the UART testpoints in the order of TX, RX and ground" src="assets/images/testpoint.png"></p>
+<p align="center"><img loading="lazy" width="220" alt="Mainboard of a TA-1307 Nokia 6300 4G, with the red arrow pointing to three gold contacts in the middle of the board, those being the TX, RX and ground UART testpoints" src="assets/images/testpoint.png"></p>
 
-Note that by default, KaiOS kernel disables the UART testpoints; kernel logs from UART testpoints will stop once the Linux kernel kicks in. To read the full output from UART, compile the Linux kernel from OSS release [provided by HMD]—also available under [`leo-v20` branch of this repository]—with `LEO_defconfig` flag (not `LEO_defconfig-perf`).
+By default, KaiOS's Linux kernel disables the UART testpoints; logs from UART testpoints will stop once the kernel kicks in. To read the full output from UART, compile the Linux kernel from HMD's OSS release with `LEO_defconfig` flag (not `LEO_defconfig-perf`).
 
 ## Sideloading and debugging third-party applications
 Don't want to download apps from KaiStore? Both the 6300 4G and 8000 4G have been classified as debug-enabled by the BananaHackers team. As with other KaiOS 2.5.4 devices, you can install and debug apps from outside sources on these phones, so long as they don't use 'forbidden' permissions, such as `engmode-extension`, `embed-apps` and `embed-widgets`, and you cannot debug pre-installed apps on the phone using WebIDE's Developer Tools (you're free to use `adb logcat` to view system logs instead).
@@ -241,7 +251,7 @@ To remove unwanted apps from the phone, you can use [this fork of Luxferre's App
 [^4]: Read more about [SELinux on LineageOS Engineering Blog].
 
 <!-------------------------------- LINKS -------------------------------->
-[provided by HMD]: https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz
+[by HMD]: https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz
 [`leo-v20` branch of this repository]: https://github.com/bmndc/nokia-leo/tree/leo-v20
 
 [one of the most affordable]: https://www.hmdglobal.com/new-nokia-feature-phones-nokia-6300-4g-and-nokia-8000-4g
@@ -286,8 +296,10 @@ To remove unwanted apps from the phone, you can use [this fork of Luxferre's App
 [Call barring]: https://www.communityphone.org/blogs/call-barring
 [Call waiting]: https://en.wikipedia.org/wiki/Call_waiting
 [Luxferre's CrossTweak]: https://gitlab.com/suborg/crosstweak
+[Google's driver]: https://developer.android.com/studio/run/win-usb
+[Android/Fastboot entry on Gentoo Linux Wiki]: https://wiki.gentoo.org/wiki/Android/Fastboot
 [suitable digitally-signed programmer in MBN/ELF file format]: https://edl.bananahackers.net
-[EDL archive site]: https://edl.bananahackers.net/loaders/8k.mbn
+[EDL archive website]: https://edl.bananahackers.net/loaders/8k.mbn
 [As discovered by atipls on Discord and @Llixuma]: https://discord.com/channels/472006912846594048/539074521580437504/1155993357206700205
 
 [Sideloading and debugging third-party applications/ADB and WebIDE]: https://github.com/bmndc/nokia-leo/wiki/Sideloading-and-debugging-third%E2%80%90party-applications
