@@ -24,14 +24,16 @@
 
 @mixin dark-appearance {
 	// Colour palette for dark mode
-	--text-color: #eceff4;
-	--bg-color: #3b4252;
+	--text-color: white;
+	--bg-color: black;
+	--link-color: lightblue;
 }
 
 :root {
 	// Colour palette for default/light mode
-	--text-color: #2e3440;
+	--text-color: black;
 	--bg-color: white;
+	--link-color: #4c566a;
 }
 
 body[a="dark"] {
@@ -96,7 +98,7 @@ p {
 }
 
 a {
-	color: var(--text-color); // default: blue
+	color: var(--link-color); // default: blue
 }
 
 li {
