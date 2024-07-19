@@ -22,6 +22,18 @@
 }
 ================================================================================== */
 
+@mixin dark-appearance {
+	// Colour palette for dark mode
+	--text-color: #eceff4;
+	--bg-color: #3b4252;
+}
+
+:root {
+	// Colour palette for default/light mode
+	--text-color: #2e3440;
+	--bg-color: white;
+}
+
 body[a="dark"] {
 	// theme_config: Invert colors if 'appearance' is set to dark in _config.yml
 	@include dark-appearance;

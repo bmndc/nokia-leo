@@ -1,13 +1,3 @@
-@mixin dark-appearance {
-	// Colour palette for dark mode
-	--text-color: #eceff4;
-	--bg-color: #3b4252;
-}
-:root {
-	// Colour palette for default/light mode
-	--text-color: #2e3440;
-	--bg-color: white;
-}
 // #post-list li {
 // 	// End each post item with an ellipsis rather than wrapping its entire title
 // 	width: 100%;
@@ -15,6 +5,7 @@
 // 	white-space: nowrap; // Don't do new lines after ellipsis
 // 	overflow: hidden; // Don't show anything after ellipsis
 // }
+
 .leo {
 	margin: 0 0 1rem 1rem;
 	// Undo float: right on header image on small screens
@@ -23,6 +14,7 @@
 		margin: 0 auto;
 	}
 }
+
 #toc li > p {
 	margin: 0;
 }
