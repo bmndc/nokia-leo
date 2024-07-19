@@ -3,6 +3,16 @@
 
 @import "no-style-please";
 
+@mixin dark-appearance {
+	// Colour palette for dark mode
+	--text-color: #eceff4;
+	--bg-color: #3b4252;
+}
+:root {
+	// Colour palette for default/light mode
+	--text-color: #2e3440;
+	--bg-color: white;
+}
 // #post-list li {
 // 	// End each post item with an ellipsis rather than wrapping its entire title
 // 	width: 100%;

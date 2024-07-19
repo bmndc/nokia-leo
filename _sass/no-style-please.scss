@@ -22,20 +22,6 @@
 }
 ================================================================================== */
 
-@mixin dark-appearance {
-	// Colour palette for dark mode
-	--text-color: #d3cfca;
-	--bg-color: #121212;
-	--link-color: #7affe6;
-}
-
-:root {
-	// Colour palette for default/light mode
-	--text-color: #202122;
-	--bg-color: white;
-	--link-color: #0d614f;
-}
-
 body[a="dark"] {
 	// theme_config: Invert colors if 'appearance' is set to dark in _config.yml
 	@include dark-appearance;
@@ -61,9 +47,8 @@ html {
 
 body {
 	color: var(--text-color); // default: white
-	// default: monospace
-	font-family: -apple-system, BlinkMacSystemFont, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-	font-size: 14px; // default: 16px
+	font-family: -apple-system, BlinkMacSystemFont, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; // default: monospace
+	font-size: 1rem; // default: 16px
 	line-height: 1.5; // default: 1.4
 	margin: 0;
 	min-height: 100%;
@@ -99,7 +84,7 @@ p {
 }
 
 a {
-	color: var(--link-color);
+	color: var(--text-color); // default: blue
 }
 
 li {
