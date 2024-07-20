@@ -188,34 +188,34 @@ Most of these codes requires `userdebug` or `eng` versions to work.
 
 ## Special boot modes
 ### Recovery mode
-With the phone powered off, hold the top Power button and the <kbd>*</kbd> key, or type `adb reboot recovery` when connected to a computer. Use D-Pad Up and Down to move between options, and press the Power button (not the center OK key) to select. 
+With the phone powered off, hold the top Power button and the * key, or type `adb reboot recovery` when connected to a computer. Use D-Pad Up and Down to move between options, and press the Power button (not the center OK key) to select. 
 
 Allows you to factory reset by wiping /data and /cache, view boot and kernel logs, install patches from `adb sideload` or SD card.
 
 **Tip:** `/recovery` partition has the same 32.0 MB (32,768 KB) size as `/boot`, which means that you can replace `/recovery` with a copy of `/boot` to boot into KaiOS, and reserve `/boot` for e.g. installing other operating systems such as postmarketOS.
 
 ### Fastboot mode
-Only accessible and automatically kick in when both /boot and /recovery is corrupted (you are stuck on the "enabled by KaiOS" logo). Part of Android bootloader, which allows you to write partitions should you wish to fix or modify them.
+Only accessible and automatically kick in when both the boot and recovery partitions are corrupted (you are stuck on the "enabled by KaiOS" logo). Part of Android bootloader, which allows you to write partitions should you wish to fix or modify them.
 
-To interact with the `fastboot` interface, you'll need the `fastboot` CLI tool on your computer. On macOS and Linux, `fastboot` is included in the `android-tools` package. On Windows, follow the [Sideloading and debugging third-party applications] guide to set up ADB; you'll also need to install [Google's driver] as an INF file for your computer to see your phone in `fastboot` mode.
+To interact with the Fastboot interface, you need the `fastboot` CLI tool on your computer. On macOS and Linux, `fastboot` is included in the `android-tools` package. On Windows, follow the [Sideloading and debugging third-party applications] guide to set up ADB; you'll also need to install [Google's generic driver] as an INF file for your computer to see your phone in this mode.
 
-If you have plugged in your phone before setting up the driver: open Device Manager (<kbd>Win</kbd> + <kbd>R</kbd>, `devmgmt.msc`), look for an "Android" device with an exclamation mark, right click, Install Driver..., Browse my computer for drivers, Let me pick from a list of device drivers on my computer, Have Disk... and select the INF file.
+If you have plugged in your phone before setting up the driver: open Device Manager (Win + R, `devmgmt.msc`), look for an "Android" device with an exclamation mark, right click, Install Driver..., Browse my computer for drivers, Let me pick from a list of device drivers on my computer, Have Disk... and select the INF file.
 
-Once the driver is installed, you should see your phone in the Driver Manager list as `Android Bootloader Interface`.
+Once the driver is installed, you should see your phone in the Driver Manager list as an *Android Bootloader Interface*.
 
 For a full list of commands you can use in the Fastboot interface, see the [Android/Fastboot entry on Gentoo Linux Wiki]. Not all commands can be used on the 6300 4G.
 
 ### EDL mode
-Emergency Download mode can typically be found on devices with Qualcomm chipset, and locates on a separate 'primary bootloader' in which software modifications cannot affect.[^3]
+With the phone powered off, hold the top Power button and both the * and # keys, or type `adb reboot edl` when connected to a computer. Boots into a black screen, allows you to read and write partitions over Qualcomm's proprietary Sahara or Firehose protocol. Remove the battery to exit.
 
-With the phone powered off, hold the top Power button and both the <kbd>*</kbd> and <kbd>#</kbd> keys, or type `adb reboot edl` when connected to a computer. Boots into a black screen, allows you to read and write partitions over proprietary Sahara or Firehose protocol. Remove the battery to exit.
+To interact with this mode, you need a digitally-signed MBN/ELF "loader" file specifically made for the device, and a middleman program such as QFIL or edl.py.
 
-You can also **force reboot** the phone by holding the top Power button and the <kbd>#</kbd> key at any time.
+You can also **force reboot** the phone by holding the top Power button and the # key at any time.
 
 An EDL programmer for the non-US variants of 6300 4G (other than TA-1324) can be found on BananaHackers' [EDL archive website] with hardware ID 0x009600e100420029 (a copy is available in this repository under `assets/`). TA-1324 variant has been signed with a different PK_HASH and needs a different firehose loader which we currently don't have in archive.
 
 ### UART debugging testpoint
-[As discovered by atipls on Discord and @Llixuma], on the mainboard of the 6300 4G, there are 3 UART testing points: TX, RX and GND just above the SIM2 slot. Shorting TX at 1.8V and GND takes you to Fastboot mode and Linux terminal interface.
+[As discovered by atipls on Discord and @Llixuma], on the mainboard of the 6300 4G, there are 3 UART testing points: TX, RX and GND just above the SIM2 slot. Shorting TX at 1.8V and GND takes you to Fastboot mode and the Linux terminal interface.
 
 <p align="center"><img loading="lazy" width="220" alt="Mainboard of a TA-1307 Nokia 6300 4G, with the red arrow pointing to three gold contacts in the middle of the board, those being the TX, RX and ground UART testpoints" src="assets/images/testpoint.png"></p>
 
@@ -230,7 +230,7 @@ Detailed instructions can be found at [Sideloading and debugging third-party app
 
 To remove unwanted apps from the phone, you can use [this fork of Luxferre's AppBuster] which lets you disable any apps you don't need and enable them again if you want.
 
-> Looking for guide to root the 6300 4G? This section has now been moved to [ROOT: Patching the boot partition (non-US only)].
+_Looking for the guide to root the 6300 4G? This section has now been moved to [ROOT: Patching the boot partition (non-US only)]._
 
 ## External links
 - [Nokia 6300 4G product page] on Nokia Mobile's website
@@ -296,7 +296,7 @@ To remove unwanted apps from the phone, you can use [this fork of Luxferre's App
 [Call barring]: https://www.communityphone.org/blogs/call-barring
 [Call waiting]: https://en.wikipedia.org/wiki/Call_waiting
 [Luxferre's CrossTweak]: https://gitlab.com/suborg/crosstweak
-[Google's driver]: https://developer.android.com/studio/run/win-usb
+[Google's generic driver]: https://developer.android.com/studio/run/win-usb
 [Android/Fastboot entry on Gentoo Linux Wiki]: https://wiki.gentoo.org/wiki/Android/Fastboot
 [suitable digitally-signed programmer in MBN/ELF file format]: https://edl.bananahackers.net
 [EDL archive website]: https://edl.bananahackers.net/loaders/8k.mbn
