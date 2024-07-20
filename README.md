@@ -203,7 +203,7 @@ If you have plugged in your phone before setting up the driver: open Device Mana
 
 Once the driver is installed, you should see your phone in the Driver Manager list as `Android Bootloader Interface`.
 
-For a full list of commands you can use in the Fastboot interface, see the [Android/Fastboot entry on Gentoo Linux Wiki]. Do note that not all commands can be used on the 6300 4G.
+For a full list of commands you can use in the Fastboot interface, see the [Android/Fastboot entry on Gentoo Linux Wiki]. Not all commands can be used on the 6300 4G.
 
 ### EDL mode
 Emergency Download mode can typically be found on devices with Qualcomm chipset, and locates on a separate 'primary bootloader' in which software modifications cannot affect.[^3]
