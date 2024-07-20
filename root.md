@@ -136,7 +136,7 @@ In both cases, the phone's screen should blink with an 'enabled by KaiOS' logo t
 > Beware: due to the firehose loader being malfunctioned, the EDL tool only accepts one command each session, after which you'll have to disconnect the phone and restart the phone in EDL mode. If you try to throw a second command, it'll result in a `bytearray index out of range` error.
 
 1. Turn on the phone in EDL mode.
-2. Open the extracted EDL folder in a command-line shell. Flash the Gerda Recovery image to the recovery partition by typing:
+2. Open the extracted EDL folder in Command Prompt/Terminal. Flash the Gerda Recovery image to the recovery partition by typing:
 ```console
 python edl.py w recovery recovery-8110.img --loader=8k.mbn
 ```
