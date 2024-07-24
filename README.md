@@ -326,4 +326,4 @@ _Looking for the guide to root the 6300 4G? This section has now been moved to [
 [Qualcomm's Chain of Trust on LineageOS Engineering Blog]: https://lineageos.org/engineering/Qualcomm-Firmware
 [SELinux on LineageOS Engineering Blog]: https://lineageos.org/engineering/HowTo-SELinux
 
-*GitHub Pages theme: MIT-licensed [riggraz/no-style-please](https://github.com/riggraz/no-style-please). Logo by [Vitaly Gorbachev](https://www.flaticon.com/free-icons/banana) from Flaticons*
+*GitHub Pages theme: MIT-licensed [riggraz/no-style-please](https://github.com/riggraz/no-style-please)*
