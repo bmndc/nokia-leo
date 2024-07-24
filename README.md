@@ -1,6 +1,6 @@
 <details><summary dir="rtl">View device specification table</summary>
     <table style="font-size:small">
-        <thead><tr><th></th><th>Nokia 6300 4G (nokia-leo)</th><th>Nokia 8000 4G (nokia-sparkler)</th></tr></thead>
+        <thead><tr><td></td><th>Nokia 6300 4G (nokia-leo)</th><th>Nokia 8000 4G (nokia-sparkler)</th></tr></thead>
         <tbody><tr><td>Released</td><td colspan="2">13 November 2020</td></tr>
             <tr><td>Model</td><td>TA-1286 (APAC), TA-1287 (CN), TA-1291, TA-1294, TA-1307, TA-1324 (US)</td><td>TA-1300, TA-1303, TA-1305, TA-1311</td></tr>
             <tr><td>Colors</td><td>Light Charcoal, White, Cyan Green</td><td>Onyx/Black, Opal/White, Topaz/Blue, Cintrine/Gold</td></tr>
@@ -88,7 +88,7 @@ Kosher is indeed a great way to make your phone truly basic, but HMD already off
 
 *Photo provided by nuxx on r/KaiOS Discord server in October 2021.*
 
-<p align="center"><img loading="lazy" width="350" alt="A Kosher-customized Nokia 8000 4G with no Browser, KaiStore or third-party apps shown in 3-by-3 grid of apps. Center D-Pad key is engraved with a Hebrew symbol indicating Kosher phone" src="assets/images/kosher-sparkler-350px.jpg"></p>
+<p align="center"><img loading="lazy" width="350" alt="A Nokia 8000 4G with no Browser, KaiStore or third-party apps in the 3-by-3 grid. Center D-Pad key is engraved with a Hebrew symbol." src="assets/images/kosher-sparkler-350px.jpg"></p>
 
 ## Differences between US/CN and international models
 US (TA-1324) and Mainland China (CN, TA-1287) 6300 4Gs has some key differences from other models:
@@ -217,7 +217,7 @@ An EDL programmer for the non-US variants of 6300 4G (other than TA-1324) can be
 ### UART debugging testpoint
 [As discovered by atipls on Discord and @Llixuma], on the mainboard of the 6300 4G, there are 3 UART testing points: TX, RX and GND just above the SIM2 slot. Shorting TX at 1.8V and GND takes you to Fastboot mode and the Linux terminal interface.
 
-<p align="center"><img loading="lazy" width="220" alt="Mainboard of a TA-1307 Nokia 6300 4G, with the red arrow pointing to three gold contacts in the middle of the board, those being the TX, RX and ground UART testpoints" src="assets/images/testpoint.png"></p>
+<p align="center"><img loading="lazy" width="220" alt="Mainboard of a TA-1307 Nokia 6300 4G, with the red arrow pointing to three gold contacts in the middle of the board" src="assets/images/testpoint.png"></p>
 
 By default, KaiOS's Linux kernel disables the UART testpoints; logs from UART testpoints will stop once the kernel kicks in. To read the full output from UART, compile the Linux kernel from HMD's OSS release with `LEO_defconfig` flag (not `LEO_defconfig-perf`).
 
