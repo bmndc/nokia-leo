@@ -21,24 +21,30 @@ Remember, in most situations you don't have to root your phone to remove apps or
 - a Nokia 6300 4G (excl. TA-1324), Nokia 8000 4G, Nokia 2720 Flip, Nokia 800 Tough or Alcatel Go Flip 3;
 - an USB cable capable of transferring data (EDL cables should also work);
 - MBN programmer file for your phone: [6300 4G and 8000 4G], [2720 Flip], [800 Tough] or Go Flip 3 ([AT&T/Cricket], [T-Mobile/Metro/Rogers]);
-- edl.py to read and write system partitions: [bkerler's edl.py v3.1] for 8000 4G/6300 4G, [andybalholm's edl] for 2720 Flip/800 Tough/Go Flip 3;
-	- QFIL or Qualcomm Product Support Tools (QPST) can be used as well, but I wil
-- required for 6300 4G/8000 4G: [Gerda Recovery image file] ([backup]) for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from Recovery mode and get the boot partition from there;
+- `edl.py` to read and write system partitions in EDL mode: [bkerler's edl.py v3.1] for 8000 4G/6300 4G, [andybalholm's edl] for 2720 Flip/800 Tough/Go Flip 3;
+	- QFIL or Qualcomm Product Support Tools (QPST) can be used as well, but this guide will not cover them
+- required for the 6300 4G and 8000 4G: [Gerda Recovery image file] (backup: [one], [two]) for the Nokia 8110 4G, since the programmer above has a reading bug, we'll use this to access ADB from Recovery mode and get the boot partition from there;
 - Python and `pip` for `edl.py` to work (setup guide can be found for each OS below);
-	- Don't have an Internet connection? Download and install manually from PyPI: [pyusb], [pyserial], [keystone-engine], [capstone], [docopt]
-- [Android Debug Bridge (ADB)] to read the boot image in Gerda Recovery (see [Sideloading and debugging/WebIDE])
-- Windows: Qualcomm driver to contact the phone in EDL mode (included in the `edl.py` package)
-- Windows: latest version of [Zadig] to configure `libusb-win32` driver; do NOT use the older version bundled as it has less chances of success
-- macOS: [Homebrew] to quickly set up Python, ADB, `libusb` and configure the environment for EDL tools (setup guide can be found below)
+	- If you want to download and install packages manually from PyPI: [pyusb], [pyserial], [keystone-engine], [capstone], [docopt], [setuptools]
+- [Android Debug Bridge (ADB)] tool to read the boot image in Gerda Recovery (see [Sideloading and debugging third-party applications] for instructions on using ADB)
+
+*Windows users also have to download and install:*
+- Qualcomm driver to contact the phone in EDL mode (included in the `edl.py` package)
+- latest version of [Zadig] to configure `libusb-win32`/`libusb0` driver; do NOT use the older version bundled in `edl.py` as it has less chances of success
+
+*macOS users also have to download and install:*
+- [Homebrew] to quickly set up Python, ADB, `libusb` and configure the environment for EDL tools (setup guide can be found below)
 	- *Python 2.7 bundled with macOS 10.8 to 12 is NOT recommended for following this guide.*
-- **If you're going the automatic boot partition patching and compilation via Docker route (only recommended for 5-6 year old computers):**
-	- [Git] to clone/download the repository of the patcher tool to your computer;
-	- Docker Compose to provide the environment for the patcher tool to work (included in [Docker Desktop])
-	- Windows: WSL2 with [Linux kernel update package] installed (to install WSL2, turn on Virtualization in BIOS, then open Command Prompt with administrative rights and type `wsl --install`)
-- **If you're going the extracting and manual editing by hand route:**
-	- Android Image Kitchen v3.8 ([Windows], [macOS/Linux])
-	- on Windows 10 pre-1809: [Notepad++] to edit files while [preserving line endings]
-	- (optional) [Java Runtime Environment] to properly sign the boot image with AVBv1
+
+**If you're going the automatic boot partition patching and compilation via Docker route (only recommended for 5-6 year old computers):**
+- [Git] to clone/download the repository of the patcher tool to your computer;
+- Docker Compose to provide the environment for the patcher tool to work (included in [Docker Desktop])
+- Windows: WSL2 with [Linux kernel update package] installed (to install WSL2, turn on Virtualization in BIOS, then open Command Prompt with administrative rights and type `wsl --install`)
+
+**If you're going the extracting and manual editing by hand route:**
+- Android Image Kitchen v3.8 ([Windows], [macOS/Linux])
+- on Windows 10 pre-1809: [Notepad++] to edit files while [preserving line endings]
+- (optional) [Java Runtime Environment] to properly sign the boot image with AVBv1
 
 andybalholm's EDL cannot be used on 8000 4G and 6300 4G due to structural changes within GPT, which will result in an error `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`. **Do note that the command structures used between bkerler's and andybalholm's are different, which we'll mention below.**
 
@@ -75,7 +81,7 @@ Additionally, if you have issue with device access:
 
 2. While you're in Terminal, type this into the command-line:
 ```console
-brew install python android-platform-tools libusb && pip3 install pyusb pyserial capstone keystone-engine docopt
+brew install python android-platform-tools libusb && pip3 install pyusb pyserial capstone keystone-engine docopt setuptools
 ```
 3. Switch your phone to EDL mode and connect it to your computer. Either:
 	- if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
@@ -98,7 +104,7 @@ In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo th
 
 4. Open Command Prompt/Windows Terminal with administrator privileges and run this command to install the required dependencies for EDL:
 ```console
-pip3 install pyusb pyserial capstone keystone-engine docopt
+pip3 install pyusb pyserial capstone keystone-engine docopt setuptools
 ```
 ![Screenshot of a console window showing the successful process of collecting and downloading dependencies after typing the above command](assets/images/pythoooon.png)
 
@@ -124,6 +130,8 @@ In both cases, the phone's screen should blink with an 'enabled by KaiOS' logo t
 8. If you're configuring the driver for the first time, an "USB Device Not Recognised" pop-up may appear. Exit EDL mode by removing and re-inserting the battery, then turn on the phone in EDL mode again.
 
 ### Part 2: Obtaining the boot partition
+*If you were following an older revision of this guide and are stuck at `ModuleNotFoundError: No module named 'distutils'`: starting with Python 3.12, `distutils`, which is a dependency of `capstone`, has been deprecated and is no longer included by default (mentioned in Python documentation page [What's New In Python 3.10]). It is superceded by the third-party `setuptools`, which you can install from PyPI with `pip install setuptools`.*
+
 #### Nokia 8000 4G and Nokia 6300 4G with bkerler's EDL
 > Beware: due to the firehose loader being malfunctioned, the EDL tool only accepts one command each session, after which you'll have to disconnect the phone and restart the phone in EDL mode. If you try to throw a second command, it'll result in a `bytearray index out of range` error.
 
@@ -371,13 +379,16 @@ python edl.py reset
 [800 Tough]: https://edl.bananahackers.net/loaders/800t.mbn
 [AT&T/Cricket]: https://github.com/programmer-collection/alcatel/blob/master/Gflip3_ATT/Gflip3_ATT_NPRG.mbn
 [T-Mobile/Metro/Rogers]: https://github.com/programmer-collection/alcatel/blob/master/Gflip3_TMO/Gflip3_TMO_NPRG.mbn
-[Gerda Recovery image file]: https://cloud.disroot.org/s/3ojAfcF6J2jQrRg/download
-[backup]: https://drive.google.com/open?id=1ot9rQDTYON8mZu57YWDy52brEhK3-PGh
+[Gerda Recovery image file]: https://raw.githubusercontent.com/bmndc/nokia-leo/docs/assets/recovery-8110.img
+[one]: https://cloud.disroot.org/s/3ojAfcF6J2jQrRg/download
+[two]: https://drive.google.com/open?id=1ot9rQDTYON8mZu57YWDy52brEhK3-PGh
 [pyusb]: https://pypi.org/project/pyusb/
 [pyserial]: https://pypi.org/project/pyserial/
 [keystone-engine]: https://pypi.org/project/keystone-engine/
 [capstone]: https://pypi.org/project/capstone/
 [docopt]: https://pypi.org/project/docopt/
+[setuptools]: https://pypi.org/project/setuptools/
+[Sideloading and debugging third-party applications]: https://github.com/bmndc/nokia-leo/wiki/Sideloading-and-debugging-third%E2%80%90party-applications
 [bkerler's edl.py v3.1]: https://github.com/bkerler/edl/releases/tag/3.1
 [andybalholm's edl]: https://github.com/andybalholm/edl
 [Python's official download page for Windows]: https://www.python.org/downloads/windows
@@ -396,4 +407,5 @@ python edl.py reset
 [Microsoft Store]: ms-windows-store://publisher/?name=Python%20Software%20Foundation
 [environment variable]: https://en.wikipedia.org/wiki/Environment_variable
 [Apps & features]: ms-settings:appsfeatures
+[What's New In Python 3.10]: https://docs.python.org/3.10/whatsnew/3.10.html#distutils
 [part 4]: #part-4-flashing-the-modified-boot-partition
