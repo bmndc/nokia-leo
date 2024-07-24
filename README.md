@@ -324,6 +324,5 @@ _Looking for the guide to root the 6300 4G? This section has now been moved to [
 [pull the plugs from Assistant on KaiOS]: https://9to5google.com/2021/08/30/google-assistant-kaios-text
 [deep-dive blog post]: https://alephsecurity.com/2018/01/22/qualcomm-edl-1
 [Qualcomm's Chain of Trust on LineageOS Engineering Blog]: https://lineageos.org/engineering/Qualcomm-Firmware
-[SELinux on LineageOS Engineering Blog]: https://lineageos.org/engineering/HowTo-SELinux
 
 *GitHub Pages theme: MIT-licensed [riggraz/no-style-please](https://github.com/riggraz/no-style-please)*

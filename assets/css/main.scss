@@ -13,13 +13,12 @@
 
 .leo {
 	margin: 0 0 1rem 1rem;
-	// Undo float: right on header image on small screens
-	@media (max-width: 800px) {
+}
+
+@media (max-width: 800px) {
+	.leo {
+		// Undo float: right on header image on small screens
 		float: none;
 		margin: 0 auto;
 	}
-}
-
-#toc li > p {
-	margin: 0;
 }

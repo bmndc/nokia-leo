@@ -2,18 +2,20 @@
 layout: page
 title: "ROOT: Patching the boot partition (non-US only)"
 ---
-On KaiOS 2.5.4 devices, such as the 6300 4G and 8000 4G, ADB and WebIDE can be used to install most third-party apps. However, apps with special ‘forbidden’ permissions are not allowed, including most BananaHackers apps with `engmode-extension` like Wallace Toolbox, which can be used to gain exclusive access of the phone. You also cannot make changes to the system. On the 2720 Flip and 800 Tough with KaiOS 2.5.2.2, with HMD/Nokia Mobile changing their release branches from `dev-keys` to `release-keys`, the situation is even worse as you cannot sideload at all.
+On the Nokia 6300 4G and 8000 4G, while you can use ADB and DevTools to install most third-party apps, you aren't allowed to install apps with special 'forbidden' permissions such as `embed-apps`, `embed-widget` and `engmode-extension` (defined by the `devtools.apps.forbidden-permissions` flag); which means that you cannot sideload and use Wallace Toolbox or any of BananaHackers apps to gain root access to the system. Most system modifications have also been blocked, and if you were to make any changes, they would be reverted upon the next boot.
 
-This is because in order for WhatsApp's VoIP feature to work on these KaiOS versions, a security module called SELinux[^4] is now set to be `Enforced` which checks and reverts system modifications on boot. To get total read-write access to the devices, you'll now have to permanently root them by setting SELinux to `Permissive` mode.
+This is because in order for VoIP in WhatApp to work on newer KaiOS versions, a kernel security module called [SELinux](https://lineageos.org/engineering/HowTo-SELinux) is now set in Enforcing mode. SELinux, in this mode, checks and denies any actions, both by the user and system, that aren't permitted in its configured set of rules. To root, you have to alter the boot partition to set SELinux to Permissive mode, and edit boot flags to allow system-level debugging access.
 
-The guide below is based on the main guide from BananaHackers website, but has been rewritten to make it easier to follow. The process will take somewhat considerable 30 minutes to an hour, so do this when you have enough time.
+Do give yourself enough time to progress through this guide; it will take somewhat considerable 30 minutes to an hour.
 
-> [!IMPORTANT]
-> **DISCLAIMER: This process will void your phone's warranty, disable its ability to receive WhatsApp calls and over-the-air updates, but you can undo this if you save a copy of the original boot partition. However, you might also brick your phone if you make a mistake in the process, so proceed at your own risk and with caution! I won't be responsible for any damages done to your phone by following these.**
-> 
-> Remember, you don't have to root your phone to do things that usually need root access e.g. you can use [this fork of Luxferre's AppBuster] to disable apps from the launcher instead of deleting them with Wallace Toolbox. You can also install [Luxferre's CrossTweak], a Wallace Toolbox alternative also made by Luxferre that does not need `engmode-extension` and therefore can be easily installed on KaiOS 2.5.4 devices.
+## DISCLAIMER
+PROCEED WITH CAUTION AND AT YOUR OWN RISK. I wrote this guide "as-is" with no guarantees or warranties, either express or implied. HMD does not explicitly cover software modifications under its warranty policy, so you should assume that rooting your phone will void its warranty.
 
-### Before proceeding: [back up] your data
+Proceeding with this guide will set SELinux to Permissive mode, which in turn disables voice calls in WhatsApp, and also prevent you from receiving incremental over-the-air updates. If you keep a copy of the original boot partition, you can overwrite the boot partition again and revert all changes, which I will mention in the last portion of this guide. Nonetheless, you can still brick your phone if you make any mistake in the process.
+
+Remember, in most situations you don’t have to root your phone e.g. you can use [this fork of Luxferre’s AppBuster](https://github.com/bmndc/AppBuster) to hide apps from the launcher, instead of deleting them with Wallace Toolbox. You can also install [CrossTweak](https://gitlab.com/suborg/crosstweak), a Wallace Toolbox alternative which does not need `engmode-extension` and therefore can be installed on KaiOS 2.5.4 devices.
+
+### Before proceeding: back up your data
 > [Murphy's Law] states, "Anything that can go wrong, will go wrong". It's a proverb from the late 1940s, and while it may not be as academically accurate and influential as [Newton's laws of motion], it's generally acknowledged in technology as a rule of thumb. Even if you do the best you can, things can unexpectedly go south, so it's always good to prepare for the worst.
 
 - To export your contacts from the built-in Contacts app, go to *Contacts → Options → Settings → Export contacts*. From there, choose to either save to a CSV file on your SD card, send through Bluetooth to other devices, or upload to Web services such as Google Contacts and Microsoft Outlook.
