@@ -2,37 +2,27 @@
 layout: page
 title: "ROOT: Patching the boot partition (non-US only)"
 ---
+*Originally written by Luxferre.*
+
 On the Nokia 6300 4G and 8000 4G, while you can use ADB and DevTools to install most third-party apps, you aren't allowed to install apps with special 'forbidden' permissions such as `embed-apps`, `embed-widget` and `engmode-extension` (defined by the `devtools.apps.forbidden-permissions` flag); which means that you cannot sideload and use Wallace Toolbox or any of BananaHackers apps to gain root access to the system. Most system modifications have also been blocked, and if you were to make any changes, they would be reverted upon the next boot.
 
-This is because in order for VoIP in WhatApp to work on newer KaiOS versions, a kernel security module called [SELinux](https://lineageos.org/engineering/HowTo-SELinux) is now set in Enforcing mode. SELinux, in this mode, checks and denies any actions, both by the user and system, that aren't permitted in its configured set of rules. To root, you have to alter the boot partition to set SELinux to Permissive mode, and edit boot flags to allow system-level debugging access.
+This is because in order for VoIP in WhatApp to work on newer KaiOS versions, a kernel security module called [SELinux] is now set in Enforcing mode. SELinux, in this mode, checks and denies any actions, both by the user and system, that aren't permitted in its configured set of rules. To root, you have to alter the boot partition to set SELinux to Permissive mode, and edit boot flags to allow system-level debugging access.
 
 Do give yourself enough time to progress through this guide; it will take somewhat considerable 30 minutes to an hour.
 
-## DISCLAIMER
+### DISCLAIMER
 PROCEED WITH CAUTION AND AT YOUR OWN RISK. I wrote this guide "as-is" with no guarantees or warranties, either express or implied. HMD does not explicitly cover software modifications under its warranty policy, so you should assume that rooting your phone will void its warranty.
 
-Proceeding with this guide will set SELinux to Permissive mode, which in turn disables voice calls in WhatsApp, and also prevent you from receiving incremental over-the-air updates. If you keep a copy of the original boot partition, you can overwrite the boot partition again and revert all changes, which I will mention in the last portion of this guide. Nonetheless, you can still brick your phone if you make any mistake in the process.
+Proceeding with this guide will set SELinux to Permissive mode, which in turn disables voice calls in WhatsApp, and also prevent you from receiving incremental over-the-air updates. If you keep a copy of the original boot partition, you can overwrite the partition again and revert all changes, which I will mention in the last portion of this guide. Nonetheless, you can still brick your phone if you make any mistake in the process.
 
-Remember, in most situations you don’t have to root your phone e.g. you can use [this fork of Luxferre’s AppBuster](https://github.com/bmndc/AppBuster) to hide apps from the launcher, instead of deleting them with Wallace Toolbox. You can also install [CrossTweak](https://gitlab.com/suborg/crosstweak), a Wallace Toolbox alternative which does not need `engmode-extension` and therefore can be installed on KaiOS 2.5.4 devices.
+Remember, in most situations you don't have to root your phone to remove apps or change settings e.g. you can use [this fork of Luxferre's AppBuster] to hide apps from the launcher, instead of deleting them with Wallace Toolbox. You can also install [CrossTweak], a Wallace Toolbox alternative which does not need `engmode-extension` and therefore can be installed on KaiOS 2.5.4 devices.
 
-### Before proceeding: back up your data
-> [Murphy's Law] states, "Anything that can go wrong, will go wrong". It's a proverb from the late 1940s, and while it may not be as academically accurate and influential as [Newton's laws of motion], it's generally acknowledged in technology as a rule of thumb. Even if you do the best you can, things can unexpectedly go south, so it's always good to prepare for the worst.
-
-- To export your contacts from the built-in Contacts app, go to *Contacts → Options → Settings → Export contacts*. From there, choose to either save to a CSV file on your SD card, send through Bluetooth to other devices, or upload to Web services such as Google Contacts and Microsoft Outlook.
-	- You can also use third-party backup services and tools such as [PhoneCopy in KaiStore] or D3SXX's [kaios-backup] etc.
-- On debug-enabled devices, you can sideload `certified` apps such as D3SXX's [kaios-backup] or Fiachra1993's [kaios-sms-backup], which uses Firefox OS APIs to export your text messages to JSON or CSV files.
-- Built-in Calendar app allows syncing events through Google, ActiveSync or CalDAV accounts. If you only have a small number of events, you can migrate each of those to your online calendars. strukturart's [greg] also allows syncing events with Nextcloud.
-- Each entry in the Notes app can be shared over texts, Bluetooth or email.
-- On internal storage or SD card (whichever you chose under *Settings → Storage → Default media location*), captured photos and videos are stored under `DCIM`; whereas recorded voice files are stored under `audio`.
-	- To get your phone to show up on the computer as external storage, turn on *USB Storage* under *Settings → Storage*.
-
-For backing up application data (excluding WhatsApp chats), system preferences and partition images, see [Back up system partitions].
-
-### What we'll need
-- a Nokia 6300 4G (excl. TA-1324), 8000 4G, 2720 Flip, 800 Tough or Alcatel Go Flip 3;
-- an USB cable capable of data transferring (EDL cables work as well);
-- MBN firehose programmer file: [8000 4G and 6300 4G], [2720 Flip], [800 Tough] or Go Flip 3 ([AT&T/Cricket], [T-Mobile/Metro/Rogers]);
-- EDL utility to read and write system partitions: [bkerler's edl.py v3.1] for 8000 4G/6300 4G, [andybalholm's edl] for 2720 Flip/800 Tough/Go Flip 3;
+### What we need
+- a Nokia 6300 4G (excl. TA-1324), Nokia 8000 4G, Nokia 2720 Flip, Nokia 800 Tough or Alcatel Go Flip 3;
+- an USB cable capable of transferring data (EDL cables should also work);
+- MBN programmer file for your phone: [6300 4G and 8000 4G], [2720 Flip], [800 Tough] or Go Flip 3 ([AT&T/Cricket], [T-Mobile/Metro/Rogers]);
+- edl.py to read and write system partitions: [bkerler's edl.py v3.1] for 8000 4G/6300 4G, [andybalholm's edl] for 2720 Flip/800 Tough/Go Flip 3;
+	- QFIL or Qualcomm Product Support Tools (QPST) can be used as well, but I wil
 - required for 6300 4G/8000 4G: [Gerda Recovery image file] ([backup]) for the Nokia 8110 4G, since the firehose loader above has a reading bug, we'll use this to access ADB from Recovery mode and get the boot partition from there;
 - Python and `pip` for `edl.py` to work (setup guide can be found for each OS below);
 	- Don't have an Internet connection? Download and install manually from PyPI: [pyusb], [pyserial], [keystone-engine], [capstone], [docopt]
@@ -59,7 +49,7 @@ For the sake of convenience, move the Gerda Recovery image and the MBN file into
 > Note for Arch Linux users: I've made an experimental `root.sh` that you can use to automate all 4 parts of the process (see the root of the repository) based on @Llixuma's tutorial. Debian-based distro users stay tuned!
 
 ### Part 1: Set up environment for EDL tools
-*This portion of the guide was taken from [Development/EDL tools on BananaHackers Wiki] so that you don't have to switch tabs. Kudos to Cyan for the guides!*
+*This portion of the guide was taken from [Customization/Fastboot and EDL on BananaHackers Wiki] so that you don't have to switch tabs. Kudos to Cyan for the guides!*
 
 #### Linux
 1. Install Python from your operating system's package manager e.g.
@@ -68,7 +58,7 @@ sudo apt-get install python pip3
 ```
 2. Then, open Terminal and type this to install the dependencies for EDL tools:
 ```console
-sudo -H pip3 install pyusb pyserial capstone keystone-engine docopt
+sudo -H pip3 install pyusb pyserial capstone keystone-engine docopt setuptools
 ```
 3. Switch your phone to EDL mode and connect it to your computer. Either:
 	- if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
@@ -371,17 +361,12 @@ python edl.py w boot boot.img --loader=8k.mbn
 python edl.py reset
 ```
 
+[SELinux]: https://lineageos.org/engineering/HowTo-SELinux
 [this fork of Luxferre's AppBuster]: https://github.com/minhduc-bui1/AppBuster
-[back up]: https://simple.wikipedia.org/wiki/Backup
-[Murphy's Law]: https://en.wikipedia.org/wiki/Murphy%27s_law
-[Newton's laws of motion]: https://www.britannica.com/science/Newtons-laws-of-motion
-[PhoneCopy in KaiStore]: https://www.kaiostech.com/store/apps/?bundle_id=com.phonecopy.phonecopy
-[kaios-backup]: https://github.com/D3SXX/kaios-backup
-[kaios-sms-backup]: https://github.com/Fiachra1993/kaios-sms-backup
-[greg]: https://github.com/strukturart/greg
-[Back up system partitions]: https://github.com/minhduc-bui1/nokia-leo/wiki/Backup
+[CrossTweak]: https://gitlab.com/suborg/crosstweak
+[back up your data]: https://github.com/bmndc/nokia-leo/wiki/Backup
 
-[8000 4G and 6300 4G]: https://edl.bananahackers.net/loaders/8k.mbn
+[6300 4G and 8000 4G]: https://raw.githubusercontent.com/bmndc/nokia-leo/docs/assets/8k.mbn
 [2720 Flip]: https://edl.bananahackers.net/loaders/2720.mbn
 [800 Tough]: https://edl.bananahackers.net/loaders/800t.mbn
 [AT&T/Cricket]: https://github.com/programmer-collection/alcatel/blob/master/Gflip3_ATT/Gflip3_ATT_NPRG.mbn
@@ -407,7 +392,7 @@ python edl.py reset
 [Notepad++]: https://notepad-plus-plus.org/downloads
 [preserving line endings]: https://www.cs.toronto.edu/~krueger/csc209h/tut/line-endings.html
 [Java Runtime Environment]: https://www.java.com/en/download
-[Development/EDL tools on BananaHackers Wiki]: https://wiki.bananahackers.net/development/edl
+[Customization/Fastboot and EDL on BananaHackers Wiki]: https://wiki.bananahackers.net/guides/edl
 [Microsoft Store]: ms-windows-store://publisher/?name=Python%20Software%20Foundation
 [environment variable]: https://en.wikipedia.org/wiki/Environment_variable
 [Apps & features]: ms-settings:appsfeatures
