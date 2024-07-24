@@ -4,6 +4,7 @@ author: Bùi Minh Đức
 description: >
   Archive of guides, source code and firmware backups for Nokia 6300 4G.
 
+# Favicons for other platforms are optional, but you can generate them at https://realfavicongenerator.net/
 favicon: "assets/favicon.ico"
 
 markdown: CommonMarkGhPages
@@ -24,10 +25,10 @@ exclude:
   - vendor/ruby/
 
 theme_config:
-  appearance: "auto"
-  back_home_text: "&larr; Back to main page"
-  date_format: "%d-%m-%Y"
-  show_description: false
+  appearance: "auto" # 'auto' switches between light and dark depending on device's color scheme; other options: 'light', 'dark'
+  back_home_text: "&larr; Back to main page" # Customize text for homepage link in post layout
+  date_format: "%d-%m-%Y" # Date format for posts, %d for day, %m for month, %Y for year
+  show_description: false # Choose to whether to show page description under the homepage title
 
 commonmark:
   options: ["UNSAFE", "SMART", "FOOTNOTES"]
