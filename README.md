@@ -95,15 +95,16 @@ North America (US, TA-1324) and Mainland China (CN, TA-1287) models are customis
 
 TA-1324, which got approval from the three major US carriers, Verizon, AT&amp;T and T-Mobile, only works on LTE band 2, 4, 5, 12, 17, 66 and 71. Its modem doesn't cover LTE bands that are used across the world (e.g. band 1, 3 and 7), so you may have trouble making or receiving calls and texts overseas. Even then, it's missing [band 13], which Verizon primarily uses for VoLTE and coverage in rural area. Subsequently, other variants' modems are barely compatible with US networks, with only band 5 shared across all models; except TA-1307 which also shares LTE band 2 and 4.
 
-On TA-1324, you can only select English (US), español (US), Français (CA) and Português (BR) as display languages. On TA-1287, you cannot set Google as a search engine (Baidu is set as default). WhatsApp, Facebook, YouTube, Google Maps and Google are not pre-installed, although you can get the former two from KaiStore.
+On the TA-1324, you can only select English (US), español (US), Français (CA) and Português (BR) as display languages. On  the TA-1287, you cannot set Google as a search engine (Baidu is set as default). WhatsApp, Facebook, YouTube, Google Maps and Google are not pre-installed, although you can get the former two from KaiStore.
 
-While you can install third-party apps on TA-1324 as with other versions, you cannot root it at the moment due to different hash signature used for EDL handshake. **Hint:** you can use [AppBuster] to hide unwanted apps from the app list instead.
+While you can install third-party apps on TA-1324 as with other versions, rooting is not possible at the moment due to different hash signature used for EDL handshake, which requires a separate programmer that we don't have in archive (see [EDL mode]). *Some people speculated that a generic Qualcomm programmer can be used.* **Hint:** Without root access, you can use [AppBuster] to hide unwanted apps from the app list instead.
 
 ## Tips and tricks
 - You can capture a screenshot by pressing both * and # keys at the same time.
+- If you want to have tactile responses for each keypress, go to Settings, Device, Accessibility and turn on Keypad vibration. *Highly NOT recommend using this as the phone only has one mode of vibration, and by 'one' I mean it's really strong, which could be both annoying and drain the battery as a rollercoaster.*
 - For tactile responses on keypresses, turn on *Keypad vibration* under *Settings → Device → Accessibility*.
 - You don’t need a KaiOS account to use your phone or download apps from KaiStore, but you can create one in Settings, Accounts if you want to use Anti-Theft features.
-- To stop getting ad notifications from KaiStore, go to *Settings → Personalization → Notices → App notices → Store* and turn off *Allow Notices*. Then go to *Store → Options → Settings & Account → Show rich content* and select *Do not show*.
+- To stop getting ad notifications from KaiStore, go to *Settings → Personalization → Notices → App notices → Store* and turn off *Allow Notices*. Then go to Store, Options, Settings & Account, Show rich content and select Do not show.
   - To block KaiAds altogether, add `ssp.kaiads.com` in your Wi-Fi routers' blacklist or [the system's `hosts` file]. Be aware that this might prevent you from installing apps from KaiStore like WhatsApp.
 - Speed Dial lets you call a contact quickly by pressing and holding a number key from 2 to 9 on the homescreen. To assign a contact to a number key, press and hold an empty key on the homescreen or go to *Contacts → Options → Settings → Set Speed Dial Contacts*. You can also change your voicemail number in the same menu.
   - *ICE (In Case of Emergency) Contacts, however, is an useless feature on this phone, since there's basically no way to activate it. On the 2720 Flip, you could hold or double-press the side button to trigger SOS Call.*
@@ -272,6 +273,7 @@ _Looking for the guide to root the 6300 4G? This section has now been moved to [
 [third]: https://www.reddit.com/r/KaiOS/comments/z5u8e0/nokia_6300_4g_ta1287_in_on_tmobile_us_things_dont/
 [fourth]: https://www.reddit.com/r/KaiOS/comments/12cjnlc/is_my_kaios_device_fake_nokia_6300/
 [band 13]: https://www.reddit.com/r/verizon/comments/14ro13g/how_important_is_band_13/
+[EDL mode]: #edl-mode
 
 [the system's `hosts` file]: https://ivan-hc.github.io/bananahackers/ADBlock.html
 [CrossTweak]: https://gitlab.com/suborg/crosstweak
