@@ -2,7 +2,7 @@
     <table style="font-size:small">
         <thead><tr><td></td><th>Nokia 6300 4G (nokia-leo)</th><th>Nokia 8000 4G (nokia-sparkler)</th></tr></thead>
         <tbody><tr><td>Released</td><td colspan="2">13 November 2020</td></tr>
-            <tr><td>Model</td><td>TA-1286 (APAC), TA-1287 (CN), TA-1291, TA-1294, TA-1307, TA-1324 (US)</td><td>TA-1300, TA-1303, TA-1305, TA-1311</td></tr>
+            <tr><td>Model</td><td>TA-1286, TA-1287, TA-1291, TA-1294, TA-1307, TA-1324</td><td>TA-1300, TA-1303, TA-1305, TA-1311</td></tr>
             <tr><td>Colors</td><td>Light Charcoal, White, Cyan Green</td><td>Onyx/Black, Opal/White, Topaz/Blue, Cintrine/Gold</td></tr>
             <tr><td>MSRP</td><td>€49/£59.99/$69.99/1,290,000₫</td><td>€79/£79.99/1,790,000₫</td></tr>
             <tr><td colspan="3" align="center"><strong>Specifications</strong></td></tr>
@@ -11,10 +11,10 @@
             <tr><td>GPU</td><td colspan="2">Adreno 304</td></tr>
             <tr><td>Storage</td><td colspan="2">4GB eMMC 4.5 (+ up to 32GB microSDHC card)</td></tr>
             <tr><td>Network</td><td>2G GSM, 3G UMTS, 4G LTE Cat4 150/50Mbps<br><em>
-                + EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>
-                + MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>
-                + US: band 2, 4, 5, 12, 17, 66, 71<br>
-                + LATAM: band 2, 3, 4, 5, 7, 28<br>
+                + EU (except East Ukraine, Azerbaijan, Georgia), APAC (TA-1286): band 1, 3, 5, 7, 8, 20<br>
+                + MENA, CN (TA-1287), Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>
+                + US (TA-1324): band 2, 4, 5, 12, 17, 66, 71<br>
+                + LATAM (TA-1307): band 2, 3, 4, 5, 7, 28<br>
                 + ROW: band 1, 3, 5, 7, 8, 20, 38, 40</em><br>
                 VoLTE &amp; VoWiFi support<br>Single or Dual SIM (Nano-SIM, dual-standby)</td>
                 <td>2G GSM, 3G UMTS, 4G LTE Cat4 150/50Mbps<br><em>
@@ -90,21 +90,14 @@ Kosher is indeed a great way to make your phone truly basic, but HMD already off
 
 <p align="center"><img loading="lazy" width="350" alt="A Nokia 8000 4G with no Browser, KaiStore or third-party apps in the 3-by-3 grid. Center D-Pad key is engraved with a Hebrew symbol." src="assets/images/kosher-sparkler-350px.jpg"></p>
 
-## Differences between US/CN and international models
-US (TA-1324) and Mainland China (CN, TA-1287) 6300 4Gs has some key differences from other models:
+### Differences between US/CN and international models
+North America (US, TA-1324) and Mainland China (CN, TA-1287) models are customised differently from other 6300 4Gs to comply with local regulations.
 
-US models work on CDMA networks, which are used by most US carriers and have little to no compatibility with worldwide GSM networks. Its 4G LTE bands barely cover international bands (e.g. band 7); as such, you might have trouble making/receiving calls and texts outside the country without roaming.
+TA-1324, which got approval from the three major US carriers, Verizon, AT&amp;T and T-Mobile, only works on LTE band 2, 4, 5, 12, 17, 66 and 71. Its modem doesn't cover LTE bands that are used across the world (e.g. band 1, 3 and 7), so you may have trouble making or receiving calls and texts overseas. Even then, it's missing [band 13], which Verizon primarily uses for VoLTE and coverage in rural area. Subsequently, other variants' modems are barely compatible with US networks, with only band 5 shared across all models; except TA-1307 which also shares LTE band 2 and 4.
 
-On the US 6300 4G, you are only able to select English (US), español (US), Français (CA) and Português (BR) as display languages; on the CN variant, you cannot set Google as a search engine (Baidu is set as default) and Google apps are not available.
+On TA-1324, you can only select English (US), español (US), Français (CA) and Português (BR) as display languages. On TA-1287, you cannot set Google as a search engine (Baidu is set as default). WhatsApp, Facebook, YouTube, Google Maps and Google are not pre-installed, although you can get the former two from KaiStore.
 
-TA-1324 currently cannot be rooted due to different hash signature used for EDL handshake (see [Sideloading and debugging third-party applications] below).
-
-<!-- "Buying Western-customized products will always give you the best quality possible" is unwise when it comes to consumer electronics, including mobile phones, and the 6300 4G is no exception. When buying the TA-1324 variant of this phone, you should expect:
-- No cellular access: From the dawn of mobile phone technologies, for national security, the US has been using different cellular technologies from the rest of the world with little to no compatibility. On 4G LTE, the US variant receives different bands with little overlaps on international variants' bands, primarily band 7 (see the device specification table above). This means that you will have trouble making or receiving calls and texts on the US variant outside the country without roaming.
-- Restricted device settings, notably device and T9 languages, as the phone software has to follow the FCC's regulations. On the US 6300 4G, the only languages available are English (US), español (US), Français (CA) and Português (BR).
-- Tighten device security: US 6300 4G currently cannot be rooted due to different hash signature used for EDL handshake (see [Sideloading and debugging third-party applications] below).
-
-Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the availability of the phone in the closest place or nearby countries to where you are. -->
+While you can install third-party apps on TA-1324 as with other versions, you cannot root it at the moment due to different hash signature used for EDL handshake. **Hint:** you can use [AppBuster] to hide unwanted apps from the app list instead.
 
 ## Tips and tricks
 - You can capture a screenshot by pressing both * and # keys at the same time.
@@ -188,18 +181,18 @@ Most of these codes requires `userdebug` or `eng` versions to work.
 
 ## Special boot modes
 ### Recovery mode
-With the phone powered off, hold the top Power button and the * key, or type `adb reboot recovery` when connected to a computer. Use D-Pad Up and Down to move between options, and press the Power button (not the center OK key) to select. 
+With the phone powered off, hold the top Power button and the * key, or type `adb reboot recovery` when connected to a computer. Use D-Pad Up and Down to move between options, and press the top Power button (not the center OK key) to select. 
 
 Allows you to factory reset by wiping /data and /cache, view boot and kernel logs, install patches from `adb sideload` or SD card.
 
 **Tip:** `/recovery` partition has the same 32.0 MB (32,768 KB) size as `/boot`, which means that you can replace `/recovery` with a copy of `/boot` to boot into KaiOS, and reserve `/boot` for e.g. installing other operating systems such as postmarketOS.
 
 ### Fastboot mode
-Only accessible and automatically kick in when both the boot and recovery partitions are corrupted (you are stuck on the "enabled by KaiOS" logo). Part of Android bootloader, which allows you to write partitions should you wish to fix or modify them.
+Only accessible and automatically kick in when both the `/boot` and `/recovery` partitions are corrupted; to manually activate this mode, use `dd` to wipe both partitions with zeroes. Part of the bootloader, this allows you to write system partitions should you wish to fix or modify them.
 
-To interact with the Fastboot interface, you need the `fastboot` CLI tool on your computer. On macOS and Linux, `fastboot` is included in the `android-tools` package. On Windows, follow the [Sideloading and debugging third-party applications] guide to set up ADB; you'll also need to install [Google's generic driver] as an INF file for your computer to see your phone in this mode.
+To interact with the Fastboot interface, you need to connect your phone with an USB cable and have the `fastboot` CLI tool on your computer. On macOS and Linux, `fastboot` should be included in the `android-tools` package, which you can install from Homebrew or your package manager. On Windows, you can get it from the Android SDK Platform Tools package by following the [Sideloading and debugging third-party applications] guide; you will also need to install [Google's INF driver] (right-click the `android_winusb.inf` file and click Install; requires administrator privileges) for your computer to see your phone in Fastboot mode.
 
-If you have plugged in your phone before setting up the driver: open Device Manager (Win + R, `devmgmt.msc`), look for an "Android" device with an exclamation mark, right click, Install Driver..., Browse my computer for drivers, Let me pick from a list of device drivers on my computer, Have Disk... and select the INF file.
+If you have plugged in your phone before setting up the driver: open Device Manager (`devmgmt.msc`), look for an "Android" device with an exclamation mark, right click, Install Driver..., Browse my computer for drivers, Let me pick from a list of device drivers on my computer, Have Disk... and select the INF file.
 
 Once the driver is installed, you should see your phone in the Driver Manager list as an *Android Bootloader Interface*.
 
@@ -228,7 +221,14 @@ Detailed instructions can be found at [Sideloading and debugging third-party app
 
 **Do note that OmniSD, one of the methods used for on-device sideloading, and many Gerda-related apps requires the `navigator.mozApps.mgmt.import` API that has been removed from KaiOS 2.5.2.2, and therefore no longer work on this phone.** However, after permanently rooting the phone, the Privileged factory reset feature to gain privileged userspace session that could be used on KaiOS 2.5.2 and older can now be used again (see [Next steps]).
 
-To remove unwanted apps from the phone, you can use [this fork of Luxferre's AppBuster] which lets you disable any apps you don't need and enable them again if you want.
+To remove unwanted apps from the phone, you can use [AppBuster] which lets you disable any apps you don't need and enable them again if you want.
+
+<!-- "Buying Western-customized products will always give you the best quality possible" is unwise when it comes to consumer electronics, including mobile phones, and the 6300 4G is no exception. When buying the TA-1324 variant of this phone, you should expect:
+- No cellular access: From the dawn of mobile phone technologies, for national security, the US has been using different cellular technologies from the rest of the world with little to no compatibility. On 4G LTE, the US variant receives different bands with little overlaps on international variants' bands, primarily band 7 (see the device specification table above). This means that you will have trouble making or receiving calls and texts on the US variant outside the country without roaming.
+- Restricted device settings, notably device and T9 languages, as the phone software has to follow the FCC's regulations. On the US 6300 4G, the only languages available are English (US), español (US), Français (CA) and Português (BR).
+- Tighten device security: US 6300 4G currently cannot be rooted due to different hash signature used for EDL handshake (see [Sideloading and debugging third-party applications] below).
+
+Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the availability of the phone in the closest place or nearby countries to where you are. -->
 
 _Looking for the guide to root the 6300 4G? This section has now been moved to [ROOT: Patching the boot partition (non-US only)]._
 
@@ -271,6 +271,8 @@ _Looking for the guide to root the 6300 4G? This section has now been moved to [
 [second]: https://www.reddit.com/r/dumbphones/comments/15z7b07/problems_with_nokia_6300_4g/
 [third]: https://www.reddit.com/r/KaiOS/comments/z5u8e0/nokia_6300_4g_ta1287_in_on_tmobile_us_things_dont/
 [fourth]: https://www.reddit.com/r/KaiOS/comments/12cjnlc/is_my_kaios_device_fake_nokia_6300/
+[band 13]: https://www.reddit.com/r/verizon/comments/14ro13g/how_important_is_band_13/
+
 [the system's `hosts` file]: https://ivan-hc.github.io/bananahackers/ADBlock.html
 [CrossTweak]: https://gitlab.com/suborg/crosstweak
 [BananaHackers' guide on fixing the keypad speed]: https://ivan-hc.github.io/bananahackers/fix-the-keypad-speed.html
@@ -296,7 +298,7 @@ _Looking for the guide to root the 6300 4G? This section has now been moved to [
 [Call barring]: https://www.communityphone.org/blogs/call-barring
 [Call waiting]: https://en.wikipedia.org/wiki/Call_waiting
 [Luxferre's CrossTweak]: https://gitlab.com/suborg/crosstweak
-[Google's generic driver]: https://developer.android.com/studio/run/win-usb
+[Google's INF driver]: https://dl.google.com/android/repository/usb_driver_r13-windows.zip
 [Android/Fastboot entry on Gentoo Linux Wiki]: https://wiki.gentoo.org/wiki/Android/Fastboot
 [suitable digitally-signed programmer in MBN/ELF file format]: https://edl.bananahackers.net
 [EDL archive website]: https://edl.bananahackers.net/loaders/8k.mbn
@@ -306,7 +308,7 @@ _Looking for the guide to root the 6300 4G? This section has now been moved to [
 [BananaHackers Store]: https://store.bananahackers.net
 [B-Hackers Store]: https://sites.google.com/view/b-hackers-store/home
 [list of KaiOS apps]: https://github.com/stars/bmndc/lists/kaios-apps
-[this fork of Luxferre's AppBuster]: https://github.com/bmndc/AppBuster
+[AppBuster]: https://github.com/bmndc/AppBuster
 
 [Nokia 6300 4G product page]: https://www.nokia.com/phones/en_int/nokia-6300-4g
 [Nokia 8000 4G product page]: https://www.nokia.com/phones/en_int/nokia-8000-4g
