@@ -93,11 +93,11 @@ Kosher is indeed a great way to make your phone truly basic, but HMD already off
 ## Differences between US/CN and international models
 North America (US, TA-1324) and Mainland China (CN, TA-1287) versions are customised differently from other 6300 4Gs to comply with local regulations.
 
-TA-1324, which got approval from the three major US carriers, Verizon, AT&amp;T and T-Mobile, only works on LTE band 2, 4, 5, 12, 17, 66 and 71. Its modem doesn't cover LTE bands that are used across the world (e.g. band 1, 3 and 7), so you may have trouble making or receiving calls and texts overseas. Even then, it's missing [band 13], which Verizon primarily uses for VoLTE and coverage in rural area. Other variants' modems are also barely compatible with US networks, with only band 5 shared across all models; except TA-1307 which also shares LTE band 2 and 4.
+TA-1324, approved by the three major US carriers, Verizon, AT&T and T-Mobile, only works on LTE bands 2, 4, 5, 12, 17, 66 and 71. Its modem doesn’t cover global LTE bands (e.g. band 1, 3 and 7), so you may have trouble making or receiving calls and texts overseas. Even then, it lacks [band 13], which Verizon primarily uses for VoLTE and coverage in rural area. Other models are also barely compatible with US networks, with only band 5 shared across all; except TA-1307 which also shares LTE band 2 and 4.
 
-On the TA-1324, you can only select English (US), español (US), Français (CA) and Português (BR) as display languages. On  the TA-1287, you cannot set Google as a search engine (Baidu is set as default). WhatsApp, Facebook, YouTube, Google Maps and Google are not pre-installed, although you can get the former two from KaiStore.
+On the TA-1324, you can only select English (US), español (US), Français (CA) and Português (BR) as display languages. On the TA-1287, you cannot set Google as a search engine (Baidu is set as default). WhatsApp, Facebook, YouTube, Google Maps and Google are not pre-installed, though you can get the former two from KaiStore.
 
-Although you can still install third-party apps on TA-1324 as with the other versions, you can't root it at the moment as it is signed with a different PK_HASH signature for handshake in [EDL mode]. This requires a separate programmer which we don't have in archive. Without root access, you can use [AppBuster] to hide unwanted apps from the app list instead.
+While you can still install third-party apps on TA-1324 as with the other versions, rooting is currently not possible as it is signed with a different PK_HASH signature for handshake in [EDL mode]. This requires a separate programmer which we don't have in archive. Without root access, you can still use [AppBuster] to hide unwanted apps from the app list instead.
 
 ## Tips and tricks
 - You can capture a screenshot by pressing both * and # keys at the same time.
@@ -164,7 +164,6 @@ Although you can still install third-party apps on TA-1324 as with the other ver
   - Throughout the manual speaker test, you'll hear some English and Chinese dialog from a female speaker, which transcribes to: *Hello. Please dial 110 for police, 119 for fire, 120 for ambulance, 122 for traffic accidents, and dial area code before 112 for six full obstacles.* [?]
 
 ### Codes that don't work
-Most of these codes requires `userdebug` or `eng` versions to work.
 - `*#07#`: Check the `ro.sar.enabled` boolean property, if true check the current SAR level and display SAR-related health and safety information.
 - `*#1219#`: Clear all userspace customizations, presumably for store display.
 - `*#091#` (on)/`*#092#` (off): Toggle auto-answering on incoming call. You can turn this on under Device Settings in WebIDE.
