@@ -2,11 +2,11 @@
     <table style="font-size:small">
         <thead><tr><td></td><th>Nokia 6300 4G (nokia-leo)</th><th>Nokia 8000 4G (nokia-sparkler)</th></tr></thead>
         <tbody><tr><td>Released</td><td colspan="2">13 November 2020</td></tr>
-            <tr><td>Model</td><td>TA-1286 (APAC), TA-1287 (CN), TA-1291, TA-1294,<br>TA-1307 (LATAM), TA-1324 (US)</td><td>TA-1300, TA-1303, TA-1305, TA-1311</td></tr>
+            <tr><td>Model</td><td>TA-1286, TA-1287, TA-1291, TA-1294, TA-1307, TA-1324</td><td>TA-1300, TA-1303, TA-1305, TA-1311</td></tr>
             <tr><td>Colors</td><td>Light Charcoal, White, Cyan Green</td><td>Onyx/Black, Opal/White, Topaz/Blue, Cintrine/Gold</td></tr>
             <tr><td>MSRP</td><td>€49/£59.99/$69.99/1,290,000₫</td><td>€79/£79.99/1,790,000₫</td></tr>
             <tr><td colspan="3" align="center"><strong>Specifications</strong></td></tr>
-            <tr><td>SoC</td><td colspan="2">Qualcomm MSM8909 Snapdragon 210 (4 × 1.1GHz Cortex-A7)</td></tr>
+            <tr><td>SoC</td><td colspan="2">Qualcomm MSM8909 Snapdragon 210 (4 &#215; 1.1GHz Cortex-A7)</td></tr>
             <tr><td>RAM</td><td colspan="2">512MB LPDDR2/3</td></tr>
             <tr><td>GPU</td><td colspan="2">Adreno 304</td></tr>
             <tr><td>Storage</td><td colspan="2">4GB eMMC 4.5 (+ up to 32GB microSDHC card)</td></tr>
@@ -22,14 +22,14 @@
                 + HK, Macau, MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>
                 + ROW: band 1, 3, 5, 7, 8, 20, 28, 38, 40</em><br>
                 VoLTE &amp; VoWiFi support<br>Single or Dual SIM (Nano-SIM, dual-standby)</td></tr>
-            <tr><td>Screen</td><td>320 × 240 @ 167 PPI<br>2.4 inches QVGA TFT LCD, 16M colors (24-bit)</td>
-                <td>320 × 240 @ 143 PPI<br>2.8 inches QVGA TFT LCD, 16M colors (24-bit)</td></tr>
+            <tr><td>Screen</td><td>320 &#215; 240 @ 167 PPI<br>2.4 inches QVGA TFT LCD, 16M colors (24-bit)</td>
+                               <td>320 &#215; 240 @ 143 PPI<br>2.8 inches QVGA TFT LCD, 16M colors (24-bit)</td></tr>
             <tr><td>Bluetooth</td><td colspan="2">4.0, A2DP, LE</td></tr>
             <tr><td>Wi-Fi</td><td colspan="2">802.11b/g/n, 2.4GHz, Hotspot (up to 8 devices)</td></tr>
             <tr><td>Peripherals</td><td colspan="2">GPS &amp; GLONASS</td></tr>
             <tr><td>Cameras</td><td>Rear: VGA with fixed focus, LED flash</td><td>Rear: 2MP with fixed focus, LED flash</td></tr>
-            <tr><td>Dimensions<br>(HWD)</td><td>131.4 × 53 × 13.7 (mm)<br>5.17 × 2.09 × 0.54 (in)</td>
-                <td>132.2 × 56.5 × 12.3 (mm)<br>5.20 × 2.22 × 0.48 (in)</td></tr>
+            <tr><td>Dimensions<br>(HWD)</td><td>131.4 &#215; 53 &#215; 13.7 (mm)<br>5.17 &#215; 2.09 &#215; 0.54 (in)</td>
+                                            <td>132.2 &#215; 56.5 &#215; 12.3 (mm)<br>5.20 &#215; 2.22 &#215; 0.48 (in)</td></tr>
             <tr><td>Weight</td><td>With battery: 104.1g (3.67oz)</td><td>With battery: 107.9g (3.81oz)</td></tr>
             <tr><td>Ports</td><td colspan="2">- microUSB 2.0 charging &amp; data transferring port<br>- 3.5mm headphone jack</td></tr>
             <tr><td>Battery</td><td colspan="2">Removable Li-Ion 1500mAh (BL-4XL), 5W wired charging (up to 25 days of 4G standby advertised)</td></tr>
@@ -141,7 +141,7 @@ While you can still install third-party apps on TA-1324 as with the other versio
   - For context, alarms set in the Clock app and some app notifications use the system in-built Alarm API, which should be always active in the background and not rely on whether the application itself was closed or not. But for some unknown reasons—likely due to optimisation issues, see above—the API does not run at the registered time. *TODO: connect the phone to a computer, run `adb logcat` and read through the system logs!*
   - *If you're a developer, alternatives to Alarm API can be found on Tom Barrasso's KaiOS.dev blog post [Running in the Background on KaiOS].*
 - Photos larger than 6000-by-4000 in size cannot be opened in the Gallery app due to restrictions in place preventing memory constraints. As a workaround, you can download [FabianOvrWrt's Explorer] and [mochaSoft Aps' Photo Zoom] from KaiStore to view them instead.
-- Built-in File Manager app doesn't show folders in the internal storage other than pre-configured ones (audio, music, photos, books, videos, DCIM, downloads, others). This is [hardcoded within its code] as a measure to hide system files (such as DIC files for storing added T9 words), but can be easily misused. *To browse the entire internal storage, use third-party file managers from KaiStore, or turn on Settings → Storage → USB Storage and connect to a computer.*
+- Built-in File Manager app doesn't show folders in the internal storage other than pre-configured ones (audio, music, photos, books, videos, DCIM, downloads, others). This is [hardcoded within its code] as a measure to hide system files (such as DIC files for storing added T9 words), but can be easily misused. *To browse the entire internal storage, use third-party file managers from KaiStore, or turn on Settings, Storage, USB Storage and connect to a computer.*
 - Built-in email, calendar and contact syncing with Google account may completely fail at times. You should use IMAP and import contacts instead.
   - In December 2021, in order to [replace the expired Let's Encrypt root certificate DST Root CA X3 with the newer ISRG Root X1], KaiOS Technologies issued a Service Update via KaiStore to all active KaiOS devices. This caused the Contacts app on some phones, notably HMD/Nokia KaiOS phones and Alcatel MyFlip 2, to [freeze on open]. In some cases, apps such as E-Mail, Calendar and Settings freezed as well, and Google accounts configured in the Settings app couldn't be removed. As a fix, people were advised to factory reset their affected devices. See [openGiraffe's guide to properly update the certificates]
   - *If you miss T9 fuzzy search in Contacts app, there's a port called [FastContact] by Luxferre that you can sideload to use as an alternative.*
@@ -154,12 +154,12 @@ While you can still install third-party apps on TA-1324 as with the other versio
 
 ## Secret codes
 *Tip: You can save these codes as contacts to dial later or as Speed Dial entries. When the phone suggests a saved code, you can press Call to activate the code's function.*
-- `*#*#33284#*#*` (`*#*#debug#*#*`): Toggle debugging mode, allowing the phone to be debugged over ADB and DevTools (see [Sideloading and debugging/WebIDE]). A bug icon will appear in the status bar letting you know debugging mode is on. This can also be turned on under *Settings → Device → Developer → Debugger → ADB and DevTools*.
+- `*#*#33284#*#*` (`*#*#debug#*#*`): Toggle debugging mode, allowing the phone to be debugged over ADB and DevTools (see [Sideloading and debugging third-party applications]). A bug icon will appear in the status bar letting you know debugging mode is on. This can also be turned on under Settings, Device, Developer, Debugger, ADB and DevTools.
 - `*#06#`: View the 15-digit [International Mobile Equipment Identity numbers] or IMEI(s) to uniquely identify a specific cell phone on GSM networks. **Do not modify, delete or show these numbers to anyone else without taking any precautions**: invalid or duplicated IMEI(s) will prevent you from receiving cellular signals or even get you into legal issues.
 - `*#0606#` (TA-1324 only): View the 14-digit [Mobile Equipment Identifier numbers] or MEID(s) to uniquely identify a specific cell phone on CDMA networks. Note that this only applies to US models; on international models the MEIDs would be invalid (all zeroes) and thus this secret code does nothing.
 - `*#0000#`: View device information, including firmware version, build date, model number, regional variant and CUID.
-- `*#33#` (call): Check the [Call barring] service status from carrier for blocking or whitelisting calls, whether incoming or outgoing, domestic or international. Requires a 4-digit passcode to use. To toggle, go to *Settings → Network & Connectivity → Calling → Call barring*.
-- `*#43#` (call): Check the [Call waiting] service status from carrier. To toggle, go to *Settings → Network & Connectivity → Calling → Call waiting*.
+- `*#33#` (call): Check the [Call barring] service status from carrier for blocking or whitelisting calls, whether incoming or outgoing, domestic or international. Requires a 4-digit passcode to use. To toggle, go to Settings, Network &amp; Connectivity, Calling, Call barring.
+- `*#43#` (call): Check the [Call waiting] service status from carrier. To toggle, go to Settings, Network & Connectivity, Calling, Call waiting.
 - `*#*#372733#*#*` (`*#*#draped#*#*`): Open KaiOS MMI Test, an internal tool to test each hardware component of a KaiOS device. Tests can be done through an automatic routine or by hand, and include LCD backlight, T9 keyboard, camera, LED flash, RTC, speaker, microphone, vibrator, 3.5mm audio jack, SIM trays, Wi-Fi, Bluetooth, NFC, microSD and microUSB slots.
   - Throughout the manual speaker test, you'll hear some English and Chinese dialog from a female speaker, which transcribes to: *Hello. Please dial 110 for police, 119 for fire, 120 for ambulance, 122 for traffic accidents, and dial area code before 112 for six full obstacles.* [?]
 
