@@ -38,7 +38,7 @@ For the sake of convenience, move the Gerda Recovery image and the MBN file into
 **If you're going the Automatic patching with 8k-boot-patcher route (only recommended for 5-6 year old computers):**
 - [Git] to clone/download the repository of the patcher tool to your computer;
 - Docker Compose to provide the environment for the patcher tool to work (included in [Docker Desktop])
-- Windows: 2nd version of Windows Subsystem for Linux with [Linux kernel update package] installed (to install WSL2, turn on VT-x virtualization in BIOS, then open Command Prompt with administrative privileges and type `wsl --install`)
+- Windows: 2nd version of Windows Subsystem for Linux with [Linux kernel update package] installed (to install WSL2, turn on VT-x virtualization in BIOS, then open Command Prompt with administrative rights and type `wsl --install`)
 
 **If you're going the Manual patching with Android Image Kitchen route:**
 - Android Image Kitchen v3.8 ([Windows], [macOS/Linux])
@@ -50,153 +50,176 @@ andybalholm's EDL cannot be used on 8000 4G and 6300 4G due to structural change
 > Note for Arch Linux users: I've made an experimental `root.sh` that you can use to automate all 4 parts of the process (see the root of the repository) based on @Llixuma's tutorial. Debian-based distro users stay tuned!
 
 ### Part 1: Set up environment for EDL tools
-*If you were following an older revision of this guide and are stuck at `ModuleNotFoundError: No module named 'distutils'`: starting with Python 3.12, `distutils`, which is a dependency of `capstone`, has been deprecated and is no longer included by default (mentioned in Python documentation page [What's New In Python 3.10]). It is superceded by the third-party `setuptools`, which you can install from PyPI with `pip install setuptools`.*
+*If you were following an older revision of this guide and are stuck at `ModuleNotFoundError: No module named 'distutils'`: starting with Python 3.12, `distutils`, which is a dependency of `capstone`, has been deprecated and removed (mentioned in Python documentation page [What's New In Python 3.10]). It's now superceded by the third-party `setuptools`, which you can install from PyPI with `pip3 install setuptools`.*
 
 #### Linux
-1. Install Python from your operating system's package manager e.g. for Debian/Ubuntu: `sudo apt-get install python pip3`
-2. Then, open Terminal and type this to install the dependencies for EDL tools:
+Open a shell prompt and install Python and `pip3` from your package manager of choice, then install the dependencies for `edl.py` from PyPI:
+
 ```console
-sudo -H pip3 install pyusb pyserial capstone keystone-engine docopt setuptools
+/* Debian/Ubuntu-based distros */
+# apt-get install python pip3 android-sdk-platform-tools
+
+/* Fedora, CentOS, RHEL */
+# dnf install python python3-pip android-tools
+
+/* Arch-based distros */
+# pacman -S python python-pip android-tools
+
+/* Install dependencies for edl.py from PyPI */
+# pip3 install pyusb pyserial capstone keystone-engine docopt setuptools
 ```
-3. Switch your phone to EDL mode and connect it to your computer. Either:
-	- if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
-	- if your phone is off, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
 
-In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
+Switch your phone to EDL mode and connect it to your computer. Either:
+- if your phone is on, dial `*#*#33284#*#*` to turn on debugging mode, connect it to your computer and type `adb reboot edl` in the shell prompt.
+- if your phone is off, press and hold `*` and `#` at the same time while inserting the USB cable to the phone.
 
-Additionally, if you have issue with device access:
-- Open `/etc/modprobe.d/blacklist.conf` in a text editor and append `blacklist qcserial`.
-- Copy both `51-edl.rules` and `50-android.rules` in the root of extracted EDL tools folder to `/etc/udev/rules.d`.
+In both cases, the screen should blink with an 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and can proceed. If you have any issues with accessing the phone on Debian/Ubuntu-based distros, append `blacklist qcserial` in `/etc/modprobe.d/blacklist.conf` and copy `51-edl.rules` and `50-android.rules` from the Drivers folder (root of EDL directory if you have andybalholm's `edl.py`) to `/etc/udev/rules.d`:
+
+```console
+sudo echo "blacklist qcserial" > /etc/modprobe.d/blacklist.conf
+```
+```console
+sudo cp 51-edl.rules 50-android.rules /etc/udev/rules.d
+```
 
 #### macOS
-1. Follow the instructions to install [Homebrew] on its homepage. Basically just open Terminal and copy the long streak of code shown on the page, and type your password when prompted.
-2. While you're in Terminal, type this into the command-line:
+Follow the instructions to install [Homebrew] on its homepage, install Android SDK Platform Tools package, latest Python, `libusb` and dependencies for `edl.py` from PyPI. Basically open Terminal and copy-paste each line of this code, and type your password when prompted:
+
 ```console
-brew install python android-platform-tools libusb && pip3 install pyusb pyserial capstone keystone-engine docopt setuptools
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
-3. Switch your phone to EDL mode and connect it to your computer. Either:
-	- if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
-	- if your phone is off, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
-
-In both cases, the phone's screen should blink with a 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
-
-#### Windows
-1. Head over to [Python's official download page for Windows] and download the correct installer for your architecture, or download the latest version of Python from [Microsoft Store]. If you're downloading from Microsoft Store, skip to step 4.
-2. Proceed with installing Python as usual. If you choose to customize your installation, include `pip`. Don't forget to tick the box next to "Add Python to PATH" to add Python as a global [environment variable], otherwise you'll have a hard time using Python to run scripts later on.
-	- If you decide to customize your installation, choose to install `pip` and tick *Add Python to environment variables*.
-<p align="center">
-	<img alt="Screenshot of an installation window for Python 3.9 showing two options, 'Install Now' and 'Customize installation', with the checkbox for 'Add Python 3.9 to PATH' being selected" src="assets/images/python.png">
-</p>
-
-3. On Windows 10/11, typing `python` or `python3` within Command Prompt/Windows Terminal will run the Microsoft Store version of Python. To override this default into running the locally installed version, toggle off App Installer (python.exe) and App Installer (python3.exe) under: 
-	- Windows 10: Settings → Apps → [Apps & features] → App execution aliases
-	- Windows 11: Settings → Apps → Advanced app settings → App execution aliases
-<img alt="Demostration of Settings app on Windows 11. User is already on Apps page and clicking on Advanced app settings. User then clicks on App execution aliases, where the toggles for App Installer (python.exe) and App Installer (python3.exe) are turned off. Description says Apps can declare a name used to run the app from a command prompt. If multiple apps use the same name, choose which one to use." src="assets/images/settings-alias-off.gif">
-
-4. Open Command Prompt/Windows Terminal with administrator privileges and run this command to install the required dependencies for EDL:
+```console
+brew install python android-platform-tools libusb
+```
 ```console
 pip3 install pyusb pyserial capstone keystone-engine docopt setuptools
 ```
-![Screenshot of a console window showing the successful process of collecting and downloading dependencies after typing the above command](assets/images/pythoooon.png)
 
-5. Extract the previously downloaded EDL package, open Drivers, Windows and run `Qualcomm_Diag_QD_Loader_2016_driver.exe` with administrator rights. Proceed with installation and leave everything as default, restart the computer if it prompts you to do so. 
-<p align="center">
-	<img alt="Screenshot of an installation window for Qualcomm's diagnostic driver, in which two radio buttons are shown labelled 'WWAN-DHCP is not used to get IPAddress' and 'ETHERNET-DHCP is used to get IPAddress' respectively. The first button is selected." src="assets/images/whatever.png">
-</p>
+Switch your phone to EDL mode and connect it to your computer. Either:
+- if your phone is on, dial `*#*#33284#*#*` to turn on debugging mode, connect it to your computer and type `adb reboot edl` in Terminal.
+- if your phone is off, press and hold `*` and `#` at the same time while inserting the USB cable to the phone.
+
+In both cases, the screen should blink with an 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and can proceed.
+
+#### Windows
+1. Head over to [Python's official download page for Windows] and download the correct installer for your architecture (if you're in doubt select amd64/x86_64), or download the latest version of Python from [Microsoft Store]. If you're downloading from Microsoft Store, skip to step 4.
+2. Proceed with installing Python as usual. If you choose to customise your installation, include `pip` and tick *Add Python to environment variables*. Don't forget to tick the box next to "Add python.exe to PATH" to add Python as a global [environment variable], otherwise you'll have a hard time using Python to run scripts later on.
+
+![Screenshot of Python 3.12.1 installation window showing 'Install Now' and 'Customize installation', with the checkbox for 'Add Python to PATH' selected](assets/images/python.png)
+
+3. On Windows 10/11, typing `python` or `python3` within Command Prompt/Windows Terminal will run the Microsoft Store version of Python. To override this default into running the locally installed version, toggle off App Installer (python.exe) and App Installer (python3.exe) under: 
+	- Windows 10: Settings &rarr; Apps &rarr; [Apps & features] &rarr; App execution aliases
+	- Windows 11: Settings &rarr; Apps &rarr; Advanced app settings &rarr; App execution aliases
+
+![Demostration of Settings app on Windows 11. User is already on Apps page and clicking Advanced app settings. User then clicks App execution aliases, where the toggles for App Installer (python.exe) and App Installer (python3.exe) are turned off. Description says Apps can declare a name used to run the app from a command prompt. If multiple apps use the same name, choose which one to use.](assets/images/settings-alias-off.gif)
+
+4. Open Command Prompt/Windows Terminal with administrator rights and install the dependencies for `edl.py` from PyPI:
+
+```console
+pip3 install pyusb pyserial capstone keystone-engine docopt setuptools
+```
+
+![Screenshot of Command Prompt window reporting success after collecting and downloading dependencies](assets/images/pythoooon.png)
+
+5. Extract the previously downloaded `edl.py` package, open Drivers, Windows and run `Qualcomm_Diag_QD_Loader_2016_driver.exe` with administrator rights. Proceed with installation and leave everything as default, restart the computer if it prompts you to do so. 
+
+![Screenshot of Qualcomm's diagnostic driver installation window, in which two radio buttons are shown, labelled 'WWAN-DHCP is not used to get IPAddress' and 'ETHERNET-DHCP is used to get IPAddress'. The first button is selected.](assets/images/whatever.png)
 
 6. Switch your phone to EDL mode and connect it to your computer. Either:
-	- if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in a command-line window.
-	- if your phone is off, hold down `*` and `#` at the same time while inserting the USB cable to the phone.
+	- if your phone is on, dial `*#*#33284#*#*` to turn on debugging mode, connect it to your computer and type `adb reboot edl` in Command Prompt/Windows Terminal.
+	- if your phone is off, press and hold `*` and `#` at the same time while inserting the USB cable to the phone.
 
-In both cases, the phone's screen should blink with an 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
+In both cases, the screen should blink with an 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and can proceed.
 
-7. To replace the installed `qcusbser` driver with `libusb-win32` for use with edl.py, download and open [Zadig] (do NOT use the version included in the EDL package). Tick Options, List All Devices and select `QHSUSB__BULK` (your device in EDL mode) in the main dropdown menu. In the target driver box—to which the green arrow is pointing—click the up/down arrows until you see `libusb-win32` and then click Replace Driver.
-<p align="center">
-	<img src="assets/images/qhsusb-zadig.gif" alt="9-frame GIF demostrating Zadig's main interface, List All Devices option being selected from Option menu, QHSUSB_BULK being selected from the main dropdown list, followed by the second label box on the Drivers line, to which the green arrow points, changed to 'libusb-win32 (v1.2.6.0)'. Two smaller up/down arrows are right next to that box.">
-</p>
+7. To replace the installed `qcusbser` driver with `libusb-win32` for use with `edl.py`, download and open [Zadig] (do NOT use the version included in the EDL package). Tick Options, List All Devices and select `QHSUSB__BULK` (your device in EDL mode) in the main dropdown menu. In the target driver box, which the green arrow is pointing to, click the up/down arrows until you see `libusb-win32 (v1.2.7.3)` or `libusb0 (v1.2.5.0)`, then click Replace Driver.
+
+![9-frame GIF showing Zadig's main interface, List All Devices option being selected from Option menu, QHSUSB_BULK being selected from the main dropdown list, followed by the second label box on the Drivers line changed to 'libusb-win32 (v1.2.7.3)'. Two smaller up/down arrows are next to that box.](assets/images/qhsusb-zadig.gif)
 
 > [!NOTE]
-> Windows will automatically create restore points on driver installation, as Zadig suggests in its tooltips. On older PCs, this might cause issues with driver configuration process being lengthened past the 5-minute mark. If Zadig aborts the process and hangs, kill Zadig with Task Manager, remove and re-insert the battery on the phone to exit and re-enter EDL mode, then try to install again.
+> Windows will automatically create restore points on driver installation, as Zadig suggests in its tooltips. On older computers, this might cause issues with driver configuration process being lengthened past the 5-minute mark. If Zadig aborts the process and hangs, kill Zadig with Task Manager, remove and re-insert the battery on the phone to exit and re-enter EDL mode, then try to install again. (seems to be improved with Zadig 2.9)
 
 8. If you're configuring the driver for the first time, an "USB Device Not Recognised" pop-up may appear. Exit EDL mode by removing and re-inserting the battery, then turn on the phone in EDL mode again.
 
 ### Part 2: Obtaining the boot partition
 #### Nokia 8000 4G and Nokia 6300 4G with bkerler's EDL
-> Beware: due to the firehose loader being malfunctioned, the EDL tool only accepts one command each session, after which you'll have to disconnect the phone and restart the phone in EDL mode. If you try to throw a second command, it'll result in a `bytearray index out of range` error.
+> Beware: due to the firehose loader being malfunctioned, `edl.py` only accepts one command each session, after which you'll have to disconnect the phone and restart the phone in EDL mode. If you try to execute a second command, it will result in a `bytearray index out of range` error.
 
 1. Turn on the phone in EDL mode.
+
 2. Open the extracted EDL folder in Command Prompt/Terminal. Flash the Gerda Recovery image to the recovery partition by typing:
+
 ```console
 python edl.py w recovery recovery-8110.img --loader=8k.mbn
 ```
-*If the progress bar stops at 99% (not earlier) and you get error `'usb.core.USBError: [Errno None] b'libusb0-dll:err [_usb_reap_async] timeout error\n'` or `usb.core.USBError: [Errno 60] Command timed out`, this is false. Don't mind the error and proceed with the next step.*
+
+*If the progress bar stops at 99% (not earlier) and you get error `'usb.core.USBError: [Errno None] b'libusb0-dll:err [_usb_reap_async] timeout error\n'` or `usb.core.USBError: [Errno 60] Command timed out`, don't mind the error and proceed with the next step.*
 
 3. When finished, disconnect the phone from your computer and exit EDL mode by removing and re-inserting the battery.
-4. Then, hold down the top Power button and `*` to turn on the phone in recovery mode. Connect the phone to your computer again.
+
+4. Then, hold down the top Power button and * to turn the phone on in recovery mode. Connect the phone to your computer again.
 
 > [!WARNING]
-> Be careful not to boot into system at this point! As stated above, while SELinux is still in `Enforced` mode, it'll try to revert all system modifications on startup, in this case, the custom recovery image we've just flashed will be overwritten by the stock one. If you accidentally start into normal mode (with the usual Nokia chime), you'll have to start over from step 1.
+> Be careful not to boot into system at this point! While SELinux is still in `Enforced` mode, it will try to run `/system/bin/install-recovery.sh` and revert all system modifications on boot, in this case, the custom recovery image we've just flashed will be overwritten by the stock one. If you accidentally start into normal mode (with the usual Nokia chime), you'll have to start over from step 1.
 
-Don't worry if this boots into a white screen: this is because the display driver for the Nokia 8110 4G included in the recovery image are not compatible with the display of 8000 4G/6300 4G.
+Don't worry if this boots into a white screen: this is because the display driver for the Nokia 8110 4G included in the recovery image are not compatible with the display of 8000 4G/6300 4G. Check if ADB can recognise the phone by typing `adb devices` into Command Prompt/Terminal.
 
-Check if ADB can recognise the phone by typing `adb devices` into the command-line.
+5. Navigate the shell prompt to the extracted `platform-tools` folder with `cd` (if needed). Pull the boot partition from the phone to your computer with ADB:
 
-5. Navigate the command-line to the extracted `platform-tools` folder (if needed) and pull the boot image from the phone to the current directory on your computer with ADB by typing:
 ```console
 adb pull /dev/block/bootdevice/by-name/boot boot.img
 ```
-You should now see `/dev/block/bootdevice/by-name/boot: 1 file pulled, 0 skipped.` and have a copy of the boot partition with the size of 32.0MB (32,768KB). Fetched boot image will be saved to the current directory.
 
-6. Reboot the phone into normal mode by typing `adb reboot` into the command-line, or remove and re-insert the battery. Our custom Gerda Recovery partition will now be overwritten by the default one.
+You should now see `/dev/block/bootdevice/by-name/boot: 1 file pulled, 0 skipped.` and have a copy of the boot partition with the size of 32.0 MB (32,768 KB). Fetched boot image will be saved to the current directory.
 
-You can disconnect the phone from your computer for now.
+6. Reboot the phone into normal mode by typing `adb reboot` into Command Prompt/Terminal, or remove and re-insert the battery. Our custom Gerda Recovery partition will now be overwritten by the default one.
+
+Feel free to disconnect the phone from your computer for now.
 
 #### Nokia 2720 Flip and Nokia 800 Tough with andybalholm's EDL
-Unlike the 6300 4G and 8000 4G, our phones' EDL loader properly works with both reading and writing, so the steps are more straightforward.
+Unlike that of the 6300 4G and 8000 4G, our phones' EDL programmer properly reads and writes from the phone, so the steps are more straightforward.
 
 1. Switch your phone to EDL mode and connect it to your computer. Either:
-	- if your phone is on, turn on debugging mode on your phone by dialing `*#*#33284#*#*`, connect it to your computer and type `adb reboot edl` in Command Prompt/Terminal;
+	- if your phone is on, dial `*#*#33284#*#*` to turn on debugging mode, connect it to your computer and type `adb reboot edl` in Command Prompt/Terminal;
 	- if your phone is off, hold down both volume keys on the side (2720 Flip) or both D-Pad Up and Down keys (800 Tough) at the same time while inserting the USB cable to the phone.
-	
-In both cases, the phone's screen should blink with a 'Powered by KaiOS' logo then go blank. This is normal behaviour letting you know you're in EDL mode and you can proceed.
 
-2. Open the extracted EDL folder in a command-line shell. Extract the boot partition of the phone to the current directory on your computer by typing either of these commands depending on which file you have:
+In both cases, the screen should blink with an 'Powered by KaiOS' logo then go blank. This is normal behaviour letting you know you're in EDL mode and can proceed.
+
+2. Extract the EDL package and open the folder in Command Prompt/Terminal. Pull the boot partition of the phone to the current directory on your computer by typing either of these commands, depending on which phone you have:
+
 ```console
 python edl.py -r boot boot.img -loader 2720.mbn
 ```
 ```console
 python edl.py -r boot boot.img -loader 800t.mbn
 ```
-3. When finished, reboot the phone into normal operation by typing either of these into the command-line, or remove and re-insert the battery:
-```console
-python edl.py -reset -loader 2720.mbn
-```
-```console
-python edl.py -reset -loader 800t.mbn
-```
-You can disconnect the phone from your computer for now.
+
+3. When finished, reboot the phone into normal mode by typing `python edl.py -reset` into Command Prompt/Terminal, or remove and re-insert the battery.
+
+You should now have a copy of the boot partition with the size of 25.0 MB (25,600 KB). Feel free to disconnect the phone from your computer for now.
 
 > [!WARNING]
-> **Copy and keep the original boot partition somewhere safe in case you need to restore to the original state for over-the-air updates or re-enabling WhatsApp calls.**
+> **Copy and keep the original boot partition somewhere safe in case you need to restore the phone to the original state to do over-the-air updates or re-enable WhatsApp calls.**
 
 ### Part 3: Patching the boot partition
-#### Automatic patching with `8k-boot-patcher`
+#### Automatic patching with `8k-boot-patcher` 
 1. Download and install [Docker Desktop]. Once set up, open the program, click Accept on this box and let the Docker Engine start before exiting.
 
 ![Screenshot of a window titled as 'Docker Subscription Service Agreement' which declares that you will have to accept Docker's Subscription Service Agreements, Data Processing Agreement and Data Privacy Policy in order to use the program, and the free scope of it is limited to personal and small business uses. The window also lists the options to view the full agreements, accept them or reject and close the program.](assets/images/docker_abomination.png)
 
 2. Use [Git] to clone/download the boot patcher toolkit by typing this into Command Prompt/Terminal. This will download the toolkit and have Docker set it up. Do not omit the dot/period at the end of this command, this tells Docker where our downloaded toolkit are located on the system.
+
 ```console
 git clone https://gitlab.com/suborg/8k-boot-patcher.git && cd 8k-boot-patcher && docker build -t 8kbootpatcher .
 ```
+
 ![Screenshot of a macOS Terminal window showing some logs in purple text after typing the command above](assets/images/docker_build.png)
 
-3. Copy the `boot.img` file we've just pulled from our phone to the desktop and do not change its name. Type this into Command Prompt/Terminal to run the patching process:
+3. Copy the `boot.img` file you just pulled from your phone to the desktop and do NOT change its name. Type this into Command Prompt/Terminal to run the patching process:
 	- Windows: `docker run --rm -it -v %cd%/Desktop:/image 8kbootpatcher`
 	- macOS/Linux: `docker run --rm -it -v ~/Desktop:/image 8kbootpatcher`
+
 ```console
 $ docker run --rm -it -v ~/Desktop:/image 8kbootpatcher
-
 Boot image found, patching...
 writing boot image config in bootimg.cfg
 extracting kernel in zImage
@@ -214,12 +237,13 @@ reading ramdisk from myinitrd.img
 Writing Boot Image boot.img
 Boot image patched!
 ```
+
 That's it! On your desktop there will be two new image files, the modified `boot.img` and the original `boot-orig.img`. You can now head to [part 4].
 
 ![Screenshot of boot.img and boot-orig.img files as shown on desktop](assets/images/after_patch.png)
 
 #### Manual patching with Android Image Kitchen
-1. Extract the Android Image Kitchen tools and copy the boot image we've just obtained over to the root of the extracted folder.
+1. Extract the Android Image Kitchen package and copy the boot image you just pulled over to the root of the extracted folder.
 
 ![Screenshot of a list of folders and files contained in the extracted Android Image Kitchen folder](assets/images/aik.png)
 
@@ -250,11 +274,11 @@ That's it! On your desktop there will be two new image files, the modified `boot
   ro.adb.secure=0
   ro.zygote=zygote32
 ```
-<p align="center">
-	<img src="assets/images/default_prop_edited.png" alt="Screenshot of the modified content of the default.prop file">
-</p>
+
+![Screenshot of the modified default.prop file](assets/images/default_prop_edited.png)
 
 4. Open `ramdisk/init.qcom.early_boot.sh` in Notepad++ and add `setenforce 0` as a new line at the end of the file.
+
 ```diff
 @@ -312,14 +312,14 @@
   else
@@ -272,13 +296,12 @@ That's it! On your desktop there will be two new image files, the modified `boot
 + setenforce 0
 
 ```
-<p align="center">
-	<img src="assets/images/setenforce.png" alt="Screenshot of the modified content of the init.qcom.early_boot.sh file">
-</p>
+
+![Screenshot of the modified init.qcom.early_boot.sh file](assets/images/setenforce.png)
 
 5. Go back to the root Android Image Kitchen folder and open `split_img/boot.img-cmdline` in Notepad++. Without adding a new line, scroll to the end of the first line and append `androidboot.selinux=permissive enforcing=0`.
 
-![Screenshot of the modified content of the boot.img-cmdline file](assets/images/append.png)
+![Screenshot of the modified boot.img-cmdline file](assets/images/append.png)
 
 6. Open `ramdisk/init.rc` (NOT `ramdisk/init`) and delete line 393 `setprop selinux.reload_policy 1` or mark a comment as shown. This will ultimately prevent SELinux from overwriting the policy changes we made above.
 
@@ -305,21 +328,24 @@ That's it! On your desktop there will be two new image files, the modified `boot
   chown root system /sys/module/lowmemorykiller/parameters/minfree
   chmod 0664 /sys/module/lowmemorykiller/parameters/minfree
 ```
-![Screenshot of the modified content of the init.rc file, with line 393 marked as comment which has the same effects as deleting the line altogether, and line 421 added to disable the Low Memory Killer module](assets/images/f5-selinux.png)
+
+![Screenshot of the modified init.rc file, with line 393 marked as comment, and line 421 added to disable the Low Memory Killer module](assets/images/f5-selinux.png)
 
 7. And that's a wrap! Open the root Android Image Kitchen folder in a command-line window and type `repackimg` to package our modified boot partition.
 
 <!-- ![Screenshot of a Windows Command Prompt window showing some logs of the boot partition repacking process after typing the above command, but has a signing error at the end](assets/images/repack_unsigned.png) -->
 
-![Screenshot of a Windows Command Prompt window showing some logs of the fully successful boot partition process after typing the above command](assets/images/repackimg_signed.png)
+![Screenshot of a Command Prompt window showing some logs of the fully successful boot partition process after typing the above command](assets/images/repackimg_signed.png)
 
 *If you happen to encounter an error during the signing process, that's likely because the process uses `java` to power the `boot-signer.jar` sequence and you don't have it installed. The image will still be packaged and ready for flashing, but if you're a perfectionist, you can install JRE and try again.*
 
-If the newly packaged image is barely over 1/3 the size of the original image, it's a normal behaviour and you can proceed.
+If the new image is barely over 1/3 the size of the original image, it's normal and you can proceed.
 
 ### Part 4: Flashing the modified boot partition
 1. Turn on your phone in EDL mode and connect it to your computer.
-2. Move the newly created `boot.img`, `unsigned-new.img` or `image-new.img` to the EDL tools folder and open Command Prompt/Terminal within it. From here type either of these commands depending on which image file you have:
+
+2. Move the newly created `boot.img`, `unsigned-new.img` or `image-new.img` to the EDL folder and open Command Prompt/Terminal within it. From here type either of these commands depending on which image file you have:
+
 ```console
 python edl.py w boot boot.img --loader=8k.mbn
 ```
@@ -329,30 +355,35 @@ python edl.py w boot unsigned-new.img --loader=8k.mbn
 ```console
 python edl.py w boot image-new.img --loader=8k.mbn
 ```
+
 For Nokia 2720 Flip and Nokia 800 Tough with andybalholm's EDL:
+
 ```console
 python edl.py -w boot boot.img -loader 2720.mbn
 ```
 ```console
 python edl.py -w boot boot.img -loader 800t.mbn
 ```
-*Again, if the progress bar stops at 99% and you get a timeout error, this is because the phone doesn't send any indicator information back to the EDL tool when in fact the image has been successfully written. Don't mind the error and go on with the next step.*
 
-3. Restart the phone to normal operation mode by typing `python edl.py reset`. And we're done!
+*Again, if the progress bar stops at 99% and you get a timeout error, this is because the programmer doesn't send any information back to `edl.py` when the image has been successfully written. Don't mind the error and go on with the next step.*
 
-#### Next steps
-- Now that you've rooted your phone, to install applications with 'forbidden' permissions, connect your phone to a WebIDE session, open Device Preferences in the right pane, clear the value of `devtools.apps.forbidden-permissions`, then restart B2G by either reboot the phone or hold the top Power button and select *Memory Cleaner, Deep Clean Memory*.
+3. Restart the phone to normal mode by typing `python edl.py reset`. And we're done!
 
-![Screenshot of a WebIDE window in which the location of Device Preferences is highlighted in the right pane and the value of devTools.apps.forbiddenPermissions has been emptied](assets/images/devpref.png)
+### Next steps
+- Now that you've rooted your phone, to install apps with 'forbidden' permissions, connect your phone to a WebIDE session, open Device Preferences in the right pane, clear the value of `devtools.apps.forbidden-permissions`, then restart B2G by either reboot the phone or hold the top Power button and select Memory Cleaner, Deep Clean Memory.
 
-- If you wish to retain privileged permissions after restoring the phone to its unrooted state, before doing so, back up all data, sideload [Luxferre's CrossTweak] then press # to perform a privileged factory reset — this will wipe all data of the phone and let you set up with a privileged session. This session will last until an OTA update overrides or you choose to factory reset normally yourself.
-- After rooting, you can spoof SELinux's Enforced status for WhatsApp VoIP by typing these commands one-by-one into the rooted ADB shell. This will last until a restart.
+![Screenshot of a WebIDE window in which Device Preferences is highlighted in the right pane and the value of devTools.apps.forbiddenPermissions is clear](assets/images/devpref.png)
+
+- If you wish to retain privileged permissions after restoring the phone to its unrooted state, before doing so, back up all data, sideload Luxferre's [CrossTweak] then press # to perform a privileged factory reset; this will wipe all data of the phone and let you set up with a privileged user session. This session will last until an OTA update overrides or you choose to factory reset the phone.
+- (Proof-of-concept, does NOT work) After rooting, you can spoof SELinux's Enforced status for VoIP in WhatsApp by typing these commands one-by-one into the rooted ADB shell. This will last until a restart.
+
 ```console
-echo -n 1 > /data/enforce
-mount -o bind /data/enforce /sys/fs/selinux/enforce
+echo -n 1 > /data/enforce
+mount -o bind /data/enforce /sys/fs/selinux/enforce
 ```
 
-If you wish to revert all changes you've made, connect your phone to the computer in EDL mode, move the original boot image file to `edl-3.1` or `edl-master` folder, open Command Prompt/Terminal within the folder and type:
+If you wish to revert all changes you've made, connect your phone to the computer in EDL mode, move the original boot image file to `edl-3.1` or `edl-master` folder, open Command Prompt/Terminal and type:
+
 ```console
 python edl.py w boot boot.img --loader=8k.mbn
 python edl.py reset
