@@ -2,15 +2,13 @@
 layout: page
 title: "ROOT: Patching the boot partition (non-US only)"
 ---
-*Originally written by Luxferre.*
-
-On the Nokia 6300 4G and 8000 4G, while you can use ADB and DevTools to install most third-party apps, you aren't allowed to install apps with special 'forbidden' permissions such as `embed-apps`, `embed-widget` and `engmode-extension` (defined by the `devtools.apps.forbidden-permissions` flag); which means that you cannot sideload and use Wallace Toolbox or any of BananaHackers apps to gain root access to the system. Most system modifications have also been blocked, and if you were to make any changes, they would be reverted upon the next boot.
+On the Nokia 6300 4G and 8000 4G, although you can use ADB and DevTools to install most third-party apps, you aren't allowed to install apps with special 'forbidden' permissions such as `embed-apps`, `embed-widget` and `engmode-extension` (defined by the `devtools.apps.forbidden-permissions` flag); which means that you cannot sideload and use Wallace Toolbox or any of BananaHackers apps to gain root access to the system. Most system modifications have also been blocked, and if you were to make any changes, they would be reverted upon the next boot.
 
 This is because in order for VoIP in WhatApp to work on newer KaiOS versions, a kernel security module called [SELinux] is now set in Enforcing mode. SELinux, in this mode, checks and denies any actions, both by the user and system, that aren't permitted in its configured set of rules. To root, you have to alter the boot partition to set SELinux to Permissive mode, and edit boot flags to allow system-level debugging access.
 
 Do give yourself enough time to progress through this guide; it will take somewhat considerable 30 minutes to an hour.
 
-### DISCLAIMER
+### Before proceeding
 PROCEED WITH CAUTION AND AT YOUR OWN RISK. I wrote this guide "as-is" with no guarantees or warranties, either express or implied. HMD does not explicitly cover software modifications under its warranty policy, so you should assume that rooting your phone will void its warranty.
 
 Proceeding with this guide will set SELinux to Permissive mode, which in turn disables voice calls in WhatsApp, and also prevent you from receiving incremental over-the-air updates. If you keep a copy of the original boot partition, you can overwrite the partition again and revert all changes, which I will mention in the last portion of this guide. Nonetheless, you can still brick your phone if you make any mistake in the process.
@@ -21,47 +19,41 @@ Remember, in most situations you don't have to root your phone to remove apps or
 - a Nokia 6300 4G (excl. TA-1324), Nokia 8000 4G, Nokia 2720 Flip, Nokia 800 Tough or Alcatel Go Flip 3;
 - an USB cable capable of transferring data (EDL cables should also work);
 - MBN programmer file for your phone: [6300 4G and 8000 4G], [2720 Flip], [800 Tough] or Go Flip 3 ([AT&T/Cricket], [T-Mobile/Metro/Rogers]);
-- `edl.py` to read and write system partitions in EDL mode: [bkerler's edl.py v3.1] for 8000 4G/6300 4G, [andybalholm's edl] for 2720 Flip/800 Tough/Go Flip 3;
-	- QFIL or Qualcomm Product Support Tools (QPST) can be used as well, but this guide will not cover them
-- required for the 6300 4G and 8000 4G: [Gerda Recovery image file] (backup: [one], [two]) for the Nokia 8110 4G, since the programmer above has a reading bug, we'll use this to access ADB from Recovery mode and get the boot partition from there;
-- Python and `pip` for `edl.py` to work (setup guide can be found for each OS below);
-	- If you want to download and install packages manually from PyPI: [pyusb], [pyserial], [keystone-engine], [capstone], [docopt], [setuptools]
-- [Android Debug Bridge (ADB)] tool to read the boot image in Gerda Recovery (see [Sideloading and debugging third-party applications] for instructions on using ADB)
+- edl.py to read and write system partitions in EDL mode: [bkerler's edl.py v3.1] for the 8000 4G and 6300 4G, [andybalholm's edl] for the 2720 Flip, 800 Tough and Go Flip 3;
+	- If you're more familiar with QFIL or Qualcomm Product Support Tools (QPST), you can use them as well, however this guide will not cover them
+- required for the 6300 4G and 8000 4G: [Gerda Recovery image file] (backup: [one], [two]) for the Nokia 8110 4G; since the programmer above has a reading bug, we'll use this to access ADB from Recovery mode and get the boot partition from there;
+- Python 3 and `pip` for `edl.py` to work; setup guide can be found for each OS below
+  - *Python 2.7 bundled with macOS 10.8 to 12 is NOT recommended for following this guide.*
+	- If you don't want to use `pip`, download and install packages manually from PyPI: [pyusb], [pyserial], [keystone-engine], [capstone], [docopt], [setuptools]
+- [Android Debug Bridge (ADB)] to read the boot image in Gerda Recovery (see [Sideloading and debugging third-party applications] for instructions on using ADB)
 
-*Windows users also have to download and install:*
-- Qualcomm driver to contact the phone in EDL mode (included in the `edl.py` package)
-- latest version of [Zadig] to configure `libusb-win32`/`libusb0` driver; do NOT use the older version bundled in `edl.py` as it has less chances of success
+For the sake of convenience, move the Gerda Recovery image and the MBN file into the root of `edl-3.1` or `edl-master` folder. If you need to have those in other folders, change the directory path for each command in this guide accordingly.
 
-*macOS users also have to download and install:*
-- [Homebrew] to quickly set up Python, ADB, `libusb` and configure the environment for EDL tools (setup guide can be found below)
-	- *Python 2.7 bundled with macOS 10.8 to 12 is NOT recommended for following this guide.*
+*On macOS and Linux, you can use [Homebrew] or your package manager of choice to quickly set up Python, ADB, `libusb` and configure the environment for `edl.py`; setup guide for macOS will be covered as part of the guide.*
 
-**If you're going the automatic boot partition patching and compilation via Docker route (only recommended for 5-6 year old computers):**
+*Windows users also need to download and install:*
+- Qualcomm driver for your computer to detect the phone in EDL mode (included in the `edl.py` package)
+- latest version of [Zadig] to configure `libusb-win32`/`libusb0` driver; do NOT use the older version bundled in `edl.py` package as it has less chances of success
+
+**If you're going the Automatic patching with 8k-boot-patcher route (only recommended for 5-6 year old computers):**
 - [Git] to clone/download the repository of the patcher tool to your computer;
 - Docker Compose to provide the environment for the patcher tool to work (included in [Docker Desktop])
-- Windows: WSL2 with [Linux kernel update package] installed (to install WSL2, turn on Virtualization in BIOS, then open Command Prompt with administrative rights and type `wsl --install`)
+- Windows: 2nd version of Windows Subsystem for Linux with [Linux kernel update package] installed (to install WSL2, turn on VT-x virtualization in BIOS, then open Command Prompt with administrative privileges and type `wsl --install`)
 
-**If you're going the extracting and manual editing by hand route:**
+**If you're going the Manual patching with Android Image Kitchen route:**
 - Android Image Kitchen v3.8 ([Windows], [macOS/Linux])
-- on Windows 10 pre-1809: [Notepad++] to edit files while [preserving line endings]
+- on Windows 10 pre-1809 and older versions of Windows: [Notepad++] to edit files while [preserving line endings]
 - (optional) [Java Runtime Environment] to properly sign the boot image with AVBv1
 
-andybalholm's EDL cannot be used on 8000 4G and 6300 4G due to structural changes within GPT, which will result in an error `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`. **Do note that the command structures used between bkerler's and andybalholm's are different, which we'll mention below.**
-
-For the sake of convenience, move the Gerda Recovery image and the MBN file into the root of `edl-3.1` or `edl-master` folder. If you need to have those in other folders, change the directory path accordingly.
-
-*If you're on Linux, Python and ADB can be quickly set up by installing with your built-in package manager. We won't be covering this here, as each Linux distro has its own way of installing from package manager.*
+andybalholm's EDL cannot be used on 8000 4G and 6300 4G due to structural changes within GPT, which will result in an error `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`. **Do note that the command structures used between bkerler's and andybalholm's edl.py are different, which will be covered in the guide below.**
 
 > Note for Arch Linux users: I've made an experimental `root.sh` that you can use to automate all 4 parts of the process (see the root of the repository) based on @Llixuma's tutorial. Debian-based distro users stay tuned!
 
 ### Part 1: Set up environment for EDL tools
-*This portion of the guide was taken from [Customization/Fastboot and EDL on BananaHackers Wiki] so that you don't have to switch tabs. Kudos to Cyan for the guides!*
+*If you were following an older revision of this guide and are stuck at `ModuleNotFoundError: No module named 'distutils'`: starting with Python 3.12, `distutils`, which is a dependency of `capstone`, has been deprecated and is no longer included by default (mentioned in Python documentation page [What's New In Python 3.10]). It is superceded by the third-party `setuptools`, which you can install from PyPI with `pip install setuptools`.*
 
 #### Linux
-1. Install Python from your operating system's package manager e.g.
-```console
-sudo apt-get install python pip3
-```
+1. Install Python from your operating system's package manager e.g. for Debian/Ubuntu: `sudo apt-get install python pip3`
 2. Then, open Terminal and type this to install the dependencies for EDL tools:
 ```console
 sudo -H pip3 install pyusb pyserial capstone keystone-engine docopt setuptools
@@ -78,7 +70,6 @@ Additionally, if you have issue with device access:
 
 #### macOS
 1. Follow the instructions to install [Homebrew] on its homepage. Basically just open Terminal and copy the long streak of code shown on the page, and type your password when prompted.
-
 2. While you're in Terminal, type this into the command-line:
 ```console
 brew install python android-platform-tools libusb && pip3 install pyusb pyserial capstone keystone-engine docopt setuptools
@@ -130,8 +121,6 @@ In both cases, the phone's screen should blink with an 'enabled by KaiOS' logo t
 8. If you're configuring the driver for the first time, an "USB Device Not Recognised" pop-up may appear. Exit EDL mode by removing and re-inserting the battery, then turn on the phone in EDL mode again.
 
 ### Part 2: Obtaining the boot partition
-*If you were following an older revision of this guide and are stuck at `ModuleNotFoundError: No module named 'distutils'`: starting with Python 3.12, `distutils`, which is a dependency of `capstone`, has been deprecated and is no longer included by default (mentioned in Python documentation page [What's New In Python 3.10]). It is superceded by the third-party `setuptools`, which you can install from PyPI with `pip install setuptools`.*
-
 #### Nokia 8000 4G and Nokia 6300 4G with bkerler's EDL
 > Beware: due to the firehose loader being malfunctioned, the EDL tool only accepts one command each session, after which you'll have to disconnect the phone and restart the phone in EDL mode. If you try to throw a second command, it'll result in a `bytearray index out of range` error.
 
