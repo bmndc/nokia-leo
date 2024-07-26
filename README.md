@@ -43,7 +43,7 @@
 
 *Source code for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used [by HMD] on the 6300 4G can be found in the [`leo-v20` branch of this repository]. Do note that it does NOT contain proprietary code from some vendors and thus cannot be used to compile a functional KaiOS build.*
 
-<img class="leo" align="right" width="390" height="390" style="width:390px;" src="assets/images/press/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
+<img class="leo" align="right" width="390" height="390" style="width:390px;height:100%;" src="assets/images/press/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
 
 **Table of Contents**
 - [Don't buy a counterfeit](#dont-buy-a-counterfeit)
@@ -91,13 +91,13 @@ Kosher is indeed a great way to make your phone truly basic, but HMD already off
 <p align="center"><img loading="lazy" width="350" alt="A Nokia 8000 4G with no Browser, KaiStore or third-party apps in the 3-by-3 grid. Center D-Pad key is engraved with a Hebrew symbol." src="assets/images/kosher-sparkler-350px.jpg"></p>
 
 ### Differences between US/CN and international models
-North America (US, TA-1324) and Mainland China (CN, TA-1287) models are customised differently from other 6300 4Gs to comply with local regulations.
+North America (US, TA-1324) and Mainland China (CN, TA-1287) versions are customised differently from other 6300 4Gs to comply with local regulations.
 
 TA-1324, which got approval from the three major US carriers, Verizon, AT&amp;T and T-Mobile, only works on LTE band 2, 4, 5, 12, 17, 66 and 71. Its modem doesn't cover LTE bands that are used across the world (e.g. band 1, 3 and 7), so you may have trouble making or receiving calls and texts overseas. Even then, it's missing [band 13], which Verizon primarily uses for VoLTE and coverage in rural area. Subsequently, other variants' modems are barely compatible with US networks, with only band 5 shared across all models; except TA-1307 which also shares LTE band 2 and 4.
 
 On the TA-1324, you can only select English (US), español (US), Français (CA) and Português (BR) as display languages. On  the TA-1287, you cannot set Google as a search engine (Baidu is set as default). WhatsApp, Facebook, YouTube, Google Maps and Google are not pre-installed, although you can get the former two from KaiStore.
 
-While you can install third-party apps on TA-1324 as with other versions, rooting is not possible at the moment due to different hash signature used for EDL handshake, which requires a separate programmer that we don't have in archive (see [EDL mode]). *Some people speculated that a generic Qualcomm programmer can be used.* **Hint:** Without root access, you can use [AppBuster] to hide unwanted apps from the app list instead.
+While you can install third-party apps on TA-1324 as with other versions, rooting isn't possible at the moment due to a different hash signature being used for EDL handshake, which requires a separate programmer that we don't have in archive (see [EDL mode]). Without root access, you can use [AppBuster] to hide unwanted apps from the app list instead.
 
 ## Tips and tricks
 - You can capture a screenshot by pressing both * and # keys at the same time.
@@ -191,11 +191,9 @@ Allows you to factory reset by wiping /data and /cache, view boot and kernel log
 ### Fastboot mode
 Only accessible and automatically kick in when both the `/boot` and `/recovery` partitions are corrupted; to manually activate this mode, use `dd` to wipe both partitions with zeroes. Part of the bootloader, this allows you to write system partitions should you wish to fix or modify them.
 
-To interact with the Fastboot interface, you need to connect your phone with an USB cable and have the `fastboot` CLI tool on your computer. On macOS and Linux, `fastboot` should be included in the `android-tools` package, which you can install from Homebrew or your package manager. On Windows, you can get it from the Android SDK Platform Tools package by following the [Sideloading and debugging third-party applications] guide; you will also need to install [Google's INF driver] (right-click the `android_winusb.inf` file and click Install; requires administrator privileges) for your computer to see your phone in Fastboot mode.
+To interact with the Fastboot interface, you need to connect your phone with an USB cable and have the `fastboot` CLI tool on your computer. On macOS and Linux, `fastboot` should be included in the `android-tools` package, which you can install from Homebrew or your package manager. On Windows, you can get it from the Android SDK Platform Tools package by following the [Sideloading and debugging third-party applications] guide; you will also need to install [Google's INF driver] for your computer to see your phone in Fastboot mode (right-click the `android_winusb.inf` file and click Install; requires administrator privileges).
 
-If you have plugged in your phone before setting up the driver: open Device Manager (`devmgmt.msc`), look for an "Android" device with an exclamation mark, right click, Install Driver..., Browse my computer for drivers, Let me pick from a list of device drivers on my computer, Have Disk... and select the INF file.
-
-Once the driver is installed, you should see your phone in the Driver Manager list as an *Android Bootloader Interface*.
+If you have plugged in your phone before setting up the driver: open Device Manager (`devmgmt.msc`), look for an "Android" device with an exclamation mark, right click, Install Driver..., Browse my computer for drivers, Let me pick from a list of device drivers on my computer, Have Disk... and select the INF file. Once the driver is installed, you should see your phone in the Driver Manager list as an *Android Bootloader Interface*.
 
 For a full list of commands you can use in the Fastboot interface, see the [Android/Fastboot entry on Gentoo Linux Wiki]. Not all commands can be used on the 6300 4G.
 
