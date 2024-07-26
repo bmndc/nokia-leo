@@ -11,6 +11,15 @@
 // 	overflow: hidden; // Don't show anything after ellipsis
 // }
 
+.language-diff {
+	.gd {
+		background-color: color-mix(in srgb, coral, transparent 75%);
+	}
+	.gi {
+		background-color: color-mix(in srgb, teal, transparent 75%);
+	}
+}
+
 .leo {
 	margin: 0 0 1rem 1rem;
 }

@@ -28,6 +28,7 @@
 	--bg-color: black;
 	--link-color: lightblue;
 	--highlight-color: blue;
+	--code-color: rgba(255, 255, 255, 0.05);
 }
 
 :root {
@@ -36,6 +37,7 @@
 	--bg-color: white;
 	--link-color: #4c566a;
 	--highlight-color: yellow;
+	--code-color: rgba(0, 0, 0, 0.05);
 }
 
 body[a="dark"] {
@@ -130,14 +132,14 @@ table, th, td {
 	padding: 0.4rem; // Add content spacing for readability
 }
 
-code {
+:not(pre) > code {
 	// Add visual colours for <code> to differentiate from surrounding paragraphs
-	color: var(--bg-color);
-	background: var(--text-color);
+	// color: var(--bg-color);
+	background: var(--code-color);
 }
 
-div.highlighter-rouge code {
-	display: block;	// Codeblocks should be displayed in... block, not inline;
+pre {
+	background: var(--code-color);
 	overflow-x: auto;
 	white-space: pre; // Allow code in codeblocks to be scrollable on smaller screens. Default is "pre-wrap"
 	padding: 1rem; // Add spacing for content in codeblocks

@@ -211,7 +211,7 @@ git clone https://gitlab.com/suborg/8k-boot-patcher.git && cd 8k-boot-patcher &&
 	- Windows: `docker run --rm -it -v %cd%/Desktop:/image 8kbootpatcher`
 	- macOS/Linux: `docker run --rm -it -v ~/Desktop:/image 8kbootpatcher`
 
-```
+```console
 $ docker run --rm -it -v ~/Desktop:/image 8kbootpatcher
 Boot image found, patching...
 writing boot image config in bootimg.cfg
