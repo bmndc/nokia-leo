@@ -90,14 +90,14 @@ Kosher is indeed a great way to make your phone truly basic, but HMD already off
 
 <p align="center"><img loading="lazy" width="350" alt="A Nokia 8000 4G with no Browser, KaiStore or third-party apps in the 3-by-3 grid. Center D-Pad key is engraved with a Hebrew symbol." src="assets/images/kosher-sparkler-350px.jpg"></p>
 
-### Differences between US/CN and international models
+## Differences between US/CN and international models
 North America (US, TA-1324) and Mainland China (CN, TA-1287) versions are customised differently from other 6300 4Gs to comply with local regulations.
 
-TA-1324, which got approval from the three major US carriers, Verizon, AT&amp;T and T-Mobile, only works on LTE band 2, 4, 5, 12, 17, 66 and 71. Its modem doesn't cover LTE bands that are used across the world (e.g. band 1, 3 and 7), so you may have trouble making or receiving calls and texts overseas. Even then, it's missing [band 13], which Verizon primarily uses for VoLTE and coverage in rural area. Subsequently, other variants' modems are barely compatible with US networks, with only band 5 shared across all models; except TA-1307 which also shares LTE band 2 and 4.
+TA-1324, which got approval from the three major US carriers, Verizon, AT&amp;T and T-Mobile, only works on LTE band 2, 4, 5, 12, 17, 66 and 71. Its modem doesn't cover LTE bands that are used across the world (e.g. band 1, 3 and 7), so you may have trouble making or receiving calls and texts overseas. Even then, it's missing [band 13], which Verizon primarily uses for VoLTE and coverage in rural area. Other variants' modems are also barely compatible with US networks, with only band 5 shared across all models; except TA-1307 which also shares LTE band 2 and 4.
 
 On the TA-1324, you can only select English (US), español (US), Français (CA) and Português (BR) as display languages. On  the TA-1287, you cannot set Google as a search engine (Baidu is set as default). WhatsApp, Facebook, YouTube, Google Maps and Google are not pre-installed, although you can get the former two from KaiStore.
 
-While you can install third-party apps on TA-1324 as with other versions, rooting isn't possible at the moment due to a different hash signature being used for EDL handshake, which requires a separate programmer that we don't have in archive (see [EDL mode]). Without root access, you can use [AppBuster] to hide unwanted apps from the app list instead.
+Although you can still install third-party apps on TA-1324 as with the other versions, you can't root it at the moment as it is signed with a different PK_HASH signature for handshake in [EDL mode]. This requires a separate programmer which we don't have in archive. Without root access, you can use [AppBuster] to hide unwanted apps from the app list instead.
 
 ## Tips and tricks
 - You can capture a screenshot by pressing both * and # keys at the same time.
