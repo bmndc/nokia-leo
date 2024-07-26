@@ -2,7 +2,7 @@
     <table style="font-size:small">
         <thead><tr><td></td><th>Nokia 6300 4G (nokia-leo)</th><th>Nokia 8000 4G (nokia-sparkler)</th></tr></thead>
         <tbody><tr><td>Released</td><td colspan="2">13 November 2020</td></tr>
-            <tr><td>Model</td><td>TA-1286, TA-1287, TA-1291, TA-1294, TA-1307, TA-1324</td><td>TA-1300, TA-1303, TA-1305, TA-1311</td></tr>
+            <tr><td>Model</td><td>TA-1286 (APAC), TA-1287 (CN), TA-1291, TA-1294,<br>TA-1307 (LATAM), TA-1324 (US)</td><td>TA-1300, TA-1303, TA-1305, TA-1311</td></tr>
             <tr><td>Colors</td><td>Light Charcoal, White, Cyan Green</td><td>Onyx/Black, Opal/White, Topaz/Blue, Cintrine/Gold</td></tr>
             <tr><td>MSRP</td><td>€49/£59.99/$69.99/1,290,000₫</td><td>€79/£79.99/1,790,000₫</td></tr>
             <tr><td colspan="3" align="center"><strong>Specifications</strong></td></tr>
@@ -11,10 +11,10 @@
             <tr><td>GPU</td><td colspan="2">Adreno 304</td></tr>
             <tr><td>Storage</td><td colspan="2">4GB eMMC 4.5 (+ up to 32GB microSDHC card)</td></tr>
             <tr><td>Network</td><td>2G GSM, 3G UMTS, 4G LTE Cat4 150/50Mbps<br><em>
-                + EU (except East Ukraine, Azerbaijan, Georgia), APAC (TA-1286): band 1, 3, 5, 7, 8, 20<br>
-                + MENA, CN (TA-1287), Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>
-                + US (TA-1324): band 2, 4, 5, 12, 17, 66, 71<br>
-                + LATAM (TA-1307): band 2, 3, 4, 5, 7, 28<br>
+                + EU (except East Ukraine, Azerbaijan, Georgia), APAC: band 1, 3, 5, 7, 8, 20<br>
+                + MENA, CN, Nigeria, Tanzania: band 1, 3, 5, 7, 8, 20, 28, 38, 39, 40, 41<br>
+                + US: band 2, 4, 5, 12, 17, 66, 71<br>
+                + LATAM: band 2, 3, 4, 5, 7, 28<br>
                 + ROW: band 1, 3, 5, 7, 8, 20, 38, 40</em><br>
                 VoLTE &amp; VoWiFi support<br>Single or Dual SIM (Nano-SIM, dual-standby)</td>
                 <td>2G GSM, 3G UMTS, 4G LTE Cat4 150/50Mbps<br><em>
