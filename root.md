@@ -54,19 +54,12 @@ andybalholm's EDL cannot be used on 8000 4G and 6300 4G due to structural change
 
 #### Linux
 Open a shell prompt and install Python and `pip3` from your package manager of choice, then install the dependencies for `edl.py` from PyPI:
+- Debian/Ubuntu-based distros: `sudo apt-get install python pip3 android-sdk-platform-tools`
+- Fedora, CentOS, RHEL: `sudo dnf install python python3-pip android-tools`
+- Arch-based distros: `sudo pacman -S python python-pip android-tools`
 
-```console
-/* Debian/Ubuntu-based distros */
-# apt-get install python pip3 android-sdk-platform-tools
-
-/* Fedora, CentOS, RHEL */
-# dnf install python python3-pip android-tools
-
-/* Arch-based distros */
-# pacman -S python python-pip android-tools
-
-/* Install dependencies for edl.py from PyPI */
-# pip3 install pyusb pyserial capstone keystone-engine docopt setuptools
+```
+sudo -H pip3 install pyusb pyserial capstone keystone-engine docopt setuptools
 ```
 
 Switch your phone to EDL mode and connect it to your computer. Either:
@@ -75,23 +68,23 @@ Switch your phone to EDL mode and connect it to your computer. Either:
 
 In both cases, the screen should blink with an 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and can proceed. If you have any issues with accessing the phone on Debian/Ubuntu-based distros, append `blacklist qcserial` in `/etc/modprobe.d/blacklist.conf` and copy `51-edl.rules` and `50-android.rules` from the Drivers folder (root of EDL directory if you have andybalholm's `edl.py`) to `/etc/udev/rules.d`:
 
-```console
-sudo echo "blacklist qcserial" > /etc/modprobe.d/blacklist.conf
 ```
-```console
-sudo cp 51-edl.rules 50-android.rules /etc/udev/rules.d
+# echo "blacklist qcserial" > /etc/modprobe.d/blacklist.conf
+```
+```
+# cp 51-edl.rules 50-android.rules /etc/udev/rules.d
 ```
 
 #### macOS
 Follow the instructions to install [Homebrew] on its homepage, install Android SDK Platform Tools package, latest Python, `libusb` and dependencies for `edl.py` from PyPI. Basically open Terminal and copy-paste each line of this code, and type your password when prompted:
 
-```console
+```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
-```console
+```
 brew install python android-platform-tools libusb
 ```
-```console
+```
 pip3 install pyusb pyserial capstone keystone-engine docopt setuptools
 ```
 
@@ -115,7 +108,7 @@ In both cases, the screen should blink with an 'enabled by KaiOS' logo then beco
 
 4. Open Command Prompt/Windows Terminal with administrator rights and install the dependencies for `edl.py` from PyPI:
 
-```console
+```
 pip3 install pyusb pyserial capstone keystone-engine docopt setuptools
 ```
 
@@ -148,7 +141,7 @@ In both cases, the screen should blink with an 'enabled by KaiOS' logo then beco
 
 2. Open the extracted EDL folder in Command Prompt/Terminal. Flash the Gerda Recovery image to the recovery partition by typing:
 
-```console
+```
 python edl.py w recovery recovery-8110.img --loader=8k.mbn
 ```
 
@@ -165,7 +158,7 @@ Don't worry if this boots into a white screen: this is because the display drive
 
 5. Navigate the shell prompt to the extracted `platform-tools` folder with `cd` (if needed). Pull the boot partition from the phone to your computer with ADB:
 
-```console
+```
 adb pull /dev/block/bootdevice/by-name/boot boot.img
 ```
 
@@ -186,10 +179,10 @@ In both cases, the screen should blink with an 'Powered by KaiOS' logo then go b
 
 2. Extract the EDL package and open the folder in Command Prompt/Terminal. Pull the boot partition of the phone to the current directory on your computer by typing either of these commands, depending on which phone you have:
 
-```console
+```
 python edl.py -r boot boot.img -loader 2720.mbn
 ```
-```console
+```
 python edl.py -r boot boot.img -loader 800t.mbn
 ```
 
@@ -208,7 +201,7 @@ You should now have a copy of the boot partition with the size of 25.0 MB (25,60
 
 2. Use [Git] to clone/download the boot patcher toolkit by typing this into Command Prompt/Terminal. This will download the toolkit and have Docker set it up. Do not omit the dot/period at the end of this command, this tells Docker where our downloaded toolkit are located on the system.
 
-```console
+```
 git clone https://gitlab.com/suborg/8k-boot-patcher.git && cd 8k-boot-patcher && docker build -t 8kbootpatcher .
 ```
 
@@ -218,7 +211,7 @@ git clone https://gitlab.com/suborg/8k-boot-patcher.git && cd 8k-boot-patcher &&
 	- Windows: `docker run --rm -it -v %cd%/Desktop:/image 8kbootpatcher`
 	- macOS/Linux: `docker run --rm -it -v ~/Desktop:/image 8kbootpatcher`
 
-```console
+```
 $ docker run --rm -it -v ~/Desktop:/image 8kbootpatcher
 Boot image found, patching...
 writing boot image config in bootimg.cfg
@@ -346,22 +339,22 @@ If the new image is barely over 1/3 the size of the original image, it's normal 
 
 2. Move the newly created `boot.img`, `unsigned-new.img` or `image-new.img` to the EDL folder and open Command Prompt/Terminal within it. From here type either of these commands depending on which image file you have:
 
-```console
+```
 python edl.py w boot boot.img --loader=8k.mbn
 ```
-```console
+```
 python edl.py w boot unsigned-new.img --loader=8k.mbn
 ```
-```console
+```
 python edl.py w boot image-new.img --loader=8k.mbn
 ```
 
 For Nokia 2720 Flip and Nokia 800 Tough with andybalholm's EDL:
 
-```console
+```
 python edl.py -w boot boot.img -loader 2720.mbn
 ```
-```console
+```
 python edl.py -w boot boot.img -loader 800t.mbn
 ```
 
@@ -377,14 +370,14 @@ python edl.py -w boot boot.img -loader 800t.mbn
 - If you wish to retain privileged permissions after restoring the phone to its unrooted state, before doing so, back up all data, sideload Luxferre's [CrossTweak] then press # to perform a privileged factory reset; this will wipe all data of the phone and let you set up with a privileged user session. This session will last until an OTA update overrides or you choose to factory reset the phone.
 - (Proof-of-concept, does NOT work) After rooting, you can spoof SELinux's Enforced status for VoIP in WhatsApp by typing these commands one-by-one into the rooted ADB shell. This will last until a restart.
 
-```console
+```
 echo -n 1 > /data/enforce
 mount -o bind /data/enforce /sys/fs/selinux/enforce
 ```
 
 If you wish to revert all changes you've made, connect your phone to the computer in EDL mode, move the original boot image file to `edl-3.1` or `edl-master` folder, open Command Prompt/Terminal and type:
 
-```console
+```
 python edl.py w boot boot.img --loader=8k.mbn
 python edl.py reset
 ```
