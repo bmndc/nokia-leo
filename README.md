@@ -101,15 +101,13 @@ Although you can still install third-party apps on TA-1324 as with the other ver
 
 ## Tips and tricks
 - You can capture a screenshot by pressing both * and # keys at the same time.
-- If you want to have tactile responses for each keypress, go to Settings, Device, Accessibility and turn on Keypad vibration. *Highly NOT recommend using this as the phone only has one mode of vibration, and by 'one' I mean it's really strong, which could be both annoying and drain the battery as a rollercoaster.*
-- For tactile responses on keypresses, turn on *Keypad vibration* under *Settings → Device → Accessibility*.
+- If you want to have tactile responses for each keypress, go to Settings, Device, Accessibility and turn on Keypad vibration. *NOT recommend turning this setting on since the phone only has one mode of vibration, and it’s really strong, which could be annoying and could drain the battery as a rollercoaster.*
 - You don’t need a KaiOS account to use your phone or download apps from KaiStore, but you can create one in Settings, Accounts if you want to use Anti-Theft features.
-- To stop getting ad notifications from KaiStore, go to *Settings → Personalization → Notices → App notices → Store* and turn off *Allow Notices*. Then go to Store, Options, Settings & Account, Show rich content and select Do not show.
-  - To block KaiAds altogether, add `ssp.kaiads.com` in your Wi-Fi routers' blacklist or [the system's `hosts` file]. Be aware that this might prevent you from installing apps from KaiStore like WhatsApp.
-- Speed Dial lets you call a contact quickly by pressing and holding a number key from 2 to 9 on the homescreen. To assign a contact to a number key, press and hold an empty key on the homescreen or go to *Contacts → Options → Settings → Set Speed Dial Contacts*. You can also change your voicemail number in the same menu.
+- To stop getting ad notifications from KaiStore, go to Settings, Personalization, Notices, App notices, Store and turn off Allow Notices. Then go to Store, Options, Settings & Account, Show rich content and select Do not show. Or to block KaiAds altogether, add `ssp.kaiads.com` in your Wi-Fi routers' blacklist or [the system's `hosts` file]. Note that this might prevent you from installing certain apps from KaiStore like WhatsApp.
+- Speed Dial lets you call a contact quickly by pressing and holding a number key from 2 to 9 on the homescreen. To assign a contact to a number key, press and hold an unset key on the homescreen or go to Contacts, Options, Settings, Set Speed Dial Contacts. You can also change your voicemail number in the same menu.
   - *ICE (In Case of Emergency) Contacts, however, is an useless feature on this phone, since there's basically no way to activate it. On the 2720 Flip, you could hold or double-press the side button to trigger SOS Call.*
 - You can use a GIF as your homescreen wallpaper, but it will drain your battery faster.
-- If you prefer a different layout than the default 3-by-3 grid view, you can choose *Options → List view/Single view* and rearrange the items as you like.
+- If you prefer a different layout than the default 3-by-3 grid view, you can choose Options, List view/Single view and rearrange the items as you like.
 - Readout is a hidden accessibility feature for blind and visually-impaired users, which reads the focused content on your screen and your selection out loud. To toggle Readout, turn on debugging mode on the phone and connect it to a WebIDE session (see [Sideloading and debugging third-party applications]), then toggle the `accessibility.screenreader` Device Settings boolean flag.
   - Note that this feature might not work well with some third-party apps which have unlabelled buttons.
 
