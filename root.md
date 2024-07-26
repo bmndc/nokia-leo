@@ -19,12 +19,12 @@ Remember, in most situations you don't have to root your phone to remove apps or
 - a Nokia 6300 4G (excl. TA-1324), Nokia 8000 4G, Nokia 2720 Flip, Nokia 800 Tough or Alcatel Go Flip 3;
 - an USB cable capable of transferring data (EDL cables should also work);
 - MBN programmer file for your phone: [6300 4G and 8000 4G], [2720 Flip], [800 Tough] or Go Flip 3 ([AT&T/Cricket], [T-Mobile/Metro/Rogers]);
-- edl.py to read and write system partitions in EDL mode: [bkerler's edl.py v3.1] for the 8000 4G and 6300 4G, [andybalholm's edl] for the 2720 Flip, 800 Tough and Go Flip 3;
+- edl.py to read and write partitions in EDL mode: [bkerler's edl.py v3.1] for the 8000 4G and 6300 4G, [andybalholm's edl] for the 2720 Flip, 800 Tough and Go Flip 3;
 	- If you're more familiar with QFIL or Qualcomm Product Support Tools (QPST), you can use them as well, however this guide will not cover them
 - required for the 6300 4G and 8000 4G: [Gerda Recovery image file] (backup: [one], [two]) for the Nokia 8110 4G; since the programmer above has a reading bug, we'll use this to access ADB from Recovery mode and get the boot partition from there;
 - Python 3 and `pip` for `edl.py` to work; setup guide can be found for each OS below
   - *Python 2.7 bundled with macOS 10.8 to 12 is NOT recommended for following this guide.*
-	- If you don't want to use `pip`, download and install packages manually from PyPI: [pyusb], [pyserial], [keystone-engine], [capstone], [docopt], [setuptools]
+  - If you don't have an Internet connection, download and install packages manually from PyPI: [pyusb], [pyserial], [keystone-engine], [capstone], [docopt], [setuptools]
 - [Android Debug Bridge (ADB)] to read the boot image in Gerda Recovery (see [Sideloading and debugging third-party applications] for instructions on using ADB)
 
 For the sake of convenience, move the Gerda Recovery image and the MBN file into the root of `edl-3.1` or `edl-master` folder. If you need to have those in other folders, change the directory path for each command in this guide accordingly.
