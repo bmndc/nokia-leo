@@ -11,12 +11,20 @@
 // 	overflow: hidden; // Don't show anything after ellipsis
 // }
 
-.language-diff {
-	.gd {
-		background-color: color-mix(in srgb, coral, transparent 75%);
-	}
-	.gi {
-		background-color: color-mix(in srgb, teal, transparent 75%);
+// Ruby language highlighting
+.language-diff .gd {
+	background-color: rgba(255, 127, 80, 0.75);
+}
+.language-diff .gi {
+	background-color: rgba(0, 128, 128, 0.7);
+}
+
+.language-console .nt {
+	color: #2e2e2e;
+}
+@media (prefers-color-scheme: dark) {
+	.language-console .nt {
+		color: #ccc;
 	}
 }
 

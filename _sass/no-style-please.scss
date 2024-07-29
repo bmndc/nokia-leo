@@ -114,7 +114,7 @@ li {
 	background: var(--highlight-color);
 }
 
-.w {
+:not(code) > .w {
 	// div container for content
 	max-width: 1083px; // Set content width, will dynamically adjust on mobile. Default is 640px;
 	margin: 0 auto;	// Centre the content div;
