@@ -7,7 +7,7 @@ Please note that for the buttons on this page to function correctly, you need to
 
 It's unclear how a page in the Settings app can be hidden on conditions. My theory is, when you pop a SIM card into the phone, B2G looks up some information of the carrier and matches a certain ID with one of the default configurations under `/system/b2g/defaults/customization/` (see [GerdaOS's main system](https://gitlab.com/project-pris/system/-/tree/master/src/system/b2g/defaults/customization) and [leo's system](https://github.com/bmndc/nokia-leo/tree/system/b2g/defaults/customization)). If it finds a match, B2G will toggle Device Settings flags based on the JSON values, and decide whether to enable certain features of the phone or not.
 
-Now, what this does is merely hiding the menu from the Settings app so that normal users cannot access it. But the menu can still be opened with other means, one of which is mozActivity.
+Now, what this does is merely hiding the menus from the Settings app so that normal users cannot access it. But they can still be opened with other means.
 
 mozActivity on Firefox OS and KaiOS 2.5, and webActivity on KaiOS 3+, is a system-level function which allows applications to share data, view and perform actions across each other. An app can register to handle a mozActivity/webActivity in its `manifest.webapp` file, and other apps can reference to a registered mozActivity/webActivity to perform actions e.g. sharing photos and videos from Gallery to Messages, or opening a page in the Settings app if the phone isn't connected to the Internet.
 
