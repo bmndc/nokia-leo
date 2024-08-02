@@ -292,7 +292,7 @@ That's it! On your desktop there will be two new image files, the modified `boot
 
 ![Screenshot of the modified init.qcom.early_boot.sh file](assets/images/setenforce.png)
 
-5. Go back to the root Android Image Kitchen folder and open `split_img/boot.img-cmdline` in Notepad++. Without adding a new line, scroll to the end of the first line and append `androidboot.selinux=permissive enforcing=0`.
+5. Go back to the Android Image Kitchen folder and open `split_img/boot.img-cmdline` in Notepad++. Without adding a new line, scroll to the end of the first line and append `androidboot.selinux=permissive enforcing=0`.
 
 ![Screenshot of the modified boot.img-cmdline file](assets/images/append.png)
 
@@ -324,7 +324,7 @@ That's it! On your desktop there will be two new image files, the modified `boot
 
 ![Screenshot of the modified init.rc file, with line 393 marked as comment, and line 421 added to disable the Low Memory Killer module](assets/images/f5-selinux.png)
 
-7. And that's a wrap! Open the root Android Image Kitchen folder in Command Prompt/Terminal and type `repackimg` to package our modified boot partition.
+7. And that's a wrap! Open the Android Image Kitchen folder in Command Prompt/Terminal and type `repackimg` to package your modified boot partition.
 
 <!-- ![Screenshot of a Windows Command Prompt window showing some logs of the boot partition repacking process after typing the above command, but has a signing error at the end](assets/images/repack_unsigned.png) -->
 
