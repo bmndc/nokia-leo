@@ -5,18 +5,23 @@
 
 /** Invoke configure mozActivity/webActivity and redirect user to a Settings page
  * 
- * @param p - section ID for the page in the Settings app
+ * @author Tom Barrasso <tom@barrasso.me>
+ * @author Luxferre
+ * @author The Gaia Team at Mozilla and KaiOS Technologies
+ * @param section - section ID for the page in the Settings app
+ * @implements mozActivity (KaiOS 2.5)
+ * @implements webActivity (KaiOS 3 and later)
  * @see https://gitlab.com/project-pris/system/-/blob/master/src/system/b2g/webapps/settings.gaiamobile.org/src/index.html?ref_type=heads
  * @see https://gitlab.com/project-pris/system/-/tree/master/src/system/b2g/webapps/settings.gaiamobile.org/src/elements?ref_type=heads
  */
-function openMenu(p) {
+function openMenu(section) {
     // KaiOS 2.5
     if (window.MozActivity) {
         var act = new MozActivity({
             name: "configure",
             data: {
                 target: "device",
-                section: p,
+                section: section,
             },
         });
         act.onerror = function (e) {
@@ -28,7 +33,7 @@ function openMenu(p) {
     else if (window.WebActivity) {
         var act = new WebActivity("configure", {
             target: "device",
-            section: p,
+            section: section,
         });
         act.start().catch(function (e) {
             console.error(e, act);
@@ -37,7 +42,7 @@ function openMenu(p) {
     }
     // Not a KaiOS device?
     else {
-        window.alert('It appears your device does\'t support mozActivity or webActivity APIs. Please open the page on the phone itself.');
+        window.alert('It appears your device doesn\'t support the mozActivity or webActivity API. For this function to work, please open this page on a KaiOS device.');
     }
 };
 
