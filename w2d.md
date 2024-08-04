@@ -25,8 +25,8 @@ Attempt to open Internet sharing menu under Settings, Network & Connectivity, wh
 
 <button onclick="openMenu('hotspot')">Launch Hotspot menu</button>
 
-## Connect to ADB wirelessly
-If you don't have an USB cable nearby, this button below will open an ADB port of 5555 on your phone so that you can connect to your computer's ADB wirelessly by typing `adb connect [your.phone.ip.address]:5555`. For more details, see [ADB and WebIDE/Sideloading and debugging third-party applications](https://github.com/bmndc/nokia-leo/wiki/Sideloading-and-debugging-third%E2%80%90party-applications).
+## Connect to ADB wirelessly (experimental)
+If you don't have an USB cable nearby, this button below will attempt to open a 5555 port for `adbd` on your phone so that you can connect to ADB on your computer wirelessly by typing `adb connect [your.phone.ip.address]:5555`. For more details, see [Sideloading and debugging third-party applications](https://github.com/bmndc/nokia-leo/wiki/Sideloading-and-debugging-third%E2%80%90party-applications).
 
 You can find your phone's local IP address (192.168.1.x) by going to Settings, Network & Connectivity, Wi-Fi, Available networks and click on the connected Wi-Fi access point; or download N4NO's [My IP Address](https://www.kaiostech.com/store/apps/?bundle_id=com.n4no.myipaddress) from KaiStore.
 
@@ -39,9 +39,9 @@ In this menu, you can set your screen to greyscale or invert all colours.
 
 <button onclick="openMenu('accessibility-colors')">Launch Color Filter menu</button>
 
-## Turn off Flip to answer
+## Turn off Flip open to answer
 
-<button onclick="openMenu('answer-mode')">Launch menu</button>
+<button onclick="openMenu('answer-mode')">Launch Answer Mode menu</button>
 
 ## VoLTE/VoWiFi (not recommended)
 Some carriers don't support VoLTE/VoWiFi on KaiOS phones. This attempts to open the VoLTE/VoWiFi menu. Note that this will open a blank page on most devices.
@@ -53,6 +53,6 @@ This button below will attempt to open the hidden Readout screen reader menu in 
 
 On devices with dedicated volume buttons, you can quickly toggle on/off this feature by repeatedly pressing Volume up and Volume down. You can also toggle the feature under Device Settings in WebIDE.
 
-<button onclick="openMenu('readout')">Launch Readout menu</button>
+<button onclick="openMenu('accessibility-readout-mode')">Launch Readout menu</button>
 
 *For list of all hidden settings accessible via mozActivity, check out [Cyan's dedicated website](https://cyan-2048.github.io/kaios_scripts).*
