@@ -25,6 +25,11 @@ Attempt to open Internet sharing menu under Settings, Network & Connectivity, wh
 
 <button onclick="openMenu('hotspot')">Launch Hotspot menu</button>
 
+## VoLTE/VoWiFi
+Attempt to open VoLTE/VoWiFi menu on phones with unsupported carriers.
+
+<button onclick="openMenu('volte-vowif')">Launch VoLTE/VoWiFi menu</button>
+
 ## Connect to ADB wirelessly
 If you don't have an USB cable nearby, this button below will open an ADB port of 5555 on your phone so that you can connect to your computer's ADB wirelessly by typing `adb connect [your.phone.ip.address]:5555`. For more details, see [ADB and WebIDE/Sideloading and debugging third-party applications](https://github.com/bmndc/nokia-leo/wiki/Sideloading-and-debugging-third%E2%80%90party-applications).
 
