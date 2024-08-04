@@ -46,7 +46,7 @@ In this menu, you can set your screen to greyscale or invert all colours.
 ## VoLTE/VoWiFi (not recommended)
 Some carriers don't support VoLTE/VoWiFi on KaiOS phones. This attempts to open the VoLTE/VoWiFi menu. Note that this will open a blank page on most devices.
 
-<button onclick="openMenu('volte_vowif')">Launch VoLTE/VoWiFi menu</button>
+<button onclick="openMenu('volte-vowifi')">Launch VoLTE/VoWiFi menu</button>
 
 ## Readout (not recommended)
 This button below will attempt to open the hidden Readout screen reader menu in Settings, which is hidden on many devices because it is unusable outside of KaiOS's built-in apps. Note that on most devices, the menu will be blank. 
