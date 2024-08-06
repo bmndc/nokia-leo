@@ -41,7 +41,7 @@
     </table>
 </details>
 
-*Source code for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used [by HMD] on the 6300 4G can be found in the [`leo-v20` branch of this repository]. Do note that it does NOT contain proprietary code from some vendors and thus cannot be used to compile a functional KaiOS build.*
+*Source code for B2G, Linux 4.9 kernel and certain LGPL-2.1 licensed libraries used [by HMD] on the 6300 4G can be found in the [`leo-v20` branch of this repository]. Do note that it does NOT contain proprietary code from some vendors and thus [cannot be used to compile a functional KaiOS build].*
 
 <img class="leo" align="right" width="390" height="390" style="width:390px;height:100%;" src="assets/images/press/nokia_6300_4G-emotional-Range.png" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
 
@@ -248,6 +248,7 @@ _Looking for the guide to root the 6300 4G? This section has now been moved to [
 <!-------------------------------- LINKS -------------------------------->
 [by HMD]: https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz
 [`leo-v20` branch of this repository]: https://github.com/bmndc/nokia-leo/tree/leo-v20
+[cannot be used to compile a functional KaiOS build]: https://bmndc.github.io/nokia-leo/2024/08/06/kaios-rom.html
 
 [one of the most affordable]: https://www.hmdglobal.com/new-nokia-feature-phones-nokia-6300-4g-and-nokia-8000-4g
 [hatred reputation for its performance]: #known-issues
