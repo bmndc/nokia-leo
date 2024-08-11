@@ -2,25 +2,25 @@
 layout: page
 title: "ROOT: Patching the boot partition (non-US only)"
 ---
-On the Nokia 6300 4G and 8000 4G, although you can use ADB and DevTools to install most apps outside KaiStore, you aren't allowed to install apps with special 'forbidden' permissions such as `embed-apps`, `embed-widget` and `engmode-extension` (defined by the `devtools.apps.forbidden-permissions` flag). This means you cannot sideload and use Wallace Toolbox, or any apps made by BananaHackers to gain root access to the system. Most system modifications have also been blocked, and if you were to make any changes, they would be reverted upon the next boot.
+On the Nokia 6300 4G and 8000 4G, although you can use ADB and DevTools to install most applications outside KaiStore, you aren't allowed to install apps with 'forbidden' permissions such as `embed-apps`, `embed-widget` and `engmode-extension` (defined by the `devtools.apps.forbidden-permissions` Device Preferences flag). Wallace Toolbox and a number of apps made by BananaHackers depend on this permission to gain special control of the system, which naturally means you cannot sideload and use them on the 6300 4G and 8000 4G. Most system modifications have also been blocked, and if you were to make any changes, they would be reverted upon next boot.
 
-This is because in order for VoIP in WhatApp to work on newer KaiOS versions, a kernel security module called [SELinux] is now set to Enforcing mode. SELinux, in this mode, checks and denies any actions, both by the user and system, which are not permitted in its configured set of rules. To root, you have to edit the boot partition, set SELinux to Permissive mode, and change certain boot flags to allow system-level debugging access.
+That's because in order for VoIP in WhatApp to work on newer KaiOS versions, a kernel security module called [SELinux] is now set to Enforcing mode. In this mode, SELinux checks for, and denies any actions, both made by the user and system, which are not permitted in its configured set of rules. To root, you need to edit the boot partition, set SELinux to Permissive mode, and change certain boot flags to allow system-level debugging access.
 
 Do give yourself enough time to progress through this guide; it will take somewhat considerable 30 minutes to an hour.
 
 ### Before proceeding
-PROCEED WITH CAUTION AND AT YOUR OWN RISK. I wrote this guide "as-is" with no guarantees or warranties, either express or implied. HMD does not explicitly cover software modifications under its warranty policy, so you should assume that rooting your phone will void its warranty.
+PROCEED WITH CAUTION AND AT YOUR OWN RISK. I wrote this guide "as-is" with no guarantees or warranties. HMD does not explicitly cover software modifications under its warranty policy, so you should assume that rooting your phone will void its warranty.
 
-Proceeding with this guide will set SELinux to Permissive mode, which in turn disable voice calls in WhatsApp, and may prevent you from receiving incremental over-the-air updates. If you keep a copy of the original boot partition, you can overwrite the partition and revert all changes, which I will mention in the last portion of the guide. Nonetheless, you can still brick your phone if you make any mistake in the process.
+Proceeding with this guide will set SELinux to Permissive mode, which in turn disable voice calls in WhatsApp, and may prevent you from receiving incremental over-the-air updates. If you keep a copy of the original boot image, you can overwrite the modified partition and revert all changes, which I will cover in the last portion of the guide. Nonetheless, you can still brick your phone if you make any mistake in the process.
 
-In most situations, you don't have to root your phone to remove apps or change settings e.g. you can use [this fork of Luxferre's AppBuster] to hide apps from the launcher, instead of deleting them with Wallace Toolbox. You can also install [CrossTweak], a Wallace Toolbox alternative which does not need `engmode-extension` and therefore can be installed on KaiOS 2.5.4 phones.
+In most situations, you don't have to root your phone to remove apps or change settings, e.g. you can use [this fork of Luxferre's AppBuster] to hide apps from the launcher, instead of deleting them with Wallace Toolbox. You can also install [CrossTweak], a Wallace Toolbox alternative which doesn't need `engmode-extension` and therefore can be installed on KaiOS 2.5.4 phones.
 
 ### What we need
 - a Nokia 6300 4G (excl. TA-1324), Nokia 8000 4G, Nokia 2720 Flip, Nokia 800 Tough or Alcatel Go Flip 3;
 - an USB cable capable of transferring data (EDL cables should also work);
-- EDL programmer file for your phone: [6300 4G and 8000 4G], [2720 Flip], [800 Tough] or Go Flip 3 ([AT&T/Cricket], [T-Mobile/Metro/Rogers]);
-- latest version of [bkerler's edl] to read and write system partitions in EDL mode. *Older revisions of this guide refer to [bkerler's edl v3.1] for the 8000 4G and 6300 4G, and [andybalholm's edl] for the 2720 Flip, 800 Tough and Go Flip 3;*
-	- this guide will not cover QFIL or Qualcomm Product Support Tools (QPST); but if you're more familiar with them, you can use them as well
+- EDL programmer for your phone (in MBN format): [6300 4G and 8000 4G], [2720 Flip], [800 Tough] or Go Flip 3 ([AT&T/Cricket], [T-Mobile/Metro/Rogers]);
+- `edl.py` to read and write system partitions in EDL mode: [bkerler's edl] for the 6300 4G and 8000 4G, and [andybalholm's edl] for the 2720 Flip, 800 Tough and Go Flip 3;
+	- I won't cover QFIL or Qualcomm Product Support Tools (QPST) here; however if you're more familiar with them, you can use them as well
 - required for the 6300 4G and 8000 4G: [Gerda Recovery image file] (backup: [one], [two]) for the Nokia 8110 4G; since the programmer above has a reading bug, we'll use this to access ADB from Recovery mode and get the boot partition from there;
 - Python 3 and `pip` for `edl.py` to work; setup guide can be found for each OS below
   - *Python 2.7 bundled with macOS 10.8 to 12 is NOT recommended for following this guide.*
@@ -402,7 +402,7 @@ python edl.py reset
 [docopt]: https://pypi.org/project/docopt/
 [setuptools]: https://pypi.org/project/setuptools/
 [Sideloading and debugging third-party applications]: https://github.com/bmndc/nokia-leo/wiki/Sideloading-and-debugging-third%E2%80%90party-applications
-[bkerler's edl v3.1]: https://github.com/bkerler/edl
+[bkerler's edl]: https://github.com/bkerler/edl/archive/refs/heads/master.zip
 [andybalholm's edl]: https://github.com/andybalholm/edl
 [Python's official download page for Windows]: https://www.python.org/downloads/windows
 [Android Debug Bridge (ADB)]: https://developer.android.com/studio/releases/platform-tools
