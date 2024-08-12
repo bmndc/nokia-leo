@@ -2,14 +2,14 @@
 layout: page
 title: "ROOT: Patching the boot partition (non-US only)"
 ---
-On the Nokia 6300 4G and 8000 4G, although you can use ADB and DevTools to install most applications outside KaiStore, you aren't allowed to install apps with 'forbidden' permissions such as `embed-apps`, `embed-widget` and `engmode-extension` (this is defined by the `devtools.apps.forbidden-permissions` Device Preferences flag). Wallace Toolbox and a number of apps made by BananaHackers depend on those permissions to gain special control of the system, which naturally means you cannot sideload and use them on the phones. Most system modifications have also been blocked, and if you were to make any changes, they would be reverted upon next boot.
+On the Nokia 6300 4G and 8000 4G, although you can use ADB and DevTools to install third-party applications outside KaiStore, you aren't allowed to install apps with 'forbidden' permissions such as `embed-apps`, `embed-widget` and `engmode-extension` (this is defined by the devtools.apps.forbidden-permissions Device Preferences flag). Wallace Toolbox and a number of apps made by BananaHackers depend on those permissions to gain special control of the system, which means you cannot sideload and use them. Most system modifications have also been blocked, and if you were to make any changes, they would be reverted upon next boot.
 
 That is because in order for VoIP in WhatApp to work on newer KaiOS versions, a kernel security module called [SELinux] is now set to Enforcing mode. In this mode, SELinux checks for, and denies any actions, both made by the user and the system, which are not permitted in its preconfigured set of rules. To root, you need to edit the boot partition, set SELinux to Permissive mode, and change certain boot flags to allow system-level debugging access.
 
-Do give yourself enough time to progress through this guide; it will take somewhat considerable 30 minutes to an hour.
+Do give yourself enough time to go through this guide; it will take a considerable 30 minutes to an hour.
 
 ### Before proceeding
-PROCEED AT YOUR OWN RISK AND WITH CAUTION. I wrote this guide "as-is" without any guarantees or warranties. HMD does not explicitly cover software modifications under its warranty policy, so you should assume that rooting your phone will void its warranty.
+PROCEED AT YOUR OWN RISK AND WITH CAUTION. I wrote this guide "as-is" without providing any guarantees or warranties. HMD does not explicitly cover software modifications under its warranty policy, so you should assume that rooting your phone will void its warranty, and you are liable for any damages.
 
 Proceeding with this guide will set SELinux to Permissive mode, which in turn disable voice calls in WhatsApp, and may prevent you from receiving incremental over-the-air updates. If you keep a copy of the original boot image, you can overwrite the modified partition and revert all changes, which I will cover in the last portion of the guide. But you can still brick your phone if you make any mistake in the process.
 
@@ -17,12 +17,12 @@ In most situations, you don't have to root your phone to remove preinstalled app
 
 ### What we need
 - a Nokia 6300 4G (excl. TA-1324), Nokia 8000 4G, Nokia 2720 Flip, Nokia 800 Tough or an Alcatel Go Flip 3;
-- a physical computer with working Internet connection, of which you have access to administrator privileges (setting up on a virtual machine is strongly discouraged);
+- a physical computer with working Internet connection, which you have administrator privileges (setting up on a virtual machine is strongly discouraged);
 - an USB cable capable of transferring data (EDL cables should also work);
-- EDL programmer for your phone (in MBN format): [6300 4G and 8000 4G], [2720 Flip], [800 Tough] or Go Flip 3 ([AT&T/Cricket], [T-Mobile/Metro/Rogers]);
-- `edl.py` to read and write system partitions in EDL mode: [bkerler's edl] for the 6300 4G and 8000 4G, and [andybalholm's edl] for the 2720 Flip, 800 Tough and Go Flip 3;
-  - Windows users may need to use [bkerler's edl v3.1] for the time being, as the latest version keeps being stuck at `main - Device detected :)` in my testing
-	- I won't cover setting up with QFIL or Qualcomm Product Support Tools (QPST) here; however if you're more familiar with them, you can use them as well
+- EDL programmer for your phone: [6300 4G and 8000 4G], [2720 Flip], [800 Tough] or Go Flip 3 ([AT&T/Cricket], [T-Mobile/Metro/Rogers]);
+- `edl.py` to read and write system partitions: [bkerler's edl v3.1] for the 6300 4G and 8000 4G, or [andybalholm's edl] for the 2720 Flip, 800 Tough and Go Flip 3;
+  - *On macOS and Linux, you can also use the latest version of [bkerler's edl] on the 6300 4G and 8000 4G; this allows you to read the boot partition without having to go through Gerda Recovery. Windows users may use v3.1 for now, as the newer version keeps being stuck at `main - Device detected :)` in my testing.*
+  - I won't cover QFIL or Qualcomm Product Support Tools (QPST) in this guide; however if you're more comfortable with them, you can use them as well
 - required for the 6300 4G and 8000 4G: [Gerda Recovery image file] (backup: [one], [two]) for the Nokia 8110 4G; since the programmer above has a reading bug, we'll use this to access ADB from Recovery mode and get the boot partition from there;
 - Python 3 and `pip` for `edl.py` to work; setup guide can be found for each OS below
   - *Python 2.7 bundled with macOS 10.8 to 12 is NOT recommended for following this guide.*
