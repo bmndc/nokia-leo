@@ -86,7 +86,15 @@ Follow the instructions to install [Homebrew] on its homepage, install Android S
 brew install python android-platform-tools libusb
 ```
 ```
-pip3 install pyusb pyserial capstone keystone-engine docopt setuptools
+python3 -m venv env
+source env/bin/activate
+python3 -m pip install pyusb pyserial capstone keystone-engine docopt setuptools
+```
+```
+python3 -m pip install setuptools
+```
+```
+python3 -m pip install --pre --no-binary capstone capstone
 ```
 
 Switch your phone to EDL mode and connect it to your computer. Either:
