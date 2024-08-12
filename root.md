@@ -21,22 +21,21 @@ In most situations, you don't have to root your phone to remove preinstalled app
 - an USB cable capable of transferring data (EDL cables should also work);
 - EDL programmer for your phone: [6300 4G and 8000 4G], [2720 Flip], [800 Tough] or Go Flip 3 ([AT&T/Cricket], [T-Mobile/Metro/Rogers]);
 - `edl.py` to read and write system partitions: [bkerler's edl-3.1] for the 6300 4G and 8000 4G, or [andybalholm's edl] for the 2720 Flip, 800 Tough and Go Flip 3;
-  - *experimental: macOS and Linux users can try the latest version of [bkerler's edl] on the 6300 4G and 8000 4G; this allows you to read the boot partition without having to go through Gerda Recovery. Windows users may hold off as the newer version keeps being stuck at `main - Device detected :)` in my testing.*
-  - Don't mix the two; GPT structural changes on the 6300 4G and 8000 4G causes andybalholm's EDL to throw `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`
+  - *macOS and Linux users can try the latest version of [bkerler's edl] on the 6300 4G and 8000 4G; this allows you to read the boot partition without having to go through Gerda Recovery. Windows users may hold off as the newer version keeps being stuck at `main - Device detected :)` in my testing.*
+  - Due to changes within the partition table, using andybalholm's EDL on the 6300 4G and 8000 4G will throw an error: `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`
   - I won't cover QFIL or Qualcomm Product Support Tools (QPST) in this guide; however if you're more comfortable with them, you can use them as well
 - required for the 6300 4G and 8000 4G: [Gerda Recovery image file] (backup: [one], [two]) for the Nokia 8110 4G; since the programmer above has a reading bug, we'll use this to access ADB from Recovery mode and get the boot partition from there;
 - Python 3 and `pip` for `edl.py` to work; setup guide can be found for each OS below
+  - On macOS and Linux, you can use [Homebrew] or your package manager of choice to quickly set up Python, ADB, `libusb` and dependencies for `edl.py`; setup guide for macOS will be covered as part of the guide.
   - *Python 2.7 bundled with macOS 10.8 to 12 is NOT recommended for following this guide.*
   - If you don't have an Internet connection, download and install packages manually from PyPI: [pyusb], [pyserial], [keystone-engine], [capstone], [docopt], [setuptools]
-- [Android Debug Bridge (ADB)] to read the boot image in Gerda Recovery (see [Sideloading and debugging third-party applications] for instructions on using ADB)
+- [Android Debug Bridge (ADB)] to read the boot partition in Gerda Recovery (see [Sideloading and debugging third-party applications] for instructions on using ADB)
 
 *Windows users also need to download and install:*
-- Qualcomm driver for your computer to detect the phone in EDL mode (included in the `edl.py` package)
+- Qualcomm driver for your computer to detect the phone in EDL mode (included in bkerler's edl-3.1 and andybalholm's EDL under the `Drivers` folder);
 - latest version of [Zadig] to configure `libusb-win32`/`libusb0` driver; do NOT use the older version bundled in `edl.py` package as it has less chances of success
 
 For the sake of convenience, move the MBN file and the Gerda Recovery image to the root of `edl-3.1` or `edl-master` folder. If you need to have those in another folder, change the directory path for each command in this guide accordingly.
-
-*On macOS and Linux, you can use [Homebrew] or your package manager of choice to quickly set up Python, ADB, `libusb` and configure the environment for `edl.py`; setup guide for macOS will be covered as part of the guide.*
 
 **If you're going the Automatic patching with 8k-boot-patcher route (only recommended for 5-6 year old computers):**
 - [Git] to clone/download the repository of the patcher tool to your computer;
@@ -51,10 +50,10 @@ For the sake of convenience, move the MBN file and the Gerda Recovery image to t
 > Note for Arch Linux users: I've made an experimental `root.sh` that you can use to automate all 4 parts of the process (see the root of the repository) based on @Llixuma's tutorial. Debian-based distro users stay tuned!
 
 ### Part 1: Set up environment for EDL tools
-*If you were following an older revision of this guide and are stuck at `ModuleNotFoundError: No module named 'distutils'`: starting with Python 3.12, `distutils`, which is a dependency of `capstone`, has been deprecated and removed (mentioned in Python documentation page [What's New In Python 3.10]). It's now superceded by the third-party `setuptools`, which you can install from PyPI with `pip3 install setuptools`.*
+*If you were following an older revision of this guide and stuck at `ModuleNotFoundError: No module named 'distutils'`, starting with Python 3.12, `distutils`, which is a dependency of `capstone`, has been deprecated and removed (mentioned in Python documentation page [What's New In Python 3.10]). It's now superceded by third-party package `setuptools`, which you can install from PyPI with `pip3 install setuptools`.*
 
 #### Linux
-Open a shell prompt and install Python and `pip3` from your package manager of choice, then install the dependencies for `edl.py` from PyPI:
+Open a shell prompt, install Python and `pip` from your package manager of choice, then install the dependencies for `edl.py` from PyPI:
 - Debian/Ubuntu-based distros: `sudo apt-get install python pip3 android-sdk-platform-tools`
 - Fedora, CentOS, RHEL: `sudo dnf install python python3-pip android-tools`
 - Arch-based distros: `sudo pacman -S python python-pip android-tools`
@@ -63,11 +62,7 @@ Open a shell prompt and install Python and `pip3` from your package manager of c
 sudo -H pip3 install pyusb pyserial capstone keystone-engine docopt setuptools
 ```
 
-Switch your phone to EDL mode and connect it to your computer. Either:
-- if your phone is on, dial `*#*#33284#*#*` to turn on debugging mode, connect it to your computer and type `adb reboot edl` in the shell prompt.
-- if your phone is off, press and hold `*` and `#` at the same time while inserting the USB cable to the phone.
-
-In both cases, the screen should blink with an 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and can proceed. If you have any issues with accessing the phone on Debian/Ubuntu-based distros, append `blacklist qcserial` in `/etc/modprobe.d/blacklist.conf` and copy `51-edl.rules` and `50-android.rules` from the Drivers folder (root of EDL directory if you have andybalholm's `edl.py`) to `/etc/udev/rules.d`:
+If you have any issues with accessing the phone on Debian/Ubuntu-based distros, append `blacklist qcserial` in `/etc/modprobe.d/blacklist.conf` and copy `51-edl.rules` and `50-android.rules` from the Drivers folder (root of EDL directory if you have andybalholm's `edl.py`) to `/etc/udev/rules.d`:
 
 ```
 # echo "blacklist qcserial" > /etc/modprobe.d/blacklist.conf
@@ -75,6 +70,12 @@ In both cases, the screen should blink with an 'enabled by KaiOS' logo then beco
 ```
 # cp 51-edl.rules 50-android.rules /etc/udev/rules.d
 ```
+
+Switch your phone to EDL mode and connect it to your computer. Either:
+- if your phone is on, dial `*#*#33284#*#*` to turn on debugging mode, connect it to your computer and type `adb reboot edl` in the shell prompt.
+- if your phone is off, press and hold `*` and `#` at the same time while inserting the USB cable to the phone.
+
+In both cases, the screen should blink with an 'enabled by KaiOS' logo then become blank. This is normal behaviour letting you know you're in EDL mode and can proceed. 
 
 #### macOS
 Follow the instructions to install [Homebrew] on its homepage, install Android SDK Platform Tools package, latest Python, `libusb` and dependencies for `edl.py` from PyPI. Basically open Terminal and copy-paste each line of this code, and type your password when prompted:
