@@ -20,8 +20,9 @@ In most situations, you don't have to root your phone to remove preinstalled app
 - a physical computer with working Internet connection, which you have administrator privileges (setting up on a virtual machine is strongly discouraged);
 - an USB cable capable of transferring data (EDL cables should also work);
 - EDL programmer for your phone: [6300 4G and 8000 4G], [2720 Flip], [800 Tough] or Go Flip 3 ([AT&T/Cricket], [T-Mobile/Metro/Rogers]);
-- `edl.py` to read and write system partitions: [bkerler's edl v3.1] for the 6300 4G and 8000 4G, or [andybalholm's edl] for the 2720 Flip, 800 Tough and Go Flip 3;
-  - *On macOS and Linux, you can also use the latest version of [bkerler's edl] on the 6300 4G and 8000 4G; this allows you to read the boot partition without having to go through Gerda Recovery. Windows users may use v3.1 for now, as the newer version keeps being stuck at `main - Device detected :)` in my testing.*
+- `edl.py` to read and write system partitions: [bkerler's edl-3.1] for the 6300 4G and 8000 4G, or [andybalholm's edl] for the 2720 Flip, 800 Tough and Go Flip 3;
+  - *experimental: macOS and Linux users can try the latest version of [bkerler's edl] on the 6300 4G and 8000 4G; this allows you to read the boot partition without having to go through Gerda Recovery. Windows users may hold off as the newer version keeps being stuck at `main - Device detected :)` in my testing.*
+  - Don't mix the two; GPT structural changes on the 6300 4G and 8000 4G causes andybalholm's EDL to throw `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`
   - I won't cover QFIL or Qualcomm Product Support Tools (QPST) in this guide; however if you're more comfortable with them, you can use them as well
 - required for the 6300 4G and 8000 4G: [Gerda Recovery image file] (backup: [one], [two]) for the Nokia 8110 4G; since the programmer above has a reading bug, we'll use this to access ADB from Recovery mode and get the boot partition from there;
 - Python 3 and `pip` for `edl.py` to work; setup guide can be found for each OS below
@@ -29,13 +30,13 @@ In most situations, you don't have to root your phone to remove preinstalled app
   - If you don't have an Internet connection, download and install packages manually from PyPI: [pyusb], [pyserial], [keystone-engine], [capstone], [docopt], [setuptools]
 - [Android Debug Bridge (ADB)] to read the boot image in Gerda Recovery (see [Sideloading and debugging third-party applications] for instructions on using ADB)
 
-For the sake of convenience, move the Gerda Recovery image and the MBN file into the root of `edl-3.1` or `edl-master` folder. If you need to have those in other folders, change the directory path for each command in this guide accordingly.
-
-*On macOS and Linux, you can use [Homebrew] or your package manager of choice to quickly set up Python, ADB, `libusb` and configure the environment for `edl.py`; setup guide for macOS will be covered as part of the guide.*
-
 *Windows users also need to download and install:*
 - Qualcomm driver for your computer to detect the phone in EDL mode (included in the `edl.py` package)
 - latest version of [Zadig] to configure `libusb-win32`/`libusb0` driver; do NOT use the older version bundled in `edl.py` package as it has less chances of success
+
+For the sake of convenience, move the MBN file and the Gerda Recovery image to the root of `edl-3.1` or `edl-master` folder. If you need to have those in another folder, change the directory path for each command in this guide accordingly.
+
+*On macOS and Linux, you can use [Homebrew] or your package manager of choice to quickly set up Python, ADB, `libusb` and configure the environment for `edl.py`; setup guide for macOS will be covered as part of the guide.*
 
 **If you're going the Automatic patching with 8k-boot-patcher route (only recommended for 5-6 year old computers):**
 - [Git] to clone/download the repository of the patcher tool to your computer;
@@ -46,8 +47,6 @@ For the sake of convenience, move the Gerda Recovery image and the MBN file into
 - Android Image Kitchen v3.8 ([Windows], [macOS/Linux])
 - on Windows 10 pre-1809 and older versions of Windows: [Notepad++] to edit files while [preserving line endings]
 - (optional) [Java Runtime Environment] to properly sign the boot image with AVBv1
-
-andybalholm's EDL cannot be used on 8000 4G and 6300 4G due to structural changes within GPT, which will result in an error `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`. **Do note that the command structures used between bkerler's and andybalholm's edl.py are different, which will be covered in the guide below.**
 
 > Note for Arch Linux users: I've made an experimental `root.sh` that you can use to automate all 4 parts of the process (see the root of the repository) based on @Llixuma's tutorial. Debian-based distro users stay tuned!
 
@@ -404,8 +403,9 @@ python edl.py reset
 [docopt]: https://pypi.org/project/docopt/
 [setuptools]: https://pypi.org/project/setuptools/
 [Sideloading and debugging third-party applications]: https://github.com/bmndc/nokia-leo/wiki/Sideloading-and-debugging-third%E2%80%90party-applications
+[bkerler's edl-3.1]: https://github.com/bkerler/edl/archive/refs/tags/3.1.zip
 [bkerler's edl]: https://github.com/bkerler/edl/archive/refs/heads/master.zip
-[andybalholm's edl]: https://github.com/andybalholm/edl
+[andybalholm's edl]: https://github.com/andybalholm/edl/archive/refs/heads/master.zip
 [Python's official download page for Windows]: https://www.python.org/downloads/windows
 [Android Debug Bridge (ADB)]: https://developer.android.com/studio/releases/platform-tools
 [Zadig]: https://github.com/pbatard/libwdi/releases/latest
