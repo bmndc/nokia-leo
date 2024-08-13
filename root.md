@@ -24,14 +24,14 @@ In most situations, you don't have to root your phone to remove preinstalled app
   - *macOS and Linux users can try the latest version of [bkerler's edl] on the 6300 4G and 8000 4G; this allows you to read the boot partition without having to go through Gerda Recovery. Windows users may hold off as the newer version keeps being stuck at `main - Device detected :)` in my testing.*
   - Due to changes within the partition table, using andybalholm's EDL on the 6300 4G and 8000 4G will throw an error: `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`
   - I won't cover QFIL or Qualcomm Product Support Tools (QPST) in this guide; however if you're more comfortable with them, you can use them as well
-- required for the 6300 4G and 8000 4G: [Gerda Recovery image file] (backup: [one], [two]) for the Nokia 8110 4G; since the programmer above has a reading bug, we'll use this to access ADB from Recovery mode and get the boot partition from there;
+- required for the 6300 4G and 8000 4G: [Gerda Recovery image file] ([backup]) for the Nokia 8110 4G; since bkerler's edl-3.1 cannot read from `8k.mbn`, we'll use Gerda Recovery to access ADB from Recovery mode and get the boot partition from there;
 - Python 3 and `pip` for `edl.py` to work; setup guide can be found for each OS below
-  - On macOS and Linux, you can use [Homebrew] or your package manager of choice to quickly set up Python, ADB, `libusb` and dependencies for `edl.py`; setup guide for macOS will be covered as part of the guide.
-  - *Python 2.7 bundled with macOS 10.8 to 12 is NOT recommended for following this guide.*
+  - *Tip: On macOS and Linux, you can use [Homebrew] or your package manager of choice to set up Python, ADB, `libusb` and dependencies for `edl.py`.*
+  - Python 2.7 bundled with macOS 10.8 to 12 is NOT recommended for following this guide.
   - If you don't have an Internet connection, download and install packages manually from PyPI: [pyusb], [pyserial], [keystone-engine], [capstone], [docopt], [setuptools]
 - [Android Debug Bridge (ADB)] to read the boot partition in Gerda Recovery (see [Sideloading and debugging third-party applications] for instructions on using ADB)
 
-*Windows users also need to download and install:*
+Windows users also need to download and install:
 - Qualcomm driver for your computer to detect the phone in EDL mode (included in bkerler's edl-3.1 and andybalholm's EDL under the `Drivers` folder);
 - latest version of [Zadig] to configure `libusb-win32`/`libusb0` driver; do NOT use the older version bundled in `edl.py` package as it has less chances of success
 
@@ -47,19 +47,17 @@ For the sake of convenience, move the MBN file and the Gerda Recovery image to t
 - on Windows 10 pre-1809 and older versions of Windows: [Notepad++] to edit files while [preserving line endings]
 - (optional) [Java Runtime Environment] to properly sign the boot image with AVBv1
 
-> Note for Arch Linux users: I've made an experimental `root.sh` that you can use to automate all 4 parts of the process (see the root of the repository) based on @Llixuma's tutorial. Debian-based distro users stay tuned!
-
 ### Part 1: Set up environment for EDL tools
 *If you were following an older revision of this guide and stuck at `ModuleNotFoundError: No module named 'distutils'`, starting with Python 3.12, `distutils`, which is a dependency of `capstone`, has been deprecated and removed (mentioned in Python documentation page [What's New In Python 3.10]). It's now superceded by third-party package `setuptools`, which you can install from PyPI with `pip3 install setuptools`.*
 
 #### Linux
-Open a shell prompt, install Python and `pip` from your package manager of choice, then install the dependencies for `edl.py` from PyPI:
-- Debian/Ubuntu-based distros: `sudo apt-get install python pip3 android-sdk-platform-tools`
-- Fedora, CentOS, RHEL: `sudo dnf install python python3-pip android-tools`
-- Arch-based distros: `sudo pacman -S python python-pip android-tools`
+Open a shell prompt, install Python, `pip`, ADB and Git from your package manager of choice, then install the dependencies for `edl.py` from PyPI:
+- Debian/Ubuntu-based distros: `sudo apt-get install python python3-pip android-sdk-platform-tools git liblzma`
+- Fedora, CentOS, RHEL: `sudo dnf install python python3-pip android-tools git xz`
+- Arch-based distros: `sudo pacman -S python python-pip android-tools git xz`
 
 ```
-sudo -H pip3 install pyusb pyserial capstone keystone-engine docopt setuptools
+# pip3 install pyusb pyserial capstone keystone-engine docopt setuptools
 ```
 
 If you have any issues with accessing the phone on Debian/Ubuntu-based distros, append `blacklist qcserial` in `/etc/modprobe.d/blacklist.conf` and copy `51-edl.rules` and `50-android.rules` from the Drivers folder (root of EDL directory if you have andybalholm's `edl.py`) to `/etc/udev/rules.d`:
@@ -402,9 +400,8 @@ python edl.py reset
 [800 Tough]: https://edl.bananahackers.net/loaders/800t.mbn
 [AT&T/Cricket]: https://github.com/programmer-collection/alcatel/blob/master/Gflip3_ATT/Gflip3_ATT_NPRG.mbn
 [T-Mobile/Metro/Rogers]: https://github.com/programmer-collection/alcatel/blob/master/Gflip3_TMO/Gflip3_TMO_NPRG.mbn
-[Gerda Recovery image file]: https://raw.githubusercontent.com/bmndc/nokia-leo/docs/assets/recovery-8110.img
-[one]: https://cloud.disroot.org/s/3ojAfcF6J2jQrRg/download
-[two]: https://drive.google.com/open?id=1ot9rQDTYON8mZu57YWDy52brEhK3-PGh
+[Gerda Recovery image file]: https://cloud.disroot.org/s/3ojAfcF6J2jQrRg/download
+[backup]: https://drive.google.com/open?id=1ot9rQDTYON8mZu57YWDy52brEhK3-PGh
 [pyusb]: https://pypi.org/project/pyusb/
 [pyserial]: https://pypi.org/project/pyserial/
 [keystone-engine]: https://pypi.org/project/keystone-engine/
