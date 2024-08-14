@@ -2,11 +2,31 @@
 layout: page
 title: "ROOT: Patching the boot partition (non-US only)"
 ---
-On the Nokia 6300 4G and 8000 4G, although you can use ADB and DevTools to install third-party applications outside KaiStore, you aren't allowed to install apps with 'forbidden' permissions such as `embed-apps`, `embed-widget` and `engmode-extension` (this is defined by the `devtools.apps.forbidden-permissions` Device Preferences flag). Wallace Toolbox and a number of apps made by BananaHackers depend on those permissions to gain special control of the system, which means you cannot sideload and use them. Most system modifications have also been blocked, and if you were to make any changes, they would be reverted upon next boot.
+On the Nokia 6300 4G and 8000 4G, although you can use ADB and DevTools to install most third-party applications outside of KaiStore, you aren't allowed to install apps with 'forbidden' permissions like `embed-apps`, `embed-widget` or `engmode-extension` (defined by the `devtools.apps.forbidden-permissions` Device Preferences flag). This means that you cannot sideload and use Wallace Toolbox, telnetd, ADBroot or a bunch of BananaHackers apps, which depend on those permissions to handle app installations or gain special control of the system. If you try to install an app with any of the 'forbidden' permissions, WebIDE and gdeploy will throw an error:
 
-That is because in order for VoIP in WhatApp to work on newer KaiOS versions, a kernel security module called [SELinux] is now set to Enforcing mode. In this mode, SELinux checks for, and denies any actions, both made by the user and the system, which are not permitted in its preconfigured set of rules. To root, you need to edit the boot partition, set SELinux to Permissive mode, and change certain boot flags to allow system-level debugging access.
+```
+joni@kiruria:~/dev/gdeploy$ gdeploy install ../wallace-toolbox/
+GDEPLOY
+-------
+installationFailed: Installing apps with any of these permissions is forbidden: embed-apps,engmode-extension,embed-widgets
+    at /home/joni/dev/gdeploy/node_modules/node-firefox-connect/node_modules/firefox-client/lib/client-methods.js:70:19
+    at Client.handleMessage (/home/joni/dev/gdeploy/node_modules/node-firefox-connect/node_modules/firefox-client/lib/client.js:161:7)
+    at Client.readMessage (/home/joni/dev/gdeploy/node_modules/node-firefox-connect/node_modules/firefox-client/lib/client.js:220:10)
+    at Client.onData (/home/joni/dev/gdeploy/node_modules/node-firefox-connect/node_modules/firefox-client/lib/client.js:186:16)
+    at Socket.emit (events.js:314:20)
+    at addChunk (_stream_readable.js:297:12)
+    at readableAddChunk (_stream_readable.js:272:9)
+    at Socket.Readable.push (_stream_readable.js:213:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:188:23)
+```
 
-Do give yourself enough time to go through this guide; it will take a considerable 30 minutes to an hour.
+*(Kudos to @saanaito in r/KaiOS Discord server for the console snippet!)*
+
+Most system modifications have also been blocked, and if you were to make any changes, they would be reverted upon next boot. Because in order for VoIP in WhatApp to work on newer KaiOS versions, a kernel security module called SELinux is now set to Enforcing mode. In this mode, SELinux checks for, and denies any actions, both made by the user and the system, which are not permitted in its preconfigured set of rules; this includes running any commands as root.
+
+To root, you need to edit the boot partition where SELinux resides, set SELinux to Permissive mode, and change certain boot flags to allow system-level debugging access.
+
+Do give yourself enough time to go through this guide; it will take somewhat considerable 30 minutes to an hour.
 
 ### Before proceeding
 PROCEED AT YOUR OWN RISK AND WITH CAUTION. I wrote this guide "as-is" without providing any guarantees or warranties. HMD does not explicitly cover software modifications under its warranty policy, so you should assume that rooting your phone will void its warranty, and you are liable for any damages.
@@ -14,6 +34,9 @@ PROCEED AT YOUR OWN RISK AND WITH CAUTION. I wrote this guide "as-is" without pr
 Proceeding with this guide will set SELinux to Permissive mode, which in turn disable voice calls in WhatsApp, and may prevent you from receiving incremental over-the-air updates. If you keep a copy of the original boot image, you can overwrite the modified partition and revert all changes, which I will cover in the last portion of the guide. But you can still brick your phone if you make any mistake in the process.
 
 In most situations, you don't have to root your phone to remove preinstalled apps or change system settings, e.g. you can use [this fork of Luxferre's AppBuster] to hide apps from the launcher, instead of deleting them with Wallace Toolbox. You can also install [CrossTweak], a Wallace Toolbox alternative which doesn't need `engmode-extension` and therefore can be installed on KaiOS 2.5.4 phones.
+
+<details>
+  <summary>I acknowledge the risks of what I'm doing and ready to proceed</summary>
 
 ### What we need
 - a Nokia 6300 4G (excl. TA-1324), Nokia 8000 4G, Nokia 2720 Flip, Nokia 800 Tough or an Alcatel Go Flip 3;
@@ -60,7 +83,7 @@ Per [PEP 668], Python 3.11 and later now enforces using virtual environments to 
 $ python3 -m venv .venv && source .venv/bin/activate
 ```
 ```console
-$ pip install pyserial pypng passlib keystone-engine docopt wheel urllib3 typing-extensions pyusb pycryptodomex pycryptodome pycparser lxml idna future configparser colorama charset-normalizer certifi capstone bcrypt requests qrcode cffi pynacl cryptography paramiko Exscript setuptools
+(env) $ pip install pyserial pypng passlib keystone-engine docopt wheel urllib3 typing-extensions pyusb pycryptodomex pycryptodome pycparser lxml idna future configparser colorama charset-normalizer certifi capstone bcrypt requests qrcode cffi pynacl cryptography paramiko Exscript setuptools
 ```
 
 *If you were following an older revision of this guide and stuck at `ModuleNotFoundError: No module named 'distutils'`, starting with Python 3.12, `distutils`, which is a dependency of `capstone`, has been deprecated and removed (see Python documentation page [What's New In Python 3.10]). It's now superceded by the third-party package `setuptools`, which you can install from PyPI with `pip install setuptools`.*
@@ -85,19 +108,6 @@ Switch your phone to EDL mode and connect it to your computer. Either:
 - if your phone is off, press and hold `*` and `#` at the same time while inserting the USB cable to the phone.
 
 In both cases, the screen should flash an 'enabled by KaiOS' logo and become blank. This is normal behaviour letting you know you're in EDL mode and can proceed.
-
-```bash
-# Skip this if you're not using bkerler's edl-3.62
-git clone https://github.com/bkerler/edl.git
-cd edl
-
-# Download the database of loaders into the Loaders folder
-git submodule update --init --recursive
-
-# Build the tool and create symbolic links
-python3 setup.py build
-sudo python3 setup.py install
-```
 
 #### macOS
 Follow the instructions to install [Homebrew] on its homepage, install Android SDK Platform Tools package, latest Python, `libusb` and dependencies for `edl.py` from PyPI. Basically open Terminal and copy-paste each line of this code, and type your password when prompted:
@@ -413,6 +423,8 @@ If you wish to revert all changes you've made, connect your phone to the compute
 python edl.py w boot boot.img --loader=8k.mbn
 python edl.py reset
 ```
+
+</details>
 
 [SELinux]: https://lineageos.org/engineering/HowTo-SELinux
 [this fork of Luxferre's AppBuster]: https://github.com/minhduc-bui1/AppBuster
