@@ -43,11 +43,11 @@ It's worth noting that in many situations, you don't have to root your phone to 
 - a physical computer with working Internet connection, which you have administrator privileges (setting up on a virtual machine is strongly discouraged);
 - an USB cable capable of transferring data (EDL cables should also work);
 - EDL programmer for your phone: [6300 4G and 8000 4G], [2720 Flip], [800 Tough] or Go Flip 3 ([AT&T/Cricket], [T-Mobile/Metro/Rogers]);
-- `edl.py` to read and write system partitions: [bkerler's edl-3.1] for the 6300 4G and 8000 4G, or [andybalholm's edl] for the 2720 Flip, 800 Tough and Go Flip 3;
-  - *macOS and Linux users can try [bkerler's edl-3.62] on the 6300 4G and 8000 4G; this allows you to read the boot partition without having to go through Gerda Recovery. Windows users may hold off as the newer version keeps being stuck at `main - Device detected :)` in my testing.*
+- `edl.py` to read and write system partitions in EDL mode: 
+  - on the 6300 4G and 8000 4G: [bkerler's EDL] for macOS and Linux, [bkerler's edl-3.1] for Windows (newer versions will stuck at `main - Device detected :)`);
+  - on the 2720 Flip, 800 Tough and Go Flip 3: [andybalholm's EDL];
   - Due to changes within the partition table, using andybalholm's EDL on the 6300 4G and 8000 4G will throw an error: `AttributeError: 'gpt' object has no attribute 'partentries'. Did you mean: 'num_part_entries'?`
-  - I won't cover QFIL or Qualcomm Product Support Tools (QPST) in this guide; however if you're more comfortable with them, you can use them as well
-- required for the 6300 4G and 8000 4G: [Gerda Recovery image file] ([backup]) for the Nokia 8110 4G; since bkerler's edl-3.1 cannot read from `8k.mbn`, we'll use Gerda Recovery to access ADB from Recovery mode and get the boot partition from there;
+  - *I won't cover QFIL or Qualcomm Product Support Tools (QPST) in this guide; if you're more comfortable with them, you can use them as well*
 - Python 3 and `pip` for `edl.py` to work; setup guide can be found for each OS below
   - *Tip: On macOS and Linux, you can use [Homebrew] or your package manager of choice to set up Python, ADB, `libusb` and dependencies for `edl.py`.*
   - Python 2.7 bundled with macOS 10.8 to 12 is NOT recommended for following this guide.
@@ -55,6 +55,7 @@ It's worth noting that in many situations, you don't have to root your phone to 
 - [Android Debug Bridge (ADB)] to read the boot partition in Gerda Recovery (see [Sideloading and debugging third-party applications] for instructions on using ADB)
 
 Windows users also need to download and install:
+- required for the 6300 4G and 8000 4G: [Gerda Recovery image file] ([backup]) for the Nokia 8110 4G; since bkerler's edl-3.1 cannot read from `8k.mbn`, we'll use Gerda Recovery to access ADB from Recovery mode and get the boot partition from there;
 - Qualcomm driver for your computer to detect the phone in EDL mode (included in bkerler's edl-3.1 and andybalholm's EDL under the `Drivers` folder);
 - latest version of [Zadig] to configure `libusb-win32`/`libusb0` driver; do NOT use the older version bundled in `edl.py` package as it has less chances of success
 
@@ -431,7 +432,7 @@ python edl.py reset
 [CrossTweak]: https://gitlab.com/suborg/crosstweak
 [back up your data]: https://github.com/bmndc/nokia-leo/wiki/Backup
 
-[6300 4G and 8000 4G]: https://raw.githubusercontent.com/bmndc/nokia-leo/docs/assets/8k.mbn
+[6300 4G and 8000 4G]: https://edl.bananahackers.net/loaders/8k.mbn
 [2720 Flip]: https://edl.bananahackers.net/loaders/2720.mbn
 [800 Tough]: https://edl.bananahackers.net/loaders/800t.mbn
 [AT&T/Cricket]: https://github.com/programmer-collection/alcatel/blob/master/Gflip3_ATT/Gflip3_ATT_NPRG.mbn
@@ -446,8 +447,8 @@ python edl.py reset
 [setuptools]: https://pypi.org/project/setuptools/
 [Sideloading and debugging third-party applications]: https://github.com/bmndc/nokia-leo/wiki/Sideloading-and-debugging-third%E2%80%90party-applications
 [bkerler's edl-3.1]: https://github.com/bkerler/edl/archive/refs/tags/3.1.zip
-[bkerler's edl-3.62]: https://github.com/bkerler/edl/archive/refs/heads/master.zip
-[andybalholm's edl]: https://github.com/andybalholm/edl/archive/refs/heads/master.zip
+[bkerler's EDL]: https://github.com/bkerler/edl/archive/refs/heads/master.zip
+[andybalholm's EDL]: https://github.com/andybalholm/edl/archive/refs/heads/master.zip
 [Python's official download page for Windows]: https://www.python.org/downloads/windows
 [Android Debug Bridge (ADB)]: https://developer.android.com/studio/releases/platform-tools
 [Zadig]: https://github.com/pbatard/libwdi/releases/latest
