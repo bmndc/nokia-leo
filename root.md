@@ -24,7 +24,7 @@ installationFailed: Installing apps with any of these permissions is forbidden: 
 
 Most system modifications have also been blocked, and if you were to make any changes, they would be reverted upon reboot. Because in order for VoIP in WhatApp to work on newer KaiOS versions, a kernel security module called SELinux is now set to Enforcing mode. In this mode, SELinux checks for, and denies any actions, whether by the user or system, which aren't permitted in its predefined set of rules; this includes executing any commands as root.
 
-To root, you'll need to edit the boot partition where SELinux resides, set SELinux to Permissive mode, and change certain boot flags to enable system-level debugging access.
+To root, you'll need to edit the boot partition where SELinux resides, set it to Permissive mode, and change certain boot flags to allow system-level debugging access.
 
 Do set aside enough time for yourself to complete this guide; it will take around 30 minutes to an hour.
 
