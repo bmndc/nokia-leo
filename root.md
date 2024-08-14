@@ -4,7 +4,7 @@ title: "ROOT: Patching the boot partition (non-US only)"
 ---
 On the Nokia 6300 4G and 8000 4G, you might have noticed that while ADB and DevTools allow you to install most third-party apps outside of KaiStore, you cannot install apps with 'forbidden' permissions such as `embed-apps`, `embed-widget` or `engmode-extension` (as defined by the `devtools.apps.forbidden-permissions` Device Preferences flag). This prevents you from sideloading and using Wallace Toolbox, telnetd, ADBroot or a bunch of BananaHackers apps, which depend on those permissions to handle app installations or gain deeper system control. If you try to install an app with any of the 'forbidden' permissions, WebIDE and gdeploy will throw an error:
 
-```
+```console
 joni@kiruria:~/dev/gdeploy$ gdeploy install ../wallace-toolbox/
 GDEPLOY
 -------
