@@ -2,7 +2,7 @@
 layout: page
 title: "ROOT: Patching the boot partition (non-US only)"
 ---
-On the Nokia 6300 4G and 8000 4G, although you can use ADB and DevTools to install most third-party applications outside of KaiStore, you aren't allowed to install apps with 'forbidden' permissions like `embed-apps`, `embed-widget` or `engmode-extension` (defined by the `devtools.apps.forbidden-permissions` Device Preferences flag). This means that you cannot sideload and use Wallace Toolbox, telnetd, ADBroot or a bunch of BananaHackers apps, which depend on those permissions to handle app installations or gain special control of the system. If you try to install an app with any of the 'forbidden' permissions, WebIDE and gdeploy will throw an error:
+On the Nokia 6300 4G and 8000 4G, you might have noticed that while ADB and DevTools allow you to install most third-party apps outside of KaiStore, you cannot install apps with 'forbidden' permissions such as `embed-apps`, `embed-widget` or `engmode-extension` (as defined by the `devtools.apps.forbidden-permissions` Device Preferences flag). This prevents you from sideloading and using Wallace Toolbox, telnetd, ADBroot or a bunch of BananaHackers apps, which depend on those permissions to handle app installations or gain deeper system control. If you try to install an app with any of the 'forbidden' permissions, WebIDE and gdeploy will throw an error:
 
 ```
 joni@kiruria:~/dev/gdeploy$ gdeploy install ../wallace-toolbox/
@@ -22,18 +22,18 @@ installationFailed: Installing apps with any of these permissions is forbidden: 
 
 *(Kudos to @saanaito in r/KaiOS Discord server for the console snippet!)*
 
-Most system modifications have also been blocked, and if you were to make any changes, they would be reverted upon next boot. Because in order for VoIP in WhatApp to work on newer KaiOS versions, a kernel security module called SELinux is now set to Enforcing mode. In this mode, SELinux checks for, and denies any actions, both made by the user and the system, which are not permitted in its preconfigured set of rules; this includes running any commands as root.
+Most system modifications have also been blocked, and if you were to make any changes, they would be reverted upon reboot. Because in order for VoIP in WhatApp to work on newer KaiOS versions, a kernel security module called SELinux is now set to Enforcing mode. In this mode, SELinux checks for, and denies any actions, whether by the user or system, which aren't permitted in its predefined set of rules; this includes executing any commands as root.
 
-To root, you need to edit the boot partition where SELinux resides, set SELinux to Permissive mode, and change certain boot flags to allow system-level debugging access.
+To root, you'll need to edit the boot partition where SELinux resides, set SELinux to Permissive mode, and change certain boot flags to enable system-level debugging access.
 
-Do give yourself enough time to go through this guide; it will take somewhat considerable 30 minutes to an hour.
+Do set aside enough time for yourself to complete this guide; it will take around 30 minutes to an hour.
 
 ### Before proceeding
-PROCEED AT YOUR OWN RISK AND WITH CAUTION. I wrote this guide "as-is" without providing any guarantees or warranties. HMD does not explicitly cover software modifications under its warranty policy, so you should assume that rooting your phone will void its warranty, and you are liable for any damages.
+PROCEED AT YOUR OWN RISK AND WITH CAUTION. I provide this guide "as-is" without any guarantees or warranties. HMD does not explicitly cover software modifications under its warranty policy, so you should assume that rooting your phone will void its warranty, and you will be liable for any damages.
 
-Proceeding with this guide will set SELinux to Permissive mode, which in turn disable voice calls in WhatsApp, and may prevent you from receiving incremental over-the-air updates. If you keep a copy of the original boot image, you can overwrite the modified partition and revert all changes, which I will cover in the last portion of the guide. But you can still brick your phone if you make any mistake in the process.
+Proceeding with this guide will set SELinux to Permissive mode, which in turn disables voice calls in WhatsApp, and may prevent you from receiving incremental over-the-air updates. If you keep a copy of the original boot image, you can overwrite the modified partition and revert all changes, which I will cover in the last portion of the guide. But you may still permanently brick your phone if you make any mistake in the process.
 
-In most situations, you don't have to root your phone to remove preinstalled apps or change system settings, e.g. you can use [this fork of Luxferre's AppBuster] to hide apps from the launcher, instead of deleting them with Wallace Toolbox. You can also install [CrossTweak], a Wallace Toolbox alternative which doesn't need `engmode-extension` and therefore can be installed on KaiOS 2.5.4 phones.
+It's worth noting that in many situations, you don't have to root your phone to remove preinstalled apps or change system settings, e.g. you can use [this fork of Luxferre's AppBuster] to hide preinstalled apps from the launcher, instead of deleting them with Wallace Toolbox. You can also install [CrossTweak], a Wallace Toolbox alternative which doesn't need `engmode-extension` and therefore can be used on KaiOS 2.5.4 phones.
 
 <details>
   <summary>I acknowledge the risks of what I'm doing and ready to proceed</summary>
