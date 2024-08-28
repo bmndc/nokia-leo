@@ -3,18 +3,20 @@ layout: post
 category: news
 title: The end of WhatsApp on KaiOS as we know it
 ---
-## TL;DR
-**Did WhatsApp disappear from KaiStore?** It was deprecated on 26th June 2024. WhatsApp pulled it down KaiStore two weeks later.
+**TL;DR**
 
-**I have the previous version of WhatsApp downloaded on my phone, but it shows a Critical Error. What can I do to get it working again?** As of now, you can't anymore. There was a trick to bypass the Critical Error by setting the clock back, but when you get to the verification step, the app checks for the correct time on the server and throws the Critical Error again.
+**Did WhatsApp disappear from KaiStore?**
+    It was deprecated on 26th June 2024. WhatsApp pulled it down KaiStore two weeks later.
 
-**I have already set up WhatsApp on my phone. Will this affect me?** On 15th September, you will see a banner notifying you that the app will stop working soon; the last moment will be on 10th January 2025 at 8am UTC.
+**I have the previous version of WhatsApp downloaded on my phone, but it shows a Critical Error. What can I do to get it to work again?**
+    As of now, you can't anymore. There was a trick to bypass the Critical Error by setting the clock back, but when you get to the verification step, the app checks for the correct time on the server and throws the Critical Error again.
 
----
+**I have already set up WhatsApp on my phone. Will this affect me?**
+    On 15th September, you will see a banner notifying you that the app will stop working soon; it will eventually stop working on 10th January 2025 at 8am UTC.
 
 It all started with the new version of WhatsApp preventing new users from signing up.
 
-<img class="leo" src="{{ "/assets/images/blog/2024-07-04-11-35-05.png" | relative_url }}" align="right" width="240" height="100%" alt="Screenshot of the error message in WhatsApp, with a yellow warning sign and a text which reads Something went wrong">
+<img class="leo" src="{{ '/assets/images/blog/2024-07-04-11-35-05.png' | relative_url }}" align="right" width="240" height="100%" alt="Screenshot of the error message in WhatsApp, with a yellow warning sign and a text which reads Something went wrong">
 
 26/6 was a rough day for people who bought a KaiOS phone to stay in touch with others over WhatsApp. Reddit users started flocking to the r/KaiOS subreddit, and reported that they were unable to log into the chat app. A few moments ago, they were installing the latest version, 2.2329.13, replacing the stub app on their new phones.
 
@@ -46,6 +48,12 @@ On the 10th of January 2025 at 8:00 UTC, the app stops working and displays the 
 
 Pressing Learn more redirects to the [About supported operating systems page on WhatsApp Help Center](https://faq.whatsapp.com/595164741332628).
 
+<p style="text-align:center">
+    <img src="{{ '/assets/images/blog/2024-09-15-00-00-07.png' | relative_url }}" width="240" height="100%" style="display:inline-block" alt="Screenshot of the payload message in WhatsApp, with a yellow warning sign">
+    <img src="{{ '/assets/images/blog/2024-10-01-00-00-18.png' | relative_url }}" width="240" height="100%" style="display:inline-block" alt="Screenshot of the yellow banner with a warning sign in WhatsApp's chat list, text says WhatsApp will soon be unavailable on KaiOS phones.">
+    <img src="{{ '/assets/images/blog/2024-10-01-00-00-49.png' | relative_url }}" width="240" height="100%" style="display:inline-block" alt="Screenshot of a popup with the message when selecting the banner">
+</p>
+
 ---
 
 Following this, Reddit users reached out to customer support services of WhatsApp, HMD, KaiOS Technologies, Jio and others. While WhatsApp and KaiOS Technologies have yet to comment, HMD’s online chat support promised that [there would be a hotfix OTA update “very soon.”](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lanjcla/) So far, only Jio’s service center stated that [WhatsApp would no longer be supported on KaiOS 2.5](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lb9gej5/), there would be no upcoming app updates, and this news would be publicly announced soon.
@@ -68,11 +76,13 @@ Another week went past, and WhatsApp pulled their app off KaiStore to not let pe
 
 TODO: add Blackview's and KaiOS's statements
 
+![]({{ '/assets/images/blog/wa-kaios-notice.png' | relative_url }})
+
 ---
 
 While these are only my observations, if these are true, looks like WhatsApp has plans to drop support for KaiOS after all. It’s only a matter of time. Touché.
 
-Good news, however: as people inspect and compare the code between versions 2.2329.10 and 2.2329.13, they noticed new files suggesting that WhatsApp might be working on [some forms of device companion features](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lbfk6oz/), similar to WhatsApp Web or multi-device support on Android and iOS. If all of these are fluke, we might get to see this come into light in the near future.
+<!-- Good news, however: as people inspect and compare the code between versions 2.2329.10 and 2.2329.13, they noticed new files suggesting that WhatsApp might be working on [some forms of device companion features](https://www.reddit.com/r/KaiOS/comments/1dp9ubt/comment/lbfk6oz/), similar to WhatsApp Web or multi-device support on Android and iOS. If all of these are fluke, we might get to see this come into light in the near future. -->
 
 *Kudos to [@fabricedesre](https://github.com/fabricedesre) and [@Tombarr](https://barrasso.me/) for fact-checking information in this blog post.*
 
@@ -84,12 +94,6 @@ Good news, however: as people inspect and compare the code between versions 2.23
 <p style="text-align:center">
     <img src="{{ site.baseurl }}/assets/images/blog/wa-hmd.png" width="300" height="100%" style="display:inline-block" alt="Screenshot of HMD customer support chat">
     <img src="{{ site.baseurl }}/assets/images/blog/wa-support.jpeg" width="388" height="100%" style="display:inline-block" alt="Screenshot of WhatsApp support chat, telling user to keep themselves up-to-date with WhatsApp Help Centre and WhatsApp Blog">
-</p>
-
-<p style="text-align:center">
-    <img src="{{ site.baseurl }}/assets/images/blog/2024-09-15-00-00-07.png" width="240" height="100%" style="display:inline-block" alt="Screenshot of the payload message in WhatsApp, with a yellow warning sign">
-    <img src="{{ site.baseurl }}/assets/images/blog/2024-10-01-00-00-18.png" width="240" height="100%" style="display:inline-block" alt="Screenshot of the yellow banner with a warning sign in WhatsApp's chat list, text says WhatsApp will soon be unavailable on KaiOS phones.">
-    <img src="{{ site.baseurl }}/assets/images/blog/2024-10-01-00-00-49.png" width="240" height="100%" style="display:inline-block" alt="Screenshot of a popup with the message when selecting the banner">
 </p>
 
 <img src="{{ site.baseurl }}/assets/images/blog/wa-vscode.png" width="100%" height="100%" alt="Screenshot of a full-screen Visual Studio Code window. In the left sidebar there is a Only in compared folder section, which lists several files, one of which is a JavaScript named addCompanionDeviceScreen" -->
