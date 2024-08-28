@@ -3,6 +3,15 @@ layout: post
 category: news
 title: The end of WhatsApp on KaiOS as we know it
 ---
+## TL;DR
+**Did WhatsApp disappear from KaiStore?** It was deprecated on 26th June 2024. WhatsApp pulled it down KaiStore two weeks later.
+
+**I have the previous version of WhatsApp downloaded on my phone, but it shows a Critical Error. What can I do to get it working again?** As of now, you can't anymore. There was a trick to bypass the Critical Error by setting the clock back, but when you get to the verification step, the app checks for the correct time on the server and throws the Critical Error again.
+
+**I have already set up WhatsApp on my phone. Will this affect me?** On 15th September, you will see a banner notifying you that the app will stop working soon; the last moment will be on 10th January 2025 at 8am UTC.
+
+---
+
 It all started with the new version of WhatsApp preventing new users from signing up.
 
 <img class="leo" src="{{ "/assets/images/blog/2024-07-04-11-35-05.png" | relative_url }}" align="right" width="240" height="100%" alt="Screenshot of the error message in WhatsApp, with a yellow warning sign and a text which reads Something went wrong">
