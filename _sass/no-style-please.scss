@@ -27,7 +27,7 @@
 	--text-color: white;
 	--bg-color: black;
 	--link-color: yellow;
-	--highlight-color: blue;
+	--highlight-color: #044;
 	--code-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -35,8 +35,8 @@
 	// Colour palette for default/light mode
 	--text-color: black;
 	--bg-color: white;
-	--link-color: darkblue;
-	--highlight-color: yellow;
+	--link-color: blue;
+	--highlight-color: paleturquoise;
 	--code-color: rgba(0, 0, 0, 0.05);
 }
 
@@ -65,7 +65,7 @@ html {
 
 body {
 	color: var(--text-color); // default: white
-	font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; // default: monospace
+	font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; // default: monospace
 	font-size: 14px; // default: 16px
 	line-height: 1.5; // default: 1.4
 	margin: 0;

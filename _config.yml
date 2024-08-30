@@ -5,7 +5,7 @@ description: >
   Archive of guides, source code and firmware backups for Nokia 6300 4G.
 
 # Favicons for other platforms are optional, but you can generate them at https://realfavicongenerator.net/
-favicon: "assets/favicon.ico"
+# favicon: "assets/favicon.ico"
 
 markdown: CommonMarkGhPages
 
