@@ -14,6 +14,7 @@ group :jekyll_plugins do
   gem 'jekyll-sass-converter', '~> 1.0'
   gem 'jekyll-default-layout', '~> 0.1.5'
   gem 'jekyll-optional-front-matter', '~> 0.3.2'
+  gem 'jekyll-titles-from-headings', '~> 0.5.0'
 end
 
 gemspec

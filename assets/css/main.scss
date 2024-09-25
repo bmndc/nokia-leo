@@ -1,7 +1,7 @@
 ---
 ---
-
 @import "no-style-please";
+@import "syntax-highlighting";
 
 // #post-list li {
 // 	// End each post item with an ellipsis rather than wrapping its entire title
@@ -11,21 +11,16 @@
 // 	overflow: hidden; // Don't show anything after ellipsis
 // }
 
-// Ruby language highlighting
-.language-diff .gd {
-	background-color: rgba(255, 127, 80, 0.25);
+table {
+	margin: 1rem 0;
 }
-.language-diff .gi {
-	background-color: rgba(0, 128, 128, 0.3);
+table ul {
+	margin: 0;
+	padding-left: 1rem;
 }
-
-.language-console .go {
-	color: darkblue;
-}
-@media (prefers-color-scheme: dark) {
-	.language-console .go {
-		color: lightskyblue;
-	}
+th[scope="row"] {
+	text-align: left;
+	font-weight: normal;
 }
 
 .leo {

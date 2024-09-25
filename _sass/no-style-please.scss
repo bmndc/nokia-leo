@@ -105,8 +105,12 @@ a {
 	color: var(--link-color); // default: blue
 }
 
+ul {
+	padding-left: 1.5rem; // Add indentation for bullet lists
+}
+
 li {
-	margin: 0.4rem 0 0.4rem -1rem; // Default is "0.4rem 0"; margin-left is deducted for viewing on mobile
+	margin: 0.4rem 0;
 }
 
 *:target {
