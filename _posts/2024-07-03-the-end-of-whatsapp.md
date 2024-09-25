@@ -1,8 +1,8 @@
 ---
 layout: post
 category: news
-title: The end of WhatsApp on KaiOS as we know it
 ---
+# The end of WhatsApp on KaiOS as we know it
 **TL;DR**
 
 **Did WhatsApp disappear from KaiStore?**

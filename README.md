@@ -131,7 +131,7 @@
     </table>
 </details>
 
-*Source code for B2G, the Linux 4.9 kernel and some libraries licenced under GNU GPLv2, which HMD [publicly released] for the 6300 4G and 8000 4G, can be found under the [`leo-v20` branch] and [`sparkler-v20` branch] of this repository. Do note that the source files do not include proprietary code from some third-party vendors (notably Gaia apps made by KaiOS team itself), and thus [cannot be used to directly compile KaiOS].*
+*Source code for B2G, the Linux 4.9 kernel and some libraries licenced under GNU GPLv2, which HMD [publicly released] for the 6300 4G and 8000 4G, can be found in the [`leo-v20` branch] and [`sparkler-v20` branch] of this repository, respectively. Note that the source files do not include proprietary code from some third-party vendors (e.g. Gaia apps by the KaiOS team), and thus [cannot be used to directly compile KaiOS].*
 
 <img class="leo" align="right" width="390" height="390" style="width:390px;height:100%;" src="assets/images/press/leo.webp" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
 
@@ -150,23 +150,23 @@
     - [UART debugging testpoint](#uart-debugging-testpoint)
 - [Sideloading and debugging third-party applications](#sideloading-and-debugging-third-party-applications)
 - [ROOT: Patching the boot partition (non-US only)](/root)
-- [Source code](#source-code)
 - [External links](#external-links)
 
-<!-- In late 2020, as people need to stay connected amid the height of the [COVID-19 pandemic], HMD Global quietly introduced the new Nokia 6300 4G with KaiOS 2.5.4. Following the successful relaunch of the Nokia-branded retros 2720 Flip and 800 Tough, the 6300 4G packs a bunch of modern features, such as 4G LTE, Wi-Fi and social apps like WhatsApp and Facebook into a pocket-friendly design, whilst inheriting the classic candy-bar look of the original Nokia 6300. It was [one of the most affordable] the company has ever offered in its KaiOS lineup, at €49/$69.99, though still pricier than the general KaiOS devices. Since then, the phone has gained popularity and also mixed reviews from the community, notably on its performance and keypad typing experience.
-
-I decided to get an used 6300 4G in mid-May 2022, despite already having the 2720 Flip and Cyan's advise against buying another phone. Nevertheless, this drew me further into the rabbit hole of KaiOS; the more compact design, vibrant screen, and the balance kept between being [fully-featured yet still developer-friendly] on the phone really striked me. This inspired me into documenting this as a result of my almost 2-year experience with it. -->
-
 ## Don't buy a counterfeit
-Here's the funny thing: it's easier to get a genuine version of the original Nokia 6300 than its rebranded version. On eBay, Shopee and [other online shopping sites] across North America, Europe and Southeast Asia, you may see hundreds of listings of used 6300 4G in various conditions. While the listings seem to look identical, many of those are NOT genuine but are knock-offs with [terrible build quality] and user experience. Do note that:
-- Brand-new KaiOS phones, even when off the shelves, don't cost less than 2/3 of their retail prices.
+By the time you're reading this, the 6300 4G has been well past its lifespan on the shelves, and HMD no longer produces it for sale. So if you were to buy the phone right now, you will most likely buy an used or refurbished version (a brand-new, genuine 6300 4G is considered <abbr title="Super Super Super Rare">SSSR</abbr>, if I may say so).
+
+However, if you do a quick search on eBay, Shopee and [other online shopping sites] across North America, Europe and Southeast Asia, you may see hundreds of listings of used 6300 4G in various conditions. 
+
+While the listings seem to look identical, many of those are NOT genuine but are knock-offs with [terrible build quality] and user experience. 
+
+Brand-new KaiOS phones, even when off the shelves, don't cost less than 2/3 of their retail prices.
 - HMD has [never sold 2G-only version of any of its KaiOS devices] in its official capacity. All KaiOS phones from HMD are well-equipped with 4G LTE, Wi-Fi and Bluetooth. KaiOS devices are required to have 3G at minimum.
 - If the seller only uploaded generic photos showing the phone's exterior, ask for some additional photos of the box it came in. A genuine phone's box would show all its features on the fine print, as well as an information sticker indicating its model number (which matches the device specification table above) and targeted regional market. Note: Check the model number on the packaging box with that on another information sticker under the battery, and when dialing `*#0000#` in the operating system!
 - Look for signs of the phone running KaiOS and not MRE: KaiOS uses the distinct [Open Sans UI font] and vibrant, properly aligned UI elements. KaiStore and related services should be available at all time. It does NOT natively run Opera Mini 4.4 or other Java/MRE apps.
 
 *Photos provided by [thurmendes on r/KaiOS Discord server] in June 2023 and various Reddit posts ([second], [third], [fourth]).*
 
-<img src="assets/images/leo-counterfeit.png" alt="Photo collage of fake 6300 4G">
+<img src="assets/images/leo-counterfeit.png" alt="Photo collage of fake 6300 4G"
 
 ### About Kosher phones
 Kosher is a category of devices whose software (sometimes hardware) is heavily modified to limit access, or even get rid of content and features deemed distracting or against religious values, while keeping other features and user interface almost identical to the original. Companies specializing in customizing Kosher phones exist, and you can easily come across Kosher phone listings on eBay advertising as productivity and focus improvement tools.
@@ -309,13 +309,6 @@ Detailed instructions can be found at [Sideloading and debugging third-party app
 **Do note that OmniSD, one of the methods used for on-device sideloading, and many Gerda-related apps requires the `navigator.mozApps.mgmt.import` API that has been removed from KaiOS 2.5.2.2, and therefore no longer work on this phone.** However, after permanently rooting the phone, the Privileged factory reset feature to gain privileged userspace session that could be used on KaiOS 2.5.2 and older can now be used again (see [Next steps]).
 
 To remove unwanted apps from the phone, you can use [AppBuster] which lets you disable any apps you don't need and enable them again if you want.
-
-<!-- "Buying Western-customized products will always give you the best quality possible" is unwise when it comes to consumer electronics, including mobile phones, and the 6300 4G is no exception. When buying the TA-1324 variant of this phone, you should expect:
-- No cellular access: From the dawn of mobile phone technologies, for national security, the US has been using different cellular technologies from the rest of the world with little to no compatibility. On 4G LTE, the US variant receives different bands with little overlaps on international variants' bands, primarily band 7 (see the device specification table above). This means that you will have trouble making or receiving calls and texts on the US variant outside the country without roaming.
-- Restricted device settings, notably device and T9 languages, as the phone software has to follow the FCC's regulations. On the US 6300 4G, the only languages available are English (US), español (US), Français (CA) and Português (BR).
-- Tighten device security: US 6300 4G currently cannot be rooted due to different hash signature used for EDL handshake (see [Sideloading and debugging third-party applications] below).
-
-Don't buy the US variant of 6300 4G unless you know what you're doing. Seek the availability of the phone in the closest place or nearby countries to where you are. -->
 
 _Looking for the guide to root the 6300 4G? This section has now been moved to [ROOT: Patching the boot partition (non-US only)]._
 
