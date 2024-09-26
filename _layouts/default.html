@@ -7,10 +7,9 @@
     <script>let FF_FOUC_FIX;</script>
 
     <nav class="toc" aria-label="Table of Contents">
-        <p><strong>Table of Contents</strong></p>
-        {%-include toc.html html=content h_min=2 sanitize=true-%}
+        <a href="#">Back to top</a>
+        {%-include toc.html html=content skip_no_ids=true sanitize=true-%}
     </nav>
-
     <main class="page-content" aria-label="Content">
         <div class="w">
             {{ content }}

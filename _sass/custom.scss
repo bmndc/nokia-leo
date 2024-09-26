@@ -25,16 +25,24 @@
 // 	overflow: hidden; // Don't show anything after ellipsis
 // }
 
-.toc {
-    position: fixed;
-    top: 6rem;
-    left: 1.5rem;
-    width: 24rem;
+nav {
+    display: none;
+    visibility: hidden;
 }
-@media (max-width: 1900px) {
-    .toc {
-        display: none;
-        visibility: hidden;
+@media screen and (min-width: 1900px) {
+    nav {
+        display: block;
+        visibility: visible;
+        position: fixed;
+        top: 6rem;
+        left: 2rem;
+        width: 22rem;
+    }
+    nav::before {
+        content: "Table of Contents";
+        display: block;
+        font-weight: bold;
+        margin-bottom: 1rem;
     }
 }
 
