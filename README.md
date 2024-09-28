@@ -64,7 +64,7 @@
     </table>
 </details>
 
-_Source code for B2G, the Linux 4.9 kernel and some libraries licenced under GNU GPLv2, which HMD [publicly released] for the 6300 4G and 8000 4G, is available in the [`leo-v20` branch] and [`sparkler-v20` branch] of this repository, respectively. Note that the source files do not include proprietary code from some third-party vendors (notably Gaia apps by the KaiOS team), and thus [cannot be used to directly compile KaiOS]._
+*Source code for B2G, the Linux 4.9 kernel and some libraries licenced under GNU GPLv2, which HMD [publicly released] for the 6300 4G and 8000 4G, is available in the [`leo-v20` branch] and [`sparkler-v20` branch] of this repository. Note that the source files do not include proprietary code from some third-party vendors (notably Gaia apps by the KaiOS team), and thus [cannot be used to directly compile KaiOS].*
 
 <img class="leo" align="right" width="390" height="390" style="width:390px;height:100%;" src="assets/images/press/leo.webp" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
 
