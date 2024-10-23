@@ -1,4 +1,4 @@
-<details><summary dir="rtl">View device specification table</summary>
+<details style="margin-bottom:1rem"><summary dir="rtl">View device specification table</summary>
     <table style="font-size:smaller">
         <thead><tr><td></td><th scope="col" id="leo">Nokia 6300 4G (nokia-leo)</th><th scope="col" id="sparkler">Nokia 8000 4G (nokia-sparkler)</th></tr></thead>
         <tbody><tr><th scope="row">Released</th><td colspan="2">13 November 2020</td></tr>
@@ -64,10 +64,10 @@
     </table>
 </details>
 
-<!-- *Source code for B2G, the Linux 4.9 kernel and some libraries licenced under GNU GPLv2, which HMD [publicly released] for the 6300 4G and 8000 4G, is available in the [`leo-v20` branch] and [`sparkler-v20` branch] of this repository. Note that the source files do not include proprietary code from some third-party vendors (notably Gaia apps by the KaiOS team), and thus [cannot be used to directly compile KaiOS].* -->
+*Heads up: HMD open-sourced the code for B2G, the Linux kernel and some GNU GPLv2 libraries used to get KaiOS running on the 6300 4G. Check it out under the [`leo-v20` branch] of this repo. Do note that it does not include proprietary code and [cannot be used to re-compile KaiOS].*
 
-<img class="leo" align="right" width="180px" height="100%" style="margin-left:1rem" src="/assets/images/press/nokia_6300_4G-back-LightCharcoal-cropped.webp" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
-<img class="leo" align="right" width="180px" height="100%" style="margin-left:1rem" src="/assets/images/press/nokia_6300_4G-front-LightCharcoal-cropped.webp" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
+<img class="leo" align="right" width="180px" height="100%" style="margin-left:.75rem" src="/assets/images/press/nokia_6300_4G-back-LightCharcoal-cropped.webp" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
+<img class="leo" align="right" width="180px" height="100%" src="/assets/images/press/nokia_6300_4G-front-LightCharcoal-cropped.webp" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
 
 **Table of Contents**
 - [Don't buy a counterfeit](#dont-buy-a-counterfeit)
@@ -263,6 +263,10 @@ To remove unwanted apps from the phone, you can use [AppBuster] which lets you d
 
 _Looking for the guide to root the 6300 4G? This section has now been moved to [ROOT: Patching the boot partition (non-US only)]._
 
+## Source code
+
+Source code for B2G, the Linux 4.9 kernel and some libraries licenced under GNU GPLv2, which HMD [publicly released] for the 6300 4G and 8000 4G, is available in the [`leo-v20` branch] and [`sparkler-v20` branch] of this repository. Note that the source files do not include proprietary code from some third-party vendors (notably Gaia apps by the KaiOS team), and thus [cannot be used to directly compile KaiOS].
+
 ## External links
 
 - [Nokia 6300 4G product page] on Nokia Mobile's website
@@ -290,7 +294,7 @@ _Looking for the guide to root the 6300 4G? This section has now been moved to [
 [publicly released]: https://nokiaphones-opensource.azureedge.net/download/phones/Nokia_6300_4G_20.00.17.01_OSS.tar.gz
 [`leo-v20` branch]: https://github.com/bmndc/nokia-leo/tree/leo-v20
 [`sparkler-v20` branch]: https://github.com/bmndc/nokia-leo/tree/sparkler-v20
-[cannot be used to directly compile KaiOS]: https://bmndc.github.io/nokia-leo/2024/08/06/kaios-rom.html
+[cannot be used to re-compile KaiOS]: https://bmndc.github.io/nokia-leo/2024/08/06/kaios-rom.html
 [Source code]: #source-code
 [one of the most affordable]: https://www.hmdglobal.com/new-nokia-feature-phones-nokia-6300-4g-and-nokia-8000-4g
 [hatred reputation for its performance]: #known-issues

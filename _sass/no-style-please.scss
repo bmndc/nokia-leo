@@ -120,7 +120,7 @@ li {
 
 :not(code) > .w {
 	// div container for content
-	max-width: 80rem; // Set content width, will dynamically adjust on mobile. Default is 640px;
+	max-width: 70rem; // Set content width, will dynamically adjust on mobile. Default is 640px;
 	margin: 0 auto;	// Centre the content div;
 	padding: 4rem .8rem; // Add spacing around content div. Default is "4rem 2rem"; margins are deducted for viewing on mobile
 }
