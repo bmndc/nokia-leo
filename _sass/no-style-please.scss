@@ -66,7 +66,7 @@ html {
 body {
 	color: var(--text-color); // default: white
 	font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; // default: monospace
-	font-size: 14px; // default: 16px
+	font-size: 1em; // default: 16px
 	line-height: 1.5; // default: 1.4
 	margin: 0;
 	min-height: 100%;
@@ -120,7 +120,7 @@ li {
 
 :not(code) > .w {
 	// div container for content
-	max-width: 1083px; // Set content width, will dynamically adjust on mobile. Default is 640px;
+	max-width: 80rem; // Set content width, will dynamically adjust on mobile. Default is 640px;
 	margin: 0 auto;	// Centre the content div;
 	padding: 4rem .8rem; // Add spacing around content div. Default is "4rem 2rem"; margins are deducted for viewing on mobile
 }

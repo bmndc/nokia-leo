@@ -1,30 +1,24 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: " en" }}">
-{%- include head.html -%}
+    {%- include head.html -%}
+    <body a="{{ site.theme_config.appearance | default: " auto" }}">
+        <!-- Dummy script to fix Firefox's Flash Of Unstyled Content -->
+        <script>let FF_FOUC_FIX;</script>
 
-<body a="{{ site.theme_config.appearance | default: " auto" }}">
-    <!-- Dummy script to fix Firefox's Flash Of Unstyled Content -->
-    <script>let FF_FOUC_FIX;</script>
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+                {{ content }}
+            </div>
+        </main>
 
-    <nav class="toc" aria-label="Table of Contents">
-        <a href="#">Back to top</a>
-        {%-include toc.html html=content skip_no_ids=true sanitize=true-%}
-    </nav>
-    <main class="page-content" aria-label="Content">
-        <div class="w">
-            {{ content }}
-        </div>
-    </main>
+        {%-if site.goat_counter and jekyll.environment == "production"-%}
+            {%-include goat_counter.html-%}
+        {%-endif-%}
 
-    {%-if site.goat_counter and jekyll.environment == "production"-%}
-        {%-include goat_counter.html-%}
-    {%-endif-%}
-
-    {% if page.custom_js %}
-        {% for js_file in page.custom_js %}
-            <script type="text/javascript" src="{{ site.baseurl }}/assets/js/{{ js_file }}.js"></script>
-        {% endfor %}
-    {% endif %}
-</body>
-
+        {% if page.custom_js %}
+            {% for js_file in page.custom_js %}
+                <script type="text/javascript" src="{{ site.baseurl }}/assets/js/{{ js_file }}.js"></script>
+            {% endfor %}
+        {% endif %}
+    </body>
 </html>

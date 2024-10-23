@@ -1,5 +1,5 @@
 <details><summary dir="rtl">View device specification table</summary>
-    <table style="font-size:small">
+    <table style="font-size:smaller">
         <thead><tr><td></td><th scope="col" id="leo">Nokia 6300 4G (nokia-leo)</th><th scope="col" id="sparkler">Nokia 8000 4G (nokia-sparkler)</th></tr></thead>
         <tbody><tr><th scope="row">Released</th><td colspan="2">13 November 2020</td></tr>
             <tr><th scope="row">Model</th>
@@ -64,9 +64,27 @@
     </table>
 </details>
 
-*Source code for B2G, the Linux 4.9 kernel and some libraries licenced under GNU GPLv2, which HMD [publicly released] for the 6300 4G and 8000 4G, is available in the [`leo-v20` branch] and [`sparkler-v20` branch] of this repository. Note that the source files do not include proprietary code from some third-party vendors (notably Gaia apps by the KaiOS team), and thus [cannot be used to directly compile KaiOS].*
+<!-- *Source code for B2G, the Linux 4.9 kernel and some libraries licenced under GNU GPLv2, which HMD [publicly released] for the 6300 4G and 8000 4G, is available in the [`leo-v20` branch] and [`sparkler-v20` branch] of this repository. Note that the source files do not include proprietary code from some third-party vendors (notably Gaia apps by the KaiOS team), and thus [cannot be used to directly compile KaiOS].* -->
 
-<img class="leo" align="right" width="390" height="390" style="width:390px;height:100%;" src="assets/images/press/leo.webp" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
+<img class="leo" align="right" width="180px" height="100%" style="margin-left:1rem" src="/assets/images/press/nokia_6300_4G-back-LightCharcoal-cropped.webp" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
+<img class="leo" align="right" width="180px" height="100%" style="margin-left:1rem" src="/assets/images/press/nokia_6300_4G-front-LightCharcoal-cropped.webp" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
+
+**Table of Contents**
+- [Don't buy a counterfeit](#dont-buy-a-counterfeit)
+    - [About Kosher phones](#about-kosher-phones)
+- [Differences between US/CN and international models](#differences-between-uscn-and-international-models)
+- [Tips and tricks](#tips-and-tricks)
+- [Known issues](#known-issues)
+    - [KaiOS-specific](#kaios-specific)
+- [Secret codes](#secret-codes)
+    - [Codes that don't work](#codes-that-dont-work)
+- [Special boot modes](#special-boot-modes)
+    - [Recovery mode](#recovery-mode)
+    - [Fastboot mode](#fastboot-mode)
+    - [EDL mode](#edl-mode)
+    - [UART debugging testpoint](#uart-debugging-testpoint)
+- [Sideloading and debugging third-party applications](#sideloading-and-debugging-third-party-applications)
+- [External links](#external-links)
 
 ## Don't buy a counterfeit
 

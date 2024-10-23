@@ -25,30 +25,37 @@
 // 	overflow: hidden; // Don't show anything after ellipsis
 // }
 
-nav {
-    display: none;
-    visibility: hidden;
-}
-@media screen and (min-width: 1900px) {
-    nav {
-        display: block;
-        visibility: visible;
-        position: fixed;
-        top: 6rem;
-        left: 2rem;
-        width: 22rem;
-    }
-    nav::before {
-        content: "Table of Contents";
-        display: block;
-        font-weight: bold;
-        margin-bottom: 1rem;
-    }
-}
+// main.page-content {
+//     display: inline-block;
+//     position: relative;
+//     left: calc((100% - 80rem) / 2 - 16rem);
+//     margin: 4rem .8rem;
+//     width: 100%;
+//     max-width: 80rem;
+// }
+// @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+//     main.page-content {
+//         left: calc((100% - 80rem) / 2);
+//     }
+// }
+// nav {
+//     display: none;
+//     visibility: hidden;
+// }
+// @media screen and (min-width: 1900px) {
+//     nav {
+//         display: inline-block;
+//         vertical-align: top;
+//         visibility: visible;
+//         position: fixed;
+//         position: sticky;
+//         margin-top: 6rem;
+//         top: 1rem;
+//         left: calc((100% - 80rem) / 2 + 80rem + 4rem);
+//         width: 16rem;
+//     }
+// }
 
-table {
-	margin: 1rem 0;
-}
 table ul {
 	margin: 0;
 	padding-left: 1rem;
@@ -58,14 +65,10 @@ th[scope="row"] {
 	font-weight: normal;
 }
 
-.leo {
-	margin: 0 0 1rem 1rem;
-}
-
 @media (max-width: 800px) {
-	.leo {
+	img.leo {
 		// Undo float: right on header image on small screens
 		float: none;
-		margin: 0 auto;
+        display: inline;
 	}
 }
