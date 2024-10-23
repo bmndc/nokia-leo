@@ -1,5 +1,5 @@
 <details style="margin-bottom:1rem"><summary dir="rtl">View device specification table</summary>
-    <table style="font-size:smaller">
+    <table style="font-size:small">
         <thead><tr><td></td><th scope="col" id="leo">Nokia 6300 4G (nokia-leo)</th><th scope="col" id="sparkler">Nokia 8000 4G (nokia-sparkler)</th></tr></thead>
         <tbody><tr><th scope="row">Released</th><td colspan="2">13 November 2020</td></tr>
             <tr><th scope="row">Model</th>
@@ -66,8 +66,8 @@
 
 *Heads up: HMD open-sourced the code for B2G, the Linux kernel and some GNU GPLv2 libraries used to get KaiOS running on the 6300 4G. Check it out under the [`leo-v20` branch] of this repo. Do note that it does not include proprietary code and [cannot be used to re-compile KaiOS].*
 
-<img class="leo" align="right" width="180px" height="100%" style="margin-left:.75rem" src="/assets/images/press/nokia_6300_4G-back-LightCharcoal-cropped.webp" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
-<img class="leo" align="right" width="180px" height="100%" src="/assets/images/press/nokia_6300_4G-front-LightCharcoal-cropped.webp" alt="Nokia 6300 4G in three colours stacking on top of each other" fetchpriority="high">
+<img class="leo" align="right" width="175px" height="100%" style="margin-left:1rem" src="assets/images/press/nokia_6300_4G-back-LightCharcoal-cropped.webp" alt="Back of the Nokia 6300 4G" fetchpriority="high">
+<img class="leo" align="right" width="175px" height="100%" src="assets/images/press/nokia_6300_4G-front-LightCharcoal-cropped.webp" alt="Front of the Nokia 6300 4G" fetchpriority="high">
 
 **Table of Contents**
 - [Don't buy a counterfeit](#dont-buy-a-counterfeit)
